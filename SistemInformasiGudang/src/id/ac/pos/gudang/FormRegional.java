@@ -27,6 +27,9 @@ public class FormRegional extends javax.swing.JFrame {
 
     public FormRegional() {
         initComponents();
+        FormRegional fr = new FormRegional();
+        fr.setLocationRelativeTo(null);
+        fr.setVisible(true);
         getData();
     }
 
@@ -47,7 +50,7 @@ public class FormRegional extends javax.swing.JFrame {
         buttonUbah = new javax.swing.JButton();
         buttonHapus = new javax.swing.JButton();
         buttonCari = new javax.swing.JButton();
-        buttonUbah2 = new javax.swing.JButton();
+        buttonRefresh = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -94,7 +97,12 @@ public class FormRegional extends javax.swing.JFrame {
             }
         });
 
-        buttonUbah2.setText("Refresh");
+        buttonRefresh.setText("Refresh");
+        buttonRefresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonRefreshActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -115,13 +123,10 @@ public class FormRegional extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(buttonHapus)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(buttonUbah)))
+                        .addComponent(buttonUbah)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(buttonRefresh)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(251, Short.MAX_VALUE)
-                    .addComponent(buttonUbah2)
-                    .addGap(75, 75, 75)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -138,13 +143,9 @@ public class FormRegional extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonTambah)
                     .addComponent(buttonUbah)
-                    .addComponent(buttonHapus))
+                    .addComponent(buttonHapus)
+                    .addComponent(buttonRefresh))
                 .addContainerGap(50, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(213, Short.MAX_VALUE)
-                    .addComponent(buttonUbah2)
-                    .addGap(40, 40, 40)))
         );
 
         pack();
@@ -190,14 +191,14 @@ public class FormRegional extends javax.swing.JFrame {
     private void buttonCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariActionPerformed
         // TODO add your handling code here:
         String keyword = fieldCari.getText();
-        
+
         //lakukan proses pencarian
         dao = new RegionalDAOImpl();
         arrayRegional = dao.cariRegional(keyword);
-        
+
         RegionalTM regionalTableModel = new RegionalTM();
         regionalTableModel.setDataRegional(arrayRegional);
-        
+
         tableRegional.setModel(regionalTableModel);
     }//GEN-LAST:event_buttonCariActionPerformed
 
@@ -205,9 +206,9 @@ public class FormRegional extends javax.swing.JFrame {
         // TODO add your handling code here:
         int baris = tableRegional.getSelectedRow();
         if (baris >= 0) {
-            
-            Regional regionalTerpilih  = arrayRegional.get(baris);
-            
+
+            Regional regionalTerpilih = arrayRegional.get(baris);
+
             FormUbahRegional fur = new FormUbahRegional(this, true, regionalTerpilih);
             fur.setLocationRelativeTo(null);
             fur.setVisible(true);
@@ -216,6 +217,10 @@ public class FormRegional extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Anda harus memilih terlebih dahulu Regional yang akan diubah !");
         }
     }//GEN-LAST:event_buttonUbahActionPerformed
+
+    private void buttonRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRefreshActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonRefreshActionPerformed
 
     /**
      * @param args the command line arguments
@@ -244,10 +249,13 @@ public class FormRegional extends javax.swing.JFrame {
         }
         //</editor-fold>
 
+
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FormRegional().setVisible(true);
+                FormRegional fr = new FormRegional();
+                fr.setLocationRelativeTo(null);
+                fr.setVisible(true);
             }
         });
     }
@@ -255,29 +263,29 @@ public class FormRegional extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonCari;
     private javax.swing.JButton buttonHapus;
+    private javax.swing.JButton buttonRefresh;
     private javax.swing.JButton buttonTambah;
     private javax.swing.JButton buttonUbah;
-    private javax.swing.JButton buttonUbah2;
     private javax.swing.JTextField fieldCari;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tableRegional;
     // End of variables declaration//GEN-END:variables
-    
+
     private void cariData(String keyword) {
         dao = new RegionalDAOImpl();
         arrayRegional = dao.cariRegional(keyword);
-        
+
         RegionalTM regionalTableModel = new RegionalTM();
         regionalTableModel.setDataRegional(arrayRegional);
-        
+
         tableRegional.setModel(regionalTableModel);
     }
-    
+
     private void refreshData() {
         cariData(null);
     }
-    
+
     private void getData() {
         dao = new RegionalDAOImpl();
         arrayRegional = dao.getRegional();

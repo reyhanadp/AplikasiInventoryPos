@@ -40,16 +40,11 @@
                       <Component id="buttonHapus" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="buttonUbah" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="buttonRefresh" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
-          </Group>
-          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="251" max="32767" attributes="0"/>
-                  <Component id="buttonUbah2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
-              </Group>
           </Group>
       </Group>
     </DimensionLayout>
@@ -71,15 +66,9 @@
                   <Component id="buttonTambah" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="buttonUbah" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="buttonHapus" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="buttonRefresh" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="50" max="32767" attributes="0"/>
-          </Group>
-          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="213" max="32767" attributes="0"/>
-                  <Component id="buttonUbah2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-              </Group>
           </Group>
       </Group>
     </DimensionLayout>
@@ -145,10 +134,13 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCariActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="buttonUbah2">
+    <Component class="javax.swing.JButton" name="buttonRefresh">
       <Properties>
         <Property name="text" type="java.lang.String" value="Refresh"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonRefreshActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
