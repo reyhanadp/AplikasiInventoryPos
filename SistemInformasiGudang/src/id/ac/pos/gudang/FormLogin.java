@@ -5,7 +5,6 @@
  */
 package id.ac.pos.gudang;
 
-import id.ac.pos.gudang.entity.User;
 import id.ac.pos.gudang.utility.koneksi;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
@@ -13,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 
 /**
  *
@@ -134,7 +134,6 @@ public class FormLogin extends javax.swing.JFrame {
                         && fieldUsername.getText().equals(rs.getString("username"))) {
                     JOptionPane.showMessageDialog(null, "Login Sukses !");
                     FormHome fh = new FormHome();
-                    fh.setLocationRelativeTo(null);
                     fh.setVisible(true);
                     this.setVisible(false); //form login akan tertutup
                 }
@@ -160,6 +159,8 @@ public class FormLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             buttonLogin1.requestFocus();
+            fieldUsername.setText(null);//set nilai txtUser menjadi kosong
+            fieldPassword.setText(null);//set nilai txtPass menjadi kosongFF
         }
     }//GEN-LAST:event_fieldPasswordKeyPressed
 
@@ -189,6 +190,19 @@ public class FormLogin extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(FormLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        try
+            {
+                com.jtattoo.plaf.noire.NoireLookAndFeel.setTheme("Large-Font", "Java Swing", "");
+                UIManager.setLookAndFeel("com.jtattoo.plaf.noire.NoireLookAndFeel");
+                FormLogin fl = new FormLogin();
+                fl.setLocationRelativeTo(null);
+                fl.setVisible(true);
+                fl.dispose();
+            } 
+          catch (Exception ex) 
+            {
+                ex.printStackTrace();
+            }
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {

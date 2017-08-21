@@ -63,7 +63,7 @@ public final class FormHome extends javax.swing.JFrame{
         jTable1 = new javax.swing.JTable();
         jButton3 = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox1 = new javax.swing.JComboBox<String>();
         jPanel6 = new javax.swing.JPanel();
         jPanel16 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
@@ -84,7 +84,7 @@ public final class FormHome extends javax.swing.JFrame{
         jTable2 = new javax.swing.JTable();
         jButton13 = new javax.swing.JButton();
         jTextField17 = new javax.swing.JTextField();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        jComboBox2 = new javax.swing.JComboBox<String>();
         jPanel7 = new javax.swing.JPanel();
         jPanel18 = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
@@ -105,7 +105,7 @@ public final class FormHome extends javax.swing.JFrame{
         jTable3 = new javax.swing.JTable();
         jButton17 = new javax.swing.JButton();
         jTextField23 = new javax.swing.JTextField();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        jComboBox3 = new javax.swing.JComboBox<String>();
         jPanel9 = new javax.swing.JPanel();
         jPanel20 = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
@@ -126,7 +126,7 @@ public final class FormHome extends javax.swing.JFrame{
         jTable4 = new javax.swing.JTable();
         jButton21 = new javax.swing.JButton();
         jTextField29 = new javax.swing.JTextField();
-        jComboBox4 = new javax.swing.JComboBox<>();
+        jComboBox4 = new javax.swing.JComboBox<String>();
         jPanel10 = new javax.swing.JPanel();
         jPanel22 = new javax.swing.JPanel();
         jLabel27 = new javax.swing.JLabel();
@@ -147,7 +147,7 @@ public final class FormHome extends javax.swing.JFrame{
         jTable5 = new javax.swing.JTable();
         jButton25 = new javax.swing.JButton();
         jTextField35 = new javax.swing.JTextField();
-        jComboBox5 = new javax.swing.JComboBox<>();
+        jComboBox5 = new javax.swing.JComboBox<String>();
         jPanel11 = new javax.swing.JPanel();
         jPanel24 = new javax.swing.JPanel();
         jLabel32 = new javax.swing.JLabel();
@@ -168,7 +168,7 @@ public final class FormHome extends javax.swing.JFrame{
         jTable6 = new javax.swing.JTable();
         jButton29 = new javax.swing.JButton();
         jTextField41 = new javax.swing.JTextField();
-        jComboBox6 = new javax.swing.JComboBox<>();
+        jComboBox6 = new javax.swing.JComboBox<String>();
         jPanel12 = new javax.swing.JPanel();
         jPanel26 = new javax.swing.JPanel();
         jLabel37 = new javax.swing.JLabel();
@@ -189,13 +189,13 @@ public final class FormHome extends javax.swing.JFrame{
         jTable7 = new javax.swing.JTable();
         jButton33 = new javax.swing.JButton();
         jTextField47 = new javax.swing.JTextField();
-        jComboBox7 = new javax.swing.JComboBox<>();
+        jComboBox7 = new javax.swing.JComboBox<String>();
         jPanel5 = new javax.swing.JPanel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel15 = new javax.swing.JPanel();
         jPanel30 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        jComboBox8 = new javax.swing.JComboBox<>();
+        jComboBox8 = new javax.swing.JComboBox<String>();
         jLabel11 = new javax.swing.JLabel();
         jTextField7 = new javax.swing.JTextField();
         jButton7 = new javax.swing.JButton();
@@ -367,7 +367,7 @@ public final class FormHome extends javax.swing.JFrame{
 
         jButton3.setText("Cari");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
         jPanel14.setLayout(jPanel14Layout);
@@ -502,7 +502,7 @@ public final class FormHome extends javax.swing.JFrame{
 
         jButton13.setText("Cari");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
         jPanel17.setLayout(jPanel17Layout);
@@ -637,7 +637,7 @@ public final class FormHome extends javax.swing.JFrame{
 
         jButton17.setText("Cari");
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout jPanel19Layout = new javax.swing.GroupLayout(jPanel19);
         jPanel19.setLayout(jPanel19Layout);
@@ -772,7 +772,7 @@ public final class FormHome extends javax.swing.JFrame{
 
         jButton21.setText("Cari");
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout jPanel21Layout = new javax.swing.GroupLayout(jPanel21);
         jPanel21.setLayout(jPanel21Layout);
@@ -907,7 +907,7 @@ public final class FormHome extends javax.swing.JFrame{
 
         jButton25.setText("Cari");
 
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout jPanel23Layout = new javax.swing.GroupLayout(jPanel23);
         jPanel23.setLayout(jPanel23Layout);
@@ -1042,7 +1042,7 @@ public final class FormHome extends javax.swing.JFrame{
 
         jButton29.setText("Cari");
 
-        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout jPanel25Layout = new javax.swing.GroupLayout(jPanel25);
         jPanel25.setLayout(jPanel25Layout);
@@ -1177,7 +1177,7 @@ public final class FormHome extends javax.swing.JFrame{
 
         jButton33.setText("Cari");
 
-        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout jPanel27Layout = new javax.swing.GroupLayout(jPanel27);
         jPanel27.setLayout(jPanel27Layout);
@@ -1235,7 +1235,7 @@ public final class FormHome extends javax.swing.JFrame{
 
         jLabel7.setText("Jenis Produk");
 
-        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel11.setText("Nama Produk");
 
@@ -1544,7 +1544,9 @@ public final class FormHome extends javax.swing.JFrame{
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FormHome().setVisible(true);
+                FormHome fh = new FormHome();
+                fh.setLocationRelativeTo(null);
+                fh.setVisible(true);
                 
                 
             }
