@@ -29,7 +29,6 @@ public class FormUbahRegional extends javax.swing.JFrame {
     public FormUbahRegional(java.awt.Frame parent, boolean modal, Regional regional) {
         initComponents();
         idRegional = regional.getIdRegional();
-        fieldIdRegional.setText(regional.getIdRegional());
         fieldRegional.setText(regional.getRegional());
     }
 
@@ -44,8 +43,6 @@ public class FormUbahRegional extends javax.swing.JFrame {
 
         jFrame1 = new javax.swing.JFrame();
         jFrame2 = new javax.swing.JFrame();
-        jLabel1 = new javax.swing.JLabel();
-        fieldIdRegional = new javax.swing.JTextField();
         fieldRegional = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         buttonUbah = new javax.swing.JButton();
@@ -75,8 +72,6 @@ public class FormUbahRegional extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Id Regional");
-
         jLabel2.setText("Nama Regional");
 
         buttonUbah.setText("Ubah");
@@ -87,32 +82,31 @@ public class FormUbahRegional extends javax.swing.JFrame {
         });
 
         buttonCancel.setText("Cancel");
+        buttonCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCancelActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(buttonUbah)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel1)
-                        .addComponent(fieldIdRegional, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel2)
                         .addComponent(fieldRegional, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(buttonCancel)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(fieldIdRegional, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(fieldRegional, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -120,7 +114,7 @@ public class FormUbahRegional extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonUbah)
                     .addComponent(buttonCancel))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -132,6 +126,7 @@ public class FormUbahRegional extends javax.swing.JFrame {
         
         //buat objek regional 
         Regional regional = new Regional();
+        regional.setIdRegional(idRegional);
         regional.setRegional(namaRegional);
         
         //insert nama regional
@@ -139,7 +134,7 @@ public class FormUbahRegional extends javax.swing.JFrame {
         boolean sukses = dao.ubahRegional(regional);
         
         //validasi field
-        if (fieldIdRegional.getText().isEmpty()) {
+        if (fieldRegional.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Regional boleh Kosong");
         } else {
             // cek sukses atau tidak
@@ -152,6 +147,11 @@ public class FormUbahRegional extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_buttonUbahActionPerformed
+
+    private void buttonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_buttonCancelActionPerformed
 
     /**
      * @param args the command line arguments
@@ -198,11 +198,9 @@ public class FormUbahRegional extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonCancel;
     private javax.swing.JButton buttonUbah;
-    private javax.swing.JTextField fieldIdRegional;
     private javax.swing.JTextField fieldRegional;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JFrame jFrame2;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }

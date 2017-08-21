@@ -65,7 +65,7 @@ public class RegionalDAOImpl implements RegionalDAO {
     public ArrayList<Regional> cariRegional(String keyword) {
         ArrayList<Regional> arrayRegional = null;
         String SELECT = "SELECT * FROM tb_regional "
-                + "WHERE id_regional LIKE ?";
+                + "WHERE regional LIKE ?";
         PreparedStatement state = null;
 
         try {
@@ -133,13 +133,14 @@ public class RegionalDAOImpl implements RegionalDAO {
     @Override
     public boolean ubahRegional(Regional regional) {
         String UPDATE = "UPDATE tb_regional "
-                + "SET regional = ?, "
+                + "SET regional = ? "
                 + "WHERE id_regional = ?";
         PreparedStatement state = null;
 
         try {
             state = conn.prepareStatement(UPDATE);
             state.setString(1, regional.getRegional());
+            state.setString(2, regional.getIdRegional());
 
             int qty = state.executeUpdate();
             return qty > 0;

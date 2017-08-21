@@ -4,7 +4,6 @@ import id.ac.pos.gudang.dao.RegionalDAO;
 import id.ac.pos.gudang.daoimpl.RegionalDAOImpl;
 import id.ac.pos.gudang.entity.Regional;
 import javax.swing.JOptionPane;
-import javax.swing.UIManager;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -160,16 +159,6 @@ public class FormTambahRegional extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(FormTambahRegional.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-         try
-            {
-                com.jtattoo.plaf.noire.NoireLookAndFeel.setTheme("Large-Font", "Java Swing", "");
-                UIManager.setLookAndFeel("com.jtattoo.plaf.noire.NoireLookAndFeel");
-                new FormTambahRegional().setVisible(true);
-            } 
-          catch (Exception ex) 
-            {
-                ex.printStackTrace();
-            }      
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {

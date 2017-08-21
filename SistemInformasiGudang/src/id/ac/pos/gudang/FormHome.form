@@ -177,7 +177,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jPanel4" alignment="0" max="32767" attributes="0"/>
+                  <Component id="tabKelolaProduk" alignment="0" max="32767" attributes="0"/>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Component id="jPanel5" alignment="1" max="32767" attributes="0"/>
                   </Group>
@@ -188,7 +188,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jPanel4" alignment="0" max="32767" attributes="0"/>
+                  <Component id="tabKelolaProduk" alignment="0" max="32767" attributes="0"/>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Component id="jPanel5" alignment="0" max="32767" attributes="0"/>
                   </Group>
@@ -199,7 +199,7 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Container class="javax.swing.JPanel" name="jPanel4">
+            <Container class="javax.swing.JPanel" name="tabKelolaProduk">
 
               <Layout>
                 <DimensionLayout dim="0">
@@ -218,7 +218,7 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
                   <SubComponents>
-                    <Container class="javax.swing.JPanel" name="jPanel8">
+                    <Container class="javax.swing.JPanel" name="Prangko">
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
                           <JTabbedPaneConstraints tabName="Prangko">
@@ -268,20 +268,20 @@
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jTextField4" max="32767" attributes="0"/>
-                                          <Component id="jTextField6" max="32767" attributes="0"/>
-                                          <Component id="jTextField5" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="fieldNominal" max="32767" attributes="0"/>
+                                          <Component id="fieldBiayaCetak" max="32767" attributes="0"/>
+                                          <Component id="fieldTahun" alignment="1" max="32767" attributes="0"/>
                                           <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jTextField2" min="-2" pref="80" max="-2" attributes="0"/>
+                                              <Component id="fieldKodeProduk" min="-2" pref="80" max="-2" attributes="0"/>
                                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                           </Group>
-                                          <Component id="jTextField3" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="fieldNamaProduk" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="jButton4" alignment="1" max="32767" attributes="0"/>
-                                          <Component id="jButton5" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jButton6" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="buttonSimpan" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="buttonUbah" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="buttonHapus" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                   </Group>
@@ -293,30 +293,30 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jButton4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fieldKodeProduk" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonSimpan" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jButton5" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fieldNamaProduk" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonUbah" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField4" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jButton6" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fieldNominal" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonHapus" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField6" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fieldBiayaCetak" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField5" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fieldTahun" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="32767" attributes="0"/>
                                   </Group>
@@ -329,47 +329,50 @@
                                 <Property name="text" type="java.lang.String" value="Kode Produk"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField2">
+                            <Component class="javax.swing.JTextField" name="fieldKodeProduk">
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel3">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Nama Produk"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField3">
+                            <Component class="javax.swing.JTextField" name="fieldNamaProduk">
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel4">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Nominal"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField4">
+                            <Component class="javax.swing.JTextField" name="fieldNominal">
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel5">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Biaya Cetak  "/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField5">
+                            <Component class="javax.swing.JTextField" name="fieldTahun">
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel6">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Tahun"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField6">
+                            <Component class="javax.swing.JTextField" name="fieldBiayaCetak">
                             </Component>
-                            <Component class="javax.swing.JButton" name="jButton4">
+                            <Component class="javax.swing.JButton" name="buttonSimpan">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Simpan"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonSimpanActionPerformed"/>
+                              </Events>
                             </Component>
-                            <Component class="javax.swing.JButton" name="jButton5">
+                            <Component class="javax.swing.JButton" name="buttonUbah">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Ubah"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JButton" name="jButton6">
+                            <Component class="javax.swing.JButton" name="buttonHapus">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Hapus"/>
                               </Properties>
@@ -391,11 +394,11 @@
                                   <Component id="jScrollPane1" pref="660" max="32767" attributes="0"/>
                                   <Group type="102" attributes="0">
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                      <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="comboCariPrangko" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jTextField1" min="-2" pref="101" max="-2" attributes="0"/>
+                                      <Component id="fieldCariPrangko" min="-2" pref="101" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jButton3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="buttonCariPrangko" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -403,9 +406,9 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="1" attributes="0">
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jButton3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonCariPrangko" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fieldCariPrangko" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="comboCariPrangko" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jScrollPane1" pref="570" max="32767" attributes="0"/>
@@ -421,7 +424,7 @@
 
                               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                               <SubComponents>
-                                <Component class="javax.swing.JTable" name="jTable1">
+                                <Component class="javax.swing.JTable" name="tablePrangko">
                                   <Properties>
                                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                                       <Table columnCount="4" rowCount="4">
@@ -435,14 +438,14 @@
                                 </Component>
                               </SubComponents>
                             </Container>
-                            <Component class="javax.swing.JButton" name="jButton3">
+                            <Component class="javax.swing.JButton" name="buttonCariPrangko">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Cari"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField1">
+                            <Component class="javax.swing.JTextField" name="fieldCariPrangko">
                             </Component>
-                            <Component class="javax.swing.JComboBox" name="jComboBox1">
+                            <Component class="javax.swing.JComboBox" name="comboCariPrangko">
                               <Properties>
                                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                                   <StringArray count="4">
@@ -461,7 +464,7 @@
                         </Container>
                       </SubComponents>
                     </Container>
-                    <Container class="javax.swing.JPanel" name="jPanel6">
+                    <Container class="javax.swing.JPanel" name="MS_SS">
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
                           <JTabbedPaneConstraints tabName="MS &amp; SS">
@@ -634,11 +637,11 @@
                                   <Component id="jScrollPane2" alignment="0" pref="660" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                      <Component id="jComboBox2" min="-2" max="-2" attributes="0"/>
+                                      <Component id="comboMS_SS" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jTextField17" min="-2" pref="101" max="-2" attributes="0"/>
+                                      <Component id="fieldCariMS_SS" min="-2" pref="101" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jButton13" min="-2" max="-2" attributes="0"/>
+                                      <Component id="buttonCariMS_SS" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -646,9 +649,9 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="1" attributes="0">
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jButton13" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField17" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jComboBox2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonCariMS_SS" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fieldCariMS_SS" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="comboMS_SS" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jScrollPane2" pref="570" max="32767" attributes="0"/>
@@ -664,7 +667,7 @@
 
                               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                               <SubComponents>
-                                <Component class="javax.swing.JTable" name="jTable2">
+                                <Component class="javax.swing.JTable" name="tableMSSS">
                                   <Properties>
                                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                                       <Table columnCount="4" rowCount="4">
@@ -678,14 +681,14 @@
                                 </Component>
                               </SubComponents>
                             </Container>
-                            <Component class="javax.swing.JButton" name="jButton13">
+                            <Component class="javax.swing.JButton" name="buttonCariMS_SS">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Cari"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField17">
+                            <Component class="javax.swing.JTextField" name="fieldCariMS_SS">
                             </Component>
-                            <Component class="javax.swing.JComboBox" name="jComboBox2">
+                            <Component class="javax.swing.JComboBox" name="comboMS_SS">
                               <Properties>
                                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                                   <StringArray count="4">
@@ -704,7 +707,7 @@
                         </Container>
                       </SubComponents>
                     </Container>
-                    <Container class="javax.swing.JPanel" name="jPanel7">
+                    <Container class="javax.swing.JPanel" name="SHP_SHPSS">
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
                           <JTabbedPaneConstraints tabName="SHP &amp; SHPSS">
@@ -877,11 +880,11 @@
                                   <Component id="jScrollPane3" alignment="0" pref="660" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                      <Component id="jComboBox3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="comboSHP_SHPSS" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jTextField23" min="-2" pref="101" max="-2" attributes="0"/>
+                                      <Component id="fieldCariSHP_SHPSS" min="-2" pref="101" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jButton17" min="-2" max="-2" attributes="0"/>
+                                      <Component id="buttonCariSHP_SHPSS" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -889,9 +892,9 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="1" attributes="0">
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jButton17" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField23" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jComboBox3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonCariSHP_SHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fieldCariSHP_SHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="comboSHP_SHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jScrollPane3" pref="570" max="32767" attributes="0"/>
@@ -907,7 +910,7 @@
 
                               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                               <SubComponents>
-                                <Component class="javax.swing.JTable" name="jTable3">
+                                <Component class="javax.swing.JTable" name="tableSHPSHPSS">
                                   <Properties>
                                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                                       <Table columnCount="4" rowCount="4">
@@ -921,14 +924,14 @@
                                 </Component>
                               </SubComponents>
                             </Container>
-                            <Component class="javax.swing.JButton" name="jButton17">
+                            <Component class="javax.swing.JButton" name="buttonCariSHP_SHPSS">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Cari"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField23">
+                            <Component class="javax.swing.JTextField" name="fieldCariSHP_SHPSS">
                             </Component>
-                            <Component class="javax.swing.JComboBox" name="jComboBox3">
+                            <Component class="javax.swing.JComboBox" name="comboSHP_SHPSS">
                               <Properties>
                                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                                   <StringArray count="4">
@@ -947,7 +950,7 @@
                         </Container>
                       </SubComponents>
                     </Container>
-                    <Container class="javax.swing.JPanel" name="jPanel9">
+                    <Container class="javax.swing.JPanel" name="Kemasan">
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
                           <JTabbedPaneConstraints tabName="Kemasan">
@@ -1120,11 +1123,11 @@
                                   <Component id="jScrollPane4" alignment="0" pref="660" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                      <Component id="jComboBox4" min="-2" max="-2" attributes="0"/>
+                                      <Component id="comboKemasan" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jTextField29" min="-2" pref="101" max="-2" attributes="0"/>
+                                      <Component id="fieldCariKemasan" min="-2" pref="101" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jButton21" min="-2" max="-2" attributes="0"/>
+                                      <Component id="buttonCariKemasan" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -1132,9 +1135,9 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="1" attributes="0">
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jButton21" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField29" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jComboBox4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonCariKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fieldCariKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="comboKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jScrollPane4" pref="570" max="32767" attributes="0"/>
@@ -1150,7 +1153,7 @@
 
                               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                               <SubComponents>
-                                <Component class="javax.swing.JTable" name="jTable4">
+                                <Component class="javax.swing.JTable" name="tableKemasan">
                                   <Properties>
                                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                                       <Table columnCount="4" rowCount="4">
@@ -1164,14 +1167,14 @@
                                 </Component>
                               </SubComponents>
                             </Container>
-                            <Component class="javax.swing.JButton" name="jButton21">
+                            <Component class="javax.swing.JButton" name="buttonCariKemasan">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Cari"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField29">
+                            <Component class="javax.swing.JTextField" name="fieldCariKemasan">
                             </Component>
-                            <Component class="javax.swing.JComboBox" name="jComboBox4">
+                            <Component class="javax.swing.JComboBox" name="comboKemasan">
                               <Properties>
                                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                                   <StringArray count="4">
@@ -1190,7 +1193,7 @@
                         </Container>
                       </SubComponents>
                     </Container>
-                    <Container class="javax.swing.JPanel" name="jPanel10">
+                    <Container class="javax.swing.JPanel" name="Merchandise">
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
                           <JTabbedPaneConstraints tabName="Merchandise">
@@ -1363,11 +1366,11 @@
                                   <Component id="jScrollPane5" alignment="0" pref="660" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                      <Component id="jComboBox5" min="-2" max="-2" attributes="0"/>
+                                      <Component id="comboMerchandise" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jTextField35" min="-2" pref="101" max="-2" attributes="0"/>
+                                      <Component id="fieldCariMerchandise" min="-2" pref="101" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jButton25" min="-2" max="-2" attributes="0"/>
+                                      <Component id="buttonCariMerchandise" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -1375,9 +1378,9 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="1" attributes="0">
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jButton25" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField35" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jComboBox5" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonCariMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fieldCariMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="comboMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jScrollPane5" pref="570" max="32767" attributes="0"/>
@@ -1393,7 +1396,7 @@
 
                               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                               <SubComponents>
-                                <Component class="javax.swing.JTable" name="jTable5">
+                                <Component class="javax.swing.JTable" name="tableMerchandise">
                                   <Properties>
                                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                                       <Table columnCount="4" rowCount="4">
@@ -1407,14 +1410,14 @@
                                 </Component>
                               </SubComponents>
                             </Container>
-                            <Component class="javax.swing.JButton" name="jButton25">
+                            <Component class="javax.swing.JButton" name="buttonCariMerchandise">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Cari"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField35">
+                            <Component class="javax.swing.JTextField" name="fieldCariMerchandise">
                             </Component>
-                            <Component class="javax.swing.JComboBox" name="jComboBox5">
+                            <Component class="javax.swing.JComboBox" name="comboMerchandise">
                               <Properties>
                                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                                   <StringArray count="4">
@@ -1433,7 +1436,7 @@
                         </Container>
                       </SubComponents>
                     </Container>
-                    <Container class="javax.swing.JPanel" name="jPanel11">
+                    <Container class="javax.swing.JPanel" name="Prisma">
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
                           <JTabbedPaneConstraints tabName="Prisma">
@@ -1606,11 +1609,11 @@
                                   <Component id="jScrollPane6" alignment="0" pref="660" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                      <Component id="jComboBox6" min="-2" max="-2" attributes="0"/>
+                                      <Component id="comboPrisma" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jTextField41" min="-2" pref="101" max="-2" attributes="0"/>
+                                      <Component id="fieldCariPrisma" min="-2" pref="101" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jButton29" min="-2" max="-2" attributes="0"/>
+                                      <Component id="buttonCariPrisma" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -1618,9 +1621,9 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="1" attributes="0">
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jButton29" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField41" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jComboBox6" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonCariPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fieldCariPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="comboPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jScrollPane6" pref="570" max="32767" attributes="0"/>
@@ -1636,7 +1639,7 @@
 
                               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                               <SubComponents>
-                                <Component class="javax.swing.JTable" name="jTable6">
+                                <Component class="javax.swing.JTable" name="tablePrisma">
                                   <Properties>
                                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                                       <Table columnCount="4" rowCount="4">
@@ -1650,14 +1653,14 @@
                                 </Component>
                               </SubComponents>
                             </Container>
-                            <Component class="javax.swing.JButton" name="jButton29">
+                            <Component class="javax.swing.JButton" name="buttonCariPrisma">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Cari"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField41">
+                            <Component class="javax.swing.JTextField" name="fieldCariPrisma">
                             </Component>
-                            <Component class="javax.swing.JComboBox" name="jComboBox6">
+                            <Component class="javax.swing.JComboBox" name="comboPrisma">
                               <Properties>
                                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                                   <StringArray count="4">
@@ -1676,7 +1679,7 @@
                         </Container>
                       </SubComponents>
                     </Container>
-                    <Container class="javax.swing.JPanel" name="jPanel12">
+                    <Container class="javax.swing.JPanel" name="DokumenFilateli">
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
                           <JTabbedPaneConstraints tabName="Dokumen Filateli">
@@ -1695,7 +1698,7 @@
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jPanel26" min="-2" pref="179" max="-2" attributes="0"/>
+                                  <Component id="jPanel26" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jPanel27" max="32767" attributes="0"/>
                               </Group>
@@ -1731,7 +1734,7 @@
                                           <Component id="jTextField45" alignment="1" max="32767" attributes="0"/>
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="jTextField42" min="-2" pref="80" max="-2" attributes="0"/>
-                                              <EmptySpace min="0" pref="385" max="32767" attributes="0"/>
+                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                           </Group>
                                           <Component id="jTextField43" alignment="0" max="32767" attributes="0"/>
                                       </Group>
@@ -1740,7 +1743,6 @@
                                           <Component id="jButton30" alignment="1" max="32767" attributes="0"/>
                                           <Component id="jButton31" alignment="0" max="32767" attributes="0"/>
                                           <Component id="jButton32" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="buttonRegional" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                   </Group>
@@ -1771,7 +1773,6 @@
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel40" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jTextField46" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="buttonRegional" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
@@ -1834,14 +1835,6 @@
                                 <Property name="text" type="java.lang.String" value="Hapus"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JButton" name="buttonRegional">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="Regional"/>
-                              </Properties>
-                              <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonRegionalActionPerformed"/>
-                              </Events>
-                            </Component>
                           </SubComponents>
                         </Container>
                         <Container class="javax.swing.JPanel" name="jPanel27">
@@ -1859,11 +1852,11 @@
                                   <Component id="jScrollPane7" alignment="0" pref="660" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                      <Component id="jComboBox7" min="-2" max="-2" attributes="0"/>
+                                      <Component id="comboDokumenFIlateli" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jTextField47" min="-2" pref="101" max="-2" attributes="0"/>
+                                      <Component id="fieldCariDokumenFIlateli" min="-2" pref="101" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jButton33" min="-2" max="-2" attributes="0"/>
+                                      <Component id="buttinCariDokumenFilateli" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -1871,9 +1864,9 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="1" attributes="0">
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jButton33" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField47" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jComboBox7" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttinCariDokumenFilateli" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fieldCariDokumenFIlateli" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="comboDokumenFIlateli" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jScrollPane7" pref="570" max="32767" attributes="0"/>
@@ -1889,7 +1882,7 @@
 
                               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                               <SubComponents>
-                                <Component class="javax.swing.JTable" name="jTable7">
+                                <Component class="javax.swing.JTable" name="tableDokumenFIlateli">
                                   <Properties>
                                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                                       <Table columnCount="4" rowCount="4">
@@ -1903,14 +1896,14 @@
                                 </Component>
                               </SubComponents>
                             </Container>
-                            <Component class="javax.swing.JButton" name="jButton33">
+                            <Component class="javax.swing.JButton" name="buttinCariDokumenFilateli">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Cari"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField47">
+                            <Component class="javax.swing.JTextField" name="fieldCariDokumenFIlateli">
                             </Component>
-                            <Component class="javax.swing.JComboBox" name="jComboBox7">
+                            <Component class="javax.swing.JComboBox" name="comboDokumenFIlateli">
                               <Properties>
                                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                                   <StringArray count="4">

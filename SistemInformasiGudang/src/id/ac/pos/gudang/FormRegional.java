@@ -27,9 +27,6 @@ public class FormRegional extends javax.swing.JFrame {
 
     public FormRegional() {
         initComponents();
-        FormRegional fr = new FormRegional();
-        fr.setLocationRelativeTo(null);
-        fr.setVisible(true);
         getData();
     }
 
@@ -50,7 +47,7 @@ public class FormRegional extends javax.swing.JFrame {
         buttonUbah = new javax.swing.JButton();
         buttonHapus = new javax.swing.JButton();
         buttonCari = new javax.swing.JButton();
-        buttonRefresh = new javax.swing.JButton();
+        buttonUbah2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -97,10 +94,10 @@ public class FormRegional extends javax.swing.JFrame {
             }
         });
 
-        buttonRefresh.setText("Refresh");
-        buttonRefresh.addActionListener(new java.awt.event.ActionListener() {
+        buttonUbah2.setText("Refresh");
+        buttonUbah2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonRefreshActionPerformed(evt);
+                buttonUbah2ActionPerformed(evt);
             }
         });
 
@@ -125,7 +122,7 @@ public class FormRegional extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(buttonUbah)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(buttonRefresh)))
+                        .addComponent(buttonUbah2)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -144,8 +141,8 @@ public class FormRegional extends javax.swing.JFrame {
                     .addComponent(buttonTambah)
                     .addComponent(buttonUbah)
                     .addComponent(buttonHapus)
-                    .addComponent(buttonRefresh))
-                .addContainerGap(50, Short.MAX_VALUE))
+                    .addComponent(buttonUbah2))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
 
         pack();
@@ -156,6 +153,7 @@ public class FormRegional extends javax.swing.JFrame {
         FormTambahRegional fr = new FormTambahRegional();
         fr.setLocationRelativeTo(null);
         fr.setVisible(true);
+        refreshData();
         getData();
 
     }//GEN-LAST:event_buttonTambahActionPerformed
@@ -212,15 +210,18 @@ public class FormRegional extends javax.swing.JFrame {
             FormUbahRegional fur = new FormUbahRegional(this, true, regionalTerpilih);
             fur.setLocationRelativeTo(null);
             fur.setVisible(true);
+            refreshData();
             getData();
         } else {
             JOptionPane.showMessageDialog(this, "Anda harus memilih terlebih dahulu Regional yang akan diubah !");
         }
     }//GEN-LAST:event_buttonUbahActionPerformed
 
-    private void buttonRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRefreshActionPerformed
+    private void buttonUbah2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonUbah2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_buttonRefreshActionPerformed
+        refreshData();
+        getData();
+    }//GEN-LAST:event_buttonUbah2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -249,13 +250,10 @@ public class FormRegional extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                FormRegional fr = new FormRegional();
-                fr.setLocationRelativeTo(null);
-                fr.setVisible(true);
+                new FormRegional().setVisible(true);
             }
         });
     }
@@ -263,9 +261,9 @@ public class FormRegional extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonCari;
     private javax.swing.JButton buttonHapus;
-    private javax.swing.JButton buttonRefresh;
     private javax.swing.JButton buttonTambah;
     private javax.swing.JButton buttonUbah;
+    private javax.swing.JButton buttonUbah2;
     private javax.swing.JTextField fieldCari;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;

@@ -41,7 +41,7 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="buttonUbah" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="buttonRefresh" min="-2" max="-2" attributes="0"/>
+                      <Component id="buttonUbah2" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
@@ -66,9 +66,9 @@
                   <Component id="buttonTambah" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="buttonUbah" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="buttonHapus" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="buttonRefresh" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="buttonUbah2" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="50" max="32767" attributes="0"/>
+              <EmptySpace pref="53" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -134,12 +134,12 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCariActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="buttonRefresh">
+    <Component class="javax.swing.JButton" name="buttonUbah2">
       <Properties>
         <Property name="text" type="java.lang.String" value="Refresh"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonRefreshActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonUbah2ActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
