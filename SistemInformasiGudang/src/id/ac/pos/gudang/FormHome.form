@@ -268,20 +268,20 @@
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="fieldNominal" max="32767" attributes="0"/>
-                                          <Component id="fieldBiayaCetak" max="32767" attributes="0"/>
-                                          <Component id="fieldTahun" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="fieldNominalPrangko" max="32767" attributes="0"/>
+                                          <Component id="fieldBiayaCetakPrangko" max="32767" attributes="0"/>
+                                          <Component id="fieldTahunPrangko" alignment="1" max="32767" attributes="0"/>
                                           <Group type="102" alignment="0" attributes="0">
-                                              <Component id="fieldKodeProduk" min="-2" pref="80" max="-2" attributes="0"/>
+                                              <Component id="fieldKodeProdukPrangko" min="-2" pref="80" max="-2" attributes="0"/>
                                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                           </Group>
-                                          <Component id="fieldNamaProduk" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="fieldNamaProdukPrangko" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="buttonSimpan" alignment="1" max="32767" attributes="0"/>
-                                          <Component id="buttonUbah" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="buttonHapus" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="buttonSimpanPrangko" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="buttonUbahPrangko" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="buttonHapusPrangko" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                   </Group>
@@ -293,30 +293,30 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="fieldKodeProduk" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="buttonSimpan" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fieldKodeProdukPrangko" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonSimpanPrangko" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="fieldNamaProduk" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="buttonUbah" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fieldNamaProdukPrangko" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonUbahPrangko" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="fieldNominal" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="buttonHapus" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fieldNominalPrangko" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonHapusPrangko" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="fieldBiayaCetak" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fieldBiayaCetakPrangko" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="fieldTahun" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fieldTahunPrangko" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="32767" attributes="0"/>
                                   </Group>
@@ -329,50 +329,50 @@
                                 <Property name="text" type="java.lang.String" value="Kode Produk"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="fieldKodeProduk">
+                            <Component class="javax.swing.JTextField" name="fieldKodeProdukPrangko">
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel3">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Nama Produk"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="fieldNamaProduk">
+                            <Component class="javax.swing.JTextField" name="fieldNamaProdukPrangko">
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel4">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Nominal"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="fieldNominal">
+                            <Component class="javax.swing.JTextField" name="fieldNominalPrangko">
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel5">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Biaya Cetak  "/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="fieldTahun">
+                            <Component class="javax.swing.JTextField" name="fieldTahunPrangko">
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel6">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Tahun"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="fieldBiayaCetak">
+                            <Component class="javax.swing.JTextField" name="fieldBiayaCetakPrangko">
                             </Component>
-                            <Component class="javax.swing.JButton" name="buttonSimpan">
+                            <Component class="javax.swing.JButton" name="buttonSimpanPrangko">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Simpan"/>
                               </Properties>
                               <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonSimpanActionPerformed"/>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonSimpanPrangkoActionPerformed"/>
                               </Events>
                             </Component>
-                            <Component class="javax.swing.JButton" name="buttonUbah">
+                            <Component class="javax.swing.JButton" name="buttonUbahPrangko">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Ubah"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JButton" name="buttonHapus">
+                            <Component class="javax.swing.JButton" name="buttonHapusPrangko">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Hapus"/>
                               </Properties>

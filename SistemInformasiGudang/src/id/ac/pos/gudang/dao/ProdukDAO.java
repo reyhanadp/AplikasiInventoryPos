@@ -29,8 +29,10 @@ public interface ProdukDAO {
     ArrayList<Produk> getProdukDokumenFilateli();
 
     ArrayList<Produk> cariProduk(String keyword);
+    
+    String getIdProduk(String jenisProduk);
 
-    boolean tambahProduk(Produk produk);
+    boolean tambahProduk(Produk produk, String jenisProduk);
 
     boolean hapusProduk(int idProduk);
 

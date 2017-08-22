@@ -34,8 +34,29 @@ public class ProdukDAOImpl implements ProdukDAO {
     }
 
     @Override
-    public boolean tambahProduk(Produk produk) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean tambahProduk(Produk produk, String jenisProduk) {
+        String INSERT = "INSERT INTO tb_produk (id_produk, nama_produk, nominal, "
+                + "biaya_cetak, stok, tahun, id_jenis_produk"
+                + ") VALUES (?, ?, ?, ?, ?, ?, ?)";
+        PreparedStatement state = null;
+
+        try {
+            state = conn.prepareStatement(INSERT);
+            state.setString(1, produk.getIdProduk());
+            state.setString(2, produk.getNamaProduk());
+            state.setInt(3, produk.getNominal());
+            state.setFloat(4, produk.getBiayaCetak());
+            state.setInt(5, produk.getStok());
+            state.setString(6, produk.getTahun());
+            state.setString(7, jenisProduk);
+
+            int qty = state.executeUpdate();
+            return qty > 0;
+        } catch (SQLException ex) {
+            Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return false;
     }
 
     @Override
@@ -48,6 +69,34 @@ public class ProdukDAOImpl implements ProdukDAO {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    @Override
+    public String getIdProduk(String jenisProduk) {
+        String kode_produk = null;
+        String SELECT = "SELECT id_produk FROM tb_produk where id_produk like '"+jenisProduk+"%'";
+        PreparedStatement state = null;
+
+        try {
+            state = conn.prepareStatement(SELECT);
+
+            ResultSet result = state.executeQuery();
+            if (result != null) {
+
+                //selama result memiliki data
+                //return lebih dari 1 data
+                while (result.next()) {
+
+                    //mengambil 1 data
+                    kode_produk = result.getString("id_produk");
+                }
+            }
+        } catch (SQLException ex) {
+
+            Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return kode_produk;
+    }
+    
     @Override
     public ArrayList<Produk> getProdukPrangko() {
         ArrayList<Produk> arrayProduk = null;
