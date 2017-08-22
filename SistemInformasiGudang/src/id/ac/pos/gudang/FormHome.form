@@ -94,17 +94,17 @@
                           <Group type="102" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jButton1" alignment="0" min="-2" pref="157" max="-2" attributes="0"/>
-                                  <Component id="jButton2" alignment="0" min="-2" pref="157" max="-2" attributes="0"/>
+                                  <Component id="buttonKelolaProduk" alignment="0" min="-2" pref="157" max="-2" attributes="0"/>
+                                  <Component id="buttonTransaksi" alignment="0" min="-2" pref="157" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                              <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelKelolaProduk" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
-                              <Component id="jLabel43" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelTransaksi" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
@@ -115,45 +115,45 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                      <Component id="buttonKelolaProduk" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                      <Component id="labelKelolaProduk" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
-                      <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                      <Component id="buttonTransaksi" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel43" min="-2" max="-2" attributes="0"/>
+                      <Component id="labelTransaksi" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="jButton1">
+            <Component class="javax.swing.JButton" name="buttonKelolaProduk">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/img/icons/Untitled-1.png"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonKelolaProdukActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton2">
+            <Component class="javax.swing.JButton" name="buttonTransaksi">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/img/icons/Untitled-2.png"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonTransaksiActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel8">
+            <Component class="javax.swing.JLabel" name="labelKelolaProduk">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Kelola Produk"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel43">
+            <Component class="javax.swing.JLabel" name="labelTransaksi">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Transaksi"/>
               </Properties>
@@ -371,11 +371,17 @@
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Ubah"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonUbahPrangkoActionPerformed"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JButton" name="buttonHapusPrangko">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Hapus"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonHapusPrangkoActionPerformed"/>
+                              </Events>
                             </Component>
                           </SubComponents>
                         </Container>
@@ -435,6 +441,9 @@
                                       </Table>
                                     </Property>
                                   </Properties>
+                                  <Events>
+                                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tablePrangkoMouseClicked"/>
+                                  </Events>
                                 </Component>
                               </SubComponents>
                             </Container>
@@ -1856,7 +1865,7 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="fieldCariDokumenFIlateli" min="-2" pref="101" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="buttinCariDokumenFilateli" min="-2" max="-2" attributes="0"/>
+                                      <Component id="buttonCariDokumenFilateli" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -1864,7 +1873,7 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="1" attributes="0">
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="buttinCariDokumenFilateli" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonCariDokumenFilateli" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="fieldCariDokumenFIlateli" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="comboDokumenFIlateli" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
@@ -1896,7 +1905,7 @@
                                 </Component>
                               </SubComponents>
                             </Container>
-                            <Component class="javax.swing.JButton" name="buttinCariDokumenFilateli">
+                            <Component class="javax.swing.JButton" name="buttonCariDokumenFilateli">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Cari"/>
                               </Properties>

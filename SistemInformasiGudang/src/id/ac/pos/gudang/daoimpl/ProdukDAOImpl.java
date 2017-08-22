@@ -60,13 +60,41 @@ public class ProdukDAOImpl implements ProdukDAO {
     }
 
     @Override
-    public boolean hapusProduk(int idProduk) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean hapusProduk(String idProduk) {
+        String DELETE = "DELETE FROM tb_produk "
+                + "WHERE id_produk = ?";
+        PreparedStatement state = null;
+        
+        try {
+            state = conn.prepareStatement(DELETE);
+            state.setString(1, idProduk);
+            
+            int qty = state.executeUpdate();
+            return  qty > 0;
+        } catch (SQLException ex) {
+            Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
     }
 
     @Override
     public boolean ubahProduk(Produk produk) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String UPDATE = "UPDATE tb_produk "
+                + "SET nama_produk = ?, nominal = ?, biaya_cetak = ?"
+                + "stok = ?, tahun = ?";
+        PreparedStatement state = null;
+        
+        try {
+            state = conn.prepareStatement(UPDATE);
+            state.setString(1, produk.getNamaProduk());
+            state.setInt(2, produk.getNominal());
+            state.setFloat(3, produk.getBiayaCetak());
+            state.setInt(4, produk.getStok());
+            state.setString(5, produk.getTahun());
+        } catch (SQLException ex) {
+            Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
     }
 
     @Override

@@ -34,7 +34,7 @@ public interface ProdukDAO {
 
     boolean tambahProduk(Produk produk, String jenisProduk);
 
-    boolean hapusProduk(int idProduk);
+    boolean hapusProduk(String idProduk);
 
     boolean ubahProduk(Produk produk);
 

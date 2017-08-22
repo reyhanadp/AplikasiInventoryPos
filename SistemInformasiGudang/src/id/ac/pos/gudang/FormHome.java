@@ -155,10 +155,10 @@ public final class FormHome extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel43 = new javax.swing.JLabel();
+        buttonKelolaProduk = new javax.swing.JButton();
+        buttonTransaksi = new javax.swing.JButton();
+        labelKelolaProduk = new javax.swing.JLabel();
+        labelTransaksi = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         tabKelolaProduk = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
@@ -306,7 +306,7 @@ public final class FormHome extends javax.swing.JFrame {
         jPanel27 = new javax.swing.JPanel();
         jScrollPane7 = new javax.swing.JScrollPane();
         tableDokumenFIlateli = new javax.swing.JTable();
-        buttinCariDokumenFilateli = new javax.swing.JButton();
+        buttonCariDokumenFilateli = new javax.swing.JButton();
         fieldCariDokumenFIlateli = new javax.swing.JTextField();
         comboDokumenFIlateli = new javax.swing.JComboBox<String>();
         jPanel5 = new javax.swing.JPanel();
@@ -341,23 +341,23 @@ public final class FormHome extends javax.swing.JFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/Untitled-1.png"))); // NOI18N
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        buttonKelolaProduk.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/Untitled-1.png"))); // NOI18N
+        buttonKelolaProduk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                buttonKelolaProdukActionPerformed(evt);
             }
         });
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/Untitled-2.png"))); // NOI18N
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        buttonTransaksi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/Untitled-2.png"))); // NOI18N
+        buttonTransaksi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                buttonTransaksiActionPerformed(evt);
             }
         });
 
-        jLabel8.setText("Kelola Produk");
+        labelKelolaProduk.setText("Kelola Produk");
 
-        jLabel43.setText("Transaksi");
+        labelTransaksi.setText("Transaksi");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -368,27 +368,27 @@ public final class FormHome extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(buttonKelolaProduk, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(buttonTransaksi, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(53, 53, 53)
-                        .addComponent(jLabel8))
+                        .addComponent(labelKelolaProduk))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(64, 64, 64)
-                        .addComponent(jLabel43)))
+                        .addComponent(labelTransaksi)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(43, 43, 43)
-                .addComponent(jButton1)
+                .addComponent(buttonKelolaProduk)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel8)
+                .addComponent(labelKelolaProduk)
                 .addGap(13, 13, 13)
-                .addComponent(jButton2)
+                .addComponent(buttonTransaksi)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel43)
+                .addComponent(labelTransaksi)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -414,8 +414,18 @@ public final class FormHome extends javax.swing.JFrame {
         });
 
         buttonUbahPrangko.setText("Ubah");
+        buttonUbahPrangko.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonUbahPrangkoActionPerformed(evt);
+            }
+        });
 
         buttonHapusPrangko.setText("Hapus");
+        buttonHapusPrangko.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonHapusPrangkoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
         jPanel13.setLayout(jPanel13Layout);
@@ -487,6 +497,11 @@ public final class FormHome extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tablePrangko.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablePrangkoMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tablePrangko);
 
         buttonCariPrangko.setText("Cari");
@@ -1299,7 +1314,7 @@ public final class FormHome extends javax.swing.JFrame {
         ));
         jScrollPane7.setViewportView(tableDokumenFIlateli);
 
-        buttinCariDokumenFilateli.setText("Cari");
+        buttonCariDokumenFilateli.setText("Cari");
 
         comboDokumenFIlateli.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -1314,13 +1329,13 @@ public final class FormHome extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(fieldCariDokumenFIlateli, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(buttinCariDokumenFilateli))
+                .addComponent(buttonCariDokumenFilateli))
         );
         jPanel27Layout.setVerticalGroup(
             jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel27Layout.createSequentialGroup()
                 .addGroup(jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttinCariDokumenFilateli)
+                    .addComponent(buttonCariDokumenFilateli)
                     .addComponent(fieldCariDokumenFIlateli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboDokumenFIlateli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1604,7 +1619,7 @@ public final class FormHome extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void buttonTransaksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTransaksiActionPerformed
         // TODO add your handling code here:
         jPanel3.removeAll();
         jPanel3.repaint();
@@ -1613,9 +1628,9 @@ public final class FormHome extends javax.swing.JFrame {
         jPanel3.add(jPanel5);
         jPanel3.repaint();
         jPanel3.revalidate();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_buttonTransaksiActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void buttonKelolaProdukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonKelolaProdukActionPerformed
         // TODO add your handling code here:
         jPanel3.removeAll();
         jPanel3.repaint();
@@ -1624,7 +1639,7 @@ public final class FormHome extends javax.swing.JFrame {
         jPanel3.add(tabKelolaProduk);
         jPanel3.repaint();
         jPanel3.revalidate();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_buttonKelolaProdukActionPerformed
 
     private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
         // TODO add your handling code here:
@@ -1679,6 +1694,52 @@ public final class FormHome extends javax.swing.JFrame {
 
     }//GEN-LAST:event_buttonSimpanPrangkoActionPerformed
 
+
+    private void buttonHapusPrangkoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHapusPrangkoActionPerformed
+        // TODO add your handling code here:
+        int baris = tablePrangko.getSelectedRow();
+        String kodeProduk = tablePrangko.getValueAt(baris, 0).toString();
+        int ok = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin menghapus Produk dengan kode : " + kodeProduk + "?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
+        if (ok == 0) {
+        
+            dao = new ProdukDAOImpl();
+            dao.hapusProduk(kodeProduk);
+                //panggil method koneksi
+                JOptionPane.showMessageDialog(null, "Data Berhasil di hapus");
+        }
+    }//GEN-LAST:event_buttonHapusPrangkoActionPerformed
+
+    private void buttonUbahPrangkoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonUbahPrangkoActionPerformed
+        // TODO add your handling code here:
+        int baris = tablePrangko.getSelectedRow();
+        String kodeProduk = tablePrangko.getValueAt(baris, 0).toString();
+        
+        int ok = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin Mengubah Produk dengan kode : " + kodeProduk + "?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
+        if (ok == 0) {
+            
+            dao = new ProdukDAOImpl();
+            dao.ubahProduk(produk);
+                //panggil method koneksi
+                JOptionPane.showMessageDialog(null, "Data Berhasil di hapus");
+        }
+    }//GEN-LAST:event_buttonUbahPrangkoActionPerformed
+
+    private void tablePrangkoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePrangkoMouseClicked
+        // TODO add your handling code here:
+        int baris = tablePrangko.getSelectedRow();
+        String kodeProduk = tablePrangko.getValueAt(baris, 0).toString();
+        String namaProduk = tablePrangko.getValueAt(baris, 1).toString();
+        String nominal = tablePrangko.getValueAt(baris, 2).toString();
+        String biayaCetak = tablePrangko.getValueAt(baris, 3).toString();
+        String tahun = tablePrangko.getValueAt(baris, 4).toString();
+        
+        fieldKodeProdukPrangko.setText(kodeProduk);
+        fieldNamaProdukPrangko.setText(namaProduk);
+        fieldNominalPrangko.setText(nominal);
+        fieldBiayaCetakPrangko.setText(biayaCetak);
+        fieldTahunPrangko.setText(tahun);
+    }//GEN-LAST:event_tablePrangkoMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1707,7 +1768,7 @@ public final class FormHome extends javax.swing.JFrame {
         //</editor-fold>
         try {
             com.jtattoo.plaf.noire.NoireLookAndFeel.setTheme("Large-Font", "Java Swing", "");
-            UIManager.setLookAndFeel("com.jtattoo.plaf.noire.NoireLookAndFeel");
+            UIManager.setLookAndFeel("com.jtattoo.plaf.mint.MintLookAndFeel");
             new FormHome();
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -1731,7 +1792,7 @@ public final class FormHome extends javax.swing.JFrame {
     private javax.swing.JPanel Prangko;
     private javax.swing.JPanel Prisma;
     private javax.swing.JPanel SHP_SHPSS;
-    private javax.swing.JButton buttinCariDokumenFilateli;
+    private javax.swing.JButton buttonCariDokumenFilateli;
     private javax.swing.JButton buttonCariKemasan;
     private javax.swing.JButton buttonCariMS_SS;
     private javax.swing.JButton buttonCariMerchandise;
@@ -1739,7 +1800,9 @@ public final class FormHome extends javax.swing.JFrame {
     private javax.swing.JButton buttonCariPrisma;
     private javax.swing.JButton buttonCariSHP_SHPSS;
     private javax.swing.JButton buttonHapusPrangko;
+    private javax.swing.JButton buttonKelolaProduk;
     private javax.swing.JButton buttonSimpanPrangko;
+    private javax.swing.JButton buttonTransaksi;
     private javax.swing.JButton buttonUbahPrangko;
     private javax.swing.JComboBox<String> comboCariPrangko;
     private javax.swing.JComboBox<String> comboDokumenFIlateli;
@@ -1760,7 +1823,6 @@ public final class FormHome extends javax.swing.JFrame {
     private javax.swing.JTextField fieldNamaProdukPrangko;
     private javax.swing.JTextField fieldNominalPrangko;
     private javax.swing.JTextField fieldTahunPrangko;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
@@ -1769,7 +1831,6 @@ public final class FormHome extends javax.swing.JFrame {
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton18;
     private javax.swing.JButton jButton19;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton20;
     private javax.swing.JButton jButton22;
     private javax.swing.JButton jButton23;
@@ -1823,12 +1884,10 @@ public final class FormHome extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
-    private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel13;
@@ -1898,6 +1957,8 @@ public final class FormHome extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
+    private javax.swing.JLabel labelKelolaProduk;
+    private javax.swing.JLabel labelTransaksi;
     private javax.swing.JPanel tabKelolaProduk;
     private javax.swing.JTable tableDokumenFIlateli;
     private javax.swing.JTable tableKemasan;
