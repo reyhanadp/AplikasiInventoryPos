@@ -36,13 +36,16 @@ public final class FormHome extends javax.swing.JFrame {
         autoincrementMS_SS();
         autoincrementSHP_SHPSS();
         autoincrementKemasan();
+        autoincrementMerchandise();
+        autoincrementPrisma();
+        autoincrementDokumenFilateli();
         getDataPrangko();
         getDataMS_SS();
         getDataSHP_SHPSS();
         getDataKemasan();
         getDataMerchandise();
         getDataPrisma();
-        getDataMDokumenFilateli();
+        getDataDokumenFilateli();
         fieldNamaProdukPenerimaan.addKeyListener(new keyTextField(fieldNamaProdukPenerimaan));
     }
 
@@ -118,6 +121,7 @@ public final class FormHome extends javax.swing.JFrame {
         kodeMS_SS = jenisProduk + kosong + sub_nomor_string;
         fieldKodeProdukMS_SS.setText(kodeMS_SS);
     }
+
     private void autoincrementKemasan() {
         String kosong = null;
         dao = new ProdukDAOImpl();
@@ -148,6 +152,102 @@ public final class FormHome extends javax.swing.JFrame {
         sub_nomor_string = String.valueOf(sub_nomor_int);
         kode_prangko = "KM" + kosong + sub_nomor_string;
         fieldKodeProdukKemasan.setText(kode_prangko);
+    }
+
+    private void autoincrementMerchandise() {
+        String kosong = null;
+        dao = new ProdukDAOImpl();
+        String jenisProduk = "MC";
+
+        String kode_merchandise = dao.getIdProduk(jenisProduk);
+        if (kode_merchandise == null) {
+            kode_merchandise = "MC000";
+        }
+        String sub_nomor_string = kode_merchandise.substring(2, 5);
+        int sub_nomor_int = Integer.parseInt(sub_nomor_string);
+        sub_nomor_string = String.valueOf(sub_nomor_int);
+        int panjang = sub_nomor_string.length();
+        switch (panjang) {
+            case 1:
+                kosong = "00";
+                break;
+            case 2:
+                kosong = "0";
+                break;
+            case 3:
+                kosong = null;
+                break;
+            default:
+                break;
+        }
+        sub_nomor_int = sub_nomor_int + 1;
+        sub_nomor_string = String.valueOf(sub_nomor_int);
+        kode_merchandise = "MC" + kosong + sub_nomor_string;
+        fieldKodeProdukMerchandise.setText(kode_merchandise);
+    }
+
+    private void autoincrementPrisma() {
+        String kosong = null;
+        dao = new ProdukDAOImpl();
+        String jenisProduk = "PS";
+
+        String kode_prisma = dao.getIdProduk(jenisProduk);
+        if (kode_prisma == null) {
+            kode_prisma = "PS000";
+        }
+        String sub_nomor_string = kode_prisma.substring(2, 5);
+        int sub_nomor_int = Integer.parseInt(sub_nomor_string);
+        sub_nomor_string = String.valueOf(sub_nomor_int);
+        int panjang = sub_nomor_string.length();
+        switch (panjang) {
+            case 1:
+                kosong = "00";
+                break;
+            case 2:
+                kosong = "0";
+                break;
+            case 3:
+                kosong = null;
+                break;
+            default:
+                break;
+        }
+        sub_nomor_int = sub_nomor_int + 1;
+        sub_nomor_string = String.valueOf(sub_nomor_int);
+        kode_prisma = "PS" + kosong + sub_nomor_string;
+        fieldKodeProdukPrisma.setText(kode_prisma);
+    }
+
+    private void autoincrementDokumenFilateli() {
+        String kosong = null;
+        dao = new ProdukDAOImpl();
+        String jenisProduk = "DF";
+
+        String kode_dokumen_filateli = dao.getIdProduk(jenisProduk);
+        if (kode_dokumen_filateli == null) {
+            kode_dokumen_filateli = "DF000";
+        }
+        String sub_nomor_string = kode_dokumen_filateli.substring(2, 5);
+        int sub_nomor_int = Integer.parseInt(sub_nomor_string);
+        sub_nomor_string = String.valueOf(sub_nomor_int);
+        int panjang = sub_nomor_string.length();
+        switch (panjang) {
+            case 1:
+                kosong = "00";
+                break;
+            case 2:
+                kosong = "0";
+                break;
+            case 3:
+                kosong = null;
+                break;
+            default:
+                break;
+        }
+        sub_nomor_int = sub_nomor_int + 1;
+        sub_nomor_string = String.valueOf(sub_nomor_int);
+        kode_dokumen_filateli = "DF" + kosong + sub_nomor_string;
+        fieldKodeProdukDokumenFilateli.setText(kode_dokumen_filateli);
     }
 
     private void hanyaAngka() {
@@ -268,14 +368,14 @@ public final class FormHome extends javax.swing.JFrame {
         tablePrisma.setModel(produkPrismaTableModel);
     }
 
-    private void getDataMDokumenFilateli() {
+    private void getDataDokumenFilateli() {
         dao = new ProdukDAOImpl();
         arrayProduk = dao.getProdukDokumenFilateli();
 
         ProdukTM produkDokumenFilateliTableModel = new ProdukTM();
         produkDokumenFilateliTableModel.setDataProduk(arrayProduk);
 
-        tableDokumenFIlateli.setModel(produkDokumenFilateliTableModel);
+        tableDokumenFilateli.setModel(produkDokumenFilateliTableModel);
     }
 
     /**
@@ -384,7 +484,7 @@ public final class FormHome extends javax.swing.JFrame {
         tableKemasan = new javax.swing.JTable();
         buttonCariKemasan = new javax.swing.JButton();
         fieldCariKemasan = new javax.swing.JTextField();
-        comboKemasan = new javax.swing.JComboBox<String>();
+        comboJenisKemasan = new javax.swing.JComboBox<String>();
         Merchandise = new javax.swing.JPanel();
         jPanel22 = new javax.swing.JPanel();
         jLabel27 = new javax.swing.JLabel();
@@ -430,21 +530,21 @@ public final class FormHome extends javax.swing.JFrame {
         DokumenFilateli = new javax.swing.JPanel();
         jPanel26 = new javax.swing.JPanel();
         jLabel37 = new javax.swing.JLabel();
-        fieldKodeProdukDokumenFIlateli = new javax.swing.JTextField();
+        fieldKodeProdukDokumenFilateli = new javax.swing.JTextField();
         jLabel38 = new javax.swing.JLabel();
         fieldNamaProdukDokumenFilateli = new javax.swing.JTextField();
         jLabel39 = new javax.swing.JLabel();
-        fieldNominalProdukDokumenFIlateli = new javax.swing.JTextField();
+        fieldNominalProdukDokumenFilateli = new javax.swing.JTextField();
         jLabel40 = new javax.swing.JLabel();
-        fieldTahunProdukDokumenFIlateli = new javax.swing.JTextField();
+        fieldTahunProdukDokumenFilateli = new javax.swing.JTextField();
         jLabel41 = new javax.swing.JLabel();
-        fieldBiayaCetakDokumenFIlateli = new javax.swing.JTextField();
+        fieldBiayaCetakDokumenFilateli = new javax.swing.JTextField();
         buttonSimpanDokumenFIlateli = new javax.swing.JButton();
-        buttonUbahDokumenFIlateli = new javax.swing.JButton();
-        buttonHapusDokumenFIlateli = new javax.swing.JButton();
+        buttonUbahDokumenFilateli = new javax.swing.JButton();
+        buttonHapusDokumenFilateli = new javax.swing.JButton();
         jPanel27 = new javax.swing.JPanel();
         jScrollPane7 = new javax.swing.JScrollPane();
-        tableDokumenFIlateli = new javax.swing.JTable();
+        tableDokumenFilateli = new javax.swing.JTable();
         buttonCariDokumenFilateli = new javax.swing.JButton();
         fieldCariDokumenFIlateli = new javax.swing.JTextField();
         comboDokumenFIlateli = new javax.swing.JComboBox<String>();
@@ -546,11 +646,35 @@ public final class FormHome extends javax.swing.JFrame {
 
         jLabel3.setText("Nama Produk");
 
+        fieldNamaProdukPrangko.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                fieldNamaProdukPrangkoKeyPressed(evt);
+            }
+        });
+
         jLabel4.setText("Nominal");
+
+        fieldNominalPrangko.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                fieldNominalPrangkoKeyPressed(evt);
+            }
+        });
 
         jLabel5.setText("Biaya Cetak  ");
 
+        fieldTahunPrangko.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                fieldTahunPrangkoKeyPressed(evt);
+            }
+        });
+
         jLabel6.setText("Tahun");
+
+        fieldBiayaCetakPrangko.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                fieldBiayaCetakPrangkoKeyPressed(evt);
+            }
+        });
 
         buttonSimpanPrangko.setText("Simpan");
         buttonSimpanPrangko.addActionListener(new java.awt.event.ActionListener() {
@@ -1249,7 +1373,7 @@ public final class FormHome extends javax.swing.JFrame {
 
         buttonCariKemasan.setText("Cari");
 
-        comboKemasan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboJenisKemasan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout jPanel21Layout = new javax.swing.GroupLayout(jPanel21);
         jPanel21.setLayout(jPanel21Layout);
@@ -1258,7 +1382,7 @@ public final class FormHome extends javax.swing.JFrame {
             .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 660, Short.MAX_VALUE)
             .addGroup(jPanel21Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(comboKemasan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(comboJenisKemasan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(fieldCariKemasan, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1270,7 +1394,7 @@ public final class FormHome extends javax.swing.JFrame {
                 .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonCariKemasan)
                     .addComponent(fieldCariKemasan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboKemasan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboJenisKemasan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 570, Short.MAX_VALUE))
         );
@@ -1477,19 +1601,60 @@ public final class FormHome extends javax.swing.JFrame {
 
         jLabel32.setText("Kode Produk");
 
+        fieldKodeProdukPrisma.setEditable(false);
+
         jLabel33.setText("Nama Produk");
+
+        fieldNamaProdukPrisma.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                fieldNamaProdukPrismaKeyPressed(evt);
+            }
+        });
 
         jLabel34.setText("Nominal");
 
+        fieldNominalProdukPrisma.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                fieldNominalProdukPrismaKeyPressed(evt);
+            }
+        });
+
         jLabel35.setText("Biaya Cetak  ");
+
+        fieldTahunProdukPrisma.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                fieldTahunProdukPrismaKeyPressed(evt);
+            }
+        });
 
         jLabel36.setText("Tahun");
 
+        fieldBiayaCetakProdukPrisma.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                fieldBiayaCetakProdukPrismaKeyPressed(evt);
+            }
+        });
+
         buttonSimpanPrisma.setText("Simpan");
+        buttonSimpanPrisma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonSimpanPrismaActionPerformed(evt);
+            }
+        });
 
         buttonUbahPrisma.setText("Ubah");
+        buttonUbahPrisma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonUbahPrismaActionPerformed(evt);
+            }
+        });
 
         buttonHapusPrisma.setText("Hapus");
+        buttonHapusPrisma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonHapusPrismaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel24Layout = new javax.swing.GroupLayout(jPanel24);
         jPanel24.setLayout(jPanel24Layout);
@@ -1617,19 +1782,60 @@ public final class FormHome extends javax.swing.JFrame {
 
         jLabel37.setText("Kode Produk");
 
+        fieldKodeProdukDokumenFilateli.setEditable(false);
+
         jLabel38.setText("Nama Produk");
+
+        fieldNamaProdukDokumenFilateli.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                fieldNamaProdukDokumenFilateliKeyPressed(evt);
+            }
+        });
 
         jLabel39.setText("Nominal");
 
+        fieldNominalProdukDokumenFilateli.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                fieldNominalProdukDokumenFilateliKeyPressed(evt);
+            }
+        });
+
         jLabel40.setText("Biaya Cetak  ");
+
+        fieldTahunProdukDokumenFilateli.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                fieldTahunProdukDokumenFilateliKeyPressed(evt);
+            }
+        });
 
         jLabel41.setText("Tahun");
 
+        fieldBiayaCetakDokumenFilateli.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                fieldBiayaCetakDokumenFilateliKeyPressed(evt);
+            }
+        });
+
         buttonSimpanDokumenFIlateli.setText("Simpan");
+        buttonSimpanDokumenFIlateli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonSimpanDokumenFIlateliActionPerformed(evt);
+            }
+        });
 
-        buttonUbahDokumenFIlateli.setText("Ubah");
+        buttonUbahDokumenFilateli.setText("Ubah");
+        buttonUbahDokumenFilateli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonUbahDokumenFilateliActionPerformed(evt);
+            }
+        });
 
-        buttonHapusDokumenFIlateli.setText("Hapus");
+        buttonHapusDokumenFilateli.setText("Hapus");
+        buttonHapusDokumenFilateli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonHapusDokumenFilateliActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel26Layout = new javax.swing.GroupLayout(jPanel26);
         jPanel26.setLayout(jPanel26Layout);
@@ -1645,18 +1851,18 @@ public final class FormHome extends javax.swing.JFrame {
                     .addComponent(jLabel41))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(fieldNominalProdukDokumenFIlateli)
-                    .addComponent(fieldBiayaCetakDokumenFIlateli)
-                    .addComponent(fieldTahunProdukDokumenFIlateli, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(fieldNominalProdukDokumenFilateli)
+                    .addComponent(fieldBiayaCetakDokumenFilateli)
+                    .addComponent(fieldTahunProdukDokumenFilateli, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel26Layout.createSequentialGroup()
-                        .addComponent(fieldKodeProdukDokumenFIlateli, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(fieldKodeProdukDokumenFilateli, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(fieldNamaProdukDokumenFilateli))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(buttonSimpanDokumenFIlateli, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buttonUbahDokumenFIlateli, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buttonHapusDokumenFIlateli, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(buttonUbahDokumenFilateli, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonHapusDokumenFilateli, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel26Layout.setVerticalGroup(
@@ -1665,32 +1871,32 @@ public final class FormHome extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel37)
-                    .addComponent(fieldKodeProdukDokumenFIlateli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fieldKodeProdukDokumenFilateli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buttonSimpanDokumenFIlateli))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel38)
                     .addComponent(fieldNamaProdukDokumenFilateli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonUbahDokumenFIlateli))
+                    .addComponent(buttonUbahDokumenFilateli))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel39)
-                    .addComponent(fieldNominalProdukDokumenFIlateli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonHapusDokumenFIlateli))
+                    .addComponent(fieldNominalProdukDokumenFilateli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonHapusDokumenFilateli))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel40)
-                    .addComponent(fieldBiayaCetakDokumenFIlateli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fieldBiayaCetakDokumenFilateli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel41)
-                    .addComponent(fieldTahunProdukDokumenFIlateli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fieldTahunProdukDokumenFilateli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel27.setBorder(javax.swing.BorderFactory.createTitledBorder("Tabel Data Produk"));
 
-        tableDokumenFIlateli.setModel(new javax.swing.table.DefaultTableModel(
+        tableDokumenFilateli.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -1701,12 +1907,12 @@ public final class FormHome extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tableDokumenFIlateli.addMouseListener(new java.awt.event.MouseAdapter() {
+        tableDokumenFilateli.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tableDokumenFIlateliMouseClicked(evt);
+                tableDokumenFilateliMouseClicked(evt);
             }
         });
-        jScrollPane7.setViewportView(tableDokumenFIlateli);
+        jScrollPane7.setViewportView(tableDokumenFilateli);
 
         buttonCariDokumenFilateli.setText("Cari");
 
@@ -2012,7 +2218,6 @@ public final class FormHome extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-
     private void buttonTransaksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTransaksiActionPerformed
         // TODO add your handling code here:
         jPanel3.removeAll();
@@ -2088,7 +2293,6 @@ public final class FormHome extends javax.swing.JFrame {
 
     }//GEN-LAST:event_buttonSimpanPrangkoActionPerformed
 
-
     private void buttonHapusPrangkoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHapusPrangkoActionPerformed
         // TODO add your handling code here:
         int baris = tablePrangko.getSelectedRow();
@@ -2100,6 +2304,7 @@ public final class FormHome extends javax.swing.JFrame {
             dao.hapusProduk(kodeProduk);
             //panggil method koneksi
             JOptionPane.showMessageDialog(null, "Data Berhasil di hapus");
+            getDataPrangko();
         }
     }//GEN-LAST:event_buttonHapusPrangkoActionPerformed
 
@@ -2169,7 +2374,6 @@ public final class FormHome extends javax.swing.JFrame {
         fieldBiayaCetakPrangko.setText(biayaCetak);
         fieldTahunPrangko.setText(tahun);
     }//GEN-LAST:event_tablePrangkoMouseClicked
-
 
     private void ComboJenisMS_SSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboJenisMS_SSActionPerformed
         // TODO add your handling code here:
@@ -2290,21 +2494,21 @@ public final class FormHome extends javax.swing.JFrame {
         fieldTahunProdukPrisma.setText(tahun);
     }//GEN-LAST:event_tablePrismaMouseClicked
 
-    private void tableDokumenFIlateliMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableDokumenFIlateliMouseClicked
+    private void tableDokumenFilateliMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableDokumenFilateliMouseClicked
         // TODO add your handling code here:
-        int baris = tableDokumenFIlateli.getSelectedRow();
-        String kodeProduk = tableDokumenFIlateli.getValueAt(baris, 0).toString();
-        String namaProduk = tableDokumenFIlateli.getValueAt(baris, 1).toString();
-        String nominal = tableDokumenFIlateli.getValueAt(baris, 2).toString();
-        String biayaCetak = tableDokumenFIlateli.getValueAt(baris, 3).toString();
-        String tahun = tableDokumenFIlateli.getValueAt(baris, 5).toString();
+        int baris = tableDokumenFilateli.getSelectedRow();
+        String kodeProduk = tableDokumenFilateli.getValueAt(baris, 0).toString();
+        String namaProduk = tableDokumenFilateli.getValueAt(baris, 1).toString();
+        String nominal = tableDokumenFilateli.getValueAt(baris, 2).toString();
+        String biayaCetak = tableDokumenFilateli.getValueAt(baris, 3).toString();
+        String tahun = tableDokumenFilateli.getValueAt(baris, 5).toString();
 
-        fieldKodeProdukDokumenFIlateli.setText(kodeProduk);
+        fieldKodeProdukDokumenFilateli.setText(kodeProduk);
         fieldNamaProdukDokumenFilateli.setText(namaProduk);
-        fieldNominalProdukDokumenFIlateli.setText(nominal);
-        fieldBiayaCetakDokumenFIlateli.setText(biayaCetak);
-        fieldTahunProdukDokumenFIlateli.setText(tahun);
-    }//GEN-LAST:event_tableDokumenFIlateliMouseClicked
+        fieldNominalProdukDokumenFilateli.setText(nominal);
+        fieldBiayaCetakDokumenFilateli.setText(biayaCetak);
+        fieldTahunProdukDokumenFilateli.setText(tahun);
+    }//GEN-LAST:event_tableDokumenFilateliMouseClicked
 
     private void buttonSimpanMSSSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSimpanMSSSActionPerformed
         // TODO add your handling code here:
@@ -2664,33 +2868,86 @@ public final class FormHome extends javax.swing.JFrame {
         produk.setTahun(tahun);
 
         //inisialisasi
-        Object jenisSHP_SHPSS = ComboJenisMS_SS.getSelectedItem();
-        String kosong = null;
-        String jenisProduk = null;
+        String jenisProduk = "KM";
 
-        //insert produk
         ProdukDAO dao = new ProdukDAOImpl();
-        if (jenisSHP_SHPSS == "KM") {
-            jenisProduk = "KM";
+        boolean sukses = dao.tambahProduk(produk, jenisProduk);
 
-            boolean sukses = dao.tambahProduk(produk, jenisProduk);
-
-            //cek sukses atau tidak
-            if (sukses) {
-                JOptionPane.showMessageDialog(this, "Data berhasil ditambahkan");
-                getDataKemasan();
-            } else {
-                JOptionPane.showMessageDialog(this, "Data gagal ditambahkan");
-            }
+        //cek sukses atau tidak
+        if (sukses) {
+            JOptionPane.showMessageDialog(this, "Data berhasil ditambahkan");
+            getDataKemasan();
+        } else {
+            JOptionPane.showMessageDialog(this, "Data gagal ditambahkan");
         }
     }//GEN-LAST:event_buttonSImpanKemasanActionPerformed
 
     private void buttonUbahKemasanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonUbahKemasanActionPerformed
         // TODO add your handling code here:
+        int baris = tableKemasan.getSelectedRow();
+        String kodeProduk = tableKemasan.getValueAt(baris, 0).toString();
+
+        int ok = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin Mengubah Produk dengan kode : " + kodeProduk + "?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
+        if (ok == 0) {
+            String idProduk = fieldKodeProdukKemasan.getText();
+            String namaProduk = fieldNamaProdukKemasan.getText();
+            int nominal = Integer.parseInt(fieldNominalProdukKemasan.getText());
+            float biayaCetak = Float.parseFloat(fieldBiayaCetakProdukKemasan.getText());
+            String tahun = fieldTahunProdukKemasan.getText();
+
+            //validasi apakah filed 
+            //sudah diisi atau belum
+            if (fieldKodeProdukKemasan.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Kode Produk tidak boleh Kosong");
+            } else if (fieldNamaProdukKemasan.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Nama Produk tidak boleh Kosong");
+            } else if (fieldNominalProdukKemasan.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Nominal tidak boleh Kosong");
+            } else if (fieldBiayaCetakProdukKemasan.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Biaya Cetak tidak boleh Kosong");
+            } else if (fieldTahunProdukKemasan.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Tahun tidak boleh Kosong");
+            } else {
+                JOptionPane.showMessageDialog(null, "Simpan Data");
+            }
+
+            //buat objek pegawai
+            Produk produk = new Produk();
+            produk.setIdProduk(idProduk);
+            produk.setNamaProduk(namaProduk);
+            produk.setNominal(nominal);
+            produk.setBiayaCetak(biayaCetak);
+            produk.setTahun(tahun);
+
+            //insert produk
+            ProdukDAO dao = new ProdukDAOImpl();
+            boolean sukses = dao.ubahProduk(produk);
+
+            //cek sukses atau tidak
+            if (sukses) {
+                JOptionPane.showMessageDialog(this, "Data berhasil diubah");
+                getDataKemasan();
+            } else {
+                JOptionPane.showMessageDialog(this, "Data gagal diubah");
+                getDataKemasan();
+            }
+            getDataKemasan();
+        }
     }//GEN-LAST:event_buttonUbahKemasanActionPerformed
 
     private void buttonHapusKemasanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHapusKemasanActionPerformed
         // TODO add your handling code here:
+        int baris = tableKemasan.getSelectedRow();
+        String kodeProduk = tableKemasan.getValueAt(baris, 0).toString();
+        int ok = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin menghapus Produk dengan kode : " + kodeProduk + "?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
+        if (ok == 0) {
+
+            dao = new ProdukDAOImpl();
+            dao.hapusProduk(kodeProduk);
+            //panggil method koneksi
+            JOptionPane.showMessageDialog(null, "Data Berhasil di hapus");
+            getDataKemasan();
+        }
     }//GEN-LAST:event_buttonHapusKemasanActionPerformed
 
     private void fieldNamaProdukMerchandiseKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldNamaProdukMerchandiseKeyPressed
@@ -2720,15 +2977,425 @@ public final class FormHome extends javax.swing.JFrame {
 
     private void buttonSImpanMerchandiseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSImpanMerchandiseActionPerformed
         // TODO add your handling code here:
+        String idProduk = fieldKodeProdukMerchandise.getText();
+        String namaProduk = fieldNamaProdukMerchandise.getText();
+        int nominal = Integer.parseInt(fieldNominalProdukMerchandise.getText());
+        float biayaCetak = Float.parseFloat(fieldBiayaCetakProdukMerchandise.getText());
+        String tahun = fieldTahunProdukMerchandise.getText();
+
+        //validasi apakah filed 
+        //sudah diisi atau belum
+        if (fieldKodeProdukMerchandise.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Kode Produk tidak boleh Kosong");
+        } else if (fieldNamaProdukMerchandise.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Nama Produk tidak boleh Kosong");
+        } else if (fieldNominalProdukMerchandise.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Nominal tidak boleh Kosong");
+        } else if (fieldBiayaCetakProdukMerchandise.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Biaya Cetak tidak boleh Kosong");
+        } else if (fieldTahunProdukMerchandise.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Tahun tidak boleh Kosong");
+        } else {
+            JOptionPane.showMessageDialog(null, "Simpan Data");
+        }
+
+        //buat objek pegawai
+        Produk produk = new Produk();
+        produk.setIdProduk(idProduk);
+        produk.setNamaProduk(namaProduk);
+        produk.setNominal(nominal);
+        produk.setBiayaCetak(biayaCetak);
+        produk.setTahun(tahun);
+
+        //inisialisasi
+        String jenisProduk = "MC";
+
+        ProdukDAO dao = new ProdukDAOImpl();
+        boolean sukses = dao.tambahProduk(produk, jenisProduk);
+
+        //cek sukses atau tidak
+        if (sukses) {
+            JOptionPane.showMessageDialog(this, "Data berhasil ditambahkan");
+            getDataMerchandise();
+        } else {
+            JOptionPane.showMessageDialog(this, "Data gagal ditambahkan");
+        }
     }//GEN-LAST:event_buttonSImpanMerchandiseActionPerformed
 
     private void buttonUbahMerchandiseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonUbahMerchandiseActionPerformed
         // TODO add your handling code here:
+        int baris = tableMerchandise.getSelectedRow();
+        String kodeProduk = tableMerchandise.getValueAt(baris, 0).toString();
+
+        int ok = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin Mengubah Produk dengan kode : " + kodeProduk + "?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
+        if (ok == 0) {
+            String idProduk = fieldKodeProdukMerchandise.getText();
+            String namaProduk = fieldNamaProdukMerchandise.getText();
+            int nominal = Integer.parseInt(fieldNominalProdukMerchandise.getText());
+            float biayaCetak = Float.parseFloat(fieldBiayaCetakProdukMerchandise.getText());
+            String tahun = fieldTahunProdukMerchandise.getText();
+
+            //validasi apakah filed 
+            //sudah diisi atau belum
+            if (fieldKodeProdukMerchandise.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Kode Produk tidak boleh Kosong");
+            } else if (fieldNamaProdukMerchandise.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Nama Produk tidak boleh Kosong");
+            } else if (fieldNominalProdukMerchandise.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Nominal tidak boleh Kosong");
+            } else if (fieldBiayaCetakProdukMerchandise.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Biaya Cetak tidak boleh Kosong");
+            } else if (fieldTahunProdukMerchandise.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Tahun tidak boleh Kosong");
+            } else {
+                JOptionPane.showMessageDialog(null, "Simpan Data");
+            }
+
+            //buat objek pegawai
+            Produk produk = new Produk();
+            produk.setIdProduk(idProduk);
+            produk.setNamaProduk(namaProduk);
+            produk.setNominal(nominal);
+            produk.setBiayaCetak(biayaCetak);
+            produk.setTahun(tahun);
+
+            //insert produk
+            ProdukDAO dao = new ProdukDAOImpl();
+            boolean sukses = dao.ubahProduk(produk);
+
+            //cek sukses atau tidak
+            if (sukses) {
+                JOptionPane.showMessageDialog(this, "Data berhasil diubah");
+                getDataMerchandise();
+            } else {
+                JOptionPane.showMessageDialog(this, "Data gagal diubah");
+                getDataMerchandise();
+            }
+            getDataMerchandise();
+        }
     }//GEN-LAST:event_buttonUbahMerchandiseActionPerformed
 
     private void buttonHapusMerchandiseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHapusMerchandiseActionPerformed
         // TODO add your handling code here:
+        int baris = tableMerchandise.getSelectedRow();
+        String kodeProduk = tableMerchandise.getValueAt(baris, 0).toString();
+        int ok = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin menghapus Produk dengan kode : " + kodeProduk + "?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
+        if (ok == 0) {
+
+            dao = new ProdukDAOImpl();
+            dao.hapusProduk(kodeProduk);
+            //panggil method koneksi
+            JOptionPane.showMessageDialog(null, "Data Berhasil di hapus");
+            getDataMerchandise();
+        }
+
     }//GEN-LAST:event_buttonHapusMerchandiseActionPerformed
+
+    private void fieldNamaProdukPrismaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldNamaProdukPrismaKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            fieldNominalProdukPrisma.requestFocus();
+        }
+    }//GEN-LAST:event_fieldNamaProdukPrismaKeyPressed
+
+    private void fieldNominalProdukPrismaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldNominalProdukPrismaKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            fieldBiayaCetakProdukPrisma.requestFocus();
+        }
+    }//GEN-LAST:event_fieldNominalProdukPrismaKeyPressed
+
+    private void fieldBiayaCetakProdukPrismaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldBiayaCetakProdukPrismaKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            fieldTahunProdukPrisma.requestFocus();
+        }
+    }//GEN-LAST:event_fieldBiayaCetakProdukPrismaKeyPressed
+
+    private void fieldTahunProdukPrismaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldTahunProdukPrismaKeyPressed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_fieldTahunProdukPrismaKeyPressed
+
+    private void buttonSimpanPrismaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSimpanPrismaActionPerformed
+        // TODO add your handling code here:
+        String idProduk = fieldKodeProdukPrisma.getText();
+        String namaProduk = fieldNamaProdukPrisma.getText();
+        int nominal = Integer.parseInt(fieldNominalProdukPrisma.getText());
+        float biayaCetak = Float.parseFloat(fieldBiayaCetakProdukPrisma.getText());
+        String tahun = fieldTahunProdukPrisma.getText();
+
+        //validasi apakah filed 
+        //sudah diisi atau belum
+        if (fieldKodeProdukPrisma.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Kode Produk tidak boleh Kosong");
+        } else if (fieldNamaProdukPrisma.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Nama Produk tidak boleh Kosong");
+        } else if (fieldNominalProdukPrisma.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Nominal tidak boleh Kosong");
+        } else if (fieldBiayaCetakProdukPrisma.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Biaya Cetak tidak boleh Kosong");
+        } else if (fieldTahunProdukPrisma.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Tahun tidak boleh Kosong");
+        } else {
+            JOptionPane.showMessageDialog(null, "Simpan Data");
+        }
+
+        //buat objek pegawai
+        Produk produk = new Produk();
+        produk.setIdProduk(idProduk);
+        produk.setNamaProduk(namaProduk);
+        produk.setNominal(nominal);
+        produk.setBiayaCetak(biayaCetak);
+        produk.setTahun(tahun);
+
+        //inisialisasi
+        String jenisProduk = "PS";
+
+        ProdukDAO dao = new ProdukDAOImpl();
+        boolean sukses = dao.tambahProduk(produk, jenisProduk);
+
+        //cek sukses atau tidak
+        if (sukses) {
+            JOptionPane.showMessageDialog(this, "Data berhasil ditambahkan");
+            getDataPrisma();
+        } else {
+            JOptionPane.showMessageDialog(this, "Data gagal ditambahkan");
+        }
+    }//GEN-LAST:event_buttonSimpanPrismaActionPerformed
+
+    private void buttonUbahPrismaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonUbahPrismaActionPerformed
+        // TODO add your handling code here:
+        int baris = tablePrisma.getSelectedRow();
+        String kodeProduk = tablePrisma.getValueAt(baris, 0).toString();
+
+        int ok = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin Mengubah Produk dengan kode : " + kodeProduk + "?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
+        if (ok == 0) {
+            String idProduk = fieldKodeProdukPrisma.getText();
+            String namaProduk = fieldNamaProdukPrisma.getText();
+            int nominal = Integer.parseInt(fieldNominalProdukPrisma.getText());
+            float biayaCetak = Float.parseFloat(fieldBiayaCetakProdukPrisma.getText());
+            String tahun = fieldTahunProdukPrisma.getText();
+
+            //validasi apakah filed 
+            //sudah diisi atau belum
+            if (fieldKodeProdukPrisma.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Kode Produk tidak boleh Kosong");
+            } else if (fieldNamaProdukPrisma.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Nama Produk tidak boleh Kosong");
+            } else if (fieldNominalProdukPrisma.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Nominal tidak boleh Kosong");
+            } else if (fieldBiayaCetakProdukPrisma.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Biaya Cetak tidak boleh Kosong");
+            } else if (fieldTahunProdukPrisma.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Tahun tidak boleh Kosong");
+            } else {
+                JOptionPane.showMessageDialog(null, "Simpan Data");
+            }
+
+            //buat objek pegawai
+            Produk produk = new Produk();
+            produk.setIdProduk(idProduk);
+            produk.setNamaProduk(namaProduk);
+            produk.setNominal(nominal);
+            produk.setBiayaCetak(biayaCetak);
+            produk.setTahun(tahun);
+
+            //insert produk
+            ProdukDAO dao = new ProdukDAOImpl();
+            boolean sukses = dao.ubahProduk(produk);
+
+            //cek sukses atau tidak
+            if (sukses) {
+                JOptionPane.showMessageDialog(this, "Data berhasil diubah");
+                getDataPrisma();
+            } else {
+                JOptionPane.showMessageDialog(this, "Data gagal diubah");
+                getDataPrisma();
+            }
+            getDataPrisma();
+        }
+    }//GEN-LAST:event_buttonUbahPrismaActionPerformed
+
+    private void buttonHapusPrismaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHapusPrismaActionPerformed
+        // TODO add your handling code here:
+        int baris = tablePrisma.getSelectedRow();
+        String kodeProduk = tablePrisma.getValueAt(baris, 0).toString();
+        int ok = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin menghapus Produk dengan kode : " + kodeProduk + "?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
+        if (ok == 0) {
+
+            dao = new ProdukDAOImpl();
+            dao.hapusProduk(kodeProduk);
+            //panggil method koneksi
+            JOptionPane.showMessageDialog(null, "Data Berhasil di hapus");
+            getDataPrisma();
+        }
+    }//GEN-LAST:event_buttonHapusPrismaActionPerformed
+
+    private void fieldNamaProdukDokumenFilateliKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldNamaProdukDokumenFilateliKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            fieldNominalProdukDokumenFilateli.requestFocus();
+        }
+    }//GEN-LAST:event_fieldNamaProdukDokumenFilateliKeyPressed
+
+    private void fieldNominalProdukDokumenFilateliKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldNominalProdukDokumenFilateliKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            fieldBiayaCetakDokumenFilateli.requestFocus();
+        }
+    }//GEN-LAST:event_fieldNominalProdukDokumenFilateliKeyPressed
+
+    private void fieldBiayaCetakDokumenFilateliKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldBiayaCetakDokumenFilateliKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            fieldTahunProdukDokumenFilateli.requestFocus();
+        }
+    }//GEN-LAST:event_fieldBiayaCetakDokumenFilateliKeyPressed
+
+    private void fieldTahunProdukDokumenFilateliKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldTahunProdukDokumenFilateliKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fieldTahunProdukDokumenFilateliKeyPressed
+
+    private void buttonSimpanDokumenFIlateliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSimpanDokumenFIlateliActionPerformed
+        // TODO add your handling code here:
+        String idProduk = fieldKodeProdukDokumenFilateli.getText();
+        String namaProduk = fieldNamaProdukDokumenFilateli.getText();
+        int nominal = Integer.parseInt(fieldNominalProdukDokumenFilateli.getText());
+        float biayaCetak = Float.parseFloat(fieldBiayaCetakDokumenFilateli.getText());
+        String tahun = fieldTahunProdukDokumenFilateli.getText();
+
+        //validasi apakah filed 
+        //sudah diisi atau belum
+        if (fieldKodeProdukDokumenFilateli.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Kode Produk tidak boleh Kosong");
+        } else if (fieldNamaProdukDokumenFilateli.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Nama Produk tidak boleh Kosong");
+        } else if (fieldNominalProdukDokumenFilateli.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Nominal tidak boleh Kosong");
+        } else if (fieldBiayaCetakDokumenFilateli.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Biaya Cetak tidak boleh Kosong");
+        } else if (fieldTahunProdukDokumenFilateli.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Tahun tidak boleh Kosong");
+        } else {
+            JOptionPane.showMessageDialog(null, "Simpan Data");
+        }
+
+        //buat objek pegawai
+        Produk produk = new Produk();
+        produk.setIdProduk(idProduk);
+        produk.setNamaProduk(namaProduk);
+        produk.setNominal(nominal);
+        produk.setBiayaCetak(biayaCetak);
+        produk.setTahun(tahun);
+
+        //inisialisasi
+        String jenisProduk = "DF";
+
+        ProdukDAO dao = new ProdukDAOImpl();
+        boolean sukses = dao.tambahProduk(produk, jenisProduk);
+
+        //cek sukses atau tidak
+        if (sukses) {
+            JOptionPane.showMessageDialog(this, "Data berhasil ditambahkan");
+            getDataDokumenFilateli();
+        } else {
+            JOptionPane.showMessageDialog(this, "Data gagal ditambahkan");
+        }
+    }//GEN-LAST:event_buttonSimpanDokumenFIlateliActionPerformed
+
+    private void buttonUbahDokumenFilateliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonUbahDokumenFilateliActionPerformed
+        // TODO add your handling code here:
+        int baris = tableDokumenFilateli.getSelectedRow();
+        String kodeProduk = tableDokumenFilateli.getValueAt(baris, 0).toString();
+
+        int ok = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin Mengubah Produk dengan kode : " + kodeProduk + "?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
+        if (ok == 0) {
+            String idProduk = fieldKodeProdukDokumenFilateli.getText();
+            String namaProduk = fieldNamaProdukDokumenFilateli.getText();
+            int nominal = Integer.parseInt(fieldNominalProdukDokumenFilateli.getText());
+            float biayaCetak = Float.parseFloat(fieldBiayaCetakDokumenFilateli.getText());
+            String tahun = fieldTahunProdukDokumenFilateli.getText();
+
+            //validasi apakah filed 
+            //sudah diisi atau belum
+            if (fieldKodeProdukDokumenFilateli.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Kode Produk tidak boleh Kosong");
+            } else if (fieldNamaProdukDokumenFilateli.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Nama Produk tidak boleh Kosong");
+            } else if (fieldNominalProdukDokumenFilateli.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Nominal tidak boleh Kosong");
+            } else if (fieldBiayaCetakDokumenFilateli.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Biaya Cetak tidak boleh Kosong");
+            } else if (fieldTahunProdukDokumenFilateli.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Tahun tidak boleh Kosong");
+            } else {
+                JOptionPane.showMessageDialog(null, "Simpan Data");
+            }
+
+            //buat objek pegawai
+            Produk produk = new Produk();
+            produk.setIdProduk(idProduk);
+            produk.setNamaProduk(namaProduk);
+            produk.setNominal(nominal);
+            produk.setBiayaCetak(biayaCetak);
+            produk.setTahun(tahun);
+
+            //insert produk
+            ProdukDAO dao = new ProdukDAOImpl();
+            boolean sukses = dao.ubahProduk(produk);
+
+            //cek sukses atau tidak
+            if (sukses) {
+                JOptionPane.showMessageDialog(this, "Data berhasil diubah");
+                getDataDokumenFilateli();
+            } else {
+                JOptionPane.showMessageDialog(this, "Data gagal diubah");
+                getDataDokumenFilateli();
+            }
+            getDataDokumenFilateli();
+        }
+    }//GEN-LAST:event_buttonUbahDokumenFilateliActionPerformed
+
+    private void buttonHapusDokumenFilateliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHapusDokumenFilateliActionPerformed
+        // TODO add your handling code here:
+        int baris = tableDokumenFilateli.getSelectedRow();
+        String kodeProduk = tableDokumenFilateli.getValueAt(baris, 0).toString();
+        int ok = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin menghapus Produk dengan kode : " + kodeProduk + "?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
+        if (ok == 0) {
+
+            dao = new ProdukDAOImpl();
+            dao.hapusProduk(kodeProduk);
+            //panggil method koneksi
+            JOptionPane.showMessageDialog(null, "Data Berhasil di hapus");
+            getDataDokumenFilateli();
+        }
+    }//GEN-LAST:event_buttonHapusDokumenFilateliActionPerformed
+
+    private void fieldNamaProdukPrangkoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldNamaProdukPrangkoKeyPressed
+        // TODO add your handling code here:
+         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+             fieldNominalPrangko.requestFocus();
+        }
+    }//GEN-LAST:event_fieldNamaProdukPrangkoKeyPressed
+
+    private void fieldNominalPrangkoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldNominalPrangkoKeyPressed
+        // TODO add your handling code here:
+         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            fieldBiayaCetakPrangko.requestFocus();
+        }
+    }//GEN-LAST:event_fieldNominalPrangkoKeyPressed
+
+    private void fieldBiayaCetakPrangkoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldBiayaCetakPrangkoKeyPressed
+        // TODO add your handling code here:
+         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+             fieldTahunPrangko.requestFocus();
+        }
+    }//GEN-LAST:event_fieldBiayaCetakPrangkoKeyPressed
+
+    private void fieldTahunPrangkoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldTahunPrangkoKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fieldTahunPrangkoKeyPressed
 
     /**
      * @param args the command line arguments
@@ -2791,7 +3458,7 @@ public final class FormHome extends javax.swing.JFrame {
     private javax.swing.JButton buttonCariPrangko;
     private javax.swing.JButton buttonCariPrisma;
     private javax.swing.JButton buttonCariSHP_SHPSS;
-    private javax.swing.JButton buttonHapusDokumenFIlateli;
+    private javax.swing.JButton buttonHapusDokumenFilateli;
     private javax.swing.JButton buttonHapusKemasan;
     private javax.swing.JButton buttonHapusMSSS;
     private javax.swing.JButton buttonHapusMerchandise;
@@ -2807,7 +3474,7 @@ public final class FormHome extends javax.swing.JFrame {
     private javax.swing.JButton buttonSimpanPrisma;
     private javax.swing.JButton buttonSimpanSHPSHPSS;
     private javax.swing.JButton buttonTransaksi;
-    private javax.swing.JButton buttonUbahDokumenFIlateli;
+    private javax.swing.JButton buttonUbahDokumenFilateli;
     private javax.swing.JButton buttonUbahKemasan;
     private javax.swing.JButton buttonUbahMSSS;
     private javax.swing.JButton buttonUbahMerchandise;
@@ -2816,12 +3483,12 @@ public final class FormHome extends javax.swing.JFrame {
     private javax.swing.JButton buttonUbahSHPSHPSS;
     private javax.swing.JComboBox<String> comboCariPrangko;
     private javax.swing.JComboBox<String> comboDokumenFIlateli;
-    private javax.swing.JComboBox<String> comboKemasan;
+    private javax.swing.JComboBox<String> comboJenisKemasan;
     private javax.swing.JComboBox<String> comboMS_SS;
     private javax.swing.JComboBox<String> comboMerchandise;
     private javax.swing.JComboBox<String> comboPrisma;
     private javax.swing.JComboBox<String> comboSHP_SHPSS;
-    private javax.swing.JTextField fieldBiayaCetakDokumenFIlateli;
+    private javax.swing.JTextField fieldBiayaCetakDokumenFilateli;
     private javax.swing.JTextField fieldBiayaCetakPrangko;
     private javax.swing.JTextField fieldBiayaCetakProdukKemasan;
     private javax.swing.JTextField fieldBiayaCetakProdukMSSS;
@@ -2835,7 +3502,7 @@ public final class FormHome extends javax.swing.JFrame {
     private javax.swing.JTextField fieldCariPrangko;
     private javax.swing.JTextField fieldCariPrisma;
     private javax.swing.JTextField fieldCariSHP_SHPSS;
-    private javax.swing.JTextField fieldKodeProdukDokumenFIlateli;
+    private javax.swing.JTextField fieldKodeProdukDokumenFilateli;
     private javax.swing.JTextField fieldKodeProdukKemasan;
     private javax.swing.JTextField fieldKodeProdukMS_SS;
     private javax.swing.JTextField fieldKodeProdukMerchandise;
@@ -2851,14 +3518,14 @@ public final class FormHome extends javax.swing.JFrame {
     private javax.swing.JTextField fieldNamaProdukPrisma;
     private javax.swing.JTextField fieldNamaProdukSHPSHPSS;
     private javax.swing.JTextField fieldNominalPrangko;
-    private javax.swing.JTextField fieldNominalProdukDokumenFIlateli;
+    private javax.swing.JTextField fieldNominalProdukDokumenFilateli;
     private javax.swing.JTextField fieldNominalProdukKemasan;
     private javax.swing.JTextField fieldNominalProdukMSSS;
     private javax.swing.JTextField fieldNominalProdukMerchandise;
     private javax.swing.JTextField fieldNominalProdukPrisma;
     private javax.swing.JTextField fieldNominalProdukSHPSHPSS;
     private javax.swing.JTextField fieldTahunPrangko;
-    private javax.swing.JTextField fieldTahunProdukDokumenFIlateli;
+    private javax.swing.JTextField fieldTahunProdukDokumenFilateli;
     private javax.swing.JTextField fieldTahunProdukKemasan;
     private javax.swing.JTextField fieldTahunProdukMSSS;
     private javax.swing.JTextField fieldTahunProdukMerchandise;
@@ -2954,7 +3621,7 @@ public final class FormHome extends javax.swing.JFrame {
     private javax.swing.JLabel labelKelolaProduk;
     private javax.swing.JLabel labelTransaksi;
     private javax.swing.JPanel tabKelolaProduk;
-    private javax.swing.JTable tableDokumenFIlateli;
+    private javax.swing.JTable tableDokumenFilateli;
     private javax.swing.JTable tableKemasan;
     private javax.swing.JTable tableMSSS;
     private javax.swing.JTable tableMerchandise;

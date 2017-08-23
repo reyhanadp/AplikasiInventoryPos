@@ -285,7 +285,7 @@ public class ProdukDAOImpl implements ProdukDAO {
     @Override
     public ArrayList<Produk> getProdukMerchandise() {
         ArrayList<Produk> arrayProduk = null;
-        String SELECT = "SELECT * FROM tb_produk where id_produk like 'MC%' ";
+        String SELECT = "SELECT * FROM tb_produk WHERE id_produk like 'MC%' ";
         PreparedStatement state = null;
 
         try {

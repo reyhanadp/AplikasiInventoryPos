@@ -343,6 +343,9 @@
                               </Properties>
                             </Component>
                             <Component class="javax.swing.JTextField" name="fieldNamaProdukPrangko">
+                              <Events>
+                                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldNamaProdukPrangkoKeyPressed"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel4">
                               <Properties>
@@ -350,6 +353,9 @@
                               </Properties>
                             </Component>
                             <Component class="javax.swing.JTextField" name="fieldNominalPrangko">
+                              <Events>
+                                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldNominalPrangkoKeyPressed"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel5">
                               <Properties>
@@ -357,6 +363,9 @@
                               </Properties>
                             </Component>
                             <Component class="javax.swing.JTextField" name="fieldTahunPrangko">
+                              <Events>
+                                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldTahunPrangkoKeyPressed"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel6">
                               <Properties>
@@ -364,6 +373,9 @@
                               </Properties>
                             </Component>
                             <Component class="javax.swing.JTextField" name="fieldBiayaCetakPrangko">
+                              <Events>
+                                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldBiayaCetakPrangkoKeyPressed"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JButton" name="buttonSimpanPrangko">
                               <Properties>
@@ -1281,7 +1293,7 @@
                                   <Component id="jScrollPane4" alignment="0" pref="660" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                      <Component id="comboKemasan" min="-2" max="-2" attributes="0"/>
+                                      <Component id="comboJenisKemasan" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="fieldCariKemasan" min="-2" pref="101" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
@@ -1295,7 +1307,7 @@
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="buttonCariKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="fieldCariKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="comboKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="comboJenisKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jScrollPane4" pref="570" max="32767" attributes="0"/>
@@ -1335,7 +1347,7 @@
                             </Component>
                             <Component class="javax.swing.JTextField" name="fieldCariKemasan">
                             </Component>
-                            <Component class="javax.swing.JComboBox" name="comboKemasan">
+                            <Component class="javax.swing.JComboBox" name="comboJenisKemasan">
                               <Properties>
                                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                                   <StringArray count="4">
@@ -1736,6 +1748,9 @@
                               </Properties>
                             </Component>
                             <Component class="javax.swing.JTextField" name="fieldKodeProdukPrisma">
+                              <Properties>
+                                <Property name="editable" type="boolean" value="false"/>
+                              </Properties>
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel33">
                               <Properties>
@@ -1743,6 +1758,9 @@
                               </Properties>
                             </Component>
                             <Component class="javax.swing.JTextField" name="fieldNamaProdukPrisma">
+                              <Events>
+                                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldNamaProdukPrismaKeyPressed"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel34">
                               <Properties>
@@ -1750,6 +1768,9 @@
                               </Properties>
                             </Component>
                             <Component class="javax.swing.JTextField" name="fieldNominalProdukPrisma">
+                              <Events>
+                                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldNominalProdukPrismaKeyPressed"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel35">
                               <Properties>
@@ -1757,6 +1778,9 @@
                               </Properties>
                             </Component>
                             <Component class="javax.swing.JTextField" name="fieldTahunProdukPrisma">
+                              <Events>
+                                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldTahunProdukPrismaKeyPressed"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel36">
                               <Properties>
@@ -1764,21 +1788,33 @@
                               </Properties>
                             </Component>
                             <Component class="javax.swing.JTextField" name="fieldBiayaCetakProdukPrisma">
+                              <Events>
+                                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldBiayaCetakProdukPrismaKeyPressed"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JButton" name="buttonSimpanPrisma">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Simpan"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonSimpanPrismaActionPerformed"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JButton" name="buttonUbahPrisma">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Ubah"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonUbahPrismaActionPerformed"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JButton" name="buttonHapusPrisma">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Hapus"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonHapusPrismaActionPerformed"/>
+                              </Events>
                             </Component>
                           </SubComponents>
                         </Container>
@@ -1920,11 +1956,11 @@
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="fieldNominalProdukDokumenFIlateli" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="fieldBiayaCetakDokumenFIlateli" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="fieldTahunProdukDokumenFIlateli" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="fieldNominalProdukDokumenFilateli" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="fieldBiayaCetakDokumenFilateli" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="fieldTahunProdukDokumenFilateli" alignment="1" max="32767" attributes="0"/>
                                           <Group type="102" alignment="0" attributes="0">
-                                              <Component id="fieldKodeProdukDokumenFIlateli" min="-2" pref="80" max="-2" attributes="0"/>
+                                              <Component id="fieldKodeProdukDokumenFilateli" min="-2" pref="80" max="-2" attributes="0"/>
                                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                           </Group>
                                           <Component id="fieldNamaProdukDokumenFilateli" alignment="0" max="32767" attributes="0"/>
@@ -1932,8 +1968,8 @@
                                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                           <Component id="buttonSimpanDokumenFIlateli" alignment="1" max="32767" attributes="0"/>
-                                          <Component id="buttonUbahDokumenFIlateli" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="buttonHapusDokumenFIlateli" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="buttonUbahDokumenFilateli" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="buttonHapusDokumenFilateli" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                   </Group>
@@ -1945,30 +1981,30 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel37" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="fieldKodeProdukDokumenFIlateli" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fieldKodeProdukDokumenFilateli" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="buttonSimpanDokumenFIlateli" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel38" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="fieldNamaProdukDokumenFilateli" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="buttonUbahDokumenFIlateli" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonUbahDokumenFilateli" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel39" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="fieldNominalProdukDokumenFIlateli" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="buttonHapusDokumenFIlateli" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fieldNominalProdukDokumenFilateli" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonHapusDokumenFilateli" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel40" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="fieldBiayaCetakDokumenFIlateli" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fieldBiayaCetakDokumenFilateli" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel41" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="fieldTahunProdukDokumenFIlateli" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fieldTahunProdukDokumenFilateli" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="32767" attributes="0"/>
                                   </Group>
@@ -1981,7 +2017,10 @@
                                 <Property name="text" type="java.lang.String" value="Kode Produk"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="fieldKodeProdukDokumenFIlateli">
+                            <Component class="javax.swing.JTextField" name="fieldKodeProdukDokumenFilateli">
+                              <Properties>
+                                <Property name="editable" type="boolean" value="false"/>
+                              </Properties>
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel38">
                               <Properties>
@@ -1989,42 +2028,63 @@
                               </Properties>
                             </Component>
                             <Component class="javax.swing.JTextField" name="fieldNamaProdukDokumenFilateli">
+                              <Events>
+                                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldNamaProdukDokumenFilateliKeyPressed"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel39">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Nominal"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="fieldNominalProdukDokumenFIlateli">
+                            <Component class="javax.swing.JTextField" name="fieldNominalProdukDokumenFilateli">
+                              <Events>
+                                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldNominalProdukDokumenFilateliKeyPressed"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel40">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Biaya Cetak  "/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="fieldTahunProdukDokumenFIlateli">
+                            <Component class="javax.swing.JTextField" name="fieldTahunProdukDokumenFilateli">
+                              <Events>
+                                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldTahunProdukDokumenFilateliKeyPressed"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel41">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Tahun"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="fieldBiayaCetakDokumenFIlateli">
+                            <Component class="javax.swing.JTextField" name="fieldBiayaCetakDokumenFilateli">
+                              <Events>
+                                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldBiayaCetakDokumenFilateliKeyPressed"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JButton" name="buttonSimpanDokumenFIlateli">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Simpan"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonSimpanDokumenFIlateliActionPerformed"/>
+                              </Events>
                             </Component>
-                            <Component class="javax.swing.JButton" name="buttonUbahDokumenFIlateli">
+                            <Component class="javax.swing.JButton" name="buttonUbahDokumenFilateli">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Ubah"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonUbahDokumenFilateliActionPerformed"/>
+                              </Events>
                             </Component>
-                            <Component class="javax.swing.JButton" name="buttonHapusDokumenFIlateli">
+                            <Component class="javax.swing.JButton" name="buttonHapusDokumenFilateli">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Hapus"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonHapusDokumenFilateliActionPerformed"/>
+                              </Events>
                             </Component>
                           </SubComponents>
                         </Container>
@@ -2073,7 +2133,7 @@
 
                               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                               <SubComponents>
-                                <Component class="javax.swing.JTable" name="tableDokumenFIlateli">
+                                <Component class="javax.swing.JTable" name="tableDokumenFilateli">
                                   <Properties>
                                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                                       <Table columnCount="4" rowCount="4">
@@ -2085,7 +2145,7 @@
                                     </Property>
                                   </Properties>
                                   <Events>
-                                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tableDokumenFIlateliMouseClicked"/>
+                                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tableDokumenFilateliMouseClicked"/>
                                   </Events>
                                 </Component>
                               </SubComponents>
