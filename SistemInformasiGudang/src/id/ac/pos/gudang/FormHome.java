@@ -1879,11 +1879,49 @@ public final class FormHome extends javax.swing.JFrame {
         
         int ok = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin Mengubah Produk dengan kode : " + kodeProduk + "?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
         if (ok == 0) {
-            
-            dao = new ProdukDAOImpl();
-            dao.ubahProduk(produk);
-                //panggil method koneksi
-                JOptionPane.showMessageDialog(null, "Data Berhasil di hapus");
+        String idProduk = fieldKodeProdukPrangko.getText();
+        String namaProduk = fieldNamaProdukPrangko.getText();
+        int nominal = Integer.parseInt(fieldNominalPrangko.getText());
+        float biayaCetak = Float.parseFloat(fieldBiayaCetakPrangko.getText());
+        String tahun = fieldTahunPrangko.getText();
+
+        //validasi apakah filed 
+        //sudah diisi atau belum
+        if (fieldKodeProdukPrangko.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Kode Produk tidak boleh Kosong");
+        } else if (fieldNamaProdukPrangko.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Nama Produk tidak boleh Kosong");
+        } else if (fieldNominalPrangko.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Nominal tidak boleh Kosong");
+        } else if (fieldBiayaCetakPrangko.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Biaya Cetak tidak boleh Kosong");
+        } else if (fieldTahunPrangko.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Tahun tidak boleh Kosong");
+        } else {
+            JOptionPane.showMessageDialog(null, "Ubah Data");
+        }
+
+        //buat objek pegawai
+        Produk produk = new Produk();
+        produk.setIdProduk(idProduk);
+        produk.setNamaProduk(namaProduk);
+        produk.setNominal(nominal);
+        produk.setBiayaCetak(biayaCetak);
+        produk.setTahun(tahun);
+        
+        
+        
+        //insert produk
+        ProdukDAO dao = new ProdukDAOImpl();
+        boolean sukses = dao.ubahProduk(produk);
+
+        //cek sukses atau tidak
+        if (sukses) {
+            JOptionPane.showMessageDialog(this, "Data berhasil diubah");
+            getDataPrangko();
+        } else {
+            JOptionPane.showMessageDialog(this, "Data gagal diubah");
+        }
         }
     }//GEN-LAST:event_buttonUbahPrangkoActionPerformed
 
