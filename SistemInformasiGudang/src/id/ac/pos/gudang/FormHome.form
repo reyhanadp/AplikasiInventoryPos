@@ -330,6 +330,12 @@
                               </Properties>
                             </Component>
                             <Component class="javax.swing.JTextField" name="fieldKodeProdukPrangko">
+                              <Properties>
+                                <Property name="editable" type="boolean" value="false"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fieldKodeProdukPrangkoActionPerformed"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel3">
                               <Properties>
@@ -531,16 +537,16 @@
                                               <Component id="fieldKodeProdukMS_SS" min="-2" pref="80" max="-2" attributes="0"/>
                                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                           </Group>
-                                          <Component id="jTextField14" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jTextField16" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jTextField15" alignment="1" max="32767" attributes="0"/>
-                                          <Component id="jTextField13" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="fieldNominalProdukMSSS" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="fieldBiayaCetakProdukMSSS" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="fieldTahunProdukMSSS" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="fieldNamaProdukMSSS" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="jButton10" alignment="1" max="32767" attributes="0"/>
-                                          <Component id="jButton11" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jButton12" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="buttonSimpanMSSS" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="buttonUbahMSSS" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="buttonHapusMSSS" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                   </Group>
@@ -553,31 +559,31 @@
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="fieldKodeProdukMS_SS" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jButton10" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonSimpanMSSS" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="ComboJenisMS_SS" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField13" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jButton11" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fieldNamaProdukMSSS" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonUbahMSSS" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField14" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jButton12" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fieldNominalProdukMSSS" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonHapusMSSS" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField16" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fieldBiayaCetakProdukMSSS" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField15" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fieldTahunProdukMSSS" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="32767" attributes="0"/>
                                   </Group>
@@ -591,49 +597,75 @@
                               </Properties>
                             </Component>
                             <Component class="javax.swing.JTextField" name="fieldKodeProdukMS_SS">
+                              <Properties>
+                                <Property name="editable" type="boolean" value="false"/>
+                              </Properties>
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel13">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Nama Produk"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField13">
+                            <Component class="javax.swing.JTextField" name="fieldNamaProdukMSSS">
+                              <Events>
+                                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldNamaProdukMSSSKeyPressed"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel14">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Nominal"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField14">
+                            <Component class="javax.swing.JTextField" name="fieldNominalProdukMSSS">
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fieldNominalProdukMSSSActionPerformed"/>
+                                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldNominalProdukMSSSKeyPressed"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel15">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Biaya Cetak  "/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField15">
+                            <Component class="javax.swing.JTextField" name="fieldTahunProdukMSSS">
+                              <Events>
+                                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldTahunProdukMSSSKeyPressed"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel16">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Tahun"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField16">
+                            <Component class="javax.swing.JTextField" name="fieldBiayaCetakProdukMSSS">
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fieldBiayaCetakProdukMSSSActionPerformed"/>
+                                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldBiayaCetakProdukMSSSKeyPressed"/>
+                              </Events>
                             </Component>
-                            <Component class="javax.swing.JButton" name="jButton10">
+                            <Component class="javax.swing.JButton" name="buttonSimpanMSSS">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Simpan"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonSimpanMSSSActionPerformed"/>
+                              </Events>
                             </Component>
-                            <Component class="javax.swing.JButton" name="jButton11">
+                            <Component class="javax.swing.JButton" name="buttonUbahMSSS">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Ubah"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonUbahMSSSActionPerformed"/>
+                              </Events>
                             </Component>
-                            <Component class="javax.swing.JButton" name="jButton12">
+                            <Component class="javax.swing.JButton" name="buttonHapusMSSS">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Hapus"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonHapusMSSSActionPerformed"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel8">
                               <Properties>
@@ -716,6 +748,9 @@
                                       </Table>
                                     </Property>
                                   </Properties>
+                                  <Events>
+                                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tableMSSSMouseClicked"/>
+                                  </Events>
                                 </Component>
                               </SubComponents>
                             </Container>
@@ -797,10 +832,10 @@
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" attributes="0">
                                               <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jTextField20" alignment="0" pref="474" max="32767" attributes="0"/>
-                                                  <Component id="jTextField22" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="jTextField21" alignment="1" max="32767" attributes="0"/>
-                                                  <Component id="jTextField19" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="fieldNominalProdukSHPSHPSS" alignment="0" pref="474" max="32767" attributes="0"/>
+                                                  <Component id="fieldBiayaCetakSHPSHPSS" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="fieldTahunProdukSHPSHPSS" alignment="1" max="32767" attributes="0"/>
+                                                  <Component id="fieldNamaProdukSHPSHPSS" alignment="0" max="32767" attributes="0"/>
                                               </Group>
                                               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                           </Group>
@@ -814,9 +849,9 @@
                                           </Group>
                                       </Group>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="jButton14" alignment="1" max="32767" attributes="0"/>
-                                          <Component id="jButton15" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jButton16" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="buttonSimpanSHPSHPSS" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="buttonUbahSHPSHPSS" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="buttonHapusSHPSHPSS" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                   </Group>
@@ -835,29 +870,29 @@
                                               <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
                                               <Component id="ComboJenisSHP_SHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <Component id="jButton14" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonSimpanSHPSHPSS" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel18" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField19" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jButton15" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fieldNamaProdukSHPSHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonUbahSHPSHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel19" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField20" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jButton16" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fieldNominalProdukSHPSHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonHapusSHPSHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel20" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField22" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fieldBiayaCetakSHPSHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel21" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField21" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fieldTahunProdukSHPSHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="32767" attributes="0"/>
                                   </Group>
@@ -871,22 +906,28 @@
                               </Properties>
                             </Component>
                             <Component class="javax.swing.JTextField" name="fieldKodeProdukSHP_SHPSS">
+                              <Properties>
+                                <Property name="editable" type="boolean" value="false"/>
+                              </Properties>
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel18">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Nama Produk"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField19">
+                            <Component class="javax.swing.JTextField" name="fieldNamaProdukSHPSHPSS">
+                              <Events>
+                                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldNamaProdukSHPSHPSSKeyPressed"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel19">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Nominal"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField20">
+                            <Component class="javax.swing.JTextField" name="fieldNominalProdukSHPSHPSS">
                               <Events>
-                                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField20KeyPressed"/>
+                                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldNominalProdukSHPSHPSSKeyPressed"/>
                               </Events>
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel20">
@@ -894,29 +935,41 @@
                                 <Property name="text" type="java.lang.String" value="Biaya Cetak  "/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField21">
+                            <Component class="javax.swing.JTextField" name="fieldTahunProdukSHPSHPSS">
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel21">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Tahun"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField22">
+                            <Component class="javax.swing.JTextField" name="fieldBiayaCetakSHPSHPSS">
+                              <Events>
+                                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldBiayaCetakSHPSHPSSKeyPressed"/>
+                              </Events>
                             </Component>
-                            <Component class="javax.swing.JButton" name="jButton14">
+                            <Component class="javax.swing.JButton" name="buttonSimpanSHPSHPSS">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Simpan"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonSimpanSHPSHPSSActionPerformed"/>
+                              </Events>
                             </Component>
-                            <Component class="javax.swing.JButton" name="jButton15">
+                            <Component class="javax.swing.JButton" name="buttonUbahSHPSHPSS">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Ubah"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonUbahSHPSHPSSActionPerformed"/>
+                              </Events>
                             </Component>
-                            <Component class="javax.swing.JButton" name="jButton16">
+                            <Component class="javax.swing.JButton" name="buttonHapusSHPSHPSS">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Hapus"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonHapusSHPSHPSSActionPerformed"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JComboBox" name="ComboJenisSHP_SHPSS">
                               <Properties>
@@ -999,6 +1052,9 @@
                                       </Table>
                                     </Property>
                                   </Properties>
+                                  <Events>
+                                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tableSHPSHPSSMouseClicked"/>
+                                  </Events>
                                 </Component>
                               </SubComponents>
                             </Container>
@@ -1078,20 +1134,20 @@
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jTextField26" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jTextField28" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jTextField27" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="fieldNominalProdukKemasan" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="fieldBiayaCetakProdukKemasan" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="fieldTahunProdukKemasan" alignment="1" max="32767" attributes="0"/>
                                           <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jTextField24" min="-2" pref="80" max="-2" attributes="0"/>
+                                              <Component id="fieldKodeProdukKemasan" min="-2" pref="80" max="-2" attributes="0"/>
                                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                           </Group>
-                                          <Component id="jTextField25" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="fieldNamaProdukKemasan" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="jButton18" alignment="1" max="32767" attributes="0"/>
-                                          <Component id="jButton19" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jButton20" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="buttonSImpanKemasan" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="buttonUbahKemasan" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="buttonHapusKemasan" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                   </Group>
@@ -1103,30 +1159,30 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel22" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField24" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jButton18" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fieldKodeProdukKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonSImpanKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel23" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField25" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jButton19" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fieldNamaProdukKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonUbahKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel24" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField26" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jButton20" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fieldNominalProdukKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonHapusKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel25" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField28" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fieldBiayaCetakProdukKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel26" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField27" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fieldTahunProdukKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="32767" attributes="0"/>
                                   </Group>
@@ -1139,50 +1195,74 @@
                                 <Property name="text" type="java.lang.String" value="Kode Produk"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField24">
+                            <Component class="javax.swing.JTextField" name="fieldKodeProdukKemasan">
+                              <Properties>
+                                <Property name="editable" type="boolean" value="false"/>
+                              </Properties>
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel23">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Nama Produk"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField25">
+                            <Component class="javax.swing.JTextField" name="fieldNamaProdukKemasan">
+                              <Events>
+                                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldNamaProdukKemasanKeyPressed"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel24">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Nominal"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField26">
+                            <Component class="javax.swing.JTextField" name="fieldNominalProdukKemasan">
+                              <Events>
+                                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldNominalProdukKemasanKeyPressed"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel25">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Biaya Cetak  "/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField27">
+                            <Component class="javax.swing.JTextField" name="fieldTahunProdukKemasan">
+                              <Events>
+                                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldTahunProdukKemasanKeyPressed"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel26">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Tahun"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField28">
+                            <Component class="javax.swing.JTextField" name="fieldBiayaCetakProdukKemasan">
+                              <Events>
+                                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldBiayaCetakProdukKemasanKeyPressed"/>
+                              </Events>
                             </Component>
-                            <Component class="javax.swing.JButton" name="jButton18">
+                            <Component class="javax.swing.JButton" name="buttonSImpanKemasan">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Simpan"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonSImpanKemasanActionPerformed"/>
+                              </Events>
                             </Component>
-                            <Component class="javax.swing.JButton" name="jButton19">
+                            <Component class="javax.swing.JButton" name="buttonUbahKemasan">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Ubah"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonUbahKemasanActionPerformed"/>
+                              </Events>
                             </Component>
-                            <Component class="javax.swing.JButton" name="jButton20">
+                            <Component class="javax.swing.JButton" name="buttonHapusKemasan">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Hapus"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonHapusKemasanActionPerformed"/>
+                              </Events>
                             </Component>
                           </SubComponents>
                         </Container>
@@ -1242,6 +1322,9 @@
                                       </Table>
                                     </Property>
                                   </Properties>
+                                  <Events>
+                                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tableKemasanMouseClicked"/>
+                                  </Events>
                                 </Component>
                               </SubComponents>
                             </Container>
@@ -1321,20 +1404,20 @@
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jTextField32" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jTextField34" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jTextField33" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="fieldNominalProdukMerchandise" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="fieldBiayaCetakProdukMerchandise" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="fieldTahunProdukMerchandise" alignment="1" max="32767" attributes="0"/>
                                           <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jTextField30" min="-2" pref="80" max="-2" attributes="0"/>
+                                              <Component id="fieldKodeProdukMerchandise" min="-2" pref="80" max="-2" attributes="0"/>
                                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                           </Group>
-                                          <Component id="jTextField31" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="fieldNamaProdukMerchandise" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="jButton22" alignment="1" max="32767" attributes="0"/>
-                                          <Component id="jButton23" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jButton24" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="buttonSImpanMerchandise" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="buttonUbahMerchandise" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="buttonHapusMerchandise" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                   </Group>
@@ -1346,30 +1429,30 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel27" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField30" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jButton22" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fieldKodeProdukMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonSImpanMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel28" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField31" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jButton23" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fieldNamaProdukMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonUbahMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel29" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField32" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jButton24" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fieldNominalProdukMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonHapusMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel30" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField34" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fieldBiayaCetakProdukMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel31" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField33" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fieldTahunProdukMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="32767" attributes="0"/>
                                   </Group>
@@ -1382,50 +1465,74 @@
                                 <Property name="text" type="java.lang.String" value="Kode Produk"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField30">
+                            <Component class="javax.swing.JTextField" name="fieldKodeProdukMerchandise">
+                              <Properties>
+                                <Property name="editable" type="boolean" value="false"/>
+                              </Properties>
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel28">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Nama Produk"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField31">
+                            <Component class="javax.swing.JTextField" name="fieldNamaProdukMerchandise">
+                              <Events>
+                                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldNamaProdukMerchandiseKeyPressed"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel29">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Nominal"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField32">
+                            <Component class="javax.swing.JTextField" name="fieldNominalProdukMerchandise">
+                              <Events>
+                                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldNominalProdukMerchandiseKeyPressed"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel30">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Biaya Cetak  "/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField33">
+                            <Component class="javax.swing.JTextField" name="fieldTahunProdukMerchandise">
+                              <Events>
+                                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldTahunProdukMerchandiseKeyPressed"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel31">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Tahun"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField34">
+                            <Component class="javax.swing.JTextField" name="fieldBiayaCetakProdukMerchandise">
+                              <Events>
+                                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldBiayaCetakProdukMerchandiseKeyPressed"/>
+                              </Events>
                             </Component>
-                            <Component class="javax.swing.JButton" name="jButton22">
+                            <Component class="javax.swing.JButton" name="buttonSImpanMerchandise">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Simpan"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonSImpanMerchandiseActionPerformed"/>
+                              </Events>
                             </Component>
-                            <Component class="javax.swing.JButton" name="jButton23">
+                            <Component class="javax.swing.JButton" name="buttonUbahMerchandise">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Ubah"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonUbahMerchandiseActionPerformed"/>
+                              </Events>
                             </Component>
-                            <Component class="javax.swing.JButton" name="jButton24">
+                            <Component class="javax.swing.JButton" name="buttonHapusMerchandise">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Hapus"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonHapusMerchandiseActionPerformed"/>
+                              </Events>
                             </Component>
                           </SubComponents>
                         </Container>
@@ -1485,6 +1592,9 @@
                                       </Table>
                                     </Property>
                                   </Properties>
+                                  <Events>
+                                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tableMerchandiseMouseClicked"/>
+                                  </Events>
                                 </Component>
                               </SubComponents>
                             </Container>
@@ -1564,20 +1674,20 @@
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jTextField38" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jTextField40" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jTextField39" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="fieldNominalProdukPrisma" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="fieldBiayaCetakProdukPrisma" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="fieldTahunProdukPrisma" alignment="1" max="32767" attributes="0"/>
                                           <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jTextField36" min="-2" pref="80" max="-2" attributes="0"/>
+                                              <Component id="fieldKodeProdukPrisma" min="-2" pref="80" max="-2" attributes="0"/>
                                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                           </Group>
-                                          <Component id="jTextField37" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="fieldNamaProdukPrisma" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="jButton26" alignment="1" max="32767" attributes="0"/>
-                                          <Component id="jButton27" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jButton28" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="buttonSimpanPrisma" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="buttonUbahPrisma" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="buttonHapusPrisma" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                   </Group>
@@ -1589,30 +1699,30 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel32" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField36" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jButton26" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fieldKodeProdukPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonSimpanPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel33" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField37" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jButton27" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fieldNamaProdukPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonUbahPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel34" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField38" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jButton28" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fieldNominalProdukPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonHapusPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel35" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField40" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fieldBiayaCetakProdukPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel36" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField39" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fieldTahunProdukPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="32767" attributes="0"/>
                                   </Group>
@@ -1625,47 +1735,47 @@
                                 <Property name="text" type="java.lang.String" value="Kode Produk"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField36">
+                            <Component class="javax.swing.JTextField" name="fieldKodeProdukPrisma">
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel33">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Nama Produk"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField37">
+                            <Component class="javax.swing.JTextField" name="fieldNamaProdukPrisma">
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel34">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Nominal"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField38">
+                            <Component class="javax.swing.JTextField" name="fieldNominalProdukPrisma">
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel35">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Biaya Cetak  "/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField39">
+                            <Component class="javax.swing.JTextField" name="fieldTahunProdukPrisma">
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel36">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Tahun"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField40">
+                            <Component class="javax.swing.JTextField" name="fieldBiayaCetakProdukPrisma">
                             </Component>
-                            <Component class="javax.swing.JButton" name="jButton26">
+                            <Component class="javax.swing.JButton" name="buttonSimpanPrisma">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Simpan"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JButton" name="jButton27">
+                            <Component class="javax.swing.JButton" name="buttonUbahPrisma">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Ubah"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JButton" name="jButton28">
+                            <Component class="javax.swing.JButton" name="buttonHapusPrisma">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Hapus"/>
                               </Properties>
@@ -1728,6 +1838,9 @@
                                       </Table>
                                     </Property>
                                   </Properties>
+                                  <Events>
+                                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tablePrismaMouseClicked"/>
+                                  </Events>
                                 </Component>
                               </SubComponents>
                             </Container>
@@ -1807,20 +1920,20 @@
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jTextField44" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jTextField46" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jTextField45" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="fieldNominalProdukDokumenFIlateli" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="fieldBiayaCetakDokumenFIlateli" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="fieldTahunProdukDokumenFIlateli" alignment="1" max="32767" attributes="0"/>
                                           <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jTextField42" min="-2" pref="80" max="-2" attributes="0"/>
+                                              <Component id="fieldKodeProdukDokumenFIlateli" min="-2" pref="80" max="-2" attributes="0"/>
                                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                           </Group>
-                                          <Component id="jTextField43" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="fieldNamaProdukDokumenFilateli" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="jButton30" alignment="1" max="32767" attributes="0"/>
-                                          <Component id="jButton31" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jButton32" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="buttonSimpanDokumenFIlateli" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="buttonUbahDokumenFIlateli" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="buttonHapusDokumenFIlateli" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                   </Group>
@@ -1832,30 +1945,30 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel37" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField42" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jButton30" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fieldKodeProdukDokumenFIlateli" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonSimpanDokumenFIlateli" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel38" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField43" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jButton31" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fieldNamaProdukDokumenFilateli" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonUbahDokumenFIlateli" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel39" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField44" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jButton32" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fieldNominalProdukDokumenFIlateli" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonHapusDokumenFIlateli" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel40" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField46" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fieldBiayaCetakDokumenFIlateli" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel41" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField45" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fieldTahunProdukDokumenFIlateli" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="32767" attributes="0"/>
                                   </Group>
@@ -1868,47 +1981,47 @@
                                 <Property name="text" type="java.lang.String" value="Kode Produk"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField42">
+                            <Component class="javax.swing.JTextField" name="fieldKodeProdukDokumenFIlateli">
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel38">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Nama Produk"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField43">
+                            <Component class="javax.swing.JTextField" name="fieldNamaProdukDokumenFilateli">
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel39">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Nominal"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField44">
+                            <Component class="javax.swing.JTextField" name="fieldNominalProdukDokumenFIlateli">
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel40">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Biaya Cetak  "/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField45">
+                            <Component class="javax.swing.JTextField" name="fieldTahunProdukDokumenFIlateli">
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel41">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Tahun"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField46">
+                            <Component class="javax.swing.JTextField" name="fieldBiayaCetakDokumenFIlateli">
                             </Component>
-                            <Component class="javax.swing.JButton" name="jButton30">
+                            <Component class="javax.swing.JButton" name="buttonSimpanDokumenFIlateli">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Simpan"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JButton" name="jButton31">
+                            <Component class="javax.swing.JButton" name="buttonUbahDokumenFIlateli">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Ubah"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JButton" name="jButton32">
+                            <Component class="javax.swing.JButton" name="buttonHapusDokumenFIlateli">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Hapus"/>
                               </Properties>
@@ -1971,6 +2084,9 @@
                                       </Table>
                                     </Property>
                                   </Properties>
+                                  <Events>
+                                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tableDokumenFIlateliMouseClicked"/>
+                                  </Events>
                                 </Component>
                               </SubComponents>
                             </Container>

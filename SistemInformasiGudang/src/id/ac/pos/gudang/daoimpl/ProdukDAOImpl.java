@@ -80,7 +80,7 @@ public class ProdukDAOImpl implements ProdukDAO {
     @Override
     public boolean ubahProduk(Produk produk) {
         String UPDATE = "UPDATE tb_produk "
-                + "SET nama_produk = ?, nominal = ?, biaya_cetak = ?"
+                + "SET nama_produk = ?, nominal = ?, biaya_cetak = ?,"
                 + " tahun = ? WHERE id_produk = ?";
         PreparedStatement state = null;
         
@@ -91,6 +91,9 @@ public class ProdukDAOImpl implements ProdukDAO {
             state.setFloat(3, produk.getBiayaCetak());
             state.setString(4, produk.getTahun());
             state.setString(5, produk.getIdProduk());
+            
+            int qty = state.executeUpdate();
+            return qty > 0;
         } catch (SQLException ex) {
             Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
