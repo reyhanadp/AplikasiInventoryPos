@@ -217,6 +217,49 @@ public final class FormHome extends javax.swing.JFrame {
         kode_prisma = "PS" + kosong + sub_nomor_string;
         fieldKodeProdukPrisma.setText(kode_prisma);
     }
+    
+    public String cariJenis(String tab){
+        
+        String idJenis="";
+        if(tab.compareTo("prangko")==0){
+            idJenis="PR";
+        }else if(tab.compareTo("kemasan")==0){
+            idJenis="KM";
+        }else if(tab.compareTo("shp")==0){
+            idJenis="SHP";
+        }else if(tab.compareTo("ss")==0){
+            idJenis="SS";
+        }else if(tab.compareTo("merchandise")==0){
+            idJenis="MC";
+        }else if(tab.compareTo("prisma")==0){
+            idJenis="PS";
+        }else if(tab.compareTo("df")==0){
+            idJenis="DF";
+        }
+        
+        return idJenis;
+    }
+    
+    public String cariData() {
+        Object pilihanCari = comboCariPrangko.getSelectedItem();
+        
+        String jenisCari = null;
+       
+            if (pilihanCari == "Id Produk") {
+                        jenisCari="id_produk";
+            } else if (pilihanCari == "Nama Produk") {
+                        jenisCari="nama_produk";
+            } else if (pilihanCari == "Nominal") {
+                        jenisCari="nominal";
+            } else if (pilihanCari == "Stok") {
+                        jenisCari="stok";
+            } else if (pilihanCari == "Biaya Cetak") {
+                        jenisCari="biaya_cetak";
+            } else if (pilihanCari == "Tahun") {
+                        jenisCari="tahun";
+            }
+            return jenisCari;
+    }
 
     private void autoincrementDokumenFilateli() {
         String kosong = null;
@@ -453,7 +496,7 @@ public final class FormHome extends javax.swing.JFrame {
         tablePrangko = new javax.swing.JTable();
         buttonCariPrangko = new javax.swing.JButton();
         fieldCariPrangko = new javax.swing.JTextField();
-        comboCariPrangko = new javax.swing.JComboBox<String>();
+        comboCariPrangko = new javax.swing.JComboBox<>();
         MS_SS = new javax.swing.JPanel();
         jPanel16 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
@@ -470,13 +513,13 @@ public final class FormHome extends javax.swing.JFrame {
         buttonUbahMSSS = new javax.swing.JButton();
         buttonHapusMSSS = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
-        ComboJenisMS_SS = new javax.swing.JComboBox<String>();
+        ComboJenisMS_SS = new javax.swing.JComboBox<>();
         jPanel17 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tableMSSS = new javax.swing.JTable();
         buttonCariMS_SS = new javax.swing.JButton();
         fieldCariMS_SS = new javax.swing.JTextField();
-        comboMS_SS = new javax.swing.JComboBox<String>();
+        comboMS_SS = new javax.swing.JComboBox<>();
         SHP_SHPSS = new javax.swing.JPanel();
         jPanel18 = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
@@ -492,14 +535,14 @@ public final class FormHome extends javax.swing.JFrame {
         buttonSimpanSHPSHPSS = new javax.swing.JButton();
         buttonUbahSHPSHPSS = new javax.swing.JButton();
         buttonHapusSHPSHPSS = new javax.swing.JButton();
-        ComboJenisSHP_SHPSS = new javax.swing.JComboBox<String>();
+        ComboJenisSHP_SHPSS = new javax.swing.JComboBox<>();
         jLabel10 = new javax.swing.JLabel();
         jPanel19 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tableSHPSHPSS = new javax.swing.JTable();
         buttonCariSHP_SHPSS = new javax.swing.JButton();
         fieldCariSHP_SHPSS = new javax.swing.JTextField();
-        comboSHP_SHPSS = new javax.swing.JComboBox<String>();
+        comboSHP_SHPSS = new javax.swing.JComboBox<>();
         Kemasan = new javax.swing.JPanel();
         jPanel20 = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
@@ -520,7 +563,7 @@ public final class FormHome extends javax.swing.JFrame {
         tableKemasan = new javax.swing.JTable();
         buttonCariKemasan = new javax.swing.JButton();
         fieldCariKemasan = new javax.swing.JTextField();
-        comboJenisKemasan = new javax.swing.JComboBox<String>();
+        comboJenisKemasan = new javax.swing.JComboBox<>();
         Merchandise = new javax.swing.JPanel();
         jPanel22 = new javax.swing.JPanel();
         jLabel27 = new javax.swing.JLabel();
@@ -541,7 +584,7 @@ public final class FormHome extends javax.swing.JFrame {
         tableMerchandise = new javax.swing.JTable();
         buttonCariMerchandise = new javax.swing.JButton();
         fieldCariMerchandise = new javax.swing.JTextField();
-        comboMerchandise = new javax.swing.JComboBox<String>();
+        comboMerchandise = new javax.swing.JComboBox<>();
         Prisma = new javax.swing.JPanel();
         jPanel24 = new javax.swing.JPanel();
         jLabel32 = new javax.swing.JLabel();
@@ -562,7 +605,7 @@ public final class FormHome extends javax.swing.JFrame {
         tablePrisma = new javax.swing.JTable();
         buttonCariPrisma = new javax.swing.JButton();
         fieldCariPrisma = new javax.swing.JTextField();
-        comboPrisma = new javax.swing.JComboBox<String>();
+        comboPrisma = new javax.swing.JComboBox<>();
         DokumenFilateli = new javax.swing.JPanel();
         jPanel26 = new javax.swing.JPanel();
         jLabel37 = new javax.swing.JLabel();
@@ -583,13 +626,13 @@ public final class FormHome extends javax.swing.JFrame {
         tableDokumenFilateli = new javax.swing.JTable();
         buttonCariDokumenFilateli = new javax.swing.JButton();
         fieldCariDokumenFIlateli = new javax.swing.JTextField();
-        comboDokumenFIlateli = new javax.swing.JComboBox<String>();
+        comboDokumenFIlateli = new javax.swing.JComboBox<>();
         jPanel5 = new javax.swing.JPanel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel15 = new javax.swing.JPanel();
         jPanel30 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        jComboBox8 = new javax.swing.JComboBox<String>();
+        jComboBox8 = new javax.swing.JComboBox<>();
         jLabel11 = new javax.swing.JLabel();
         fieldNamaProdukPenerimaan = new javax.swing.JTextField();
         jButton7 = new javax.swing.JButton();
@@ -669,7 +712,24 @@ public final class FormHome extends javax.swing.JFrame {
 
         jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
 
+        jTabbedPane1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTabbedPane1MouseClicked(evt);
+            }
+        });
+
+        Prangko.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                PrangkoMouseClicked(evt);
+            }
+        });
+
         jPanel13.setBorder(javax.swing.BorderFactory.createTitledBorder("Form Produk"));
+        jPanel13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel13MouseClicked(evt);
+            }
+        });
 
         jLabel2.setText("Kode Produk");
 
@@ -811,8 +871,19 @@ public final class FormHome extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tablePrangko);
 
         buttonCariPrangko.setText("Cari");
+        buttonCariPrangko.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCariPrangkoActionPerformed(evt);
+            }
+        });
 
-        comboCariPrangko.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        fieldCariPrangko.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                fieldCariPrangkoMouseClicked(evt);
+            }
+        });
+
+        comboCariPrangko.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
 
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
         jPanel14.setLayout(jPanel14Layout);
@@ -854,6 +925,12 @@ public final class FormHome extends javax.swing.JFrame {
         );
 
         jTabbedPane1.addTab("Prangko", Prangko);
+
+        MS_SS.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                MS_SSMouseClicked(evt);
+            }
+        });
 
         jPanel16.setBorder(javax.swing.BorderFactory.createTitledBorder("Form Produk"));
 
@@ -926,7 +1003,7 @@ public final class FormHome extends javax.swing.JFrame {
 
         jLabel8.setText("Jenis");
 
-        ComboJenisMS_SS.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "MS", "SS" }));
+        ComboJenisMS_SS.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MS", "SS" }));
         ComboJenisMS_SS.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ComboJenisMS_SSMouseClicked(evt);
@@ -1025,8 +1102,13 @@ public final class FormHome extends javax.swing.JFrame {
         jScrollPane2.setViewportView(tableMSSS);
 
         buttonCariMS_SS.setText("Cari");
+        buttonCariMS_SS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCariMS_SSActionPerformed(evt);
+            }
+        });
 
-        comboMS_SS.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboMS_SS.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
 
         javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
         jPanel17.setLayout(jPanel17Layout);
@@ -1068,6 +1150,12 @@ public final class FormHome extends javax.swing.JFrame {
         );
 
         jTabbedPane1.addTab("MS & SS", MS_SS);
+
+        SHP_SHPSS.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SHP_SHPSSMouseClicked(evt);
+            }
+        });
 
         jPanel18.setBorder(javax.swing.BorderFactory.createTitledBorder("Form Produk"));
 
@@ -1122,7 +1210,7 @@ public final class FormHome extends javax.swing.JFrame {
             }
         });
 
-        ComboJenisSHP_SHPSS.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "SHP", "SHPSS" }));
+        ComboJenisSHP_SHPSS.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SHP", "SHPSS" }));
         ComboJenisSHP_SHPSS.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ComboJenisSHP_SHPSSMouseClicked(evt);
@@ -1227,8 +1315,13 @@ public final class FormHome extends javax.swing.JFrame {
         jScrollPane3.setViewportView(tableSHPSHPSS);
 
         buttonCariSHP_SHPSS.setText("Cari");
+        buttonCariSHP_SHPSS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCariSHP_SHPSSActionPerformed(evt);
+            }
+        });
 
-        comboSHP_SHPSS.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboSHP_SHPSS.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
 
         javax.swing.GroupLayout jPanel19Layout = new javax.swing.GroupLayout(jPanel19);
         jPanel19.setLayout(jPanel19Layout);
@@ -1270,6 +1363,12 @@ public final class FormHome extends javax.swing.JFrame {
         );
 
         jTabbedPane1.addTab("SHP & SHPSS", SHP_SHPSS);
+
+        Kemasan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                KemasanMouseClicked(evt);
+            }
+        });
 
         jPanel20.setBorder(javax.swing.BorderFactory.createTitledBorder("Form Produk"));
 
@@ -1408,8 +1507,13 @@ public final class FormHome extends javax.swing.JFrame {
         jScrollPane4.setViewportView(tableKemasan);
 
         buttonCariKemasan.setText("Cari");
+        buttonCariKemasan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCariKemasanActionPerformed(evt);
+            }
+        });
 
-        comboJenisKemasan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboJenisKemasan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
 
         javax.swing.GroupLayout jPanel21Layout = new javax.swing.GroupLayout(jPanel21);
         jPanel21.setLayout(jPanel21Layout);
@@ -1589,8 +1693,13 @@ public final class FormHome extends javax.swing.JFrame {
         jScrollPane5.setViewportView(tableMerchandise);
 
         buttonCariMerchandise.setText("Cari");
+        buttonCariMerchandise.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCariMerchandiseActionPerformed(evt);
+            }
+        });
 
-        comboMerchandise.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboMerchandise.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
 
         javax.swing.GroupLayout jPanel23Layout = new javax.swing.GroupLayout(jPanel23);
         jPanel23.setLayout(jPanel23Layout);
@@ -1770,8 +1879,13 @@ public final class FormHome extends javax.swing.JFrame {
         jScrollPane6.setViewportView(tablePrisma);
 
         buttonCariPrisma.setText("Cari");
+        buttonCariPrisma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCariPrismaActionPerformed(evt);
+            }
+        });
 
-        comboPrisma.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboPrisma.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
 
         javax.swing.GroupLayout jPanel25Layout = new javax.swing.GroupLayout(jPanel25);
         jPanel25.setLayout(jPanel25Layout);
@@ -1951,8 +2065,13 @@ public final class FormHome extends javax.swing.JFrame {
         jScrollPane7.setViewportView(tableDokumenFilateli);
 
         buttonCariDokumenFilateli.setText("Cari");
+        buttonCariDokumenFilateli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCariDokumenFilateliActionPerformed(evt);
+            }
+        });
 
-        comboDokumenFIlateli.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboDokumenFIlateli.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
 
         javax.swing.GroupLayout jPanel27Layout = new javax.swing.GroupLayout(jPanel27);
         jPanel27.setLayout(jPanel27Layout);
@@ -2006,11 +2125,17 @@ public final class FormHome extends javax.swing.JFrame {
             .addComponent(jTabbedPane1)
         );
 
+        jTabbedPane2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTabbedPane2MouseClicked(evt);
+            }
+        });
+
         jPanel30.setBorder(javax.swing.BorderFactory.createTitledBorder("Form Penerimaan"));
 
         jLabel7.setText("Jenis Produk");
 
-        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel11.setText("Nama Produk");
 
@@ -3434,6 +3559,160 @@ public final class FormHome extends javax.swing.JFrame {
     private void fieldTahunPrangkoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldTahunPrangkoKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_fieldTahunPrangkoKeyPressed
+
+    private void buttonCariPrangkoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariPrangkoActionPerformed
+        // TODO add your handling code here:
+        String keyword = fieldCariPrangko.getText();
+        String status="prangko";
+        String jenisCari = cariData();
+        String idJenis = cariJenis(status);
+        
+        // lakukan proses pencarian
+        dao = new ProdukDAOImpl();
+        arrayProduk = dao.cariProduk(keyword,jenisCari,idJenis);
+
+        ProdukTM produkTableModel = new ProdukTM();
+        produkTableModel.setDataProduk(arrayProduk);
+
+        tablePrangko.setModel(produkTableModel);
+    }//GEN-LAST:event_buttonCariPrangkoActionPerformed
+
+    private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseClicked
+        // TODO add your handling code here:
+        String idJenis = "PR";
+        
+        
+    }//GEN-LAST:event_jTabbedPane1MouseClicked
+
+    private void jTabbedPane2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTabbedPane2MouseClicked
+
+    private void jPanel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel13MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel13MouseClicked
+
+    private void MS_SSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MS_SSMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MS_SSMouseClicked
+
+    private void SHP_SHPSSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SHP_SHPSSMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SHP_SHPSSMouseClicked
+
+    private void KemasanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KemasanMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_KemasanMouseClicked
+
+    private void PrangkoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PrangkoMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PrangkoMouseClicked
+
+    private void fieldCariPrangkoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fieldCariPrangkoMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fieldCariPrangkoMouseClicked
+
+    private void buttonCariKemasanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariKemasanActionPerformed
+        // TODO add your handling code here:
+        String keyword = fieldCariKemasan.getText();
+        String tab = "kemasan";
+        String jenisCari = cariData();
+        String idJenis = cariJenis(tab);
+        
+        // lakukan proses pencarian
+        dao = new ProdukDAOImpl();
+        arrayProduk = dao.cariProduk(keyword,jenisCari,idJenis);
+
+        ProdukTM produkTableModel = new ProdukTM();
+        produkTableModel.setDataProduk(arrayProduk);
+
+        tableKemasan.setModel(produkTableModel);
+    }//GEN-LAST:event_buttonCariKemasanActionPerformed
+
+    private void buttonCariMS_SSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariMS_SSActionPerformed
+        // TODO add your handling code here:
+        String keyword = fieldCariMS_SS.getText();
+        String status="ss";
+        String jenisCari = cariData();
+        String idJenis = cariJenis(status);
+        
+        // lakukan proses pencarian
+        dao = new ProdukDAOImpl();
+        arrayProduk = dao.cariProduk(keyword,jenisCari,idJenis);
+
+        ProdukTM produkTableModel = new ProdukTM();
+        produkTableModel.setDataProduk(arrayProduk);
+
+        tableMSSS.setModel(produkTableModel);
+    }//GEN-LAST:event_buttonCariMS_SSActionPerformed
+
+    private void buttonCariSHP_SHPSSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariSHP_SHPSSActionPerformed
+        // TODO add your handling code here:
+        String keyword = fieldCariSHP_SHPSS.getText();
+        String status="shp";
+        String jenisCari = cariData();
+        String idJenis = cariJenis(status);
+        
+        // lakukan proses pencarian
+        dao = new ProdukDAOImpl();
+        arrayProduk = dao.cariProduk(keyword,jenisCari,idJenis);
+
+        ProdukTM produkTableModel = new ProdukTM();
+        produkTableModel.setDataProduk(arrayProduk);
+
+        tableSHPSHPSS.setModel(produkTableModel);
+    }//GEN-LAST:event_buttonCariSHP_SHPSSActionPerformed
+
+    private void buttonCariMerchandiseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariMerchandiseActionPerformed
+        // TODO add your handling code here:
+        String keyword = fieldCariMerchandise.getText();
+        String status="merchandise";
+        String jenisCari = cariData();
+        String idJenis = cariJenis(status);
+        
+        // lakukan proses pencarian
+        dao = new ProdukDAOImpl();
+        arrayProduk = dao.cariProduk(keyword,jenisCari,idJenis);
+
+        ProdukTM produkTableModel = new ProdukTM();
+        produkTableModel.setDataProduk(arrayProduk);
+
+        tableMerchandise.setModel(produkTableModel);
+    }//GEN-LAST:event_buttonCariMerchandiseActionPerformed
+
+    private void buttonCariPrismaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariPrismaActionPerformed
+        // TODO add your handling code here:
+        String keyword = fieldCariPrisma.getText();
+        String status="prisma";
+        String jenisCari = cariData();
+        String idJenis = cariJenis(status);
+        
+        // lakukan proses pencarian
+        dao = new ProdukDAOImpl();
+        arrayProduk = dao.cariProduk(keyword,jenisCari,idJenis);
+
+        ProdukTM produkTableModel = new ProdukTM();
+        produkTableModel.setDataProduk(arrayProduk);
+
+        tablePrisma.setModel(produkTableModel);
+    }//GEN-LAST:event_buttonCariPrismaActionPerformed
+
+    private void buttonCariDokumenFilateliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariDokumenFilateliActionPerformed
+        // TODO add your handling code here:
+        String keyword = fieldCariDokumenFIlateli.getText();
+        String status="df";
+        String jenisCari = cariData();
+        String idJenis = cariJenis(status);
+        
+        // lakukan proses pencarian
+        dao = new ProdukDAOImpl();
+        arrayProduk = dao.cariProduk(keyword,jenisCari,idJenis);
+
+        ProdukTM produkTableModel = new ProdukTM();
+        produkTableModel.setDataProduk(arrayProduk);
+
+        tableDokumenFilateli.setModel(produkTableModel);
+    }//GEN-LAST:event_buttonCariDokumenFilateliActionPerformed
 
     /**
      * @param args the command line arguments

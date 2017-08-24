@@ -28,7 +28,7 @@ public interface ProdukDAO {
     
     ArrayList<Produk> getProdukDokumenFilateli();
 
-    ArrayList<Produk> cariProduk(String keyword);
+    ArrayList<Produk> cariProduk(String keyword,String jenisCari, String idJenis);
     
     String getIdProduk(String jenisProduk);
 

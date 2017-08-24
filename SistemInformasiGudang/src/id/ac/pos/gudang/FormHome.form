@@ -215,10 +215,16 @@
               </Layout>
               <SubComponents>
                 <Container class="javax.swing.JTabbedPane" name="jTabbedPane1">
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTabbedPane1MouseClicked"/>
+                  </Events>
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
                   <SubComponents>
                     <Container class="javax.swing.JPanel" name="Prangko">
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="PrangkoMouseClicked"/>
+                      </Events>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
                           <JTabbedPaneConstraints tabName="Prangko">
@@ -253,6 +259,9 @@
                               </Border>
                             </Property>
                           </Properties>
+                          <Events>
+                            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jPanel13MouseClicked"/>
+                          </Events>
 
                           <Layout>
                             <DimensionLayout dim="0">
@@ -496,17 +505,25 @@
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Cari"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCariPrangkoActionPerformed"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JTextField" name="fieldCariPrangko">
+                              <Events>
+                                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="fieldCariPrangkoMouseClicked"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JComboBox" name="comboCariPrangko">
                               <Properties>
                                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                  <StringArray count="4">
-                                    <StringItem index="0" value="Item 1"/>
-                                    <StringItem index="1" value="Item 2"/>
-                                    <StringItem index="2" value="Item 3"/>
-                                    <StringItem index="3" value="Item 4"/>
+                                  <StringArray count="6">
+                                    <StringItem index="0" value="Nama Produk"/>
+                                    <StringItem index="1" value="Id Produk"/>
+                                    <StringItem index="2" value="Nominal"/>
+                                    <StringItem index="3" value="Biaya Cetak"/>
+                                    <StringItem index="4" value="Stok"/>
+                                    <StringItem index="5" value="Tahun"/>
                                   </StringArray>
                                 </Property>
                               </Properties>
@@ -519,6 +536,9 @@
                       </SubComponents>
                     </Container>
                     <Container class="javax.swing.JPanel" name="MS_SS">
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="MS_SSMouseClicked"/>
+                      </Events>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
                           <JTabbedPaneConstraints tabName="MS &amp; SS">
@@ -797,17 +817,22 @@
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Cari"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCariMS_SSActionPerformed"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JTextField" name="fieldCariMS_SS">
                             </Component>
                             <Component class="javax.swing.JComboBox" name="comboMS_SS">
                               <Properties>
                                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                  <StringArray count="4">
-                                    <StringItem index="0" value="Item 1"/>
-                                    <StringItem index="1" value="Item 2"/>
-                                    <StringItem index="2" value="Item 3"/>
-                                    <StringItem index="3" value="Item 4"/>
+                                  <StringArray count="6">
+                                    <StringItem index="0" value="Nama Produk"/>
+                                    <StringItem index="1" value="Id Produk"/>
+                                    <StringItem index="2" value="Nominal"/>
+                                    <StringItem index="3" value="Biaya Cetak"/>
+                                    <StringItem index="4" value="Stok"/>
+                                    <StringItem index="5" value="Tahun"/>
                                   </StringArray>
                                 </Property>
                               </Properties>
@@ -820,6 +845,9 @@
                       </SubComponents>
                     </Container>
                     <Container class="javax.swing.JPanel" name="SHP_SHPSS">
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="SHP_SHPSSMouseClicked"/>
+                      </Events>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
                           <JTabbedPaneConstraints tabName="SHP &amp; SHPSS">
@@ -1101,17 +1129,22 @@
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Cari"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCariSHP_SHPSSActionPerformed"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JTextField" name="fieldCariSHP_SHPSS">
                             </Component>
                             <Component class="javax.swing.JComboBox" name="comboSHP_SHPSS">
                               <Properties>
                                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                  <StringArray count="4">
-                                    <StringItem index="0" value="Item 1"/>
-                                    <StringItem index="1" value="Item 2"/>
-                                    <StringItem index="2" value="Item 3"/>
-                                    <StringItem index="3" value="Item 4"/>
+                                  <StringArray count="6">
+                                    <StringItem index="0" value="Nama Produk"/>
+                                    <StringItem index="1" value="Id Produk"/>
+                                    <StringItem index="2" value="Nominal"/>
+                                    <StringItem index="3" value="Biaya Cetak"/>
+                                    <StringItem index="4" value="Stok"/>
+                                    <StringItem index="5" value="Tahun"/>
                                   </StringArray>
                                 </Property>
                               </Properties>
@@ -1124,6 +1157,9 @@
                       </SubComponents>
                     </Container>
                     <Container class="javax.swing.JPanel" name="Kemasan">
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="KemasanMouseClicked"/>
+                      </Events>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
                           <JTabbedPaneConstraints tabName="Kemasan">
@@ -1371,17 +1407,22 @@
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Cari"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCariKemasanActionPerformed"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JTextField" name="fieldCariKemasan">
                             </Component>
                             <Component class="javax.swing.JComboBox" name="comboJenisKemasan">
                               <Properties>
                                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                  <StringArray count="4">
-                                    <StringItem index="0" value="Item 1"/>
-                                    <StringItem index="1" value="Item 2"/>
-                                    <StringItem index="2" value="Item 3"/>
-                                    <StringItem index="3" value="Item 4"/>
+                                  <StringArray count="6">
+                                    <StringItem index="0" value="Nama Produk"/>
+                                    <StringItem index="1" value="Id Produk"/>
+                                    <StringItem index="2" value="Nominal"/>
+                                    <StringItem index="3" value="Biaya Cetak"/>
+                                    <StringItem index="4" value="Stok"/>
+                                    <StringItem index="5" value="Tahun"/>
                                   </StringArray>
                                 </Property>
                               </Properties>
@@ -1641,17 +1682,22 @@
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Cari"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCariMerchandiseActionPerformed"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JTextField" name="fieldCariMerchandise">
                             </Component>
                             <Component class="javax.swing.JComboBox" name="comboMerchandise">
                               <Properties>
                                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                  <StringArray count="4">
-                                    <StringItem index="0" value="Item 1"/>
-                                    <StringItem index="1" value="Item 2"/>
-                                    <StringItem index="2" value="Item 3"/>
-                                    <StringItem index="3" value="Item 4"/>
+                                  <StringArray count="6">
+                                    <StringItem index="0" value="Nama Produk"/>
+                                    <StringItem index="1" value="Id Produk"/>
+                                    <StringItem index="2" value="Nominal"/>
+                                    <StringItem index="3" value="Biaya Cetak"/>
+                                    <StringItem index="4" value="Stok"/>
+                                    <StringItem index="5" value="Tahun"/>
                                   </StringArray>
                                 </Property>
                               </Properties>
@@ -1911,17 +1957,22 @@
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Cari"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCariPrismaActionPerformed"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JTextField" name="fieldCariPrisma">
                             </Component>
                             <Component class="javax.swing.JComboBox" name="comboPrisma">
                               <Properties>
                                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                  <StringArray count="4">
-                                    <StringItem index="0" value="Item 1"/>
-                                    <StringItem index="1" value="Item 2"/>
-                                    <StringItem index="2" value="Item 3"/>
-                                    <StringItem index="3" value="Item 4"/>
+                                  <StringArray count="6">
+                                    <StringItem index="0" value="Nama Produk"/>
+                                    <StringItem index="1" value="Id Produk"/>
+                                    <StringItem index="2" value="Nominal"/>
+                                    <StringItem index="3" value="Biaya Cetak"/>
+                                    <StringItem index="4" value="Stok"/>
+                                    <StringItem index="5" value="Tahun"/>
                                   </StringArray>
                                 </Property>
                               </Properties>
@@ -2181,17 +2232,22 @@
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Cari"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCariDokumenFilateliActionPerformed"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JTextField" name="fieldCariDokumenFIlateli">
                             </Component>
                             <Component class="javax.swing.JComboBox" name="comboDokumenFIlateli">
                               <Properties>
                                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                  <StringArray count="4">
-                                    <StringItem index="0" value="Item 1"/>
-                                    <StringItem index="1" value="Item 2"/>
-                                    <StringItem index="2" value="Item 3"/>
-                                    <StringItem index="3" value="Item 4"/>
+                                  <StringArray count="6">
+                                    <StringItem index="0" value="Nama Produk"/>
+                                    <StringItem index="1" value="Id Produk"/>
+                                    <StringItem index="2" value="Nominal"/>
+                                    <StringItem index="3" value="Biaya Cetak"/>
+                                    <StringItem index="4" value="Stok"/>
+                                    <StringItem index="5" value="Tahun"/>
                                   </StringArray>
                                 </Property>
                               </Properties>
@@ -2223,6 +2279,9 @@
               </Layout>
               <SubComponents>
                 <Container class="javax.swing.JTabbedPane" name="jTabbedPane2">
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTabbedPane2MouseClicked"/>
+                  </Events>
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
                   <SubComponents>

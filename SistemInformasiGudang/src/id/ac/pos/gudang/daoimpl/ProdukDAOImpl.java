@@ -29,8 +29,49 @@ public class ProdukDAOImpl implements ProdukDAO {
     }
 
     @Override
-    public ArrayList<Produk> cariProduk(String keyword) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public ArrayList<Produk> cariProduk(String keyword,String jenisCari,String idJenis) {
+        ArrayList<Produk> arrayProduk = null;
+        String SELECT="";
+        if (idJenis.compareTo("SS")==0){
+             SELECT = "SELECT * FROM tb_produk "
+                + "WHERE "+jenisCari+" LIKE '%"+keyword+"%' && (id_produk like '"+idJenis+"%' "
+                + "|| id_produk like 'MS%'";
+        }else {
+                 SELECT = "SELECT * FROM tb_produk "
+                + "WHERE "+jenisCari+" LIKE '%"+keyword+"%' && id_produk like '"+idJenis+"%'";
+        }
+        PreparedStatement state = null;
+
+        try {
+            state = conn.prepareStatement(SELECT);            
+            ResultSet result = state.executeQuery();
+            if (result != null) {
+                arrayProduk = new ArrayList<>();
+                
+                // selama result memiliki data
+                // return lebih dari 1 data
+                while (result.next()) {
+                    
+                    // mengambil 1 data
+                    Produk produk = new Produk();
+                    produk.setIdProduk(result.getString(1));
+                    produk.setNamaProduk(result.getString(2));
+                    produk.setNominal(result.getInt(3));
+                    produk.setBiayaCetak(result.getFloat(4));
+                    produk.setStok(result.getInt(5));
+                    produk.setTahun(result.getString(6));
+                    produk.setIdJenisProduk(result.getString(7));
+                    
+                    // menambahkan data ke array
+                    arrayProduk.add(produk);
+                }
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return arrayProduk;
     }
 
     @Override
