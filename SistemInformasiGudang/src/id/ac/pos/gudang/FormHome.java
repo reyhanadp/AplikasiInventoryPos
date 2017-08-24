@@ -34,7 +34,7 @@ public final class FormHome extends javax.swing.JFrame {
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         autoincrementPrangko();
         autoincrementMS_SS();
-        autoincrementSHP_SHPSS();
+        //autoincrementSHP_SHPSS();
         autoincrementKemasan();
         autoincrementMerchandise();
         autoincrementPrisma();
@@ -249,6 +249,42 @@ public final class FormHome extends javax.swing.JFrame {
         kode_dokumen_filateli = "DF" + kosong + sub_nomor_string;
         fieldKodeProdukDokumenFilateli.setText(kode_dokumen_filateli);
     }
+    
+    private void resetField() {
+         
+         fieldNamaProdukPrangko.setText("");
+         fieldNamaProdukMSSS.setText("");
+         fieldNamaProdukSHPSHPSS.setText("");
+         fieldNamaProdukMerchandise.setText("");
+         fieldNamaProdukKemasan.setText("");
+         fieldNamaProdukDokumenFilateli.setText("");
+         fieldNamaProdukPrisma.setText("");
+         
+         fieldNominalPrangko.setText("");
+         fieldNominalProdukMSSS.setText("");
+         fieldNominalProdukSHPSHPSS.setText("");
+         fieldNominalProdukMerchandise.setText("");
+         fieldNominalProdukKemasan.setText("");
+         fieldNominalProdukDokumenFilateli.setText("");
+         fieldNominalProdukPrisma.setText("");
+         
+         fieldBiayaCetakPrangko.setText("");
+         fieldBiayaCetakProdukMSSS.setText("");
+         fieldBiayaCetakSHPSHPSS.setText("");
+         fieldBiayaCetakProdukMerchandise.setText("");
+         fieldBiayaCetakProdukKemasan.setText("");
+         fieldBiayaCetakDokumenFilateli.setText("");
+         fieldBiayaCetakProdukPrisma.setText("");
+         
+         fieldTahunPrangko.setText("");
+         fieldTahunProdukMSSS.setText("");
+         fieldTahunProdukSHPSHPSS.setText("");
+         fieldTahunProdukMerchandise.setText("");
+         fieldTahunProdukKemasan.setText("");
+         fieldTahunProdukDokumenFilateli.setText("");
+         fieldTahunProdukPrisma.setText("");
+      
+    }
 
     private void hanyaAngka() {
         /*char karakter = evt.getKeyChar();
@@ -275,7 +311,7 @@ public final class FormHome extends javax.swing.JFrame {
 
         String kodeSHP_SHPSS = dao.getIdProduk(jenisProduk);
         if (kodeSHP_SHPSS == null) {
-            kodeSHP_SHPSS = jenisProduk + "000";
+            kodeSHP_SHPSS = "" + jenisProduk + "000";
         }
 
         if (jenisSHP_SHPSS == "SHP") {
@@ -2265,7 +2301,7 @@ public final class FormHome extends javax.swing.JFrame {
         } else if (fieldTahunPrangko.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Tahun tidak boleh Kosong");
         } else {
-            JOptionPane.showMessageDialog(null, "Simpan Data");
+            JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin menyimpan " + namaProduk + "?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
         }
 
         //buat objek pegawai
@@ -2287,8 +2323,10 @@ public final class FormHome extends javax.swing.JFrame {
         if (sukses) {
             JOptionPane.showMessageDialog(this, "Data berhasil ditambahkan");
             getDataPrangko();
+            resetField();
         } else {
             JOptionPane.showMessageDialog(this, "Data gagal ditambahkan");
+            resetField();
         }
 
     }//GEN-LAST:event_buttonSimpanPrangkoActionPerformed
@@ -2351,6 +2389,8 @@ public final class FormHome extends javax.swing.JFrame {
             if (sukses) {
                 JOptionPane.showMessageDialog(this, "Data berhasil diubah");
                 getDataPrangko();
+                resetField();
+                autoincrementPrangko();
             } else {
                 JOptionPane.showMessageDialog(this, "Data gagal diubah");
                 getDataPrangko();
@@ -2406,7 +2446,6 @@ public final class FormHome extends javax.swing.JFrame {
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             fieldBiayaCetakSHPSHPSS.requestFocus();
         }
-
     }//GEN-LAST:event_fieldNominalProdukSHPSHPSSKeyPressed
 
     private void fieldKodeProdukPrangkoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldKodeProdukPrangkoActionPerformed
@@ -2443,7 +2482,6 @@ public final class FormHome extends javax.swing.JFrame {
         fieldNominalProdukSHPSHPSS.setText(nominal);
         fieldBiayaCetakSHPSHPSS.setText(biayaCetak);
         fieldTahunProdukSHPSHPSS.setText(tahun);
-
     }//GEN-LAST:event_tableSHPSHPSSMouseClicked
 
     private void tableKemasanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableKemasanMouseClicked
@@ -2532,7 +2570,7 @@ public final class FormHome extends javax.swing.JFrame {
         } else if (fieldTahunProdukMSSS.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Tahun tidak boleh Kosong");
         } else {
-            JOptionPane.showMessageDialog(null, "Simpan Data");
+            JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin menyimpan " + namaProduk + "?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
         }
 
         //buat objek pegawai
@@ -2705,7 +2743,7 @@ public final class FormHome extends javax.swing.JFrame {
         } else if (fieldTahunProdukSHPSHPSS.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Tahun tidak boleh Kosong");
         } else {
-            JOptionPane.showMessageDialog(null, "Simpan Data");
+            JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin menyimpan " + namaProduk + "?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
         }
 
         //buat objek pegawai
@@ -2856,7 +2894,7 @@ public final class FormHome extends javax.swing.JFrame {
         } else if (fieldTahunProdukKemasan.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Tahun tidak boleh Kosong");
         } else {
-            JOptionPane.showMessageDialog(null, "Simpan Data");
+            JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin menyimpan " + namaProduk + "?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
         }
 
         //buat objek pegawai
@@ -2908,7 +2946,7 @@ public final class FormHome extends javax.swing.JFrame {
             } else if (fieldTahunProdukKemasan.getText().equals("")) {
                 JOptionPane.showMessageDialog(null, "Tahun tidak boleh Kosong");
             } else {
-                JOptionPane.showMessageDialog(null, "Simpan Data");
+                JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin mengubah" + idProduk + " " + namaProduk + "?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
             }
 
             //buat objek pegawai
@@ -2996,7 +3034,7 @@ public final class FormHome extends javax.swing.JFrame {
         } else if (fieldTahunProdukMerchandise.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Tahun tidak boleh Kosong");
         } else {
-            JOptionPane.showMessageDialog(null, "Simpan Data");
+            JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin menyimpan " + namaProduk + "?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
         }
 
         //buat objek pegawai
@@ -3138,7 +3176,7 @@ public final class FormHome extends javax.swing.JFrame {
         } else if (fieldTahunProdukPrisma.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Tahun tidak boleh Kosong");
         } else {
-            JOptionPane.showMessageDialog(null, "Simpan Data");
+            JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin menyimpan " + namaProduk + "?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
         }
 
         //buat objek pegawai
@@ -3278,7 +3316,7 @@ public final class FormHome extends javax.swing.JFrame {
         } else if (fieldTahunProdukDokumenFilateli.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Tahun tidak boleh Kosong");
         } else {
-            JOptionPane.showMessageDialog(null, "Simpan Data");
+            JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin menyimpan " + namaProduk + "?", "Konfirmasi", JOptionPane.YES_NO_OPTION);;
         }
 
         //buat objek pegawai
@@ -3374,22 +3412,22 @@ public final class FormHome extends javax.swing.JFrame {
 
     private void fieldNamaProdukPrangkoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldNamaProdukPrangkoKeyPressed
         // TODO add your handling code here:
-         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-             fieldNominalPrangko.requestFocus();
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            fieldNominalPrangko.requestFocus();
         }
     }//GEN-LAST:event_fieldNamaProdukPrangkoKeyPressed
 
     private void fieldNominalPrangkoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldNominalPrangkoKeyPressed
         // TODO add your handling code here:
-         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             fieldBiayaCetakPrangko.requestFocus();
         }
     }//GEN-LAST:event_fieldNominalPrangkoKeyPressed
 
     private void fieldBiayaCetakPrangkoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldBiayaCetakPrangkoKeyPressed
         // TODO add your handling code here:
-         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-             fieldTahunPrangko.requestFocus();
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            fieldTahunPrangko.requestFocus();
         }
     }//GEN-LAST:event_fieldBiayaCetakPrangkoKeyPressed
 
