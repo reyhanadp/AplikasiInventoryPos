@@ -15,6 +15,7 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -28,13 +29,14 @@ public final class FormHome extends javax.swing.JFrame {
     private Produk produk;
     private ProdukDAO dao;
     ArrayList<Produk> arrayProduk;
+    TableRowSorter sorter;
 
     public FormHome() {
         initComponents();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         autoincrementPrangko();
         autoincrementMS_SS();
-        //autoincrementSHP_SHPSS();
+        autoincrementSHP_SHPSS();
         autoincrementKemasan();
         autoincrementMerchandise();
         autoincrementPrisma();
@@ -393,7 +395,8 @@ public final class FormHome extends javax.swing.JFrame {
 
         ProdukTM produkPrangkoTableModel = new ProdukTM();
         produkPrangkoTableModel.setDataProduk(arrayProduk);
-
+        sorter = new TableRowSorter(produkPrangkoTableModel);
+        tablePrangko.setRowSorter(sorter);
         tablePrangko.setModel(produkPrangkoTableModel);
     }
 
@@ -403,7 +406,8 @@ public final class FormHome extends javax.swing.JFrame {
 
         ProdukTM produkMS_SSTableModel = new ProdukTM();
         produkMS_SSTableModel.setDataProduk(arrayProduk);
-
+        sorter = new TableRowSorter(produkMS_SSTableModel);
+        tableMSSS.setRowSorter(sorter);
         tableMSSS.setModel(produkMS_SSTableModel);
     }
 
@@ -413,7 +417,8 @@ public final class FormHome extends javax.swing.JFrame {
 
         ProdukTM produkSHP_SHPSSTableModel = new ProdukTM();
         produkSHP_SHPSSTableModel.setDataProduk(arrayProduk);
-
+        sorter = new TableRowSorter(produkSHP_SHPSSTableModel);
+        tableSHPSHPSS.setRowSorter(sorter);
         tableSHPSHPSS.setModel(produkSHP_SHPSSTableModel);
     }
 
@@ -423,7 +428,8 @@ public final class FormHome extends javax.swing.JFrame {
 
         ProdukTM produkKemasanTableModel = new ProdukTM();
         produkKemasanTableModel.setDataProduk(arrayProduk);
-
+        sorter = new TableRowSorter(produkKemasanTableModel);
+        tableKemasan.setRowSorter(sorter);
         tableKemasan.setModel(produkKemasanTableModel);
     }
 
@@ -433,7 +439,8 @@ public final class FormHome extends javax.swing.JFrame {
 
         ProdukTM produkMerchandiseTableModel = new ProdukTM();
         produkMerchandiseTableModel.setDataProduk(arrayProduk);
-
+        sorter = new TableRowSorter(produkMerchandiseTableModel);
+        tableMerchandise.setRowSorter(sorter);
         tableMerchandise.setModel(produkMerchandiseTableModel);
     }
 
@@ -443,7 +450,8 @@ public final class FormHome extends javax.swing.JFrame {
 
         ProdukTM produkPrismaTableModel = new ProdukTM();
         produkPrismaTableModel.setDataProduk(arrayProduk);
-
+        sorter = new TableRowSorter(produkPrismaTableModel);
+        tablePrisma.setRowSorter(sorter);
         tablePrisma.setModel(produkPrismaTableModel);
     }
 
@@ -453,7 +461,8 @@ public final class FormHome extends javax.swing.JFrame {
 
         ProdukTM produkDokumenFilateliTableModel = new ProdukTM();
         produkDokumenFilateliTableModel.setDataProduk(arrayProduk);
-
+        sorter = new TableRowSorter(produkDokumenFilateliTableModel);
+        tableDokumenFilateli.setRowSorter(sorter);
         tableDokumenFilateli.setModel(produkDokumenFilateliTableModel);
     }
 
@@ -2516,6 +2525,7 @@ public final class FormHome extends javax.swing.JFrame {
                 getDataPrangko();
                 resetField();
                 autoincrementPrangko();
+                
             } else {
                 JOptionPane.showMessageDialog(this, "Data gagal diubah");
                 getDataPrangko();
@@ -2726,6 +2736,7 @@ public final class FormHome extends javax.swing.JFrame {
         if (sukses) {
             JOptionPane.showMessageDialog(this, "Data berhasil ditambahkan");
             getDataMS_SS();
+            resetField();
         } else {
             JOptionPane.showMessageDialog(this, "Data gagal ditambahkan");
         }
@@ -2814,9 +2825,12 @@ public final class FormHome extends javax.swing.JFrame {
             if (sukses) {
                 JOptionPane.showMessageDialog(this, "Data berhasil diubah");
                 getDataMS_SS();
+                resetField();
+                autoincrementMS_SS();
             } else {
                 JOptionPane.showMessageDialog(this, "Data gagal diubah");
                 getDataMS_SS();
+                
             }
             getDataMS_SS();
         }
@@ -2880,12 +2894,12 @@ public final class FormHome extends javax.swing.JFrame {
         produk.setTahun(tahun);
 
         //inisialisasi
-        Object jenisSHP_SHPSS = ComboJenisMS_SS.getSelectedItem();
+        Object jenisSHP_SHPSS = ComboJenisSHP_SHPSS.getSelectedItem();
         String kosong = null;
         String jenisProduk = null;
 
         //insert produk
-        ProdukDAO dao = new ProdukDAOImpl();
+        dao = new ProdukDAOImpl();
         if (jenisSHP_SHPSS == "SHP") {
             jenisProduk = "SHP";
             //Tambahkan pilihan item untuk buah
@@ -2893,12 +2907,13 @@ public final class FormHome extends javax.swing.JFrame {
         } else if (jenisSHP_SHPSS == "SHPSS") {
             jenisProduk = "SHPSS";
         }
+        
         boolean sukses = dao.tambahProduk(produk, jenisProduk);
-
         //cek sukses atau tidak
         if (sukses) {
             JOptionPane.showMessageDialog(this, "Data berhasil ditambahkan");
             getDataSHP_SHPSS();
+            resetField();
         } else {
             JOptionPane.showMessageDialog(this, "Data gagal ditambahkan");
         }
@@ -2950,6 +2965,8 @@ public final class FormHome extends javax.swing.JFrame {
             if (sukses) {
                 JOptionPane.showMessageDialog(this, "Data berhasil diubah");
                 getDataSHP_SHPSS();
+                resetField();
+                autoincrementSHP_SHPSS();
             } else {
                 JOptionPane.showMessageDialog(this, "Data gagal diubah");
                 getDataSHP_SHPSS();
@@ -3040,6 +3057,7 @@ public final class FormHome extends javax.swing.JFrame {
         if (sukses) {
             JOptionPane.showMessageDialog(this, "Data berhasil ditambahkan");
             getDataKemasan();
+            resetField();
         } else {
             JOptionPane.showMessageDialog(this, "Data gagal ditambahkan");
         }
@@ -3090,6 +3108,8 @@ public final class FormHome extends javax.swing.JFrame {
             if (sukses) {
                 JOptionPane.showMessageDialog(this, "Data berhasil diubah");
                 getDataKemasan();
+                resetField();
+                autoincrementKemasan();
             } else {
                 JOptionPane.showMessageDialog(this, "Data gagal diubah");
                 getDataKemasan();
@@ -3180,6 +3200,7 @@ public final class FormHome extends javax.swing.JFrame {
         if (sukses) {
             JOptionPane.showMessageDialog(this, "Data berhasil ditambahkan");
             getDataMerchandise();
+            resetField();
         } else {
             JOptionPane.showMessageDialog(this, "Data gagal ditambahkan");
         }
@@ -3230,6 +3251,8 @@ public final class FormHome extends javax.swing.JFrame {
             if (sukses) {
                 JOptionPane.showMessageDialog(this, "Data berhasil diubah");
                 getDataMerchandise();
+                resetField();
+                autoincrementMerchandise();
             } else {
                 JOptionPane.showMessageDialog(this, "Data gagal diubah");
                 getDataMerchandise();
@@ -3322,6 +3345,7 @@ public final class FormHome extends javax.swing.JFrame {
         if (sukses) {
             JOptionPane.showMessageDialog(this, "Data berhasil ditambahkan");
             getDataPrisma();
+            resetField();
         } else {
             JOptionPane.showMessageDialog(this, "Data gagal ditambahkan");
         }
@@ -3372,6 +3396,8 @@ public final class FormHome extends javax.swing.JFrame {
             if (sukses) {
                 JOptionPane.showMessageDialog(this, "Data berhasil diubah");
                 getDataPrisma();
+                resetField();
+                autoincrementPrisma();
             } else {
                 JOptionPane.showMessageDialog(this, "Data gagal diubah");
                 getDataPrisma();
@@ -3462,6 +3488,7 @@ public final class FormHome extends javax.swing.JFrame {
         if (sukses) {
             JOptionPane.showMessageDialog(this, "Data berhasil ditambahkan");
             getDataDokumenFilateli();
+            resetField();
         } else {
             JOptionPane.showMessageDialog(this, "Data gagal ditambahkan");
         }
@@ -3512,6 +3539,8 @@ public final class FormHome extends javax.swing.JFrame {
             if (sukses) {
                 JOptionPane.showMessageDialog(this, "Data berhasil diubah");
                 getDataDokumenFilateli();
+                resetField();
+                autoincrementDokumenFilateli();
             } else {
                 JOptionPane.showMessageDialog(this, "Data gagal diubah");
                 getDataDokumenFilateli();

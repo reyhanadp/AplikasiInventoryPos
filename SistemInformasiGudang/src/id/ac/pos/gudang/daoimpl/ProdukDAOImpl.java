@@ -144,7 +144,7 @@ public class ProdukDAOImpl implements ProdukDAO {
     @Override
     public String getIdProduk(String jenisProduk) {
         String kode_produk = null;
-        String SELECT = "SELECT id_produk FROM tb_produk where id_produk like '"+jenisProduk+"%'";
+        String SELECT = "SELECT id_produk FROM tb_produk where id_jenis_produk='"+jenisProduk+"'";
         PreparedStatement state = null;
 
         try {
