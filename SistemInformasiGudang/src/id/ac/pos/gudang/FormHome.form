@@ -282,7 +282,7 @@
                                           <Component id="fieldTahunPrangko" alignment="1" max="32767" attributes="0"/>
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="fieldKodeProdukPrangko" min="-2" pref="80" max="-2" attributes="0"/>
-                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                              <EmptySpace min="0" pref="394" max="32767" attributes="0"/>
                                           </Group>
                                           <Component id="fieldNamaProdukPrangko" alignment="0" max="32767" attributes="0"/>
                                       </Group>
@@ -291,6 +291,7 @@
                                           <Component id="buttonSimpanPrangko" alignment="1" max="32767" attributes="0"/>
                                           <Component id="buttonUbahPrangko" alignment="0" max="32767" attributes="0"/>
                                           <Component id="buttonHapusPrangko" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="buttonReset" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                   </Group>
@@ -321,6 +322,7 @@
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="fieldBiayaCetakPrangko" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonReset" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
@@ -364,6 +366,7 @@
                             <Component class="javax.swing.JTextField" name="fieldNominalPrangko">
                               <Events>
                                 <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldNominalPrangkoKeyPressed"/>
+                                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldNominalPrangkoKeyTyped"/>
                               </Events>
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel5">
@@ -372,8 +375,17 @@
                               </Properties>
                             </Component>
                             <Component class="javax.swing.JTextField" name="fieldTahunPrangko">
+                              <Properties>
+                                <Property name="toolTipText" type="java.lang.String" value=""/>
+                                <Property name="autoscrolls" type="boolean" value="false"/>
+                                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                                  <Color id="Text Cursor"/>
+                                </Property>
+                              </Properties>
                               <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fieldTahunPrangkoActionPerformed"/>
                                 <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldTahunPrangkoKeyPressed"/>
+                                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldTahunPrangkoKeyTyped"/>
                               </Events>
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel6">
@@ -384,6 +396,7 @@
                             <Component class="javax.swing.JTextField" name="fieldBiayaCetakPrangko">
                               <Events>
                                 <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldBiayaCetakPrangkoKeyPressed"/>
+                                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldBiayaCetakPrangkoKeyTyped"/>
                               </Events>
                             </Component>
                             <Component class="javax.swing.JButton" name="buttonSimpanPrangko">
@@ -408,6 +421,14 @@
                               </Properties>
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonHapusPrangkoActionPerformed"/>
+                              </Events>
+                            </Component>
+                            <Component class="javax.swing.JButton" name="buttonReset">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="Reset"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonResetActionPerformed"/>
                               </Events>
                             </Component>
                           </SubComponents>
@@ -492,7 +513,7 @@
                                       </TableColumnModel>
                                     </Property>
                                     <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
-                                      <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                                      <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
                                     </Property>
                                   </Properties>
                                   <Events>
@@ -679,6 +700,7 @@
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fieldNominalProdukMSSSActionPerformed"/>
                                 <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldNominalProdukMSSSKeyPressed"/>
+                                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldNominalProdukMSSSKeyTyped"/>
                               </Events>
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel15">
@@ -689,6 +711,7 @@
                             <Component class="javax.swing.JTextField" name="fieldTahunProdukMSSS">
                               <Events>
                                 <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldTahunProdukMSSSKeyPressed"/>
+                                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldTahunProdukMSSSKeyTyped"/>
                               </Events>
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel16">
@@ -700,6 +723,7 @@
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fieldBiayaCetakProdukMSSSActionPerformed"/>
                                 <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldBiayaCetakProdukMSSSKeyPressed"/>
+                                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldBiayaCetakProdukMSSSKeyTyped"/>
                               </Events>
                             </Component>
                             <Component class="javax.swing.JButton" name="buttonSimpanMSSS">
@@ -805,6 +829,33 @@
                                         <Column editable="true" title="Title 3" type="java.lang.Object"/>
                                         <Column editable="true" title="Title 4" type="java.lang.Object"/>
                                       </Table>
+                                    </Property>
+                                    <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                                      <TableColumnModel selectionModel="0">
+                                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                          <Title/>
+                                          <Editor/>
+                                          <Renderer/>
+                                        </Column>
+                                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                          <Title/>
+                                          <Editor/>
+                                          <Renderer/>
+                                        </Column>
+                                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                          <Title/>
+                                          <Editor/>
+                                          <Renderer/>
+                                        </Column>
+                                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                          <Title/>
+                                          <Editor/>
+                                          <Renderer/>
+                                        </Column>
+                                      </TableColumnModel>
+                                    </Property>
+                                    <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                                      <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
                                     </Property>
                                   </Properties>
                                   <Events>
@@ -995,6 +1046,7 @@
                             <Component class="javax.swing.JTextField" name="fieldNominalProdukSHPSHPSS">
                               <Events>
                                 <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldNominalProdukSHPSHPSSKeyPressed"/>
+                                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldNominalProdukSHPSHPSSKeyTyped"/>
                               </Events>
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel20">
@@ -1003,6 +1055,9 @@
                               </Properties>
                             </Component>
                             <Component class="javax.swing.JTextField" name="fieldTahunProdukSHPSHPSS">
+                              <Events>
+                                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldTahunProdukSHPSHPSSKeyTyped"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel21">
                               <Properties>
@@ -1012,6 +1067,7 @@
                             <Component class="javax.swing.JTextField" name="fieldBiayaCetakSHPSHPSS">
                               <Events>
                                 <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldBiayaCetakSHPSHPSSKeyPressed"/>
+                                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldBiayaCetakSHPSHPSSKeyTyped"/>
                               </Events>
                             </Component>
                             <Component class="javax.swing.JButton" name="buttonSimpanSHPSHPSS">
@@ -1117,6 +1173,33 @@
                                         <Column editable="true" title="Title 3" type="java.lang.Object"/>
                                         <Column editable="true" title="Title 4" type="java.lang.Object"/>
                                       </Table>
+                                    </Property>
+                                    <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                                      <TableColumnModel selectionModel="0">
+                                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                          <Title/>
+                                          <Editor/>
+                                          <Renderer/>
+                                        </Column>
+                                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                          <Title/>
+                                          <Editor/>
+                                          <Renderer/>
+                                        </Column>
+                                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                          <Title/>
+                                          <Editor/>
+                                          <Renderer/>
+                                        </Column>
+                                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                          <Title/>
+                                          <Editor/>
+                                          <Renderer/>
+                                        </Column>
+                                      </TableColumnModel>
+                                    </Property>
+                                    <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                                      <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
                                     </Property>
                                   </Properties>
                                   <Events>
@@ -1293,6 +1376,7 @@
                             <Component class="javax.swing.JTextField" name="fieldNominalProdukKemasan">
                               <Events>
                                 <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldNominalProdukKemasanKeyPressed"/>
+                                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldNominalProdukKemasanKeyTyped"/>
                               </Events>
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel25">
@@ -1303,6 +1387,7 @@
                             <Component class="javax.swing.JTextField" name="fieldTahunProdukKemasan">
                               <Events>
                                 <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldTahunProdukKemasanKeyPressed"/>
+                                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldTahunProdukKemasanKeyTyped"/>
                               </Events>
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel26">
@@ -1313,6 +1398,7 @@
                             <Component class="javax.swing.JTextField" name="fieldBiayaCetakProdukKemasan">
                               <Events>
                                 <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldBiayaCetakProdukKemasanKeyPressed"/>
+                                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldBiayaCetakProdukKemasanKeyTyped"/>
                               </Events>
                             </Component>
                             <Component class="javax.swing.JButton" name="buttonSImpanKemasan">
@@ -1373,7 +1459,7 @@
                                           <Component id="comboJenisKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jScrollPane4" pref="570" max="32767" attributes="0"/>
+                                      <Component id="jScrollPane4" pref="571" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -1395,6 +1481,33 @@
                                         <Column editable="true" title="Title 3" type="java.lang.Object"/>
                                         <Column editable="true" title="Title 4" type="java.lang.Object"/>
                                       </Table>
+                                    </Property>
+                                    <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                                      <TableColumnModel selectionModel="0">
+                                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                          <Title/>
+                                          <Editor/>
+                                          <Renderer/>
+                                        </Column>
+                                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                          <Title/>
+                                          <Editor/>
+                                          <Renderer/>
+                                        </Column>
+                                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                          <Title/>
+                                          <Editor/>
+                                          <Renderer/>
+                                        </Column>
+                                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                          <Title/>
+                                          <Editor/>
+                                          <Renderer/>
+                                        </Column>
+                                      </TableColumnModel>
+                                    </Property>
+                                    <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                                      <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
                                     </Property>
                                   </Properties>
                                   <Events>
@@ -1568,6 +1681,7 @@
                             <Component class="javax.swing.JTextField" name="fieldNominalProdukMerchandise">
                               <Events>
                                 <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldNominalProdukMerchandiseKeyPressed"/>
+                                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldNominalProdukMerchandiseKeyTyped"/>
                               </Events>
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel30">
@@ -1578,6 +1692,7 @@
                             <Component class="javax.swing.JTextField" name="fieldTahunProdukMerchandise">
                               <Events>
                                 <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldTahunProdukMerchandiseKeyPressed"/>
+                                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldTahunProdukMerchandiseKeyTyped"/>
                               </Events>
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel31">
@@ -1588,6 +1703,7 @@
                             <Component class="javax.swing.JTextField" name="fieldBiayaCetakProdukMerchandise">
                               <Events>
                                 <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldBiayaCetakProdukMerchandiseKeyPressed"/>
+                                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldBiayaCetakProdukMerchandiseKeyTyped"/>
                               </Events>
                             </Component>
                             <Component class="javax.swing.JButton" name="buttonSImpanMerchandise">
@@ -1648,7 +1764,7 @@
                                           <Component id="comboMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jScrollPane5" pref="570" max="32767" attributes="0"/>
+                                      <Component id="jScrollPane5" pref="571" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -1670,6 +1786,33 @@
                                         <Column editable="true" title="Title 3" type="java.lang.Object"/>
                                         <Column editable="true" title="Title 4" type="java.lang.Object"/>
                                       </Table>
+                                    </Property>
+                                    <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                                      <TableColumnModel selectionModel="0">
+                                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                          <Title/>
+                                          <Editor/>
+                                          <Renderer/>
+                                        </Column>
+                                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                          <Title/>
+                                          <Editor/>
+                                          <Renderer/>
+                                        </Column>
+                                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                          <Title/>
+                                          <Editor/>
+                                          <Renderer/>
+                                        </Column>
+                                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                          <Title/>
+                                          <Editor/>
+                                          <Renderer/>
+                                        </Column>
+                                      </TableColumnModel>
+                                    </Property>
+                                    <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                                      <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
                                     </Property>
                                   </Properties>
                                   <Events>
@@ -1843,6 +1986,7 @@
                             <Component class="javax.swing.JTextField" name="fieldNominalProdukPrisma">
                               <Events>
                                 <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldNominalProdukPrismaKeyPressed"/>
+                                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldNominalProdukPrismaKeyTyped"/>
                               </Events>
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel35">
@@ -1853,6 +1997,7 @@
                             <Component class="javax.swing.JTextField" name="fieldTahunProdukPrisma">
                               <Events>
                                 <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldTahunProdukPrismaKeyPressed"/>
+                                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldTahunProdukPrismaKeyTyped"/>
                               </Events>
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel36">
@@ -1863,6 +2008,7 @@
                             <Component class="javax.swing.JTextField" name="fieldBiayaCetakProdukPrisma">
                               <Events>
                                 <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldBiayaCetakProdukPrismaKeyPressed"/>
+                                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldBiayaCetakProdukPrismaKeyTyped"/>
                               </Events>
                             </Component>
                             <Component class="javax.swing.JButton" name="buttonSimpanPrisma">
@@ -1923,7 +2069,7 @@
                                           <Component id="comboPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jScrollPane6" pref="570" max="32767" attributes="0"/>
+                                      <Component id="jScrollPane6" pref="571" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -1945,6 +2091,33 @@
                                         <Column editable="true" title="Title 3" type="java.lang.Object"/>
                                         <Column editable="true" title="Title 4" type="java.lang.Object"/>
                                       </Table>
+                                    </Property>
+                                    <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                                      <TableColumnModel selectionModel="0">
+                                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                          <Title/>
+                                          <Editor/>
+                                          <Renderer/>
+                                        </Column>
+                                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                          <Title/>
+                                          <Editor/>
+                                          <Renderer/>
+                                        </Column>
+                                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                          <Title/>
+                                          <Editor/>
+                                          <Renderer/>
+                                        </Column>
+                                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                          <Title/>
+                                          <Editor/>
+                                          <Renderer/>
+                                        </Column>
+                                      </TableColumnModel>
+                                    </Property>
+                                    <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                                      <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
                                     </Property>
                                   </Properties>
                                   <Events>
@@ -2118,6 +2291,7 @@
                             <Component class="javax.swing.JTextField" name="fieldNominalProdukDokumenFilateli">
                               <Events>
                                 <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldNominalProdukDokumenFilateliKeyPressed"/>
+                                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldNominalProdukDokumenFilateliKeyTyped"/>
                               </Events>
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel40">
@@ -2128,6 +2302,7 @@
                             <Component class="javax.swing.JTextField" name="fieldTahunProdukDokumenFilateli">
                               <Events>
                                 <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldTahunProdukDokumenFilateliKeyPressed"/>
+                                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldTahunProdukDokumenFilateliKeyTyped"/>
                               </Events>
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel41">
@@ -2138,6 +2313,7 @@
                             <Component class="javax.swing.JTextField" name="fieldBiayaCetakDokumenFilateli">
                               <Events>
                                 <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldBiayaCetakDokumenFilateliKeyPressed"/>
+                                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldBiayaCetakDokumenFilateliKeyTyped"/>
                               </Events>
                             </Component>
                             <Component class="javax.swing.JButton" name="buttonSimpanDokumenFIlateli">
@@ -2198,7 +2374,7 @@
                                           <Component id="comboDokumenFIlateli" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jScrollPane7" pref="570" max="32767" attributes="0"/>
+                                      <Component id="jScrollPane7" pref="571" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -2220,6 +2396,33 @@
                                         <Column editable="true" title="Title 3" type="java.lang.Object"/>
                                         <Column editable="true" title="Title 4" type="java.lang.Object"/>
                                       </Table>
+                                    </Property>
+                                    <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                                      <TableColumnModel selectionModel="0">
+                                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                          <Title/>
+                                          <Editor/>
+                                          <Renderer/>
+                                        </Column>
+                                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                          <Title/>
+                                          <Editor/>
+                                          <Renderer/>
+                                        </Column>
+                                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                          <Title/>
+                                          <Editor/>
+                                          <Renderer/>
+                                        </Column>
+                                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                          <Title/>
+                                          <Editor/>
+                                          <Renderer/>
+                                        </Column>
+                                      </TableColumnModel>
+                                    </Property>
+                                    <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                                      <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
                                     </Property>
                                   </Properties>
                                   <Events>
