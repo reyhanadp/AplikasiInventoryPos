@@ -30,15 +30,23 @@ public class ProdukDAOImpl implements ProdukDAO {
 
     @Override
     public ArrayList<Produk> cariProduk(String keyword,String jenisCari,String idJenis) {
-        ArrayList<Produk> arrayProduk = null;
+         ArrayList<Produk> arrayProduk = null;
         String SELECT="";
         if (idJenis.compareTo("SS")==0){
              SELECT = "SELECT * FROM tb_produk "
-                + "WHERE "+jenisCari+" LIKE '%"+keyword+"%' && (id_produk like '"+idJenis+"%' "
-                + "|| id_produk like 'MS%'";
-        }else {
+                + "WHERE "+jenisCari+" LIKE '%"+keyword+"%' && "
+                + "id_jenis_produk in (SELECT id_jenis_produk FROM"
+                     + " tb_produk WHERE id_jenis_produk = 'SS'"
+                + " || id_jenis_produk = 'MS')";
+        }else if (idJenis.compareTo("SHP")==0){
+             SELECT = "SELECT * FROM tb_produk "
+                + "WHERE "+jenisCari+" LIKE '%"+keyword+"%' && "
+                + "id_jenis_produk in (SELECT id_jenis_produk FROM"
+                     + " tb_produk WHERE id_jenis_produk = 'SHP'"
+                + " || id_jenis_produk = 'SHPSS')";
+        }else{
                  SELECT = "SELECT * FROM tb_produk "
-                + "WHERE "+jenisCari+" LIKE '%"+keyword+"%' && id_produk like '"+idJenis+"%'";
+                + "WHERE "+jenisCari+" LIKE '%"+keyword+"%' && id_jenis_produk = '"+idJenis+"'";
         }
         PreparedStatement state = null;
 

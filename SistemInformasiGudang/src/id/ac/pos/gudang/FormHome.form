@@ -533,6 +533,9 @@
                             <Component class="javax.swing.JTextField" name="fieldCariPrangko">
                               <Events>
                                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="fieldCariPrangkoMouseClicked"/>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fieldCariPrangkoActionPerformed"/>
+                                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldCariPrangkoKeyReleased"/>
+                                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldCariPrangkoKeyTyped"/>
                               </Events>
                             </Component>
                             <Component class="javax.swing.JComboBox" name="comboCariPrangko">
@@ -870,9 +873,14 @@
                               </Properties>
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCariMS_SSActionPerformed"/>
+                                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="buttonCariMS_SSKeyReleased"/>
                               </Events>
                             </Component>
                             <Component class="javax.swing.JTextField" name="fieldCariMS_SS">
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fieldCariMS_SSActionPerformed"/>
+                                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldCariMS_SSKeyReleased"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JComboBox" name="comboMS_SS">
                               <Properties>
@@ -1217,6 +1225,10 @@
                               </Events>
                             </Component>
                             <Component class="javax.swing.JTextField" name="fieldCariSHP_SHPSS">
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fieldCariSHP_SHPSSActionPerformed"/>
+                                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldCariSHP_SHPSSKeyReleased"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JComboBox" name="comboSHP_SHPSS">
                               <Properties>
@@ -1525,6 +1537,10 @@
                               </Events>
                             </Component>
                             <Component class="javax.swing.JTextField" name="fieldCariKemasan">
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fieldCariKemasanActionPerformed"/>
+                                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldCariKemasanKeyReleased"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JComboBox" name="comboJenisKemasan">
                               <Properties>
@@ -1830,6 +1846,10 @@
                               </Events>
                             </Component>
                             <Component class="javax.swing.JTextField" name="fieldCariMerchandise">
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fieldCariMerchandiseActionPerformed"/>
+                                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldCariMerchandiseKeyReleased"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JComboBox" name="comboMerchandise">
                               <Properties>
@@ -2135,6 +2155,10 @@
                               </Events>
                             </Component>
                             <Component class="javax.swing.JTextField" name="fieldCariPrisma">
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fieldCariPrismaActionPerformed"/>
+                                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldCariPrismaKeyReleased"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JComboBox" name="comboPrisma">
                               <Properties>
@@ -2440,6 +2464,10 @@
                               </Events>
                             </Component>
                             <Component class="javax.swing.JTextField" name="fieldCariDokumenFIlateli">
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fieldCariDokumenFIlateliActionPerformed"/>
+                                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldCariDokumenFIlateliKeyReleased"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JComboBox" name="comboDokumenFIlateli">
                               <Properties>

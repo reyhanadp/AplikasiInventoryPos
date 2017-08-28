@@ -238,48 +238,89 @@ public final class FormHome extends javax.swing.JFrame {
         fieldKodeProdukPrisma.setText(kode_prisma);
     }
 
-    public String cariJenis(String tab) {
-
-        String idJenis = "";
-        if (tab.compareTo("prangko") == 0) {
-            idJenis = "PR";
-        } else if (tab.compareTo("kemasan") == 0) {
-            idJenis = "KM";
-        } else if (tab.compareTo("shp") == 0) {
-            idJenis = "SHP";
-        } else if (tab.compareTo("ss") == 0) {
-            idJenis = "SS";
-        } else if (tab.compareTo("merchandise") == 0) {
-            idJenis = "MC";
-        } else if (tab.compareTo("prisma") == 0) {
-            idJenis = "PS";
-        } else if (tab.compareTo("df") == 0) {
-            idJenis = "DF";
+    public String cariData(String tabCari) {        
+        Object pilihanCari ="";
+        if (tabCari.compareTo("PR")==0){
+            pilihanCari = comboCariPrangko.getSelectedItem();
+        }else if(tabCari.compareTo("kemasan")==0){
+            pilihanCari = comboJenisKemasan.getSelectedItem();
+        }else if(tabCari.compareTo("shp")==0){
+            pilihanCari = comboSHP_SHPSS.getSelectedItem();
+        }else if(tabCari.compareTo("ss")==0){
+            pilihanCari = comboMS_SS.getSelectedItem();
+        }else if(tabCari.compareTo("merchandise")==0){
+            pilihanCari = comboMerchandise.getSelectedItem();
+        }else if(tabCari.compareTo("prisma")==0){
+            pilihanCari = comboPrisma.getSelectedItem();
+        }else if(tabCari.compareTo("df")==0){
+            pilihanCari = comboDokumenFIlateli.getSelectedItem();
         }
-
+        
+        String jenisCari = null;
+       
+            if (pilihanCari == "Id Produk") {
+                        jenisCari="id_produk";
+            } else if (pilihanCari == "Nama Produk") {
+                        jenisCari="nama_produk";
+            } else if (pilihanCari == "Nominal") {
+                        jenisCari="nominal";
+            } else if (pilihanCari == "Stok") {
+                        jenisCari="stok";
+            } else if (pilihanCari == "Biaya Cetak") {
+                        jenisCari="biaya_cetak";
+            } else if (pilihanCari == "Tahun") {
+                        jenisCari="tahun";
+            }
+            
+            return jenisCari;
+            
+            
+    }
+    
+    public String cariPilihan(String tab){
+        String pilihanCari="";
+        
+        if(tab.compareTo("prangko")==0){
+            pilihanCari="PR";
+        }else if(tab.compareTo("kemasan")==0){
+            pilihanCari="KM";
+        }else if(tab.compareTo("shp")==0){
+            pilihanCari="SHP";
+        }else if(tab.compareTo("ss")==0){
+            pilihanCari="SS";
+        }else if(tab.compareTo("merchandise")==0){
+            pilihanCari="MC";
+        }else if(tab.compareTo("prisma")==0){
+            pilihanCari="PS";
+        }else if(tab.compareTo("df")==0){
+            pilihanCari="DF";
+        }
+        
+        return pilihanCari;
+    }
+    
+    public String cariJenis(String tab){
+        String idJenis="";
+        
+        if(tab.compareTo("prangko")==0){
+            idJenis="PR";
+        }else if(tab.compareTo("kemasan")==0){
+            idJenis="KM";
+        }else if(tab.compareTo("shp")==0){
+            idJenis="SHP";
+        }else if(tab.compareTo("ss")==0){
+            idJenis="SS";
+        }else if(tab.compareTo("merchandise")==0){
+            idJenis="MC";
+        }else if(tab.compareTo("prisma")==0){
+            idJenis="PS";
+        }else if(tab.compareTo("df")==0){
+            idJenis="DF";
+        }
+        
         return idJenis;
     }
-
-    public String cariData() {
-        Object pilihanCari = comboCariPrangko.getSelectedItem();
-
-        String jenisCari = null;
-
-        if (pilihanCari == "Id Produk") {
-            jenisCari = "id_produk";
-        } else if (pilihanCari == "Nama Produk") {
-            jenisCari = "nama_produk";
-        } else if (pilihanCari == "Nominal") {
-            jenisCari = "nominal";
-        } else if (pilihanCari == "Stok") {
-            jenisCari = "stok";
-        } else if (pilihanCari == "Biaya Cetak") {
-            jenisCari = "biaya_cetak";
-        } else if (pilihanCari == "Tahun") {
-            jenisCari = "tahun";
-        }
-        return jenisCari;
-    }
+    
 
     private void autoincrementDokumenFilateli() {
         String kosong = null;
@@ -516,7 +557,7 @@ public final class FormHome extends javax.swing.JFrame {
         tablePrangko = new javax.swing.JTable();
         buttonCariPrangko = new javax.swing.JButton();
         fieldCariPrangko = new javax.swing.JTextField();
-        comboCariPrangko = new javax.swing.JComboBox<String>();
+        comboCariPrangko = new javax.swing.JComboBox<>();
         MS_SS = new javax.swing.JPanel();
         jPanel16 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
@@ -533,13 +574,13 @@ public final class FormHome extends javax.swing.JFrame {
         buttonUbahMSSS = new javax.swing.JButton();
         buttonHapusMSSS = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
-        ComboJenisMS_SS = new javax.swing.JComboBox<String>();
+        ComboJenisMS_SS = new javax.swing.JComboBox<>();
         jPanel17 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tableMSSS = new javax.swing.JTable();
         buttonCariMS_SS = new javax.swing.JButton();
         fieldCariMS_SS = new javax.swing.JTextField();
-        comboMS_SS = new javax.swing.JComboBox<String>();
+        comboMS_SS = new javax.swing.JComboBox<>();
         SHP_SHPSS = new javax.swing.JPanel();
         jPanel18 = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
@@ -555,14 +596,14 @@ public final class FormHome extends javax.swing.JFrame {
         buttonSimpanSHPSHPSS = new javax.swing.JButton();
         buttonUbahSHPSHPSS = new javax.swing.JButton();
         buttonHapusSHPSHPSS = new javax.swing.JButton();
-        ComboJenisSHP_SHPSS = new javax.swing.JComboBox<String>();
+        ComboJenisSHP_SHPSS = new javax.swing.JComboBox<>();
         jLabel10 = new javax.swing.JLabel();
         jPanel19 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tableSHPSHPSS = new javax.swing.JTable();
         buttonCariSHP_SHPSS = new javax.swing.JButton();
         fieldCariSHP_SHPSS = new javax.swing.JTextField();
-        comboSHP_SHPSS = new javax.swing.JComboBox<String>();
+        comboSHP_SHPSS = new javax.swing.JComboBox<>();
         Kemasan = new javax.swing.JPanel();
         jPanel20 = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
@@ -583,7 +624,7 @@ public final class FormHome extends javax.swing.JFrame {
         tableKemasan = new javax.swing.JTable();
         buttonCariKemasan = new javax.swing.JButton();
         fieldCariKemasan = new javax.swing.JTextField();
-        comboJenisKemasan = new javax.swing.JComboBox<String>();
+        comboJenisKemasan = new javax.swing.JComboBox<>();
         Merchandise = new javax.swing.JPanel();
         jPanel22 = new javax.swing.JPanel();
         jLabel27 = new javax.swing.JLabel();
@@ -604,7 +645,7 @@ public final class FormHome extends javax.swing.JFrame {
         tableMerchandise = new javax.swing.JTable();
         buttonCariMerchandise = new javax.swing.JButton();
         fieldCariMerchandise = new javax.swing.JTextField();
-        comboMerchandise = new javax.swing.JComboBox<String>();
+        comboMerchandise = new javax.swing.JComboBox<>();
         Prisma = new javax.swing.JPanel();
         jPanel24 = new javax.swing.JPanel();
         jLabel32 = new javax.swing.JLabel();
@@ -625,7 +666,7 @@ public final class FormHome extends javax.swing.JFrame {
         tablePrisma = new javax.swing.JTable();
         buttonCariPrisma = new javax.swing.JButton();
         fieldCariPrisma = new javax.swing.JTextField();
-        comboPrisma = new javax.swing.JComboBox<String>();
+        comboPrisma = new javax.swing.JComboBox<>();
         DokumenFilateli = new javax.swing.JPanel();
         jPanel26 = new javax.swing.JPanel();
         jLabel37 = new javax.swing.JLabel();
@@ -646,13 +687,13 @@ public final class FormHome extends javax.swing.JFrame {
         tableDokumenFilateli = new javax.swing.JTable();
         buttonCariDokumenFilateli = new javax.swing.JButton();
         fieldCariDokumenFIlateli = new javax.swing.JTextField();
-        comboDokumenFIlateli = new javax.swing.JComboBox<String>();
+        comboDokumenFIlateli = new javax.swing.JComboBox<>();
         jPanel5 = new javax.swing.JPanel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel15 = new javax.swing.JPanel();
         jPanel30 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        jComboBox8 = new javax.swing.JComboBox<String>();
+        jComboBox8 = new javax.swing.JComboBox<>();
         jLabel11 = new javax.swing.JLabel();
         fieldNamaProdukPenerimaan = new javax.swing.JTextField();
         jButton7 = new javax.swing.JButton();
@@ -929,8 +970,21 @@ public final class FormHome extends javax.swing.JFrame {
                 fieldCariPrangkoMouseClicked(evt);
             }
         });
+        fieldCariPrangko.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fieldCariPrangkoActionPerformed(evt);
+            }
+        });
+        fieldCariPrangko.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                fieldCariPrangkoKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                fieldCariPrangkoKeyTyped(evt);
+            }
+        });
 
-        comboCariPrangko.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
+        comboCariPrangko.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
 
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
         jPanel14.setLayout(jPanel14Layout);
@@ -1059,7 +1113,7 @@ public final class FormHome extends javax.swing.JFrame {
 
         jLabel8.setText("Jenis");
 
-        ComboJenisMS_SS.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "MS", "SS" }));
+        ComboJenisMS_SS.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MS", "SS" }));
         ComboJenisMS_SS.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ComboJenisMS_SSMouseClicked(evt);
@@ -1164,8 +1218,24 @@ public final class FormHome extends javax.swing.JFrame {
                 buttonCariMS_SSActionPerformed(evt);
             }
         });
+        buttonCariMS_SS.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                buttonCariMS_SSKeyReleased(evt);
+            }
+        });
 
-        comboMS_SS.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
+        fieldCariMS_SS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fieldCariMS_SSActionPerformed(evt);
+            }
+        });
+        fieldCariMS_SS.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                fieldCariMS_SSKeyReleased(evt);
+            }
+        });
+
+        comboMS_SS.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
 
         javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
         jPanel17.setLayout(jPanel17Layout);
@@ -1279,7 +1349,7 @@ public final class FormHome extends javax.swing.JFrame {
             }
         });
 
-        ComboJenisSHP_SHPSS.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "SHP", "SHPSS" }));
+        ComboJenisSHP_SHPSS.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SHP", "SHPSS" }));
         ComboJenisSHP_SHPSS.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ComboJenisSHP_SHPSSMouseClicked(evt);
@@ -1391,7 +1461,18 @@ public final class FormHome extends javax.swing.JFrame {
             }
         });
 
-        comboSHP_SHPSS.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
+        fieldCariSHP_SHPSS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fieldCariSHP_SHPSSActionPerformed(evt);
+            }
+        });
+        fieldCariSHP_SHPSS.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                fieldCariSHP_SHPSSKeyReleased(evt);
+            }
+        });
+
+        comboSHP_SHPSS.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
 
         javax.swing.GroupLayout jPanel19Layout = new javax.swing.GroupLayout(jPanel19);
         jPanel19.setLayout(jPanel19Layout);
@@ -1593,7 +1674,18 @@ public final class FormHome extends javax.swing.JFrame {
             }
         });
 
-        comboJenisKemasan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
+        fieldCariKemasan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fieldCariKemasanActionPerformed(evt);
+            }
+        });
+        fieldCariKemasan.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                fieldCariKemasanKeyReleased(evt);
+            }
+        });
+
+        comboJenisKemasan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
 
         javax.swing.GroupLayout jPanel21Layout = new javax.swing.GroupLayout(jPanel21);
         jPanel21.setLayout(jPanel21Layout);
@@ -1789,7 +1881,18 @@ public final class FormHome extends javax.swing.JFrame {
             }
         });
 
-        comboMerchandise.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
+        fieldCariMerchandise.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fieldCariMerchandiseActionPerformed(evt);
+            }
+        });
+        fieldCariMerchandise.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                fieldCariMerchandiseKeyReleased(evt);
+            }
+        });
+
+        comboMerchandise.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
 
         javax.swing.GroupLayout jPanel23Layout = new javax.swing.GroupLayout(jPanel23);
         jPanel23.setLayout(jPanel23Layout);
@@ -1985,7 +2088,18 @@ public final class FormHome extends javax.swing.JFrame {
             }
         });
 
-        comboPrisma.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
+        fieldCariPrisma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fieldCariPrismaActionPerformed(evt);
+            }
+        });
+        fieldCariPrisma.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                fieldCariPrismaKeyReleased(evt);
+            }
+        });
+
+        comboPrisma.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
 
         javax.swing.GroupLayout jPanel25Layout = new javax.swing.GroupLayout(jPanel25);
         jPanel25.setLayout(jPanel25Layout);
@@ -2181,7 +2295,18 @@ public final class FormHome extends javax.swing.JFrame {
             }
         });
 
-        comboDokumenFIlateli.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
+        fieldCariDokumenFIlateli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fieldCariDokumenFIlateliActionPerformed(evt);
+            }
+        });
+        fieldCariDokumenFIlateli.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                fieldCariDokumenFIlateliKeyReleased(evt);
+            }
+        });
+
+        comboDokumenFIlateli.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
 
         javax.swing.GroupLayout jPanel27Layout = new javax.swing.GroupLayout(jPanel27);
         jPanel27.setLayout(jPanel27Layout);
@@ -2245,7 +2370,7 @@ public final class FormHome extends javax.swing.JFrame {
 
         jLabel7.setText("Jenis Produk");
 
-        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel11.setText("Nama Produk");
 
@@ -4101,17 +4226,20 @@ public final class FormHome extends javax.swing.JFrame {
     private void buttonCariPrangkoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariPrangkoActionPerformed
         // TODO add your handling code here:
         String keyword = fieldCariPrangko.getText();
-        String status = "prangko";
-        String jenisCari = cariData();
+        String status="prangko";
+        String tabCari = cariPilihan(status);
+        String jenisCari = cariData(tabCari);
         String idJenis = cariJenis(status);
-
+        
         // lakukan proses pencarian
         dao = new ProdukDAOImpl();
-        arrayProduk = dao.cariProduk(keyword, jenisCari, idJenis);
+        arrayProduk = dao.cariProduk(keyword,jenisCari,idJenis);
 
         ProdukTM produkTableModel = new ProdukTM();
         produkTableModel.setDataProduk(arrayProduk);
-
+        sorter = new TableRowSorter(produkTableModel);
+        tablePrangko.setRowSorter(sorter);
+        
         tablePrangko.setModel(produkTableModel);
     }//GEN-LAST:event_buttonCariPrangkoActionPerformed
 
@@ -4166,101 +4294,113 @@ public final class FormHome extends javax.swing.JFrame {
         // TODO add your handling code here:
         String keyword = fieldCariKemasan.getText();
         String tab = "kemasan";
-        String jenisCari = cariData();
+        String jenisCari = cariData(tab);
         String idJenis = cariJenis(tab);
-
+        
         // lakukan proses pencarian
         dao = new ProdukDAOImpl();
-        arrayProduk = dao.cariProduk(keyword, jenisCari, idJenis);
+        arrayProduk = dao.cariProduk(keyword,jenisCari,idJenis);
 
         ProdukTM produkTableModel = new ProdukTM();
         produkTableModel.setDataProduk(arrayProduk);
-
+        sorter = new TableRowSorter(produkTableModel);
+        tableKemasan.setRowSorter(sorter);
+        
         tableKemasan.setModel(produkTableModel);
     }//GEN-LAST:event_buttonCariKemasanActionPerformed
 
     private void buttonCariMS_SSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariMS_SSActionPerformed
         // TODO add your handling code here:
         String keyword = fieldCariMS_SS.getText();
-        String status = "ss";
-        String jenisCari = cariData();
-        String idJenis = cariJenis(status);
-
+        String tab="ss";
+        String jenisCari = cariData(tab);
+        String idJenis = cariJenis(tab);
+        
         // lakukan proses pencarian
         dao = new ProdukDAOImpl();
-        arrayProduk = dao.cariProduk(keyword, jenisCari, idJenis);
+        arrayProduk = dao.cariProduk(keyword,jenisCari,idJenis);
 
         ProdukTM produkTableModel = new ProdukTM();
         produkTableModel.setDataProduk(arrayProduk);
-
+        sorter = new TableRowSorter(produkTableModel);
+        tableMSSS.setRowSorter(sorter);
+        
         tableMSSS.setModel(produkTableModel);
     }//GEN-LAST:event_buttonCariMS_SSActionPerformed
 
     private void buttonCariSHP_SHPSSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariSHP_SHPSSActionPerformed
         // TODO add your handling code here:
         String keyword = fieldCariSHP_SHPSS.getText();
-        String status = "shp";
-        String jenisCari = cariData();
-        String idJenis = cariJenis(status);
-
+        String tab="shp";
+        String jenisCari = cariData(tab);
+        String idJenis = cariJenis(tab);
+        
         // lakukan proses pencarian
         dao = new ProdukDAOImpl();
-        arrayProduk = dao.cariProduk(keyword, jenisCari, idJenis);
+        arrayProduk = dao.cariProduk(keyword,jenisCari,idJenis);
 
         ProdukTM produkTableModel = new ProdukTM();
         produkTableModel.setDataProduk(arrayProduk);
-
+        sorter = new TableRowSorter(produkTableModel);
+        tableSHPSHPSS.setRowSorter(sorter);
+        
         tableSHPSHPSS.setModel(produkTableModel);
     }//GEN-LAST:event_buttonCariSHP_SHPSSActionPerformed
 
     private void buttonCariMerchandiseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariMerchandiseActionPerformed
         // TODO add your handling code here:
         String keyword = fieldCariMerchandise.getText();
-        String status = "merchandise";
-        String jenisCari = cariData();
-        String idJenis = cariJenis(status);
-
+        String tab="merchandise";
+        String jenisCari = cariData(tab);
+        String idJenis = cariJenis(tab);
+        
         // lakukan proses pencarian
         dao = new ProdukDAOImpl();
-        arrayProduk = dao.cariProduk(keyword, jenisCari, idJenis);
+        arrayProduk = dao.cariProduk(keyword,jenisCari,idJenis);
 
         ProdukTM produkTableModel = new ProdukTM();
         produkTableModel.setDataProduk(arrayProduk);
-
+        sorter = new TableRowSorter(produkTableModel);
+        tableMerchandise.setRowSorter(sorter);
+        
         tableMerchandise.setModel(produkTableModel);
     }//GEN-LAST:event_buttonCariMerchandiseActionPerformed
 
     private void buttonCariPrismaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariPrismaActionPerformed
         // TODO add your handling code here:
         String keyword = fieldCariPrisma.getText();
-        String status = "prisma";
-        String jenisCari = cariData();
-        String idJenis = cariJenis(status);
-
+        String tab="prisma";
+        String jenisCari = cariData(tab);
+        String idJenis = cariJenis(tab);
+        
         // lakukan proses pencarian
         dao = new ProdukDAOImpl();
-        arrayProduk = dao.cariProduk(keyword, jenisCari, idJenis);
+        arrayProduk = dao.cariProduk(keyword,jenisCari,idJenis);
 
         ProdukTM produkTableModel = new ProdukTM();
         produkTableModel.setDataProduk(arrayProduk);
-
+        sorter = new TableRowSorter(produkTableModel);
+        tablePrisma.setRowSorter(sorter);
+        
         tablePrisma.setModel(produkTableModel);
     }//GEN-LAST:event_buttonCariPrismaActionPerformed
 
     private void buttonCariDokumenFilateliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariDokumenFilateliActionPerformed
         // TODO add your handling code here:
         String keyword = fieldCariDokumenFIlateli.getText();
-        String status = "df";
-        String jenisCari = cariData();
-        String idJenis = cariJenis(status);
-
+        String tab="df";
+        String jenisCari = cariData(tab);
+        String idJenis = cariJenis(tab);
+        
         // lakukan proses pencarian
         dao = new ProdukDAOImpl();
-        arrayProduk = dao.cariProduk(keyword, jenisCari, idJenis);
+        arrayProduk = dao.cariProduk(keyword,jenisCari,idJenis);
 
         ProdukTM produkTableModel = new ProdukTM();
         produkTableModel.setDataProduk(arrayProduk);
-
+        sorter = new TableRowSorter(produkTableModel);
+        tableDokumenFilateli.setRowSorter(sorter);
+        
         tableDokumenFilateli.setModel(produkTableModel);
     }//GEN-LAST:event_buttonCariDokumenFilateliActionPerformed
 
@@ -4524,6 +4664,200 @@ public final class FormHome extends javax.swing.JFrame {
         autoincrementPrangko();
         getDataPrangko();
     }//GEN-LAST:event_buttonResetActionPerformed
+
+    private void fieldCariPrangkoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldCariPrangkoKeyReleased
+        // TODO add your handling code here:
+        String keyword = fieldCariPrangko.getText();
+        String status="prangko";
+        String tabCari = cariPilihan(status);
+        String jenisCari = cariData(tabCari);
+        String idJenis = cariJenis(status);
+        
+        // lakukan proses pencarian
+        dao = new ProdukDAOImpl();
+        arrayProduk = dao.cariProduk(keyword,jenisCari,idJenis);
+
+        ProdukTM produkTableModel = new ProdukTM();
+        produkTableModel.setDataProduk(arrayProduk);
+        sorter = new TableRowSorter(produkTableModel);
+        tablePrangko.setRowSorter(sorter);
+        
+        tablePrangko.setModel(produkTableModel);
+    }//GEN-LAST:event_fieldCariPrangkoKeyReleased
+
+    private void fieldCariPrangkoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldCariPrangkoKeyTyped
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_fieldCariPrangkoKeyTyped
+
+    private void fieldCariPrangkoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldCariPrangkoActionPerformed
+        // TODO add your handling code here:
+        buttonCariPrangko.requestFocus();
+    }//GEN-LAST:event_fieldCariPrangkoActionPerformed
+
+    private void fieldCariMS_SSKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldCariMS_SSKeyReleased
+        // TODO add your handling code here:
+        String keyword = fieldCariMS_SS.getText();
+        String tab="ss";
+        String jenisCari = cariData(tab);
+        String idJenis = cariJenis(tab);
+        
+        // lakukan proses pencarian
+        dao = new ProdukDAOImpl();
+        arrayProduk = dao.cariProduk(keyword,jenisCari,idJenis);
+
+        ProdukTM produkTableModel = new ProdukTM();
+        produkTableModel.setDataProduk(arrayProduk);
+        sorter = new TableRowSorter(produkTableModel);
+        tableMSSS.setRowSorter(sorter);
+        
+        tableMSSS.setModel(produkTableModel);
+        
+    }//GEN-LAST:event_fieldCariMS_SSKeyReleased
+
+    private void buttonCariMS_SSKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buttonCariMS_SSKeyReleased
+        // TODO add your handling code here:
+        String keyword = fieldCariMS_SS.getText();
+        String tab="ss";
+        String jenisCari = cariData(tab);
+        String idJenis = cariJenis(tab);
+        
+        // lakukan proses pencarian
+        dao = new ProdukDAOImpl();
+        arrayProduk = dao.cariProduk(keyword,jenisCari,idJenis);
+
+        ProdukTM produkTableModel = new ProdukTM();
+        produkTableModel.setDataProduk(arrayProduk);
+        sorter = new TableRowSorter(produkTableModel);
+        tableMSSS.setRowSorter(sorter);
+        
+        tableMSSS.setModel(produkTableModel);
+    }//GEN-LAST:event_buttonCariMS_SSKeyReleased
+
+    private void fieldCariMS_SSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldCariMS_SSActionPerformed
+        // TODO add your handling code here:
+        buttonCariMS_SS.requestFocus();
+    }//GEN-LAST:event_fieldCariMS_SSActionPerformed
+
+    private void fieldCariSHP_SHPSSKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldCariSHP_SHPSSKeyReleased
+        // TODO add your handling code here:
+        String keyword = fieldCariSHP_SHPSS.getText();
+        String tab="shp";
+        String jenisCari = cariData(tab);
+        String idJenis = cariJenis(tab);
+        
+        // lakukan proses pencarian
+        dao = new ProdukDAOImpl();
+        arrayProduk = dao.cariProduk(keyword,jenisCari,idJenis);
+
+        ProdukTM produkTableModel = new ProdukTM();
+        produkTableModel.setDataProduk(arrayProduk);
+        sorter = new TableRowSorter(produkTableModel);
+        tableSHPSHPSS.setRowSorter(sorter);
+        
+        tableSHPSHPSS.setModel(produkTableModel);
+    }//GEN-LAST:event_fieldCariSHP_SHPSSKeyReleased
+
+    private void fieldCariSHP_SHPSSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldCariSHP_SHPSSActionPerformed
+        // TODO add your handling code here:
+        buttonCariSHP_SHPSS.requestFocus();
+    }//GEN-LAST:event_fieldCariSHP_SHPSSActionPerformed
+
+    private void fieldCariKemasanKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldCariKemasanKeyReleased
+        // TODO add your handling code here:
+        String keyword = fieldCariKemasan.getText();
+        String tab = "kemasan";
+        String jenisCari = cariData(tab);
+        String idJenis = cariJenis(tab);
+        
+        // lakukan proses pencarian
+        dao = new ProdukDAOImpl();
+        arrayProduk = dao.cariProduk(keyword,jenisCari,idJenis);
+
+        ProdukTM produkTableModel = new ProdukTM();
+        produkTableModel.setDataProduk(arrayProduk);
+        sorter = new TableRowSorter(produkTableModel);
+        tableKemasan.setRowSorter(sorter);
+        
+        tableKemasan.setModel(produkTableModel);
+    }//GEN-LAST:event_fieldCariKemasanKeyReleased
+
+    private void fieldCariKemasanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldCariKemasanActionPerformed
+        // TODO add your handling code here:
+        buttonCariKemasan.requestFocus();
+    }//GEN-LAST:event_fieldCariKemasanActionPerformed
+
+    private void fieldCariMerchandiseKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldCariMerchandiseKeyReleased
+        // TODO add your handling code here:
+        String keyword = fieldCariMerchandise.getText();
+        String tab="merchandise";
+        String jenisCari = cariData(tab);
+        String idJenis = cariJenis(tab);
+        
+        // lakukan proses pencarian
+        dao = new ProdukDAOImpl();
+        arrayProduk = dao.cariProduk(keyword,jenisCari,idJenis);
+
+        ProdukTM produkTableModel = new ProdukTM();
+        produkTableModel.setDataProduk(arrayProduk);
+        sorter = new TableRowSorter(produkTableModel);
+        tableMerchandise.setRowSorter(sorter);
+        
+        tableMerchandise.setModel(produkTableModel);
+        
+    }//GEN-LAST:event_fieldCariMerchandiseKeyReleased
+
+    private void fieldCariMerchandiseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldCariMerchandiseActionPerformed
+        // TODO add your handling code here:
+        buttonCariMerchandise.requestFocus();
+    }//GEN-LAST:event_fieldCariMerchandiseActionPerformed
+
+    private void fieldCariPrismaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldCariPrismaKeyReleased
+        // TODO add your handling code here:
+        String keyword = fieldCariPrisma.getText();
+        String tab="prisma";
+        String jenisCari = cariData(tab);
+        String idJenis = cariJenis(tab);
+        
+        // lakukan proses pencarian
+        dao = new ProdukDAOImpl();
+        arrayProduk = dao.cariProduk(keyword,jenisCari,idJenis);
+
+        ProdukTM produkTableModel = new ProdukTM();
+        produkTableModel.setDataProduk(arrayProduk);
+        sorter = new TableRowSorter(produkTableModel);
+        tablePrisma.setRowSorter(sorter);
+        
+        tablePrisma.setModel(produkTableModel);
+    }//GEN-LAST:event_fieldCariPrismaKeyReleased
+
+    private void fieldCariPrismaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldCariPrismaActionPerformed
+        // TODO add your handling code here:
+        buttonCariPrisma.requestFocus();
+    }//GEN-LAST:event_fieldCariPrismaActionPerformed
+
+    private void fieldCariDokumenFIlateliKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldCariDokumenFIlateliKeyReleased
+        // TODO add your handling code here:
+        String keyword = fieldCariDokumenFIlateli.getText();
+        String tab="df";
+        String jenisCari = cariData(tab);
+        String idJenis = cariJenis(tab);
+        
+        // lakukan proses pencarian
+        dao = new ProdukDAOImpl();
+        arrayProduk = dao.cariProduk(keyword,jenisCari,idJenis);
+
+        ProdukTM produkTableModel = new ProdukTM();
+        produkTableModel.setDataProduk(arrayProduk);
+        sorter = new TableRowSorter(produkTableModel);
+        tableDokumenFilateli.setRowSorter(sorter);
+        
+        tableDokumenFilateli.setModel(produkTableModel);    }//GEN-LAST:event_fieldCariDokumenFIlateliKeyReleased
+
+    private void fieldCariDokumenFIlateliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldCariDokumenFIlateliActionPerformed
+        // TODO add your handling code here:
+        buttonCariDokumenFilateli.requestFocus();
+    }//GEN-LAST:event_fieldCariDokumenFIlateliActionPerformed
 
     /**
      * @param args the command line arguments
