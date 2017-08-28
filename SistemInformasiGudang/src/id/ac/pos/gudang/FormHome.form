@@ -243,8 +243,8 @@
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jPanel13" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jPanel13" min="-2" pref="178" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="jPanel14" max="32767" attributes="0"/>
                               </Group>
                           </Group>
@@ -291,7 +291,7 @@
                                           <Component id="buttonSimpanPrangko" alignment="1" max="32767" attributes="0"/>
                                           <Component id="buttonUbahPrangko" alignment="0" max="32767" attributes="0"/>
                                           <Component id="buttonHapusPrangko" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="buttonReset" max="32767" attributes="0"/>
+                                          <Component id="buttonResetPrangko" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                   </Group>
@@ -322,7 +322,7 @@
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="fieldBiayaCetakPrangko" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="buttonReset" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonResetPrangko" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
@@ -423,12 +423,12 @@
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonHapusPrangkoActionPerformed"/>
                               </Events>
                             </Component>
-                            <Component class="javax.swing.JButton" name="buttonReset">
+                            <Component class="javax.swing.JButton" name="buttonResetPrangko">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Reset"/>
                               </Properties>
                               <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonResetActionPerformed"/>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonResetPrangkoPrangkoActionPerformed"/>
                               </Events>
                             </Component>
                           </SubComponents>
@@ -445,7 +445,7 @@
                           <Layout>
                             <DimensionLayout dim="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jScrollPane1" pref="660" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane1" pref="665" max="32767" attributes="0"/>
                                   <Group type="102" attributes="0">
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       <Component id="comboCariPrangko" min="-2" max="-2" attributes="0"/>
@@ -581,7 +581,7 @@
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jPanel16" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jPanel16" min="-2" pref="180" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jPanel17" max="32767" attributes="0"/>
                               </Group>
@@ -618,7 +618,7 @@
                                               <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
                                               <Component id="fieldKodeProdukMS_SS" min="-2" pref="80" max="-2" attributes="0"/>
-                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                              <EmptySpace min="0" pref="207" max="32767" attributes="0"/>
                                           </Group>
                                           <Component id="fieldNominalProdukMSSS" alignment="0" max="32767" attributes="0"/>
                                           <Component id="fieldBiayaCetakProdukMSSS" alignment="0" max="32767" attributes="0"/>
@@ -630,6 +630,7 @@
                                           <Component id="buttonSimpanMSSS" alignment="1" max="32767" attributes="0"/>
                                           <Component id="buttonUbahMSSS" alignment="0" max="32767" attributes="0"/>
                                           <Component id="buttonHapusMSSS" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="buttonResetMSSS" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                   </Group>
@@ -662,6 +663,7 @@
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="fieldBiayaCetakProdukMSSS" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonResetMSSS" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
@@ -776,6 +778,14 @@
                                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                               </AuxValues>
                             </Component>
+                            <Component class="javax.swing.JButton" name="buttonResetMSSS">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="Reset"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonResetMSSSActionPerformed"/>
+                              </Events>
+                            </Component>
                           </SubComponents>
                         </Container>
                         <Container class="javax.swing.JPanel" name="jPanel17">
@@ -810,7 +820,7 @@
                                           <Component id="comboMS_SS" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jScrollPane2" pref="570" max="32767" attributes="0"/>
+                                      <Component id="jScrollPane2" pref="574" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -925,7 +935,7 @@
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jPanel18" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jPanel18" min="-2" pref="180" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jPanel19" max="32767" attributes="0"/>
                               </Group>
@@ -978,6 +988,7 @@
                                           <Component id="buttonSimpanSHPSHPSS" alignment="1" max="32767" attributes="0"/>
                                           <Component id="buttonUbahSHPSHPSS" alignment="0" max="32767" attributes="0"/>
                                           <Component id="buttonHapusSHPSHPSS" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="buttonResetSHPSHPSS" alignment="1" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                   </Group>
@@ -1011,9 +1022,10 @@
                                           <Component id="buttonHapusSHPSHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jLabel20" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="fieldBiayaCetakSHPSHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonResetSHPSHPSS" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fieldBiayaCetakSHPSHPSS" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
@@ -1125,6 +1137,14 @@
                                 <Property name="text" type="java.lang.String" value="Jenis"/>
                               </Properties>
                             </Component>
+                            <Component class="javax.swing.JButton" name="buttonResetSHPSHPSS">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="Reset"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonResetSHPSHPSSActionPerformed"/>
+                              </Events>
+                            </Component>
                           </SubComponents>
                         </Container>
                         <Container class="javax.swing.JPanel" name="jPanel19">
@@ -1159,7 +1179,7 @@
                                           <Component id="comboSHP_SHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jScrollPane3" pref="570" max="32767" attributes="0"/>
+                                      <Component id="jScrollPane3" pref="574" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -1273,7 +1293,7 @@
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jPanel20" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jPanel20" min="-2" pref="179" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jPanel21" max="32767" attributes="0"/>
                               </Group>
@@ -1309,7 +1329,7 @@
                                           <Component id="fieldTahunProdukKemasan" alignment="1" max="32767" attributes="0"/>
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="fieldKodeProdukKemasan" min="-2" pref="80" max="-2" attributes="0"/>
-                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                              <EmptySpace min="0" pref="394" max="32767" attributes="0"/>
                                           </Group>
                                           <Component id="fieldNamaProdukKemasan" alignment="0" max="32767" attributes="0"/>
                                       </Group>
@@ -1318,6 +1338,7 @@
                                           <Component id="buttonSImpanKemasan" alignment="1" max="32767" attributes="0"/>
                                           <Component id="buttonUbahKemasan" alignment="0" max="32767" attributes="0"/>
                                           <Component id="buttonHapusKemasan" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="buttonResetKemasan" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                   </Group>
@@ -1348,6 +1369,7 @@
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel25" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="fieldBiayaCetakProdukKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonResetKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
@@ -1437,6 +1459,14 @@
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonHapusKemasanActionPerformed"/>
                               </Events>
                             </Component>
+                            <Component class="javax.swing.JButton" name="buttonResetKemasan">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="Reset"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonResetKemasanActionPerformed"/>
+                              </Events>
+                            </Component>
                           </SubComponents>
                         </Container>
                         <Container class="javax.swing.JPanel" name="jPanel21">
@@ -1471,7 +1501,7 @@
                                           <Component id="comboJenisKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jScrollPane4" pref="571" max="32767" attributes="0"/>
+                                      <Component id="jScrollPane4" pref="575" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -1582,7 +1612,7 @@
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jPanel22" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jPanel22" min="-2" pref="179" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jPanel23" max="32767" attributes="0"/>
                               </Group>
@@ -1618,7 +1648,7 @@
                                           <Component id="fieldTahunProdukMerchandise" alignment="1" max="32767" attributes="0"/>
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="fieldKodeProdukMerchandise" min="-2" pref="80" max="-2" attributes="0"/>
-                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                              <EmptySpace min="0" pref="394" max="32767" attributes="0"/>
                                           </Group>
                                           <Component id="fieldNamaProdukMerchandise" alignment="0" max="32767" attributes="0"/>
                                       </Group>
@@ -1627,6 +1657,7 @@
                                           <Component id="buttonSImpanMerchandise" alignment="1" max="32767" attributes="0"/>
                                           <Component id="buttonUbahMerchandise" alignment="0" max="32767" attributes="0"/>
                                           <Component id="buttonHapusMerchandise" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="buttonResetMerchandise" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                   </Group>
@@ -1657,6 +1688,7 @@
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel30" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="fieldBiayaCetakProdukMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonResetMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
@@ -1746,6 +1778,14 @@
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonHapusMerchandiseActionPerformed"/>
                               </Events>
                             </Component>
+                            <Component class="javax.swing.JButton" name="buttonResetMerchandise">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="Reset"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonResetMerchandiseActionPerformed"/>
+                              </Events>
+                            </Component>
                           </SubComponents>
                         </Container>
                         <Container class="javax.swing.JPanel" name="jPanel23">
@@ -1780,7 +1820,7 @@
                                           <Component id="comboMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jScrollPane5" pref="571" max="32767" attributes="0"/>
+                                      <Component id="jScrollPane5" pref="575" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -1891,7 +1931,7 @@
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jPanel24" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jPanel24" min="-2" pref="179" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jPanel25" max="32767" attributes="0"/>
                               </Group>
@@ -1927,7 +1967,7 @@
                                           <Component id="fieldTahunProdukPrisma" alignment="1" max="32767" attributes="0"/>
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="fieldKodeProdukPrisma" min="-2" pref="80" max="-2" attributes="0"/>
-                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                              <EmptySpace min="0" pref="394" max="32767" attributes="0"/>
                                           </Group>
                                           <Component id="fieldNamaProdukPrisma" alignment="0" max="32767" attributes="0"/>
                                       </Group>
@@ -1936,6 +1976,7 @@
                                           <Component id="buttonSimpanPrisma" alignment="1" max="32767" attributes="0"/>
                                           <Component id="buttonUbahPrisma" alignment="0" max="32767" attributes="0"/>
                                           <Component id="buttonHapusPrisma" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="buttonResetPrisma" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                   </Group>
@@ -1966,6 +2007,7 @@
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel35" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="fieldBiayaCetakProdukPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonResetPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
@@ -2055,6 +2097,11 @@
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonHapusPrismaActionPerformed"/>
                               </Events>
                             </Component>
+                            <Component class="javax.swing.JButton" name="buttonResetPrisma">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="Reset"/>
+                              </Properties>
+                            </Component>
                           </SubComponents>
                         </Container>
                         <Container class="javax.swing.JPanel" name="jPanel25">
@@ -2089,7 +2136,7 @@
                                           <Component id="comboPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jScrollPane6" pref="571" max="32767" attributes="0"/>
+                                      <Component id="jScrollPane6" pref="575" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -2200,7 +2247,7 @@
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jPanel26" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jPanel26" min="-2" pref="179" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jPanel27" max="32767" attributes="0"/>
                               </Group>
@@ -2236,7 +2283,7 @@
                                           <Component id="fieldTahunProdukDokumenFilateli" alignment="1" max="32767" attributes="0"/>
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="fieldKodeProdukDokumenFilateli" min="-2" pref="80" max="-2" attributes="0"/>
-                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                              <EmptySpace min="0" pref="394" max="32767" attributes="0"/>
                                           </Group>
                                           <Component id="fieldNamaProdukDokumenFilateli" alignment="0" max="32767" attributes="0"/>
                                       </Group>
@@ -2245,6 +2292,7 @@
                                           <Component id="buttonSimpanDokumenFIlateli" alignment="1" max="32767" attributes="0"/>
                                           <Component id="buttonUbahDokumenFilateli" alignment="0" max="32767" attributes="0"/>
                                           <Component id="buttonHapusDokumenFilateli" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="buttonResetDokumenFIlateli" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                   </Group>
@@ -2275,6 +2323,7 @@
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel40" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="fieldBiayaCetakDokumenFilateli" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonResetDokumenFIlateli" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
@@ -2364,6 +2413,11 @@
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonHapusDokumenFilateliActionPerformed"/>
                               </Events>
                             </Component>
+                            <Component class="javax.swing.JButton" name="buttonResetDokumenFIlateli">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="Reset"/>
+                              </Properties>
+                            </Component>
                           </SubComponents>
                         </Container>
                         <Container class="javax.swing.JPanel" name="jPanel27">
@@ -2398,7 +2452,7 @@
                                           <Component id="comboDokumenFIlateli" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jScrollPane7" pref="571" max="32767" attributes="0"/>
+                                      <Component id="jScrollPane7" pref="575" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>

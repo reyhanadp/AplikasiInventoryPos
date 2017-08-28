@@ -238,89 +238,87 @@ public final class FormHome extends javax.swing.JFrame {
         fieldKodeProdukPrisma.setText(kode_prisma);
     }
 
-    public String cariData(String tabCari) {        
-        Object pilihanCari ="";
-        if (tabCari.compareTo("PR")==0){
+    public String cariData(String tabCari) {
+        Object pilihanCari = "";
+        if (tabCari.compareTo("PR") == 0) {
             pilihanCari = comboCariPrangko.getSelectedItem();
-        }else if(tabCari.compareTo("kemasan")==0){
+        } else if (tabCari.compareTo("kemasan") == 0) {
             pilihanCari = comboJenisKemasan.getSelectedItem();
-        }else if(tabCari.compareTo("shp")==0){
+        } else if (tabCari.compareTo("shp") == 0) {
             pilihanCari = comboSHP_SHPSS.getSelectedItem();
-        }else if(tabCari.compareTo("ss")==0){
+        } else if (tabCari.compareTo("ss") == 0) {
             pilihanCari = comboMS_SS.getSelectedItem();
-        }else if(tabCari.compareTo("merchandise")==0){
+        } else if (tabCari.compareTo("merchandise") == 0) {
             pilihanCari = comboMerchandise.getSelectedItem();
-        }else if(tabCari.compareTo("prisma")==0){
+        } else if (tabCari.compareTo("prisma") == 0) {
             pilihanCari = comboPrisma.getSelectedItem();
-        }else if(tabCari.compareTo("df")==0){
+        } else if (tabCari.compareTo("df") == 0) {
             pilihanCari = comboDokumenFIlateli.getSelectedItem();
         }
-        
+
         String jenisCari = null;
-       
-            if (pilihanCari == "Id Produk") {
-                        jenisCari="id_produk";
-            } else if (pilihanCari == "Nama Produk") {
-                        jenisCari="nama_produk";
-            } else if (pilihanCari == "Nominal") {
-                        jenisCari="nominal";
-            } else if (pilihanCari == "Stok") {
-                        jenisCari="stok";
-            } else if (pilihanCari == "Biaya Cetak") {
-                        jenisCari="biaya_cetak";
-            } else if (pilihanCari == "Tahun") {
-                        jenisCari="tahun";
-            }
-            
-            return jenisCari;
-            
-            
-    }
-    
-    public String cariPilihan(String tab){
-        String pilihanCari="";
-        
-        if(tab.compareTo("prangko")==0){
-            pilihanCari="PR";
-        }else if(tab.compareTo("kemasan")==0){
-            pilihanCari="KM";
-        }else if(tab.compareTo("shp")==0){
-            pilihanCari="SHP";
-        }else if(tab.compareTo("ss")==0){
-            pilihanCari="SS";
-        }else if(tab.compareTo("merchandise")==0){
-            pilihanCari="MC";
-        }else if(tab.compareTo("prisma")==0){
-            pilihanCari="PS";
-        }else if(tab.compareTo("df")==0){
-            pilihanCari="DF";
+
+        if (pilihanCari == "Id Produk") {
+            jenisCari = "id_produk";
+        } else if (pilihanCari == "Nama Produk") {
+            jenisCari = "nama_produk";
+        } else if (pilihanCari == "Nominal") {
+            jenisCari = "nominal";
+        } else if (pilihanCari == "Stok") {
+            jenisCari = "stok";
+        } else if (pilihanCari == "Biaya Cetak") {
+            jenisCari = "biaya_cetak";
+        } else if (pilihanCari == "Tahun") {
+            jenisCari = "tahun";
         }
-        
+
+        return jenisCari;
+
+    }
+
+    public String cariPilihan(String tab) {
+        String pilihanCari = "";
+
+        if (tab.compareTo("prangko") == 0) {
+            pilihanCari = "PR";
+        } else if (tab.compareTo("kemasan") == 0) {
+            pilihanCari = "KM";
+        } else if (tab.compareTo("shp") == 0) {
+            pilihanCari = "SHP";
+        } else if (tab.compareTo("ss") == 0) {
+            pilihanCari = "SS";
+        } else if (tab.compareTo("merchandise") == 0) {
+            pilihanCari = "MC";
+        } else if (tab.compareTo("prisma") == 0) {
+            pilihanCari = "PS";
+        } else if (tab.compareTo("df") == 0) {
+            pilihanCari = "DF";
+        }
+
         return pilihanCari;
     }
-    
-    public String cariJenis(String tab){
-        String idJenis="";
-        
-        if(tab.compareTo("prangko")==0){
-            idJenis="PR";
-        }else if(tab.compareTo("kemasan")==0){
-            idJenis="KM";
-        }else if(tab.compareTo("shp")==0){
-            idJenis="SHP";
-        }else if(tab.compareTo("ss")==0){
-            idJenis="SS";
-        }else if(tab.compareTo("merchandise")==0){
-            idJenis="MC";
-        }else if(tab.compareTo("prisma")==0){
-            idJenis="PS";
-        }else if(tab.compareTo("df")==0){
-            idJenis="DF";
+
+    public String cariJenis(String tab) {
+        String idJenis = "";
+
+        if (tab.compareTo("prangko") == 0) {
+            idJenis = "PR";
+        } else if (tab.compareTo("kemasan") == 0) {
+            idJenis = "KM";
+        } else if (tab.compareTo("shp") == 0) {
+            idJenis = "SHP";
+        } else if (tab.compareTo("ss") == 0) {
+            idJenis = "SS";
+        } else if (tab.compareTo("merchandise") == 0) {
+            idJenis = "MC";
+        } else if (tab.compareTo("prisma") == 0) {
+            idJenis = "PS";
+        } else if (tab.compareTo("df") == 0) {
+            idJenis = "DF";
         }
-        
+
         return idJenis;
     }
-    
 
     private void autoincrementDokumenFilateli() {
         String kosong = null;
@@ -388,6 +386,13 @@ public final class FormHome extends javax.swing.JFrame {
         fieldTahunProdukDokumenFilateli.setText("");
         fieldTahunProdukPrisma.setText("");
 
+        autoincrementPrangko();
+        autoincrementMS_SS();
+        autoincrementSHP_SHPSS();
+        autoincrementKemasan();
+        autoincrementMerchandise();
+        autoincrementPrisma();
+        autoincrementDokumenFilateli();
     }
 
     private void autoincrementSHP_SHPSS() {
@@ -551,13 +556,13 @@ public final class FormHome extends javax.swing.JFrame {
         buttonSimpanPrangko = new javax.swing.JButton();
         buttonUbahPrangko = new javax.swing.JButton();
         buttonHapusPrangko = new javax.swing.JButton();
-        buttonReset = new javax.swing.JButton();
+        buttonResetPrangko = new javax.swing.JButton();
         jPanel14 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablePrangko = new javax.swing.JTable();
         buttonCariPrangko = new javax.swing.JButton();
         fieldCariPrangko = new javax.swing.JTextField();
-        comboCariPrangko = new javax.swing.JComboBox<>();
+        comboCariPrangko = new javax.swing.JComboBox<String>();
         MS_SS = new javax.swing.JPanel();
         jPanel16 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
@@ -574,13 +579,14 @@ public final class FormHome extends javax.swing.JFrame {
         buttonUbahMSSS = new javax.swing.JButton();
         buttonHapusMSSS = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
-        ComboJenisMS_SS = new javax.swing.JComboBox<>();
+        ComboJenisMS_SS = new javax.swing.JComboBox<String>();
+        buttonResetMSSS = new javax.swing.JButton();
         jPanel17 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tableMSSS = new javax.swing.JTable();
         buttonCariMS_SS = new javax.swing.JButton();
         fieldCariMS_SS = new javax.swing.JTextField();
-        comboMS_SS = new javax.swing.JComboBox<>();
+        comboMS_SS = new javax.swing.JComboBox<String>();
         SHP_SHPSS = new javax.swing.JPanel();
         jPanel18 = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
@@ -596,14 +602,15 @@ public final class FormHome extends javax.swing.JFrame {
         buttonSimpanSHPSHPSS = new javax.swing.JButton();
         buttonUbahSHPSHPSS = new javax.swing.JButton();
         buttonHapusSHPSHPSS = new javax.swing.JButton();
-        ComboJenisSHP_SHPSS = new javax.swing.JComboBox<>();
+        ComboJenisSHP_SHPSS = new javax.swing.JComboBox<String>();
         jLabel10 = new javax.swing.JLabel();
+        buttonResetSHPSHPSS = new javax.swing.JButton();
         jPanel19 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tableSHPSHPSS = new javax.swing.JTable();
         buttonCariSHP_SHPSS = new javax.swing.JButton();
         fieldCariSHP_SHPSS = new javax.swing.JTextField();
-        comboSHP_SHPSS = new javax.swing.JComboBox<>();
+        comboSHP_SHPSS = new javax.swing.JComboBox<String>();
         Kemasan = new javax.swing.JPanel();
         jPanel20 = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
@@ -619,12 +626,13 @@ public final class FormHome extends javax.swing.JFrame {
         buttonSImpanKemasan = new javax.swing.JButton();
         buttonUbahKemasan = new javax.swing.JButton();
         buttonHapusKemasan = new javax.swing.JButton();
+        buttonResetKemasan = new javax.swing.JButton();
         jPanel21 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         tableKemasan = new javax.swing.JTable();
         buttonCariKemasan = new javax.swing.JButton();
         fieldCariKemasan = new javax.swing.JTextField();
-        comboJenisKemasan = new javax.swing.JComboBox<>();
+        comboJenisKemasan = new javax.swing.JComboBox<String>();
         Merchandise = new javax.swing.JPanel();
         jPanel22 = new javax.swing.JPanel();
         jLabel27 = new javax.swing.JLabel();
@@ -640,12 +648,13 @@ public final class FormHome extends javax.swing.JFrame {
         buttonSImpanMerchandise = new javax.swing.JButton();
         buttonUbahMerchandise = new javax.swing.JButton();
         buttonHapusMerchandise = new javax.swing.JButton();
+        buttonResetMerchandise = new javax.swing.JButton();
         jPanel23 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
         tableMerchandise = new javax.swing.JTable();
         buttonCariMerchandise = new javax.swing.JButton();
         fieldCariMerchandise = new javax.swing.JTextField();
-        comboMerchandise = new javax.swing.JComboBox<>();
+        comboMerchandise = new javax.swing.JComboBox<String>();
         Prisma = new javax.swing.JPanel();
         jPanel24 = new javax.swing.JPanel();
         jLabel32 = new javax.swing.JLabel();
@@ -661,12 +670,13 @@ public final class FormHome extends javax.swing.JFrame {
         buttonSimpanPrisma = new javax.swing.JButton();
         buttonUbahPrisma = new javax.swing.JButton();
         buttonHapusPrisma = new javax.swing.JButton();
+        buttonResetPrisma = new javax.swing.JButton();
         jPanel25 = new javax.swing.JPanel();
         jScrollPane6 = new javax.swing.JScrollPane();
         tablePrisma = new javax.swing.JTable();
         buttonCariPrisma = new javax.swing.JButton();
         fieldCariPrisma = new javax.swing.JTextField();
-        comboPrisma = new javax.swing.JComboBox<>();
+        comboPrisma = new javax.swing.JComboBox<String>();
         DokumenFilateli = new javax.swing.JPanel();
         jPanel26 = new javax.swing.JPanel();
         jLabel37 = new javax.swing.JLabel();
@@ -682,18 +692,19 @@ public final class FormHome extends javax.swing.JFrame {
         buttonSimpanDokumenFIlateli = new javax.swing.JButton();
         buttonUbahDokumenFilateli = new javax.swing.JButton();
         buttonHapusDokumenFilateli = new javax.swing.JButton();
+        buttonResetDokumenFIlateli = new javax.swing.JButton();
         jPanel27 = new javax.swing.JPanel();
         jScrollPane7 = new javax.swing.JScrollPane();
         tableDokumenFilateli = new javax.swing.JTable();
         buttonCariDokumenFilateli = new javax.swing.JButton();
         fieldCariDokumenFIlateli = new javax.swing.JTextField();
-        comboDokumenFIlateli = new javax.swing.JComboBox<>();
+        comboDokumenFIlateli = new javax.swing.JComboBox<String>();
         jPanel5 = new javax.swing.JPanel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel15 = new javax.swing.JPanel();
         jPanel30 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        jComboBox8 = new javax.swing.JComboBox<>();
+        jComboBox8 = new javax.swing.JComboBox<String>();
         jLabel11 = new javax.swing.JLabel();
         fieldNamaProdukPenerimaan = new javax.swing.JTextField();
         jButton7 = new javax.swing.JButton();
@@ -871,10 +882,10 @@ public final class FormHome extends javax.swing.JFrame {
             }
         });
 
-        buttonReset.setText("Reset");
-        buttonReset.addActionListener(new java.awt.event.ActionListener() {
+        buttonResetPrangko.setText("Reset");
+        buttonResetPrangko.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonResetActionPerformed(evt);
+                buttonResetPrangkoPrangkoActionPerformed(evt);
             }
         });
 
@@ -904,7 +915,7 @@ public final class FormHome extends javax.swing.JFrame {
                     .addComponent(buttonSimpanPrangko, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(buttonUbahPrangko, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(buttonHapusPrangko, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buttonReset, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(buttonResetPrangko, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel13Layout.setVerticalGroup(
@@ -929,7 +940,7 @@ public final class FormHome extends javax.swing.JFrame {
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(fieldBiayaCetakPrangko, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonReset))
+                    .addComponent(buttonResetPrangko))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
@@ -984,13 +995,13 @@ public final class FormHome extends javax.swing.JFrame {
             }
         });
 
-        comboCariPrangko.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
+        comboCariPrangko.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
 
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
         jPanel14.setLayout(jPanel14Layout);
         jPanel14Layout.setHorizontalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 660, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 665, Short.MAX_VALUE)
             .addGroup(jPanel14Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(comboCariPrangko, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1020,8 +1031,8 @@ public final class FormHome extends javax.swing.JFrame {
         PrangkoLayout.setVerticalGroup(
             PrangkoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PrangkoLayout.createSequentialGroup()
-                .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1113,7 +1124,7 @@ public final class FormHome extends javax.swing.JFrame {
 
         jLabel8.setText("Jenis");
 
-        ComboJenisMS_SS.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MS", "SS" }));
+        ComboJenisMS_SS.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "MS", "SS" }));
         ComboJenisMS_SS.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ComboJenisMS_SSMouseClicked(evt);
@@ -1125,6 +1136,13 @@ public final class FormHome extends javax.swing.JFrame {
         ComboJenisMS_SS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ComboJenisMS_SSActionPerformed(evt);
+            }
+        });
+
+        buttonResetMSSS.setText("Reset");
+        buttonResetMSSS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonResetMSSSActionPerformed(evt);
             }
         });
 
@@ -1148,7 +1166,7 @@ public final class FormHome extends javax.swing.JFrame {
                         .addComponent(jLabel12)
                         .addGap(18, 18, 18)
                         .addComponent(fieldKodeProdukMS_SS, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 207, Short.MAX_VALUE))
                     .addComponent(fieldNominalProdukMSSS)
                     .addComponent(fieldBiayaCetakProdukMSSS)
                     .addComponent(fieldTahunProdukMSSS, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -1157,7 +1175,8 @@ public final class FormHome extends javax.swing.JFrame {
                 .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(buttonSimpanMSSS, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(buttonUbahMSSS, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buttonHapusMSSS, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(buttonHapusMSSS, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonResetMSSS, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel16Layout.setVerticalGroup(
@@ -1183,7 +1202,8 @@ public final class FormHome extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
-                    .addComponent(fieldBiayaCetakProdukMSSS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fieldBiayaCetakProdukMSSS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonResetMSSS))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16)
@@ -1235,7 +1255,7 @@ public final class FormHome extends javax.swing.JFrame {
             }
         });
 
-        comboMS_SS.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
+        comboMS_SS.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
 
         javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
         jPanel17.setLayout(jPanel17Layout);
@@ -1258,7 +1278,7 @@ public final class FormHome extends javax.swing.JFrame {
                     .addComponent(fieldCariMS_SS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboMS_SS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 570, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 574, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout MS_SSLayout = new javax.swing.GroupLayout(MS_SS);
@@ -1271,7 +1291,7 @@ public final class FormHome extends javax.swing.JFrame {
         MS_SSLayout.setVerticalGroup(
             MS_SSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MS_SSLayout.createSequentialGroup()
-                .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -1349,7 +1369,7 @@ public final class FormHome extends javax.swing.JFrame {
             }
         });
 
-        ComboJenisSHP_SHPSS.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SHP", "SHPSS" }));
+        ComboJenisSHP_SHPSS.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "SHP", "SHPSS" }));
         ComboJenisSHP_SHPSS.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ComboJenisSHP_SHPSSMouseClicked(evt);
@@ -1365,6 +1385,13 @@ public final class FormHome extends javax.swing.JFrame {
         });
 
         jLabel10.setText("Jenis");
+
+        buttonResetSHPSHPSS.setText("Reset");
+        buttonResetSHPSHPSS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonResetSHPSHPSSActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
         jPanel18.setLayout(jPanel18Layout);
@@ -1397,7 +1424,8 @@ public final class FormHome extends javax.swing.JFrame {
                 .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(buttonSimpanSHPSHPSS, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(buttonUbahSHPSHPSS, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buttonHapusSHPSHPSS, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(buttonHapusSHPSHPSS, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonResetSHPSHPSS, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel18Layout.setVerticalGroup(
@@ -1423,8 +1451,9 @@ public final class FormHome extends javax.swing.JFrame {
                     .addComponent(fieldNominalProdukSHPSHPSS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buttonHapusSHPSHPSS))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel20)
+                    .addComponent(buttonResetSHPSHPSS)
                     .addComponent(fieldBiayaCetakSHPSHPSS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1472,7 +1501,7 @@ public final class FormHome extends javax.swing.JFrame {
             }
         });
 
-        comboSHP_SHPSS.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
+        comboSHP_SHPSS.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
 
         javax.swing.GroupLayout jPanel19Layout = new javax.swing.GroupLayout(jPanel19);
         jPanel19.setLayout(jPanel19Layout);
@@ -1495,7 +1524,7 @@ public final class FormHome extends javax.swing.JFrame {
                     .addComponent(fieldCariSHP_SHPSS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboSHP_SHPSS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 570, Short.MAX_VALUE))
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 574, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout SHP_SHPSSLayout = new javax.swing.GroupLayout(SHP_SHPSS);
@@ -1508,7 +1537,7 @@ public final class FormHome extends javax.swing.JFrame {
         SHP_SHPSSLayout.setVerticalGroup(
             SHP_SHPSSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SHP_SHPSSLayout.createSequentialGroup()
-                .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -1589,6 +1618,13 @@ public final class FormHome extends javax.swing.JFrame {
             }
         });
 
+        buttonResetKemasan.setText("Reset");
+        buttonResetKemasan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonResetKemasanActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel20Layout = new javax.swing.GroupLayout(jPanel20);
         jPanel20.setLayout(jPanel20Layout);
         jPanel20Layout.setHorizontalGroup(
@@ -1608,13 +1644,14 @@ public final class FormHome extends javax.swing.JFrame {
                     .addComponent(fieldTahunProdukKemasan, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel20Layout.createSequentialGroup()
                         .addComponent(fieldKodeProdukKemasan, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 394, Short.MAX_VALUE))
                     .addComponent(fieldNamaProdukKemasan))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(buttonSImpanKemasan, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(buttonUbahKemasan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buttonHapusKemasan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(buttonHapusKemasan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonResetKemasan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel20Layout.setVerticalGroup(
@@ -1638,7 +1675,8 @@ public final class FormHome extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel25)
-                    .addComponent(fieldBiayaCetakProdukKemasan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fieldBiayaCetakProdukKemasan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonResetKemasan))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel26)
@@ -1685,7 +1723,7 @@ public final class FormHome extends javax.swing.JFrame {
             }
         });
 
-        comboJenisKemasan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
+        comboJenisKemasan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
 
         javax.swing.GroupLayout jPanel21Layout = new javax.swing.GroupLayout(jPanel21);
         jPanel21.setLayout(jPanel21Layout);
@@ -1708,7 +1746,7 @@ public final class FormHome extends javax.swing.JFrame {
                     .addComponent(fieldCariKemasan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboJenisKemasan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 571, Short.MAX_VALUE))
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 575, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout KemasanLayout = new javax.swing.GroupLayout(Kemasan);
@@ -1721,7 +1759,7 @@ public final class FormHome extends javax.swing.JFrame {
         KemasanLayout.setVerticalGroup(
             KemasanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(KemasanLayout.createSequentialGroup()
-                .addComponent(jPanel20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel20, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -1796,6 +1834,13 @@ public final class FormHome extends javax.swing.JFrame {
             }
         });
 
+        buttonResetMerchandise.setText("Reset");
+        buttonResetMerchandise.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonResetMerchandiseActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel22Layout = new javax.swing.GroupLayout(jPanel22);
         jPanel22.setLayout(jPanel22Layout);
         jPanel22Layout.setHorizontalGroup(
@@ -1815,13 +1860,14 @@ public final class FormHome extends javax.swing.JFrame {
                     .addComponent(fieldTahunProdukMerchandise, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel22Layout.createSequentialGroup()
                         .addComponent(fieldKodeProdukMerchandise, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 394, Short.MAX_VALUE))
                     .addComponent(fieldNamaProdukMerchandise))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(buttonSImpanMerchandise, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(buttonUbahMerchandise, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buttonHapusMerchandise, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(buttonHapusMerchandise, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonResetMerchandise, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel22Layout.setVerticalGroup(
@@ -1845,7 +1891,8 @@ public final class FormHome extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel30)
-                    .addComponent(fieldBiayaCetakProdukMerchandise, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fieldBiayaCetakProdukMerchandise, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonResetMerchandise))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel31)
@@ -1892,7 +1939,7 @@ public final class FormHome extends javax.swing.JFrame {
             }
         });
 
-        comboMerchandise.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
+        comboMerchandise.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
 
         javax.swing.GroupLayout jPanel23Layout = new javax.swing.GroupLayout(jPanel23);
         jPanel23.setLayout(jPanel23Layout);
@@ -1915,7 +1962,7 @@ public final class FormHome extends javax.swing.JFrame {
                     .addComponent(fieldCariMerchandise, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboMerchandise, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 571, Short.MAX_VALUE))
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 575, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout MerchandiseLayout = new javax.swing.GroupLayout(Merchandise);
@@ -1928,7 +1975,7 @@ public final class FormHome extends javax.swing.JFrame {
         MerchandiseLayout.setVerticalGroup(
             MerchandiseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MerchandiseLayout.createSequentialGroup()
-                .addComponent(jPanel22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel22, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -2003,6 +2050,8 @@ public final class FormHome extends javax.swing.JFrame {
             }
         });
 
+        buttonResetPrisma.setText("Reset");
+
         javax.swing.GroupLayout jPanel24Layout = new javax.swing.GroupLayout(jPanel24);
         jPanel24.setLayout(jPanel24Layout);
         jPanel24Layout.setHorizontalGroup(
@@ -2022,13 +2071,14 @@ public final class FormHome extends javax.swing.JFrame {
                     .addComponent(fieldTahunProdukPrisma, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel24Layout.createSequentialGroup()
                         .addComponent(fieldKodeProdukPrisma, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 394, Short.MAX_VALUE))
                     .addComponent(fieldNamaProdukPrisma))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(buttonSimpanPrisma, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(buttonUbahPrisma, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buttonHapusPrisma, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(buttonHapusPrisma, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonResetPrisma, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel24Layout.setVerticalGroup(
@@ -2052,7 +2102,8 @@ public final class FormHome extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel35)
-                    .addComponent(fieldBiayaCetakProdukPrisma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fieldBiayaCetakProdukPrisma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonResetPrisma))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel36)
@@ -2099,7 +2150,7 @@ public final class FormHome extends javax.swing.JFrame {
             }
         });
 
-        comboPrisma.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
+        comboPrisma.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
 
         javax.swing.GroupLayout jPanel25Layout = new javax.swing.GroupLayout(jPanel25);
         jPanel25.setLayout(jPanel25Layout);
@@ -2122,7 +2173,7 @@ public final class FormHome extends javax.swing.JFrame {
                     .addComponent(fieldCariPrisma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboPrisma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 571, Short.MAX_VALUE))
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 575, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout PrismaLayout = new javax.swing.GroupLayout(Prisma);
@@ -2135,7 +2186,7 @@ public final class FormHome extends javax.swing.JFrame {
         PrismaLayout.setVerticalGroup(
             PrismaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PrismaLayout.createSequentialGroup()
-                .addComponent(jPanel24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel24, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel25, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -2210,6 +2261,8 @@ public final class FormHome extends javax.swing.JFrame {
             }
         });
 
+        buttonResetDokumenFIlateli.setText("Reset");
+
         javax.swing.GroupLayout jPanel26Layout = new javax.swing.GroupLayout(jPanel26);
         jPanel26.setLayout(jPanel26Layout);
         jPanel26Layout.setHorizontalGroup(
@@ -2229,13 +2282,14 @@ public final class FormHome extends javax.swing.JFrame {
                     .addComponent(fieldTahunProdukDokumenFilateli, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel26Layout.createSequentialGroup()
                         .addComponent(fieldKodeProdukDokumenFilateli, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 394, Short.MAX_VALUE))
                     .addComponent(fieldNamaProdukDokumenFilateli))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(buttonSimpanDokumenFIlateli, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(buttonUbahDokumenFilateli, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buttonHapusDokumenFilateli, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(buttonHapusDokumenFilateli, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonResetDokumenFIlateli, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel26Layout.setVerticalGroup(
@@ -2259,7 +2313,8 @@ public final class FormHome extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel40)
-                    .addComponent(fieldBiayaCetakDokumenFilateli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fieldBiayaCetakDokumenFilateli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonResetDokumenFIlateli))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel41)
@@ -2306,7 +2361,7 @@ public final class FormHome extends javax.swing.JFrame {
             }
         });
 
-        comboDokumenFIlateli.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
+        comboDokumenFIlateli.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
 
         javax.swing.GroupLayout jPanel27Layout = new javax.swing.GroupLayout(jPanel27);
         jPanel27.setLayout(jPanel27Layout);
@@ -2329,7 +2384,7 @@ public final class FormHome extends javax.swing.JFrame {
                     .addComponent(fieldCariDokumenFIlateli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboDokumenFIlateli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 571, Short.MAX_VALUE))
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 575, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout DokumenFilateliLayout = new javax.swing.GroupLayout(DokumenFilateli);
@@ -2342,7 +2397,7 @@ public final class FormHome extends javax.swing.JFrame {
         DokumenFilateliLayout.setVerticalGroup(
             DokumenFilateliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(DokumenFilateliLayout.createSequentialGroup()
-                .addComponent(jPanel26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel26, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel27, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -2370,7 +2425,7 @@ public final class FormHome extends javax.swing.JFrame {
 
         jLabel7.setText("Jenis Produk");
 
-        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel11.setText("Nama Produk");
 
@@ -2744,18 +2799,16 @@ public final class FormHome extends javax.swing.JFrame {
         if (baris >= 0) {
             String kodeProduk = tablePrangko.getValueAt(baris, 0).toString();
             String NamaProduk = tablePrangko.getValueAt(baris, 1).toString();
+            String nominal = tablePrangko.getValueAt(baris, 2).toString();
+            String biayaCetak = tablePrangko.getValueAt(baris, 3).toString();
+            String tahun = tablePrangko.getValueAt(baris, 5).toString();
 
             int ok = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin "
                     + "Mengubah Produk dengan kode : " + kodeProduk
                     + " dengan Nama Produk " + NamaProduk
                     + "?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
-            if (ok == 0) {
-                String idProduk = fieldKodeProdukPrangko.getText();
-                String namaProduk = fieldNamaProdukPrangko.getText();
-                String nominal = fieldNominalPrangko.getText();
-                String biayaCetak = fieldBiayaCetakPrangko.getText();
-                String tahun = fieldTahunPrangko.getText();
 
+            if (ok == 0) {
                 //validasi apakah filed 
                 //sudah diisi atau belum
                 if (fieldNamaProdukPrangko.getText().equals("")) {
@@ -2763,27 +2816,43 @@ public final class FormHome extends javax.swing.JFrame {
                     fieldNamaProdukPrangko.requestFocus();
                     fieldNamaProdukPrangko.setEditable(true);
                     getDataPrangko();
+                    fieldNamaProdukPrangko.setText(NamaProduk);
+                    fieldKodeProdukPrangko.setText(kodeProduk);
                 } else if ((fieldNominalPrangko.getText().equals(""))) {
                     JOptionPane.showMessageDialog(null, "Nominal tidak boleh Kosong");
                     fieldNominalPrangko.requestFocus();
                     fieldNominalPrangko.setEditable(true);
                     getDataPrangko();
+                    fieldNominalPrangko.setText(nominal);
+                    fieldKodeProdukPrangko.setText(kodeProduk);
                 } else if (fieldBiayaCetakPrangko.getText().equals("")) {
                     JOptionPane.showMessageDialog(null, "Biaya Cetak tidak boleh Kosong");
                     fieldBiayaCetakPrangko.requestFocus();
                     fieldBiayaCetakPrangko.setEditable(true);
                     getDataPrangko();
+                    fieldBiayaCetakPrangko.setText(biayaCetak);
+                    fieldKodeProdukPrangko.setText(kodeProduk);
                 } else if (fieldTahunPrangko.getText().equals("")) {
                     JOptionPane.showMessageDialog(null, "Tahun tidak boleh Kosong");
                     fieldTahunPrangko.requestFocus();
                     fieldTahunPrangko.setEditable(true);
                     getDataPrangko();
+                    fieldTahunPrangko.setText(tahun);
+                    fieldKodeProdukPrangko.setText(kodeProduk);
                 } else {
+                    Produk produk = new Produk();
+                    produk.setIdProduk(fieldKodeProdukPrangko.getText());
+                    produk.setNamaProduk(fieldNamaProdukPrangko.getText());
+                    produk.setNominal(Integer.parseInt(fieldNominalPrangko.getText()));
+                    produk.setBiayaCetak(Float.parseFloat(fieldBiayaCetakPrangko.getText()));
+                    produk.setTahun(fieldTahunPrangko.getText());
+
                     //insert produk
                     boolean sukses = dao.ubahProduk(produk);
 
                     //cek sukses atau tidak
                     if (sukses) {
+                        JOptionPane.showMessageDialog(this, "Data berhasil diubah"); 
                         resetField();
                         getDataPrangko();
                         autoincrementPrangko();
@@ -2804,9 +2873,8 @@ public final class FormHome extends javax.swing.JFrame {
             getDataPrangko();
             autoincrementPrangko();
         }
-        resetField();
         getDataPrangko();
-        autoincrementPrangko();
+        tablePrangko.setRowSelectionInterval(baris, baris);
     }//GEN-LAST:event_buttonUbahPrangkoActionPerformed
 
     private void tablePrangkoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePrangkoMouseClicked
@@ -3094,18 +3162,16 @@ public final class FormHome extends javax.swing.JFrame {
         if (baris >= 0) {
             String kodeProduk = tableMSSS.getValueAt(baris, 0).toString();
             String NamaProduk = tableMSSS.getValueAt(baris, 1).toString();
+            String nominal = tableMSSS.getValueAt(baris, 2).toString();
+            String biayaCetak = tableMSSS.getValueAt(baris, 3).toString();
+            String tahun = tableMSSS.getValueAt(baris, 5).toString();
 
             int ok = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin "
                     + "Mengubah Produk dengan kode : " + kodeProduk
                     + " dengan Nama Produk " + NamaProduk
                     + "?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
-            if (ok == 0) {
-                String idProduk = fieldKodeProdukMS_SS.getText();
-                String namaProduk = fieldNamaProdukMSSS.getText();
-                String nominal = fieldNominalProdukMSSS.getText();
-                String biayaCetak = fieldBiayaCetakProdukMSSS.getText();
-                String tahun = fieldTahunProdukMSSS.getText();
 
+            if (ok == 0) {
                 //validasi apakah filed 
                 //sudah diisi atau belum
                 if (fieldNamaProdukMSSS.getText().equals("")) {
@@ -3113,29 +3179,36 @@ public final class FormHome extends javax.swing.JFrame {
                     fieldNamaProdukMSSS.requestFocus();
                     fieldNamaProdukMSSS.setEditable(true);
                     getDataMS_SS();
+                    fieldNamaProdukMSSS.setText(NamaProduk);
+                    fieldKodeProdukMS_SS.setText(kodeProduk);
                 } else if (fieldNominalProdukMSSS.getText().equals("")) {
                     JOptionPane.showMessageDialog(null, "Nominal tidak boleh Kosong");
                     fieldNominalProdukMSSS.requestFocus();
                     fieldNominalProdukMSSS.setEditable(true);
                     getDataMS_SS();
+                    fieldNominalProdukMSSS.setText(nominal);
+                    fieldKodeProdukMS_SS.setText(kodeProduk);
                 } else if (fieldBiayaCetakProdukMSSS.getText().equals("")) {
                     JOptionPane.showMessageDialog(null, "Biaya Cetak tidak boleh Kosong");
                     fieldBiayaCetakProdukMSSS.requestFocus();
                     fieldBiayaCetakProdukMSSS.setEditable(true);
                     getDataMS_SS();
+                    fieldBiayaCetakProdukMSSS.setText(biayaCetak);
+                    fieldKodeProdukMS_SS.setText(kodeProduk);
                 } else if (fieldTahunProdukMSSS.getText().equals("")) {
                     JOptionPane.showMessageDialog(null, "Tahun tidak boleh Kosong");
                     fieldTahunProdukMSSS.requestFocus();
                     fieldTahunProdukMSSS.setEditable(true);
                     getDataMS_SS();
+                    fieldTahunProdukMSSS.setText(tahun);
+                    fieldKodeProdukMS_SS.setText(kodeProduk);
                 } else {
-                    //buat objek pegawai
                     Produk produk = new Produk();
-                    produk.setIdProduk(idProduk);
-                    produk.setNamaProduk(namaProduk);
-                    produk.setNominal(Integer.parseInt(nominal));
-                    produk.setBiayaCetak(Float.parseFloat(biayaCetak));
-                    produk.setTahun(tahun);
+                    produk.setIdProduk(fieldKodeProdukMS_SS.getText());
+                    produk.setNamaProduk(fieldNamaProdukMSSS.getText());
+                    produk.setNominal(Integer.parseInt(fieldNominalProdukMSSS.getText()));
+                    produk.setBiayaCetak(Float.parseFloat(fieldBiayaCetakProdukMSSS.getText()));
+                    produk.setTahun(fieldTahunProdukMSSS.getText());
 
                     //insert produk
                     ProdukDAO dao = new ProdukDAOImpl();
@@ -3143,6 +3216,7 @@ public final class FormHome extends javax.swing.JFrame {
 
                     //cek sukses atau tidak
                     if (sukses) {
+                        JOptionPane.showMessageDialog(this, "Data berhasil diubah");
                         getDataMS_SS();
                         resetField();
                         autoincrementMS_SS();
@@ -3164,9 +3238,8 @@ public final class FormHome extends javax.swing.JFrame {
             getDataMS_SS();
             autoincrementMS_SS();
         }
-        resetField();
         getDataMS_SS();
-        autoincrementMS_SS();
+        tableMSSS.setRowSelectionInterval(baris, baris);
     }//GEN-LAST:event_buttonUbahMSSSActionPerformed
 
     private void fieldBiayaCetakProdukMSSSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldBiayaCetakProdukMSSSActionPerformed
@@ -3276,19 +3349,16 @@ public final class FormHome extends javax.swing.JFrame {
         int baris = tableSHPSHPSS.getSelectedRow();
         if (baris >= 0) {
             String kodeProduk = tableSHPSHPSS.getValueAt(baris, 0).toString();
-            String NamaProduk = tableMSSS.getValueAt(baris, 1).toString();
+            String NamaProduk = tableSHPSHPSS.getValueAt(baris, 1).toString();
+            String nominal = tableSHPSHPSS.getValueAt(baris, 2).toString();
+            String biayaCetak = tableSHPSHPSS.getValueAt(baris, 3).toString();
+            String tahun = tableSHPSHPSS.getValueAt(baris, 5).toString();
 
             int ok = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin "
                     + "Mengubah Produk dengan kode : " + kodeProduk
                     + " dengan Nama Produk " + NamaProduk
                     + "?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
             if (ok == 0) {
-                String idProduk = fieldKodeProdukSHP_SHPSS.getText();
-                String namaProduk = fieldNamaProdukSHPSHPSS.getText();
-                int nominal = Integer.parseInt(fieldNominalProdukSHPSHPSS.getText());
-                float biayaCetak = Float.parseFloat(fieldBiayaCetakSHPSHPSS.getText());
-                String tahun = fieldTahunProdukSHPSHPSS.getText();
-
                 //validasi apakah filed 
                 //sudah diisi atau belum
                 if (fieldNamaProdukSHPSHPSS.getText().equals("")) {
@@ -3296,36 +3366,43 @@ public final class FormHome extends javax.swing.JFrame {
                     fieldNamaProdukSHPSHPSS.requestFocus();
                     fieldNamaProdukSHPSHPSS.setEditable(true);
                     getDataSHP_SHPSS();
+                    fieldNamaProdukSHPSHPSS.setText(NamaProduk);
+                    fieldKodeProdukSHP_SHPSS.setText(kodeProduk);
                 } else if (fieldNominalProdukSHPSHPSS.getText().equals("")) {
                     JOptionPane.showMessageDialog(null, "Nominal tidak boleh Kosong");
                     fieldNominalProdukSHPSHPSS.requestFocus();
                     fieldNominalProdukSHPSHPSS.setEditable(true);
                     getDataSHP_SHPSS();
+                    fieldNominalProdukSHPSHPSS.setText(nominal);
+                    fieldKodeProdukSHP_SHPSS.setText(kodeProduk);
                 } else if (fieldBiayaCetakSHPSHPSS.getText().equals("")) {
                     JOptionPane.showMessageDialog(null, "Biaya Cetak tidak boleh Kosong");
                     fieldBiayaCetakSHPSHPSS.requestFocus();
                     fieldBiayaCetakSHPSHPSS.setEditable(true);
                     getDataSHP_SHPSS();
+                    fieldBiayaCetakSHPSHPSS.setText(biayaCetak);
+                    fieldKodeProdukSHP_SHPSS.setText(kodeProduk);
                 } else if (fieldTahunProdukSHPSHPSS.getText().equals("")) {
                     JOptionPane.showMessageDialog(null, "Tahun tidak boleh Kosong");
                     fieldTahunProdukSHPSHPSS.requestFocus();
                     fieldTahunProdukSHPSHPSS.setEditable(true);
                     getDataSHP_SHPSS();
+                    fieldTahunProdukSHPSHPSS.setText(tahun);
+                    fieldKodeProdukSHP_SHPSS.setText(kodeProduk);
                 } else {
-                    //buat objek pegawai
                     Produk produk = new Produk();
-                    produk.setIdProduk(idProduk);
-                    produk.setNamaProduk(namaProduk);
-                    produk.setNominal(nominal);
-                    produk.setBiayaCetak(biayaCetak);
-                    produk.setTahun(tahun);
-
+                    produk.setIdProduk(fieldKodeProdukSHP_SHPSS.getText());
+                    produk.setNamaProduk(fieldNamaProdukSHPSHPSS.getText());
+                    produk.setNominal(Integer.parseInt(fieldNominalProdukSHPSHPSS.getText()));
+                    produk.setBiayaCetak(Float.parseFloat(fieldBiayaCetakSHPSHPSS.getText()));
+                    produk.setTahun(fieldTahunProdukSHPSHPSS.getText());
                     //insert produk
                     ProdukDAO dao = new ProdukDAOImpl();
                     boolean sukses = dao.ubahProduk(produk);
 
                     //cek sukses atau tidak
                     if (sukses) {
+                        JOptionPane.showMessageDialog(this, "Data berhasil diubah");
                         getDataSHP_SHPSS();
                         resetField();
                         autoincrementSHP_SHPSS();
@@ -3347,8 +3424,7 @@ public final class FormHome extends javax.swing.JFrame {
             autoincrementSHP_SHPSS();
         }
         getDataSHP_SHPSS();
-        resetField();
-        autoincrementSHP_SHPSS();
+        tableSHPSHPSS.setRowSelectionInterval(baris, baris);
     }//GEN-LAST:event_buttonUbahSHPSHPSSActionPerformed
 
     private void buttonHapusSHPSHPSSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHapusSHPSHPSSActionPerformed
@@ -3479,19 +3555,16 @@ public final class FormHome extends javax.swing.JFrame {
         int baris = tableKemasan.getSelectedRow();
         if (baris >= 0) {
             String kodeProduk = tableKemasan.getValueAt(baris, 0).toString();
-            String NamaProduk = tableMSSS.getValueAt(baris, 1).toString();
+            String NamaProduk = tableKemasan.getValueAt(baris, 1).toString();
+            String nominal = tableKemasan.getValueAt(baris, 2).toString();
+            String biayaCetak = tableKemasan.getValueAt(baris, 3).toString();
+            String tahun = tableKemasan.getValueAt(baris, 5).toString();
 
             int ok = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin "
                     + "Mengubah Produk dengan kode : " + kodeProduk
                     + " dengan Nama Produk " + NamaProduk
                     + "?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
             if (ok == 0) {
-                String idProduk = fieldKodeProdukKemasan.getText();
-                String namaProduk = fieldNamaProdukKemasan.getText();
-                int nominal = Integer.parseInt(fieldNominalProdukKemasan.getText());
-                float biayaCetak = Float.parseFloat(fieldBiayaCetakProdukKemasan.getText());
-                String tahun = fieldTahunProdukKemasan.getText();
-
                 //validasi apakah filed 
                 //sudah diisi atau belum
                 if (fieldNamaProdukKemasan.getText().equals("")) {
@@ -3499,32 +3572,36 @@ public final class FormHome extends javax.swing.JFrame {
                     fieldNamaProdukKemasan.requestFocus();
                     fieldNamaProdukKemasan.setEditable(true);
                     getDataKemasan();
+                    fieldNamaProdukKemasan.setText(NamaProduk);
+                    fieldKodeProdukKemasan.setText(kodeProduk);
                 } else if (fieldNominalProdukKemasan.getText().equals("")) {
                     JOptionPane.showMessageDialog(null, "Nominal tidak boleh Kosong");
                     fieldNominalProdukKemasan.requestFocus();
                     fieldNominalProdukKemasan.setEditable(true);
                     getDataKemasan();
+                    fieldNominalProdukKemasan.setText(nominal);
+                    fieldKodeProdukKemasan.setText(kodeProduk);
                 } else if (fieldBiayaCetakProdukKemasan.getText().equals("")) {
                     JOptionPane.showMessageDialog(null, "Biaya Cetak tidak boleh Kosong");
                     fieldBiayaCetakProdukKemasan.requestFocus();
                     fieldBiayaCetakProdukKemasan.setEditable(true);
                     getDataKemasan();
+                    fieldBiayaCetakProdukKemasan.setText(biayaCetak);
+                    fieldKodeProdukKemasan.setText(kodeProduk);
                 } else if (fieldTahunProdukKemasan.getText().equals("")) {
                     JOptionPane.showMessageDialog(null, "Tahun tidak boleh Kosong");
                     fieldTahunProdukKemasan.requestFocus();
                     fieldTahunProdukKemasan.setEditable(true);
                     getDataKemasan();
+                    fieldTahunProdukKemasan.setText(tahun);
+                    fieldKodeProdukKemasan.setText(kodeProduk);
                 } else {
-                    JOptionPane.showConfirmDialog(null, "Apakah Anda yakin "
-                            + " mengubah" + idProduk + " " + namaProduk
-                            + "?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
-                    //buat objek pegawai
                     Produk produk = new Produk();
-                    produk.setIdProduk(idProduk);
-                    produk.setNamaProduk(namaProduk);
-                    produk.setNominal(nominal);
-                    produk.setBiayaCetak(biayaCetak);
-                    produk.setTahun(tahun);
+                    produk.setIdProduk(fieldKodeProdukKemasan.getText());
+                    produk.setNamaProduk(fieldNamaProdukKemasan.getText());
+                    produk.setNominal(Integer.parseInt(fieldNominalProdukKemasan.getText()));
+                    produk.setBiayaCetak(Float.parseFloat(fieldBiayaCetakProdukKemasan.getText()));
+                    produk.setTahun(fieldTahunProdukKemasan.getText());
 
                     //insert produk
                     ProdukDAO dao = new ProdukDAOImpl();
@@ -3550,9 +3627,8 @@ public final class FormHome extends javax.swing.JFrame {
             resetField();
             autoincrementKemasan();
         }
-        resetField();
         getDataKemasan();
-        autoincrementKemasan();
+        tableKemasan.setRowSelectionInterval(baris, baris);
     }//GEN-LAST:event_buttonUbahKemasanActionPerformed
 
     private void buttonHapusKemasanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHapusKemasanActionPerformed
@@ -3684,19 +3760,16 @@ public final class FormHome extends javax.swing.JFrame {
         int baris = tableMerchandise.getSelectedRow();
         if (baris >= 0) {
             String kodeProduk = tableMerchandise.getValueAt(baris, 0).toString();
-            String NamaProduk = tableMSSS.getValueAt(baris, 1).toString();
+            String NamaProduk = tableMerchandise.getValueAt(baris, 1).toString();
+            String nominal = tableMerchandise.getValueAt(baris, 2).toString();
+            String biayaCetak = tableMerchandise.getValueAt(baris, 3).toString();
+            String tahun = tableMerchandise.getValueAt(baris, 5).toString();
 
             int ok = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin "
                     + "Mengubah Produk dengan kode : " + kodeProduk
                     + " dengan Nama Produk " + NamaProduk
                     + "?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
             if (ok == 0) {
-                String idProduk = fieldKodeProdukMerchandise.getText();
-                String namaProduk = fieldNamaProdukMerchandise.getText();
-                String nominal = fieldNominalProdukMerchandise.getText();
-                String biayaCetak = fieldBiayaCetakProdukMerchandise.getText();
-                String tahun = fieldTahunProdukMerchandise.getText();
-
                 //validasi apakah filed 
                 //sudah diisi atau belum
                 if (fieldNamaProdukMerchandise.getText().equals("")) {
@@ -3704,29 +3777,36 @@ public final class FormHome extends javax.swing.JFrame {
                     fieldNamaProdukMerchandise.requestFocus();
                     fieldNamaProdukMerchandise.setEditable(true);
                     getDataMerchandise();
+                    fieldNamaProdukMerchandise.setText(NamaProduk);
+                    fieldKodeProdukMerchandise.setText(kodeProduk);
                 } else if (fieldNominalProdukMerchandise.getText().equals("")) {
                     JOptionPane.showMessageDialog(null, "Nominal tidak boleh Kosong");
                     fieldNominalProdukMerchandise.requestFocus();
                     fieldNominalProdukMerchandise.setEditable(true);
                     getDataMerchandise();
+                    fieldNominalProdukMerchandise.setText(nominal);
+                    fieldKodeProdukMerchandise.setText(kodeProduk);
                 } else if (fieldBiayaCetakProdukMerchandise.getText().equals("")) {
                     JOptionPane.showMessageDialog(null, "Biaya Cetak tidak boleh Kosong");
                     fieldBiayaCetakProdukMerchandise.requestFocus();
                     fieldBiayaCetakProdukMerchandise.setEditable(true);
                     getDataMerchandise();
+                    fieldBiayaCetakProdukMerchandise.setText(biayaCetak);
+                    fieldKodeProdukMerchandise.setText(kodeProduk);
                 } else if (fieldTahunProdukMerchandise.getText().equals("")) {
                     JOptionPane.showMessageDialog(null, "Tahun tidak boleh Kosong");
                     fieldTahunProdukMerchandise.requestFocus();
                     fieldTahunProdukMerchandise.setEditable(true);
                     getDataMerchandise();
+                    fieldTahunProdukMerchandise.setText(tahun);
+                    fieldKodeProdukMerchandise.setText(kodeProduk);
                 } else {
-                    //buat objek pegawai
                     Produk produk = new Produk();
-                    produk.setIdProduk(idProduk);
-                    produk.setNamaProduk(namaProduk);
-                    produk.setNominal(Integer.parseInt(nominal));
-                    produk.setBiayaCetak(Float.parseFloat(biayaCetak));
-                    produk.setTahun(tahun);
+                    produk.setIdProduk(fieldKodeProdukMerchandise.getText());
+                    produk.setNamaProduk(fieldNamaProdukMerchandise.getText());
+                    produk.setNominal(Integer.parseInt(fieldNominalProdukMerchandise.getText()));
+                    produk.setBiayaCetak(Float.parseFloat(fieldBiayaCetakProdukMerchandise.getText()));
+                    produk.setTahun(fieldTahunProdukMerchandise.getText());
 
                     //insert produk
                     ProdukDAO dao = new ProdukDAOImpl();
@@ -3734,6 +3814,7 @@ public final class FormHome extends javax.swing.JFrame {
 
                     //cek sukses atau tidak
                     if (sukses) {
+                        JOptionPane.showMessageDialog(this, "Data berhasil diubah");
                         getDataMerchandise();
                         resetField();
                         autoincrementMerchandise();
@@ -3750,9 +3831,8 @@ public final class FormHome extends javax.swing.JFrame {
             getDataMerchandise();
             autoincrementMerchandise();
         }
-        resetField();
         getDataMerchandise();
-        autoincrementMerchandise();
+        tableMerchandise.setRowSelectionInterval(baris, baris);
     }//GEN-LAST:event_buttonUbahMerchandiseActionPerformed
 
     private void buttonHapusMerchandiseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHapusMerchandiseActionPerformed
@@ -3886,53 +3966,53 @@ public final class FormHome extends javax.swing.JFrame {
         int baris = tablePrisma.getSelectedRow();
         if (baris >= 0) {
             String kodeProduk = tablePrisma.getValueAt(baris, 0).toString();
-            String NamaProduk = tableMSSS.getValueAt(baris, 1).toString();
+            String NamaProduk = tablePrisma.getValueAt(baris, 1).toString();
+            String nominal = tablePrisma.getValueAt(baris, 2).toString();
+            String biayaCetak = tablePrisma.getValueAt(baris, 3).toString();
+            String tahun = tablePrisma.getValueAt(baris, 5).toString();
 
             int ok = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin "
                     + "Mengubah Produk dengan kode : " + kodeProduk
                     + " dengan Nama Produk " + NamaProduk
                     + "?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
             if (ok == 0) {
-                String idProduk = fieldKodeProdukPrisma.getText();
-                String namaProduk = fieldNamaProdukPrisma.getText();
-                String nominal = fieldNominalProdukPrisma.getText();
-                String biayaCetak = fieldBiayaCetakProdukPrisma.getText();
-                String tahun = fieldTahunProdukPrisma.getText();
-
                 //validasi apakah filed 
                 //sudah diisi atau belum
                 if (fieldNamaProdukPrisma.getText().equals("")) {
                     JOptionPane.showMessageDialog(null, "Nama Produk tidak boleh Kosong");
-                    JOptionPane.showMessageDialog(null, "Kode Produk tidak boleh Kosong");
                     fieldNamaProdukPrisma.requestFocus();
                     fieldNamaProdukPrisma.setEditable(true);
                     getDataPrisma();
+                    fieldNamaProdukPrisma.setText(NamaProduk);
+                    fieldKodeProdukPrisma.setText(kodeProduk);
                 } else if (fieldNominalProdukPrisma.getText().equals("")) {
                     JOptionPane.showMessageDialog(null, "Nominal tidak boleh Kosong");
-                    JOptionPane.showMessageDialog(null, "Kode Produk tidak boleh Kosong");
                     fieldNominalProdukPrisma.requestFocus();
                     fieldNominalProdukPrisma.setEditable(true);
                     getDataPrisma();
+                    fieldNominalProdukPrisma.setText(nominal);
+                    fieldKodeProdukPrisma.setText(kodeProduk);
                 } else if (fieldBiayaCetakProdukPrisma.getText().equals("")) {
                     JOptionPane.showMessageDialog(null, "Biaya Cetak tidak boleh Kosong");
-                    JOptionPane.showMessageDialog(null, "Kode Produk tidak boleh Kosong");
                     fieldBiayaCetakProdukPrisma.requestFocus();
                     fieldBiayaCetakProdukPrisma.setEditable(true);
                     getDataPrisma();
+                    fieldBiayaCetakProdukPrisma.setText(biayaCetak);
+                    fieldKodeProdukPrisma.setText(kodeProduk);
                 } else if (fieldTahunProdukPrisma.getText().equals("")) {
                     JOptionPane.showMessageDialog(null, "Tahun tidak boleh Kosong");
-                    JOptionPane.showMessageDialog(null, "Kode Produk tidak boleh Kosong");
                     fieldTahunProdukPrisma.requestFocus();
                     fieldTahunProdukPrisma.setEditable(true);
                     getDataPrisma();
+                    fieldTahunProdukPrisma.setText(tahun);
+                    fieldKodeProdukPrisma.setText(kodeProduk);
                 } else {
-                    //buat objek pegawai
                     Produk produk = new Produk();
-                    produk.setIdProduk(idProduk);
-                    produk.setNamaProduk(namaProduk);
-                    produk.setNominal(Integer.parseInt(nominal));
-                    produk.setBiayaCetak(Float.parseFloat(biayaCetak));
-                    produk.setTahun(tahun);
+                    produk.setIdProduk(fieldKodeProdukPrisma.getText());
+                    produk.setNamaProduk(fieldNamaProdukPrisma.getText());
+                    produk.setNominal(Integer.parseInt(fieldNominalProdukPrisma.getText()));
+                    produk.setBiayaCetak(Float.parseFloat(fieldBiayaCetakProdukPrisma.getText()));
+                    produk.setTahun(fieldTahunProdukPrisma.getText());
 
                     //insert produk
                     ProdukDAO dao = new ProdukDAOImpl();
@@ -3958,9 +4038,8 @@ public final class FormHome extends javax.swing.JFrame {
             getDataPrisma();
             autoincrementPrisma();
         }
-        resetField();
         getDataPrisma();
-        autoincrementPrisma();
+        tablePrisma.setRowSelectionInterval(baris, baris);
     }//GEN-LAST:event_buttonUbahPrismaActionPerformed
 
     private void buttonHapusPrismaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHapusPrismaActionPerformed
@@ -4093,7 +4172,10 @@ public final class FormHome extends javax.swing.JFrame {
         int baris = tableDokumenFilateli.getSelectedRow();
         if (baris >= 0) {
             String kodeProduk = tableDokumenFilateli.getValueAt(baris, 0).toString();
-            String NamaProduk = tableMSSS.getValueAt(baris, 1).toString();
+            String NamaProduk = tableDokumenFilateli.getValueAt(baris, 1).toString();
+            String nominal = tableDokumenFilateli.getValueAt(baris, 2).toString();
+            String biayaCetak = tableDokumenFilateli.getValueAt(baris, 3).toString();
+            String tahun = tableDokumenFilateli.getValueAt(baris, 5).toString();
 
             int ok = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin "
                     + "Mengubah Produk dengan kode : " + kodeProduk
@@ -4101,12 +4183,6 @@ public final class FormHome extends javax.swing.JFrame {
                     + "?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
 
             if (ok == 0) {
-                String idProduk = fieldKodeProdukDokumenFilateli.getText();
-                String namaProduk = fieldNamaProdukDokumenFilateli.getText();
-                String nominal = fieldNominalProdukDokumenFilateli.getText();
-                String biayaCetak = fieldBiayaCetakDokumenFilateli.getText();
-                String tahun = fieldTahunProdukDokumenFilateli.getText();
-
                 //validasi apakah filed 
                 //sudah diisi atau belum
                 if (fieldNamaProdukDokumenFilateli.getText().equals("")) {
@@ -4114,29 +4190,36 @@ public final class FormHome extends javax.swing.JFrame {
                     fieldNamaProdukDokumenFilateli.requestFocus();
                     fieldNamaProdukDokumenFilateli.setEditable(true);
                     getDataDokumenFilateli();
+                    fieldNamaProdukDokumenFilateli.setText(NamaProduk);
+                    fieldKodeProdukDokumenFilateli.setText(kodeProduk);
                 } else if (fieldNominalProdukDokumenFilateli.getText().equals("")) {
                     JOptionPane.showMessageDialog(null, "Nominal tidak boleh Kosong");
                     fieldNominalProdukDokumenFilateli.requestFocus();
                     fieldNominalProdukDokumenFilateli.setEditable(true);
                     getDataDokumenFilateli();
+                    fieldNominalProdukDokumenFilateli.setText(nominal);
+                    fieldKodeProdukDokumenFilateli.setText(kodeProduk);
                 } else if (fieldBiayaCetakDokumenFilateli.getText().equals("")) {
                     JOptionPane.showMessageDialog(null, "Biaya Cetak tidak boleh Kosong");
                     fieldBiayaCetakDokumenFilateli.requestFocus();
                     fieldBiayaCetakDokumenFilateli.setEditable(true);
                     getDataDokumenFilateli();
+                    fieldBiayaCetakDokumenFilateli.setText(biayaCetak);
+                    fieldKodeProdukDokumenFilateli.setText(kodeProduk);
                 } else if (fieldTahunProdukDokumenFilateli.getText().equals("")) {
                     JOptionPane.showMessageDialog(null, "Tahun tidak boleh Kosong");
                     fieldTahunProdukDokumenFilateli.requestFocus();
                     fieldTahunProdukDokumenFilateli.setEditable(true);
                     getDataDokumenFilateli();
+                    fieldTahunProdukDokumenFilateli.setText(tahun);
+                    fieldKodeProdukDokumenFilateli.setText(kodeProduk);
                 } else {
-                    //buat objek pegawai
                     Produk produk = new Produk();
-                    produk.setIdProduk(idProduk);
-                    produk.setNamaProduk(namaProduk);
-                    produk.setNominal(Integer.parseInt(nominal));
-                    produk.setBiayaCetak(Float.parseFloat(biayaCetak));
-                    produk.setTahun(tahun);
+                    produk.setIdProduk(fieldKodeProdukDokumenFilateli.getText());
+                    produk.setNamaProduk(fieldNamaProdukDokumenFilateli.getText());
+                    produk.setNominal(Integer.parseInt(fieldNominalProdukDokumenFilateli.getText()));
+                    produk.setBiayaCetak(Float.parseFloat(fieldBiayaCetakDokumenFilateli.getText()));
+                    produk.setTahun(fieldTahunProdukDokumenFilateli.getText());
 
                     //insert produk
                     ProdukDAO dao = new ProdukDAOImpl();
@@ -4144,6 +4227,7 @@ public final class FormHome extends javax.swing.JFrame {
 
                     //cek sukses atau tidak
                     if (sukses) {
+                        JOptionPane.showMessageDialog(this, "Data berhasil diubah");
                         resetField();
                         getDataDokumenFilateli();
                         autoincrementDokumenFilateli();
@@ -4161,9 +4245,8 @@ public final class FormHome extends javax.swing.JFrame {
             getDataDokumenFilateli();
             autoincrementDokumenFilateli();
         }
-        resetField();
         getDataDokumenFilateli();
-        autoincrementDokumenFilateli();
+        tableDokumenFilateli.setRowSelectionInterval(baris, baris);
     }//GEN-LAST:event_buttonUbahDokumenFilateliActionPerformed
 
     private void buttonHapusDokumenFilateliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHapusDokumenFilateliActionPerformed
@@ -4226,20 +4309,20 @@ public final class FormHome extends javax.swing.JFrame {
     private void buttonCariPrangkoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariPrangkoActionPerformed
         // TODO add your handling code here:
         String keyword = fieldCariPrangko.getText();
-        String status="prangko";
+        String status = "prangko";
         String tabCari = cariPilihan(status);
         String jenisCari = cariData(tabCari);
         String idJenis = cariJenis(status);
-        
+
         // lakukan proses pencarian
         dao = new ProdukDAOImpl();
-        arrayProduk = dao.cariProduk(keyword,jenisCari,idJenis);
+        arrayProduk = dao.cariProduk(keyword, jenisCari, idJenis);
 
         ProdukTM produkTableModel = new ProdukTM();
         produkTableModel.setDataProduk(arrayProduk);
         sorter = new TableRowSorter(produkTableModel);
         tablePrangko.setRowSorter(sorter);
-        
+
         tablePrangko.setModel(produkTableModel);
     }//GEN-LAST:event_buttonCariPrangkoActionPerformed
 
@@ -4296,111 +4379,111 @@ public final class FormHome extends javax.swing.JFrame {
         String tab = "kemasan";
         String jenisCari = cariData(tab);
         String idJenis = cariJenis(tab);
-        
+
         // lakukan proses pencarian
         dao = new ProdukDAOImpl();
-        arrayProduk = dao.cariProduk(keyword,jenisCari,idJenis);
+        arrayProduk = dao.cariProduk(keyword, jenisCari, idJenis);
 
         ProdukTM produkTableModel = new ProdukTM();
         produkTableModel.setDataProduk(arrayProduk);
         sorter = new TableRowSorter(produkTableModel);
         tableKemasan.setRowSorter(sorter);
-        
+
         tableKemasan.setModel(produkTableModel);
     }//GEN-LAST:event_buttonCariKemasanActionPerformed
 
     private void buttonCariMS_SSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariMS_SSActionPerformed
         // TODO add your handling code here:
         String keyword = fieldCariMS_SS.getText();
-        String tab="ss";
+        String tab = "ss";
         String jenisCari = cariData(tab);
         String idJenis = cariJenis(tab);
-        
+
         // lakukan proses pencarian
         dao = new ProdukDAOImpl();
-        arrayProduk = dao.cariProduk(keyword,jenisCari,idJenis);
+        arrayProduk = dao.cariProduk(keyword, jenisCari, idJenis);
 
         ProdukTM produkTableModel = new ProdukTM();
         produkTableModel.setDataProduk(arrayProduk);
         sorter = new TableRowSorter(produkTableModel);
         tableMSSS.setRowSorter(sorter);
-        
+
         tableMSSS.setModel(produkTableModel);
     }//GEN-LAST:event_buttonCariMS_SSActionPerformed
 
     private void buttonCariSHP_SHPSSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariSHP_SHPSSActionPerformed
         // TODO add your handling code here:
         String keyword = fieldCariSHP_SHPSS.getText();
-        String tab="shp";
+        String tab = "shp";
         String jenisCari = cariData(tab);
         String idJenis = cariJenis(tab);
-        
+
         // lakukan proses pencarian
         dao = new ProdukDAOImpl();
-        arrayProduk = dao.cariProduk(keyword,jenisCari,idJenis);
+        arrayProduk = dao.cariProduk(keyword, jenisCari, idJenis);
 
         ProdukTM produkTableModel = new ProdukTM();
         produkTableModel.setDataProduk(arrayProduk);
         sorter = new TableRowSorter(produkTableModel);
         tableSHPSHPSS.setRowSorter(sorter);
-        
+
         tableSHPSHPSS.setModel(produkTableModel);
     }//GEN-LAST:event_buttonCariSHP_SHPSSActionPerformed
 
     private void buttonCariMerchandiseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariMerchandiseActionPerformed
         // TODO add your handling code here:
         String keyword = fieldCariMerchandise.getText();
-        String tab="merchandise";
+        String tab = "merchandise";
         String jenisCari = cariData(tab);
         String idJenis = cariJenis(tab);
-        
+
         // lakukan proses pencarian
         dao = new ProdukDAOImpl();
-        arrayProduk = dao.cariProduk(keyword,jenisCari,idJenis);
+        arrayProduk = dao.cariProduk(keyword, jenisCari, idJenis);
 
         ProdukTM produkTableModel = new ProdukTM();
         produkTableModel.setDataProduk(arrayProduk);
         sorter = new TableRowSorter(produkTableModel);
         tableMerchandise.setRowSorter(sorter);
-        
+
         tableMerchandise.setModel(produkTableModel);
     }//GEN-LAST:event_buttonCariMerchandiseActionPerformed
 
     private void buttonCariPrismaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariPrismaActionPerformed
         // TODO add your handling code here:
         String keyword = fieldCariPrisma.getText();
-        String tab="prisma";
+        String tab = "prisma";
         String jenisCari = cariData(tab);
         String idJenis = cariJenis(tab);
-        
+
         // lakukan proses pencarian
         dao = new ProdukDAOImpl();
-        arrayProduk = dao.cariProduk(keyword,jenisCari,idJenis);
+        arrayProduk = dao.cariProduk(keyword, jenisCari, idJenis);
 
         ProdukTM produkTableModel = new ProdukTM();
         produkTableModel.setDataProduk(arrayProduk);
         sorter = new TableRowSorter(produkTableModel);
         tablePrisma.setRowSorter(sorter);
-        
+
         tablePrisma.setModel(produkTableModel);
     }//GEN-LAST:event_buttonCariPrismaActionPerformed
 
     private void buttonCariDokumenFilateliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariDokumenFilateliActionPerformed
         // TODO add your handling code here:
         String keyword = fieldCariDokumenFIlateli.getText();
-        String tab="df";
+        String tab = "df";
         String jenisCari = cariData(tab);
         String idJenis = cariJenis(tab);
-        
+
         // lakukan proses pencarian
         dao = new ProdukDAOImpl();
-        arrayProduk = dao.cariProduk(keyword,jenisCari,idJenis);
+        arrayProduk = dao.cariProduk(keyword, jenisCari, idJenis);
 
         ProdukTM produkTableModel = new ProdukTM();
         produkTableModel.setDataProduk(arrayProduk);
         sorter = new TableRowSorter(produkTableModel);
         tableDokumenFilateli.setRowSorter(sorter);
-        
+
         tableDokumenFilateli.setModel(produkTableModel);
     }//GEN-LAST:event_buttonCariDokumenFilateliActionPerformed
 
@@ -4658,36 +4741,36 @@ public final class FormHome extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_fieldTahunPrangkoActionPerformed
 
-    private void buttonResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonResetActionPerformed
+    private void buttonResetPrangkoPrangkoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonResetPrangkoPrangkoActionPerformed
         // TODO add your handling code here
         resetField();
         autoincrementPrangko();
         getDataPrangko();
-    }//GEN-LAST:event_buttonResetActionPerformed
+    }//GEN-LAST:event_buttonResetPrangkoPrangkoActionPerformed
 
     private void fieldCariPrangkoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldCariPrangkoKeyReleased
         // TODO add your handling code here:
         String keyword = fieldCariPrangko.getText();
-        String status="prangko";
+        String status = "prangko";
         String tabCari = cariPilihan(status);
         String jenisCari = cariData(tabCari);
         String idJenis = cariJenis(status);
-        
+
         // lakukan proses pencarian
         dao = new ProdukDAOImpl();
-        arrayProduk = dao.cariProduk(keyword,jenisCari,idJenis);
+        arrayProduk = dao.cariProduk(keyword, jenisCari, idJenis);
 
         ProdukTM produkTableModel = new ProdukTM();
         produkTableModel.setDataProduk(arrayProduk);
         sorter = new TableRowSorter(produkTableModel);
         tablePrangko.setRowSorter(sorter);
-        
+
         tablePrangko.setModel(produkTableModel);
     }//GEN-LAST:event_fieldCariPrangkoKeyReleased
 
     private void fieldCariPrangkoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldCariPrangkoKeyTyped
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_fieldCariPrangkoKeyTyped
 
     private void fieldCariPrangkoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldCariPrangkoActionPerformed
@@ -4698,39 +4781,39 @@ public final class FormHome extends javax.swing.JFrame {
     private void fieldCariMS_SSKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldCariMS_SSKeyReleased
         // TODO add your handling code here:
         String keyword = fieldCariMS_SS.getText();
-        String tab="ss";
+        String tab = "ss";
         String jenisCari = cariData(tab);
         String idJenis = cariJenis(tab);
-        
+
         // lakukan proses pencarian
         dao = new ProdukDAOImpl();
-        arrayProduk = dao.cariProduk(keyword,jenisCari,idJenis);
+        arrayProduk = dao.cariProduk(keyword, jenisCari, idJenis);
 
         ProdukTM produkTableModel = new ProdukTM();
         produkTableModel.setDataProduk(arrayProduk);
         sorter = new TableRowSorter(produkTableModel);
         tableMSSS.setRowSorter(sorter);
-        
+
         tableMSSS.setModel(produkTableModel);
-        
+
     }//GEN-LAST:event_fieldCariMS_SSKeyReleased
 
     private void buttonCariMS_SSKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buttonCariMS_SSKeyReleased
         // TODO add your handling code here:
         String keyword = fieldCariMS_SS.getText();
-        String tab="ss";
+        String tab = "ss";
         String jenisCari = cariData(tab);
         String idJenis = cariJenis(tab);
-        
+
         // lakukan proses pencarian
         dao = new ProdukDAOImpl();
-        arrayProduk = dao.cariProduk(keyword,jenisCari,idJenis);
+        arrayProduk = dao.cariProduk(keyword, jenisCari, idJenis);
 
         ProdukTM produkTableModel = new ProdukTM();
         produkTableModel.setDataProduk(arrayProduk);
         sorter = new TableRowSorter(produkTableModel);
         tableMSSS.setRowSorter(sorter);
-        
+
         tableMSSS.setModel(produkTableModel);
     }//GEN-LAST:event_buttonCariMS_SSKeyReleased
 
@@ -4742,19 +4825,19 @@ public final class FormHome extends javax.swing.JFrame {
     private void fieldCariSHP_SHPSSKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldCariSHP_SHPSSKeyReleased
         // TODO add your handling code here:
         String keyword = fieldCariSHP_SHPSS.getText();
-        String tab="shp";
+        String tab = "shp";
         String jenisCari = cariData(tab);
         String idJenis = cariJenis(tab);
-        
+
         // lakukan proses pencarian
         dao = new ProdukDAOImpl();
-        arrayProduk = dao.cariProduk(keyword,jenisCari,idJenis);
+        arrayProduk = dao.cariProduk(keyword, jenisCari, idJenis);
 
         ProdukTM produkTableModel = new ProdukTM();
         produkTableModel.setDataProduk(arrayProduk);
         sorter = new TableRowSorter(produkTableModel);
         tableSHPSHPSS.setRowSorter(sorter);
-        
+
         tableSHPSHPSS.setModel(produkTableModel);
     }//GEN-LAST:event_fieldCariSHP_SHPSSKeyReleased
 
@@ -4769,16 +4852,16 @@ public final class FormHome extends javax.swing.JFrame {
         String tab = "kemasan";
         String jenisCari = cariData(tab);
         String idJenis = cariJenis(tab);
-        
+
         // lakukan proses pencarian
         dao = new ProdukDAOImpl();
-        arrayProduk = dao.cariProduk(keyword,jenisCari,idJenis);
+        arrayProduk = dao.cariProduk(keyword, jenisCari, idJenis);
 
         ProdukTM produkTableModel = new ProdukTM();
         produkTableModel.setDataProduk(arrayProduk);
         sorter = new TableRowSorter(produkTableModel);
         tableKemasan.setRowSorter(sorter);
-        
+
         tableKemasan.setModel(produkTableModel);
     }//GEN-LAST:event_fieldCariKemasanKeyReleased
 
@@ -4790,21 +4873,21 @@ public final class FormHome extends javax.swing.JFrame {
     private void fieldCariMerchandiseKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldCariMerchandiseKeyReleased
         // TODO add your handling code here:
         String keyword = fieldCariMerchandise.getText();
-        String tab="merchandise";
+        String tab = "merchandise";
         String jenisCari = cariData(tab);
         String idJenis = cariJenis(tab);
-        
+
         // lakukan proses pencarian
         dao = new ProdukDAOImpl();
-        arrayProduk = dao.cariProduk(keyword,jenisCari,idJenis);
+        arrayProduk = dao.cariProduk(keyword, jenisCari, idJenis);
 
         ProdukTM produkTableModel = new ProdukTM();
         produkTableModel.setDataProduk(arrayProduk);
         sorter = new TableRowSorter(produkTableModel);
         tableMerchandise.setRowSorter(sorter);
-        
+
         tableMerchandise.setModel(produkTableModel);
-        
+
     }//GEN-LAST:event_fieldCariMerchandiseKeyReleased
 
     private void fieldCariMerchandiseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldCariMerchandiseActionPerformed
@@ -4815,19 +4898,19 @@ public final class FormHome extends javax.swing.JFrame {
     private void fieldCariPrismaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldCariPrismaKeyReleased
         // TODO add your handling code here:
         String keyword = fieldCariPrisma.getText();
-        String tab="prisma";
+        String tab = "prisma";
         String jenisCari = cariData(tab);
         String idJenis = cariJenis(tab);
-        
+
         // lakukan proses pencarian
         dao = new ProdukDAOImpl();
-        arrayProduk = dao.cariProduk(keyword,jenisCari,idJenis);
+        arrayProduk = dao.cariProduk(keyword, jenisCari, idJenis);
 
         ProdukTM produkTableModel = new ProdukTM();
         produkTableModel.setDataProduk(arrayProduk);
         sorter = new TableRowSorter(produkTableModel);
         tablePrisma.setRowSorter(sorter);
-        
+
         tablePrisma.setModel(produkTableModel);
     }//GEN-LAST:event_fieldCariPrismaKeyReleased
 
@@ -4839,25 +4922,41 @@ public final class FormHome extends javax.swing.JFrame {
     private void fieldCariDokumenFIlateliKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldCariDokumenFIlateliKeyReleased
         // TODO add your handling code here:
         String keyword = fieldCariDokumenFIlateli.getText();
-        String tab="df";
+        String tab = "df";
         String jenisCari = cariData(tab);
         String idJenis = cariJenis(tab);
-        
+
         // lakukan proses pencarian
         dao = new ProdukDAOImpl();
-        arrayProduk = dao.cariProduk(keyword,jenisCari,idJenis);
+        arrayProduk = dao.cariProduk(keyword, jenisCari, idJenis);
 
         ProdukTM produkTableModel = new ProdukTM();
         produkTableModel.setDataProduk(arrayProduk);
         sorter = new TableRowSorter(produkTableModel);
         tableDokumenFilateli.setRowSorter(sorter);
-        
+
         tableDokumenFilateli.setModel(produkTableModel);    }//GEN-LAST:event_fieldCariDokumenFIlateliKeyReleased
 
     private void fieldCariDokumenFIlateliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldCariDokumenFIlateliActionPerformed
         // TODO add your handling code here:
         buttonCariDokumenFilateli.requestFocus();
     }//GEN-LAST:event_fieldCariDokumenFIlateliActionPerformed
+
+    private void buttonResetMSSSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonResetMSSSActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonResetMSSSActionPerformed
+
+    private void buttonResetSHPSHPSSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonResetSHPSHPSSActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonResetSHPSHPSSActionPerformed
+
+    private void buttonResetKemasanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonResetKemasanActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonResetKemasanActionPerformed
+
+    private void buttonResetMerchandiseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonResetMerchandiseActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonResetMerchandiseActionPerformed
 
     /**
      * @param args the command line arguments
@@ -4928,7 +5027,13 @@ public final class FormHome extends javax.swing.JFrame {
     private javax.swing.JButton buttonHapusPrisma;
     private javax.swing.JButton buttonHapusSHPSHPSS;
     private javax.swing.JButton buttonKelolaProduk;
-    private javax.swing.JButton buttonReset;
+    private javax.swing.JButton buttonResetDokumenFIlateli;
+    private javax.swing.JButton buttonResetKemasan;
+    private javax.swing.JButton buttonResetMSSS;
+    private javax.swing.JButton buttonResetMerchandise;
+    private javax.swing.JButton buttonResetPrangko;
+    private javax.swing.JButton buttonResetPrisma;
+    private javax.swing.JButton buttonResetSHPSHPSS;
     private javax.swing.JButton buttonSImpanKemasan;
     private javax.swing.JButton buttonSImpanMerchandise;
     private javax.swing.JButton buttonSimpanDokumenFIlateli;
