@@ -15,21 +15,39 @@ import java.util.ArrayList;
 public interface ProdukDAO {
 
     ArrayList<Produk> getProdukPrangko();
-    
+
     ArrayList<Produk> getProdukKemasan();
-    
+
     ArrayList<Produk> getProdukMS_SS();
-    
+
     ArrayList<Produk> getProdukSHP_SHPSS();
-    
+
     ArrayList<Produk> getProdukMerchandise();
-    
+
     ArrayList<Produk> getProdukPrisma();
-    
+
     ArrayList<Produk> getProdukDokumenFilateli();
 
-    ArrayList<Produk> cariProduk(String keyword,String jenisCari, String idJenis);
+    ArrayList<Produk> getProdukPrangkoDeleted();
+
+    ArrayList<Produk> getProdukMSSSDeleted();
+
+    ArrayList<Produk> getProdukSHPSHPSSDeleted();
+
+    ArrayList<Produk> getProdukMerchandiseDeleted();
+
+    ArrayList<Produk> getProdukKemasanDeleted();
+
+    ArrayList<Produk> getProdukPrismaDeleted();
+
+    ArrayList<Produk> getProdukDokumenFilateliDeleted();
+
+    boolean restoreProduk(Produk produk, String jenisProduk);
     
+    boolean hapusPermanent(String idProduk);
+
+    ArrayList<Produk> cariProduk(String keyword, String jenisCari, String idJenis);
+
     String getIdProduk(String jenisProduk);
 
     boolean tambahProduk(Produk produk, String jenisProduk);

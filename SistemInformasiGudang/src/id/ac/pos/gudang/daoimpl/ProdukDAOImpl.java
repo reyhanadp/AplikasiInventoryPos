@@ -29,37 +29,37 @@ public class ProdukDAOImpl implements ProdukDAO {
     }
 
     @Override
-    public ArrayList<Produk> cariProduk(String keyword,String jenisCari,String idJenis) {
-         ArrayList<Produk> arrayProduk = null;
-        String SELECT="";
-        if (idJenis.compareTo("SS")==0){
-             SELECT = "SELECT * FROM tb_produk "
-                + "WHERE "+jenisCari+" LIKE '%"+keyword+"%' && "
-                + "id_jenis_produk in (SELECT id_jenis_produk FROM"
-                     + " tb_produk WHERE id_jenis_produk = 'SS'"
-                + " || id_jenis_produk = 'MS')";
-        }else if (idJenis.compareTo("SHP")==0){
-             SELECT = "SELECT * FROM tb_produk "
-                + "WHERE "+jenisCari+" LIKE '%"+keyword+"%' && "
-                + "id_jenis_produk in (SELECT id_jenis_produk FROM"
-                     + " tb_produk WHERE id_jenis_produk = 'SHP'"
-                + " || id_jenis_produk = 'SHPSS')";
-        }else{
-                 SELECT = "SELECT * FROM tb_produk "
-                + "WHERE "+jenisCari+" LIKE '%"+keyword+"%' && id_jenis_produk = '"+idJenis+"'";
+    public ArrayList<Produk> cariProduk(String keyword, String jenisCari, String idJenis) {
+        ArrayList<Produk> arrayProduk = null;
+        String SELECT = "";
+        if (idJenis.compareTo("SS") == 0) {
+            SELECT = "SELECT * FROM tb_produk "
+                    + "WHERE " + jenisCari + " LIKE '%" + keyword + "%' && "
+                    + "id_jenis_produk in (SELECT id_jenis_produk FROM"
+                    + " tb_produk WHERE id_jenis_produk = 'SS'"
+                    + " || id_jenis_produk = 'MS')";
+        } else if (idJenis.compareTo("SHP") == 0) {
+            SELECT = "SELECT * FROM tb_produk "
+                    + "WHERE " + jenisCari + " LIKE '%" + keyword + "%' && "
+                    + "id_jenis_produk in (SELECT id_jenis_produk FROM"
+                    + " tb_produk WHERE id_jenis_produk = 'SHP'"
+                    + " || id_jenis_produk = 'SHPSS')";
+        } else {
+            SELECT = "SELECT * FROM tb_produk "
+                    + "WHERE " + jenisCari + " LIKE '%" + keyword + "%' && id_jenis_produk = '" + idJenis + "'";
         }
         PreparedStatement state = null;
 
         try {
-            state = conn.prepareStatement(SELECT);            
+            state = conn.prepareStatement(SELECT);
             ResultSet result = state.executeQuery();
             if (result != null) {
                 arrayProduk = new ArrayList<>();
-                
+
                 // selama result memiliki data
                 // return lebih dari 1 data
                 while (result.next()) {
-                    
+
                     // mengambil 1 data
                     Produk produk = new Produk();
                     produk.setIdProduk(result.getString(1));
@@ -69,7 +69,7 @@ public class ProdukDAOImpl implements ProdukDAO {
                     produk.setStok(result.getInt(5));
                     produk.setTahun(result.getString(6));
                     produk.setIdJenisProduk(result.getString(7));
-                    
+
                     // menambahkan data ke array
                     arrayProduk.add(produk);
                 }
@@ -113,13 +113,13 @@ public class ProdukDAOImpl implements ProdukDAO {
         String DELETE = "DELETE FROM tb_produk "
                 + "WHERE id_produk = ?";
         PreparedStatement state = null;
-        
+
         try {
             state = conn.prepareStatement(DELETE);
             state.setString(1, idProduk);
-            
+
             int qty = state.executeUpdate();
-            return  qty > 0;
+            return qty > 0;
         } catch (SQLException ex) {
             Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -132,7 +132,7 @@ public class ProdukDAOImpl implements ProdukDAO {
                 + "SET nama_produk = ?, nominal = ?, biaya_cetak = ?,"
                 + " tahun = ? WHERE id_produk = ?";
         PreparedStatement state = null;
-        
+
         try {
             state = conn.prepareStatement(UPDATE);
             state.setString(1, produk.getNamaProduk());
@@ -140,7 +140,7 @@ public class ProdukDAOImpl implements ProdukDAO {
             state.setFloat(3, produk.getBiayaCetak());
             state.setString(4, produk.getTahun());
             state.setString(5, produk.getIdProduk());
-            
+
             int qty = state.executeUpdate();
             return qty > 0;
         } catch (SQLException ex) {
@@ -153,11 +153,11 @@ public class ProdukDAOImpl implements ProdukDAO {
     public String getIdProduk(String jenisProduk) {
         String kode_produk = null;
         String SELECT = "(SELECT id_produk FROM tb_produk "
-                + "WHERE id_jenis_produk='"+jenisProduk+"')"
+                + "WHERE id_jenis_produk='" + jenisProduk + "')"
                 + " UNION "
                 + "(SELECT id_produk FROM tb_hapus_produk "
-                + "WHERE id_jenis_produk='"+jenisProduk+"')"
-                + " ORDER BY id_produk ";
+                + "WHERE id_jenis_produk='" + jenisProduk + "')"
+                + " ORDER BY id_produk";
         PreparedStatement state = null;
 
         try {
@@ -178,10 +178,10 @@ public class ProdukDAOImpl implements ProdukDAO {
 
             Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         return kode_produk;
     }
-    
+
     @Override
     public ArrayList<Produk> getProdukPrangko() {
         ArrayList<Produk> arrayProduk = null;
@@ -450,4 +450,371 @@ public class ProdukDAOImpl implements ProdukDAO {
         return arrayProduk;
     }
 
+    @Override
+    public ArrayList<Produk> getProdukPrangkoDeleted() {
+        ArrayList<Produk> arrayProduk = null;
+        String SELECT = "SELECT * FROM tb_hapus_produk where id_jenis_produk = 'PR'";
+        PreparedStatement state = null;
+
+        try {
+            state = conn.prepareStatement(SELECT);
+
+            ResultSet result = state.executeQuery();
+            if (result != null) {
+                arrayProduk = new ArrayList<>();
+
+                //selama result memiliki data
+                //return lebih dari 1 data
+                while (result.next()) {
+                    //mengambil 1 data
+                    Produk produk = new Produk();
+                    produk.setIdProduk(result.getString(1));
+                    produk.setNamaProduk(result.getString(2));
+                    produk.setNominal(result.getInt(3));
+                    produk.setBiayaCetak(result.getFloat(4));
+                    produk.setStok(result.getInt(5));
+                    produk.setTahun(result.getString(6));
+                    produk.setIdJenisProduk(result.getString(7));
+                    produk.setTglHapus(result.getDate(8));
+
+                    //menambahkan data ke array
+                    arrayProduk.add(produk);
+                }
+            }
+        } catch (SQLException ex) {
+
+            Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        return arrayProduk;
+    }
+
+    @Override
+    public ArrayList<Produk> getProdukMSSSDeleted() {
+        ArrayList<Produk> arrayProduk = null;
+        String SELECT = "SELECT * FROM tb_hapus_produk where id_produk like 'SS%' ||"
+                + " id_produk like 'MS%' ";
+        PreparedStatement state = null;
+
+        try {
+            state = conn.prepareStatement(SELECT);
+
+            ResultSet result = state.executeQuery();
+            if (result != null) {
+                arrayProduk = new ArrayList<>();
+
+                //selama result memiliki data
+                //return lebih dari 1 data
+                while (result.next()) {
+                    //mengambil 1 data
+                    Produk produk = new Produk();
+                    produk.setIdProduk(result.getString(1));
+                    produk.setNamaProduk(result.getString(2));
+                    produk.setNominal(result.getInt(3));
+                    produk.setBiayaCetak(result.getFloat(4));
+                    produk.setStok(result.getInt(5));
+                    produk.setTahun(result.getString(6));
+                    produk.setIdJenisProduk(result.getString(7));
+                    produk.setTglHapus(result.getDate(8));
+
+                    //menambahkan data ke array
+                    arrayProduk.add(produk);
+                }
+            }
+        } catch (SQLException ex) {
+
+            Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        return arrayProduk;
+    }
+
+    @Override
+    public ArrayList<Produk> getProdukSHPSHPSSDeleted() {
+        ArrayList<Produk> arrayProduk = null;
+        String SELECT = "SELECT * FROM tb_hapus_produk where id_produk like 'SHP%' ||"
+                + " id_produk like 'SHPSS%' ";
+        PreparedStatement state = null;
+
+        try {
+            state = conn.prepareStatement(SELECT);
+
+            ResultSet result = state.executeQuery();
+            if (result != null) {
+                arrayProduk = new ArrayList<>();
+
+                //selama result memiliki data
+                //return lebih dari 1 data
+                while (result.next()) {
+                    //mengambil 1 data
+                    Produk produk = new Produk();
+                    produk.setIdProduk(result.getString(1));
+                    produk.setNamaProduk(result.getString(2));
+                    produk.setNominal(result.getInt(3));
+                    produk.setBiayaCetak(result.getFloat(4));
+                    produk.setStok(result.getInt(5));
+                    produk.setTahun(result.getString(6));
+                    produk.setIdJenisProduk(result.getString(7));
+                    produk.setTglHapus(result.getDate(8));
+
+                    //menambahkan data ke array
+                    arrayProduk.add(produk);
+                }
+            }
+        } catch (SQLException ex) {
+
+            Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        return arrayProduk;
+    }
+
+    @Override
+    public ArrayList<Produk> getProdukMerchandiseDeleted() {
+        ArrayList<Produk> arrayProduk = null;
+        String SELECT = "SELECT * FROM tb_hapus_produk where id_jenis_produk = 'MC'";
+        PreparedStatement state = null;
+
+        try {
+            state = conn.prepareStatement(SELECT);
+
+            ResultSet result = state.executeQuery();
+            if (result != null) {
+                arrayProduk = new ArrayList<>();
+
+                //selama result memiliki data
+                //return lebih dari 1 data
+                while (result.next()) {
+                    //mengambil 1 data
+                    Produk produk = new Produk();
+                    produk.setIdProduk(result.getString(1));
+                    produk.setNamaProduk(result.getString(2));
+                    produk.setNominal(result.getInt(3));
+                    produk.setBiayaCetak(result.getFloat(4));
+                    produk.setStok(result.getInt(5));
+                    produk.setTahun(result.getString(6));
+                    produk.setIdJenisProduk(result.getString(7));
+                    produk.setTglHapus(result.getDate(8));
+
+                    //menambahkan data ke array
+                    arrayProduk.add(produk);
+                }
+            }
+        } catch (SQLException ex) {
+
+            Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        return arrayProduk;
+    }
+
+    @Override
+    public ArrayList<Produk> getProdukKemasanDeleted() {
+        ArrayList<Produk> arrayProduk = null;
+        String SELECT = "SELECT * FROM tb_hapus_produk where id_jenis_produk = 'KM'";
+        PreparedStatement state = null;
+
+        try {
+            state = conn.prepareStatement(SELECT);
+
+            ResultSet result = state.executeQuery();
+            if (result != null) {
+                arrayProduk = new ArrayList<>();
+
+                //selama result memiliki data
+                //return lebih dari 1 data
+                while (result.next()) {
+                    //mengambil 1 data
+                    Produk produk = new Produk();
+                    produk.setIdProduk(result.getString(1));
+                    produk.setNamaProduk(result.getString(2));
+                    produk.setNominal(result.getInt(3));
+                    produk.setBiayaCetak(result.getFloat(4));
+                    produk.setStok(result.getInt(5));
+                    produk.setTahun(result.getString(6));
+                    produk.setIdJenisProduk(result.getString(7));
+                    produk.setTglHapus(result.getDate(8));
+
+                    //menambahkan data ke array
+                    arrayProduk.add(produk);
+                }
+            }
+        } catch (SQLException ex) {
+
+            Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        return arrayProduk;
+    }
+
+    @Override
+    public ArrayList<Produk> getProdukPrismaDeleted() {
+        ArrayList<Produk> arrayProduk = null;
+        String SELECT = "SELECT * FROM tb_hapus_produk where id_jenis_produk = 'PS'";
+        PreparedStatement state = null;
+
+        try {
+            state = conn.prepareStatement(SELECT);
+
+            ResultSet result = state.executeQuery();
+            if (result != null) {
+                arrayProduk = new ArrayList<>();
+
+                //selama result memiliki data
+                //return lebih dari 1 data
+                while (result.next()) {
+                    //mengambil 1 data
+                    Produk produk = new Produk();
+                    produk.setIdProduk(result.getString(1));
+                    produk.setNamaProduk(result.getString(2));
+                    produk.setNominal(result.getInt(3));
+                    produk.setBiayaCetak(result.getFloat(4));
+                    produk.setStok(result.getInt(5));
+                    produk.setTahun(result.getString(6));
+                    produk.setIdJenisProduk(result.getString(7));
+                    produk.setTglHapus(result.getDate(8));
+
+                    //menambahkan data ke array
+                    arrayProduk.add(produk);
+                }
+            }
+        } catch (SQLException ex) {
+
+            Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        return arrayProduk;
+    }
+
+    @Override
+    public ArrayList<Produk> getProdukDokumenFilateliDeleted() {
+        ArrayList<Produk> arrayProduk = null;
+        String SELECT = "SELECT * FROM tb_hapus_produk where id_jenis_produk = 'DF'";
+        PreparedStatement state = null;
+
+        try {
+            state = conn.prepareStatement(SELECT);
+
+            ResultSet result = state.executeQuery();
+            if (result != null) {
+                arrayProduk = new ArrayList<>();
+
+                //selama result memiliki data
+                //return lebih dari 1 data
+                while (result.next()) {
+                    //mengambil 1 data
+                    Produk produk = new Produk();
+                    produk.setIdProduk(result.getString(1));
+                    produk.setNamaProduk(result.getString(2));
+                    produk.setNominal(result.getInt(3));
+                    produk.setBiayaCetak(result.getFloat(4));
+                    produk.setStok(result.getInt(5));
+                    produk.setTahun(result.getString(6));
+                    produk.setIdJenisProduk(result.getString(7));
+                    produk.setTglHapus(result.getDate(8));
+
+                    //menambahkan data ke array
+                    arrayProduk.add(produk);
+                }
+            }
+        } catch (SQLException ex) {
+
+            Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        return arrayProduk;
+    }
+
+    @Override
+    public boolean restoreProduk(Produk produk, String jenisProduk) {
+        String INSERT = "INSERT INTO tb_produk (id_produk, nama_produk, nominal, "
+                + "biaya_cetak, stok, tahun, id_jenis_produk"
+                + ") VALUES (?, ?, ?, ?, ?, ?, ?)";
+        PreparedStatement state = null;
+
+        try {
+            state = conn.prepareStatement(INSERT);
+            state.setString(1, produk.getIdProduk());
+            state.setString(2, produk.getNamaProduk());
+            state.setInt(3, produk.getNominal());
+            state.setFloat(4, produk.getBiayaCetak());
+            state.setInt(5, produk.getStok());
+            state.setString(6, produk.getTahun());
+            state.setString(7, produk.getIdJenisProduk());
+
+            int qty = state.executeUpdate();
+            return qty > 0;
+        } catch (SQLException ex) {
+            Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return false;
+    }
+
+    @Override
+    public boolean hapusPermanent(String idProduk) {
+        String DELETE = "DELETE FROM tb_hapus_produk "
+                + "WHERE id_produk = ?";
+        PreparedStatement state = null;
+
+        try {
+            state = conn.prepareStatement(DELETE);
+            state.setString(1, idProduk);
+
+            int qty = state.executeUpdate();
+            return qty > 0;
+        } catch (SQLException ex) {
+            Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
 }

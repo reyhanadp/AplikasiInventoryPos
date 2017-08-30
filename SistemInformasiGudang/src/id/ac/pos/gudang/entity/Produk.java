@@ -6,6 +6,8 @@
 
 package id.ac.pos.gudang.entity;
 
+import java.util.Date;
+
 /**
  *
  * @author Oyoy
@@ -18,6 +20,15 @@ public class Produk {
     int stok;
     String tahun;
     String idJenisProduk;
+    Date tglHapus;
+
+    public Date getTglHapus() {
+        return tglHapus;
+    }
+
+    public void setTglHapus(Date tglHapus) {
+        this.tglHapus = tglHapus;
+    }
 
     public String getIdProduk() {
         return idProduk;
