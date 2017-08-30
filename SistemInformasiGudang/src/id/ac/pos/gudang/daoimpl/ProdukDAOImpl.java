@@ -152,11 +152,12 @@ public class ProdukDAOImpl implements ProdukDAO {
     @Override
     public String getIdProduk(String jenisProduk) {
         String kode_produk = null;
-        String SELECT = "SELECT id_produk FROM tb_produk "
-                + "WHERE id_jenis_produk='"+jenisProduk+"' "
-                + "UNION "
-                + "SELECT id_produk FROM tb_hapus_produk "
-                + "WHERE id_jenis_produk='"+jenisProduk+"' ";
+        String SELECT = "(SELECT id_produk FROM tb_produk "
+                + "WHERE id_jenis_produk='"+jenisProduk+"')"
+                + " UNION "
+                + "(SELECT id_produk FROM tb_hapus_produk "
+                + "WHERE id_jenis_produk='"+jenisProduk+"')"
+                + " ORDER BY id_produk ";
         PreparedStatement state = null;
 
         try {
