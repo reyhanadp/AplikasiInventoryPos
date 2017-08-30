@@ -57,7 +57,9 @@ public interface ProdukDAO {
     boolean tambahProduk(Produk produk, String jenisProduk);
 
     boolean hapusProduk(String idProduk);
-
+    
+    boolean hapusHistoryUpdate();
+    
     boolean ubahProduk(Produk produk);
 
 }

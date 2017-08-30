@@ -861,4 +861,20 @@ public class ProdukDAOImpl implements ProdukDAO {
     public ArrayList<Produk> getHistoryDelete() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public boolean hapusHistoryUpdate() {
+        String DELETE = "DELETE FROM tb_update_produk ";
+        PreparedStatement state = null;
+
+        try {
+            state = conn.prepareStatement(DELETE);
+
+            int qty = state.executeUpdate();
+            return qty > 0;
+        } catch (SQLException ex) {
+            Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
 }
