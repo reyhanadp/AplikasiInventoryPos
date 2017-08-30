@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package id.ac.pos.gudang;
 
 import id.ac.pos.gudang.dao.ProdukDAO;
@@ -11,6 +10,7 @@ import id.ac.pos.gudang.daoimpl.ProdukDAOImpl;
 import id.ac.pos.gudang.entity.Produk;
 import id.ac.pos.gudang.tablemodel.HistoryUpdateTM;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -21,11 +21,10 @@ public class DialogHistoryUpdate extends javax.swing.JDialog {
     /**
      * Creates new form DialogHistoryUpdate
      */
-    
     private Produk produk;
     private ProdukDAO dao;
     private ArrayList<Produk> arrayProduk;
-    
+
     public DialogHistoryUpdate(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -35,13 +34,31 @@ public class DialogHistoryUpdate extends javax.swing.JDialog {
     private void getDataHistory() {
         dao = new ProdukDAOImpl();
         arrayProduk = dao.getHistoryUpdate();
-        
+
         HistoryUpdateTM historyUpdateTM = new HistoryUpdateTM();
         historyUpdateTM.setDataProduk(arrayProduk);
-        
-        tableHistoryUpdate.setModel(historyUpdateTM);   
+
+        tableHistoryUpdate.setModel(historyUpdateTM);
     }
-    
+
+    private void hapusHistory() {
+        int ok = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin "
+                + "menghapus history update "
+                + "?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
+        if (ok == 0) {
+            ProdukDAO dao = new ProdukDAOImpl();
+            boolean sukses = dao.hapusHistoryUpdate();
+
+            if (sukses) {
+                JOptionPane.showMessageDialog(this, "history berhasil dihapus");
+                getDataHistory();
+            } else {
+                JOptionPane.showMessageDialog(this, "history berhasil dihapus");
+                getDataHistory();
+            }
+        }
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -115,7 +132,7 @@ public class DialogHistoryUpdate extends javax.swing.JDialog {
 
     private void buttonHapusHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHapusHistoryActionPerformed
         // TODO add your handling code here:
-        
+        hapusHistory();
     }//GEN-LAST:event_buttonHapusHistoryActionPerformed
 
     private void buttonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelActionPerformed
