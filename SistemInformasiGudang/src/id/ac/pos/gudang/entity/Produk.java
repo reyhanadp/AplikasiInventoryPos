@@ -13,6 +13,8 @@ import java.util.Date;
  * @author Oyoy
  */
 public class Produk {
+    
+    int no;
     String idProduk;
     String namaProduk;
     int nominal;
@@ -21,7 +23,24 @@ public class Produk {
     String tahun;
     String idJenisProduk;
     Date tglHapus;
+    Date tglUbah;
 
+    public int getNo() {
+        return no;
+    }
+
+    public void setNo(int no) {
+        this.no = no;
+    }
+
+    public Date getTglUbah() {
+        return tglUbah;
+    }
+
+    public void setTglUbah(Date tglUbah) {
+        this.tglUbah = tglUbah;
+    }
+    
     public Date getTglHapus() {
         return tglHapus;
     }

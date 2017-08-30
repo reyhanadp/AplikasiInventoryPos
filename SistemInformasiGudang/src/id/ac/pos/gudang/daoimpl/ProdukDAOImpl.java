@@ -817,4 +817,48 @@ public class ProdukDAOImpl implements ProdukDAO {
         }
         return false;
     }
+
+    @Override
+    public ArrayList<Produk> getHistoryUpdate() {
+        ArrayList<Produk> arrayProduk = null;
+        String SELECT = "SELECT * FROM tb_update_produk";
+        PreparedStatement state = null;
+
+        try {
+            state = conn.prepareStatement(SELECT);
+
+            ResultSet result = state.executeQuery();
+            if (result != null) {
+                arrayProduk = new ArrayList<>();
+
+                //selama result memiliki data
+                //return lebih dari 1 data
+                while (result.next()) {
+
+                    //mengambil 1 data
+                    Produk produk = new Produk();
+                    produk.setNo(result.getInt(1));
+                    produk.setIdProduk(result.getString(2));
+                    produk.setNamaProduk(result.getString(3));
+                    produk.setNominal(result.getInt(4));
+                    produk.setBiayaCetak(result.getFloat(5));
+                    produk.setStok(result.getInt(6));
+                    produk.setTahun(result.getString(7));
+                    produk.setTglUbah(result.getDate(9));
+
+                    //menambahkan data ke array
+                    arrayProduk.add(produk);
+                }
+            }
+        } catch (SQLException ex) {
+
+            Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return arrayProduk;
+    }
+
+    @Override
+    public ArrayList<Produk> getHistoryDelete() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

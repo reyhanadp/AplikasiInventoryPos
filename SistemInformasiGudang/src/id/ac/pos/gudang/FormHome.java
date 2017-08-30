@@ -447,7 +447,7 @@ public final class FormHome extends javax.swing.JFrame {
         fieldKodeProdukSHP_SHPSS.setText(kodeSHP_SHPSS);
     }
 
-    private void getDataPrangko() {
+    public void getDataPrangko() {
         dao = new ProdukDAOImpl();
         arrayProduk = dao.getProdukPrangko();
 
@@ -458,7 +458,7 @@ public final class FormHome extends javax.swing.JFrame {
         tablePrangko.setModel(produkPrangkoTableModel);
     }
 
-    private void getDataMS_SS() {
+    public void getDataMS_SS() {
         dao = new ProdukDAOImpl();
         arrayProduk = dao.getProdukMS_SS();
 
@@ -469,7 +469,7 @@ public final class FormHome extends javax.swing.JFrame {
         tableMSSS.setModel(produkMS_SSTableModel);
     }
 
-    private void getDataSHP_SHPSS() {
+    public void getDataSHP_SHPSS() {
         dao = new ProdukDAOImpl();
         arrayProduk = dao.getProdukSHP_SHPSS();
 
@@ -480,7 +480,7 @@ public final class FormHome extends javax.swing.JFrame {
         tableSHPSHPSS.setModel(produkSHP_SHPSSTableModel);
     }
 
-    private void getDataKemasan() {
+    public void getDataKemasan() {
         dao = new ProdukDAOImpl();
         arrayProduk = dao.getProdukKemasan();
 
@@ -491,7 +491,7 @@ public final class FormHome extends javax.swing.JFrame {
         tableKemasan.setModel(produkKemasanTableModel);
     }
 
-    private void getDataMerchandise() {
+    public void getDataMerchandise() {
         dao = new ProdukDAOImpl();
         arrayProduk = dao.getProdukMerchandise();
 
@@ -502,7 +502,7 @@ public final class FormHome extends javax.swing.JFrame {
         tableMerchandise.setModel(produkMerchandiseTableModel);
     }
 
-    private void getDataPrisma() {
+    public void getDataPrisma() {
         dao = new ProdukDAOImpl();
         arrayProduk = dao.getProdukPrisma();
 
@@ -513,7 +513,7 @@ public final class FormHome extends javax.swing.JFrame {
         tablePrisma.setModel(produkPrismaTableModel);
     }
 
-    private void getDataDokumenFilateli() {
+    public void getDataDokumenFilateli() {
         dao = new ProdukDAOImpl();
         arrayProduk = dao.getProdukDokumenFilateli();
 
@@ -706,6 +706,7 @@ public final class FormHome extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         itemRecycleBin = new javax.swing.JMenuItem();
+        itemHistoryUpdate = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -2442,6 +2443,15 @@ public final class FormHome extends javax.swing.JFrame {
             }
         });
         jMenu2.add(itemRecycleBin);
+
+        itemHistoryUpdate.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_MASK));
+        itemHistoryUpdate.setText("History Update");
+        itemHistoryUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemHistoryUpdateActionPerformed(evt);
+            }
+        });
+        jMenu2.add(itemHistoryUpdate);
 
         jMenuBar1.add(jMenu2);
 
@@ -4749,6 +4759,13 @@ public final class FormHome extends javax.swing.JFrame {
         drb.setVisible(true);
     }//GEN-LAST:event_itemRecycleBinActionPerformed
 
+    private void itemHistoryUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemHistoryUpdateActionPerformed
+        // TODO add your handling code here:
+        DialogHistoryUpdate drb = new DialogHistoryUpdate(this, true);
+        drb.setLocationRelativeTo(null);
+        drb.setVisible(true);
+    }//GEN-LAST:event_itemHistoryUpdateActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -4889,6 +4906,7 @@ public final class FormHome extends javax.swing.JFrame {
     private javax.swing.JTextField fieldTahunProdukMerchandise;
     private javax.swing.JTextField fieldTahunProdukPrisma;
     private javax.swing.JTextField fieldTahunProdukSHPSHPSS;
+    private javax.swing.JMenuItem itemHistoryUpdate;
     private javax.swing.JMenuItem itemRecycleBin;
     private javax.swing.JMenu itemRegional;
     private javax.swing.JLabel jLabel1;

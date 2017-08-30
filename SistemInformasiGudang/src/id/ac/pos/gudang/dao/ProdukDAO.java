@@ -41,6 +41,10 @@ public interface ProdukDAO {
     ArrayList<Produk> getProdukPrismaDeleted();
 
     ArrayList<Produk> getProdukDokumenFilateliDeleted();
+    
+    ArrayList<Produk> getHistoryUpdate();
+    
+    ArrayList<Produk> getHistoryDelete();
 
     boolean restoreProduk(Produk produk, String jenisProduk);
     

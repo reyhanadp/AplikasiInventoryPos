@@ -60,7 +60,6 @@ public class DialogRecycleBin extends javax.swing.JDialog {
             produk.setStok(Integer.parseInt(stok));
             produk.setTahun(tahun);
             produk.setIdJenisProduk(idJenisProduk);
-            //                produk.setIdJenisProduk(idJenisProduk);
 
             ProdukDAO dao = new ProdukDAOImpl();
             boolean sukses = dao.restoreProduk(produk, idJenisProduk);
@@ -429,26 +428,48 @@ public class DialogRecycleBin extends javax.swing.JDialog {
         this.setVisible(false); //form login akan tertutup
     }//GEN-LAST:event_buttonCancelActionPerformed
 
+    private void refresh() {
+        getDataPrangkoDeleted();
+        getDataMSSSDeleted();
+        getDataSHPSHPSSDeleted();
+        getDataKemasanDeleted();
+        getDataMerchandiseDeleted();
+        getDataPrismaDeleted();
+        getDataDokumenFilateliDeleted();
+
+        FormHome fh = new FormHome();
+        fh.getDataPrangko();
+        fh.getDataMS_SS();
+        fh.getDataSHP_SHPSS();
+        fh.getDataKemasan();
+        fh.getDataMerchandise();
+        fh.getDataPrisma();
+        fh.getDataDokumenFilateli();
+    }
 
     private void buttonRestoreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRestoreActionPerformed
         // TODO add your handling code here:
+
         int baris1 = tableRecycleBinPrangko.getSelectedRow();
         if (baris1 >= 0) {
             String jenisProduk = "PR";
             JTable jenisTabel = tableRecycleBinPrangko;
             restore(baris1, jenisProduk, jenisTabel);
+            refresh();
         }
         int baris2 = tableRecycleBinDokumenFilateli.getSelectedRow();
         if (baris2 >= 0) {
             String jenisProduk = "DF";
             JTable jenisTabel = tableRecycleBinDokumenFilateli;
             restore(baris2, jenisProduk, jenisTabel);
+            refresh();
         }
         int baris3 = tableRecycleBinKemasan.getSelectedRow();
         if (baris3 >= 0) {
             String jenisProduk = "KM";
             JTable jenisTabel = tableRecycleBinKemasan;
             restore(baris3, jenisProduk, jenisTabel);
+            refresh();
         }
         int baris4 = tableRecycleBinMSSS.getSelectedRow();
         if (baris4 >= 0) {
@@ -456,18 +477,21 @@ public class DialogRecycleBin extends javax.swing.JDialog {
             jenisProduk = jenisProduk.substring(0, 2);
             JTable jenisTabel = tableRecycleBinMSSS;
             restore(baris4, jenisProduk, jenisTabel);
+            refresh();
         }
         int baris5 = tableRecycleBinMerchandise.getSelectedRow();
         if (baris5 >= 0) {
             String jenisProduk = "MC";
             JTable jenisTabel = tableRecycleBinMerchandise;
             restore(baris5, jenisProduk, jenisTabel);
+            refresh();
         }
         int baris6 = tableRecycleBinPrisma.getSelectedRow();
         if (baris6 >= 0) {
             String jenisProduk = "PS";
             JTable jenisTabel = tableRecycleBinPrisma;
             restore(baris6, jenisProduk, jenisTabel);
+            refresh();
         }
         int baris7 = tableRecycleBinSHPSHPSS.getSelectedRow();
         if (baris7 >= 0) {
@@ -480,18 +504,10 @@ public class DialogRecycleBin extends javax.swing.JDialog {
             }
             JTable jenisTabel = tableRecycleBinSHPSHPSS;
             restore(baris7, jenisProduk, jenisTabel);
+            refresh();
         }
     }//GEN-LAST:event_buttonRestoreActionPerformed
 
-    private void refresh() {
-        getDataPrangkoDeleted();
-        getDataMSSSDeleted();
-        getDataSHPSHPSSDeleted();
-        getDataKemasanDeleted();
-        getDataMerchandiseDeleted();
-        getDataPrismaDeleted();
-        getDataDokumenFilateliDeleted();
-    }
 
     private void buttonRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRefreshActionPerformed
         // TODO add your handling code here:
