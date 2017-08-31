@@ -2127,6 +2127,9 @@
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Reset"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonResetPrismaActionPerformed"/>
+                              </Events>
                             </Component>
                           </SubComponents>
                         </Container>
@@ -2443,6 +2446,9 @@
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Reset"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonResetDokumenFIlateliActionPerformed"/>
+                              </Events>
                             </Component>
                           </SubComponents>
                         </Container>

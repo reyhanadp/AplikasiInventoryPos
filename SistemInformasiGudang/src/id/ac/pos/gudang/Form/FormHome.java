@@ -72,7 +72,30 @@ public final class FormHome extends javax.swing.JFrame {
         fieldBiayaCetakProdukMerchandise.setText("0");
         fieldBiayaCetakProdukKemasan.setText("0");
         fieldBiayaCetakDokumenFilateli.setText("0");
-        fieldBiayaCetakProdukPrisma.setText("0");
+        fieldBiayaCetakProdukPrisma.setText("0");      
+        
+        buttonUbahPrangko.setEnabled(false);
+        buttonHapusPrangko.setEnabled(false);
+        buttonSimpanPrangko.setEnabled(true);
+        buttonUbahDokumenFilateli.setEnabled(false);
+        buttonHapusDokumenFilateli.setEnabled(false);
+        buttonSimpanDokumenFIlateli.setEnabled(true);
+        buttonUbahKemasan.setEnabled(false);
+        buttonHapusKemasan.setEnabled(false);
+        buttonSImpanKemasan.setEnabled(true);
+        buttonUbahMSSS.setEnabled(false);
+        buttonHapusMSSS.setEnabled(false);
+        buttonSimpanMSSS.setEnabled(true);
+        buttonUbahMerchandise.setEnabled(false);
+        buttonHapusMerchandise.setEnabled(false);
+        buttonSImpanMerchandise.setEnabled(true);
+        buttonUbahPrisma.setEnabled(false);
+        buttonHapusPrisma.setEnabled(false);
+        buttonSimpanPrisma.setEnabled(true);
+        buttonUbahSHPSHPSS.setEnabled(false);
+        buttonHapusSHPSHPSS.setEnabled(false);
+        buttonSimpanSHPSHPSS.setEnabled(true);
+        
     }
 
     private void autoincrementPrangko() {
@@ -566,7 +589,7 @@ public final class FormHome extends javax.swing.JFrame {
         tablePrangko = new javax.swing.JTable();
         buttonCariPrangko = new javax.swing.JButton();
         fieldCariPrangko = new javax.swing.JTextField();
-        comboCariPrangko = new javax.swing.JComboBox<String>();
+        comboCariPrangko = new javax.swing.JComboBox<>();
         MS_SS = new javax.swing.JPanel();
         jPanel16 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
@@ -583,14 +606,14 @@ public final class FormHome extends javax.swing.JFrame {
         buttonUbahMSSS = new javax.swing.JButton();
         buttonHapusMSSS = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
-        ComboJenisMS_SS = new javax.swing.JComboBox<String>();
+        ComboJenisMS_SS = new javax.swing.JComboBox<>();
         buttonResetMSSS = new javax.swing.JButton();
         jPanel17 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tableMSSS = new javax.swing.JTable();
         buttonCariMS_SS = new javax.swing.JButton();
         fieldCariMS_SS = new javax.swing.JTextField();
-        comboMS_SS = new javax.swing.JComboBox<String>();
+        comboMS_SS = new javax.swing.JComboBox<>();
         SHP_SHPSS = new javax.swing.JPanel();
         jPanel18 = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
@@ -606,7 +629,7 @@ public final class FormHome extends javax.swing.JFrame {
         buttonSimpanSHPSHPSS = new javax.swing.JButton();
         buttonUbahSHPSHPSS = new javax.swing.JButton();
         buttonHapusSHPSHPSS = new javax.swing.JButton();
-        ComboJenisSHP_SHPSS = new javax.swing.JComboBox<String>();
+        ComboJenisSHP_SHPSS = new javax.swing.JComboBox<>();
         jLabel10 = new javax.swing.JLabel();
         buttonResetSHPSHPSS = new javax.swing.JButton();
         jPanel19 = new javax.swing.JPanel();
@@ -614,7 +637,7 @@ public final class FormHome extends javax.swing.JFrame {
         tableSHPSHPSS = new javax.swing.JTable();
         buttonCariSHP_SHPSS = new javax.swing.JButton();
         fieldCariSHP_SHPSS = new javax.swing.JTextField();
-        comboSHP_SHPSS = new javax.swing.JComboBox<String>();
+        comboSHP_SHPSS = new javax.swing.JComboBox<>();
         Kemasan = new javax.swing.JPanel();
         jPanel20 = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
@@ -636,7 +659,7 @@ public final class FormHome extends javax.swing.JFrame {
         tableKemasan = new javax.swing.JTable();
         buttonCariKemasan = new javax.swing.JButton();
         fieldCariKemasan = new javax.swing.JTextField();
-        comboJenisKemasan = new javax.swing.JComboBox<String>();
+        comboJenisKemasan = new javax.swing.JComboBox<>();
         Merchandise = new javax.swing.JPanel();
         jPanel22 = new javax.swing.JPanel();
         jLabel27 = new javax.swing.JLabel();
@@ -658,7 +681,7 @@ public final class FormHome extends javax.swing.JFrame {
         tableMerchandise = new javax.swing.JTable();
         buttonCariMerchandise = new javax.swing.JButton();
         fieldCariMerchandise = new javax.swing.JTextField();
-        comboMerchandise = new javax.swing.JComboBox<String>();
+        comboMerchandise = new javax.swing.JComboBox<>();
         Prisma = new javax.swing.JPanel();
         jPanel24 = new javax.swing.JPanel();
         jLabel32 = new javax.swing.JLabel();
@@ -680,7 +703,7 @@ public final class FormHome extends javax.swing.JFrame {
         tablePrisma = new javax.swing.JTable();
         buttonCariPrisma = new javax.swing.JButton();
         fieldCariPrisma = new javax.swing.JTextField();
-        comboPrisma = new javax.swing.JComboBox<String>();
+        comboPrisma = new javax.swing.JComboBox<>();
         DokumenFilateli = new javax.swing.JPanel();
         jPanel26 = new javax.swing.JPanel();
         jLabel37 = new javax.swing.JLabel();
@@ -702,7 +725,7 @@ public final class FormHome extends javax.swing.JFrame {
         tableDokumenFilateli = new javax.swing.JTable();
         buttonCariDokumenFilateli = new javax.swing.JButton();
         fieldCariDokumenFIlateli = new javax.swing.JTextField();
-        comboDokumenFIlateli = new javax.swing.JComboBox<String>();
+        comboDokumenFIlateli = new javax.swing.JComboBox<>();
         jMenuBar1 = new javax.swing.JMenuBar();
         itemRegional = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -974,7 +997,7 @@ public final class FormHome extends javax.swing.JFrame {
             }
         });
 
-        comboCariPrangko.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
+        comboCariPrangko.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
 
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
         jPanel14.setLayout(jPanel14Layout);
@@ -1103,7 +1126,7 @@ public final class FormHome extends javax.swing.JFrame {
 
         jLabel8.setText("Jenis");
 
-        ComboJenisMS_SS.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "MS", "SS" }));
+        ComboJenisMS_SS.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MS", "SS" }));
         ComboJenisMS_SS.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ComboJenisMS_SSMouseClicked(evt);
@@ -1234,7 +1257,7 @@ public final class FormHome extends javax.swing.JFrame {
             }
         });
 
-        comboMS_SS.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
+        comboMS_SS.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
 
         javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
         jPanel17.setLayout(jPanel17Layout);
@@ -1348,7 +1371,7 @@ public final class FormHome extends javax.swing.JFrame {
             }
         });
 
-        ComboJenisSHP_SHPSS.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "SHP", "SHPSS" }));
+        ComboJenisSHP_SHPSS.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SHP", "SHPSS" }));
         ComboJenisSHP_SHPSS.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ComboJenisSHP_SHPSSMouseClicked(evt);
@@ -1480,7 +1503,7 @@ public final class FormHome extends javax.swing.JFrame {
             }
         });
 
-        comboSHP_SHPSS.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
+        comboSHP_SHPSS.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
 
         javax.swing.GroupLayout jPanel19Layout = new javax.swing.GroupLayout(jPanel19);
         jPanel19.setLayout(jPanel19Layout);
@@ -1702,7 +1725,7 @@ public final class FormHome extends javax.swing.JFrame {
             }
         });
 
-        comboJenisKemasan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
+        comboJenisKemasan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
 
         javax.swing.GroupLayout jPanel21Layout = new javax.swing.GroupLayout(jPanel21);
         jPanel21.setLayout(jPanel21Layout);
@@ -1918,7 +1941,7 @@ public final class FormHome extends javax.swing.JFrame {
             }
         });
 
-        comboMerchandise.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
+        comboMerchandise.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
 
         javax.swing.GroupLayout jPanel23Layout = new javax.swing.GroupLayout(jPanel23);
         jPanel23.setLayout(jPanel23Layout);
@@ -2030,6 +2053,11 @@ public final class FormHome extends javax.swing.JFrame {
         });
 
         buttonResetPrisma.setText("Reset");
+        buttonResetPrisma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonResetPrismaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel24Layout = new javax.swing.GroupLayout(jPanel24);
         jPanel24.setLayout(jPanel24Layout);
@@ -2129,7 +2157,7 @@ public final class FormHome extends javax.swing.JFrame {
             }
         });
 
-        comboPrisma.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
+        comboPrisma.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
 
         javax.swing.GroupLayout jPanel25Layout = new javax.swing.GroupLayout(jPanel25);
         jPanel25.setLayout(jPanel25Layout);
@@ -2241,6 +2269,11 @@ public final class FormHome extends javax.swing.JFrame {
         });
 
         buttonResetDokumenFIlateli.setText("Reset");
+        buttonResetDokumenFIlateli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonResetDokumenFIlateliActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel26Layout = new javax.swing.GroupLayout(jPanel26);
         jPanel26.setLayout(jPanel26Layout);
@@ -2340,7 +2373,7 @@ public final class FormHome extends javax.swing.JFrame {
             }
         });
 
-        comboDokumenFIlateli.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
+        comboDokumenFIlateli.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
 
         javax.swing.GroupLayout jPanel27Layout = new javax.swing.GroupLayout(jPanel27);
         jPanel27.setLayout(jPanel27Layout);
@@ -2694,6 +2727,10 @@ public final class FormHome extends javax.swing.JFrame {
         fieldNominalPrangko.setText(nominal);
         fieldBiayaCetakPrangko.setText(biayaCetak);
         fieldTahunPrangko.setText(tahun);
+        
+        buttonUbahPrangko.setEnabled(true);
+        buttonHapusPrangko.setEnabled(true);
+        buttonSimpanPrangko.setEnabled(false);
     }//GEN-LAST:event_tablePrangkoMouseClicked
 
     private void ComboJenisMS_SSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboJenisMS_SSActionPerformed
@@ -2747,6 +2784,10 @@ public final class FormHome extends javax.swing.JFrame {
         fieldNominalProdukMSSS.setText(nominal);
         fieldBiayaCetakProdukMSSS.setText(biayaCetak);
         fieldTahunProdukMSSS.setText(tahun);
+        
+        buttonUbahMSSS.setEnabled(true);
+        buttonHapusMSSS.setEnabled(true);
+        buttonSimpanMSSS.setEnabled(false);
     }//GEN-LAST:event_tableMSSSMouseClicked
 
     private void tableSHPSHPSSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableSHPSHPSSMouseClicked
@@ -2763,6 +2804,10 @@ public final class FormHome extends javax.swing.JFrame {
         fieldNominalProdukSHPSHPSS.setText(nominal);
         fieldBiayaCetakSHPSHPSS.setText(biayaCetak);
         fieldTahunProdukSHPSHPSS.setText(tahun);
+        
+        buttonUbahSHPSHPSS.setEnabled(true);
+        buttonHapusSHPSHPSS.setEnabled(true);
+        buttonSimpanSHPSHPSS.setEnabled(false);
     }//GEN-LAST:event_tableSHPSHPSSMouseClicked
 
     private void tableKemasanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableKemasanMouseClicked
@@ -2779,6 +2824,10 @@ public final class FormHome extends javax.swing.JFrame {
         fieldNominalProdukKemasan.setText(nominal);
         fieldBiayaCetakProdukKemasan.setText(biayaCetak);
         fieldTahunProdukKemasan.setText(tahun);
+        
+        buttonUbahKemasan.setEnabled(true);
+        buttonHapusKemasan.setEnabled(true);
+        buttonSImpanKemasan.setEnabled(false);
     }//GEN-LAST:event_tableKemasanMouseClicked
 
     private void tableMerchandiseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableMerchandiseMouseClicked
@@ -2795,6 +2844,10 @@ public final class FormHome extends javax.swing.JFrame {
         fieldNominalProdukMerchandise.setText(nominal);
         fieldBiayaCetakProdukMerchandise.setText(biayaCetak);
         fieldTahunProdukMerchandise.setText(tahun);
+        
+        buttonUbahMerchandise.setEnabled(true);
+        buttonHapusMerchandise.setEnabled(true);
+        buttonSImpanMerchandise.setEnabled(false);
     }//GEN-LAST:event_tableMerchandiseMouseClicked
 
     private void tablePrismaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePrismaMouseClicked
@@ -2811,6 +2864,10 @@ public final class FormHome extends javax.swing.JFrame {
         fieldNominalProdukPrisma.setText(nominal);
         fieldBiayaCetakProdukPrisma.setText(biayaCetak);
         fieldTahunProdukPrisma.setText(tahun);
+        
+        buttonUbahPrisma.setEnabled(true);
+        buttonHapusPrisma.setEnabled(true);
+        buttonSimpanPrisma.setEnabled(false);
     }//GEN-LAST:event_tablePrismaMouseClicked
 
     private void tableDokumenFilateliMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableDokumenFilateliMouseClicked
@@ -2827,6 +2884,10 @@ public final class FormHome extends javax.swing.JFrame {
         fieldNominalProdukDokumenFilateli.setText(nominal);
         fieldBiayaCetakDokumenFilateli.setText(biayaCetak);
         fieldTahunProdukDokumenFilateli.setText(tahun);
+        
+        buttonUbahDokumenFilateli.setEnabled(true);
+        buttonHapusDokumenFilateli.setEnabled(true);
+        buttonSimpanDokumenFIlateli.setEnabled(false);
     }//GEN-LAST:event_tableDokumenFilateliMouseClicked
 
     private void buttonSimpanMSSSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSimpanMSSSActionPerformed
@@ -4544,6 +4605,7 @@ public final class FormHome extends javax.swing.JFrame {
         // TODO add your handling code here
         resetField();
         autoincrementPrangko();
+        inisialisasiField();
         getDataPrangko();
     }//GEN-LAST:event_buttonResetPrangkoPrangkoActionPerformed
 
@@ -4743,18 +4805,34 @@ public final class FormHome extends javax.swing.JFrame {
 
     private void buttonResetMSSSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonResetMSSSActionPerformed
         // TODO add your handling code here:
+        resetField();
+        autoincrementMS_SS();
+        inisialisasiField();
+        getDataMS_SS();
     }//GEN-LAST:event_buttonResetMSSSActionPerformed
 
     private void buttonResetSHPSHPSSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonResetSHPSHPSSActionPerformed
         // TODO add your handling code here:
+        resetField();
+        autoincrementSHP_SHPSS();
+        inisialisasiField();
+        getDataSHP_SHPSS();
     }//GEN-LAST:event_buttonResetSHPSHPSSActionPerformed
 
     private void buttonResetKemasanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonResetKemasanActionPerformed
         // TODO add your handling code here:
+        resetField();
+        autoincrementKemasan();
+        inisialisasiField();
+        getDataKemasan();
     }//GEN-LAST:event_buttonResetKemasanActionPerformed
 
     private void buttonResetMerchandiseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonResetMerchandiseActionPerformed
         // TODO add your handling code here:
+        resetField();
+        autoincrementMerchandise();
+        inisialisasiField();
+        getDataMerchandise();
     }//GEN-LAST:event_buttonResetMerchandiseActionPerformed
 
     private void itemRecycleBinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemRecycleBinActionPerformed
@@ -4777,6 +4855,22 @@ public final class FormHome extends javax.swing.JFrame {
         drd.setLocationRelativeTo(null);
         drd.setVisible(true);
     }//GEN-LAST:event_itemHistoryDeleteActionPerformed
+
+    private void buttonResetPrismaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonResetPrismaActionPerformed
+        // TODO add your handling code here:
+        resetField();
+        autoincrementPrisma();
+        inisialisasiField();
+        getDataPrisma();
+    }//GEN-LAST:event_buttonResetPrismaActionPerformed
+
+    private void buttonResetDokumenFIlateliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonResetDokumenFIlateliActionPerformed
+        // TODO add your handling code here:
+        resetField();
+        autoincrementDokumenFilateli();
+        inisialisasiField();
+        getDataDokumenFilateli();
+    }//GEN-LAST:event_buttonResetDokumenFIlateliActionPerformed
 
     /**
      * @param args the command line arguments
