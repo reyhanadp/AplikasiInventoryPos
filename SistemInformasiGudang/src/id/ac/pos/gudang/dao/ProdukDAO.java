@@ -60,6 +60,8 @@ public interface ProdukDAO {
     
     boolean hapusHistoryUpdate();
     
+    boolean hapusHistoryDelete();
+    
     boolean ubahProduk(Produk produk);
 
 }

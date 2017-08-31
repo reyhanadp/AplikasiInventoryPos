@@ -707,6 +707,7 @@ public final class FormHome extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         itemRecycleBin = new javax.swing.JMenuItem();
         itemHistoryUpdate = new javax.swing.JMenuItem();
+        itemHistoryDelete = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -2452,6 +2453,15 @@ public final class FormHome extends javax.swing.JFrame {
             }
         });
         jMenu2.add(itemHistoryUpdate);
+
+        itemHistoryDelete.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_MASK));
+        itemHistoryDelete.setText("History Delete");
+        itemHistoryDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemHistoryDeleteActionPerformed(evt);
+            }
+        });
+        jMenu2.add(itemHistoryDelete);
 
         jMenuBar1.add(jMenu2);
 
@@ -4766,6 +4776,13 @@ public final class FormHome extends javax.swing.JFrame {
         drb.setVisible(true);
     }//GEN-LAST:event_itemHistoryUpdateActionPerformed
 
+    private void itemHistoryDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemHistoryDeleteActionPerformed
+        // TODO add your handling code here:
+         DialogHistoryDelete drd = new DialogHistoryDelete(this, true);
+        drd.setLocationRelativeTo(null);
+        drd.setVisible(true);
+    }//GEN-LAST:event_itemHistoryDeleteActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -4906,6 +4923,7 @@ public final class FormHome extends javax.swing.JFrame {
     private javax.swing.JTextField fieldTahunProdukMerchandise;
     private javax.swing.JTextField fieldTahunProdukPrisma;
     private javax.swing.JTextField fieldTahunProdukSHPSHPSS;
+    private javax.swing.JMenuItem itemHistoryDelete;
     private javax.swing.JMenuItem itemHistoryUpdate;
     private javax.swing.JMenuItem itemRecycleBin;
     private javax.swing.JMenu itemRegional;
