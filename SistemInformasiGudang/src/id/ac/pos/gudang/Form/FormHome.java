@@ -3,8 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package id.ac.pos.gudang;
+package id.ac.pos.gudang.Form;
 
+import id.ac.pos.gudang.Dialog.DialogHistoryDelete;
+import id.ac.pos.gudang.Dialog.DialogRecycleBin;
+import id.ac.pos.gudang.Dialog.DialogHistoryUpdate;
+import id.ac.pos.gudang.Panel.PanelPemesanan;
 import id.ac.pos.gudang.dao.ProdukDAO;
 import id.ac.pos.gudang.daoimpl.ProdukDAOImpl;
 import id.ac.pos.gudang.entity.Produk;
@@ -538,8 +542,6 @@ public final class FormHome extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         buttonKelolaProduk = new javax.swing.JButton();
         buttonTransaksi = new javax.swing.JButton();
-        labelKelolaProduk = new javax.swing.JLabel();
-        labelTransaksi = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         tabKelolaProduk = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
@@ -716,6 +718,10 @@ public final class FormHome extends javax.swing.JFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
 
         buttonKelolaProduk.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/Untitled-1.png"))); // NOI18N
+        buttonKelolaProduk.setText("KELOLA PRODUK");
+        buttonKelolaProduk.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        buttonKelolaProduk.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        buttonKelolaProduk.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         buttonKelolaProduk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonKelolaProdukActionPerformed(evt);
@@ -723,33 +729,25 @@ public final class FormHome extends javax.swing.JFrame {
         });
 
         buttonTransaksi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/Untitled-2.png"))); // NOI18N
+        buttonTransaksi.setText("PEMESANAN");
+        buttonTransaksi.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        buttonTransaksi.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        buttonTransaksi.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         buttonTransaksi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonTransaksiActionPerformed(evt);
             }
         });
 
-        labelKelolaProduk.setText("Kelola Produk");
-
-        labelTransaksi.setText("Transaksi");
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(buttonKelolaProduk, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(buttonTransaksi, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(53, 53, 53)
-                        .addComponent(labelKelolaProduk))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(64, 64, 64)
-                        .addComponent(labelTransaksi)))
+                    .addComponent(buttonKelolaProduk, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonTransaksi, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -757,12 +755,8 @@ public final class FormHome extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(43, 43, 43)
                 .addComponent(buttonKelolaProduk)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(labelKelolaProduk)
-                .addGap(13, 13, 13)
+                .addGap(33, 33, 33)
                 .addComponent(buttonTransaksi)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(labelTransaksi)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -2486,8 +2480,9 @@ public final class FormHome extends javax.swing.JFrame {
         jPanel3.removeAll();
         jPanel3.repaint();
         jPanel3.revalidate();
-        PanelTransaksi panelTransaksi = new PanelTransaksi();
-        jPanel3.add(panelTransaksi);
+        CardLayout cardLayout = (CardLayout) jPanel3.getLayout();
+        PanelPemesanan panelPemesanan = new PanelPemesanan();
+        jPanel3.add("Panel Pemesanan",panelPemesanan);
         jPanel3.repaint();
         jPanel3.revalidate();
     }//GEN-LAST:event_buttonTransaksiActionPerformed
@@ -4993,8 +4988,6 @@ public final class FormHome extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JLabel labelKelolaProduk;
-    private javax.swing.JLabel labelTransaksi;
     private javax.swing.JPanel tabKelolaProduk;
     private javax.swing.JTable tableDokumenFilateli;
     private javax.swing.JTable tableKemasan;

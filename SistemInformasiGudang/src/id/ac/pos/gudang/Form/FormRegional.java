@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package id.ac.pos.gudang;
+package id.ac.pos.gudang.Form;
 
 import id.ac.pos.gudang.dao.RegionalDAO;
 import id.ac.pos.gudang.daoimpl.RegionalDAOImpl;
