@@ -28,35 +28,31 @@ public class HistoryDeleteTM extends AbstractTableModel {
 
     @Override
     public int getColumnCount() {
-        return 8;
+        return 7;
     }
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         switch (columnIndex) {
-
             case 0:
-                return arrayProduk.get(rowIndex).getNo();
-
-            case 1:
                 return arrayProduk.get(rowIndex).getIdProduk();
 
-            case 2:
+            case 1:
                 return arrayProduk.get(rowIndex).getNamaProduk();
 
-            case 3:
+            case 2:
                 return arrayProduk.get(rowIndex).getNominal();
 
-            case 4:
+            case 3:
                 return arrayProduk.get(rowIndex).getBiayaCetak();
 
-            case 5:
+            case 4:
                 return arrayProduk.get(rowIndex).getStok();
 
-            case 6:
+            case 5:
                 return arrayProduk.get(rowIndex).getTahun();
 
-            case 7:
+            case 6:
                 return arrayProduk.get(rowIndex).getTglHapus();
 
         }
@@ -66,28 +62,26 @@ public class HistoryDeleteTM extends AbstractTableModel {
     @Override
     public String getColumnName(int column) {
         switch (column) {
-            case 0:
-                return "No.";
 
-            case 1:
+            case 0:
                 return "Id Produk";
 
-            case 2:
+            case 1:
                 return "Nama Produk";
 
-            case 3:
+            case 2:
                 return "Nominal";
 
-            case 4:
+            case 3:
                 return "Biaya Cetak";
 
-            case 5:
+            case 4:
                 return "Stok";
 
-            case 6:
+            case 5:
                 return "Tahun";
 
-            case 7:
+            case 6:
                 return "Tanggal Pengubahan";
         }
         return null;

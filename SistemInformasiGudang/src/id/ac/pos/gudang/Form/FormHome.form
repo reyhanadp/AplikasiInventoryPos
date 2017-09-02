@@ -154,19 +154,22 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="buttonKelolaProduk" alignment="0" min="-2" pref="157" max="-2" attributes="0"/>
-                          <Component id="buttonTransaksi" alignment="0" min="-2" pref="157" max="-2" attributes="0"/>
+                          <Component id="buttonKelolaProduk" pref="0" max="32767" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Component id="buttonTransaksi" min="-2" pref="157" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="buttonKelolaProduk" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="buttonTransaksi" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -177,7 +180,7 @@
             <Component class="javax.swing.JButton" name="buttonKelolaProduk">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/img/icons/Untitled-1.png"/>
+                  <Image iconType="3" name="/img/icons/kelola_produk.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="KELOLA PRODUK"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -191,7 +194,7 @@
             <Component class="javax.swing.JButton" name="buttonTransaksi">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/img/icons/Untitled-2.png"/>
+                  <Image iconType="3" name="/img/icons/pemesanan.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="PEMESANAN"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -269,9 +272,10 @@
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jPanel13" min="-2" pref="178" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="jPanel14" max="32767" attributes="0"/>
+                                  <Component id="jPanel13" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jPanel14" min="-2" pref="562" max="-2" attributes="0"/>
+                                  <EmptySpace pref="78" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -292,68 +296,76 @@
                           <Layout>
                             <DimensionLayout dim="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                              <Component id="jLabel5" pref="75" max="32767" attributes="0"/>
+                                              <Component id="jLabel2" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="jLabel3" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="jLabel4" alignment="0" max="32767" attributes="0"/>
+                                          </Group>
+                                          <Component id="jLabel6" alignment="0" min="-2" pref="75" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="fieldTahunPrangko" max="32767" attributes="0"/>
+                                          <Component id="fieldNamaProdukPrangko" alignment="1" max="32767" attributes="0"/>
                                           <Component id="fieldNominalPrangko" max="32767" attributes="0"/>
                                           <Component id="fieldBiayaCetakPrangko" max="32767" attributes="0"/>
-                                          <Component id="fieldTahunPrangko" alignment="1" max="32767" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="fieldKodeProdukPrangko" min="-2" pref="80" max="-2" attributes="0"/>
-                                              <EmptySpace min="0" pref="394" max="32767" attributes="0"/>
+                                          <Group type="102" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="102" attributes="0">
+                                                      <Component id="buttonSimpanPrangko" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                      <Component id="buttonUbahPrangko" min="-2" pref="99" max="-2" attributes="0"/>
+                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                      <Component id="buttonHapusPrangko" min="-2" pref="99" max="-2" attributes="0"/>
+                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                      <Component id="buttonResetPrangko" min="-2" pref="99" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Component id="fieldKodeProdukPrangko" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                           </Group>
-                                          <Component id="fieldNamaProdukPrangko" alignment="0" max="32767" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="buttonSimpanPrangko" alignment="1" max="32767" attributes="0"/>
-                                          <Component id="buttonUbahPrangko" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="buttonHapusPrangko" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="buttonResetPrangko" max="32767" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
                             <DimensionLayout dim="1">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="fieldKodeProdukPrangko" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="buttonSimpanPrangko" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="fieldNamaProdukPrangko" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="buttonUbahPrangko" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fieldNamaProdukPrangko" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="fieldNominalPrangko" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="buttonHapusPrangko" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="fieldBiayaCetakPrangko" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="buttonResetPrangko" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="fieldTahunPrangko" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="buttonSimpanPrangko" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonUbahPrangko" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonHapusPrangko" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonResetPrangko" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="32767" attributes="0"/>
                                   </Group>
@@ -427,7 +439,11 @@
                             </Component>
                             <Component class="javax.swing.JButton" name="buttonSimpanPrangko">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/img/icons/save.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Simpan"/>
+                                <Property name="iconTextGap" type="int" value="8"/>
                               </Properties>
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonSimpanPrangkoActionPerformed"/>
@@ -435,7 +451,11 @@
                             </Component>
                             <Component class="javax.swing.JButton" name="buttonUbahPrangko">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/img/icons/Edit.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Ubah"/>
+                                <Property name="iconTextGap" type="int" value="8"/>
                               </Properties>
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonUbahPrangkoActionPerformed"/>
@@ -443,7 +463,11 @@
                             </Component>
                             <Component class="javax.swing.JButton" name="buttonHapusPrangko">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/img/icons/Delete.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Hapus"/>
+                                <Property name="iconTextGap" type="int" value="8"/>
                               </Properties>
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonHapusPrangkoActionPerformed"/>
@@ -451,7 +475,11 @@
                             </Component>
                             <Component class="javax.swing.JButton" name="buttonResetPrangko">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/img/icons/Reset.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Reset"/>
+                                <Property name="iconTextGap" type="int" value="8"/>
                               </Properties>
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonResetPrangkoPrangkoActionPerformed"/>
@@ -471,9 +499,10 @@
                           <Layout>
                             <DimensionLayout dim="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jScrollPane1" pref="665" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane1" pref="892" max="32767" attributes="0"/>
                                   <Group type="102" attributes="0">
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      <Component id="buttonRefresh" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
                                       <Component id="comboCariPrangko" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="fieldCariPrangko" min="-2" pref="101" max="-2" attributes="0"/>
@@ -489,9 +518,11 @@
                                           <Component id="buttonCariPrangko" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="fieldCariPrangko" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="comboCariPrangko" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonRefresh" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jScrollPane1" pref="549" max="32767" attributes="0"/>
+                                      <Component id="jScrollPane1" min="-2" pref="539" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -550,7 +581,11 @@
                             </Container>
                             <Component class="javax.swing.JButton" name="buttonCariPrangko">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/img/icons/Search.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Cari"/>
+                                <Property name="iconTextGap" type="int" value="8"/>
                               </Properties>
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCariPrangkoActionPerformed"/>
@@ -581,6 +616,18 @@
                                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                               </AuxValues>
                             </Component>
+                            <Component class="javax.swing.JButton" name="buttonRefresh">
+                              <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/img/icons/Refresh.png"/>
+                                </Property>
+                                <Property name="text" type="java.lang.String" value="Refresh"/>
+                                <Property name="iconTextGap" type="int" value="8"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonRefreshPrangkoActionPerformed"/>
+                              </Events>
+                            </Component>
                           </SubComponents>
                         </Container>
                       </SubComponents>
@@ -607,7 +654,7 @@
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jPanel16" min="-2" pref="180" max="-2" attributes="0"/>
+                                  <Component id="jPanel16" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jPanel17" max="32767" attributes="0"/>
                               </Group>
@@ -627,38 +674,43 @@
                           <Layout>
                             <DimensionLayout dim="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="jLabel16" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jLabel15" alignment="0" pref="75" max="32767" attributes="0"/>
+                                          <Component id="jLabel13" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jLabel8" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jLabel14" max="32767" attributes="0"/>
+                                      </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel14" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel15" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel16" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <Component id="ComboJenisMS_SS" min="-2" pref="90" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="fieldKodeProdukMS_SS" min="-2" pref="80" max="-2" attributes="0"/>
-                                              <EmptySpace min="0" pref="207" max="32767" attributes="0"/>
-                                          </Group>
+                                          <Component id="fieldNamaProdukMSSS" max="32767" attributes="0"/>
                                           <Component id="fieldNominalProdukMSSS" alignment="0" max="32767" attributes="0"/>
                                           <Component id="fieldBiayaCetakProdukMSSS" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="fieldTahunProdukMSSS" alignment="1" max="32767" attributes="0"/>
-                                          <Component id="fieldNamaProdukMSSS" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="fieldTahunProdukMSSS" alignment="0" max="32767" attributes="0"/>
+                                          <Group type="102" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="102" attributes="0">
+                                                      <Component id="ComboJenisMS_SS" min="-2" pref="90" max="-2" attributes="0"/>
+                                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                      <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                      <Component id="fieldKodeProdukMS_SS" min="-2" pref="80" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Component id="buttonSimpanMSSS" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                      <Component id="buttonUbahMSSS" min="-2" pref="99" max="-2" attributes="0"/>
+                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                      <Component id="buttonHapusMSSS" min="-2" pref="99" max="-2" attributes="0"/>
+                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                      <Component id="buttonResetMSSS" min="-2" pref="99" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          </Group>
                                       </Group>
-                                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="buttonSimpanMSSS" alignment="1" max="32767" attributes="0"/>
-                                          <Component id="buttonUbahMSSS" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="buttonHapusMSSS" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="buttonResetMSSS" alignment="0" max="32767" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -667,34 +719,37 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="fieldKodeProdukMS_SS" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="buttonSimpanMSSS" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="ComboJenisMS_SS" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fieldKodeProdukMS_SS" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="fieldNamaProdukMSSS" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="buttonUbahMSSS" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="fieldNominalProdukMSSS" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="buttonHapusMSSS" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="fieldBiayaCetakProdukMSSS" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="buttonResetMSSS" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="fieldTahunProdukMSSS" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="buttonSimpanMSSS" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonUbahMSSS" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonHapusMSSS" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonResetMSSS" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="32767" attributes="0"/>
                                   </Group>
@@ -759,7 +814,11 @@
                             </Component>
                             <Component class="javax.swing.JButton" name="buttonSimpanMSSS">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/img/icons/save.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Simpan"/>
+                                <Property name="iconTextGap" type="int" value="8"/>
                               </Properties>
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonSimpanMSSSActionPerformed"/>
@@ -767,7 +826,11 @@
                             </Component>
                             <Component class="javax.swing.JButton" name="buttonUbahMSSS">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/img/icons/Edit.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Ubah"/>
+                                <Property name="iconTextGap" type="int" value="8"/>
                               </Properties>
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonUbahMSSSActionPerformed"/>
@@ -775,7 +838,11 @@
                             </Component>
                             <Component class="javax.swing.JButton" name="buttonHapusMSSS">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/img/icons/Delete.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Hapus"/>
+                                <Property name="iconTextGap" type="int" value="8"/>
                               </Properties>
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonHapusMSSSActionPerformed"/>
@@ -806,7 +873,11 @@
                             </Component>
                             <Component class="javax.swing.JButton" name="buttonResetMSSS">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/img/icons/Reset.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Reset"/>
+                                <Property name="iconTextGap" type="int" value="8"/>
                               </Properties>
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonResetMSSSActionPerformed"/>
@@ -826,9 +897,10 @@
                           <Layout>
                             <DimensionLayout dim="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jScrollPane2" alignment="0" pref="660" max="32767" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane2" pref="892" max="32767" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Component id="buttonRefresh1" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
                                       <Component id="comboMS_SS" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="fieldCariMS_SS" min="-2" pref="101" max="-2" attributes="0"/>
@@ -844,9 +916,10 @@
                                           <Component id="buttonCariMS_SS" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="fieldCariMS_SS" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="comboMS_SS" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonRefresh1" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jScrollPane2" pref="553" max="32767" attributes="0"/>
+                                      <Component id="jScrollPane2" pref="584" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -905,7 +978,11 @@
                             </Container>
                             <Component class="javax.swing.JButton" name="buttonCariMS_SS">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/img/icons/Search.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Cari"/>
+                                <Property name="iconTextGap" type="int" value="8"/>
                               </Properties>
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCariMS_SSActionPerformed"/>
@@ -935,6 +1012,18 @@
                                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                               </AuxValues>
                             </Component>
+                            <Component class="javax.swing.JButton" name="buttonRefresh1">
+                              <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/img/icons/Refresh.png"/>
+                                </Property>
+                                <Property name="text" type="java.lang.String" value="Refresh"/>
+                                <Property name="iconTextGap" type="int" value="8"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonRefresh1PrangkoActionPerformed"/>
+                              </Events>
+                            </Component>
                           </SubComponents>
                         </Container>
                       </SubComponents>
@@ -961,7 +1050,7 @@
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jPanel18" min="-2" pref="180" max="-2" attributes="0"/>
+                                  <Component id="jPanel18" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jPanel19" max="32767" attributes="0"/>
                               </Group>
@@ -981,42 +1070,45 @@
                           <Layout>
                             <DimensionLayout dim="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel18" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel19" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel20" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel21" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="fieldNominalProdukSHPSHPSS" alignment="0" pref="474" max="32767" attributes="0"/>
-                                                  <Component id="fieldBiayaCetakSHPSHPSS" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="fieldTahunProdukSHPSHPSS" alignment="1" max="32767" attributes="0"/>
-                                                  <Component id="fieldNamaProdukSHPSHPSS" alignment="0" max="32767" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" attributes="0">
+                                              <Component id="jLabel10" min="-2" pref="75" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
                                               <Component id="ComboJenisSHP_SHPSS" min="-2" pref="90" max="-2" attributes="0"/>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
                                               <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                               <Component id="fieldKodeProdukSHP_SHPSS" min="-2" pref="80" max="-2" attributes="0"/>
                                               <EmptySpace max="32767" attributes="0"/>
                                           </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="jLabel18" alignment="0" pref="75" max="32767" attributes="0"/>
+                                                  <Component id="jLabel19" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="jLabel20" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="jLabel21" alignment="0" max="32767" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="102" attributes="0">
+                                                      <Component id="buttonSimpanSHPSHPSS" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                      <Component id="buttonUbahSHPSHPSS" min="-2" pref="99" max="-2" attributes="0"/>
+                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                      <Component id="buttonHapusSHPSHPSS" min="-2" pref="99" max="-2" attributes="0"/>
+                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                      <Component id="buttonResetSHPSHPSS" min="-2" pref="99" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                                  </Group>
+                                                  <Component id="fieldNamaProdukSHPSHPSS" alignment="1" max="32767" attributes="0"/>
+                                                  <Component id="fieldNominalProdukSHPSHPSS" alignment="1" max="32767" attributes="0"/>
+                                                  <Component id="fieldBiayaCetakSHPSHPSS" alignment="1" max="32767" attributes="0"/>
+                                                  <Component id="fieldTahunProdukSHPSHPSS" max="32767" attributes="0"/>
+                                              </Group>
+                                          </Group>
                                       </Group>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="buttonSimpanSHPSHPSS" alignment="1" max="32767" attributes="0"/>
-                                          <Component id="buttonUbahSHPSHPSS" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="buttonHapusSHPSHPSS" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="buttonResetSHPSHPSS" alignment="1" max="32767" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -1024,39 +1116,38 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                              <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="fieldKodeProdukSHP_SHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="ComboJenisSHP_SHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Component id="buttonSimpanSHPSHPSS" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="ComboJenisSHP_SHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fieldKodeProdukSHP_SHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel18" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="fieldNamaProdukSHPSHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="buttonUbahSHPSHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel19" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="fieldNominalProdukSHPSHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="buttonHapusSHPSHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
-                                          <Component id="buttonResetSHPSHPSS" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="fieldBiayaCetakSHPSHPSS" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabel20" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fieldBiayaCetakSHPSHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel21" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="fieldTahunProdukSHPSHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="buttonSimpanSHPSHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonUbahSHPSHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonHapusSHPSHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonResetSHPSHPSS" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="32767" attributes="0"/>
                                   </Group>
@@ -1118,7 +1209,11 @@
                             </Component>
                             <Component class="javax.swing.JButton" name="buttonSimpanSHPSHPSS">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/img/icons/save.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Simpan"/>
+                                <Property name="iconTextGap" type="int" value="8"/>
                               </Properties>
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonSimpanSHPSHPSSActionPerformed"/>
@@ -1126,7 +1221,11 @@
                             </Component>
                             <Component class="javax.swing.JButton" name="buttonUbahSHPSHPSS">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/img/icons/Edit.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Ubah"/>
+                                <Property name="iconTextGap" type="int" value="8"/>
                               </Properties>
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonUbahSHPSHPSSActionPerformed"/>
@@ -1134,7 +1233,11 @@
                             </Component>
                             <Component class="javax.swing.JButton" name="buttonHapusSHPSHPSS">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/img/icons/Delete.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Hapus"/>
+                                <Property name="iconTextGap" type="int" value="8"/>
                               </Properties>
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonHapusSHPSHPSSActionPerformed"/>
@@ -1165,7 +1268,11 @@
                             </Component>
                             <Component class="javax.swing.JButton" name="buttonResetSHPSHPSS">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/img/icons/Reset.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Reset"/>
+                                <Property name="iconTextGap" type="int" value="8"/>
                               </Properties>
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonResetSHPSHPSSActionPerformed"/>
@@ -1185,9 +1292,10 @@
                           <Layout>
                             <DimensionLayout dim="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jScrollPane3" alignment="0" pref="660" max="32767" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane3" pref="892" max="32767" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Component id="buttonRefresh2" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
                                       <Component id="comboSHP_SHPSS" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="fieldCariSHP_SHPSS" min="-2" pref="101" max="-2" attributes="0"/>
@@ -1203,9 +1311,10 @@
                                           <Component id="buttonCariSHP_SHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="fieldCariSHP_SHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="comboSHP_SHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonRefresh2" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jScrollPane3" pref="553" max="32767" attributes="0"/>
+                                      <Component id="jScrollPane3" pref="584" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -1264,7 +1373,11 @@
                             </Container>
                             <Component class="javax.swing.JButton" name="buttonCariSHP_SHPSS">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/img/icons/Search.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Cari"/>
+                                <Property name="iconTextGap" type="int" value="8"/>
                               </Properties>
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCariSHP_SHPSSActionPerformed"/>
@@ -1293,6 +1406,18 @@
                                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                               </AuxValues>
                             </Component>
+                            <Component class="javax.swing.JButton" name="buttonRefresh2">
+                              <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/img/icons/Refresh.png"/>
+                                </Property>
+                                <Property name="text" type="java.lang.String" value="Refresh"/>
+                                <Property name="iconTextGap" type="int" value="8"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonRefresh2PrangkoActionPerformed"/>
+                              </Events>
+                            </Component>
                           </SubComponents>
                         </Container>
                       </SubComponents>
@@ -1319,7 +1444,7 @@
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jPanel20" min="-2" pref="179" max="-2" attributes="0"/>
+                                  <Component id="jPanel20" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jPanel21" max="32767" attributes="0"/>
                               </Group>
@@ -1341,32 +1466,34 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel23" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel22" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel24" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel25" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel26" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="fieldNominalProdukKemasan" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="fieldBiayaCetakProdukKemasan" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="fieldTahunProdukKemasan" alignment="1" max="32767" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="fieldKodeProdukKemasan" min="-2" pref="80" max="-2" attributes="0"/>
-                                              <EmptySpace min="0" pref="394" max="32767" attributes="0"/>
-                                          </Group>
-                                          <Component id="fieldNamaProdukKemasan" alignment="0" max="32767" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="buttonSImpanKemasan" alignment="1" max="32767" attributes="0"/>
-                                          <Component id="buttonUbahKemasan" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="buttonHapusKemasan" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="buttonResetKemasan" max="32767" attributes="0"/>
+                                          <Component id="jLabel22" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jLabel23" alignment="0" pref="75" max="32767" attributes="0"/>
+                                          <Component id="jLabel24" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jLabel25" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jLabel26" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Component id="buttonSImpanKemasan" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="buttonUbahKemasan" min="-2" pref="99" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="buttonHapusKemasan" min="-2" pref="99" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="buttonResetKemasan" min="-2" pref="99" max="-2" attributes="0"/>
+                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <Component id="fieldKodeProdukKemasan" min="-2" pref="80" max="-2" attributes="0"/>
+                                              <EmptySpace pref="723" max="32767" attributes="0"/>
+                                          </Group>
+                                          <Component id="fieldNamaProdukKemasan" max="32767" attributes="0"/>
+                                          <Component id="fieldNominalProdukKemasan" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="fieldBiayaCetakProdukKemasan" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="fieldTahunProdukKemasan" alignment="0" max="32767" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -1377,30 +1504,33 @@
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel22" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="fieldKodeProdukKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="buttonSImpanKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel23" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="fieldNamaProdukKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="buttonUbahKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel24" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="fieldNominalProdukKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="buttonHapusKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel25" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="fieldBiayaCetakProdukKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="buttonResetKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel26" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="fieldTahunProdukKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="buttonSImpanKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonUbahKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonHapusKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonResetKemasan" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="32767" attributes="0"/>
                                   </Group>
@@ -1463,7 +1593,11 @@
                             </Component>
                             <Component class="javax.swing.JButton" name="buttonSImpanKemasan">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/img/icons/save.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Simpan"/>
+                                <Property name="iconTextGap" type="int" value="8"/>
                               </Properties>
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonSImpanKemasanActionPerformed"/>
@@ -1471,7 +1605,11 @@
                             </Component>
                             <Component class="javax.swing.JButton" name="buttonUbahKemasan">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/img/icons/Edit.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Ubah"/>
+                                <Property name="iconTextGap" type="int" value="8"/>
                               </Properties>
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonUbahKemasanActionPerformed"/>
@@ -1479,7 +1617,11 @@
                             </Component>
                             <Component class="javax.swing.JButton" name="buttonHapusKemasan">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/img/icons/Delete.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Hapus"/>
+                                <Property name="iconTextGap" type="int" value="8"/>
                               </Properties>
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonHapusKemasanActionPerformed"/>
@@ -1487,7 +1629,11 @@
                             </Component>
                             <Component class="javax.swing.JButton" name="buttonResetKemasan">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/img/icons/Reset.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Reset"/>
+                                <Property name="iconTextGap" type="int" value="8"/>
                               </Properties>
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonResetKemasanActionPerformed"/>
@@ -1507,14 +1653,22 @@
                           <Layout>
                             <DimensionLayout dim="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jScrollPane4" alignment="0" pref="660" max="32767" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane4" pref="892" max="32767" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Component id="buttonRefresh7" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
                                       <Component id="comboJenisKemasan" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="fieldCariKemasan" min="-2" pref="101" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="buttonCariKemasan" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          <Component id="buttonRefresh4" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -1525,9 +1679,17 @@
                                           <Component id="buttonCariKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="fieldCariKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="comboJenisKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonRefresh7" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jScrollPane4" pref="554" max="32767" attributes="0"/>
+                                      <Component id="jScrollPane4" pref="584" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace min="0" pref="295" max="32767" attributes="0"/>
+                                          <Component id="buttonRefresh4" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="0" pref="295" max="32767" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -1586,7 +1748,11 @@
                             </Container>
                             <Component class="javax.swing.JButton" name="buttonCariKemasan">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/img/icons/Search.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Cari"/>
+                                <Property name="iconTextGap" type="int" value="8"/>
                               </Properties>
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCariKemasanActionPerformed"/>
@@ -1615,6 +1781,27 @@
                                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                               </AuxValues>
                             </Component>
+                            <Component class="javax.swing.JButton" name="buttonRefresh4">
+                              <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/img/icons/Refresh.png"/>
+                                </Property>
+                                <Property name="text" type="java.lang.String" value="Refresh"/>
+                                <Property name="iconTextGap" type="int" value="8"/>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JButton" name="buttonRefresh7">
+                              <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/img/icons/Refresh.png"/>
+                                </Property>
+                                <Property name="text" type="java.lang.String" value="Refresh"/>
+                                <Property name="iconTextGap" type="int" value="8"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonRefresh7ActionPerformed"/>
+                              </Events>
+                            </Component>
                           </SubComponents>
                         </Container>
                       </SubComponents>
@@ -1638,7 +1825,7 @@
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jPanel22" min="-2" pref="179" max="-2" attributes="0"/>
+                                  <Component id="jPanel22" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jPanel23" max="32767" attributes="0"/>
                               </Group>
@@ -1658,34 +1845,37 @@
                           <Layout>
                             <DimensionLayout dim="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="jLabel31" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jLabel30" alignment="0" pref="75" max="32767" attributes="0"/>
+                                          <Component id="jLabel29" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jLabel28" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jLabel27" alignment="0" max="32767" attributes="0"/>
+                                      </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel28" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel27" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel29" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel30" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel31" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="fieldNominalProdukMerchandise" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="fieldBiayaCetakProdukMerchandise" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="fieldTahunProdukMerchandise" alignment="1" max="32767" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="fieldKodeProdukMerchandise" min="-2" pref="80" max="-2" attributes="0"/>
-                                              <EmptySpace min="0" pref="394" max="32767" attributes="0"/>
+                                          <Component id="fieldNamaProdukMerchandise" max="32767" attributes="0"/>
+                                          <Component id="fieldNominalProdukMerchandise" alignment="0" pref="803" max="32767" attributes="0"/>
+                                          <Component id="fieldBiayaCetakProdukMerchandise" alignment="0" pref="803" max="32767" attributes="0"/>
+                                          <Component id="fieldTahunProdukMerchandise" alignment="0" max="32767" attributes="0"/>
+                                          <Group type="102" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="fieldKodeProdukMerchandise" min="-2" pref="80" max="-2" attributes="0"/>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Component id="buttonSImpanMerchandise" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                      <Component id="buttonUbahMerchandise" min="-2" pref="99" max="-2" attributes="0"/>
+                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                      <Component id="buttonHapusMerchandise" min="-2" pref="99" max="-2" attributes="0"/>
+                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                      <Component id="buttonResetMerchandise" min="-2" pref="99" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                           </Group>
-                                          <Component id="fieldNamaProdukMerchandise" alignment="0" max="32767" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="buttonSImpanMerchandise" alignment="1" max="32767" attributes="0"/>
-                                          <Component id="buttonUbahMerchandise" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="buttonHapusMerchandise" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="buttonResetMerchandise" alignment="0" max="32767" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -1696,30 +1886,33 @@
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel27" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="fieldKodeProdukMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="buttonSImpanMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel28" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="fieldNamaProdukMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="buttonUbahMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel29" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="fieldNominalProdukMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="buttonHapusMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel30" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="fieldBiayaCetakProdukMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="buttonResetMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel31" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="fieldTahunProdukMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="buttonSImpanMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonUbahMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonHapusMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonResetMerchandise" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="32767" attributes="0"/>
                                   </Group>
@@ -1782,7 +1975,11 @@
                             </Component>
                             <Component class="javax.swing.JButton" name="buttonSImpanMerchandise">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/img/icons/save.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Simpan"/>
+                                <Property name="iconTextGap" type="int" value="8"/>
                               </Properties>
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonSImpanMerchandiseActionPerformed"/>
@@ -1790,7 +1987,11 @@
                             </Component>
                             <Component class="javax.swing.JButton" name="buttonUbahMerchandise">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/img/icons/Edit.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Ubah"/>
+                                <Property name="iconTextGap" type="int" value="8"/>
                               </Properties>
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonUbahMerchandiseActionPerformed"/>
@@ -1798,7 +1999,11 @@
                             </Component>
                             <Component class="javax.swing.JButton" name="buttonHapusMerchandise">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/img/icons/Delete.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Hapus"/>
+                                <Property name="iconTextGap" type="int" value="8"/>
                               </Properties>
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonHapusMerchandiseActionPerformed"/>
@@ -1806,7 +2011,11 @@
                             </Component>
                             <Component class="javax.swing.JButton" name="buttonResetMerchandise">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/img/icons/Reset.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Reset"/>
+                                <Property name="iconTextGap" type="int" value="8"/>
                               </Properties>
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonResetMerchandiseActionPerformed"/>
@@ -1826,9 +2035,10 @@
                           <Layout>
                             <DimensionLayout dim="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jScrollPane5" alignment="0" pref="660" max="32767" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane5" pref="892" max="32767" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Component id="buttonRefresh3" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
                                       <Component id="comboMerchandise" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="fieldCariMerchandise" min="-2" pref="101" max="-2" attributes="0"/>
@@ -1844,9 +2054,10 @@
                                           <Component id="buttonCariMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="fieldCariMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="comboMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonRefresh3" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jScrollPane5" pref="554" max="32767" attributes="0"/>
+                                      <Component id="jScrollPane5" pref="584" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -1905,7 +2116,11 @@
                             </Container>
                             <Component class="javax.swing.JButton" name="buttonCariMerchandise">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/img/icons/Search.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Cari"/>
+                                <Property name="iconTextGap" type="int" value="8"/>
                               </Properties>
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCariMerchandiseActionPerformed"/>
@@ -1934,6 +2149,18 @@
                                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                               </AuxValues>
                             </Component>
+                            <Component class="javax.swing.JButton" name="buttonRefresh3">
+                              <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/img/icons/Refresh.png"/>
+                                </Property>
+                                <Property name="text" type="java.lang.String" value="Refresh"/>
+                                <Property name="iconTextGap" type="int" value="8"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonRefresh3ActionPerformed"/>
+                              </Events>
+                            </Component>
                           </SubComponents>
                         </Container>
                       </SubComponents>
@@ -1957,7 +2184,7 @@
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jPanel24" min="-2" pref="179" max="-2" attributes="0"/>
+                                  <Component id="jPanel24" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jPanel25" max="32767" attributes="0"/>
                               </Group>
@@ -1979,32 +2206,35 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel33" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel32" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel34" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel35" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel36" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="fieldNominalProdukPrisma" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="fieldBiayaCetakProdukPrisma" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="fieldTahunProdukPrisma" alignment="1" max="32767" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="fieldKodeProdukPrisma" min="-2" pref="80" max="-2" attributes="0"/>
-                                              <EmptySpace min="0" pref="394" max="32767" attributes="0"/>
-                                          </Group>
-                                          <Component id="fieldNamaProdukPrisma" alignment="0" max="32767" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="buttonSimpanPrisma" alignment="1" max="32767" attributes="0"/>
-                                          <Component id="buttonUbahPrisma" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="buttonHapusPrisma" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="buttonResetPrisma" max="32767" attributes="0"/>
+                                          <Component id="jLabel32" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jLabel33" alignment="0" pref="75" max="32767" attributes="0"/>
+                                          <Component id="jLabel34" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jLabel35" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jLabel36" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="fieldNominalProdukPrisma" alignment="0" pref="803" max="32767" attributes="0"/>
+                                          <Component id="fieldNamaProdukPrisma" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="fieldBiayaCetakProdukPrisma" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="fieldTahunProdukPrisma" alignment="0" max="32767" attributes="0"/>
+                                          <Group type="102" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="102" attributes="0">
+                                                      <Component id="buttonSimpanPrisma" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                      <Component id="buttonUbahPrisma" min="-2" pref="99" max="-2" attributes="0"/>
+                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                      <Component id="buttonHapusPrisma" min="-2" pref="99" max="-2" attributes="0"/>
+                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                      <Component id="buttonResetPrisma" min="-2" pref="99" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Component id="fieldKodeProdukPrisma" min="-2" pref="80" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          </Group>
+                                      </Group>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -2015,30 +2245,33 @@
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel32" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="fieldKodeProdukPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="buttonSimpanPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel33" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="fieldNamaProdukPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="buttonUbahPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel34" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="fieldNominalProdukPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="buttonHapusPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel35" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="fieldBiayaCetakProdukPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="buttonResetPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel36" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="fieldTahunProdukPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="buttonSimpanPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonUbahPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonHapusPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonResetPrisma" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="32767" attributes="0"/>
                                   </Group>
@@ -2101,7 +2334,11 @@
                             </Component>
                             <Component class="javax.swing.JButton" name="buttonSimpanPrisma">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/img/icons/save.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Simpan"/>
+                                <Property name="iconTextGap" type="int" value="8"/>
                               </Properties>
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonSimpanPrismaActionPerformed"/>
@@ -2109,7 +2346,11 @@
                             </Component>
                             <Component class="javax.swing.JButton" name="buttonUbahPrisma">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/img/icons/Edit.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Ubah"/>
+                                <Property name="iconTextGap" type="int" value="8"/>
                               </Properties>
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonUbahPrismaActionPerformed"/>
@@ -2117,7 +2358,11 @@
                             </Component>
                             <Component class="javax.swing.JButton" name="buttonHapusPrisma">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/img/icons/Delete.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Hapus"/>
+                                <Property name="iconTextGap" type="int" value="8"/>
                               </Properties>
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonHapusPrismaActionPerformed"/>
@@ -2125,11 +2370,12 @@
                             </Component>
                             <Component class="javax.swing.JButton" name="buttonResetPrisma">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/img/icons/Reset.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Reset"/>
+                                <Property name="iconTextGap" type="int" value="8"/>
                               </Properties>
-                              <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonResetPrismaActionPerformed"/>
-                              </Events>
                             </Component>
                           </SubComponents>
                         </Container>
@@ -2145,9 +2391,10 @@
                           <Layout>
                             <DimensionLayout dim="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jScrollPane6" alignment="0" pref="660" max="32767" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane6" pref="892" max="32767" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Component id="buttonRefresh5" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
                                       <Component id="comboPrisma" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="fieldCariPrisma" min="-2" pref="101" max="-2" attributes="0"/>
@@ -2163,9 +2410,10 @@
                                           <Component id="buttonCariPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="fieldCariPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="comboPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonRefresh5" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jScrollPane6" pref="554" max="32767" attributes="0"/>
+                                      <Component id="jScrollPane6" pref="584" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -2224,7 +2472,11 @@
                             </Container>
                             <Component class="javax.swing.JButton" name="buttonCariPrisma">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/img/icons/Search.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Cari"/>
+                                <Property name="iconTextGap" type="int" value="8"/>
                               </Properties>
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCariPrismaActionPerformed"/>
@@ -2253,6 +2505,18 @@
                                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                               </AuxValues>
                             </Component>
+                            <Component class="javax.swing.JButton" name="buttonRefresh5">
+                              <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/img/icons/Refresh.png"/>
+                                </Property>
+                                <Property name="text" type="java.lang.String" value="Refresh"/>
+                                <Property name="iconTextGap" type="int" value="8"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonRefresh5ActionPerformed"/>
+                              </Events>
+                            </Component>
                           </SubComponents>
                         </Container>
                       </SubComponents>
@@ -2276,7 +2540,7 @@
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jPanel26" min="-2" pref="179" max="-2" attributes="0"/>
+                                  <Component id="jPanel26" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jPanel27" max="32767" attributes="0"/>
                               </Group>
@@ -2298,32 +2562,34 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel38" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel37" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel39" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel40" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel41" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="fieldNominalProdukDokumenFilateli" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="fieldBiayaCetakDokumenFilateli" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="fieldTahunProdukDokumenFilateli" alignment="1" max="32767" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="fieldKodeProdukDokumenFilateli" min="-2" pref="80" max="-2" attributes="0"/>
-                                              <EmptySpace min="0" pref="394" max="32767" attributes="0"/>
-                                          </Group>
-                                          <Component id="fieldNamaProdukDokumenFilateli" alignment="0" max="32767" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="buttonSimpanDokumenFIlateli" alignment="1" max="32767" attributes="0"/>
-                                          <Component id="buttonUbahDokumenFilateli" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="buttonHapusDokumenFilateli" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="buttonResetDokumenFIlateli" max="32767" attributes="0"/>
+                                          <Component id="jLabel37" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jLabel38" alignment="0" pref="75" max="32767" attributes="0"/>
+                                          <Component id="jLabel39" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jLabel40" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jLabel41" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Component id="buttonSimpanDokumenFIlateli" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="buttonUbahDokumenFilateli" min="-2" pref="99" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="buttonHapusDokumenFilateli" min="-2" pref="99" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="buttonResetDokumenFIlateli" min="-2" pref="99" max="-2" attributes="0"/>
+                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <Component id="fieldKodeProdukDokumenFilateli" min="-2" pref="80" max="-2" attributes="0"/>
+                                              <EmptySpace pref="723" max="32767" attributes="0"/>
+                                          </Group>
+                                          <Component id="fieldNamaProdukDokumenFilateli" max="32767" attributes="0"/>
+                                          <Component id="fieldNominalProdukDokumenFilateli" alignment="0" pref="803" max="32767" attributes="0"/>
+                                          <Component id="fieldBiayaCetakDokumenFilateli" alignment="0" pref="803" max="32767" attributes="0"/>
+                                          <Component id="fieldTahunProdukDokumenFilateli" alignment="0" max="32767" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -2334,30 +2600,33 @@
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel37" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="fieldKodeProdukDokumenFilateli" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="buttonSimpanDokumenFIlateli" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel38" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="fieldNamaProdukDokumenFilateli" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="buttonUbahDokumenFilateli" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel39" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="fieldNominalProdukDokumenFilateli" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="buttonHapusDokumenFilateli" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel40" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="fieldBiayaCetakDokumenFilateli" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="buttonResetDokumenFIlateli" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel41" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="fieldTahunProdukDokumenFilateli" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="buttonSimpanDokumenFIlateli" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonUbahDokumenFilateli" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonHapusDokumenFilateli" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonResetDokumenFIlateli" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="32767" attributes="0"/>
                                   </Group>
@@ -2420,7 +2689,11 @@
                             </Component>
                             <Component class="javax.swing.JButton" name="buttonSimpanDokumenFIlateli">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/img/icons/save.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Simpan"/>
+                                <Property name="iconTextGap" type="int" value="8"/>
                               </Properties>
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonSimpanDokumenFIlateliActionPerformed"/>
@@ -2428,7 +2701,11 @@
                             </Component>
                             <Component class="javax.swing.JButton" name="buttonUbahDokumenFilateli">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/img/icons/Edit.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Ubah"/>
+                                <Property name="iconTextGap" type="int" value="8"/>
                               </Properties>
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonUbahDokumenFilateliActionPerformed"/>
@@ -2436,7 +2713,11 @@
                             </Component>
                             <Component class="javax.swing.JButton" name="buttonHapusDokumenFilateli">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/img/icons/Delete.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Hapus"/>
+                                <Property name="iconTextGap" type="int" value="8"/>
                               </Properties>
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonHapusDokumenFilateliActionPerformed"/>
@@ -2444,11 +2725,12 @@
                             </Component>
                             <Component class="javax.swing.JButton" name="buttonResetDokumenFIlateli">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/img/icons/Reset.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Reset"/>
+                                <Property name="iconTextGap" type="int" value="8"/>
                               </Properties>
-                              <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonResetDokumenFIlateliActionPerformed"/>
-                              </Events>
                             </Component>
                           </SubComponents>
                         </Container>
@@ -2464,9 +2746,10 @@
                           <Layout>
                             <DimensionLayout dim="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jScrollPane7" alignment="0" pref="660" max="32767" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane7" pref="892" max="32767" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Component id="buttonRefresh6" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
                                       <Component id="comboDokumenFIlateli" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="fieldCariDokumenFIlateli" min="-2" pref="101" max="-2" attributes="0"/>
@@ -2482,9 +2765,10 @@
                                           <Component id="buttonCariDokumenFilateli" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="fieldCariDokumenFIlateli" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="comboDokumenFIlateli" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buttonRefresh6" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jScrollPane7" pref="554" max="32767" attributes="0"/>
+                                      <Component id="jScrollPane7" pref="584" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -2543,7 +2827,11 @@
                             </Container>
                             <Component class="javax.swing.JButton" name="buttonCariDokumenFilateli">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/img/icons/Search.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Cari"/>
+                                <Property name="iconTextGap" type="int" value="8"/>
                               </Properties>
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCariDokumenFilateliActionPerformed"/>
@@ -2571,6 +2859,18 @@
                               <AuxValues>
                                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                               </AuxValues>
+                            </Component>
+                            <Component class="javax.swing.JButton" name="buttonRefresh6">
+                              <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/img/icons/Refresh.png"/>
+                                </Property>
+                                <Property name="text" type="java.lang.String" value="Refresh"/>
+                                <Property name="iconTextGap" type="int" value="8"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonRefresh6ActionPerformed"/>
+                              </Events>
                             </Component>
                           </SubComponents>
                         </Container>

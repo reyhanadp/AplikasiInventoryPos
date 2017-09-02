@@ -24,6 +24,24 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="jSeparator1" alignment="1" max="32767" attributes="0"/>
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="jLabel117" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel115" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel116" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel119" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="103" max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace pref="111" max="32767" attributes="0"/>
+          </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -35,6 +53,10 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
+                      <Component id="fieldNominalPrangko6" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="fieldBiayaCetakPrangko6" min="-2" pref="93" max="-2" attributes="0"/>
                           <Component id="fieldNoPemesananPrangko5" alignment="0" min="-2" pref="91" max="-2" attributes="0"/>
@@ -43,38 +65,15 @@
                           <Component id="fieldJumlahPesanPrangko5" alignment="0" min="-2" pref="93" max="-2" attributes="0"/>
                           <Component id="jTextField1" min="-2" pref="93" max="-2" attributes="0"/>
                           <Component id="fieldTglPesanPrangko5" alignment="0" min="-2" pref="131" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="buttonSimpanPesanPrangko5" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="jButton70" min="-2" pref="95" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="fieldNominalPrangko6" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
               </Group>
-          </Group>
-          <Group type="102" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jLabel117" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel115" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel116" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel119" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="buttonSimpanPesanPrangko5" min="-2" pref="71" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jButton70" min="-2" pref="73" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="103" max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-              <EmptySpace pref="111" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -85,7 +84,7 @@
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
-              <EmptySpace pref="9" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel112" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="fieldNoPemesananPrangko5" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -125,12 +124,12 @@
                   <Component id="fieldTglPesanPrangko5" alignment="0" max="32767" attributes="0"/>
                   <Component id="jLabel119" alignment="0" min="-2" pref="20" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="buttonSimpanPesanPrangko5" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton70" alignment="3" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jButton70" min="-2" pref="33" max="-2" attributes="0"/>
+                  <Component id="buttonSimpanPesanPrangko5" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+              <EmptySpace pref="28" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -138,6 +137,9 @@
   <SubComponents>
     <Component class="javax.swing.JButton" name="buttonSimpanPesanPrangko5">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/img/icons/save.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Simpan"/>
       </Properties>
       <Events>
@@ -146,6 +148,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton70">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/img/icons/Reset.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Reset"/>
       </Properties>
     </Component>

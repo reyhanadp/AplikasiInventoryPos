@@ -876,14 +876,13 @@ public class ProdukDAOImpl implements ProdukDAO {
 
                     //mengambil 1 data
                     Produk produk = new Produk();
-                    produk.setNo(result.getInt(1));
-                    produk.setIdProduk(result.getString(2));
-                    produk.setNamaProduk(result.getString(3));
-                    produk.setNominal(result.getInt(4));
-                    produk.setBiayaCetak(result.getFloat(5));
-                    produk.setStok(result.getInt(6));
-                    produk.setTahun(result.getString(7));
-                    produk.setTglUbah(result.getDate(9));
+                    produk.setIdProduk(result.getString(1));
+                    produk.setNamaProduk(result.getString(2));
+                    produk.setNominal(result.getInt(3));
+                    produk.setBiayaCetak(result.getFloat(4));
+                    produk.setStok(result.getInt(5));
+                    produk.setTahun(result.getString(6));
+                    produk.setTglHapus(result.getDate(8));
 
                     //menambahkan data ke array
                     arrayProduk.add(produk);
