@@ -9,6 +9,9 @@ import id.ac.pos.gudang.Dialog.DialogHistoryDelete;
 import id.ac.pos.gudang.Dialog.DialogRecycleBin;
 import id.ac.pos.gudang.Dialog.DialogHistoryUpdate;
 import id.ac.pos.gudang.Panel.PanelPemesanan;
+import id.ac.pos.gudang.Panel.PanelPenerimaan;
+import id.ac.pos.gudang.Panel.PanelPengembalian;
+import id.ac.pos.gudang.Panel.PanelPengiriman;
 import id.ac.pos.gudang.dao.ProdukDAO;
 import id.ac.pos.gudang.daoimpl.ProdukDAOImpl;
 import id.ac.pos.gudang.entity.Produk;
@@ -755,23 +758,38 @@ public final class FormHome extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/kelola_produk.png"))); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/pengembalian.png"))); // NOI18N
         jButton3.setText("PENGEMBALIAN");
         jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton3.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         jButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/penerimaan1.png"))); // NOI18N
         jButton4.setText("PENERIMAAN");
         jButton4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton4.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         jButton4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/pengiriman1.png"))); // NOI18N
         jButton5.setText("PENGIRIMAN");
         jButton5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton5.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         jButton5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/kelola_produk.png"))); // NOI18N
         jButton6.setText("LAPORAN");
@@ -5048,6 +5066,42 @@ public final class FormHome extends javax.swing.JFrame {
         // TODO add your handling code here:
         refresh();
     }//GEN-LAST:event_buttonRefresh7ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        jPanel3.removeAll();
+        jPanel3.repaint();
+        jPanel3.revalidate();
+        CardLayout cardLayout = (CardLayout) jPanel3.getLayout();
+        PanelPenerimaan panelPenerimaan = new PanelPenerimaan();
+        jPanel3.add("Panel Penerimaan", panelPenerimaan);
+        jPanel3.repaint();
+        jPanel3.revalidate();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        jPanel3.removeAll();
+        jPanel3.repaint();
+        jPanel3.revalidate();
+        CardLayout cardLayout = (CardLayout) jPanel3.getLayout();
+        PanelPengiriman panelPengiriman = new PanelPengiriman();
+        jPanel3.add("Panel Pengiriman", panelPengiriman);
+        jPanel3.repaint();
+        jPanel3.revalidate();
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        jPanel3.removeAll();
+        jPanel3.repaint();
+        jPanel3.revalidate();
+        CardLayout cardLayout = (CardLayout) jPanel3.getLayout();
+        PanelPengembalian panelPengembalian = new PanelPengembalian();
+        jPanel3.add("Panel Pengembalian", panelPengembalian);
+        jPanel3.repaint();
+        jPanel3.revalidate();
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
