@@ -8,6 +8,12 @@ package id.ac.pos.gudang.Panel;
 import id.ac.pos.gudang.Dialog.DialogTambahPemesanan;
 import javax.swing.JDialog;
 import id.ac.pos.gudang.Form.FormHome;
+import id.ac.pos.gudang.dao.PemesananDAO;
+import id.ac.pos.gudang.daoimpl.PemesananDAOImpl;
+import id.ac.pos.gudang.entity.Pemesanan;
+import id.ac.pos.gudang.tablemodel.PemesananTM;
+import java.util.ArrayList;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -18,10 +24,101 @@ public class PanelPemesanan extends javax.swing.JPanel {
     /**
      * Creates new form PanelPemesanan
      */
+    
+    private Pemesanan pemesanan;
+    private PemesananDAO dao;
+    ArrayList<Pemesanan> arrayPemesanan;
+    TableRowSorter sorter;
+    
     public PanelPemesanan() {
         initComponents();
+        getDataPrangko();
+        getDataDokumenFilateli();
+        getDataKemasan();
+        getDataMerchandise();
+        getDataMS_SS();
+        getDataPrisma();
+        getDataSHP_SHPSS();
     }
 
+    
+    private void getDataPrangko(){
+        dao = new PemesananDAOImpl();
+        arrayPemesanan = dao.getDataPemesananPrangko();
+
+        PemesananTM pemesananTableModel = new PemesananTM();
+        pemesananTableModel.setDataPemesanan(arrayPemesanan);
+        sorter = new TableRowSorter(pemesananTableModel);
+        tablePemesananPrangko.setRowSorter(sorter);
+        tablePemesananPrangko.setModel(pemesananTableModel);
+    }
+    
+    private void getDataMS_SS(){
+        dao = new PemesananDAOImpl();
+        arrayPemesanan = dao.getDataPemesananMS_SS();
+
+        PemesananTM pemesananTableModel = new PemesananTM();
+        pemesananTableModel.setDataPemesanan(arrayPemesanan);
+        sorter = new TableRowSorter(pemesananTableModel);
+        tablePemesananMS_SS.setRowSorter(sorter);
+        tablePemesananMS_SS.setModel(pemesananTableModel);
+    }
+    
+    private void getDataKemasan(){
+        dao = new PemesananDAOImpl();
+        arrayPemesanan = dao.getDataPemesananKemasan();
+
+        PemesananTM pemesananTableModel = new PemesananTM();
+        pemesananTableModel.setDataPemesanan(arrayPemesanan);
+        sorter = new TableRowSorter(pemesananTableModel);
+        tablePemesananKemasan.setRowSorter(sorter);
+        tablePemesananKemasan.setModel(pemesananTableModel);
+    }
+    
+    private void getDataMerchandise(){
+        dao = new PemesananDAOImpl();
+        arrayPemesanan = dao.getDataPemesananMerchandise();
+
+        PemesananTM pemesananTableModel = new PemesananTM();
+        pemesananTableModel.setDataPemesanan(arrayPemesanan);
+        sorter = new TableRowSorter(pemesananTableModel);
+        tablePemesananMerchandise.setRowSorter(sorter);
+        tablePemesananMerchandise.setModel(pemesananTableModel);
+    }
+    
+    private void getDataPrisma(){
+        dao = new PemesananDAOImpl();
+        arrayPemesanan = dao.getDataPemesananPrisma();
+
+        PemesananTM pemesananTableModel = new PemesananTM();
+        pemesananTableModel.setDataPemesanan(arrayPemesanan);
+        sorter = new TableRowSorter(pemesananTableModel);
+        tablePemesananPrisma.setRowSorter(sorter);
+        tablePemesananPrisma.setModel(pemesananTableModel);
+    }
+    
+    private void getDataDokumenFilateli(){
+        dao = new PemesananDAOImpl();
+        arrayPemesanan = dao.getDataPemesananDokumenFilateli();
+
+        PemesananTM pemesananTableModel = new PemesananTM();
+        pemesananTableModel.setDataPemesanan(arrayPemesanan);
+        sorter = new TableRowSorter(pemesananTableModel);
+        tablePemesananDokumenFilateli.setRowSorter(sorter);
+        tablePemesananDokumenFilateli.setModel(pemesananTableModel);
+    }
+    
+    private void getDataSHP_SHPSS(){
+        dao = new PemesananDAOImpl();
+        arrayPemesanan = dao.getDataPemesananSHP_SHPSS();
+
+        PemesananTM pemesananTableModel = new PemesananTM();
+        pemesananTableModel.setDataPemesanan(arrayPemesanan);
+        sorter = new TableRowSorter(pemesananTableModel);
+        tablePemesananSHP_SHPSS.setRowSorter(sorter);
+        tablePemesananSHP_SHPSS.setModel(pemesananTableModel);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -35,53 +132,53 @@ public class PanelPemesanan extends javax.swing.JPanel {
         Prangko4 = new javax.swing.JPanel();
         jPanel52 = new javax.swing.JPanel();
         jScrollPane17 = new javax.swing.JScrollPane();
-        tablePrangko30 = new javax.swing.JTable();
+        tablePemesananPrangko = new javax.swing.JTable();
         buttonCariPrangko30 = new javax.swing.JButton();
         fieldCariPrangko30 = new javax.swing.JTextField();
         comboCariPrangko30 = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
         MS_SS4 = new javax.swing.JPanel();
         jPanel54 = new javax.swing.JPanel();
         jScrollPane18 = new javax.swing.JScrollPane();
-        tablePrangko31 = new javax.swing.JTable();
+        tablePemesananMS_SS = new javax.swing.JTable();
         buttonCariPrangko31 = new javax.swing.JButton();
         fieldCariPrangko31 = new javax.swing.JTextField();
         comboCariPrangko31 = new javax.swing.JComboBox<>();
         Kemasan4 = new javax.swing.JPanel();
         jPanel55 = new javax.swing.JPanel();
         jScrollPane19 = new javax.swing.JScrollPane();
-        tablePrangko32 = new javax.swing.JTable();
+        tablePemesananKemasan = new javax.swing.JTable();
         buttonCariPrangko32 = new javax.swing.JButton();
         fieldCariPrangko32 = new javax.swing.JTextField();
         comboCariPrangko32 = new javax.swing.JComboBox<>();
         Merchandise4 = new javax.swing.JPanel();
         jPanel56 = new javax.swing.JPanel();
         jScrollPane20 = new javax.swing.JScrollPane();
-        tablePrangko33 = new javax.swing.JTable();
+        tablePemesananMerchandise = new javax.swing.JTable();
         buttonCariPrangko33 = new javax.swing.JButton();
         fieldCariPrangko33 = new javax.swing.JTextField();
         comboCariPrangko33 = new javax.swing.JComboBox<>();
         Prisma4 = new javax.swing.JPanel();
         jPanel57 = new javax.swing.JPanel();
         jScrollPane21 = new javax.swing.JScrollPane();
-        tablePrangko34 = new javax.swing.JTable();
+        tablePemesananPrisma = new javax.swing.JTable();
         buttonCariPrangko34 = new javax.swing.JButton();
         fieldCariPrangko34 = new javax.swing.JTextField();
         comboCariPrangko34 = new javax.swing.JComboBox<>();
         DokumenFilateli4 = new javax.swing.JPanel();
         jPanel58 = new javax.swing.JPanel();
         jScrollPane22 = new javax.swing.JScrollPane();
-        tablePrangko35 = new javax.swing.JTable();
+        tablePemesananDokumenFilateli = new javax.swing.JTable();
         buttonCariPrangko35 = new javax.swing.JButton();
         fieldCariPrangko35 = new javax.swing.JTextField();
         comboCariPrangko35 = new javax.swing.JComboBox<>();
         SHP_SHPSS4 = new javax.swing.JPanel();
         jPanel59 = new javax.swing.JPanel();
         jScrollPane23 = new javax.swing.JScrollPane();
-        tablePrangko36 = new javax.swing.JTable();
+        tablePemesananSHP_SHPSS = new javax.swing.JTable();
         buttonCariPrangko36 = new javax.swing.JButton();
         fieldCariPrangko36 = new javax.swing.JTextField();
         comboCariPrangko36 = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
 
         jTabbedPane6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -97,7 +194,7 @@ public class PanelPemesanan extends javax.swing.JPanel {
 
         jPanel52.setBorder(javax.swing.BorderFactory.createTitledBorder("Tabel Data Pemesanan"));
 
-        tablePrangko30.setModel(new javax.swing.table.DefaultTableModel(
+        tablePemesananPrangko.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -108,12 +205,12 @@ public class PanelPemesanan extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tablePrangko30.addMouseListener(new java.awt.event.MouseAdapter() {
+        tablePemesananPrangko.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tablePrangko30MouseClicked(evt);
+                tablePemesananPrangkoMouseClicked(evt);
             }
         });
-        jScrollPane17.setViewportView(tablePrangko30);
+        jScrollPane17.setViewportView(tablePemesananPrangko);
 
         buttonCariPrangko30.setText("Cari");
         buttonCariPrangko30.addActionListener(new java.awt.event.ActionListener() {
@@ -151,18 +248,33 @@ public class PanelPemesanan extends javax.swing.JPanel {
                     .addComponent(fieldCariPrangko30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboCariPrangko30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane17, javax.swing.GroupLayout.DEFAULT_SIZE, 466, Short.MAX_VALUE))
+                .addComponent(jScrollPane17, javax.swing.GroupLayout.DEFAULT_SIZE, 367, Short.MAX_VALUE))
         );
+
+        jButton1.setText("Tambah Pemesanan");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout Prangko4Layout = new javax.swing.GroupLayout(Prangko4);
         Prangko4.setLayout(Prangko4Layout);
         Prangko4Layout.setHorizontalGroup(
             Prangko4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel52, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Prangko4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addContainerGap())
         );
         Prangko4Layout.setVerticalGroup(
             Prangko4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel52, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(Prangko4Layout.createSequentialGroup()
+                .addComponent(jPanel52, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         jTabbedPane6.addTab("Prangko", Prangko4);
@@ -175,7 +287,7 @@ public class PanelPemesanan extends javax.swing.JPanel {
 
         jPanel54.setBorder(javax.swing.BorderFactory.createTitledBorder("Tabel Data Pemesanan"));
 
-        tablePrangko31.setModel(new javax.swing.table.DefaultTableModel(
+        tablePemesananMS_SS.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -186,12 +298,12 @@ public class PanelPemesanan extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tablePrangko31.addMouseListener(new java.awt.event.MouseAdapter() {
+        tablePemesananMS_SS.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tablePrangko31MouseClicked(evt);
+                tablePemesananMS_SSMouseClicked(evt);
             }
         });
-        jScrollPane18.setViewportView(tablePrangko31);
+        jScrollPane18.setViewportView(tablePemesananMS_SS);
 
         buttonCariPrangko31.setText("Cari");
         buttonCariPrangko31.addActionListener(new java.awt.event.ActionListener() {
@@ -229,7 +341,7 @@ public class PanelPemesanan extends javax.swing.JPanel {
                     .addComponent(fieldCariPrangko31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboCariPrangko31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane18, javax.swing.GroupLayout.DEFAULT_SIZE, 466, Short.MAX_VALUE))
+                .addComponent(jScrollPane18, javax.swing.GroupLayout.DEFAULT_SIZE, 431, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout MS_SS4Layout = new javax.swing.GroupLayout(MS_SS4);
@@ -253,7 +365,7 @@ public class PanelPemesanan extends javax.swing.JPanel {
 
         jPanel55.setBorder(javax.swing.BorderFactory.createTitledBorder("Tabel Data Pemesanan"));
 
-        tablePrangko32.setModel(new javax.swing.table.DefaultTableModel(
+        tablePemesananKemasan.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -264,12 +376,12 @@ public class PanelPemesanan extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tablePrangko32.addMouseListener(new java.awt.event.MouseAdapter() {
+        tablePemesananKemasan.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tablePrangko32MouseClicked(evt);
+                tablePemesananKemasanMouseClicked(evt);
             }
         });
-        jScrollPane19.setViewportView(tablePrangko32);
+        jScrollPane19.setViewportView(tablePemesananKemasan);
 
         buttonCariPrangko32.setText("Cari");
         buttonCariPrangko32.addActionListener(new java.awt.event.ActionListener() {
@@ -307,7 +419,7 @@ public class PanelPemesanan extends javax.swing.JPanel {
                     .addComponent(fieldCariPrangko32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboCariPrangko32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane19, javax.swing.GroupLayout.DEFAULT_SIZE, 466, Short.MAX_VALUE))
+                .addComponent(jScrollPane19, javax.swing.GroupLayout.DEFAULT_SIZE, 431, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout Kemasan4Layout = new javax.swing.GroupLayout(Kemasan4);
@@ -325,7 +437,7 @@ public class PanelPemesanan extends javax.swing.JPanel {
 
         jPanel56.setBorder(javax.swing.BorderFactory.createTitledBorder("Tabel Data Pemesanan"));
 
-        tablePrangko33.setModel(new javax.swing.table.DefaultTableModel(
+        tablePemesananMerchandise.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -336,12 +448,12 @@ public class PanelPemesanan extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tablePrangko33.addMouseListener(new java.awt.event.MouseAdapter() {
+        tablePemesananMerchandise.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tablePrangko33MouseClicked(evt);
+                tablePemesananMerchandiseMouseClicked(evt);
             }
         });
-        jScrollPane20.setViewportView(tablePrangko33);
+        jScrollPane20.setViewportView(tablePemesananMerchandise);
 
         buttonCariPrangko33.setText("Cari");
         buttonCariPrangko33.addActionListener(new java.awt.event.ActionListener() {
@@ -379,7 +491,7 @@ public class PanelPemesanan extends javax.swing.JPanel {
                     .addComponent(fieldCariPrangko33, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboCariPrangko33, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane20, javax.swing.GroupLayout.DEFAULT_SIZE, 466, Short.MAX_VALUE))
+                .addComponent(jScrollPane20, javax.swing.GroupLayout.DEFAULT_SIZE, 431, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout Merchandise4Layout = new javax.swing.GroupLayout(Merchandise4);
@@ -397,7 +509,7 @@ public class PanelPemesanan extends javax.swing.JPanel {
 
         jPanel57.setBorder(javax.swing.BorderFactory.createTitledBorder("Tabel Data Pemesanan"));
 
-        tablePrangko34.setModel(new javax.swing.table.DefaultTableModel(
+        tablePemesananPrisma.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -408,12 +520,12 @@ public class PanelPemesanan extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tablePrangko34.addMouseListener(new java.awt.event.MouseAdapter() {
+        tablePemesananPrisma.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tablePrangko34MouseClicked(evt);
+                tablePemesananPrismaMouseClicked(evt);
             }
         });
-        jScrollPane21.setViewportView(tablePrangko34);
+        jScrollPane21.setViewportView(tablePemesananPrisma);
 
         buttonCariPrangko34.setText("Cari");
         buttonCariPrangko34.addActionListener(new java.awt.event.ActionListener() {
@@ -451,7 +563,7 @@ public class PanelPemesanan extends javax.swing.JPanel {
                     .addComponent(fieldCariPrangko34, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboCariPrangko34, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane21, javax.swing.GroupLayout.DEFAULT_SIZE, 466, Short.MAX_VALUE))
+                .addComponent(jScrollPane21, javax.swing.GroupLayout.DEFAULT_SIZE, 431, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout Prisma4Layout = new javax.swing.GroupLayout(Prisma4);
@@ -469,7 +581,7 @@ public class PanelPemesanan extends javax.swing.JPanel {
 
         jPanel58.setBorder(javax.swing.BorderFactory.createTitledBorder("Tabel Data Pemesanan"));
 
-        tablePrangko35.setModel(new javax.swing.table.DefaultTableModel(
+        tablePemesananDokumenFilateli.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -480,12 +592,12 @@ public class PanelPemesanan extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tablePrangko35.addMouseListener(new java.awt.event.MouseAdapter() {
+        tablePemesananDokumenFilateli.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tablePrangko35MouseClicked(evt);
+                tablePemesananDokumenFilateliMouseClicked(evt);
             }
         });
-        jScrollPane22.setViewportView(tablePrangko35);
+        jScrollPane22.setViewportView(tablePemesananDokumenFilateli);
 
         buttonCariPrangko35.setText("Cari");
         buttonCariPrangko35.addActionListener(new java.awt.event.ActionListener() {
@@ -523,7 +635,7 @@ public class PanelPemesanan extends javax.swing.JPanel {
                     .addComponent(fieldCariPrangko35, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboCariPrangko35, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane22, javax.swing.GroupLayout.DEFAULT_SIZE, 466, Short.MAX_VALUE))
+                .addComponent(jScrollPane22, javax.swing.GroupLayout.DEFAULT_SIZE, 431, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout DokumenFilateli4Layout = new javax.swing.GroupLayout(DokumenFilateli4);
@@ -547,7 +659,7 @@ public class PanelPemesanan extends javax.swing.JPanel {
 
         jPanel59.setBorder(javax.swing.BorderFactory.createTitledBorder("Tabel Data Pemesanan"));
 
-        tablePrangko36.setModel(new javax.swing.table.DefaultTableModel(
+        tablePemesananSHP_SHPSS.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -558,12 +670,12 @@ public class PanelPemesanan extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tablePrangko36.addMouseListener(new java.awt.event.MouseAdapter() {
+        tablePemesananSHP_SHPSS.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tablePrangko36MouseClicked(evt);
+                tablePemesananSHP_SHPSSMouseClicked(evt);
             }
         });
-        jScrollPane23.setViewportView(tablePrangko36);
+        jScrollPane23.setViewportView(tablePemesananSHP_SHPSS);
 
         buttonCariPrangko36.setText("Cari");
         buttonCariPrangko36.addActionListener(new java.awt.event.ActionListener() {
@@ -601,7 +713,7 @@ public class PanelPemesanan extends javax.swing.JPanel {
                     .addComponent(fieldCariPrangko36, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboCariPrangko36, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane23, javax.swing.GroupLayout.DEFAULT_SIZE, 466, Short.MAX_VALUE))
+                .addComponent(jScrollPane23, javax.swing.GroupLayout.DEFAULT_SIZE, 431, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout SHP_SHPSS4Layout = new javax.swing.GroupLayout(SHP_SHPSS4);
@@ -617,30 +729,15 @@ public class PanelPemesanan extends javax.swing.JPanel {
 
         jTabbedPane6.addTab("SHP & SHPSS", SHP_SHPSS4);
 
-        jButton1.setText("Tambah Pemesanan");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jTabbedPane6)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbedPane6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addComponent(jTabbedPane6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 510, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -664,9 +761,9 @@ public class PanelPemesanan extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTabbedPane6MouseClicked
 
-    private void tablePrangko30MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePrangko30MouseClicked
+    private void tablePemesananPrangkoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePemesananPrangkoMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_tablePrangko30MouseClicked
+    }//GEN-LAST:event_tablePemesananPrangkoMouseClicked
 
     private void buttonCariPrangko30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariPrangko30ActionPerformed
         // TODO add your handling code here:
@@ -683,9 +780,9 @@ public class PanelPemesanan extends javax.swing.JPanel {
         new DialogTambahPemesanan(formHome, rootPaneCheckingEnabled).setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void tablePrangko31MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePrangko31MouseClicked
+    private void tablePemesananMS_SSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePemesananMS_SSMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_tablePrangko31MouseClicked
+    }//GEN-LAST:event_tablePemesananMS_SSMouseClicked
 
     private void buttonCariPrangko31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariPrangko31ActionPerformed
         // TODO add your handling code here:
@@ -695,9 +792,9 @@ public class PanelPemesanan extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_fieldCariPrangko31MouseClicked
 
-    private void tablePrangko32MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePrangko32MouseClicked
+    private void tablePemesananKemasanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePemesananKemasanMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_tablePrangko32MouseClicked
+    }//GEN-LAST:event_tablePemesananKemasanMouseClicked
 
     private void buttonCariPrangko32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariPrangko32ActionPerformed
         // TODO add your handling code here:
@@ -707,9 +804,9 @@ public class PanelPemesanan extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_fieldCariPrangko32MouseClicked
 
-    private void tablePrangko33MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePrangko33MouseClicked
+    private void tablePemesananMerchandiseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePemesananMerchandiseMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_tablePrangko33MouseClicked
+    }//GEN-LAST:event_tablePemesananMerchandiseMouseClicked
 
     private void buttonCariPrangko33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariPrangko33ActionPerformed
         // TODO add your handling code here:
@@ -719,9 +816,9 @@ public class PanelPemesanan extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_fieldCariPrangko33MouseClicked
 
-    private void tablePrangko34MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePrangko34MouseClicked
+    private void tablePemesananPrismaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePemesananPrismaMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_tablePrangko34MouseClicked
+    }//GEN-LAST:event_tablePemesananPrismaMouseClicked
 
     private void buttonCariPrangko34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariPrangko34ActionPerformed
         // TODO add your handling code here:
@@ -731,9 +828,9 @@ public class PanelPemesanan extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_fieldCariPrangko34MouseClicked
 
-    private void tablePrangko35MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePrangko35MouseClicked
+    private void tablePemesananDokumenFilateliMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePemesananDokumenFilateliMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_tablePrangko35MouseClicked
+    }//GEN-LAST:event_tablePemesananDokumenFilateliMouseClicked
 
     private void buttonCariPrangko35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariPrangko35ActionPerformed
         // TODO add your handling code here:
@@ -743,9 +840,9 @@ public class PanelPemesanan extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_fieldCariPrangko35MouseClicked
 
-    private void tablePrangko36MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePrangko36MouseClicked
+    private void tablePemesananSHP_SHPSSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePemesananSHP_SHPSSMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_tablePrangko36MouseClicked
+    }//GEN-LAST:event_tablePemesananSHP_SHPSSMouseClicked
 
     private void buttonCariPrangko36ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariPrangko36ActionPerformed
         // TODO add your handling code here:
@@ -801,12 +898,12 @@ public class PanelPemesanan extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane22;
     private javax.swing.JScrollPane jScrollPane23;
     private javax.swing.JTabbedPane jTabbedPane6;
-    private javax.swing.JTable tablePrangko30;
-    private javax.swing.JTable tablePrangko31;
-    private javax.swing.JTable tablePrangko32;
-    private javax.swing.JTable tablePrangko33;
-    private javax.swing.JTable tablePrangko34;
-    private javax.swing.JTable tablePrangko35;
-    private javax.swing.JTable tablePrangko36;
+    private javax.swing.JTable tablePemesananDokumenFilateli;
+    private javax.swing.JTable tablePemesananKemasan;
+    private javax.swing.JTable tablePemesananMS_SS;
+    private javax.swing.JTable tablePemesananMerchandise;
+    private javax.swing.JTable tablePemesananPrangko;
+    private javax.swing.JTable tablePemesananPrisma;
+    private javax.swing.JTable tablePemesananSHP_SHPSS;
     // End of variables declaration//GEN-END:variables
 }
