@@ -22,6 +22,15 @@ public class Pemesanan {
     String idJenisProduk;
     String TglPemesanan;
     int jumlahPemesanan;
+    String idSuplier;
+
+    public String getIdSuplier() {
+        return idSuplier;
+    }
+
+    public void setIdSuplier(String idSuplier) {
+        this.idSuplier = idSuplier;
+    }
 
     public String getTglPemesanan() {
         return TglPemesanan;
@@ -101,6 +110,10 @@ public class Pemesanan {
 
     public void setIdJenisProduk(String idJenisProduk) {
         this.idJenisProduk = idJenisProduk;
+    }
+
+    public void getNoPemesananarray(String noPemesanan) {
+        this.noPemesanan=noPemesanan; //To change body of generated methods, choose Tools | Templates.
     }
     
     

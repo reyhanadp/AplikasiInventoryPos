@@ -12,6 +12,11 @@ import id.ac.pos.gudang.daoimpl.PemesananDAOImpl;
 import id.ac.pos.gudang.daoimpl.ProdukDAOImpl;
 import id.ac.pos.gudang.entity.Pemesanan;
 import id.ac.pos.gudang.entity.Produk;
+import id.ac.pos.gudang.utility.DatabaseConnectivity;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -26,14 +31,35 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
     /**
      * Creates new form DialogTambahPemesanan
      */
+    private Connection conn;
+    
     public DialogTambahPemesanan(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        conn = DatabaseConnectivity.getConnection();
+        setModelNamaSuplier();
         autoIncrementNoPemesanan();
         autoincrementPrangko();
         setLocationRelativeTo(this);
     }
-
+    
+    public void setModelNamaSuplier(){
+        try {
+            System.out.println("1");
+            String query = "SELECT nama_suplier FROM tb_suplier ORDER BY nama_suplier";
+            PreparedStatement state = null;
+            state = conn.prepareStatement(query);
+            ResultSet result = state.executeQuery(query);
+             
+            while (result.next()) {   
+                
+                comboNamaSuplier.addItem(result.getString("nama_suplier"));
+            }
+           
+        } catch (SQLException e) {
+        }
+    }
+    
     DialogTambahPemesanan() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -393,6 +419,8 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
         jSeparator1 = new javax.swing.JSeparator();
         jLabel120 = new javax.swing.JLabel();
         comboJenisPesan = new javax.swing.JComboBox<>();
+        jLabel121 = new javax.swing.JLabel();
+        comboNamaSuplier = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -488,6 +516,15 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
             }
         });
 
+        jLabel121.setText("Nama Suplier");
+
+        comboNamaSuplier.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "- Pilih Suplier -" }));
+        comboNamaSuplier.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboNamaSuplierActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -495,49 +532,44 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
             .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(103, 103, 103)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel117)
-                            .addComponent(jLabel115)
-                            .addComponent(jLabel116)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel119)
-                                .addGap(18, 18, 18)
-                                .addComponent(buttonSimpanPesanPemesanan, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton70, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel112)
-                                    .addComponent(jLabel113)
-                                    .addComponent(jLabel114)
-                                    .addComponent(jLabel118))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(fieldNamaProdukPemesanan)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(fieldNominalPemesanan, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(fieldKodeProdukPemesanan, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(fieldBiayaCetakPemesanan, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(fieldTahunPemesanan, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(fieldJumlahPemesanan, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(fieldTglPemesanan, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                .addComponent(comboJenisPesan, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(fieldNoPemesanan, javax.swing.GroupLayout.Alignment.LEADING)))
-                                        .addGap(0, 0, Short.MAX_VALUE))))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(103, 103, 103)
-                                .addComponent(jLabel1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel120)))
-                        .addGap(0, 101, Short.MAX_VALUE)))
-                .addContainerGap())
+                            .addComponent(jLabel120)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel117)
+                                .addComponent(jLabel115)
+                                .addComponent(jLabel116)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel119)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(buttonSimpanPesanPemesanan, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jButton70, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel112)
+                                        .addComponent(jLabel113)
+                                        .addComponent(jLabel114)
+                                        .addComponent(jLabel118))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(fieldNominalPemesanan, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(fieldKodeProdukPemesanan, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(fieldBiayaCetakPemesanan, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(fieldTahunPemesanan, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(fieldJumlahPemesanan, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(fieldTglPemesanan, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(comboNamaSuplier, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(comboJenisPesan, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(fieldNoPemesanan, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(fieldNamaProdukPemesanan, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jLabel121)))))
+                .addContainerGap(111, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -558,6 +590,10 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel113)
                     .addComponent(fieldKodeProdukPemesanan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel121)
+                    .addComponent(comboNamaSuplier, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel114)
@@ -586,7 +622,7 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonSimpanPesanPemesanan)
                     .addComponent(jButton70))
-                .addGap(26, 26, 26))
+                .addContainerGap())
         );
 
         pack();
@@ -604,7 +640,22 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
         SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
         
         String tanggalPemesanan = dt.format(fieldTglPemesanan.getDate());
-
+        String namaSuplier = comboNamaSuplier.getSelectedItem().toString();
+        String idSuplier = null;
+        
+        try {
+            String query = "SELECT id_suplier FROM tb_suplier where nama_suplier = '"+namaSuplier+"'";
+            PreparedStatement state = null;
+            state = conn.prepareStatement(query);
+            
+            ResultSet result = state.executeQuery(query);
+             
+            while (result.next()) {                      
+                idSuplier = result.getString("id_suplier");
+            }
+           
+        } catch (SQLException e) {
+        }
         //validasi apakah filed 
         //sudah diisi atau belum
         if (fieldNamaProdukPemesanan.getText().equals("")) {
@@ -639,6 +690,7 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
             pemesanan.setTahun(tahun);
             pemesanan.setJumlahPemesanan(Integer.parseInt(jumlahPemesanan));
             pemesanan.setTglPemesanan(tanggalPemesanan);
+            pemesanan.setIdSuplier(idSuplier);
 
             //inisialisasi
             PemesananDAO dao = new PemesananDAOImpl();
@@ -718,6 +770,10 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_comboJenisPesanActionPerformed
 
+    private void comboNamaSuplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboNamaSuplierActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboNamaSuplierActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -764,6 +820,7 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonSimpanPesanPemesanan;
     private javax.swing.JComboBox<String> comboJenisPesan;
+    private javax.swing.JComboBox<String> comboNamaSuplier;
     private javax.swing.JTextField fieldBiayaCetakPemesanan;
     private javax.swing.JTextField fieldJumlahPemesanan;
     private javax.swing.JTextField fieldKodeProdukPemesanan;
@@ -783,6 +840,7 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel118;
     private javax.swing.JLabel jLabel119;
     private javax.swing.JLabel jLabel120;
+    private javax.swing.JLabel jLabel121;
     private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
 }

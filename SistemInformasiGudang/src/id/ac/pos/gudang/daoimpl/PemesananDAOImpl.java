@@ -15,6 +15,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
 
 /**
  *
@@ -24,14 +25,15 @@ public class PemesananDAOImpl implements PemesananDAO{
     
     private Connection conn;
     
+      
     public PemesananDAOImpl() {
         conn = DatabaseConnectivity.getConnection();
     }
     
     public boolean tambahPemesanan(Pemesanan pemesanan, String jenisProduk) {
        String INSERT = "INSERT INTO tb_pemesanan (no_pemesanan,id_produk, nama_produk, nominal, "
-                + "biaya_cetak, tahun, id_jenis_produk, tgl_pesan,jumlah_pesan"
-                + ") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                + "biaya_cetak, tahun, id_jenis_produk, tgl_pesan,jumlah_pesan,id_suplier"
+                + ") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         PreparedStatement state = null;
         
         try {
@@ -45,11 +47,12 @@ public class PemesananDAOImpl implements PemesananDAO{
             state.setString(7, jenisProduk);
             state.setString(8, pemesanan.getTglPemesanan());
             state.setInt(9, pemesanan.getJumlahPemesanan());
-
+            state.setString(10, pemesanan.getIdSuplier());
+            
             int qty = state.executeUpdate();
             return qty > 0;
         } catch (SQLException ex) {
-            Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PemesananDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return false; 
