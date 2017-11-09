@@ -16,18 +16,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <Component id="jTabbedPane5" min="-2" pref="1171" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-          </Group>
+          <Component id="jTabbedPane5" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <Component id="jTabbedPane5" min="-2" pref="584" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-          </Group>
+          <Component id="jTabbedPane5" alignment="0" pref="562" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -292,7 +286,7 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPane13" alignment="0" pref="1154" max="32767" attributes="0"/>
+                      <Component id="jScrollPane13" alignment="0" pref="1042" max="32767" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           <Component id="comboCariPrangko15" min="-2" max="-2" attributes="0"/>
@@ -312,7 +306,7 @@
                               <Component id="comboCariPrangko15" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane13" pref="203" max="32767" attributes="0"/>
+                          <Component id="jScrollPane13" pref="165" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -672,7 +666,7 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPane42" alignment="0" pref="1154" max="32767" attributes="0"/>
+                      <Component id="jScrollPane42" alignment="0" pref="1042" max="32767" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           <Component id="comboCariPrangko16" min="-2" max="-2" attributes="0"/>
@@ -692,7 +686,7 @@
                               <Component id="comboCariPrangko16" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane42" pref="203" max="32767" attributes="0"/>
+                          <Component id="jScrollPane42" pref="165" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1032,7 +1026,7 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPane44" alignment="0" pref="1154" max="32767" attributes="0"/>
+                      <Component id="jScrollPane44" alignment="0" pref="1042" max="32767" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           <Component id="comboCariPrangko17" min="-2" max="-2" attributes="0"/>
@@ -1052,7 +1046,7 @@
                               <Component id="comboCariPrangko17" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane44" pref="203" max="32767" attributes="0"/>
+                          <Component id="jScrollPane44" pref="165" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1392,7 +1386,7 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPane46" alignment="0" pref="1154" max="32767" attributes="0"/>
+                      <Component id="jScrollPane46" alignment="0" pref="1042" max="32767" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           <Component id="comboCariPrangko18" min="-2" max="-2" attributes="0"/>
@@ -1412,7 +1406,7 @@
                               <Component id="comboCariPrangko18" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane46" pref="203" max="32767" attributes="0"/>
+                          <Component id="jScrollPane46" pref="165" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1749,7 +1743,7 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPane48" alignment="0" pref="1154" max="32767" attributes="0"/>
+                      <Component id="jScrollPane48" alignment="0" pref="1042" max="32767" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           <Component id="comboCariPrangko19" min="-2" max="-2" attributes="0"/>
@@ -1769,7 +1763,7 @@
                               <Component id="comboCariPrangko19" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane48" pref="203" max="32767" attributes="0"/>
+                          <Component id="jScrollPane48" pref="165" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -2106,7 +2100,7 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPane50" alignment="0" pref="1154" max="32767" attributes="0"/>
+                      <Component id="jScrollPane50" alignment="0" pref="1042" max="32767" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           <Component id="comboCariPrangko20" min="-2" max="-2" attributes="0"/>
@@ -2126,7 +2120,7 @@
                               <Component id="comboCariPrangko20" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane50" pref="203" max="32767" attributes="0"/>
+                          <Component id="jScrollPane50" pref="165" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -2463,7 +2457,7 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPane52" alignment="0" pref="1154" max="32767" attributes="0"/>
+                      <Component id="jScrollPane52" alignment="0" pref="1042" max="32767" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           <Component id="comboCariPrangko21" min="-2" max="-2" attributes="0"/>
@@ -2483,7 +2477,7 @@
                               <Component id="comboCariPrangko21" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane52" pref="203" max="32767" attributes="0"/>
+                          <Component id="jScrollPane52" pref="165" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
