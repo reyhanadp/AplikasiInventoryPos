@@ -31,10 +31,10 @@ public class PanelPengembalian extends javax.swing.JPanel {
         Prangko2 = new javax.swing.JPanel();
         jPanel37 = new javax.swing.JPanel();
         jLabel118 = new javax.swing.JLabel();
-        jComboBox9 = new javax.swing.JComboBox<String>();
+        jComboBox9 = new javax.swing.JComboBox<>();
         jButton10 = new javax.swing.JButton();
         jLabel43 = new javax.swing.JLabel();
-        jComboBox16 = new javax.swing.JComboBox<String>();
+        jComboBox16 = new javax.swing.JComboBox<>();
         jButton11 = new javax.swing.JButton();
         jLabel119 = new javax.swing.JLabel();
         jDateChooser10 = new com.toedter.calendar.JDateChooser();
@@ -53,15 +53,15 @@ public class PanelPengembalian extends javax.swing.JPanel {
         tablePrangko8 = new javax.swing.JTable();
         buttonCariPrangko8 = new javax.swing.JButton();
         fieldCariPrangko8 = new javax.swing.JTextField();
-        comboCariPrangko8 = new javax.swing.JComboBox<String>();
+        comboCariPrangko8 = new javax.swing.JComboBox<>();
         jDesktopPane8 = new javax.swing.JDesktopPane();
         MS_SS2 = new javax.swing.JPanel();
         jPanel61 = new javax.swing.JPanel();
         jLabel120 = new javax.swing.JLabel();
-        jComboBox17 = new javax.swing.JComboBox<String>();
+        jComboBox17 = new javax.swing.JComboBox<>();
         jButton25 = new javax.swing.JButton();
         jLabel48 = new javax.swing.JLabel();
-        jComboBox18 = new javax.swing.JComboBox<String>();
+        jComboBox18 = new javax.swing.JComboBox<>();
         jButton26 = new javax.swing.JButton();
         jLabel121 = new javax.swing.JLabel();
         jDateChooser11 = new com.toedter.calendar.JDateChooser();
@@ -79,14 +79,14 @@ public class PanelPengembalian extends javax.swing.JPanel {
         tablePrangko9 = new javax.swing.JTable();
         buttonCariPrangko9 = new javax.swing.JButton();
         fieldCariPrangko9 = new javax.swing.JTextField();
-        comboCariPrangko9 = new javax.swing.JComboBox<String>();
+        comboCariPrangko9 = new javax.swing.JComboBox<>();
         SHP_SHPSS2 = new javax.swing.JPanel();
         jPanel63 = new javax.swing.JPanel();
         jLabel122 = new javax.swing.JLabel();
-        jComboBox19 = new javax.swing.JComboBox<String>();
+        jComboBox19 = new javax.swing.JComboBox<>();
         jButton28 = new javax.swing.JButton();
         jLabel57 = new javax.swing.JLabel();
-        jComboBox20 = new javax.swing.JComboBox<String>();
+        jComboBox20 = new javax.swing.JComboBox<>();
         jButton29 = new javax.swing.JButton();
         jLabel123 = new javax.swing.JLabel();
         jDateChooser12 = new com.toedter.calendar.JDateChooser();
@@ -104,14 +104,14 @@ public class PanelPengembalian extends javax.swing.JPanel {
         tablePrangko10 = new javax.swing.JTable();
         buttonCariPrangko10 = new javax.swing.JButton();
         fieldCariPrangko10 = new javax.swing.JTextField();
-        comboCariPrangko10 = new javax.swing.JComboBox<String>();
+        comboCariPrangko10 = new javax.swing.JComboBox<>();
         Kemasan2 = new javax.swing.JPanel();
         jPanel65 = new javax.swing.JPanel();
         jLabel126 = new javax.swing.JLabel();
-        jComboBox21 = new javax.swing.JComboBox<String>();
+        jComboBox21 = new javax.swing.JComboBox<>();
         jButton31 = new javax.swing.JButton();
         jLabel127 = new javax.swing.JLabel();
-        jComboBox22 = new javax.swing.JComboBox<String>();
+        jComboBox22 = new javax.swing.JComboBox<>();
         jButton32 = new javax.swing.JButton();
         jLabel128 = new javax.swing.JLabel();
         jDateChooser13 = new com.toedter.calendar.JDateChooser();
@@ -129,14 +129,14 @@ public class PanelPengembalian extends javax.swing.JPanel {
         tablePrangko11 = new javax.swing.JTable();
         buttonCariPrangko11 = new javax.swing.JButton();
         fieldCariPrangko11 = new javax.swing.JTextField();
-        comboCariPrangko11 = new javax.swing.JComboBox<String>();
+        comboCariPrangko11 = new javax.swing.JComboBox<>();
         Merchandise2 = new javax.swing.JPanel();
         jPanel67 = new javax.swing.JPanel();
         jLabel132 = new javax.swing.JLabel();
-        jComboBox23 = new javax.swing.JComboBox<String>();
+        jComboBox23 = new javax.swing.JComboBox<>();
         jButton34 = new javax.swing.JButton();
         jLabel133 = new javax.swing.JLabel();
-        jComboBox24 = new javax.swing.JComboBox<String>();
+        jComboBox24 = new javax.swing.JComboBox<>();
         jButton35 = new javax.swing.JButton();
         jLabel134 = new javax.swing.JLabel();
         jDateChooser14 = new com.toedter.calendar.JDateChooser();
@@ -154,14 +154,14 @@ public class PanelPengembalian extends javax.swing.JPanel {
         tablePrangko12 = new javax.swing.JTable();
         buttonCariPrangko12 = new javax.swing.JButton();
         fieldCariPrangko12 = new javax.swing.JTextField();
-        comboCariPrangko12 = new javax.swing.JComboBox<String>();
+        comboCariPrangko12 = new javax.swing.JComboBox<>();
         Prisma2 = new javax.swing.JPanel();
         jPanel69 = new javax.swing.JPanel();
         jLabel138 = new javax.swing.JLabel();
-        jComboBox25 = new javax.swing.JComboBox<String>();
+        jComboBox25 = new javax.swing.JComboBox<>();
         jButton37 = new javax.swing.JButton();
         jLabel139 = new javax.swing.JLabel();
-        jComboBox26 = new javax.swing.JComboBox<String>();
+        jComboBox26 = new javax.swing.JComboBox<>();
         jButton38 = new javax.swing.JButton();
         jLabel140 = new javax.swing.JLabel();
         jDateChooser15 = new com.toedter.calendar.JDateChooser();
@@ -179,14 +179,14 @@ public class PanelPengembalian extends javax.swing.JPanel {
         tablePrangko13 = new javax.swing.JTable();
         buttonCariPrangko13 = new javax.swing.JButton();
         fieldCariPrangko13 = new javax.swing.JTextField();
-        comboCariPrangko13 = new javax.swing.JComboBox<String>();
+        comboCariPrangko13 = new javax.swing.JComboBox<>();
         DokumenFilateli2 = new javax.swing.JPanel();
         jPanel71 = new javax.swing.JPanel();
         jLabel144 = new javax.swing.JLabel();
-        jComboBox27 = new javax.swing.JComboBox<String>();
+        jComboBox27 = new javax.swing.JComboBox<>();
         jButton40 = new javax.swing.JButton();
         jLabel145 = new javax.swing.JLabel();
-        jComboBox28 = new javax.swing.JComboBox<String>();
+        jComboBox28 = new javax.swing.JComboBox<>();
         jButton41 = new javax.swing.JButton();
         jLabel146 = new javax.swing.JLabel();
         jDateChooser16 = new com.toedter.calendar.JDateChooser();
@@ -204,7 +204,7 @@ public class PanelPengembalian extends javax.swing.JPanel {
         tablePrangko14 = new javax.swing.JTable();
         buttonCariPrangko14 = new javax.swing.JButton();
         fieldCariPrangko14 = new javax.swing.JTextField();
-        comboCariPrangko14 = new javax.swing.JComboBox<String>();
+        comboCariPrangko14 = new javax.swing.JComboBox<>();
 
         jTabbedPane4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -228,7 +228,7 @@ public class PanelPengembalian extends javax.swing.JPanel {
         jLabel118.setText("Nama Produk");
 
         jComboBox9.setEditable(true);
-        jComboBox9.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox9.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jButton10.setText("Cari Data");
         jButton10.addActionListener(new java.awt.event.ActionListener() {
@@ -239,7 +239,7 @@ public class PanelPengembalian extends javax.swing.JPanel {
 
         jLabel43.setText("Kota Pengirim");
 
-        jComboBox16.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox16.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jButton11.setText("Cari Data");
 
@@ -367,13 +367,13 @@ public class PanelPengembalian extends javax.swing.JPanel {
             }
         });
 
-        comboCariPrangko8.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
+        comboCariPrangko8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
 
         javax.swing.GroupLayout jPanel38Layout = new javax.swing.GroupLayout(jPanel38);
         jPanel38.setLayout(jPanel38Layout);
         jPanel38Layout.setHorizontalGroup(
             jPanel38Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 1154, Short.MAX_VALUE)
+            .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 975, Short.MAX_VALUE)
             .addGroup(jPanel38Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(comboCariPrangko8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -390,7 +390,7 @@ public class PanelPengembalian extends javax.swing.JPanel {
                     .addComponent(fieldCariPrangko8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboCariPrangko8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE))
+                .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE))
         );
 
         jDesktopPane8.setBackground(new java.awt.Color(240, 240, 240));
@@ -444,7 +444,7 @@ public class PanelPengembalian extends javax.swing.JPanel {
         jLabel120.setText("Nama Produk");
 
         jComboBox17.setEditable(true);
-        jComboBox17.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox17.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jButton25.setText("Cari Data");
         jButton25.addActionListener(new java.awt.event.ActionListener() {
@@ -455,7 +455,7 @@ public class PanelPengembalian extends javax.swing.JPanel {
 
         jLabel48.setText("Nama Suplier");
 
-        jComboBox18.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox18.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jButton26.setText("Cari Data");
 
@@ -589,13 +589,13 @@ public class PanelPengembalian extends javax.swing.JPanel {
             }
         });
 
-        comboCariPrangko9.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
+        comboCariPrangko9.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
 
         javax.swing.GroupLayout jPanel62Layout = new javax.swing.GroupLayout(jPanel62);
         jPanel62.setLayout(jPanel62Layout);
         jPanel62Layout.setHorizontalGroup(
             jPanel62Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane30, javax.swing.GroupLayout.DEFAULT_SIZE, 1154, Short.MAX_VALUE)
+            .addComponent(jScrollPane30, javax.swing.GroupLayout.DEFAULT_SIZE, 975, Short.MAX_VALUE)
             .addGroup(jPanel62Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(comboCariPrangko9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -612,7 +612,7 @@ public class PanelPengembalian extends javax.swing.JPanel {
                     .addComponent(fieldCariPrangko9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboCariPrangko9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane30, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE))
+                .addComponent(jScrollPane30, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout MS_SS2Layout = new javax.swing.GroupLayout(MS_SS2);
@@ -653,7 +653,7 @@ public class PanelPengembalian extends javax.swing.JPanel {
         jLabel122.setText("Nama Produk");
 
         jComboBox19.setEditable(true);
-        jComboBox19.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox19.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jButton28.setText("Cari Data");
         jButton28.addActionListener(new java.awt.event.ActionListener() {
@@ -664,7 +664,7 @@ public class PanelPengembalian extends javax.swing.JPanel {
 
         jLabel57.setText("Nama Suplier");
 
-        jComboBox20.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox20.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jButton29.setText("Cari Data");
 
@@ -798,13 +798,13 @@ public class PanelPengembalian extends javax.swing.JPanel {
             }
         });
 
-        comboCariPrangko10.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
+        comboCariPrangko10.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
 
         javax.swing.GroupLayout jPanel64Layout = new javax.swing.GroupLayout(jPanel64);
         jPanel64.setLayout(jPanel64Layout);
         jPanel64Layout.setHorizontalGroup(
             jPanel64Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane32, javax.swing.GroupLayout.DEFAULT_SIZE, 1154, Short.MAX_VALUE)
+            .addComponent(jScrollPane32, javax.swing.GroupLayout.DEFAULT_SIZE, 975, Short.MAX_VALUE)
             .addGroup(jPanel64Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(comboCariPrangko10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -821,7 +821,7 @@ public class PanelPengembalian extends javax.swing.JPanel {
                     .addComponent(fieldCariPrangko10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboCariPrangko10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane32, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE))
+                .addComponent(jScrollPane32, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout SHP_SHPSS2Layout = new javax.swing.GroupLayout(SHP_SHPSS2);
@@ -862,7 +862,7 @@ public class PanelPengembalian extends javax.swing.JPanel {
         jLabel126.setText("Nama Produk");
 
         jComboBox21.setEditable(true);
-        jComboBox21.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox21.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jButton31.setText("Cari Data");
         jButton31.addActionListener(new java.awt.event.ActionListener() {
@@ -873,7 +873,7 @@ public class PanelPengembalian extends javax.swing.JPanel {
 
         jLabel127.setText("Nama Suplier");
 
-        jComboBox22.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox22.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jButton32.setText("Cari Data");
 
@@ -1007,13 +1007,13 @@ public class PanelPengembalian extends javax.swing.JPanel {
             }
         });
 
-        comboCariPrangko11.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
+        comboCariPrangko11.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
 
         javax.swing.GroupLayout jPanel66Layout = new javax.swing.GroupLayout(jPanel66);
         jPanel66.setLayout(jPanel66Layout);
         jPanel66Layout.setHorizontalGroup(
             jPanel66Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane34, javax.swing.GroupLayout.DEFAULT_SIZE, 1154, Short.MAX_VALUE)
+            .addComponent(jScrollPane34, javax.swing.GroupLayout.DEFAULT_SIZE, 975, Short.MAX_VALUE)
             .addGroup(jPanel66Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(comboCariPrangko11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1030,7 +1030,7 @@ public class PanelPengembalian extends javax.swing.JPanel {
                     .addComponent(fieldCariPrangko11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboCariPrangko11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane34, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE))
+                .addComponent(jScrollPane34, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout Kemasan2Layout = new javax.swing.GroupLayout(Kemasan2);
@@ -1065,7 +1065,7 @@ public class PanelPengembalian extends javax.swing.JPanel {
         jLabel132.setText("Nama Produk");
 
         jComboBox23.setEditable(true);
-        jComboBox23.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox23.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jButton34.setText("Cari Data");
         jButton34.addActionListener(new java.awt.event.ActionListener() {
@@ -1076,7 +1076,7 @@ public class PanelPengembalian extends javax.swing.JPanel {
 
         jLabel133.setText("Nama Suplier");
 
-        jComboBox24.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox24.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jButton35.setText("Cari Data");
 
@@ -1210,13 +1210,13 @@ public class PanelPengembalian extends javax.swing.JPanel {
             }
         });
 
-        comboCariPrangko12.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
+        comboCariPrangko12.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
 
         javax.swing.GroupLayout jPanel68Layout = new javax.swing.GroupLayout(jPanel68);
         jPanel68.setLayout(jPanel68Layout);
         jPanel68Layout.setHorizontalGroup(
             jPanel68Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane36, javax.swing.GroupLayout.DEFAULT_SIZE, 1154, Short.MAX_VALUE)
+            .addComponent(jScrollPane36, javax.swing.GroupLayout.DEFAULT_SIZE, 975, Short.MAX_VALUE)
             .addGroup(jPanel68Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(comboCariPrangko12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1233,7 +1233,7 @@ public class PanelPengembalian extends javax.swing.JPanel {
                     .addComponent(fieldCariPrangko12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboCariPrangko12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane36, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE))
+                .addComponent(jScrollPane36, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout Merchandise2Layout = new javax.swing.GroupLayout(Merchandise2);
@@ -1268,7 +1268,7 @@ public class PanelPengembalian extends javax.swing.JPanel {
         jLabel138.setText("Nama Produk");
 
         jComboBox25.setEditable(true);
-        jComboBox25.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox25.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jButton37.setText("Cari Data");
         jButton37.addActionListener(new java.awt.event.ActionListener() {
@@ -1279,7 +1279,7 @@ public class PanelPengembalian extends javax.swing.JPanel {
 
         jLabel139.setText("Nama Suplier");
 
-        jComboBox26.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox26.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jButton38.setText("Cari Data");
 
@@ -1413,13 +1413,13 @@ public class PanelPengembalian extends javax.swing.JPanel {
             }
         });
 
-        comboCariPrangko13.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
+        comboCariPrangko13.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
 
         javax.swing.GroupLayout jPanel70Layout = new javax.swing.GroupLayout(jPanel70);
         jPanel70.setLayout(jPanel70Layout);
         jPanel70Layout.setHorizontalGroup(
             jPanel70Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane38, javax.swing.GroupLayout.DEFAULT_SIZE, 1154, Short.MAX_VALUE)
+            .addComponent(jScrollPane38, javax.swing.GroupLayout.DEFAULT_SIZE, 975, Short.MAX_VALUE)
             .addGroup(jPanel70Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(comboCariPrangko13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1436,7 +1436,7 @@ public class PanelPengembalian extends javax.swing.JPanel {
                     .addComponent(fieldCariPrangko13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboCariPrangko13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane38, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE))
+                .addComponent(jScrollPane38, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout Prisma2Layout = new javax.swing.GroupLayout(Prisma2);
@@ -1471,7 +1471,7 @@ public class PanelPengembalian extends javax.swing.JPanel {
         jLabel144.setText("Nama Produk");
 
         jComboBox27.setEditable(true);
-        jComboBox27.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox27.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jButton40.setText("Cari Data");
         jButton40.addActionListener(new java.awt.event.ActionListener() {
@@ -1482,7 +1482,7 @@ public class PanelPengembalian extends javax.swing.JPanel {
 
         jLabel145.setText("Nama Suplier");
 
-        jComboBox28.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox28.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jButton41.setText("Cari Data");
 
@@ -1616,13 +1616,13 @@ public class PanelPengembalian extends javax.swing.JPanel {
             }
         });
 
-        comboCariPrangko14.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
+        comboCariPrangko14.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
 
         javax.swing.GroupLayout jPanel72Layout = new javax.swing.GroupLayout(jPanel72);
         jPanel72.setLayout(jPanel72Layout);
         jPanel72Layout.setHorizontalGroup(
             jPanel72Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane40, javax.swing.GroupLayout.DEFAULT_SIZE, 1154, Short.MAX_VALUE)
+            .addComponent(jScrollPane40, javax.swing.GroupLayout.DEFAULT_SIZE, 975, Short.MAX_VALUE)
             .addGroup(jPanel72Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(comboCariPrangko14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1639,7 +1639,7 @@ public class PanelPengembalian extends javax.swing.JPanel {
                     .addComponent(fieldCariPrangko14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboCariPrangko14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane40, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE))
+                .addComponent(jScrollPane40, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout DokumenFilateli2Layout = new javax.swing.GroupLayout(DokumenFilateli2);
@@ -1668,15 +1668,11 @@ public class PanelPengembalian extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbedPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 1171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jTabbedPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 992, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbedPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 585, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jTabbedPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
 

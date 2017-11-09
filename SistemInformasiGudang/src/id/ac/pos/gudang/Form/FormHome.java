@@ -736,7 +736,7 @@ public final class FormHome extends javax.swing.JFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
 
-        buttonKelolaProduk.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/kelola_produk.png"))); // NOI18N
+        buttonKelolaProduk.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/kelola_produk1.png"))); // NOI18N
         buttonKelolaProduk.setText("KELOLA PRODUK");
         buttonKelolaProduk.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         buttonKelolaProduk.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
@@ -747,7 +747,7 @@ public final class FormHome extends javax.swing.JFrame {
             }
         });
 
-        buttonTransaksi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/pemesanan.png"))); // NOI18N
+        buttonTransaksi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/pemesanan3.png"))); // NOI18N
         buttonTransaksi.setText("PEMESANAN");
         buttonTransaksi.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         buttonTransaksi.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
@@ -758,7 +758,7 @@ public final class FormHome extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/pengembalian.png"))); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/pengembalian1.png"))); // NOI18N
         jButton3.setText("PENGEMBALIAN");
         jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton3.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
@@ -769,7 +769,7 @@ public final class FormHome extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/penerimaan1.png"))); // NOI18N
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/penerimaan3.png"))); // NOI18N
         jButton4.setText("PENERIMAAN");
         jButton4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton4.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
@@ -780,7 +780,7 @@ public final class FormHome extends javax.swing.JFrame {
             }
         });
 
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/pengiriman1.png"))); // NOI18N
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/pengiriman.png"))); // NOI18N
         jButton5.setText("PENGIRIMAN");
         jButton5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton5.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
@@ -791,7 +791,7 @@ public final class FormHome extends javax.swing.JFrame {
             }
         });
 
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/kelola_produk.png"))); // NOI18N
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/laporan1.png"))); // NOI18N
         jButton6.setText("LAPORAN");
         jButton6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton6.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);

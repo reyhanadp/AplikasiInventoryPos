@@ -136,7 +136,7 @@ public class PanelPemesanan extends javax.swing.JPanel {
         buttonCariPrangko30 = new javax.swing.JButton();
         fieldCariPrangko30 = new javax.swing.JTextField();
         comboCariPrangko30 = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
+        ButtonTambahPemesananPrangko = new javax.swing.JButton();
         MS_SS4 = new javax.swing.JPanel();
         jPanel54 = new javax.swing.JPanel();
         jScrollPane18 = new javax.swing.JScrollPane();
@@ -144,6 +144,7 @@ public class PanelPemesanan extends javax.swing.JPanel {
         buttonCariPrangko31 = new javax.swing.JButton();
         fieldCariPrangko31 = new javax.swing.JTextField();
         comboCariPrangko31 = new javax.swing.JComboBox<>();
+        ButtonTambahPemesananMSSS = new javax.swing.JButton();
         Kemasan4 = new javax.swing.JPanel();
         jPanel55 = new javax.swing.JPanel();
         jScrollPane19 = new javax.swing.JScrollPane();
@@ -151,6 +152,7 @@ public class PanelPemesanan extends javax.swing.JPanel {
         buttonCariPrangko32 = new javax.swing.JButton();
         fieldCariPrangko32 = new javax.swing.JTextField();
         comboCariPrangko32 = new javax.swing.JComboBox<>();
+        ButtonTambahPemesananKemasan = new javax.swing.JButton();
         Merchandise4 = new javax.swing.JPanel();
         jPanel56 = new javax.swing.JPanel();
         jScrollPane20 = new javax.swing.JScrollPane();
@@ -158,6 +160,7 @@ public class PanelPemesanan extends javax.swing.JPanel {
         buttonCariPrangko33 = new javax.swing.JButton();
         fieldCariPrangko33 = new javax.swing.JTextField();
         comboCariPrangko33 = new javax.swing.JComboBox<>();
+        ButtonTambahPemesananMerchandise = new javax.swing.JButton();
         Prisma4 = new javax.swing.JPanel();
         jPanel57 = new javax.swing.JPanel();
         jScrollPane21 = new javax.swing.JScrollPane();
@@ -165,6 +168,7 @@ public class PanelPemesanan extends javax.swing.JPanel {
         buttonCariPrangko34 = new javax.swing.JButton();
         fieldCariPrangko34 = new javax.swing.JTextField();
         comboCariPrangko34 = new javax.swing.JComboBox<>();
+        ButtonTambahPemesananPrisma = new javax.swing.JButton();
         DokumenFilateli4 = new javax.swing.JPanel();
         jPanel58 = new javax.swing.JPanel();
         jScrollPane22 = new javax.swing.JScrollPane();
@@ -172,6 +176,7 @@ public class PanelPemesanan extends javax.swing.JPanel {
         buttonCariPrangko35 = new javax.swing.JButton();
         fieldCariPrangko35 = new javax.swing.JTextField();
         comboCariPrangko35 = new javax.swing.JComboBox<>();
+        ButtonTambahPemesananDokumenFilateli = new javax.swing.JButton();
         SHP_SHPSS4 = new javax.swing.JPanel();
         jPanel59 = new javax.swing.JPanel();
         jScrollPane23 = new javax.swing.JScrollPane();
@@ -179,6 +184,7 @@ public class PanelPemesanan extends javax.swing.JPanel {
         buttonCariPrangko36 = new javax.swing.JButton();
         fieldCariPrangko36 = new javax.swing.JTextField();
         comboCariPrangko36 = new javax.swing.JComboBox<>();
+        ButtonTambahPemesananSHPSS = new javax.swing.JButton();
 
         jTabbedPane6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -227,12 +233,20 @@ public class PanelPemesanan extends javax.swing.JPanel {
 
         comboCariPrangko30.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
 
+        ButtonTambahPemesananPrangko.setText("Tambah Pemesanan");
+        ButtonTambahPemesananPrangko.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonTambahPemesananPrangkoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel52Layout = new javax.swing.GroupLayout(jPanel52);
         jPanel52.setLayout(jPanel52Layout);
         jPanel52Layout.setHorizontalGroup(
             jPanel52Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel52Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(ButtonTambahPemesananPrangko)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(comboCariPrangko30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(fieldCariPrangko30, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -246,35 +260,21 @@ public class PanelPemesanan extends javax.swing.JPanel {
                 .addGroup(jPanel52Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonCariPrangko30)
                     .addComponent(fieldCariPrangko30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboCariPrangko30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboCariPrangko30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ButtonTambahPemesananPrangko, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane17, javax.swing.GroupLayout.DEFAULT_SIZE, 367, Short.MAX_VALUE))
+                .addComponent(jScrollPane17, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE))
         );
-
-        jButton1.setText("Tambah Pemesanan");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout Prangko4Layout = new javax.swing.GroupLayout(Prangko4);
         Prangko4.setLayout(Prangko4Layout);
         Prangko4Layout.setHorizontalGroup(
             Prangko4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel52, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Prangko4Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addContainerGap())
         );
         Prangko4Layout.setVerticalGroup(
             Prangko4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Prangko4Layout.createSequentialGroup()
-                .addComponent(jPanel52, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addComponent(jPanel52, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jTabbedPane6.addTab("Prangko", Prangko4);
@@ -320,12 +320,20 @@ public class PanelPemesanan extends javax.swing.JPanel {
 
         comboCariPrangko31.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
 
+        ButtonTambahPemesananMSSS.setText("Tambah Pemesanan");
+        ButtonTambahPemesananMSSS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonTambahPemesananMSSSActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel54Layout = new javax.swing.GroupLayout(jPanel54);
         jPanel54.setLayout(jPanel54Layout);
         jPanel54Layout.setHorizontalGroup(
             jPanel54Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel54Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(ButtonTambahPemesananMSSS)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(comboCariPrangko31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(fieldCariPrangko31, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -339,9 +347,10 @@ public class PanelPemesanan extends javax.swing.JPanel {
                 .addGroup(jPanel54Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonCariPrangko31)
                     .addComponent(fieldCariPrangko31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboCariPrangko31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboCariPrangko31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ButtonTambahPemesananMSSS, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane18, javax.swing.GroupLayout.DEFAULT_SIZE, 431, Short.MAX_VALUE))
+                .addComponent(jScrollPane18, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout MS_SS4Layout = new javax.swing.GroupLayout(MS_SS4);
@@ -398,12 +407,20 @@ public class PanelPemesanan extends javax.swing.JPanel {
 
         comboCariPrangko32.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
 
+        ButtonTambahPemesananKemasan.setText("Tambah Pemesanan");
+        ButtonTambahPemesananKemasan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonTambahPemesananKemasanActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel55Layout = new javax.swing.GroupLayout(jPanel55);
         jPanel55.setLayout(jPanel55Layout);
         jPanel55Layout.setHorizontalGroup(
             jPanel55Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel55Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(ButtonTambahPemesananKemasan)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(comboCariPrangko32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(fieldCariPrangko32, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -417,9 +434,10 @@ public class PanelPemesanan extends javax.swing.JPanel {
                 .addGroup(jPanel55Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonCariPrangko32)
                     .addComponent(fieldCariPrangko32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboCariPrangko32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboCariPrangko32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ButtonTambahPemesananKemasan, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane19, javax.swing.GroupLayout.DEFAULT_SIZE, 431, Short.MAX_VALUE))
+                .addComponent(jScrollPane19, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout Kemasan4Layout = new javax.swing.GroupLayout(Kemasan4);
@@ -470,12 +488,20 @@ public class PanelPemesanan extends javax.swing.JPanel {
 
         comboCariPrangko33.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
 
+        ButtonTambahPemesananMerchandise.setText("Tambah Pemesanan");
+        ButtonTambahPemesananMerchandise.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonTambahPemesananMerchandiseActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel56Layout = new javax.swing.GroupLayout(jPanel56);
         jPanel56.setLayout(jPanel56Layout);
         jPanel56Layout.setHorizontalGroup(
             jPanel56Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel56Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(ButtonTambahPemesananMerchandise)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(comboCariPrangko33, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(fieldCariPrangko33, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -489,9 +515,10 @@ public class PanelPemesanan extends javax.swing.JPanel {
                 .addGroup(jPanel56Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonCariPrangko33)
                     .addComponent(fieldCariPrangko33, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboCariPrangko33, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboCariPrangko33, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ButtonTambahPemesananMerchandise, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane20, javax.swing.GroupLayout.DEFAULT_SIZE, 431, Short.MAX_VALUE))
+                .addComponent(jScrollPane20, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout Merchandise4Layout = new javax.swing.GroupLayout(Merchandise4);
@@ -542,12 +569,20 @@ public class PanelPemesanan extends javax.swing.JPanel {
 
         comboCariPrangko34.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
 
+        ButtonTambahPemesananPrisma.setText("Tambah Pemesanan");
+        ButtonTambahPemesananPrisma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonTambahPemesananPrismaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel57Layout = new javax.swing.GroupLayout(jPanel57);
         jPanel57.setLayout(jPanel57Layout);
         jPanel57Layout.setHorizontalGroup(
             jPanel57Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel57Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(ButtonTambahPemesananPrisma)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(comboCariPrangko34, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(fieldCariPrangko34, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -561,9 +596,10 @@ public class PanelPemesanan extends javax.swing.JPanel {
                 .addGroup(jPanel57Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonCariPrangko34)
                     .addComponent(fieldCariPrangko34, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboCariPrangko34, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboCariPrangko34, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ButtonTambahPemesananPrisma, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane21, javax.swing.GroupLayout.DEFAULT_SIZE, 431, Short.MAX_VALUE))
+                .addComponent(jScrollPane21, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout Prisma4Layout = new javax.swing.GroupLayout(Prisma4);
@@ -614,12 +650,20 @@ public class PanelPemesanan extends javax.swing.JPanel {
 
         comboCariPrangko35.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
 
+        ButtonTambahPemesananDokumenFilateli.setText("Tambah Pemesanan");
+        ButtonTambahPemesananDokumenFilateli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonTambahPemesananDokumenFilateliActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel58Layout = new javax.swing.GroupLayout(jPanel58);
         jPanel58.setLayout(jPanel58Layout);
         jPanel58Layout.setHorizontalGroup(
             jPanel58Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel58Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(ButtonTambahPemesananDokumenFilateli)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(comboCariPrangko35, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(fieldCariPrangko35, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -633,9 +677,10 @@ public class PanelPemesanan extends javax.swing.JPanel {
                 .addGroup(jPanel58Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonCariPrangko35)
                     .addComponent(fieldCariPrangko35, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboCariPrangko35, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboCariPrangko35, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ButtonTambahPemesananDokumenFilateli, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane22, javax.swing.GroupLayout.DEFAULT_SIZE, 431, Short.MAX_VALUE))
+                .addComponent(jScrollPane22, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout DokumenFilateli4Layout = new javax.swing.GroupLayout(DokumenFilateli4);
@@ -692,12 +737,20 @@ public class PanelPemesanan extends javax.swing.JPanel {
 
         comboCariPrangko36.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
 
+        ButtonTambahPemesananSHPSS.setText("Tambah Pemesanan");
+        ButtonTambahPemesananSHPSS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonTambahPemesananSHPSSActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel59Layout = new javax.swing.GroupLayout(jPanel59);
         jPanel59.setLayout(jPanel59Layout);
         jPanel59Layout.setHorizontalGroup(
             jPanel59Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel59Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(ButtonTambahPemesananSHPSS)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(comboCariPrangko36, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(fieldCariPrangko36, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -711,9 +764,10 @@ public class PanelPemesanan extends javax.swing.JPanel {
                 .addGroup(jPanel59Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonCariPrangko36)
                     .addComponent(fieldCariPrangko36, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboCariPrangko36, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboCariPrangko36, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ButtonTambahPemesananSHPSS, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane23, javax.swing.GroupLayout.DEFAULT_SIZE, 431, Short.MAX_VALUE))
+                .addComponent(jScrollPane23, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout SHP_SHPSS4Layout = new javax.swing.GroupLayout(SHP_SHPSS4);
@@ -737,7 +791,7 @@ public class PanelPemesanan extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 510, Short.MAX_VALUE)
+            .addComponent(jTabbedPane6)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -773,12 +827,12 @@ public class PanelPemesanan extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_fieldCariPrangko30MouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void ButtonTambahPemesananPrangkoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonTambahPemesananPrangkoActionPerformed
         // TODO add your handling code here:
         FormHome formHome = new FormHome();
         boolean rootPaneCheckingEnabled = false;
         new DialogTambahPemesanan(formHome, rootPaneCheckingEnabled).setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_ButtonTambahPemesananPrangkoActionPerformed
 
     private void tablePemesananMS_SSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePemesananMS_SSMouseClicked
         // TODO add your handling code here:
@@ -852,8 +906,57 @@ public class PanelPemesanan extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_fieldCariPrangko36MouseClicked
 
+    private void ButtonTambahPemesananMSSSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonTambahPemesananMSSSActionPerformed
+        // TODO add your handling code here:
+        FormHome formHome = new FormHome();
+        boolean rootPaneCheckingEnabled = false;
+        new DialogTambahPemesanan(formHome, rootPaneCheckingEnabled).setVisible(true);
+    }//GEN-LAST:event_ButtonTambahPemesananMSSSActionPerformed
+
+    private void ButtonTambahPemesananKemasanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonTambahPemesananKemasanActionPerformed
+        // TODO add your handling code here:
+        FormHome formHome = new FormHome();
+        boolean rootPaneCheckingEnabled = false;
+        new DialogTambahPemesanan(formHome, rootPaneCheckingEnabled).setVisible(true);
+    }//GEN-LAST:event_ButtonTambahPemesananKemasanActionPerformed
+
+    private void ButtonTambahPemesananMerchandiseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonTambahPemesananMerchandiseActionPerformed
+        // TODO add your handling code here:
+        FormHome formHome = new FormHome();
+        boolean rootPaneCheckingEnabled = false;
+        new DialogTambahPemesanan(formHome, rootPaneCheckingEnabled).setVisible(true);
+    }//GEN-LAST:event_ButtonTambahPemesananMerchandiseActionPerformed
+
+    private void ButtonTambahPemesananPrismaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonTambahPemesananPrismaActionPerformed
+        // TODO add your handling code here:
+        FormHome formHome = new FormHome();
+        boolean rootPaneCheckingEnabled = false;
+        new DialogTambahPemesanan(formHome, rootPaneCheckingEnabled).setVisible(true);
+    }//GEN-LAST:event_ButtonTambahPemesananPrismaActionPerformed
+
+    private void ButtonTambahPemesananDokumenFilateliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonTambahPemesananDokumenFilateliActionPerformed
+        // TODO add your handling code here:
+        FormHome formHome = new FormHome();
+        boolean rootPaneCheckingEnabled = false;
+        new DialogTambahPemesanan(formHome, rootPaneCheckingEnabled).setVisible(true);
+    }//GEN-LAST:event_ButtonTambahPemesananDokumenFilateliActionPerformed
+
+    private void ButtonTambahPemesananSHPSSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonTambahPemesananSHPSSActionPerformed
+        // TODO add your handling code here:
+        FormHome formHome = new FormHome();
+        boolean rootPaneCheckingEnabled = false;
+        new DialogTambahPemesanan(formHome, rootPaneCheckingEnabled).setVisible(true);
+    }//GEN-LAST:event_ButtonTambahPemesananSHPSSActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ButtonTambahPemesananDokumenFilateli;
+    private javax.swing.JButton ButtonTambahPemesananKemasan;
+    private javax.swing.JButton ButtonTambahPemesananMSSS;
+    private javax.swing.JButton ButtonTambahPemesananMerchandise;
+    private javax.swing.JButton ButtonTambahPemesananPrangko;
+    private javax.swing.JButton ButtonTambahPemesananPrisma;
+    private javax.swing.JButton ButtonTambahPemesananSHPSS;
     private javax.swing.JPanel DokumenFilateli4;
     private javax.swing.JPanel Kemasan4;
     private javax.swing.JPanel MS_SS4;
@@ -882,7 +985,6 @@ public class PanelPemesanan extends javax.swing.JPanel {
     private javax.swing.JTextField fieldCariPrangko34;
     private javax.swing.JTextField fieldCariPrangko35;
     private javax.swing.JTextField fieldCariPrangko36;
-    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel52;
     private javax.swing.JPanel jPanel54;
     private javax.swing.JPanel jPanel55;

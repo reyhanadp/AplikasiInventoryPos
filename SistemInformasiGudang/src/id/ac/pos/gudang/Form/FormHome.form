@@ -179,7 +179,7 @@
             <Component class="javax.swing.JButton" name="buttonKelolaProduk">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/img/icons/kelola_produk.png"/>
+                  <Image iconType="3" name="/img/icons/kelola_produk1.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="KELOLA PRODUK"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -193,7 +193,7 @@
             <Component class="javax.swing.JButton" name="buttonTransaksi">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/img/icons/pemesanan.png"/>
+                  <Image iconType="3" name="/img/icons/pemesanan3.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="PEMESANAN"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -207,7 +207,7 @@
             <Component class="javax.swing.JButton" name="jButton3">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/img/icons/pengembalian.png"/>
+                  <Image iconType="3" name="/img/icons/pengembalian1.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="PENGEMBALIAN"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -221,7 +221,7 @@
             <Component class="javax.swing.JButton" name="jButton4">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/img/icons/penerimaan1.png"/>
+                  <Image iconType="3" name="/img/icons/penerimaan3.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="PENERIMAAN"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -235,7 +235,7 @@
             <Component class="javax.swing.JButton" name="jButton5">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/img/icons/pengiriman1.png"/>
+                  <Image iconType="3" name="/img/icons/pengiriman.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="PENGIRIMAN"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -249,7 +249,7 @@
             <Component class="javax.swing.JButton" name="jButton6">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/img/icons/kelola_produk.png"/>
+                  <Image iconType="3" name="/img/icons/laporan1.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="LAPORAN"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>

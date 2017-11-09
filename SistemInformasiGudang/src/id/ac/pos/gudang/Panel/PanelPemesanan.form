@@ -21,7 +21,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jTabbedPane6" alignment="1" pref="510" max="32767" attributes="0"/>
+          <Component id="jTabbedPane6" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -49,21 +49,11 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jPanel52" alignment="0" max="32767" attributes="0"/>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jPanel52" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" pref="47" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="jPanel52" alignment="0" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -80,8 +70,9 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Component id="ButtonTambahPemesananPrangko" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                           <Component id="comboCariPrangko30" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="fieldCariPrangko30" min="-2" pref="101" max="-2" attributes="0"/>
@@ -98,9 +89,10 @@
                               <Component id="buttonCariPrangko30" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="fieldCariPrangko30" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="comboCariPrangko30" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="ButtonTambahPemesananPrangko" alignment="0" min="-2" pref="33" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane17" pref="367" max="32767" attributes="0"/>
+                          <Component id="jScrollPane17" pref="420" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -163,16 +155,16 @@
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
+                <Component class="javax.swing.JButton" name="ButtonTambahPemesananPrangko">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Tambah Pemesanan"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonTambahPemesananPrangkoActionPerformed"/>
+                  </Events>
+                </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JButton" name="jButton1">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Tambah Pemesanan"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
-              </Events>
-            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="MS_SS4">
@@ -212,15 +204,16 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Component id="ButtonTambahPemesananMSSS" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                           <Component id="comboCariPrangko31" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="fieldCariPrangko31" min="-2" pref="101" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="buttonCariPrangko31" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="jScrollPane18" alignment="0" pref="975" max="32767" attributes="0"/>
+                      <Component id="jScrollPane18" pref="975" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -230,9 +223,10 @@
                               <Component id="buttonCariPrangko31" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="fieldCariPrangko31" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="comboCariPrangko31" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="ButtonTambahPemesananMSSS" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane18" pref="431" max="32767" attributes="0"/>
+                          <Component id="jScrollPane18" pref="420" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -295,6 +289,14 @@
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
+                <Component class="javax.swing.JButton" name="ButtonTambahPemesananMSSS">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Tambah Pemesanan"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonTambahPemesananMSSSActionPerformed"/>
+                  </Events>
+                </Component>
               </SubComponents>
             </Container>
           </SubComponents>
@@ -336,15 +338,16 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Component id="ButtonTambahPemesananKemasan" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                           <Component id="comboCariPrangko32" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="fieldCariPrangko32" min="-2" pref="101" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="buttonCariPrangko32" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="jScrollPane19" alignment="0" pref="975" max="32767" attributes="0"/>
+                      <Component id="jScrollPane19" pref="975" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -354,9 +357,10 @@
                               <Component id="buttonCariPrangko32" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="fieldCariPrangko32" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="comboCariPrangko32" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="ButtonTambahPemesananKemasan" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane19" pref="431" max="32767" attributes="0"/>
+                          <Component id="jScrollPane19" pref="420" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -419,6 +423,14 @@
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
+                <Component class="javax.swing.JButton" name="ButtonTambahPemesananKemasan">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Tambah Pemesanan"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonTambahPemesananKemasanActionPerformed"/>
+                  </Events>
+                </Component>
               </SubComponents>
             </Container>
           </SubComponents>
@@ -457,15 +469,16 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Component id="ButtonTambahPemesananMerchandise" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                           <Component id="comboCariPrangko33" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="fieldCariPrangko33" min="-2" pref="101" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="buttonCariPrangko33" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="jScrollPane20" alignment="0" pref="975" max="32767" attributes="0"/>
+                      <Component id="jScrollPane20" pref="975" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -475,9 +488,10 @@
                               <Component id="buttonCariPrangko33" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="fieldCariPrangko33" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="comboCariPrangko33" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="ButtonTambahPemesananMerchandise" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane20" pref="431" max="32767" attributes="0"/>
+                          <Component id="jScrollPane20" pref="420" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -540,6 +554,14 @@
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
+                <Component class="javax.swing.JButton" name="ButtonTambahPemesananMerchandise">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Tambah Pemesanan"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonTambahPemesananMerchandiseActionPerformed"/>
+                  </Events>
+                </Component>
               </SubComponents>
             </Container>
           </SubComponents>
@@ -578,15 +600,16 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Component id="ButtonTambahPemesananPrisma" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                           <Component id="comboCariPrangko34" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="fieldCariPrangko34" min="-2" pref="101" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="buttonCariPrangko34" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="jScrollPane21" alignment="0" pref="975" max="32767" attributes="0"/>
+                      <Component id="jScrollPane21" pref="975" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -596,9 +619,10 @@
                               <Component id="buttonCariPrangko34" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="fieldCariPrangko34" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="comboCariPrangko34" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="ButtonTambahPemesananPrisma" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane21" pref="431" max="32767" attributes="0"/>
+                          <Component id="jScrollPane21" pref="420" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -661,6 +685,14 @@
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
+                <Component class="javax.swing.JButton" name="ButtonTambahPemesananPrisma">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Tambah Pemesanan"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonTambahPemesananPrismaActionPerformed"/>
+                  </Events>
+                </Component>
               </SubComponents>
             </Container>
           </SubComponents>
@@ -699,15 +731,16 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Component id="ButtonTambahPemesananDokumenFilateli" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                           <Component id="comboCariPrangko35" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="fieldCariPrangko35" min="-2" pref="101" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="buttonCariPrangko35" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="jScrollPane22" alignment="0" pref="975" max="32767" attributes="0"/>
+                      <Component id="jScrollPane22" pref="975" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -717,9 +750,10 @@
                               <Component id="buttonCariPrangko35" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="fieldCariPrangko35" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="comboCariPrangko35" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="ButtonTambahPemesananDokumenFilateli" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane22" pref="431" max="32767" attributes="0"/>
+                          <Component id="jScrollPane22" pref="420" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -782,6 +816,14 @@
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
+                <Component class="javax.swing.JButton" name="ButtonTambahPemesananDokumenFilateli">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Tambah Pemesanan"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonTambahPemesananDokumenFilateliActionPerformed"/>
+                  </Events>
+                </Component>
               </SubComponents>
             </Container>
           </SubComponents>
@@ -823,15 +865,16 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Component id="ButtonTambahPemesananSHPSS" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                           <Component id="comboCariPrangko36" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="fieldCariPrangko36" min="-2" pref="101" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="buttonCariPrangko36" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="jScrollPane23" alignment="0" pref="975" max="32767" attributes="0"/>
+                      <Component id="jScrollPane23" pref="975" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -841,9 +884,10 @@
                               <Component id="buttonCariPrangko36" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="fieldCariPrangko36" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="comboCariPrangko36" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="ButtonTambahPemesananSHPSS" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane23" pref="431" max="32767" attributes="0"/>
+                          <Component id="jScrollPane23" pref="420" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -905,6 +949,14 @@
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
+                </Component>
+                <Component class="javax.swing.JButton" name="ButtonTambahPemesananSHPSS">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Tambah Pemesanan"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonTambahPemesananSHPSSActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
