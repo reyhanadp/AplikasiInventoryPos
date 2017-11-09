@@ -14,6 +14,15 @@ public class Regional {
     
     private String idRegional;
     private String regional;
+    private String kodePos;
+
+    public String getKodePos() {
+        return kodePos;
+    }
+
+    public void setKodePos(String kodePos) {
+        this.kodePos = kodePos;
+    }
 
     public String getIdRegional() {
         return idRegional;

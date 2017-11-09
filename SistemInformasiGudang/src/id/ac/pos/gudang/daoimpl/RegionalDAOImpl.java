@@ -97,13 +97,14 @@ public class RegionalDAOImpl implements RegionalDAO {
 
     @Override
     public boolean tambahRegional(Regional regional) {
-        String INSERT = "INSERT INTO tb_regional (id_regional, regional) VALUES (?, ?)";
+        String INSERT = "INSERT INTO tb_regional VALUES (?, ?, ?, NULL, NULL)";
         PreparedStatement state = null;
 
         try {
             state = conn.prepareStatement(INSERT);
             state.setString(1, regional.getIdRegional());
             state.setString(2, regional.getRegional());
+            state.setString(3, regional.getKodePos());
 
             int qty = state.executeUpdate();
             return qty > 0;

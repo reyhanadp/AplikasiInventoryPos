@@ -5,6 +5,11 @@
  */
 package id.ac.pos.gudang.Panel;
 
+import id.ac.pos.gudang.dao.PengembalianDAO;
+import id.ac.pos.gudang.daoimpl.PengembalianDAOImpl;
+import id.ac.pos.gudang.entity.Regional;
+import java.util.ArrayList;
+
 /**
  *
  * @author reyha
@@ -16,8 +21,28 @@ public class PanelPengembalian extends javax.swing.JPanel {
      */
     public PanelPengembalian() {
         initComponents();
+        getComboboxKotaPengirimPrangko();
     }
-
+    
+    private void getComboboxKotaPengirimPrangko(){
+        KotaPengirimPrangko.removeAllItems();
+        
+        PengembalianDAO dao;
+        Regional regional;
+        ArrayList<Regional> arrayRegional;
+        
+        dao = new PengembalianDAOImpl();
+        arrayRegional = dao.getRegional();
+        
+        int banyak = arrayRegional.size();
+        int rowindex = 0;
+        
+        while(0<banyak){
+            KotaPengirimPrangko.addItem(arrayRegional.get(rowindex).getRegional());
+            banyak--;
+            rowindex++;
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -34,7 +59,7 @@ public class PanelPengembalian extends javax.swing.JPanel {
         jComboBox9 = new javax.swing.JComboBox<>();
         jButton10 = new javax.swing.JButton();
         jLabel43 = new javax.swing.JLabel();
-        jComboBox16 = new javax.swing.JComboBox<>();
+        KotaPengirimPrangko = new javax.swing.JComboBox<>();
         jButton11 = new javax.swing.JButton();
         jLabel119 = new javax.swing.JLabel();
         jDateChooser10 = new com.toedter.calendar.JDateChooser();
@@ -251,8 +276,6 @@ public class PanelPengembalian extends javax.swing.JPanel {
 
         jLabel43.setText("Kota Pengirim");
 
-        jComboBox16.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jButton11.setText("Cari Data");
 
         jLabel119.setText("Tanggal Penerimaan");
@@ -292,7 +315,7 @@ public class PanelPengembalian extends javax.swing.JPanel {
                         .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel37Layout.createSequentialGroup()
                                 .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jComboBox16, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(KotaPengirimPrangko, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jComboBox9, 0, 349, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -320,7 +343,7 @@ public class PanelPengembalian extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel43)
-                    .addComponent(jComboBox16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(KotaPengirimPrangko, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton11))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1885,6 +1908,7 @@ public class PanelPengembalian extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel DokumenFilateli2;
     private javax.swing.JPanel Kemasan2;
+    private javax.swing.JComboBox<String> KotaPengirimPrangko;
     private javax.swing.JPanel MS_SS2;
     private javax.swing.JPanel Merchandise2;
     private javax.swing.JPanel Prangko2;
@@ -1932,7 +1956,6 @@ public class PanelPengembalian extends javax.swing.JPanel {
     private javax.swing.JButton jButton40;
     private javax.swing.JButton jButton41;
     private javax.swing.JButton jButton42;
-    private javax.swing.JComboBox<String> jComboBox16;
     private javax.swing.JComboBox<String> jComboBox17;
     private javax.swing.JComboBox<String> jComboBox18;
     private javax.swing.JComboBox<String> jComboBox19;
