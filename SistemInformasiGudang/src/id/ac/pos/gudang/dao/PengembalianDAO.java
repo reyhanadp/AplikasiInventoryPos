@@ -5,6 +5,7 @@
  */
 package id.ac.pos.gudang.dao;
 
+import id.ac.pos.gudang.entity.Produk;
 import id.ac.pos.gudang.entity.Regional;
 import java.util.ArrayList;
 
@@ -15,5 +16,6 @@ import java.util.ArrayList;
 public interface PengembalianDAO {
     
     ArrayList<Regional> getRegional();
-    
+    ArrayList<Regional> getIsiRegional(Object pilihan);
+    ArrayList<Produk> getProdukPrangko(Object pilihan);
 }

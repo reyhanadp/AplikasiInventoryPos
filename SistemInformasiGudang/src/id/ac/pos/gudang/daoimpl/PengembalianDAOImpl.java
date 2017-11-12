@@ -6,6 +6,7 @@
 package id.ac.pos.gudang.daoimpl;
 
 import id.ac.pos.gudang.dao.PengembalianDAO;
+import id.ac.pos.gudang.entity.Produk;
 import id.ac.pos.gudang.entity.Regional;
 import id.ac.pos.gudang.utility.DatabaseConnectivity;
 import java.sql.Connection;
@@ -26,6 +27,73 @@ public class PengembalianDAOImpl implements PengembalianDAO{
 
     public PengembalianDAOImpl() {
         conn = DatabaseConnectivity.getConnection();
+    }
+
+    @Override
+    public ArrayList<Produk> getProdukPrangko(Object pilihan) {
+        ArrayList<Produk> arrayProdukPrangko = null;
+        String SELECT = "SELECT * FROM tb_produk where nama_produk='"+pilihan+"'";
+        PreparedStatement state = null;
+
+        try {
+            state = conn.prepareStatement(SELECT);
+
+            ResultSet result = state.executeQuery();
+            if (result != null) {
+                arrayProdukPrangko = new ArrayList<>();
+
+                //selama result memiliki data 
+                // return lebih dari 1 data 
+                while (result.next()) {
+
+                    //mengambil 1 data
+                    Produk produk = new Produk();
+                    produk.setIdProduk(result.getString(1));
+                    int nominal = Integer.parseInt(result.getString(3));
+                    produk.setNominal(nominal);
+
+                    //menambahkan data ke array
+                    arrayProdukPrangko.add(produk);
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(RegionalDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return arrayProdukPrangko;
+    }
+
+    @Override
+    public ArrayList<Regional> getIsiRegional(Object pilihan) {
+        ArrayList<Regional> arrayRegional = null;
+        String SELECT = "SELECT * FROM tb_regional where regional='"+pilihan+"'";
+        PreparedStatement state = null;
+
+        try {
+            state = conn.prepareStatement(SELECT);
+
+            ResultSet result = state.executeQuery();
+            if (result != null) {
+                arrayRegional = new ArrayList<>();
+
+                //selama result memiliki data 
+                // return lebih dari 1 data 
+                while (result.next()) {
+
+                    //mengambil 1 data
+                    Regional regional = new Regional();
+                    regional.setIdRegional(result.getString(1));
+                    regional.setKodePos(result.getString(3));
+
+                    //menambahkan data ke array
+                    arrayRegional.add(regional);
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(RegionalDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return arrayRegional;
     }
     
     @Override
