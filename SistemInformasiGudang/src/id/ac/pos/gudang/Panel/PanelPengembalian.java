@@ -10,8 +10,10 @@ import id.ac.pos.gudang.dao.PengembalianDAO;
 import id.ac.pos.gudang.dao.ProdukDAO;
 import id.ac.pos.gudang.daoimpl.PengembalianDAOImpl;
 import id.ac.pos.gudang.daoimpl.ProdukDAOImpl;
+import id.ac.pos.gudang.entity.Pengembalian;
 import id.ac.pos.gudang.entity.Produk;
 import id.ac.pos.gudang.entity.Regional;
+import id.ac.pos.gudang.tablemodel.PengembalianTM;
 import id.ac.pos.gudang.utility.JComboboxListener;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -20,22 +22,31 @@ import java.awt.event.ItemListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Vector;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.table.TableRowSorter;
+import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 
 /**
  *
  * @author reyha
  */
 public class PanelPengembalian extends javax.swing.JPanel {
+
     PengembalianDAO dao;
     ProdukDAO daoProduk;
+    Pengembalian pengembalian;
     Regional regional;
     ArrayList<Regional> arrayRegional;
     ArrayList<Produk> arrayProduk;
     Vector vectorPrangko = new Vector();
+    Vector vectorRegional = new Vector();
+    TableRowSorter sorter;
+
     /**
      * Creates new form PanelPengembalian
      */
@@ -43,41 +54,75 @@ public class PanelPengembalian extends javax.swing.JPanel {
         initComponents();
         getComboboxKotaPengirimPrangko();
         autocomplete();
+        getDataPengembalianPrangko();
     }
-    
-    
-    private void autocomplete(){
+
+    public void getDataPengembalianPrangko() {
+        dao = new PengembalianDAOImpl();
+        ArrayList<Pengembalian> arrayPengembalian = dao.getPengembalianPrangko();
+
+        PengembalianTM pengembalianTM = new PengembalianTM();
+        pengembalianTM.setDataPengembalian(arrayPengembalian);
+        sorter = new TableRowSorter(pengembalianTM);
+        TablePengembalianPrangko.setRowSorter(sorter);
+        TablePengembalianPrangko.setModel(pengembalianTM);
+    }
+
+    private void autocomplete() {
+//        NamaProdukPrangko.removeAllItems();
         daoProduk = new ProdukDAOImpl();
         arrayProduk = daoProduk.getProdukPrangko();
-        
-        for(int i=0; i < arrayProduk.size(); i++){
+        vectorPrangko.add("");
+        for (int i = 0; i < arrayProduk.size(); i++) {
             vectorPrangko.add(arrayProduk.get(i).getNamaProduk());
         }
-        
+
         NamaProdukPrangko.setModel(new DefaultComboBoxModel(vectorPrangko));
         NamaProdukPrangko.setSelectedIndex(-1);
-        JTextField textField = (JTextField) NamaProdukPrangko.getEditor().getEditorComponent();
-        textField.setFocusable(true);
-        textField.setText("");
-        textField.addKeyListener(new JComboboxListener(NamaProdukPrangko, vectorPrangko));
+        AutoCompleteDecorator.decorate(NamaProdukPrangko);
+//        
+//        JTextField textField = (JTextField) NamaProdukPrangko.getEditor().getEditorComponent();
+//        textField.setFocusable(true);
+//        textField.setText("");
+//        textField.addKeyListener(new JComboboxListener(NamaProdukPrangko, vectorPrangko));
 //        
     }
-    
-    private void getComboboxKotaPengirimPrangko(){
-        KotaPengirimPrangko.removeAllItems();
-  
+
+    private void getComboboxKotaPengirimPrangko() {
+//        KotaPengirimPrangko.removeAllItems();
+//        KotaPengirimPrangko.addItem("- - - - - - - - - - - -Pilih Regional- - - - - - - - - - - -");
         dao = new PengembalianDAOImpl();
         arrayRegional = dao.getRegional();
-        
+
         int banyak = arrayRegional.size();
         int rowindex = 0;
-        
-        while(0<banyak){
-            KotaPengirimPrangko.addItem(arrayRegional.get(rowindex).getRegional());
+        vectorRegional.add("");
+        while (0 < banyak) {
+            vectorRegional.add(arrayRegional.get(rowindex).getRegional());
             banyak--;
             rowindex++;
         }
+        KotaPengirimPrangko.setModel(new DefaultComboBoxModel(vectorRegional));
+        KotaPengirimPrangko.setSelectedIndex(-1);
+        AutoCompleteDecorator.decorate(KotaPengirimPrangko);
     }
+
+    private void reset() {
+        NamaProdukPrangko.setSelectedIndex(0);
+        KotaPengirimPrangko.setSelectedIndex(0);
+        KodeProdukPrangko.setText("");
+        NominalPrangko.setText("");
+        KodePosPrangko.setText("");
+        KodeRegionalPrangko.setText("");
+        StokGudangPrangko.setText("");
+        NomorDusPrangko.setText("");
+        TanggalPenerimaanPrangko.setDate(null);
+        StokGudangPrangko.setText("");
+        JumlahTerimaPrangko.setText("");
+        KeteranganPrangko.setText("");
+
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -87,19 +132,19 @@ public class PanelPengembalian extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTabbedPane4 = new javax.swing.JTabbedPane();
+        TabPengembalian = new javax.swing.JTabbedPane();
         Prangko2 = new javax.swing.JPanel();
         jPanel37 = new javax.swing.JPanel();
         jLabel119 = new javax.swing.JLabel();
-        jDateChooser10 = new com.toedter.calendar.JDateChooser();
+        TanggalPenerimaanPrangko = new com.toedter.calendar.JDateChooser();
         jLabel45 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
+        StokGudangPrangko = new javax.swing.JTextField();
         jLabel46 = new javax.swing.JLabel();
-        jTextField11 = new javax.swing.JTextField();
-        jButton12 = new javax.swing.JButton();
+        JumlahTerimaPrangko = new javax.swing.JTextField();
+        SimpanPrangko = new javax.swing.JButton();
         jLabel47 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField43 = new javax.swing.JTextField();
+        NomorDusPrangko = new javax.swing.JTextField();
         jLabel43 = new javax.swing.JLabel();
         KotaPengirimPrangko = new javax.swing.JComboBox<>();
         jLabel118 = new javax.swing.JLabel();
@@ -114,9 +159,10 @@ public class PanelPengembalian extends javax.swing.JPanel {
         KodePosPrangko = new javax.swing.JTextField();
         jScrollPane35 = new javax.swing.JScrollPane();
         KeteranganPrangko = new javax.swing.JTextArea();
+        resetPrangko = new javax.swing.JToggleButton();
         jPanel38 = new javax.swing.JPanel();
         jScrollPane11 = new javax.swing.JScrollPane();
-        tablePrangko8 = new javax.swing.JTable();
+        TablePengembalianPrangko = new javax.swing.JTable();
         buttonCariPrangko8 = new javax.swing.JButton();
         fieldCariPrangko8 = new javax.swing.JTextField();
         comboCariPrangko8 = new javax.swing.JComboBox<>();
@@ -313,9 +359,9 @@ public class PanelPengembalian extends javax.swing.JPanel {
         jScrollPane41 = new javax.swing.JScrollPane();
         KeteranganPrangko6 = new javax.swing.JTextArea();
 
-        jTabbedPane4.addMouseListener(new java.awt.event.MouseAdapter() {
+        TabPengembalian.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTabbedPane4MouseClicked(evt);
+                TabPengembalianMouseClicked(evt);
             }
         });
 
@@ -325,7 +371,7 @@ public class PanelPengembalian extends javax.swing.JPanel {
             }
         });
 
-        jPanel37.setBorder(javax.swing.BorderFactory.createTitledBorder("Form Produk"));
+        jPanel37.setBorder(javax.swing.BorderFactory.createTitledBorder("Form Pengembalian"));
         jPanel37.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPanel37MouseClicked(evt);
@@ -336,18 +382,42 @@ public class PanelPengembalian extends javax.swing.JPanel {
 
         jLabel45.setText("Stok Gudang");
 
+        StokGudangPrangko.setEditable(false);
+
         jLabel46.setText("Jumlah Terima");
 
-        jButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/save.png"))); // NOI18N
-        jButton12.setText("Simpan");
+        JumlahTerimaPrangko.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                JumlahTerimaPrangkoKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                JumlahTerimaPrangkoKeyTyped(evt);
+            }
+        });
+
+        SimpanPrangko.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/save.png"))); // NOI18N
+        SimpanPrangko.setText("Simpan");
+        SimpanPrangko.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SimpanPrangkoActionPerformed(evt);
+            }
+        });
 
         jLabel47.setText("Keterangan");
 
         jLabel1.setText("Nomor Dus");
 
-        jTextField43.addActionListener(new java.awt.event.ActionListener() {
+        NomorDusPrangko.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField43ActionPerformed(evt);
+                NomorDusPrangkoActionPerformed(evt);
+            }
+        });
+        NomorDusPrangko.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                NomorDusPrangkoKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                NomorDusPrangkoKeyTyped(evt);
             }
         });
 
@@ -358,80 +428,22 @@ public class PanelPengembalian extends javax.swing.JPanel {
                 KotaPengirimPrangkoItemStateChanged(evt);
             }
         });
-        KotaPengirimPrangko.addHierarchyListener(new java.awt.event.HierarchyListener() {
-            public void hierarchyChanged(java.awt.event.HierarchyEvent evt) {
-                KotaPengirimPrangkoHierarchyChanged(evt);
-            }
-        });
-        KotaPengirimPrangko.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                KotaPengirimPrangkoMouseClicked(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                KotaPengirimPrangkoMousePressed(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                KotaPengirimPrangkoMouseReleased(evt);
-            }
-        });
-        KotaPengirimPrangko.addComponentListener(new java.awt.event.ComponentAdapter() {
-            public void componentMoved(java.awt.event.ComponentEvent evt) {
-                KotaPengirimPrangkoComponentMoved(evt);
-            }
-        });
-        KotaPengirimPrangko.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                KotaPengirimPrangkoActionPerformed(evt);
-            }
-        });
-        KotaPengirimPrangko.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                KotaPengirimPrangkoPropertyChange(evt);
-            }
-        });
-        KotaPengirimPrangko.addVetoableChangeListener(new java.beans.VetoableChangeListener() {
-            public void vetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {
-                KotaPengirimPrangkoVetoableChange(evt);
-            }
-        });
 
         jLabel118.setText("Nama Produk");
 
-        NamaProdukPrangko.setEditable(true);
         NamaProdukPrangko.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 NamaProdukPrangkoItemStateChanged(evt);
             }
         });
-        NamaProdukPrangko.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                NamaProdukPrangkoMouseClicked(evt);
-            }
-        });
-        NamaProdukPrangko.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NamaProdukPrangkoActionPerformed(evt);
-            }
-        });
-        NamaProdukPrangko.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                NamaProdukPrangkoKeyPressed(evt);
-            }
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                NamaProdukPrangkoKeyReleased(evt);
-            }
-        });
 
         jLabel2.setText("Kode Produk");
 
-        KodeProdukPrangko.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                KodeProdukPrangkoMouseClicked(evt);
-            }
-        });
+        KodeProdukPrangko.setEditable(false);
 
         jLabel3.setText("Nominal");
 
+        NominalPrangko.setEditable(false);
         NominalPrangko.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 NominalPrangkoActionPerformed(evt);
@@ -449,7 +461,20 @@ public class PanelPengembalian extends javax.swing.JPanel {
         KeteranganPrangko.setColumns(20);
         KeteranganPrangko.setLineWrap(true);
         KeteranganPrangko.setRows(2);
+        KeteranganPrangko.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                KeteranganPrangkoKeyPressed(evt);
+            }
+        });
         jScrollPane35.setViewportView(KeteranganPrangko);
+
+        resetPrangko.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/Reset.png"))); // NOI18N
+        resetPrangko.setText("Reset");
+        resetPrangko.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resetPrangkoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel37Layout = new javax.swing.GroupLayout(jPanel37);
         jPanel37.setLayout(jPanel37Layout);
@@ -471,10 +496,10 @@ public class PanelPengembalian extends javax.swing.JPanel {
                     .addGroup(jPanel37Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jDateChooser10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextField10)
-                            .addComponent(jTextField11)
-                            .addComponent(jTextField43)
+                            .addComponent(TanggalPenerimaanPrangko, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(StokGudangPrangko)
+                            .addComponent(JumlahTerimaPrangko)
+                            .addComponent(NomorDusPrangko)
                             .addComponent(KodeRegionalPrangko, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -494,9 +519,11 @@ public class PanelPengembalian extends javax.swing.JPanel {
                     .addGroup(jPanel37Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane35, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane35)
                             .addGroup(jPanel37Layout.createSequentialGroup()
-                                .addComponent(jButton12)
+                                .addComponent(SimpanPrangko, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(resetPrangko, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
@@ -507,49 +534,53 @@ public class PanelPengembalian extends javax.swing.JPanel {
                     .addComponent(jLabel118)
                     .addComponent(NamaProdukPrangko, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(NominalPrangko, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(KodeProdukPrangko, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel3)
+                        .addComponent(NominalPrangko, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(KodeProdukPrangko, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel43, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(KotaPengirimPrangko))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(KodePosPrangko, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(KodeRegionalPrangko, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel5)
+                        .addComponent(KodePosPrangko, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(KodeRegionalPrangko, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField43))
+                    .addComponent(NomorDusPrangko))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jDateChooser10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(TanggalPenerimaanPrangko, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel119, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField10))
+                    .addComponent(StokGudangPrangko))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel46)
-                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JumlahTerimaPrangko, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel47)
                     .addComponent(jScrollPane35, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton12)
+                .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(SimpanPrangko)
+                    .addComponent(resetPrangko, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
-        jPanel38.setBorder(javax.swing.BorderFactory.createTitledBorder("Tabel Data Produk"));
+        jPanel38.setBorder(javax.swing.BorderFactory.createTitledBorder("Tabel Data Pengembalian"));
 
-        tablePrangko8.setModel(new javax.swing.table.DefaultTableModel(
+        TablePengembalianPrangko.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -560,12 +591,12 @@ public class PanelPengembalian extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tablePrangko8.addMouseListener(new java.awt.event.MouseAdapter() {
+        TablePengembalianPrangko.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tablePrangko8MouseClicked(evt);
+                TablePengembalianPrangkoMouseClicked(evt);
             }
         });
-        jScrollPane11.setViewportView(tablePrangko8);
+        jScrollPane11.setViewportView(TablePengembalianPrangko);
 
         buttonCariPrangko8.setText("Cari");
         buttonCariPrangko8.addActionListener(new java.awt.event.ActionListener() {
@@ -623,7 +654,7 @@ public class PanelPengembalian extends javax.swing.JPanel {
                 .addComponent(jPanel38, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTabbedPane4.addTab("Prangko", Prangko2);
+        TabPengembalian.addTab("Prangko", Prangko2);
 
         MS_SS2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -802,21 +833,23 @@ public class PanelPengembalian extends javax.swing.JPanel {
                     .addComponent(jLabel133)
                     .addComponent(jComboBox10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel40Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel14)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel40Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel40Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel14)
+                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel40Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel44, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(KotaPengirimPrangko1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel40Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel16)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel40Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel40Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel16)
+                        .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel40Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -859,7 +892,7 @@ public class PanelPengembalian extends javax.swing.JPanel {
                 .addComponent(jPanel39, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTabbedPane4.addTab("MS & SS", MS_SS2);
+        TabPengembalian.addTab("MS & SS", MS_SS2);
 
         SHP_SHPSS2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1038,21 +1071,23 @@ public class PanelPengembalian extends javax.swing.JPanel {
                     .addComponent(jLabel135)
                     .addComponent(jComboBox11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel42Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel19)
-                    .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel42Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel42Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel19)
+                        .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel42Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel60, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(KotaPengirimPrangko2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel42Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel21)
-                    .addComponent(jTextField30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel42Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel42Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel21)
+                        .addComponent(jTextField30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextField29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel42Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1095,7 +1130,7 @@ public class PanelPengembalian extends javax.swing.JPanel {
                 .addComponent(jPanel41, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTabbedPane4.addTab("SHP & SHPSS", SHP_SHPSS2);
+        TabPengembalian.addTab("SHP & SHPSS", SHP_SHPSS2);
 
         Kemasan2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1274,21 +1309,23 @@ public class PanelPengembalian extends javax.swing.JPanel {
                     .addComponent(jLabel137)
                     .addComponent(jComboBox12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel44Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel24)
-                    .addComponent(jTextField34, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel44Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField33, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel44Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel24)
+                        .addComponent(jTextField34, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextField33, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel44Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel64, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(KotaPengirimPrangko3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel44Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel26)
-                    .addComponent(jTextField36, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel44Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel25, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField35, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel44Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel26)
+                        .addComponent(jTextField36, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextField35, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel44Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1331,7 +1368,7 @@ public class PanelPengembalian extends javax.swing.JPanel {
                 .addComponent(jPanel43, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTabbedPane4.addTab("Kemasan", Kemasan2);
+        TabPengembalian.addTab("Kemasan", Kemasan2);
 
         jPanel45.setBorder(javax.swing.BorderFactory.createTitledBorder("Tabel Data Produk"));
 
@@ -1504,21 +1541,23 @@ public class PanelPengembalian extends javax.swing.JPanel {
                     .addComponent(jLabel139)
                     .addComponent(jComboBox13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel46Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel29)
-                    .addComponent(jTextField40, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel46Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField39, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel46Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel29)
+                        .addComponent(jTextField40, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextField39, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel46Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel68, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(KotaPengirimPrangko4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel46Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel31)
-                    .addComponent(jTextField42, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel46Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel30, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField41, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel46Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel31)
+                        .addComponent(jTextField42, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextField41, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel46Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1561,7 +1600,7 @@ public class PanelPengembalian extends javax.swing.JPanel {
                 .addComponent(jPanel45, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTabbedPane4.addTab("Merchandise", Merchandise2);
+        TabPengembalian.addTab("Merchandise", Merchandise2);
 
         jPanel47.setBorder(javax.swing.BorderFactory.createTitledBorder("Tabel Data Produk"));
 
@@ -1734,21 +1773,23 @@ public class PanelPengembalian extends javax.swing.JPanel {
                     .addComponent(jLabel141)
                     .addComponent(jComboBox14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel48Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel34)
-                    .addComponent(jTextField58, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel48Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel33, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField57, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel48Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel34)
+                        .addComponent(jTextField58, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextField57, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel48Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel72, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(KotaPengirimPrangko5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel48Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel36)
-                    .addComponent(jTextField60, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel48Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel35, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField59, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel48Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel36)
+                        .addComponent(jTextField60, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextField59, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel48Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1791,7 +1832,7 @@ public class PanelPengembalian extends javax.swing.JPanel {
                 .addComponent(jPanel47, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTabbedPane4.addTab("Prisma", Prisma2);
+        TabPengembalian.addTab("Prisma", Prisma2);
 
         jPanel49.setBorder(javax.swing.BorderFactory.createTitledBorder("Tabel Data Produk"));
 
@@ -1964,21 +2005,23 @@ public class PanelPengembalian extends javax.swing.JPanel {
                     .addComponent(jLabel143)
                     .addComponent(jComboBox15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel50Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel39)
-                    .addComponent(jTextField65, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel50Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel38, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField64, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel50Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel39)
+                        .addComponent(jTextField65, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextField64, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel50Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel76, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(KotaPengirimPrangko6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel50Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel41)
-                    .addComponent(jTextField67, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel50Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel40, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField66, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel50Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel41)
+                        .addComponent(jTextField67, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextField66, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel50Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2021,17 +2064,17 @@ public class PanelPengembalian extends javax.swing.JPanel {
                 .addComponent(jPanel49, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTabbedPane4.addTab("Dokumen Filateli", DokumenFilateli2);
+        TabPengembalian.addTab("Dokumen Filateli", DokumenFilateli2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane4)
+            .addComponent(TabPengembalian)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane4)
+            .addComponent(TabPengembalian)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -2039,9 +2082,9 @@ public class PanelPengembalian extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jPanel37MouseClicked
 
-    private void tablePrangko8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePrangko8MouseClicked
+    private void TablePengembalianPrangkoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablePengembalianPrangkoMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_tablePrangko8MouseClicked
+    }//GEN-LAST:event_TablePengembalianPrangkoMouseClicked
 
     private void buttonCariPrangko8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariPrangko8ActionPerformed
         // TODO add your handling code here:
@@ -2067,21 +2110,18 @@ public class PanelPengembalian extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_Kemasan2MouseClicked
 
-    private void jTabbedPane4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane4MouseClicked
+    private void TabPengembalianMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TabPengembalianMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTabbedPane4MouseClicked
-
-    private void NamaProdukPrangkoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NamaProdukPrangkoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_NamaProdukPrangkoActionPerformed
+        getDataPengembalianPrangko();
+    }//GEN-LAST:event_TabPengembalianMouseClicked
 
     private void NominalPrangkoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NominalPrangkoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_NominalPrangkoActionPerformed
 
-    private void jTextField43ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField43ActionPerformed
+    private void NomorDusPrangkoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NomorDusPrangkoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField43ActionPerformed
+    }//GEN-LAST:event_NomorDusPrangkoActionPerformed
 
     private void tablePrangko15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePrangko15MouseClicked
         // TODO add your handling code here:
@@ -2251,100 +2291,203 @@ public class PanelPengembalian extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jPanel50MouseClicked
 
-    private void KotaPengirimPrangkoMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KotaPengirimPrangkoMouseReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_KotaPengirimPrangkoMouseReleased
-
-    private void KotaPengirimPrangkoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KotaPengirimPrangkoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_KotaPengirimPrangkoActionPerformed
-
-    private void KotaPengirimPrangkoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KotaPengirimPrangkoMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_KotaPengirimPrangkoMouseClicked
-
     private void KotaPengirimPrangkoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_KotaPengirimPrangkoItemStateChanged
         // TODO add your handling code here:
+
         KotaPengirimPrangko.addItemListener(new ItemListener() {
             @Override
             public void itemStateChanged(ItemEvent e) {
                 Object pilihan = e.getItem();
-                dao = new PengembalianDAOImpl();
-                arrayRegional = dao.getIsiRegional(pilihan);
-        
-                KodeRegionalPrangko.setText(arrayRegional.get(0).getIdRegional());
-                KodePosPrangko.setText(arrayRegional.get(0).getKodePos());
+                if (pilihan != "") {
+                    dao = new PengembalianDAOImpl();
+                    arrayRegional = dao.getIsiRegional(pilihan);
+
+                    KodeRegionalPrangko.setText(arrayRegional.get(0).getIdRegional());
+                    KodePosPrangko.setText(arrayRegional.get(0).getKodePos());
+                } else {
+                    KodePosPrangko.setText("");
+                    KodeRegionalPrangko.setText("");
+                }
+
             }
         });
+
+
     }//GEN-LAST:event_KotaPengirimPrangkoItemStateChanged
-
-    private void KotaPengirimPrangkoPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_KotaPengirimPrangkoPropertyChange
-    }//GEN-LAST:event_KotaPengirimPrangkoPropertyChange
-
-    private void KotaPengirimPrangkoVetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {//GEN-FIRST:event_KotaPengirimPrangkoVetoableChange
-    }//GEN-LAST:event_KotaPengirimPrangkoVetoableChange
-
-    private void KotaPengirimPrangkoHierarchyChanged(java.awt.event.HierarchyEvent evt) {//GEN-FIRST:event_KotaPengirimPrangkoHierarchyChanged
-    }//GEN-LAST:event_KotaPengirimPrangkoHierarchyChanged
-
-    private void KotaPengirimPrangkoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KotaPengirimPrangkoMousePressed
-    }//GEN-LAST:event_KotaPengirimPrangkoMousePressed
-
-    private void KotaPengirimPrangkoComponentMoved(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_KotaPengirimPrangkoComponentMoved
-    }//GEN-LAST:event_KotaPengirimPrangkoComponentMoved
 
     private void NamaProdukPrangkoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_NamaProdukPrangkoItemStateChanged
         // TODO add your handling code here:
-        
-//        NamaProdukPrangko.addItemListener(new ItemListener() {
-//            @Override
-//            public void itemStateChanged(ItemEvent e) {
-//                Object pilihan = e.getItem();
-//                dao = new PengembalianDAOImpl();
-//                
-//                arrayProduk = dao.getProdukPrangko(pilihan);
-//                KodeProdukPrangko.setText(arrayProduk.get(0).getIdProduk());
-//                String nominal = Integer.toString(arrayProduk.get(0).getNominal());
-//                NominalPrangko.setText(nominal);
-//            }
-//        });
-    }//GEN-LAST:event_NamaProdukPrangkoItemStateChanged
 
-    private void NamaProdukPrangkoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NamaProdukPrangkoMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_NamaProdukPrangkoMouseClicked
-
-    private void KodeProdukPrangkoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KodeProdukPrangkoMouseClicked
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_KodeProdukPrangkoMouseClicked
-
-    private void NamaProdukPrangkoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NamaProdukPrangkoKeyReleased
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_NamaProdukPrangkoKeyReleased
-
-    private void NamaProdukPrangkoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NamaProdukPrangkoKeyPressed
-        // TODO add your handling code here:
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            NamaProdukPrangko.addItemListener(new ItemListener() {
+        NamaProdukPrangko.addItemListener(new ItemListener() {
             @Override
             public void itemStateChanged(ItemEvent e) {
                 Object pilihan = e.getItem();
-                dao = new PengembalianDAOImpl();
-                
-                arrayProduk = dao.getProdukPrangko(pilihan);
-                KodeProdukPrangko.setText(arrayProduk.get(0).getIdProduk());
-                String nominal = Integer.toString(arrayProduk.get(0).getNominal());
-                NominalPrangko.setText(nominal);
+
+                if (pilihan != "") {
+                    dao = new PengembalianDAOImpl();
+//                
+                    arrayProduk = dao.getProdukPrangko(pilihan);
+                    KodeProdukPrangko.setText(arrayProduk.get(0).getIdProduk());
+                    String nominal = Integer.toString(arrayProduk.get(0).getNominal());
+                    NominalPrangko.setText(nominal);
+                    String stok = Integer.toString(arrayProduk.get(0).getStok());
+                    StokGudangPrangko.setText(stok);
+                } else {
+                    KodeProdukPrangko.setText("");
+                    NominalPrangko.setText("");
+                    StokGudangPrangko.setText("");
+                }
+
             }
         });
+    }//GEN-LAST:event_NamaProdukPrangkoItemStateChanged
+
+    private void SimpanPrangkoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SimpanPrangkoActionPerformed
+        // TODO add your handling code here:
+        String kosong = null;
+        String kode_produk = KodeProdukPrangko.getText();
+        String kode_regional = KodeRegionalPrangko.getText();
+        String nomor_dus = NomorDusPrangko.getText();
+        java.util.Date tanggal = (java.util.Date) TanggalPenerimaanPrangko.getDate();
+        String stok_gudang = StokGudangPrangko.getText();
+        String jumlah_terima = JumlahTerimaPrangko.getText();
+        String keterangan = KeteranganPrangko.getText();
+        dao = new PengembalianDAOImpl();
+
+        //autoincrement id_pengembalian
+        String id_pengembalian_string = dao.getIdPengembalian();
+        if (id_pengembalian_string == null) {
+            id_pengembalian_string = "00000";
         }
-    }//GEN-LAST:event_NamaProdukPrangkoKeyPressed
+        Integer id_pengembalian = Integer.parseInt(id_pengembalian_string);
+        id_pengembalian++;
+        id_pengembalian_string = Integer.toString(id_pengembalian);
+        int panjang = id_pengembalian_string.length();
+
+        switch (panjang) {
+            case 1:
+                kosong = "0000";
+                break;
+            case 2:
+                kosong = "000";
+                break;
+            case 3:
+                kosong = "00";
+                break;
+            case 4:
+                kosong = "0";
+                break;
+            case 5:
+                kosong = null;
+                break;
+            default:
+                break;
+        }
+
+        id_pengembalian_string = kosong + id_pengembalian_string;
+
+        if (kode_produk.compareTo("") != 0) {
+            if (kode_regional.compareTo("") != 0) {
+                if (tanggal != null) {
+                    if (jumlah_terima.compareTo("") != 0) {
+                        if(nomor_dus.compareTo("")==0){
+                            nomor_dus = null;
+                        }
+                        
+                        if(keterangan.compareTo("")==0){
+                            keterangan = null;
+                        }
+                        
+                        pengembalian = new Pengembalian();
+                        pengembalian.setId_pengembalian(id_pengembalian_string);
+                        pengembalian.setTanggal_pengembalian(tanggal);
+                        pengembalian.setJumlah_pengembalian(jumlah_terima);
+                        pengembalian.setDus(nomor_dus);
+                        pengembalian.setId_regional(kode_regional);
+                        pengembalian.setId_produk(kode_produk);
+                        pengembalian.setStok_awal(stok_gudang);
+                        pengembalian.setKeterangan(keterangan);
+
+                        boolean sukses = dao.tambahPengembalian(pengembalian);
+
+                        //cek sukses atau tidak
+                        if (sukses) {
+                            JOptionPane.showMessageDialog(this, "Data berhasil ditambahkan");
+                            getDataPengembalianPrangko();
+                            reset();
+                        } else {
+                            JOptionPane.showMessageDialog(this, "Data gagal ditambahkan");
+                            reset();
+                        }
+                    }else{
+                        JOptionPane.showMessageDialog(null, "Silakan isi jumlah terima terlebih dahulu!");
+                    }
+                }else{
+                    JOptionPane.showMessageDialog(null, "Silakan isi tanggal pengembalian terlebih dahulu!");
+                }
+                
+            } else {
+                JOptionPane.showMessageDialog(null, "Silakan pilih regional terlebih dahulu!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Silakan pilih produk terlebih dahulu!");
+        }
+
+
+    }//GEN-LAST:event_SimpanPrangkoActionPerformed
+
+    private void resetPrangkoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetPrangkoActionPerformed
+        // TODO add your handling code here:
+        reset();
+    }//GEN-LAST:event_resetPrangkoActionPerformed
+
+    private void NomorDusPrangkoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NomorDusPrangkoKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            TanggalPenerimaanPrangko.requestFocus();
+        }
+    }//GEN-LAST:event_NomorDusPrangkoKeyPressed
+
+    private void JumlahTerimaPrangkoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JumlahTerimaPrangkoKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            KeteranganPrangko.requestFocus();
+        }
+    }//GEN-LAST:event_JumlahTerimaPrangkoKeyPressed
+
+    private void KeteranganPrangkoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_KeteranganPrangkoKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            SimpanPrangko.requestFocus();
+        }
+    }//GEN-LAST:event_KeteranganPrangkoKeyPressed
+
+    private void NomorDusPrangkoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NomorDusPrangkoKeyTyped
+        // TODO add your handling code here:
+        char karakter = evt.getKeyChar();
+        if (!(((karakter >= '0') && (karakter <= '9')
+                || (karakter == KeyEvent.VK_BACK_SPACE)
+                || (karakter == KeyEvent.VK_DELETE)
+                || (karakter == KeyEvent.VK_ENTER)))) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_NomorDusPrangkoKeyTyped
+
+    private void JumlahTerimaPrangkoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JumlahTerimaPrangkoKeyTyped
+        // TODO add your handling code here:
+        char karakter = evt.getKeyChar();
+        if (!(((karakter >= '0') && (karakter <= '9')
+                || (karakter == KeyEvent.VK_BACK_SPACE)
+                || (karakter == KeyEvent.VK_DELETE)
+                || (karakter == KeyEvent.VK_ENTER)))) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_JumlahTerimaPrangkoKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel DokumenFilateli2;
+    private javax.swing.JTextField JumlahTerimaPrangko;
     private javax.swing.JPanel Kemasan2;
     private javax.swing.JTextArea KeteranganPrangko;
     private javax.swing.JTextArea KeteranganPrangko1;
@@ -2367,9 +2510,15 @@ public class PanelPengembalian extends javax.swing.JPanel {
     private javax.swing.JPanel Merchandise2;
     private javax.swing.JComboBox<String> NamaProdukPrangko;
     private javax.swing.JTextField NominalPrangko;
+    private javax.swing.JTextField NomorDusPrangko;
     private javax.swing.JPanel Prangko2;
     private javax.swing.JPanel Prisma2;
     private javax.swing.JPanel SHP_SHPSS2;
+    private javax.swing.JButton SimpanPrangko;
+    private javax.swing.JTextField StokGudangPrangko;
+    private javax.swing.JTabbedPane TabPengembalian;
+    private javax.swing.JTable TablePengembalianPrangko;
+    private com.toedter.calendar.JDateChooser TanggalPenerimaanPrangko;
     private javax.swing.JButton buttonCariPrangko15;
     private javax.swing.JButton buttonCariPrangko16;
     private javax.swing.JButton buttonCariPrangko17;
@@ -2391,7 +2540,6 @@ public class PanelPengembalian extends javax.swing.JPanel {
     private javax.swing.JTextField fieldCariPrangko19;
     private javax.swing.JTextField fieldCariPrangko20;
     private javax.swing.JTextField fieldCariPrangko8;
-    private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
@@ -2404,7 +2552,6 @@ public class PanelPengembalian extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> jComboBox13;
     private javax.swing.JComboBox<String> jComboBox14;
     private javax.swing.JComboBox<String> jComboBox15;
-    private com.toedter.calendar.JDateChooser jDateChooser10;
     private com.toedter.calendar.JDateChooser jDateChooser17;
     private com.toedter.calendar.JDateChooser jDateChooser18;
     private com.toedter.calendar.JDateChooser jDateChooser19;
@@ -2516,9 +2663,6 @@ public class PanelPengembalian extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane39;
     private javax.swing.JScrollPane jScrollPane40;
     private javax.swing.JScrollPane jScrollPane41;
-    private javax.swing.JTabbedPane jTabbedPane4;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextField14;
@@ -2538,7 +2682,6 @@ public class PanelPengembalian extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField40;
     private javax.swing.JTextField jTextField41;
     private javax.swing.JTextField jTextField42;
-    private javax.swing.JTextField jTextField43;
     private javax.swing.JTextField jTextField44;
     private javax.swing.JTextField jTextField45;
     private javax.swing.JTextField jTextField46;
@@ -2562,12 +2705,12 @@ public class PanelPengembalian extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
+    private javax.swing.JToggleButton resetPrangko;
     private javax.swing.JTable tablePrangko15;
     private javax.swing.JTable tablePrangko16;
     private javax.swing.JTable tablePrangko17;
     private javax.swing.JTable tablePrangko18;
     private javax.swing.JTable tablePrangko19;
     private javax.swing.JTable tablePrangko20;
-    private javax.swing.JTable tablePrangko8;
     // End of variables declaration//GEN-END:variables
 }
