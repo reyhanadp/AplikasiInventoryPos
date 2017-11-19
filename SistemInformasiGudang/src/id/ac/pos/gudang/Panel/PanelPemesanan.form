@@ -220,13 +220,13 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="ButtonTambahPemesananMSSS" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                              <Group type="103" alignment="3" groupAlignment="3" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                   <Component id="buttonCariPemesananMSSS" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="fieldCariPemesananMS_SS" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="comboCariPemesananMS_SS" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
+                              <Component id="ButtonTambahPemesananMSSS" min="-2" pref="33" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jScrollPane18" pref="420" max="32767" attributes="0"/>
@@ -355,13 +355,13 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="ButtonTambahPemesananKemasan" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                              <Group type="103" alignment="3" groupAlignment="3" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                   <Component id="buttonCariPemesananKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="fieldCariPemesananKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="comboCariPemesananKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
+                              <Component id="ButtonTambahPemesananKemasan" min="-2" pref="33" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jScrollPane19" pref="420" max="32767" attributes="0"/>
@@ -487,13 +487,13 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="ButtonTambahPemesananMerchandise" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                              <Group type="103" alignment="3" groupAlignment="3" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                   <Component id="buttonCariPemesananMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="fieldCariPemesananMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="comboCariPemesananMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
+                              <Component id="ButtonTambahPemesananMerchandise" min="-2" pref="33" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jScrollPane20" pref="420" max="32767" attributes="0"/>
@@ -619,13 +619,13 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="ButtonTambahPemesananPrisma" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                              <Group type="103" alignment="3" groupAlignment="3" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                   <Component id="buttonCariPemesananPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="fieldCariPemesananPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="comboCariPemesananPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
+                              <Component id="ButtonTambahPemesananPrisma" min="-2" pref="33" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jScrollPane21" pref="420" max="32767" attributes="0"/>
@@ -751,13 +751,13 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="ButtonTambahPemesananDokumenFilateli" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                              <Group type="103" alignment="3" groupAlignment="3" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                   <Component id="buttonCariPemesananDokumenFilateli" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="fieldCariPemesananDokumenFilateli" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="comboCariPemesananDokumenFilateli" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
+                              <Component id="ButtonTambahPemesananDokumenFilateli" min="-2" pref="33" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jScrollPane22" pref="420" max="32767" attributes="0"/>
@@ -886,13 +886,13 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="ButtonTambahPemesananSHPSS" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                              <Group type="103" alignment="3" groupAlignment="3" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                   <Component id="buttonCariPemesananSHP_SHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="fieldCariPemesananSHP_SHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="comboCariPemesananSHP_SHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
+                              <Component id="ButtonTambahPemesananSHPSS" min="-2" pref="33" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jScrollPane23" pref="420" max="32767" attributes="0"/>

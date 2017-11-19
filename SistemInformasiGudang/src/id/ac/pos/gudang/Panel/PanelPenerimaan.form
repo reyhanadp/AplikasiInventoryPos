@@ -60,9 +60,9 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jPanel39" pref="326" max="32767" attributes="0"/>
-                          <Component id="jDesktopPane15" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jDesktopPane15" min="-2" max="-2" attributes="0"/>
+                          <Component id="jPanel39" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jPanel40" max="32767" attributes="0"/>
@@ -87,9 +87,9 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jLabel151" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel150" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -117,11 +117,6 @@
                                                   <Component id="fieldNamaProduk" min="-2" pref="135" max="-2" attributes="0"/>
                                               </Group>
                                               <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace max="32767" attributes="0"/>
-                                                      <Component id="fieldSisaBelumDikirim" min="-2" pref="61" max="-2" attributes="0"/>
-                                                  </Group>
                                                   <Group type="102" alignment="1" attributes="0">
                                                       <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                                                       <EmptySpace max="32767" attributes="0"/>
@@ -132,6 +127,14 @@
                                                       <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                                                       <Component id="fieldKodeProduk" min="-2" pref="61" max="-2" attributes="0"/>
                                                   </Group>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Group type="103" groupAlignment="1" attributes="0">
+                                                          <Component id="jButtonSimpanPenerimaan" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <EmptySpace max="32767" attributes="0"/>
+                                                      <Component id="fieldSisaBelumDikirim" min="-2" pref="61" max="-2" attributes="0"/>
+                                                  </Group>
                                               </Group>
                                           </Group>
                                       </Group>
@@ -140,14 +143,7 @@
                                       <Component id="ComboNoPemesanan" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="271" max="-2" attributes="0"/>
-                                  <Component id="jButtonSimpanPenerimaan" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="133" max="32767" attributes="0"/>
                       </Group>
@@ -377,14 +373,14 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPane13" alignment="0" max="32767" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
+                      <Component id="jScrollPane13" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          <Component id="comboCariPrangko15" min="-2" max="-2" attributes="0"/>
+                          <Component id="comboCariPenerimaanPrangko" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="fieldCariPrangko15" min="-2" pref="101" max="-2" attributes="0"/>
+                          <Component id="fieldCariPenerimaanPrangko" min="-2" pref="146" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="buttonCariPrangko15" min="-2" max="-2" attributes="0"/>
+                          <Component id="buttonCariPenerimaanPrangko" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -392,12 +388,12 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="buttonCariPrangko15" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="fieldCariPrangko15" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="comboCariPrangko15" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="buttonCariPenerimaanPrangko" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="fieldCariPenerimaanPrangko" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="comboCariPenerimaanPrangko" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane13" pref="188" max="32767" attributes="0"/>
+                          <Component id="jScrollPane13" pref="185" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -430,35 +426,33 @@
                     </Component>
                   </SubComponents>
                 </Container>
-                <Component class="javax.swing.JButton" name="buttonCariPrangko15">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Cari"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCariPrangko15ActionPerformed"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldCariPrangko15">
-                  <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="fieldCariPrangko15MouseClicked"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JComboBox" name="comboCariPrangko15">
+                <Component class="javax.swing.JComboBox" name="comboCariPenerimaanPrangko">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="6">
-                        <StringItem index="0" value="Nama Produk"/>
-                        <StringItem index="1" value="Id Produk"/>
-                        <StringItem index="2" value="Nominal"/>
-                        <StringItem index="3" value="Biaya Cetak"/>
-                        <StringItem index="4" value="Stok"/>
-                        <StringItem index="5" value="Tahun"/>
+                      <StringArray count="4">
+                        <StringItem index="0" value="Nomor Order"/>
+                        <StringItem index="1" value="Tanggal Penerimaan"/>
+                        <StringItem index="2" value="Nomor Pemesanan"/>
+                        <StringItem index="3" value="Kode Produk"/>
                       </StringArray>
                     </Property>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
+                </Component>
+                <Component class="javax.swing.JTextField" name="fieldCariPenerimaanPrangko">
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="fieldCariPenerimaanPrangkoMouseClicked"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="buttonCariPenerimaanPrangko">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Cari"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCariPenerimaanPrangkoActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -477,7 +471,7 @@
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="326" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
@@ -510,9 +504,9 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jPanel73" alignment="0" min="-2" pref="326" max="-2" attributes="0"/>
-                          <Component id="jDesktopPane16" alignment="0" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jDesktopPane16" min="-2" max="-2" attributes="0"/>
+                          <Component id="jPanel73" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jPanel74" max="32767" attributes="0"/>
@@ -537,9 +531,9 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jLabel183" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel182" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -568,11 +562,6 @@
                                                   <Component id="fieldNamaProdukMS_SS" min="-2" pref="135" max="-2" attributes="0"/>
                                               </Group>
                                               <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace max="32767" attributes="0"/>
-                                                      <Component id="fieldSisaBelumDikirimMS_SS" min="-2" pref="61" max="-2" attributes="0"/>
-                                                  </Group>
                                                   <Group type="102" alignment="1" attributes="0">
                                                       <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
                                                       <EmptySpace max="32767" attributes="0"/>
@@ -583,6 +572,14 @@
                                                       <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                                                       <Component id="fieldKodeProdukMS_SS" min="-2" pref="61" max="-2" attributes="0"/>
                                                   </Group>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Group type="103" groupAlignment="1" attributes="0">
+                                                          <Component id="jButtonSimpanPenerimaanMS_SS" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <EmptySpace max="32767" attributes="0"/>
+                                                      <Component id="fieldSisaBelumDikirimMS_SS" min="-2" pref="61" max="-2" attributes="0"/>
+                                                  </Group>
                                               </Group>
                                           </Group>
                                       </Group>
@@ -590,14 +587,7 @@
                                       <Component id="ComboNoPemesananMS_SS" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="271" max="-2" attributes="0"/>
-                                  <Component id="jButtonSimpanPenerimaanMS_SS" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="133" max="32767" attributes="0"/>
                       </Group>
@@ -830,7 +820,7 @@
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="326" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
@@ -847,14 +837,14 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPane42" alignment="0" pref="1185" max="32767" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
+                      <Component id="jScrollPane42" pref="1185" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          <Component id="comboCariPrangko16" min="-2" max="-2" attributes="0"/>
+                          <Component id="comboCariPenerimaanMS_SS" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="fieldCariPrangko16" min="-2" pref="101" max="-2" attributes="0"/>
+                          <Component id="fieldCariPenerimaanMS_SS" min="-2" pref="146" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="buttonCariPrangko16" min="-2" max="-2" attributes="0"/>
+                          <Component id="buttonCariPenerimaanMS_SS" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -862,12 +852,12 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="buttonCariPrangko16" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="fieldCariPrangko16" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="comboCariPrangko16" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="buttonCariPenerimaanMS_SS" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="fieldCariPenerimaanMS_SS" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="comboCariPenerimaanMS_SS" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane42" pref="188" max="32767" attributes="0"/>
+                          <Component id="jScrollPane42" pref="185" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -900,35 +890,33 @@
                     </Component>
                   </SubComponents>
                 </Container>
-                <Component class="javax.swing.JButton" name="buttonCariPrangko16">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Cari"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCariPrangko16ActionPerformed"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldCariPrangko16">
-                  <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="fieldCariPrangko16MouseClicked"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JComboBox" name="comboCariPrangko16">
+                <Component class="javax.swing.JComboBox" name="comboCariPenerimaanMS_SS">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="6">
-                        <StringItem index="0" value="Nama Produk"/>
-                        <StringItem index="1" value="Id Produk"/>
-                        <StringItem index="2" value="Nominal"/>
-                        <StringItem index="3" value="Biaya Cetak"/>
-                        <StringItem index="4" value="Stok"/>
-                        <StringItem index="5" value="Tahun"/>
+                      <StringArray count="4">
+                        <StringItem index="0" value="Nomor Order"/>
+                        <StringItem index="1" value="Tanggal Penerimaan"/>
+                        <StringItem index="2" value="Nomor Pemesanan"/>
+                        <StringItem index="3" value="Kode Produk"/>
                       </StringArray>
                     </Property>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
+                </Component>
+                <Component class="javax.swing.JTextField" name="fieldCariPenerimaanMS_SS">
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="fieldCariPenerimaanMS_SSMouseClicked"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="buttonCariPenerimaanMS_SS">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Cari"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCariPenerimaanMS_SSActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -960,9 +948,9 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jPanel75" alignment="0" min="-2" pref="326" max="-2" attributes="0"/>
-                          <Component id="jDesktopPane17" alignment="0" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jDesktopPane17" min="-2" max="-2" attributes="0"/>
+                          <Component id="jPanel75" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jPanel76" max="32767" attributes="0"/>
@@ -987,9 +975,9 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jLabel153" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel152" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -1010,28 +998,28 @@
                                               <Component id="fieldJmlTerimaSHP_SHPSS" min="-2" pref="61" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                                                  <Component id="fieldNamaProdukSHP_SHPSS" min="-2" pref="135" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                          <Group type="103" groupAlignment="1" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
                                                   <Group type="102" alignment="0" attributes="0">
+                                                      <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                                                      <Component id="fieldNamaProdukSHP_SHPSS" min="-2" pref="135" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Component id="jLabel24" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                                      <Component id="jButtonSimpanPenerimaanSHP_SHPSS" min="-2" max="-2" attributes="0"/>
                                                       <Component id="jLabel25" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace max="32767" attributes="0"/>
-                                                      <Component id="fieldSisaBelumDikirimSHP_SHPSS" min="-2" pref="61" max="-2" attributes="0"/>
                                                   </Group>
-                                                  <Group type="102" alignment="1" attributes="0">
-                                                      <Component id="jLabel24" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace max="32767" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="1" attributes="0">
+                                                  <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
                                                       <Component id="fieldSubtotalTerimaSHP_SHPSS" min="-2" pref="61" max="-2" attributes="0"/>
+                                                      <Component id="fieldKodeProdukSHP_SHPSS" min="-2" pref="75" max="-2" attributes="0"/>
+                                                      <Component id="fieldSisaBelumDikirimSHP_SHPSS" alignment="0" min="-2" pref="61" max="-2" attributes="0"/>
                                                   </Group>
-                                                  <Group type="102" alignment="1" attributes="0">
-                                                      <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
-                                                      <Component id="fieldKodeProdukSHP_SHPSS" min="-2" pref="61" max="-2" attributes="0"/>
-                                                  </Group>
+                                                  <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                       </Group>
@@ -1040,14 +1028,7 @@
                                       <Component id="ComboNoPemesananSHP_SHPSS" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="271" max="-2" attributes="0"/>
-                                  <Component id="jButtonSimpanPenerimaanSHP_SHPSS" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="jLabel19" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="133" max="32767" attributes="0"/>
                       </Group>
@@ -1089,15 +1070,18 @@
                                   <Component id="fieldIdSuplierSHP_SHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel24" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="fieldSubtotalTerimaSHP_SHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel24" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                      <Component id="jLabel23" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="fieldStokAwalSHP_SHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
-                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel23" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="fieldStokAwalSHP_SHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="fieldSubtotalTerimaSHP_SHPSS" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -1280,7 +1264,7 @@
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="326" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
@@ -1297,14 +1281,14 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPane44" alignment="0" pref="1185" max="32767" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
+                      <Component id="jScrollPane44" pref="1185" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          <Component id="comboCariPrangko17" min="-2" max="-2" attributes="0"/>
+                          <Component id="comboCariPenerimaanSHP_SHPSS" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="fieldCariPrangko17" min="-2" pref="101" max="-2" attributes="0"/>
+                          <Component id="fieldCariPenerimaanSHP_SHPSS" min="-2" pref="146" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="buttonCariPrangko17" min="-2" max="-2" attributes="0"/>
+                          <Component id="buttonCariPenerimaanSHP_SHPSS" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1312,12 +1296,12 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="buttonCariPrangko17" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="fieldCariPrangko17" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="comboCariPrangko17" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="buttonCariPenerimaanSHP_SHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="fieldCariPenerimaanSHP_SHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="comboCariPenerimaanSHP_SHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane44" pref="188" max="32767" attributes="0"/>
+                          <Component id="jScrollPane44" pref="185" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1350,35 +1334,33 @@
                     </Component>
                   </SubComponents>
                 </Container>
-                <Component class="javax.swing.JButton" name="buttonCariPrangko17">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Cari"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCariPrangko17ActionPerformed"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldCariPrangko17">
-                  <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="fieldCariPrangko17MouseClicked"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JComboBox" name="comboCariPrangko17">
+                <Component class="javax.swing.JComboBox" name="comboCariPenerimaanSHP_SHPSS">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="6">
-                        <StringItem index="0" value="Nama Produk"/>
-                        <StringItem index="1" value="Id Produk"/>
-                        <StringItem index="2" value="Nominal"/>
-                        <StringItem index="3" value="Biaya Cetak"/>
-                        <StringItem index="4" value="Stok"/>
-                        <StringItem index="5" value="Tahun"/>
+                      <StringArray count="4">
+                        <StringItem index="0" value="Nomor Order"/>
+                        <StringItem index="1" value="Tanggal Penerimaan"/>
+                        <StringItem index="2" value="Nomor Pemesanan"/>
+                        <StringItem index="3" value="Kode Produk"/>
                       </StringArray>
                     </Property>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
+                </Component>
+                <Component class="javax.swing.JTextField" name="fieldCariPenerimaanSHP_SHPSS">
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="fieldCariPenerimaanSHP_SHPSSMouseClicked"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="buttonCariPenerimaanSHP_SHPSS">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Cari"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCariPenerimaanSHP_SHPSSActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -1410,9 +1392,9 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jPanel77" alignment="0" min="-2" pref="326" max="-2" attributes="0"/>
-                          <Component id="jDesktopPane18" alignment="0" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jDesktopPane18" min="-2" max="-2" attributes="0"/>
+                          <Component id="jPanel77" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jPanel78" max="32767" attributes="0"/>
@@ -1437,9 +1419,9 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jLabel185" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel184" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -1467,11 +1449,6 @@
                                                   <Component id="fieldNamaProdukKemasan" min="-2" pref="135" max="-2" attributes="0"/>
                                               </Group>
                                               <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="jLabel34" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace max="32767" attributes="0"/>
-                                                      <Component id="fieldSisaBelumDikirimKemasan" min="-2" pref="61" max="-2" attributes="0"/>
-                                                  </Group>
                                                   <Group type="102" alignment="1" attributes="0">
                                                       <Component id="jLabel33" min="-2" max="-2" attributes="0"/>
                                                       <EmptySpace max="32767" attributes="0"/>
@@ -1482,6 +1459,14 @@
                                                       <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                                                       <Component id="fieldKodeProdukKemasan" min="-2" pref="61" max="-2" attributes="0"/>
                                                   </Group>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Group type="103" groupAlignment="1" attributes="0">
+                                                          <Component id="jButtonSimpanPenerimaanKemasan" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="jLabel34" min="-2" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <EmptySpace max="32767" attributes="0"/>
+                                                      <Component id="fieldSisaBelumDikirimKemasan" min="-2" pref="61" max="-2" attributes="0"/>
+                                                  </Group>
                                               </Group>
                                           </Group>
                                       </Group>
@@ -1490,14 +1475,7 @@
                                       <Component id="ComboNoPemesananKemasan" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="271" max="-2" attributes="0"/>
-                                  <Component id="jButtonSimpanPenerimaanKemasan" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jLabel28" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="jLabel28" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="133" max="32767" attributes="0"/>
                       </Group>
@@ -1730,7 +1708,7 @@
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="326" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
@@ -1747,14 +1725,14 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPane46" alignment="0" pref="1185" max="32767" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
+                      <Component id="jScrollPane46" pref="1185" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          <Component id="comboCariPrangko18" min="-2" max="-2" attributes="0"/>
+                          <Component id="comboCariPenerimaanKemasan" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="fieldCariPrangko18" min="-2" pref="101" max="-2" attributes="0"/>
+                          <Component id="fieldCariPenerimaanKemasan" min="-2" pref="146" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="buttonCariPrangko18" min="-2" max="-2" attributes="0"/>
+                          <Component id="buttonCariPenerimaanKemasan" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1762,12 +1740,12 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="buttonCariPrangko18" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="fieldCariPrangko18" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="comboCariPrangko18" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="buttonCariPenerimaanKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="fieldCariPenerimaanKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="comboCariPenerimaanKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane46" pref="188" max="32767" attributes="0"/>
+                          <Component id="jScrollPane46" pref="185" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1800,35 +1778,33 @@
                     </Component>
                   </SubComponents>
                 </Container>
-                <Component class="javax.swing.JButton" name="buttonCariPrangko18">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Cari"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCariPrangko18ActionPerformed"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldCariPrangko18">
-                  <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="fieldCariPrangko18MouseClicked"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JComboBox" name="comboCariPrangko18">
+                <Component class="javax.swing.JComboBox" name="comboCariPenerimaanKemasan">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="6">
-                        <StringItem index="0" value="Nama Produk"/>
-                        <StringItem index="1" value="Id Produk"/>
-                        <StringItem index="2" value="Nominal"/>
-                        <StringItem index="3" value="Biaya Cetak"/>
-                        <StringItem index="4" value="Stok"/>
-                        <StringItem index="5" value="Tahun"/>
+                      <StringArray count="4">
+                        <StringItem index="0" value="Nomor Order"/>
+                        <StringItem index="1" value="Tanggal Penerimaan"/>
+                        <StringItem index="2" value="Nomor Pemesanan"/>
+                        <StringItem index="3" value="Kode Produk"/>
                       </StringArray>
                     </Property>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
+                </Component>
+                <Component class="javax.swing.JTextField" name="fieldCariPenerimaanKemasan">
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="fieldCariPenerimaanKemasanMouseClicked"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="buttonCariPenerimaanKemasan">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Cari"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCariPenerimaanKemasanActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -1857,9 +1833,9 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jPanel79" alignment="0" min="-2" pref="326" max="-2" attributes="0"/>
-                          <Component id="jDesktopPane19" alignment="0" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jDesktopPane19" min="-2" max="-2" attributes="0"/>
+                          <Component id="jPanel79" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jPanel80" max="32767" attributes="0"/>
@@ -1884,60 +1860,55 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabel187" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel186" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel65" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel40" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel41" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel44" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel45" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel37" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="ComboNoPemesananMerchandise" min="-2" max="-2" attributes="0"/>
+                              <Component id="jScrollPane5" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="fieldNoOrderMerchandise" alignment="0" min="-2" pref="61" max="-2" attributes="0"/>
+                              <Component id="fieldTglPenerimaanMerchandise" alignment="0" min="-2" pref="163" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="271" max="-2" attributes="0"/>
-                                  <Component id="jButtonSimpanPenerimaanMerchandise" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel187" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel186" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel65" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel40" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel41" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel44" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel45" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel37" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="fieldTotalPemesananMerchandise" alignment="0" min="-2" pref="61" max="-2" attributes="0"/>
+                                      <Component id="fieldIdSuplierMerchandise" alignment="0" min="-2" pref="61" max="-2" attributes="0"/>
+                                      <Component id="fieldStokAwalMerchandise" alignment="0" min="-2" pref="61" max="-2" attributes="0"/>
+                                      <Component id="fieldJmlTerimaMerchandise" min="-2" pref="61" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="ComboNoPemesananMerchandise" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jScrollPane5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="fieldNoOrderMerchandise" alignment="0" min="-2" pref="61" max="-2" attributes="0"/>
-                                      <Component id="fieldTglPenerimaanMerchandise" alignment="0" min="-2" pref="163" max="-2" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="fieldTotalPemesananMerchandise" alignment="0" min="-2" pref="61" max="-2" attributes="0"/>
-                                              <Component id="fieldIdSuplierMerchandise" alignment="0" min="-2" pref="61" max="-2" attributes="0"/>
-                                              <Component id="fieldStokAwalMerchandise" alignment="0" min="-2" pref="61" max="-2" attributes="0"/>
-                                              <Component id="fieldJmlTerimaMerchandise" min="-2" pref="61" max="-2" attributes="0"/>
+                                          <Component id="jLabel38" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                                          <Component id="fieldNamaProdukMerchandise" min="-2" pref="135" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Component id="jLabel42" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="fieldSubtotalTerimaMerchandise" min="-2" pref="61" max="-2" attributes="0"/>
                                           </Group>
-                                          <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="jLabel38" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                                                  <Component id="fieldNamaProdukMerchandise" min="-2" pref="135" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Component id="jLabel39" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+                                              <Component id="fieldKodeProdukMerchandise" min="-2" pref="61" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="1" attributes="0">
+                                                  <Component id="jButtonSimpanPenerimaanMerchandise" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jLabel43" min="-2" max="-2" attributes="0"/>
                                               </Group>
-                                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="jLabel43" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace max="32767" attributes="0"/>
-                                                      <Component id="fieldSisaBelumDikirimMerchandise" min="-2" pref="61" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <Group type="102" alignment="1" attributes="0">
-                                                      <Component id="jLabel42" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace max="32767" attributes="0"/>
-                                                      <Component id="fieldSubtotalTerimaMerchandise" min="-2" pref="61" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <Group type="102" alignment="1" attributes="0">
-                                                      <Component id="jLabel39" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
-                                                      <Component id="fieldKodeProdukMerchandise" min="-2" pref="61" max="-2" attributes="0"/>
-                                                  </Group>
-                                              </Group>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="fieldSisaBelumDikirimMerchandise" min="-2" pref="61" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
@@ -2174,7 +2145,7 @@
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="326" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
@@ -2191,14 +2162,14 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPane48" alignment="0" pref="1185" max="32767" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
+                      <Component id="jScrollPane48" pref="1185" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          <Component id="comboCariPrangko19" min="-2" max="-2" attributes="0"/>
+                          <Component id="comboCariPenerimaanMerchandise" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="fieldCariPrangko19" min="-2" pref="101" max="-2" attributes="0"/>
+                          <Component id="fieldCariPenerimaanMerchandise" min="-2" pref="146" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="buttonCariPrangko19" min="-2" max="-2" attributes="0"/>
+                          <Component id="buttonCariPenerimaanMerchandise" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -2206,12 +2177,12 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="buttonCariPrangko19" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="fieldCariPrangko19" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="comboCariPrangko19" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="buttonCariPenerimaanMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="fieldCariPenerimaanMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="comboCariPenerimaanMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane48" pref="188" max="32767" attributes="0"/>
+                          <Component id="jScrollPane48" pref="185" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -2244,35 +2215,33 @@
                     </Component>
                   </SubComponents>
                 </Container>
-                <Component class="javax.swing.JButton" name="buttonCariPrangko19">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Cari"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCariPrangko19ActionPerformed"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldCariPrangko19">
-                  <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="fieldCariPrangko19MouseClicked"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JComboBox" name="comboCariPrangko19">
+                <Component class="javax.swing.JComboBox" name="comboCariPenerimaanMerchandise">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="6">
-                        <StringItem index="0" value="Nama Produk"/>
-                        <StringItem index="1" value="Id Produk"/>
-                        <StringItem index="2" value="Nominal"/>
-                        <StringItem index="3" value="Biaya Cetak"/>
-                        <StringItem index="4" value="Stok"/>
-                        <StringItem index="5" value="Tahun"/>
+                      <StringArray count="4">
+                        <StringItem index="0" value="Nomor Order"/>
+                        <StringItem index="1" value="Tanggal Penerimaan"/>
+                        <StringItem index="2" value="Nomor Pemesanan"/>
+                        <StringItem index="3" value="Kode Produk"/>
                       </StringArray>
                     </Property>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
+                </Component>
+                <Component class="javax.swing.JTextField" name="fieldCariPenerimaanMerchandise">
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="fieldCariPenerimaanMerchandiseMouseClicked"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="buttonCariPenerimaanMerchandise">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Cari"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCariPenerimaanMerchandiseActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -2301,9 +2270,9 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jPanel81" alignment="0" min="-2" pref="326" max="-2" attributes="0"/>
-                          <Component id="jDesktopPane20" alignment="0" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jDesktopPane20" min="-2" max="-2" attributes="0"/>
+                          <Component id="jPanel81" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jPanel82" max="32767" attributes="0"/>
@@ -2328,9 +2297,9 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jLabel189" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel188" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -2359,11 +2328,6 @@
                                                   <Component id="fieldNamaProdukPrisma" min="-2" pref="135" max="-2" attributes="0"/>
                                               </Group>
                                               <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="jLabel52" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace max="32767" attributes="0"/>
-                                                      <Component id="fieldSisaBelumDikirimPrisma" min="-2" pref="61" max="-2" attributes="0"/>
-                                                  </Group>
                                                   <Group type="102" alignment="1" attributes="0">
                                                       <Component id="jLabel51" min="-2" max="-2" attributes="0"/>
                                                       <EmptySpace max="32767" attributes="0"/>
@@ -2374,6 +2338,14 @@
                                                       <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                                                       <Component id="fieldKodeProdukPrisma" min="-2" pref="61" max="-2" attributes="0"/>
                                                   </Group>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Group type="103" groupAlignment="1" attributes="0">
+                                                          <Component id="jButtonSimpanPenerimaanPrisma" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="jLabel52" min="-2" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <EmptySpace max="32767" attributes="0"/>
+                                                      <Component id="fieldSisaBelumDikirimPrisma" min="-2" pref="61" max="-2" attributes="0"/>
+                                                  </Group>
                                               </Group>
                                           </Group>
                                       </Group>
@@ -2381,14 +2353,7 @@
                                       <Component id="ComboNoPemesananPrisma" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="271" max="-2" attributes="0"/>
-                                  <Component id="jButtonSimpanPenerimaanPrisma" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jLabel46" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="jLabel46" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="133" max="32767" attributes="0"/>
                       </Group>
@@ -2621,7 +2586,7 @@
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="326" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
@@ -2638,14 +2603,14 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPane50" alignment="0" pref="1185" max="32767" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
+                      <Component id="jScrollPane50" pref="1185" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          <Component id="comboCariPrangko20" min="-2" max="-2" attributes="0"/>
+                          <Component id="comboCariPenerimaanPrisma" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="fieldCariPrangko20" min="-2" pref="101" max="-2" attributes="0"/>
+                          <Component id="fieldCariPenerimaanPrisma" min="-2" pref="146" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="buttonCariPrangko20" min="-2" max="-2" attributes="0"/>
+                          <Component id="buttonCariPenerimaanPrisma" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -2653,12 +2618,12 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="buttonCariPrangko20" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="fieldCariPrangko20" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="comboCariPrangko20" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="buttonCariPenerimaanPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="fieldCariPenerimaanPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="comboCariPenerimaanPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane50" pref="188" max="32767" attributes="0"/>
+                          <Component id="jScrollPane50" pref="185" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -2691,35 +2656,33 @@
                     </Component>
                   </SubComponents>
                 </Container>
-                <Component class="javax.swing.JButton" name="buttonCariPrangko20">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Cari"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCariPrangko20ActionPerformed"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldCariPrangko20">
-                  <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="fieldCariPrangko20MouseClicked"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JComboBox" name="comboCariPrangko20">
+                <Component class="javax.swing.JComboBox" name="comboCariPenerimaanPrisma">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="6">
-                        <StringItem index="0" value="Nama Produk"/>
-                        <StringItem index="1" value="Id Produk"/>
-                        <StringItem index="2" value="Nominal"/>
-                        <StringItem index="3" value="Biaya Cetak"/>
-                        <StringItem index="4" value="Stok"/>
-                        <StringItem index="5" value="Tahun"/>
+                      <StringArray count="4">
+                        <StringItem index="0" value="Nomor Order"/>
+                        <StringItem index="1" value="Tanggal Penerimaan"/>
+                        <StringItem index="2" value="Nomor Pemesanan"/>
+                        <StringItem index="3" value="Kode Produk"/>
                       </StringArray>
                     </Property>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
+                </Component>
+                <Component class="javax.swing.JTextField" name="fieldCariPenerimaanPrisma">
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="fieldCariPenerimaanPrismaMouseClicked"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="buttonCariPenerimaanPrisma">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Cari"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCariPenerimaanPrismaActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -2748,9 +2711,9 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jPanel83" alignment="0" min="-2" pref="326" max="-2" attributes="0"/>
-                          <Component id="jDesktopPane21" alignment="0" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jDesktopPane21" min="-2" max="-2" attributes="0"/>
+                          <Component id="jPanel83" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jPanel84" max="32767" attributes="0"/>
@@ -2775,9 +2738,9 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jLabel191" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel190" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -2806,11 +2769,6 @@
                                                   <Component id="fieldNamaProdukDokumenFilateli" min="-2" pref="135" max="-2" attributes="0"/>
                                               </Group>
                                               <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="jLabel70" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace max="32767" attributes="0"/>
-                                                      <Component id="fieldSisaBelumDikirimDokumenFilateli" min="-2" pref="61" max="-2" attributes="0"/>
-                                                  </Group>
                                                   <Group type="102" alignment="1" attributes="0">
                                                       <Component id="jLabel60" min="-2" max="-2" attributes="0"/>
                                                       <EmptySpace max="32767" attributes="0"/>
@@ -2821,6 +2779,14 @@
                                                       <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                                                       <Component id="fieldKodeProdukDokumenFilateli" min="-2" pref="61" max="-2" attributes="0"/>
                                                   </Group>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Group type="103" groupAlignment="1" attributes="0">
+                                                          <Component id="jButtonSimpanPenerimaanDokumenFilateli" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="jLabel70" min="-2" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <EmptySpace max="32767" attributes="0"/>
+                                                      <Component id="fieldSisaBelumDikirimDokumenFilateli" min="-2" pref="61" max="-2" attributes="0"/>
+                                                  </Group>
                                               </Group>
                                           </Group>
                                       </Group>
@@ -2828,14 +2794,7 @@
                                       <Component id="ComboNoPemesananDokumenFilateli" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="271" max="-2" attributes="0"/>
-                                  <Component id="jButtonSimpanPenerimaanDokumenFilateli" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jLabel55" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="jLabel55" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="133" max="32767" attributes="0"/>
                       </Group>
@@ -3068,7 +3027,7 @@
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="326" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
@@ -3085,14 +3044,14 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPane52" alignment="0" pref="1185" max="32767" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
+                      <Component id="jScrollPane52" pref="1185" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          <Component id="comboCariPrangko21" min="-2" max="-2" attributes="0"/>
+                          <Component id="comboCariPenerimaanDokumenFilateli" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="fieldCariPrangko21" min="-2" pref="101" max="-2" attributes="0"/>
+                          <Component id="fieldCariPenerimaanDokumenFilateli" min="-2" pref="146" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="buttonCariPrangko21" min="-2" max="-2" attributes="0"/>
+                          <Component id="buttonCariPenerimaanDokumenFilateli" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -3100,12 +3059,12 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="buttonCariPrangko21" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="fieldCariPrangko21" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="comboCariPrangko21" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="buttonCariPenerimaanDokumenFilateli" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="fieldCariPenerimaanDokumenFilateli" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="comboCariPenerimaanDokumenFilateli" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane52" pref="188" max="32767" attributes="0"/>
+                          <Component id="jScrollPane52" pref="185" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -3138,35 +3097,33 @@
                     </Component>
                   </SubComponents>
                 </Container>
-                <Component class="javax.swing.JButton" name="buttonCariPrangko21">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Cari"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCariPrangko21ActionPerformed"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldCariPrangko21">
-                  <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="fieldCariPrangko21MouseClicked"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JComboBox" name="comboCariPrangko21">
+                <Component class="javax.swing.JComboBox" name="comboCariPenerimaanDokumenFilateli">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="6">
-                        <StringItem index="0" value="Nama Produk"/>
-                        <StringItem index="1" value="Id Produk"/>
-                        <StringItem index="2" value="Nominal"/>
-                        <StringItem index="3" value="Biaya Cetak"/>
-                        <StringItem index="4" value="Stok"/>
-                        <StringItem index="5" value="Tahun"/>
+                      <StringArray count="4">
+                        <StringItem index="0" value="Nomor Order"/>
+                        <StringItem index="1" value="Tanggal Penerimaan"/>
+                        <StringItem index="2" value="Nomor Pemesanan"/>
+                        <StringItem index="3" value="Kode Produk"/>
                       </StringArray>
                     </Property>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
+                </Component>
+                <Component class="javax.swing.JTextField" name="fieldCariPenerimaanDokumenFilateli">
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="fieldCariPenerimaanDokumenFilateliMouseClicked"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="buttonCariPenerimaanDokumenFilateli">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Cari"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCariPenerimaanDokumenFilateliActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>

@@ -16,6 +16,7 @@ import java.util.ArrayList;
 public interface PenerimaanDAO {
     
     boolean tambahPenerimaan(Penerimaan penerimaan);
+    ArrayList<Penerimaan> cariProdukPenerimaan(String keyword, String jenisCari, String idJenis);
     ArrayList<Penerimaan> getDataPenerimaanPrangko();
     ArrayList<Penerimaan> getDataPenerimaanMS_SS();
     ArrayList<Penerimaan> getDataPenerimaanSHP_SHPSS();

@@ -30,6 +30,69 @@ public class PenerimaanDAOImpl implements PenerimaanDAO {
          conn = DatabaseConnectivity.getConnection();
     }
     
+    @Override
+    public ArrayList<Penerimaan> cariProdukPenerimaan(String keyword, String jenisCari, String idJenis) {
+        ArrayList<Penerimaan> arrayPenerimaan = null;
+        String SELECT = "";
+        if (idJenis.compareTo("SS") == 0) {
+            SELECT = "SELECT * FROM tb_trans_penerimaan "
+                    + "WHERE " + jenisCari + " LIKE '%" + keyword + "%' && "
+                    + "substring(id_produk,1,2) in (SELECT substring(id_produk,1,2) FROM"
+                    + " tb_produk WHERE id_jenis_produk = 'SS'"
+                    + " || id_jenis_produk = 'MS')";
+        } else if (idJenis.compareTo("SHP") == 0) {
+            SELECT = "SELECT * FROM tb_trans_penerimaan "
+                    + "WHERE " + jenisCari + " LIKE '%" + keyword + "%' && "
+                    + "substring(id_produk,1,2) in (SELECT substring(id_produk,1,2) FROM"
+                    + " tb_produk WHERE id_jenis_produk = 'SHP'"
+                    + " || id_jenis_produk = 'SHPSS')";
+        } else {
+            SELECT = "SELECT * FROM tb_trans_penerimaan "
+                    + "WHERE " + jenisCari + " LIKE '%" + keyword + "%' && substring(id_produk,1,2) = '" + idJenis + "'";
+        }
+        PreparedStatement state = null;
+
+        try {
+            state = conn.prepareStatement(SELECT);
+            ResultSet result = state.executeQuery();
+            if (result != null) {
+                arrayPenerimaan = new ArrayList<>();
+
+                // selama result memiliki data
+                // return lebih dari 1 data
+                while (result.next()) {
+                    Penerimaan penerimaan = new Penerimaan();
+                    penerimaan.setNoOrder(result.getString("no_order"));
+                    penerimaan.setTglPenerimaan(result.getString("tgl_penerimaan"));
+                    penerimaan.setJmlTerima(result.getInt("jml_terima"));
+                    penerimaan.setNoPemesanan(result.getString("no_pemesanan"));
+                    penerimaan.setIdProduk(result.getString("id_produk"));
+                    penerimaan.setIdSuplier(result.getString("id_suplier"));
+                    penerimaan.setStokAwal(result.getInt("stok_awal"));
+                    penerimaan.setStokAkhir(result.getInt("stok_akhir"));
+                    penerimaan.setSubTotalTerima(result.getInt("subtotal_terima"));
+                    penerimaan.setSisaBelumDikirim(result.getInt("sisa_belum_dikirim"));
+                    penerimaan.setKeterangan(result.getString("keterangan"));
+                    
+                    //menambahkan data ke array
+                    arrayPenerimaan.add(penerimaan);
+                }
+            }
+        } catch (SQLException ex) {
+
+            Logger.getLogger(PenerimaanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PenerimaanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        return arrayPenerimaan;
+    }
+    
     public boolean tambahPenerimaan(Penerimaan penerimaan){
         String INSERT = "INSERT INTO tb_trans_penerimaan (no_order,tgl_penerimaan, jml_terima, no_pemesanan,"
                 + "id_produk, id_suplier, stok_awal, stok_akhir, subtotal_terima,sisa_belum_dikirim, keterangan"
