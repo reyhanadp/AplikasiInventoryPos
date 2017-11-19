@@ -61,7 +61,301 @@ public class PenerimaanDAOImpl implements PenerimaanDAO {
     
     public ArrayList<Penerimaan> getDataPenerimaanPrangko() {
         ArrayList<Penerimaan> arrayPenerimaan = null;
-        String SELECT = "SELECT * FROM tb_trans_penerimaan";
+        String SELECT = "SELECT * FROM tb_trans_penerimaan WHERE substring(id_produk,1,2)='PR'";
+        PreparedStatement state = null;
+
+        try {
+            state = conn.prepareStatement(SELECT);
+            
+            ResultSet result = state.executeQuery();
+            
+            if (result != null) {
+                arrayPenerimaan = new ArrayList<>();
+                
+                //selama result memiliki data
+                //return lebih dari 1 data
+                while (result.next()) {
+                    //mengambil 1 data
+                    Penerimaan penerimaan = new Penerimaan();
+                    penerimaan.setNoOrder(result.getString("no_order"));
+                    penerimaan.setTglPenerimaan(result.getString("tgl_penerimaan"));
+                    penerimaan.setJmlTerima(result.getInt("jml_terima"));
+                    penerimaan.setNoPemesanan(result.getString("no_pemesanan"));
+                    penerimaan.setIdProduk(result.getString("id_produk"));
+                    penerimaan.setIdSuplier(result.getString("id_suplier"));
+                    penerimaan.setStokAwal(result.getInt("stok_awal"));
+                    penerimaan.setStokAkhir(result.getInt("stok_akhir"));
+                    penerimaan.setSubTotalTerima(result.getInt("subtotal_terima"));
+                    penerimaan.setSisaBelumDikirim(result.getInt("sisa_belum_dikirim"));
+                    penerimaan.setKeterangan(result.getString("keterangan"));
+                    
+                    //menambahkan data ke array
+                    arrayPenerimaan.add(penerimaan);
+                }
+            }
+        } catch (SQLException ex) {
+
+            Logger.getLogger(PenerimaanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PenerimaanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        return arrayPenerimaan;
+    }
+    
+    public ArrayList<Penerimaan> getDataPenerimaanMS_SS() {
+        ArrayList<Penerimaan> arrayPenerimaan = null;
+        String SELECT = "SELECT * FROM tb_trans_penerimaan WHERE substring(id_produk,1,2)='MS' || substring(id_produk,1,2)='SS'";
+        PreparedStatement state = null;
+
+        try {
+            state = conn.prepareStatement(SELECT);
+            
+            ResultSet result = state.executeQuery();
+            
+            if (result != null) {
+                arrayPenerimaan = new ArrayList<>();
+                
+                //selama result memiliki data
+                //return lebih dari 1 data
+                while (result.next()) {
+                    //mengambil 1 data
+                    Penerimaan penerimaan = new Penerimaan();
+                    penerimaan.setNoOrder(result.getString("no_order"));
+                    penerimaan.setTglPenerimaan(result.getString("tgl_penerimaan"));
+                    penerimaan.setJmlTerima(result.getInt("jml_terima"));
+                    penerimaan.setNoPemesanan(result.getString("no_pemesanan"));
+                    penerimaan.setIdProduk(result.getString("id_produk"));
+                    penerimaan.setIdSuplier(result.getString("id_suplier"));
+                    penerimaan.setStokAwal(result.getInt("stok_awal"));
+                    penerimaan.setStokAkhir(result.getInt("stok_akhir"));
+                    penerimaan.setSubTotalTerima(result.getInt("subtotal_terima"));
+                    penerimaan.setSisaBelumDikirim(result.getInt("sisa_belum_dikirim"));
+                    penerimaan.setKeterangan(result.getString("keterangan"));
+                    
+                    //menambahkan data ke array
+                    arrayPenerimaan.add(penerimaan);
+                }
+            }
+        } catch (SQLException ex) {
+
+            Logger.getLogger(PenerimaanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PenerimaanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        return arrayPenerimaan;
+    }
+    
+    public ArrayList<Penerimaan> getDataPenerimaanSHP_SHPSS() {
+        ArrayList<Penerimaan> arrayPenerimaan = null;
+        String SELECT = "SELECT * FROM tb_trans_penerimaan WHERE substring(id_produk,1,3)='SHP'";
+        PreparedStatement state = null;
+
+        try {
+            state = conn.prepareStatement(SELECT);
+            
+            ResultSet result = state.executeQuery();
+            
+            if (result != null) {
+                arrayPenerimaan = new ArrayList<>();
+                
+                //selama result memiliki data
+                //return lebih dari 1 data
+                while (result.next()) {
+                    //mengambil 1 data
+                    Penerimaan penerimaan = new Penerimaan();
+                    penerimaan.setNoOrder(result.getString("no_order"));
+                    penerimaan.setTglPenerimaan(result.getString("tgl_penerimaan"));
+                    penerimaan.setJmlTerima(result.getInt("jml_terima"));
+                    penerimaan.setNoPemesanan(result.getString("no_pemesanan"));
+                    penerimaan.setIdProduk(result.getString("id_produk"));
+                    penerimaan.setIdSuplier(result.getString("id_suplier"));
+                    penerimaan.setStokAwal(result.getInt("stok_awal"));
+                    penerimaan.setStokAkhir(result.getInt("stok_akhir"));
+                    penerimaan.setSubTotalTerima(result.getInt("subtotal_terima"));
+                    penerimaan.setSisaBelumDikirim(result.getInt("sisa_belum_dikirim"));
+                    penerimaan.setKeterangan(result.getString("keterangan"));
+                    
+                    //menambahkan data ke array
+                    arrayPenerimaan.add(penerimaan);
+                }
+            }
+        } catch (SQLException ex) {
+
+            Logger.getLogger(PenerimaanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PenerimaanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        return arrayPenerimaan;
+    }
+    
+    public ArrayList<Penerimaan> getDataPenerimaanKemasan() {
+        ArrayList<Penerimaan> arrayPenerimaan = null;
+        String SELECT = "SELECT * FROM tb_trans_penerimaan WHERE substring(id_produk,1,2)='KM'";
+        PreparedStatement state = null;
+
+        try {
+            state = conn.prepareStatement(SELECT);
+            
+            ResultSet result = state.executeQuery();
+            
+            if (result != null) {
+                arrayPenerimaan = new ArrayList<>();
+                
+                //selama result memiliki data
+                //return lebih dari 1 data
+                while (result.next()) {
+                    //mengambil 1 data
+                    Penerimaan penerimaan = new Penerimaan();
+                    penerimaan.setNoOrder(result.getString("no_order"));
+                    penerimaan.setTglPenerimaan(result.getString("tgl_penerimaan"));
+                    penerimaan.setJmlTerima(result.getInt("jml_terima"));
+                    penerimaan.setNoPemesanan(result.getString("no_pemesanan"));
+                    penerimaan.setIdProduk(result.getString("id_produk"));
+                    penerimaan.setIdSuplier(result.getString("id_suplier"));
+                    penerimaan.setStokAwal(result.getInt("stok_awal"));
+                    penerimaan.setStokAkhir(result.getInt("stok_akhir"));
+                    penerimaan.setSubTotalTerima(result.getInt("subtotal_terima"));
+                    penerimaan.setSisaBelumDikirim(result.getInt("sisa_belum_dikirim"));
+                    penerimaan.setKeterangan(result.getString("keterangan"));
+                    
+                    //menambahkan data ke array
+                    arrayPenerimaan.add(penerimaan);
+                }
+            }
+        } catch (SQLException ex) {
+
+            Logger.getLogger(PenerimaanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PenerimaanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        return arrayPenerimaan;
+    }
+    
+    public ArrayList<Penerimaan> getDataPenerimaanMerchandise() {
+        ArrayList<Penerimaan> arrayPenerimaan = null;
+        String SELECT = "SELECT * FROM tb_trans_penerimaan WHERE substring(id_produk,1,2)='MC'";
+        PreparedStatement state = null;
+
+        try {
+            state = conn.prepareStatement(SELECT);
+            
+            ResultSet result = state.executeQuery();
+            
+            if (result != null) {
+                arrayPenerimaan = new ArrayList<>();
+                
+                //selama result memiliki data
+                //return lebih dari 1 data
+                while (result.next()) {
+                    //mengambil 1 data
+                    Penerimaan penerimaan = new Penerimaan();
+                    penerimaan.setNoOrder(result.getString("no_order"));
+                    penerimaan.setTglPenerimaan(result.getString("tgl_penerimaan"));
+                    penerimaan.setJmlTerima(result.getInt("jml_terima"));
+                    penerimaan.setNoPemesanan(result.getString("no_pemesanan"));
+                    penerimaan.setIdProduk(result.getString("id_produk"));
+                    penerimaan.setIdSuplier(result.getString("id_suplier"));
+                    penerimaan.setStokAwal(result.getInt("stok_awal"));
+                    penerimaan.setStokAkhir(result.getInt("stok_akhir"));
+                    penerimaan.setSubTotalTerima(result.getInt("subtotal_terima"));
+                    penerimaan.setSisaBelumDikirim(result.getInt("sisa_belum_dikirim"));
+                    penerimaan.setKeterangan(result.getString("keterangan"));
+                    
+                    //menambahkan data ke array
+                    arrayPenerimaan.add(penerimaan);
+                }
+            }
+        } catch (SQLException ex) {
+
+            Logger.getLogger(PenerimaanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PenerimaanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        return arrayPenerimaan;
+    }
+    
+    public ArrayList<Penerimaan> getDataPenerimaanPrisma() {
+        ArrayList<Penerimaan> arrayPenerimaan = null;
+        String SELECT = "SELECT * FROM tb_trans_penerimaan WHERE substring(id_produk,1,2)='PS'";
+        PreparedStatement state = null;
+
+        try {
+            state = conn.prepareStatement(SELECT);
+            
+            ResultSet result = state.executeQuery();
+            
+            if (result != null) {
+                arrayPenerimaan = new ArrayList<>();
+                
+                //selama result memiliki data
+                //return lebih dari 1 data
+                while (result.next()) {
+                    //mengambil 1 data
+                    Penerimaan penerimaan = new Penerimaan();
+                    penerimaan.setNoOrder(result.getString("no_order"));
+                    penerimaan.setTglPenerimaan(result.getString("tgl_penerimaan"));
+                    penerimaan.setJmlTerima(result.getInt("jml_terima"));
+                    penerimaan.setNoPemesanan(result.getString("no_pemesanan"));
+                    penerimaan.setIdProduk(result.getString("id_produk"));
+                    penerimaan.setIdSuplier(result.getString("id_suplier"));
+                    penerimaan.setStokAwal(result.getInt("stok_awal"));
+                    penerimaan.setStokAkhir(result.getInt("stok_akhir"));
+                    penerimaan.setSubTotalTerima(result.getInt("subtotal_terima"));
+                    penerimaan.setSisaBelumDikirim(result.getInt("sisa_belum_dikirim"));
+                    penerimaan.setKeterangan(result.getString("keterangan"));
+                    
+                    //menambahkan data ke array
+                    arrayPenerimaan.add(penerimaan);
+                }
+            }
+        } catch (SQLException ex) {
+
+            Logger.getLogger(PenerimaanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PenerimaanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        return arrayPenerimaan;
+    }
+    
+    public ArrayList<Penerimaan> getDataPenerimaanDokumenFilateli() {
+        ArrayList<Penerimaan> arrayPenerimaan = null;
+        String SELECT = "SELECT * FROM tb_trans_penerimaan WHERE substring(id_produk,1,2)='DF'";
         PreparedStatement state = null;
 
         try {

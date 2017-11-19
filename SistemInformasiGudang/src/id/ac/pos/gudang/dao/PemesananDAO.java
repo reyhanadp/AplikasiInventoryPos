@@ -16,6 +16,8 @@ public interface PemesananDAO {
     
     String getNoPemesanan();
     
+    ArrayList<Pemesanan> cariProdukPemesanan(String keyword, String jenisCari, String idJenis);
+    
     boolean tambahPemesanan(Pemesanan pemesanan, String jenisProduk);
     
     ArrayList<Pemesanan> getDataPemesananPrangko();

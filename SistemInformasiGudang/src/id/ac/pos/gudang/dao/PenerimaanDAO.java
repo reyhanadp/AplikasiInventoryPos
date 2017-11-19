@@ -17,5 +17,11 @@ public interface PenerimaanDAO {
     
     boolean tambahPenerimaan(Penerimaan penerimaan);
     ArrayList<Penerimaan> getDataPenerimaanPrangko();
+    ArrayList<Penerimaan> getDataPenerimaanMS_SS();
+    ArrayList<Penerimaan> getDataPenerimaanSHP_SHPSS();
+    ArrayList<Penerimaan> getDataPenerimaanKemasan();
+    ArrayList<Penerimaan> getDataPenerimaanMerchandise();
+    ArrayList<Penerimaan> getDataPenerimaanPrisma();
+    ArrayList<Penerimaan> getDataPenerimaanDokumenFilateli();
     
 }

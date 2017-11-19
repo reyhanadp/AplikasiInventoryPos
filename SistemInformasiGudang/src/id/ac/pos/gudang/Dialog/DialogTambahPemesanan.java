@@ -39,13 +39,28 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
         conn = DatabaseConnectivity.getConnection();
         setModelNamaSuplier();
         autoIncrementNoPemesanan();
-        autoincrementPrangko();
         setLocationRelativeTo(this);
+
+    }
+    
+    public void autofillfield(String kode){
+        PreparedStatement state = null;
+        try {
+            String query = "SELECT * FROM tb_produk WHERE id_produk='"+kode+"'";
+            state = conn.prepareStatement(query);
+            ResultSet result = state.executeQuery(query); 
+            while (result.next()) {   
+                fieldBiayaCetakPemesanan.setText(result.getString("biaya_cetak"));
+                fieldNamaProdukPemesanan.setText(result.getString("nama_produk"));
+                fieldNominalPemesanan.setText(result.getString("nominal"));
+                fieldTahunPemesanan.setText(result.getString("tahun"));
+            }         
+        } catch (SQLException e) {
+        }
     }
     
     public void setModelNamaSuplier(){
         try {
-            System.out.println("1");
             String query = "SELECT nama_suplier FROM tb_suplier ORDER BY nama_suplier";
             PreparedStatement state = null;
             state = conn.prepareStatement(query);
@@ -54,6 +69,306 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
             while (result.next()) {   
                 
                 comboNamaSuplier.addItem(result.getString("nama_suplier"));
+            }
+           
+        } catch (SQLException e) {
+        }
+    }
+    
+    public void setKosongCombo(){
+        setModelKosongProdukDokumenFilateli();
+        setModelKosongProdukKemasan();
+        setModelKosongProdukMS();
+        setModelKosongProdukMerchandise();
+        setModelKosongProdukPrangko();
+        setModelKosongProdukPrisma();
+        setModelKosongProdukSHP();
+        setModelKosongProdukSHPSS();
+        setModelKosongProdukSS();
+    }
+    
+    public void setModelKosongProdukPrangko(){
+        try {
+            String query = "SELECT id_produk FROM tb_produk WHERE id_jenis_produk ='PR' ORDER BY id_produk";
+            PreparedStatement state = null;
+            state = conn.prepareStatement(query);
+            ResultSet result = state.executeQuery(query);
+             
+            while (result.next()) {   
+                
+                comboKodeProduk.removeItem(result.getString("id_produk"));
+            }
+           
+        } catch (SQLException e) {
+        }
+    }
+    
+    public void setModelKosongProdukMS(){
+        try {
+            String query = "SELECT id_produk FROM tb_produk WHERE id_jenis_produk ='MS' ORDER BY id_produk";
+            PreparedStatement state = null;
+            state = conn.prepareStatement(query);
+            ResultSet result = state.executeQuery(query);
+             
+            while (result.next()) {   
+                
+                comboKodeProduk.removeItem(result.getString("id_produk"));
+            }
+           
+        } catch (SQLException e) {
+        }
+    }
+    
+    public void setModelKosongProdukSS(){
+        try {
+            String query = "SELECT id_produk FROM tb_produk WHERE id_jenis_produk ='SS' ORDER BY id_produk";
+            PreparedStatement state = null;
+            state = conn.prepareStatement(query);
+            ResultSet result = state.executeQuery(query);
+             
+            while (result.next()) {   
+                
+                comboKodeProduk.removeItem(result.getString("id_produk"));
+            }
+           
+        } catch (SQLException e) {
+        }
+    }
+    
+    public void setModelKosongProdukSHP(){
+        try {
+            String query = "SELECT id_produk FROM tb_produk WHERE id_jenis_produk ='SHP' ORDER BY id_produk";
+            PreparedStatement state = null;
+            state = conn.prepareStatement(query);
+            ResultSet result = state.executeQuery(query);
+             
+            while (result.next()) {   
+                
+                comboKodeProduk.removeItem(result.getString("id_produk"));
+            }
+           
+        } catch (SQLException e) {
+        }
+    }
+    
+    public void setModelKosongProdukSHPSS(){
+        try {
+            String query = "SELECT id_produk FROM tb_produk WHERE id_jenis_produk ='SHPSS' ORDER BY id_produk";
+            PreparedStatement state = null;
+            state = conn.prepareStatement(query);
+            ResultSet result = state.executeQuery(query);
+             
+            while (result.next()) {   
+                
+                comboKodeProduk.removeItem(result.getString("id_produk"));
+            }
+           
+        } catch (SQLException e) {
+        }
+    }
+    
+    public void setModelKosongProdukKemasan(){
+        try {
+            String query = "SELECT id_produk FROM tb_produk WHERE id_jenis_produk ='KM' ORDER BY id_produk";
+            PreparedStatement state = null;
+            state = conn.prepareStatement(query);
+            ResultSet result = state.executeQuery(query);
+             
+            while (result.next()) {   
+                
+                comboKodeProduk.removeItem(result.getString("id_produk"));
+            }
+           
+        } catch (SQLException e) {
+        }
+    }
+    
+    public void setModelKosongProdukMerchandise(){
+        try {
+            String query = "SELECT id_produk FROM tb_produk WHERE id_jenis_produk ='MC' ORDER BY id_produk";
+            PreparedStatement state = null;
+            state = conn.prepareStatement(query);
+            ResultSet result = state.executeQuery(query);
+             
+            while (result.next()) {   
+                
+                comboKodeProduk.removeItem(result.getString("id_produk"));
+            }
+           
+        } catch (SQLException e) {
+        }
+    }
+    
+    public void setModelKosongProdukPrisma(){
+        try {
+            String query = "SELECT id_produk FROM tb_produk WHERE id_jenis_produk ='PS' ORDER BY id_produk";
+            PreparedStatement state = null;
+            state = conn.prepareStatement(query);
+            ResultSet result = state.executeQuery(query);
+             
+            while (result.next()) {   
+                
+                comboKodeProduk.removeItem(result.getString("id_produk"));
+            }
+           
+        } catch (SQLException e) {
+        }
+    }
+    
+    public void setModelKosongProdukDokumenFilateli(){
+        try {
+            String query = "SELECT id_produk FROM tb_produk WHERE id_jenis_produk ='DF' ORDER BY id_produk";
+            PreparedStatement state = null;
+            state = conn.prepareStatement(query);
+            ResultSet result = state.executeQuery(query);
+             
+            while (result.next()) {   
+     
+                comboKodeProduk.removeItem(result.getString("id_produk"));
+            }
+           
+        } catch (SQLException e) {
+        }
+    }
+    
+    public void setModelKodeProdukPrangko(){
+        try {
+            String query = "SELECT id_produk FROM tb_produk WHERE id_jenis_produk ='PR' ORDER BY id_produk";
+            PreparedStatement state = null;
+            state = conn.prepareStatement(query);
+            ResultSet result = state.executeQuery(query);
+             
+            while (result.next()) {   
+                
+                comboKodeProduk.addItem(result.getString("id_produk"));
+            }
+           
+        } catch (SQLException e) {
+        }
+    }
+    
+    public void setModelKodeProdukMS(){
+        try {
+            String query = "SELECT id_produk FROM tb_produk WHERE id_jenis_produk ='MS' ORDER BY id_produk";
+            PreparedStatement state = null;
+            state = conn.prepareStatement(query);
+            ResultSet result = state.executeQuery(query);
+             
+            while (result.next()) {   
+                
+                comboKodeProduk.addItem(result.getString("id_produk"));
+            }
+           
+        } catch (SQLException e) {
+        }
+    }
+    
+    public void setModelKodeProdukSS(){
+        try {
+            String query = "SELECT id_produk FROM tb_produk WHERE id_jenis_produk ='SS' ORDER BY id_produk";
+            PreparedStatement state = null;
+            state = conn.prepareStatement(query);
+            ResultSet result = state.executeQuery(query);
+             
+            while (result.next()) {   
+                
+                comboKodeProduk.addItem(result.getString("id_produk"));
+            }
+           
+        } catch (SQLException e) {
+        }
+    }
+    
+    public void setModelKodeProdukSHP(){
+        try {
+            String query = "SELECT id_produk FROM tb_produk WHERE id_jenis_produk ='SHP' ORDER BY id_produk";
+            PreparedStatement state = null;
+            state = conn.prepareStatement(query);
+            ResultSet result = state.executeQuery(query);
+             
+            while (result.next()) {   
+                
+                comboKodeProduk.addItem(result.getString("id_produk"));
+            }
+           
+        } catch (SQLException e) {
+        }
+    }
+    
+    public void setModelKodeProdukSHPSS(){
+        try {
+            String query = "SELECT id_produk FROM tb_produk WHERE id_jenis_produk ='SHPSS' ORDER BY id_produk";
+            PreparedStatement state = null;
+            state = conn.prepareStatement(query);
+            ResultSet result = state.executeQuery(query);
+             
+            while (result.next()) {   
+                
+                comboKodeProduk.addItem(result.getString("id_produk"));
+            }
+           
+        } catch (SQLException e) {
+        }
+    }
+    
+    public void setModelKodeProdukKemasan(){
+        try {
+            String query = "SELECT id_produk FROM tb_produk WHERE id_jenis_produk ='KM' ORDER BY id_produk";
+            PreparedStatement state = null;
+            state = conn.prepareStatement(query);
+            ResultSet result = state.executeQuery(query);
+             
+            while (result.next()) {   
+                
+                comboKodeProduk.addItem(result.getString("id_produk"));
+            }
+           
+        } catch (SQLException e) {
+        }
+    }
+    
+    public void setModelKodeProdukMerchandise(){
+        try {
+            String query = "SELECT id_produk FROM tb_produk WHERE id_jenis_produk ='MC' ORDER BY id_produk";
+            PreparedStatement state = null;
+            state = conn.prepareStatement(query);
+            ResultSet result = state.executeQuery(query);
+             
+            while (result.next()) {   
+                
+                comboKodeProduk.addItem(result.getString("id_produk"));
+            }
+           
+        } catch (SQLException e) {
+        }
+    }
+    
+    public void setModelKodeProdukPrisma(){
+        try {
+            String query = "SELECT id_produk FROM tb_produk WHERE id_jenis_produk ='PS' ORDER BY id_produk";
+            PreparedStatement state = null;
+            state = conn.prepareStatement(query);
+            ResultSet result = state.executeQuery(query);
+             
+            while (result.next()) {   
+                
+                comboKodeProduk.addItem(result.getString("id_produk"));
+            }
+           
+        } catch (SQLException e) {
+        }
+    }
+    
+    public void setModelKodeProdukDokumenFilateli(){
+        try {
+            String query = "SELECT id_produk FROM tb_produk WHERE id_jenis_produk ='DF' ORDER BY id_produk";
+            PreparedStatement state = null;
+            state = conn.prepareStatement(query);
+            ResultSet result = state.executeQuery(query);
+             
+            while (result.next()) {   
+     
+                comboKodeProduk.addItem(result.getString("id_produk"));
             }
            
         } catch (SQLException e) {
@@ -71,11 +386,7 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
         fieldNominalPemesanan.setText("");
         fieldTahunPemesanan.setText("");
         fieldTglPemesanan.setDateFormatString("");
-        autoincrementDokumenFilateli();
-        autoincrementKemasan();
-        autoincrementMerchandise();
-        autoincrementPrangko();
-        autoincrementPrisma();
+    
     }
     
     public String CariJenis(){ 
@@ -103,254 +414,7 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
         return Jenis;
     }
     
-    private void autoincrementDokumenFilateli() {
-        String kosong = null;
-        ProdukDAOImpl dao = new ProdukDAOImpl();
-        String jenisProduk = "DF";
 
-        String kode_dokumen_filateli = dao.getIdProduk(jenisProduk);
-        if (kode_dokumen_filateli == null) {
-            kode_dokumen_filateli = "DF000";
-        }
-        String sub_nomor_string = kode_dokumen_filateli.substring(2, 5);
-        int sub_nomor_int = Integer.parseInt(sub_nomor_string);
-        sub_nomor_string = String.valueOf(sub_nomor_int);
-        int panjang = sub_nomor_string.length();
-        switch (panjang) {
-            case 1:
-                kosong = "00";
-                break;
-            case 2:
-                kosong = "0";
-                break;
-            case 3:
-                kosong = null;
-                break;
-            default:
-                break;
-        }
-        sub_nomor_int = sub_nomor_int + 1;
-        sub_nomor_string = String.valueOf(sub_nomor_int);
-        kode_dokumen_filateli = "DF" + kosong + sub_nomor_string;
-        fieldKodeProdukPemesanan.setText(kode_dokumen_filateli);
-    }
-    
-    private void autoincrementKemasan() {
-        String kosong = null;
-        ProdukDAOImpl dao = new ProdukDAOImpl();
-        String jenisProduk = "KM";
-
-        String kode_prangko = dao.getIdProduk(jenisProduk);
-        if (kode_prangko == null) {
-            kode_prangko = "KM000";
-        }
-        String sub_nomor_string = kode_prangko.substring(2, 5);
-        int sub_nomor_int = Integer.parseInt(sub_nomor_string);
-        sub_nomor_string = String.valueOf(sub_nomor_int);
-        int panjang = sub_nomor_string.length();
-        switch (panjang) {
-            case 1:
-                kosong = "00";
-                break;
-            case 2:
-                kosong = "0";
-                break;
-            case 3:
-                kosong = null;
-                break;
-            default:
-                break;
-        }
-        sub_nomor_int = sub_nomor_int + 1;
-        sub_nomor_string = String.valueOf(sub_nomor_int);
-        kode_prangko = "KM" + kosong + sub_nomor_string;
-        fieldKodeProdukPemesanan.setText(kode_prangko);
-    }
-    
-     private void autoincrementMS_SS(String jenisMS_SS) {
-        String kosong = null;
-        String jenisProduk = null;
-
-        ProdukDAOImpl dao = new ProdukDAOImpl();
-        if (jenisMS_SS.equals("MS")) {
-            jenisProduk = "MS";
-            //Tambahkan pilihan item untuk buah
-
-        } else if (jenisMS_SS.equals("SS")) {
-            jenisProduk = "SS";
-        }
-
-        String kodeMS_SS = dao.getIdProduk(jenisProduk);
-        if (kodeMS_SS == null) {
-            kodeMS_SS = "" + jenisProduk + "000";
-        }
-        String sub_nomor_string = kodeMS_SS.substring(2, 5);
-        int sub_nomor_int = Integer.parseInt(sub_nomor_string);
-        sub_nomor_string = String.valueOf(sub_nomor_int);
-        int panjang = sub_nomor_string.length();
-        switch (panjang) {
-            case 1:
-                kosong = "00";
-                break;
-            case 2:
-                kosong = "0";
-                break;
-            case 3:
-                kosong = null;
-                break;
-            default:
-                break;
-        }
-        sub_nomor_int = sub_nomor_int + 1;
-        sub_nomor_string = String.valueOf(sub_nomor_int);
-        kodeMS_SS = jenisProduk + kosong + sub_nomor_string;
-        fieldKodeProdukPemesanan.setText(kodeMS_SS);
-    }
-     
-     private void autoincrementMerchandise() {
-        String kosong = null;
-        ProdukDAOImpl dao = new ProdukDAOImpl();
-        String jenisProduk = "MC";
-
-        String kode_merchandise = dao.getIdProduk(jenisProduk);
-        if (kode_merchandise == null) {
-            kode_merchandise = "MC000";
-        }
-        String sub_nomor_string = kode_merchandise.substring(2, 5);
-        int sub_nomor_int = Integer.parseInt(sub_nomor_string);
-        sub_nomor_string = String.valueOf(sub_nomor_int);
-        int panjang = sub_nomor_string.length();
-        switch (panjang) {
-            case 1:
-                kosong = "00";
-                break;
-            case 2:
-                kosong = "0";
-                break;
-            case 3:
-                kosong = null;
-                break;
-            default:
-                break;
-        }
-        sub_nomor_int = sub_nomor_int + 1;
-        sub_nomor_string = String.valueOf(sub_nomor_int);
-        kode_merchandise = "MC" + kosong + sub_nomor_string;
-        fieldKodeProdukPemesanan.setText(kode_merchandise);
-    }
-     
-     private void autoincrementPrangko() {
-        String kosong = null;
-        ProdukDAOImpl dao = new ProdukDAOImpl();
-        String jenisProduk = "PR";
-
-        String kode_prangko = dao.getIdProduk(jenisProduk);
-        if (kode_prangko == null) {
-            kode_prangko = "PR000";
-        }
-        String sub_nomor_string = kode_prangko.substring(2, 5);
-        int sub_nomor_int = Integer.parseInt(sub_nomor_string);
-        sub_nomor_string = String.valueOf(sub_nomor_int);
-        int panjang = sub_nomor_string.length();
-        switch (panjang) {
-            case 1:
-                kosong = "00";
-                break;
-            case 2:
-                kosong = "0";
-                break;
-            case 3:
-                kosong = null;
-                break;
-            default:
-                break;
-        }
-        sub_nomor_int = sub_nomor_int + 1;
-        sub_nomor_string = String.valueOf(sub_nomor_int);
-        kode_prangko = "PR" + kosong + sub_nomor_string;
-        fieldKodeProdukPemesanan.setText(kode_prangko);
-    }
-     
-     private void autoincrementPrisma() {
-        String kosong = null;
-        ProdukDAOImpl dao = new ProdukDAOImpl();
-        String jenisProduk = "PS";
-
-        String kode_prisma = dao.getIdProduk(jenisProduk);
-        if (kode_prisma == null) {
-            kode_prisma = "PS000";
-        }
-        String sub_nomor_string = kode_prisma.substring(2, 5);
-        int sub_nomor_int = Integer.parseInt(sub_nomor_string);
-        sub_nomor_string = String.valueOf(sub_nomor_int);
-        int panjang = sub_nomor_string.length();
-        switch (panjang) {
-            case 1:
-                kosong = "00";
-                break;
-            case 2:
-                kosong = "0";
-                break;
-            case 3:
-                kosong = null;
-                break;
-            default:
-                break;
-        }
-        sub_nomor_int = sub_nomor_int + 1;
-        sub_nomor_string = String.valueOf(sub_nomor_int);
-        kode_prisma = "PS" + kosong + sub_nomor_string;
-        fieldKodeProdukPemesanan.setText(kode_prisma);
-    }
-     
-     private void autoincrementSHP_SHPSS(String jenisSHP_SHPSS) {
-        String kosong = null;
-        String jenisProduk = null;
-        String sub_nomor_string = null;
-
-        ProdukDAOImpl dao = new ProdukDAOImpl();
-        if (jenisSHP_SHPSS == "SHP") {
-            jenisProduk = "SHP";
-            //Tambahkan pilihan item untuk buah
-
-        } else if (jenisSHP_SHPSS == "SHPSS") {
-            jenisProduk = "SHPSS";
-        }
-
-        String kodeSHP_SHPSS = dao.getIdProduk(jenisProduk);
-        if (kodeSHP_SHPSS == null) {
-            kodeSHP_SHPSS = "" + jenisProduk + "000";
-        }
-
-        if (jenisSHP_SHPSS == "SHP") {
-            sub_nomor_string = kodeSHP_SHPSS.substring(3, 6);
-            //Tambahkan pilihan item untuk buah
-
-        } else if (jenisSHP_SHPSS == "SHPSS") {
-            sub_nomor_string = kodeSHP_SHPSS.substring(5, 8);
-        }
-
-        int sub_nomor_int = Integer.parseInt(sub_nomor_string);
-        sub_nomor_string = String.valueOf(sub_nomor_int);
-        int panjang = sub_nomor_string.length();
-        switch (panjang) {
-            case 1:
-                kosong = "00";
-                break;
-            case 2:
-                kosong = "0";
-                break;
-            case 3:
-                kosong = null;
-                break;
-            default:
-                break;
-        }
-        sub_nomor_int = sub_nomor_int + 1;
-        sub_nomor_string = String.valueOf(sub_nomor_int);
-        kodeSHP_SHPSS = jenisProduk + kosong + sub_nomor_string;
-        fieldKodeProdukPemesanan.setText(kodeSHP_SHPSS);
-    }
      
      private void autoIncrementNoPemesanan(){
         String kosong = null;
@@ -363,6 +427,9 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
         int sub_nomor_int = Integer.parseInt(no_pemesanan);
         String nomor_string = String.valueOf(sub_nomor_int);
         int panjang = nomor_string.length();
+        if(nomor_string.substring(panjang-1).equals("9")){
+            panjang=panjang+1;
+        }
         switch (panjang) {
             case 1:
                 kosong = "0000";
@@ -397,6 +464,7 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        radioPrangko = new javax.swing.ButtonGroup();
         buttonSimpanPesanPemesanan = new javax.swing.JButton();
         jButton70 = new javax.swing.JButton();
         fieldTglPemesanan = new com.toedter.calendar.JDateChooser();
@@ -404,7 +472,6 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
         fieldBiayaCetakPemesanan = new javax.swing.JTextField();
         fieldNominalPemesanan = new javax.swing.JTextField();
         fieldNamaProdukPemesanan = new javax.swing.JTextField();
-        fieldKodeProdukPemesanan = new javax.swing.JTextField();
         fieldNoPemesanan = new javax.swing.JTextField();
         jLabel112 = new javax.swing.JLabel();
         jLabel113 = new javax.swing.JLabel();
@@ -421,6 +488,7 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
         comboJenisPesan = new javax.swing.JComboBox<>();
         jLabel121 = new javax.swing.JLabel();
         comboNamaSuplier = new javax.swing.JComboBox<>();
+        comboKodeProduk = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -433,12 +501,14 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
 
         jButton70.setText("Reset");
 
+        fieldTahunPemesanan.setEditable(false);
         fieldTahunPemesanan.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 fieldTahunPemesananKeyPressed(evt);
             }
         });
 
+        fieldBiayaCetakPemesanan.setEditable(false);
         fieldBiayaCetakPemesanan.setToolTipText("");
         fieldBiayaCetakPemesanan.setAutoscrolls(false);
         fieldBiayaCetakPemesanan.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
@@ -456,6 +526,7 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
             }
         });
 
+        fieldNominalPemesanan.setEditable(false);
         fieldNominalPemesanan.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 fieldNominalPemesananKeyPressed(evt);
@@ -465,19 +536,13 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
             }
         });
 
+        fieldNamaProdukPemesanan.setEditable(false);
         fieldNamaProdukPemesanan.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 fieldNamaProdukPemesananKeyPressed(evt);
             }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 fieldNamaProdukPemesananKeyTyped(evt);
-            }
-        });
-
-        fieldKodeProdukPemesanan.setEditable(false);
-        fieldKodeProdukPemesanan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fieldKodeProdukPemesananActionPerformed(evt);
             }
         });
 
@@ -509,7 +574,7 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
 
         jLabel120.setText("Jenis Produk");
 
-        comboJenisPesan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Prangko", "MS", "SS", "SHP", "SHPSS", "Kemasan", "Prisma", "Merchandise", "Dokumen Filateli" }));
+        comboJenisPesan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "- Pilih Jenis - ", "Prangko", "MS", "SS", "SHP", "SHPSS", "Kemasan", "Prisma", "Merchandise", "Dokumen Filateli" }));
         comboJenisPesan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboJenisPesanActionPerformed(evt);
@@ -522,6 +587,13 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
         comboNamaSuplier.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboNamaSuplierActionPerformed(evt);
+            }
+        });
+
+        comboKodeProduk.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "- Pilih Kode -" }));
+        comboKodeProduk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboKodeProdukActionPerformed(evt);
             }
         });
 
@@ -539,36 +611,35 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel120)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel117)
-                                .addComponent(jLabel115)
-                                .addComponent(jLabel116)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel119)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(buttonSimpanPesanPemesanan, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jButton70, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel112)
-                                        .addComponent(jLabel113)
-                                        .addComponent(jLabel114)
-                                        .addComponent(jLabel118))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(fieldNominalPemesanan, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(fieldKodeProdukPemesanan, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(fieldBiayaCetakPemesanan, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(fieldTahunPemesanan, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(fieldJumlahPemesanan, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(fieldTglPemesanan, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(comboNamaSuplier, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(comboJenisPesan, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(fieldNoPemesanan, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(fieldNamaProdukPemesanan, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addComponent(jLabel121)))))
+                            .addComponent(jLabel117)
+                            .addComponent(jLabel115)
+                            .addComponent(jLabel116)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel119)
+                                .addGap(18, 18, 18)
+                                .addComponent(buttonSimpanPesanPemesanan, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton70, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel112)
+                                    .addComponent(jLabel113)
+                                    .addComponent(jLabel114)
+                                    .addComponent(jLabel118))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(fieldNominalPemesanan, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(fieldBiayaCetakPemesanan, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(fieldTahunPemesanan, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(fieldJumlahPemesanan, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(fieldTglPemesanan, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(fieldNamaProdukPemesanan, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(comboKodeProduk, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(comboNamaSuplier, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(comboJenisPesan, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(fieldNoPemesanan, javax.swing.GroupLayout.Alignment.LEADING))))
+                            .addComponent(jLabel121))))
                 .addContainerGap(111, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -586,10 +657,10 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel112)
                     .addComponent(fieldNoPemesanan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(6, 6, 6)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel113)
-                    .addComponent(fieldKodeProdukPemesanan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboKodeProduk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel121)
@@ -631,7 +702,7 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
     private void buttonSimpanPesanPemesananActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSimpanPesanPemesananActionPerformed
         // TODO add your handling code here:
         String noPemesanan = fieldNoPemesanan.getText();
-        String kodeProduk = fieldKodeProdukPemesanan.getText();
+        String kodeProduk = comboKodeProduk.getSelectedItem().toString();
         String namaProduk = fieldNamaProdukPemesanan.getText();
         String nominal = fieldNominalPemesanan.getText();
         String biayaCetak = fieldBiayaCetakPemesanan.getText();
@@ -658,6 +729,7 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
         }
         //validasi apakah filed 
         //sudah diisi atau belum
+        
         if (fieldNamaProdukPemesanan.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Nama Produk tidak boleh Kosong");
             fieldNamaProdukPemesanan.requestFocus();
@@ -738,10 +810,6 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_fieldNamaProdukPemesananKeyTyped
 
-    private void fieldKodeProdukPemesananActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldKodeProdukPemesananActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fieldKodeProdukPemesananActionPerformed
-
     private void fieldNoPemesananKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldNoPemesananKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_fieldNoPemesananKeyPressed
@@ -749,30 +817,46 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
     private void comboJenisPesanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboJenisPesanActionPerformed
         // TODO add your handling code here:
         String Jenis = comboJenisPesan.getSelectedItem().toString();
+        
         if (Jenis.equals("Dokumen Filateli")){
-            autoincrementDokumenFilateli();
+            setKosongCombo();
+            setModelKodeProdukDokumenFilateli();
         }else if (Jenis.equals("Prangko")){
-            autoincrementPrangko();
+            setKosongCombo();
+            setModelKodeProdukPrangko();
         }else if (Jenis.equals("MS")){
-            autoincrementMS_SS("MS");
+            setKosongCombo();
+            setModelKodeProdukMS();
         }else if (Jenis.equals("SS")){
-            autoincrementMS_SS("SS");
+            setKosongCombo();
+            setModelKodeProdukSS();
         }else if (Jenis.equals("SHP")){
-            autoincrementSHP_SHPSS("SHP");
+            setKosongCombo();
+            setModelKodeProdukSHP();
         }else if (Jenis.equals("SHPSS")){
-            autoincrementSHP_SHPSS("SHPSS");
+            setKosongCombo();
+            setModelKodeProdukSHPSS();
         }else if (Jenis.equals("Prisma")){
-            autoincrementPrisma();
+            setKosongCombo();
+            setModelKodeProdukPrisma();
         }else if (Jenis.equals("Kemasan")){
-            autoincrementKemasan();
+            setKosongCombo();
+            setModelKodeProdukKemasan();
         }else if (Jenis.equals("Merchandise")){
-            autoincrementMerchandise();
+            setKosongCombo();
+            setModelKodeProdukMerchandise();
         }
     }//GEN-LAST:event_comboJenisPesanActionPerformed
 
     private void comboNamaSuplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboNamaSuplierActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_comboNamaSuplierActionPerformed
+
+    private void comboKodeProdukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboKodeProdukActionPerformed
+        // TODO add your handling code here:
+        String kode = comboKodeProduk.getSelectedItem().toString(); 
+        autofillfield(kode);
+    }//GEN-LAST:event_comboKodeProdukActionPerformed
 
     /**
      * @param args the command line arguments
@@ -801,6 +885,8 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
         }
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -820,10 +906,10 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonSimpanPesanPemesanan;
     private javax.swing.JComboBox<String> comboJenisPesan;
+    private javax.swing.JComboBox<String> comboKodeProduk;
     private javax.swing.JComboBox<String> comboNamaSuplier;
     private javax.swing.JTextField fieldBiayaCetakPemesanan;
     private javax.swing.JTextField fieldJumlahPemesanan;
-    private javax.swing.JTextField fieldKodeProdukPemesanan;
     private javax.swing.JTextField fieldNamaProdukPemesanan;
     private javax.swing.JTextField fieldNoPemesanan;
     private javax.swing.JTextField fieldNominalPemesanan;
@@ -842,5 +928,6 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel120;
     private javax.swing.JLabel jLabel121;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.ButtonGroup radioPrangko;
     // End of variables declaration//GEN-END:variables
 }

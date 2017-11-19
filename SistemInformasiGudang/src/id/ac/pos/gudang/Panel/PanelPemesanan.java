@@ -41,6 +41,63 @@ public class PanelPemesanan extends javax.swing.JPanel {
         getDataSHP_SHPSS();
     }
 
+    public String cariData(String tabCari) {
+        Object pilihanCari = "";
+        if (tabCari.compareTo("PR") == 0) {
+            pilihanCari = comboCariPemesananPrangko.getSelectedItem();
+        } else if (tabCari.compareTo("KM") == 0) {
+            pilihanCari = comboCariPemesananKemasan.getSelectedItem();
+        } else if (tabCari.compareTo("SHP") == 0) {
+            pilihanCari = comboCariPemesananSHP_SHPSS.getSelectedItem();
+        } else if (tabCari.compareTo("SS") == 0) {
+            pilihanCari = comboCariPemesananMS_SS.getSelectedItem();
+        } else if (tabCari.compareTo("MC") == 0) {
+            pilihanCari = comboCariPemesananMerchandise.getSelectedItem();
+        } else if (tabCari.compareTo("PS") == 0) {
+            pilihanCari = comboCariPemesananPrisma.getSelectedItem();
+        } else if (tabCari.compareTo("DF") == 0) {
+            pilihanCari = comboCariPemesananDokumenFilateli.getSelectedItem();
+        }
+              
+        String jenisCari = null;
+
+        if (pilihanCari == "Kode Produk") {
+            jenisCari = "id_produk";
+        } else if (pilihanCari == "Nama Produk") {
+            jenisCari = "nama_produk";
+        } else if (pilihanCari == "Nominal") {
+            jenisCari = "nominal";
+        } else if (pilihanCari == "Nomor Pemesanan") {
+            jenisCari = "no_pemesanan";
+        } else if (pilihanCari == "Tahun") {
+            jenisCari = "tahun";
+        }
+
+        return jenisCari;
+
+    }
+    
+    public String cariJenis(String tab) {
+        String idJenis = "";
+
+        if (tab.compareTo("prangko") == 0) {
+            idJenis = "PR";
+        } else if (tab.compareTo("kemasan") == 0) {
+            idJenis = "KM";
+        } else if (tab.compareTo("shp") == 0) {
+            idJenis = "SHP";
+        } else if (tab.compareTo("ss") == 0) {
+            idJenis = "SS";
+        } else if (tab.compareTo("merchandise") == 0) {
+            idJenis = "MC";
+        } else if (tab.compareTo("prisma") == 0) {
+            idJenis = "PS";
+        } else if (tab.compareTo("df") == 0) {
+            idJenis = "DF";
+        }
+
+        return idJenis;
+    }
     
     private void getDataPrangko(){
         dao = new PemesananDAOImpl();
@@ -133,58 +190,58 @@ public class PanelPemesanan extends javax.swing.JPanel {
         jPanel52 = new javax.swing.JPanel();
         jScrollPane17 = new javax.swing.JScrollPane();
         tablePemesananPrangko = new javax.swing.JTable();
-        buttonCariPrangko30 = new javax.swing.JButton();
-        fieldCariPrangko30 = new javax.swing.JTextField();
-        comboCariPrangko30 = new javax.swing.JComboBox<>();
+        buttonCariPemesananPrangko = new javax.swing.JButton();
+        fieldCariPemesananPrangko = new javax.swing.JTextField();
+        comboCariPemesananPrangko = new javax.swing.JComboBox<>();
         ButtonTambahPemesananPrangko = new javax.swing.JButton();
         MS_SS4 = new javax.swing.JPanel();
         jPanel54 = new javax.swing.JPanel();
         jScrollPane18 = new javax.swing.JScrollPane();
         tablePemesananMS_SS = new javax.swing.JTable();
-        buttonCariPrangko31 = new javax.swing.JButton();
-        fieldCariPrangko31 = new javax.swing.JTextField();
-        comboCariPrangko31 = new javax.swing.JComboBox<>();
         ButtonTambahPemesananMSSS = new javax.swing.JButton();
+        comboCariPemesananMS_SS = new javax.swing.JComboBox<>();
+        fieldCariPemesananMS_SS = new javax.swing.JTextField();
+        buttonCariPemesananMSSS = new javax.swing.JButton();
         Kemasan4 = new javax.swing.JPanel();
         jPanel55 = new javax.swing.JPanel();
         jScrollPane19 = new javax.swing.JScrollPane();
         tablePemesananKemasan = new javax.swing.JTable();
-        buttonCariPrangko32 = new javax.swing.JButton();
-        fieldCariPrangko32 = new javax.swing.JTextField();
-        comboCariPrangko32 = new javax.swing.JComboBox<>();
         ButtonTambahPemesananKemasan = new javax.swing.JButton();
+        comboCariPemesananKemasan = new javax.swing.JComboBox<>();
+        fieldCariPemesananKemasan = new javax.swing.JTextField();
+        buttonCariPemesananKemasan = new javax.swing.JButton();
         Merchandise4 = new javax.swing.JPanel();
         jPanel56 = new javax.swing.JPanel();
         jScrollPane20 = new javax.swing.JScrollPane();
         tablePemesananMerchandise = new javax.swing.JTable();
-        buttonCariPrangko33 = new javax.swing.JButton();
-        fieldCariPrangko33 = new javax.swing.JTextField();
-        comboCariPrangko33 = new javax.swing.JComboBox<>();
         ButtonTambahPemesananMerchandise = new javax.swing.JButton();
+        comboCariPemesananMerchandise = new javax.swing.JComboBox<>();
+        fieldCariPemesananMerchandise = new javax.swing.JTextField();
+        buttonCariPemesananMerchandise = new javax.swing.JButton();
         Prisma4 = new javax.swing.JPanel();
         jPanel57 = new javax.swing.JPanel();
         jScrollPane21 = new javax.swing.JScrollPane();
         tablePemesananPrisma = new javax.swing.JTable();
-        buttonCariPrangko34 = new javax.swing.JButton();
-        fieldCariPrangko34 = new javax.swing.JTextField();
-        comboCariPrangko34 = new javax.swing.JComboBox<>();
         ButtonTambahPemesananPrisma = new javax.swing.JButton();
+        comboCariPemesananPrisma = new javax.swing.JComboBox<>();
+        fieldCariPemesananPrisma = new javax.swing.JTextField();
+        buttonCariPemesananPrisma = new javax.swing.JButton();
         DokumenFilateli4 = new javax.swing.JPanel();
         jPanel58 = new javax.swing.JPanel();
         jScrollPane22 = new javax.swing.JScrollPane();
         tablePemesananDokumenFilateli = new javax.swing.JTable();
-        buttonCariPrangko35 = new javax.swing.JButton();
-        fieldCariPrangko35 = new javax.swing.JTextField();
-        comboCariPrangko35 = new javax.swing.JComboBox<>();
         ButtonTambahPemesananDokumenFilateli = new javax.swing.JButton();
+        comboCariPemesananDokumenFilateli = new javax.swing.JComboBox<>();
+        fieldCariPemesananDokumenFilateli = new javax.swing.JTextField();
+        buttonCariPemesananDokumenFilateli = new javax.swing.JButton();
         SHP_SHPSS4 = new javax.swing.JPanel();
         jPanel59 = new javax.swing.JPanel();
         jScrollPane23 = new javax.swing.JScrollPane();
         tablePemesananSHP_SHPSS = new javax.swing.JTable();
-        buttonCariPrangko36 = new javax.swing.JButton();
-        fieldCariPrangko36 = new javax.swing.JTextField();
-        comboCariPrangko36 = new javax.swing.JComboBox<>();
         ButtonTambahPemesananSHPSS = new javax.swing.JButton();
+        comboCariPemesananSHP_SHPSS = new javax.swing.JComboBox<>();
+        fieldCariPemesananSHP_SHPSS = new javax.swing.JTextField();
+        buttonCariPemesananSHP_SHPSS = new javax.swing.JButton();
 
         jTabbedPane6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -218,20 +275,20 @@ public class PanelPemesanan extends javax.swing.JPanel {
         });
         jScrollPane17.setViewportView(tablePemesananPrangko);
 
-        buttonCariPrangko30.setText("Cari");
-        buttonCariPrangko30.addActionListener(new java.awt.event.ActionListener() {
+        buttonCariPemesananPrangko.setText("Cari");
+        buttonCariPemesananPrangko.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonCariPrangko30ActionPerformed(evt);
+                buttonCariPemesananPrangkoActionPerformed(evt);
             }
         });
 
-        fieldCariPrangko30.addMouseListener(new java.awt.event.MouseAdapter() {
+        fieldCariPemesananPrangko.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                fieldCariPrangko30MouseClicked(evt);
+                fieldCariPemesananPrangkoMouseClicked(evt);
             }
         });
 
-        comboCariPrangko30.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
+        comboCariPemesananPrangko.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Nomor Pemesanan", "Kode Produk", "Nominal", "Tahun" }));
 
         ButtonTambahPemesananPrangko.setText("Tambah Pemesanan");
         ButtonTambahPemesananPrangko.addActionListener(new java.awt.event.ActionListener() {
@@ -247,11 +304,11 @@ public class PanelPemesanan extends javax.swing.JPanel {
             .addGroup(jPanel52Layout.createSequentialGroup()
                 .addComponent(ButtonTambahPemesananPrangko)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(comboCariPrangko30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(comboCariPemesananPrangko, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(fieldCariPrangko30, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(fieldCariPemesananPrangko, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(buttonCariPrangko30))
+                .addComponent(buttonCariPemesananPrangko))
             .addComponent(jScrollPane17, javax.swing.GroupLayout.DEFAULT_SIZE, 975, Short.MAX_VALUE)
         );
         jPanel52Layout.setVerticalGroup(
@@ -260,9 +317,9 @@ public class PanelPemesanan extends javax.swing.JPanel {
                 .addGroup(jPanel52Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ButtonTambahPemesananPrangko, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel52Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(buttonCariPrangko30)
-                        .addComponent(fieldCariPrangko30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(comboCariPrangko30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(buttonCariPemesananPrangko)
+                        .addComponent(fieldCariPemesananPrangko, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(comboCariPemesananPrangko, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane17, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE))
         );
@@ -306,25 +363,25 @@ public class PanelPemesanan extends javax.swing.JPanel {
         });
         jScrollPane18.setViewportView(tablePemesananMS_SS);
 
-        buttonCariPrangko31.setText("Cari");
-        buttonCariPrangko31.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonCariPrangko31ActionPerformed(evt);
-            }
-        });
-
-        fieldCariPrangko31.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                fieldCariPrangko31MouseClicked(evt);
-            }
-        });
-
-        comboCariPrangko31.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
-
         ButtonTambahPemesananMSSS.setText("Tambah Pemesanan");
         ButtonTambahPemesananMSSS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ButtonTambahPemesananMSSSActionPerformed(evt);
+            }
+        });
+
+        comboCariPemesananMS_SS.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Nomor Pemesanan", "Kode Produk", "Nominal", "Tahun" }));
+
+        fieldCariPemesananMS_SS.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                fieldCariPemesananMS_SSMouseClicked(evt);
+            }
+        });
+
+        buttonCariPemesananMSSS.setText("Cari");
+        buttonCariPemesananMSSS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCariPemesananMSSSActionPerformed(evt);
             }
         });
 
@@ -335,21 +392,22 @@ public class PanelPemesanan extends javax.swing.JPanel {
             .addGroup(jPanel54Layout.createSequentialGroup()
                 .addComponent(ButtonTambahPemesananMSSS)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(comboCariPrangko31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(comboCariPemesananMS_SS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(fieldCariPrangko31, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(fieldCariPemesananMS_SS, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(buttonCariPrangko31))
+                .addComponent(buttonCariPemesananMSSS))
             .addComponent(jScrollPane18, javax.swing.GroupLayout.DEFAULT_SIZE, 975, Short.MAX_VALUE)
         );
         jPanel54Layout.setVerticalGroup(
             jPanel54Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel54Layout.createSequentialGroup()
                 .addGroup(jPanel54Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonCariPrangko31)
-                    .addComponent(fieldCariPrangko31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboCariPrangko31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ButtonTambahPemesananMSSS, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ButtonTambahPemesananMSSS, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel54Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(buttonCariPemesananMSSS)
+                        .addComponent(fieldCariPemesananMS_SS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(comboCariPemesananMS_SS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane18, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE))
         );
@@ -393,25 +451,25 @@ public class PanelPemesanan extends javax.swing.JPanel {
         });
         jScrollPane19.setViewportView(tablePemesananKemasan);
 
-        buttonCariPrangko32.setText("Cari");
-        buttonCariPrangko32.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonCariPrangko32ActionPerformed(evt);
-            }
-        });
-
-        fieldCariPrangko32.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                fieldCariPrangko32MouseClicked(evt);
-            }
-        });
-
-        comboCariPrangko32.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
-
         ButtonTambahPemesananKemasan.setText("Tambah Pemesanan");
         ButtonTambahPemesananKemasan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ButtonTambahPemesananKemasanActionPerformed(evt);
+            }
+        });
+
+        comboCariPemesananKemasan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Nomor Pemesanan", "Kode Produk", "Nominal", "Tahun" }));
+
+        fieldCariPemesananKemasan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                fieldCariPemesananKemasanMouseClicked(evt);
+            }
+        });
+
+        buttonCariPemesananKemasan.setText("Cari");
+        buttonCariPemesananKemasan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCariPemesananKemasanActionPerformed(evt);
             }
         });
 
@@ -422,21 +480,22 @@ public class PanelPemesanan extends javax.swing.JPanel {
             .addGroup(jPanel55Layout.createSequentialGroup()
                 .addComponent(ButtonTambahPemesananKemasan)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(comboCariPrangko32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(comboCariPemesananKemasan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(fieldCariPrangko32, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(fieldCariPemesananKemasan, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(buttonCariPrangko32))
+                .addComponent(buttonCariPemesananKemasan))
             .addComponent(jScrollPane19, javax.swing.GroupLayout.DEFAULT_SIZE, 975, Short.MAX_VALUE)
         );
         jPanel55Layout.setVerticalGroup(
             jPanel55Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel55Layout.createSequentialGroup()
                 .addGroup(jPanel55Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonCariPrangko32)
-                    .addComponent(fieldCariPrangko32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboCariPrangko32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ButtonTambahPemesananKemasan, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ButtonTambahPemesananKemasan, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel55Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(buttonCariPemesananKemasan)
+                        .addComponent(fieldCariPemesananKemasan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(comboCariPemesananKemasan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane19, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE))
         );
@@ -474,25 +533,25 @@ public class PanelPemesanan extends javax.swing.JPanel {
         });
         jScrollPane20.setViewportView(tablePemesananMerchandise);
 
-        buttonCariPrangko33.setText("Cari");
-        buttonCariPrangko33.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonCariPrangko33ActionPerformed(evt);
-            }
-        });
-
-        fieldCariPrangko33.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                fieldCariPrangko33MouseClicked(evt);
-            }
-        });
-
-        comboCariPrangko33.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
-
         ButtonTambahPemesananMerchandise.setText("Tambah Pemesanan");
         ButtonTambahPemesananMerchandise.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ButtonTambahPemesananMerchandiseActionPerformed(evt);
+            }
+        });
+
+        comboCariPemesananMerchandise.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Nomor Pemesanan", "Kode Produk", "Nominal", "Tahun" }));
+
+        fieldCariPemesananMerchandise.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                fieldCariPemesananMerchandiseMouseClicked(evt);
+            }
+        });
+
+        buttonCariPemesananMerchandise.setText("Cari");
+        buttonCariPemesananMerchandise.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCariPemesananMerchandiseActionPerformed(evt);
             }
         });
 
@@ -503,21 +562,22 @@ public class PanelPemesanan extends javax.swing.JPanel {
             .addGroup(jPanel56Layout.createSequentialGroup()
                 .addComponent(ButtonTambahPemesananMerchandise)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(comboCariPrangko33, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(comboCariPemesananMerchandise, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(fieldCariPrangko33, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(fieldCariPemesananMerchandise, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(buttonCariPrangko33))
+                .addComponent(buttonCariPemesananMerchandise))
             .addComponent(jScrollPane20, javax.swing.GroupLayout.DEFAULT_SIZE, 975, Short.MAX_VALUE)
         );
         jPanel56Layout.setVerticalGroup(
             jPanel56Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel56Layout.createSequentialGroup()
                 .addGroup(jPanel56Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonCariPrangko33)
-                    .addComponent(fieldCariPrangko33, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboCariPrangko33, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ButtonTambahPemesananMerchandise, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ButtonTambahPemesananMerchandise, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel56Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(buttonCariPemesananMerchandise)
+                        .addComponent(fieldCariPemesananMerchandise, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(comboCariPemesananMerchandise, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane20, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE))
         );
@@ -555,25 +615,25 @@ public class PanelPemesanan extends javax.swing.JPanel {
         });
         jScrollPane21.setViewportView(tablePemesananPrisma);
 
-        buttonCariPrangko34.setText("Cari");
-        buttonCariPrangko34.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonCariPrangko34ActionPerformed(evt);
-            }
-        });
-
-        fieldCariPrangko34.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                fieldCariPrangko34MouseClicked(evt);
-            }
-        });
-
-        comboCariPrangko34.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
-
         ButtonTambahPemesananPrisma.setText("Tambah Pemesanan");
         ButtonTambahPemesananPrisma.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ButtonTambahPemesananPrismaActionPerformed(evt);
+            }
+        });
+
+        comboCariPemesananPrisma.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Nomor Pemesanan", "Kode Produk", "Nominal", "Tahun" }));
+
+        fieldCariPemesananPrisma.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                fieldCariPemesananPrismaMouseClicked(evt);
+            }
+        });
+
+        buttonCariPemesananPrisma.setText("Cari");
+        buttonCariPemesananPrisma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCariPemesananPrismaActionPerformed(evt);
             }
         });
 
@@ -584,21 +644,22 @@ public class PanelPemesanan extends javax.swing.JPanel {
             .addGroup(jPanel57Layout.createSequentialGroup()
                 .addComponent(ButtonTambahPemesananPrisma)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(comboCariPrangko34, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(comboCariPemesananPrisma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(fieldCariPrangko34, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(fieldCariPemesananPrisma, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(buttonCariPrangko34))
+                .addComponent(buttonCariPemesananPrisma))
             .addComponent(jScrollPane21, javax.swing.GroupLayout.DEFAULT_SIZE, 975, Short.MAX_VALUE)
         );
         jPanel57Layout.setVerticalGroup(
             jPanel57Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel57Layout.createSequentialGroup()
                 .addGroup(jPanel57Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonCariPrangko34)
-                    .addComponent(fieldCariPrangko34, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboCariPrangko34, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ButtonTambahPemesananPrisma, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ButtonTambahPemesananPrisma, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel57Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(buttonCariPemesananPrisma)
+                        .addComponent(fieldCariPemesananPrisma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(comboCariPemesananPrisma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane21, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE))
         );
@@ -636,25 +697,25 @@ public class PanelPemesanan extends javax.swing.JPanel {
         });
         jScrollPane22.setViewportView(tablePemesananDokumenFilateli);
 
-        buttonCariPrangko35.setText("Cari");
-        buttonCariPrangko35.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonCariPrangko35ActionPerformed(evt);
-            }
-        });
-
-        fieldCariPrangko35.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                fieldCariPrangko35MouseClicked(evt);
-            }
-        });
-
-        comboCariPrangko35.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
-
         ButtonTambahPemesananDokumenFilateli.setText("Tambah Pemesanan");
         ButtonTambahPemesananDokumenFilateli.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ButtonTambahPemesananDokumenFilateliActionPerformed(evt);
+            }
+        });
+
+        comboCariPemesananDokumenFilateli.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Nomor Pemesanan", "Kode Produk", "Nominal", "Tahun" }));
+
+        fieldCariPemesananDokumenFilateli.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                fieldCariPemesananDokumenFilateliMouseClicked(evt);
+            }
+        });
+
+        buttonCariPemesananDokumenFilateli.setText("Cari");
+        buttonCariPemesananDokumenFilateli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCariPemesananDokumenFilateliActionPerformed(evt);
             }
         });
 
@@ -665,21 +726,22 @@ public class PanelPemesanan extends javax.swing.JPanel {
             .addGroup(jPanel58Layout.createSequentialGroup()
                 .addComponent(ButtonTambahPemesananDokumenFilateli)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(comboCariPrangko35, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(comboCariPemesananDokumenFilateli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(fieldCariPrangko35, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(fieldCariPemesananDokumenFilateli, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(buttonCariPrangko35))
+                .addComponent(buttonCariPemesananDokumenFilateli))
             .addComponent(jScrollPane22, javax.swing.GroupLayout.DEFAULT_SIZE, 975, Short.MAX_VALUE)
         );
         jPanel58Layout.setVerticalGroup(
             jPanel58Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel58Layout.createSequentialGroup()
                 .addGroup(jPanel58Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonCariPrangko35)
-                    .addComponent(fieldCariPrangko35, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboCariPrangko35, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ButtonTambahPemesananDokumenFilateli, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ButtonTambahPemesananDokumenFilateli, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel58Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(buttonCariPemesananDokumenFilateli)
+                        .addComponent(fieldCariPemesananDokumenFilateli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(comboCariPemesananDokumenFilateli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane22, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE))
         );
@@ -723,25 +785,25 @@ public class PanelPemesanan extends javax.swing.JPanel {
         });
         jScrollPane23.setViewportView(tablePemesananSHP_SHPSS);
 
-        buttonCariPrangko36.setText("Cari");
-        buttonCariPrangko36.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonCariPrangko36ActionPerformed(evt);
-            }
-        });
-
-        fieldCariPrangko36.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                fieldCariPrangko36MouseClicked(evt);
-            }
-        });
-
-        comboCariPrangko36.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
-
         ButtonTambahPemesananSHPSS.setText("Tambah Pemesanan");
         ButtonTambahPemesananSHPSS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ButtonTambahPemesananSHPSSActionPerformed(evt);
+            }
+        });
+
+        comboCariPemesananSHP_SHPSS.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Nomor Pemesanan", "Kode Produk", "Nominal", "Tahun" }));
+
+        fieldCariPemesananSHP_SHPSS.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                fieldCariPemesananSHP_SHPSSMouseClicked(evt);
+            }
+        });
+
+        buttonCariPemesananSHP_SHPSS.setText("Cari");
+        buttonCariPemesananSHP_SHPSS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCariPemesananSHP_SHPSSActionPerformed(evt);
             }
         });
 
@@ -752,21 +814,22 @@ public class PanelPemesanan extends javax.swing.JPanel {
             .addGroup(jPanel59Layout.createSequentialGroup()
                 .addComponent(ButtonTambahPemesananSHPSS)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(comboCariPrangko36, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(comboCariPemesananSHP_SHPSS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(fieldCariPrangko36, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(fieldCariPemesananSHP_SHPSS, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(buttonCariPrangko36))
+                .addComponent(buttonCariPemesananSHP_SHPSS))
             .addComponent(jScrollPane23, javax.swing.GroupLayout.DEFAULT_SIZE, 975, Short.MAX_VALUE)
         );
         jPanel59Layout.setVerticalGroup(
             jPanel59Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel59Layout.createSequentialGroup()
                 .addGroup(jPanel59Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonCariPrangko36)
-                    .addComponent(fieldCariPrangko36, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboCariPrangko36, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ButtonTambahPemesananSHPSS, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ButtonTambahPemesananSHPSS, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel59Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(buttonCariPemesananSHP_SHPSS)
+                        .addComponent(fieldCariPemesananSHP_SHPSS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(comboCariPemesananSHP_SHPSS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane23, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE))
         );
@@ -820,13 +883,29 @@ public class PanelPemesanan extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_tablePemesananPrangkoMouseClicked
 
-    private void buttonCariPrangko30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariPrangko30ActionPerformed
+    private void buttonCariPemesananPrangkoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariPemesananPrangkoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_buttonCariPrangko30ActionPerformed
+        String keyword = fieldCariPemesananPrangko.getText();
+        String status = "prangko";
+        String tabCari = cariJenis(status);
+        String jenisCari = cariData(tabCari);
+        String idJenis = cariJenis(status);
 
-    private void fieldCariPrangko30MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fieldCariPrangko30MouseClicked
+        // lakukan proses pencarian
+        dao = new PemesananDAOImpl();
+        arrayPemesanan = dao.cariProdukPemesanan(keyword, jenisCari, idJenis);
+
+        PemesananTM pemesananTableModel = new PemesananTM();
+        pemesananTableModel.setDataPemesanan(arrayPemesanan);
+        sorter = new TableRowSorter(pemesananTableModel);
+        tablePemesananPrangko.setRowSorter(sorter);
+
+        tablePemesananPrangko.setModel(pemesananTableModel);
+    }//GEN-LAST:event_buttonCariPemesananPrangkoActionPerformed
+
+    private void fieldCariPemesananPrangkoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fieldCariPemesananPrangkoMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_fieldCariPrangko30MouseClicked
+    }//GEN-LAST:event_fieldCariPemesananPrangkoMouseClicked
 
     private void ButtonTambahPemesananPrangkoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonTambahPemesananPrangkoActionPerformed
         // TODO add your handling code here:
@@ -839,73 +918,25 @@ public class PanelPemesanan extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_tablePemesananMS_SSMouseClicked
 
-    private void buttonCariPrangko31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariPrangko31ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonCariPrangko31ActionPerformed
-
-    private void fieldCariPrangko31MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fieldCariPrangko31MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fieldCariPrangko31MouseClicked
-
     private void tablePemesananKemasanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePemesananKemasanMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_tablePemesananKemasanMouseClicked
-
-    private void buttonCariPrangko32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariPrangko32ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonCariPrangko32ActionPerformed
-
-    private void fieldCariPrangko32MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fieldCariPrangko32MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fieldCariPrangko32MouseClicked
 
     private void tablePemesananMerchandiseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePemesananMerchandiseMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_tablePemesananMerchandiseMouseClicked
 
-    private void buttonCariPrangko33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariPrangko33ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonCariPrangko33ActionPerformed
-
-    private void fieldCariPrangko33MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fieldCariPrangko33MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fieldCariPrangko33MouseClicked
-
     private void tablePemesananPrismaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePemesananPrismaMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_tablePemesananPrismaMouseClicked
-
-    private void buttonCariPrangko34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariPrangko34ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonCariPrangko34ActionPerformed
-
-    private void fieldCariPrangko34MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fieldCariPrangko34MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fieldCariPrangko34MouseClicked
 
     private void tablePemesananDokumenFilateliMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePemesananDokumenFilateliMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_tablePemesananDokumenFilateliMouseClicked
 
-    private void buttonCariPrangko35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariPrangko35ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonCariPrangko35ActionPerformed
-
-    private void fieldCariPrangko35MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fieldCariPrangko35MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fieldCariPrangko35MouseClicked
-
     private void tablePemesananSHP_SHPSSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePemesananSHP_SHPSSMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_tablePemesananSHP_SHPSSMouseClicked
-
-    private void buttonCariPrangko36ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariPrangko36ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonCariPrangko36ActionPerformed
-
-    private void fieldCariPrangko36MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fieldCariPrangko36MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fieldCariPrangko36MouseClicked
 
     private void ButtonTambahPemesananMSSSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonTambahPemesananMSSSActionPerformed
         // TODO add your handling code here:
@@ -949,6 +980,145 @@ public class PanelPemesanan extends javax.swing.JPanel {
         new DialogTambahPemesanan(formHome, rootPaneCheckingEnabled).setVisible(true);
     }//GEN-LAST:event_ButtonTambahPemesananSHPSSActionPerformed
 
+    private void fieldCariPemesananMS_SSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fieldCariPemesananMS_SSMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fieldCariPemesananMS_SSMouseClicked
+
+    private void buttonCariPemesananMSSSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariPemesananMSSSActionPerformed
+        // TODO add your handling code here:
+        String keyword = fieldCariPemesananMS_SS.getText();
+        String status = "ss";
+        String tabCari = cariJenis(status);
+        String jenisCari = cariData(tabCari);
+        String idJenis = cariJenis(status);
+        System.err.println(jenisCari);
+        // lakukan proses pencarian
+        dao = new PemesananDAOImpl();
+        arrayPemesanan = dao.cariProdukPemesanan(keyword, jenisCari, idJenis);
+
+        PemesananTM pemesananTableModel = new PemesananTM();
+        pemesananTableModel.setDataPemesanan(arrayPemesanan);
+        sorter = new TableRowSorter(pemesananTableModel);
+        tablePemesananMS_SS.setRowSorter(sorter);
+
+        tablePemesananMS_SS.setModel(pemesananTableModel);
+    }//GEN-LAST:event_buttonCariPemesananMSSSActionPerformed
+
+    private void fieldCariPemesananKemasanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fieldCariPemesananKemasanMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fieldCariPemesananKemasanMouseClicked
+
+    private void buttonCariPemesananKemasanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariPemesananKemasanActionPerformed
+        // TODO add your handling code here:
+        String keyword = fieldCariPemesananKemasan.getText();
+        String status = "kemasan";
+        String tabCari = cariJenis(status);
+        String jenisCari = cariData(tabCari);
+        String idJenis = cariJenis(status);
+        // lakukan proses pencarian
+        dao = new PemesananDAOImpl();
+        arrayPemesanan = dao.cariProdukPemesanan(keyword, jenisCari, idJenis);
+
+        PemesananTM pemesananTableModel = new PemesananTM();
+        pemesananTableModel.setDataPemesanan(arrayPemesanan);
+        sorter = new TableRowSorter(pemesananTableModel);
+        tablePemesananKemasan.setRowSorter(sorter);
+
+        tablePemesananKemasan.setModel(pemesananTableModel);
+    }//GEN-LAST:event_buttonCariPemesananKemasanActionPerformed
+
+    private void fieldCariPemesananMerchandiseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fieldCariPemesananMerchandiseMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fieldCariPemesananMerchandiseMouseClicked
+
+    private void buttonCariPemesananMerchandiseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariPemesananMerchandiseActionPerformed
+        // TODO add your handling code here:
+        String keyword = fieldCariPemesananMerchandise.getText();
+        String status = "merchandise";
+        String tabCari = cariJenis(status);
+        String jenisCari = cariData(tabCari);
+        String idJenis = cariJenis(status);
+        // lakukan proses pencarian
+        dao = new PemesananDAOImpl();
+        arrayPemesanan = dao.cariProdukPemesanan(keyword, jenisCari, idJenis);
+
+        PemesananTM pemesananTableModel = new PemesananTM();
+        pemesananTableModel.setDataPemesanan(arrayPemesanan);
+        sorter = new TableRowSorter(pemesananTableModel);
+        tablePemesananMerchandise.setRowSorter(sorter);
+
+        tablePemesananMerchandise.setModel(pemesananTableModel);
+    }//GEN-LAST:event_buttonCariPemesananMerchandiseActionPerformed
+
+    private void fieldCariPemesananPrismaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fieldCariPemesananPrismaMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fieldCariPemesananPrismaMouseClicked
+
+    private void buttonCariPemesananPrismaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariPemesananPrismaActionPerformed
+        // TODO add your handling code here:
+        String keyword = fieldCariPemesananPrisma.getText();
+        String status = "prisma";
+        String tabCari = cariJenis(status);
+        String jenisCari = cariData(tabCari);
+        String idJenis = cariJenis(status);
+        // lakukan proses pencarian
+        dao = new PemesananDAOImpl();
+        arrayPemesanan = dao.cariProdukPemesanan(keyword, jenisCari, idJenis);
+
+        PemesananTM pemesananTableModel = new PemesananTM();
+        pemesananTableModel.setDataPemesanan(arrayPemesanan);
+        sorter = new TableRowSorter(pemesananTableModel);
+        tablePemesananPrisma.setRowSorter(sorter);
+
+        tablePemesananPrisma.setModel(pemesananTableModel);
+    }//GEN-LAST:event_buttonCariPemesananPrismaActionPerformed
+
+    private void fieldCariPemesananDokumenFilateliMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fieldCariPemesananDokumenFilateliMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fieldCariPemesananDokumenFilateliMouseClicked
+
+    private void buttonCariPemesananDokumenFilateliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariPemesananDokumenFilateliActionPerformed
+        // TODO add your handling code here:
+        String keyword = fieldCariPemesananDokumenFilateli.getText();
+        String status = "df";
+        String tabCari = cariJenis(status);
+        String jenisCari = cariData(tabCari);
+        String idJenis = cariJenis(status);
+        // lakukan proses pencarian
+        dao = new PemesananDAOImpl();
+        arrayPemesanan = dao.cariProdukPemesanan(keyword, jenisCari, idJenis);
+
+        PemesananTM pemesananTableModel = new PemesananTM();
+        pemesananTableModel.setDataPemesanan(arrayPemesanan);
+        sorter = new TableRowSorter(pemesananTableModel);
+        tablePemesananDokumenFilateli.setRowSorter(sorter);
+
+        tablePemesananDokumenFilateli.setModel(pemesananTableModel);
+    }//GEN-LAST:event_buttonCariPemesananDokumenFilateliActionPerformed
+
+    private void fieldCariPemesananSHP_SHPSSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fieldCariPemesananSHP_SHPSSMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fieldCariPemesananSHP_SHPSSMouseClicked
+
+    private void buttonCariPemesananSHP_SHPSSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariPemesananSHP_SHPSSActionPerformed
+        // TODO add your handling code here:
+        String keyword = fieldCariPemesananSHP_SHPSS.getText();
+        String status = "shp";
+        String tabCari = cariJenis(status);
+        String jenisCari = cariData(tabCari);
+        String idJenis = cariJenis(status);
+        // lakukan proses pencarian
+        dao = new PemesananDAOImpl();
+        arrayPemesanan = dao.cariProdukPemesanan(keyword, jenisCari, idJenis);
+
+        PemesananTM pemesananTableModel = new PemesananTM();
+        pemesananTableModel.setDataPemesanan(arrayPemesanan);
+        sorter = new TableRowSorter(pemesananTableModel);
+        tablePemesananSHP_SHPSS.setRowSorter(sorter);
+
+        tablePemesananSHP_SHPSS.setModel(pemesananTableModel);
+    }//GEN-LAST:event_buttonCariPemesananSHP_SHPSSActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ButtonTambahPemesananDokumenFilateli;
@@ -965,27 +1135,27 @@ public class PanelPemesanan extends javax.swing.JPanel {
     private javax.swing.JPanel Prangko4;
     private javax.swing.JPanel Prisma4;
     private javax.swing.JPanel SHP_SHPSS4;
-    private javax.swing.JButton buttonCariPrangko30;
-    private javax.swing.JButton buttonCariPrangko31;
-    private javax.swing.JButton buttonCariPrangko32;
-    private javax.swing.JButton buttonCariPrangko33;
-    private javax.swing.JButton buttonCariPrangko34;
-    private javax.swing.JButton buttonCariPrangko35;
-    private javax.swing.JButton buttonCariPrangko36;
-    private javax.swing.JComboBox<String> comboCariPrangko30;
-    private javax.swing.JComboBox<String> comboCariPrangko31;
-    private javax.swing.JComboBox<String> comboCariPrangko32;
-    private javax.swing.JComboBox<String> comboCariPrangko33;
-    private javax.swing.JComboBox<String> comboCariPrangko34;
-    private javax.swing.JComboBox<String> comboCariPrangko35;
-    private javax.swing.JComboBox<String> comboCariPrangko36;
-    private javax.swing.JTextField fieldCariPrangko30;
-    private javax.swing.JTextField fieldCariPrangko31;
-    private javax.swing.JTextField fieldCariPrangko32;
-    private javax.swing.JTextField fieldCariPrangko33;
-    private javax.swing.JTextField fieldCariPrangko34;
-    private javax.swing.JTextField fieldCariPrangko35;
-    private javax.swing.JTextField fieldCariPrangko36;
+    private javax.swing.JButton buttonCariPemesananDokumenFilateli;
+    private javax.swing.JButton buttonCariPemesananKemasan;
+    private javax.swing.JButton buttonCariPemesananMSSS;
+    private javax.swing.JButton buttonCariPemesananMerchandise;
+    private javax.swing.JButton buttonCariPemesananPrangko;
+    private javax.swing.JButton buttonCariPemesananPrisma;
+    private javax.swing.JButton buttonCariPemesananSHP_SHPSS;
+    private javax.swing.JComboBox<String> comboCariPemesananDokumenFilateli;
+    private javax.swing.JComboBox<String> comboCariPemesananKemasan;
+    private javax.swing.JComboBox<String> comboCariPemesananMS_SS;
+    private javax.swing.JComboBox<String> comboCariPemesananMerchandise;
+    private javax.swing.JComboBox<String> comboCariPemesananPrangko;
+    private javax.swing.JComboBox<String> comboCariPemesananPrisma;
+    private javax.swing.JComboBox<String> comboCariPemesananSHP_SHPSS;
+    private javax.swing.JTextField fieldCariPemesananDokumenFilateli;
+    private javax.swing.JTextField fieldCariPemesananKemasan;
+    private javax.swing.JTextField fieldCariPemesananMS_SS;
+    private javax.swing.JTextField fieldCariPemesananMerchandise;
+    private javax.swing.JTextField fieldCariPemesananPrangko;
+    private javax.swing.JTextField fieldCariPemesananPrisma;
+    private javax.swing.JTextField fieldCariPemesananSHP_SHPSS;
     private javax.swing.JPanel jPanel52;
     private javax.swing.JPanel jPanel54;
     private javax.swing.JPanel jPanel55;
