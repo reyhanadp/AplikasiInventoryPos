@@ -7,6 +7,7 @@ import id.ac.pos.gudang.entity.Penerimaan;
 import id.ac.pos.gudang.tablemodel.PenerimaanTM;
 import id.ac.pos.gudang.utility.DatabaseConnectivity;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -57,6 +58,52 @@ public class PanelPenerimaan extends javax.swing.JPanel {
         getDataMerchandise();
         getDataPrisma();
         getDataDokumenFilateli();
+    }
+    
+    public boolean validasiTanggal(String jenisProduk){
+        Date date=Date.valueOf("1990-11-12");
+        
+        if (jenisProduk.compareTo("pr")==0){
+            //ketika field kosong
+            if(fieldTglPenerimaan.getDate() == null){
+                date = (Date) fieldTglPenerimaan.getDate();
+            }
+        }else if (jenisProduk.compareTo("ms")==0){
+            //ketika field kosong
+            if(fieldTglPenerimaanMS_SS.getDate() == null){
+                date = (Date) fieldTglPenerimaanMS_SS.getDate();
+            }
+        }else if (jenisProduk.compareTo("shp")==0){
+            //ketika field kosong
+            if(fieldTglPenerimaanSHP_SHPSS.getDate() == null){
+                date = (Date) fieldTglPenerimaanSHP_SHPSS.getDate();
+            }
+        }else if (jenisProduk.compareTo("km")==0){
+            //ketika field kosong
+            if(fieldTglPenerimaanKemasan.getDate() == null){
+                date = (Date) fieldTglPenerimaanKemasan.getDate();
+            }
+        }else if (jenisProduk.compareTo("mc")==0){
+            //ketika field kosong
+            if(fieldTglPenerimaanMerchandise.getDate() == null){
+                date = (Date) fieldTglPenerimaanMerchandise.getDate();
+            }
+        }else if (jenisProduk.compareTo("ps")==0){
+            //ketika field kosong
+            if(fieldTglPenerimaanPrisma.getDate() == null){
+                date = (Date) fieldTglPenerimaanPrisma.getDate();
+            }
+        }else if (jenisProduk.compareTo("df")==0){
+            //ketika field kosong
+            if(fieldTglPenerimaanDokumenFilateli.getDate() == null){
+                date = (Date) fieldTglPenerimaanDokumenFilateli.getDate();
+            }
+        }
+        if (date == null) 
+        {           
+            return false;
+        }else{
+        return true;}
     }
     
     public void autoField(String noPemesanan,String jenisProduk){
@@ -2828,17 +2875,28 @@ public class PanelPenerimaan extends javax.swing.JPanel {
 
     private void jButtonSimpanPenerimaanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSimpanPenerimaanActionPerformed
         // TODO add your handling code here:
-        String noOrder = fieldNoOrder.getText();
-        SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
+        String tanggalPenerimaan="";
+        int subTotalTerima=0;
+        String jenisProduk="pr";
+        validasiTanggal(jenisProduk);
         
-        String tanggalPenerimaan = dt.format(fieldTglPenerimaan.getDate());
+        String noOrder = fieldNoOrder.getText();
+        if(validasiTanggal(jenisProduk)==true){
+            SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
+            tanggalPenerimaan = dt.format(fieldTglPenerimaan.getDate());            
+        }else {    
+            JOptionPane.showMessageDialog(null, "Tanggal Salah !");
+        }
         String jumlahTerima = fieldJmlTerima.getText();
         String noPemesanan = ComboNoPemesanan.getSelectedItem().toString();
         String stokAwal = fieldStokAwal.getText();
         String keterangan = fieldKeterangan.getText();
         String totalPemesanan = fieldTotalPemesanan.getText();
         String idSuplier = fieldIdSuplier.getText();
-        int subTotalTerima = Integer.parseInt(fieldSubtotalTerima.getText());
+        if (fieldSubtotalTerima.getText().equals("")){
+        }else {
+            subTotalTerima = Integer.parseInt(fieldSubtotalTerima.getText());
+        }
         String sisaBelumDikirimm = fieldSisaBelumDikirim.getText();
         String kodeProduk = fieldKodeProduk.getText();
         
@@ -2849,14 +2907,13 @@ public class PanelPenerimaan extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Nomor Order tidak boleh Kosong");
             fieldNoOrder.requestFocus();
             fieldNoOrder.setEditable(true);
-        } else if (fieldTglPenerimaan.getDate().equals("")) {
-            JOptionPane.showMessageDialog(null, "Tangga Penerimaan tidak boleh Kosong");
-            fieldTglPenerimaan.requestFocus();
-        } else if (fieldJmlTerima.getText().equals("")) {
+        } else if (ComboNoPemesanan.getSelectedItem()== "- Pilih Pemesanan -") {
+            JOptionPane.showMessageDialog(null, "No Pemesanan Belum dipilih");
+            ComboNoPemesanan.requestFocus();
+        }else if (fieldJmlTerima.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Jumlah terima tidak boleh Kosong");
             fieldJmlTerima.requestFocus();
             fieldJmlTerima.setEditable(true);
-            
         } else {
             JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin "
                     + "menyimpan pesanan dengan no order " + noOrder
@@ -2998,17 +3055,29 @@ public class PanelPenerimaan extends javax.swing.JPanel {
 
     private void jButtonSimpanPenerimaanMS_SSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSimpanPenerimaanMS_SSActionPerformed
         // TODO add your handling code here:
-        String noOrder = fieldNoOrderMS_SS.getText();
-        SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
+        String tanggalPenerimaan="";
+        int subTotalTerima=0;
+        String jenisProduk="ms";
+        validasiTanggal(jenisProduk);
         
-        String tanggalPenerimaan = dt.format(fieldTglPenerimaanMS_SS.getDate());
+        String noOrder = fieldNoOrderMS_SS.getText();
+        if(validasiTanggal(jenisProduk)==true){
+            SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
+            tanggalPenerimaan = dt.format(fieldTglPenerimaanMS_SS.getDate());            
+        }else {    
+            JOptionPane.showMessageDialog(null, "Tanggal Salah !");
+        }
+     
         String jumlahTerima = fieldJmlTerimaMS_SS.getText();
         String noPemesanan = ComboNoPemesananMS_SS.getSelectedItem().toString();
         String stokAwal = fieldStokAwalMS_SS.getText();
         String keterangan = fieldKeteranganMS_SS.getText();
         String totalPemesanan = fieldTotalPemesananMS_SS.getText();
         String idSuplier = fieldIdSuplierMS_SS.getText();
-        int subTotalTerima = Integer.parseInt(fieldSubtotalTerimaMS_SS.getText());
+        if (fieldSubtotalTerimaMS_SS.getText().equals("")){
+        }else {
+            subTotalTerima = Integer.parseInt(fieldSubtotalTerimaMS_SS.getText());
+        }
         String sisaBelumDikirimm = fieldSisaBelumDikirimMS_SS.getText();
         String kodeProduk = fieldKodeProdukMS_SS.getText();
         
@@ -3019,9 +3088,9 @@ public class PanelPenerimaan extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Nomor Order tidak boleh Kosong");
             fieldNoOrderMS_SS.requestFocus();
             fieldNoOrderMS_SS.setEditable(true);
-        } else if (fieldTglPenerimaanMS_SS.getDate().equals("")) {
-            JOptionPane.showMessageDialog(null, "Tangga Penerimaan tidak boleh Kosong");
-            fieldTglPenerimaanMS_SS.requestFocus();
+        } else if (ComboNoPemesananMS_SS.getSelectedItem()== "- Pilih Pemesanan -") {
+            JOptionPane.showMessageDialog(null, "No Pemesanan Belum dipilih");
+            ComboNoPemesananMS_SS.requestFocus();
         } else if (fieldJmlTerimaMS_SS.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Jumlah terima tidak boleh Kosong");
             fieldJmlTerimaMS_SS.requestFocus();
@@ -3078,17 +3147,29 @@ public class PanelPenerimaan extends javax.swing.JPanel {
 
     private void jButtonSimpanPenerimaanSHP_SHPSSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSimpanPenerimaanSHP_SHPSSActionPerformed
         // TODO add your handling code here:
+        String tanggalPenerimaan="";
+        int subTotalTerima=0;
+        String jenisProduk="shp";
+        validasiTanggal(jenisProduk);
+
         String noOrder = fieldNoOrderSHP_SHPSS.getText();
-        SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
-        
-        String tanggalPenerimaan = dt.format(fieldTglPenerimaanSHP_SHPSS.getDate());
+        if(validasiTanggal(jenisProduk)==true){
+            SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
+            tanggalPenerimaan = dt.format(fieldTglPenerimaanSHP_SHPSS.getDate());            
+        }else {    
+            JOptionPane.showMessageDialog(null, "Tanggal Salah !");
+        }       
         String jumlahTerima = fieldJmlTerimaSHP_SHPSS.getText();
         String noPemesanan = ComboNoPemesananSHP_SHPSS.getSelectedItem().toString();
         String stokAwal = fieldStokAwalSHP_SHPSS.getText();
         String keterangan = fieldKeteranganSHP_SHPSS.getText();
         String totalPemesanan = fieldTotalPemesananSHP_SHPSS.getText();
         String idSuplier = fieldIdSuplierSHP_SHPSS.getText();
-        int subTotalTerima = Integer.parseInt(fieldSubtotalTerimaSHP_SHPSS.getText());
+        if (fieldSubtotalTerimaSHP_SHPSS.getText().equals("")){
+        }else {
+            subTotalTerima = Integer.parseInt(fieldSubtotalTerimaSHP_SHPSS.getText());
+        }
+
         String sisaBelumDikirimm = fieldSisaBelumDikirimSHP_SHPSS.getText();
         String kodeProduk = fieldKodeProdukSHP_SHPSS.getText();
         
@@ -3099,9 +3180,9 @@ public class PanelPenerimaan extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Nomor Order tidak boleh Kosong");
             fieldNoOrderSHP_SHPSS.requestFocus();
             fieldNoOrderSHP_SHPSS.setEditable(true);
-        } else if (fieldTglPenerimaanSHP_SHPSS.getDate().equals("")) {
-            JOptionPane.showMessageDialog(null, "Tangga Penerimaan tidak boleh Kosong");
-            fieldTglPenerimaanSHP_SHPSS.requestFocus();
+        } else if (ComboNoPemesananSHP_SHPSS.getSelectedItem()== "- Pilih Pemesanan -") {
+            JOptionPane.showMessageDialog(null, "No Pemesanan Belum dipilih");
+            ComboNoPemesananSHP_SHPSS.requestFocus();
         } else if (fieldJmlTerimaSHP_SHPSS.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Jumlah terima tidak boleh Kosong");
             fieldJmlTerimaSHP_SHPSS.requestFocus();
@@ -3159,17 +3240,29 @@ public class PanelPenerimaan extends javax.swing.JPanel {
 
     private void jButtonSimpanPenerimaanKemasanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSimpanPenerimaanKemasanActionPerformed
         // TODO add your handling code here:
+        String tanggalPenerimaan="";
+        int subTotalTerima=0;
+        String jenisProduk="km";
+        validasiTanggal(jenisProduk);
+
         String noOrder = fieldNoOrderKemasan.getText();
-        SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
-        
-        String tanggalPenerimaan = dt.format(fieldTglPenerimaanKemasan.getDate());
+        if(validasiTanggal(jenisProduk)==true){
+            SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
+            tanggalPenerimaan = dt.format(fieldTglPenerimaanKemasan.getDate());            
+        }else {    
+            JOptionPane.showMessageDialog(null, "Tanggal Salah !");
+        }
         String jumlahTerima = fieldJmlTerimaKemasan.getText();
         String noPemesanan = ComboNoPemesananKemasan.getSelectedItem().toString();
         String stokAwal = fieldStokAwalKemasan.getText();
         String keterangan = fieldKeteranganKemasan.getText();
         String totalPemesanan = fieldTotalPemesananKemasan.getText();
         String idSuplier = fieldIdSuplierKemasan.getText();
-        int subTotalTerima = Integer.parseInt(fieldSubtotalTerimaKemasan.getText());
+        if (fieldSubtotalTerimaKemasan.getText().equals("")){
+        }else {
+            subTotalTerima = Integer.parseInt(fieldSubtotalTerimaKemasan.getText());
+        }
+
         String sisaBelumDikirimm = fieldSisaBelumDikirimKemasan.getText();
         String kodeProduk = fieldKodeProdukKemasan.getText();
         
@@ -3180,9 +3273,9 @@ public class PanelPenerimaan extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Nomor Order tidak boleh Kosong");
             fieldNoOrderKemasan.requestFocus();
             fieldNoOrderKemasan.setEditable(true);
-        } else if (fieldTglPenerimaanKemasan.getDate().equals("")) {
-            JOptionPane.showMessageDialog(null, "Tangga Penerimaan tidak boleh Kosong");
-            fieldTglPenerimaanKemasan.requestFocus();
+        } else if (ComboNoPemesananKemasan.getSelectedItem()== "- Pilih Pemesanan -") {
+            JOptionPane.showMessageDialog(null, "No Pemesanan Belum dipilih");
+            ComboNoPemesananKemasan.requestFocus();
         } else if (fieldJmlTerimaKemasan.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Jumlah terima tidak boleh Kosong");
             fieldJmlTerimaKemasan.requestFocus();
@@ -3239,17 +3332,28 @@ public class PanelPenerimaan extends javax.swing.JPanel {
 
     private void jButtonSimpanPenerimaanMerchandiseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSimpanPenerimaanMerchandiseActionPerformed
         // TODO add your handling code here:
+        String tanggalPenerimaan="";
+        int subTotalTerima=0;
+        String jenisProduk="mc";
+        validasiTanggal(jenisProduk);
+
         String noOrder = fieldNoOrderMerchandise.getText();
-        SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
-        
-        String tanggalPenerimaan = dt.format(fieldTglPenerimaanMerchandise.getDate());
+        if(validasiTanggal(jenisProduk)==true){
+            SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
+            tanggalPenerimaan = dt.format(fieldTglPenerimaanMerchandise.getDate());            
+        }else {    
+            JOptionPane.showMessageDialog(null, "Tanggal Salah !");
+        }
         String jumlahTerima = fieldJmlTerimaMerchandise.getText();
         String noPemesanan = ComboNoPemesananMerchandise.getSelectedItem().toString();
         String stokAwal = fieldStokAwalMerchandise.getText();
         String keterangan = fieldKeteranganMerchandise.getText();
         String totalPemesanan = fieldTotalPemesananMerchandise.getText();
         String idSuplier = fieldIdSuplierMerchandise.getText();
-        int subTotalTerima = Integer.parseInt(fieldSubtotalTerimaMerchandise.getText());
+        if (fieldSubtotalTerima.getText().equals("")){
+        }else {
+            subTotalTerima = Integer.parseInt(fieldSubtotalTerimaMerchandise.getText());
+        }
         String sisaBelumDikirimm = fieldSisaBelumDikirimMerchandise.getText();
         String kodeProduk = fieldKodeProdukMerchandise.getText();
         
@@ -3260,9 +3364,9 @@ public class PanelPenerimaan extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Nomor Order tidak boleh Kosong");
             fieldNoOrderMerchandise.requestFocus();
             fieldNoOrderMerchandise.setEditable(true);
-        } else if (fieldTglPenerimaanMerchandise.getDate().equals("")) {
-            JOptionPane.showMessageDialog(null, "Tangga Penerimaan tidak boleh Kosong");
-            fieldTglPenerimaanMerchandise.requestFocus();
+        } else if (ComboNoPemesananMerchandise.getSelectedItem()== "- Pilih Pemesanan -") {
+            JOptionPane.showMessageDialog(null, "No Pemesanan Belum dipilih");
+            ComboNoPemesananMerchandise.requestFocus();
         } else if (fieldJmlTerimaMerchandise.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Jumlah terima tidak boleh Kosong");
             fieldJmlTerimaMerchandise.requestFocus();
@@ -3319,17 +3423,28 @@ public class PanelPenerimaan extends javax.swing.JPanel {
 
     private void jButtonSimpanPenerimaanPrismaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSimpanPenerimaanPrismaActionPerformed
         // TODO add your handling code here:
+        String tanggalPenerimaan="";
+        int subTotalTerima=0;
+        String jenisProduk="ps";
+        validasiTanggal(jenisProduk);
+
         String noOrder = fieldNoOrderPrisma.getText();
-        SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
-        
-        String tanggalPenerimaan = dt.format(fieldTglPenerimaanPrisma.getDate());
+        if(validasiTanggal(jenisProduk)==true){
+            SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
+            tanggalPenerimaan = dt.format(fieldTglPenerimaanPrisma.getDate());            
+        }else {    
+            JOptionPane.showMessageDialog(null, "Tanggal Salah !");
+        }
         String jumlahTerima = fieldJmlTerimaPrisma.getText();
         String noPemesanan = ComboNoPemesananPrisma.getSelectedItem().toString();
         String stokAwal = fieldStokAwalPrisma.getText();
         String keterangan = fieldKeteranganPrisma.getText();
         String totalPemesanan = fieldTotalPemesananPrisma.getText();
         String idSuplier = fieldIdSuplierPrisma.getText();
-        int subTotalTerima = Integer.parseInt(fieldSubtotalTerimaPrisma.getText());
+        if (fieldSubtotalTerimaPrisma.getText().equals("")){
+        }else {
+            subTotalTerima = Integer.parseInt(fieldSubtotalTerimaPrisma.getText());
+        }
         String sisaBelumDikirimm = fieldSisaBelumDikirimPrisma.getText();
         String kodeProduk = fieldKodeProdukPrisma.getText();
         
@@ -3340,9 +3455,9 @@ public class PanelPenerimaan extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Nomor Order tidak boleh Kosong");
             fieldNoOrderPrisma.requestFocus();
             fieldNoOrderPrisma.setEditable(true);
-        } else if (fieldTglPenerimaanPrisma.getDate().equals("")) {
-            JOptionPane.showMessageDialog(null, "Tangga Penerimaan tidak boleh Kosong");
-            fieldTglPenerimaanPrisma.requestFocus();
+        } else if (ComboNoPemesananPrisma.getSelectedItem()== "- Pilih Pemesanan -") {
+            JOptionPane.showMessageDialog(null, "No Pemesanan Belum dipilih");
+            ComboNoPemesananPrisma.requestFocus();
         } else if (fieldJmlTerimaPrisma.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Jumlah terima tidak boleh Kosong");
             fieldJmlTerimaPrisma.requestFocus();
@@ -3399,17 +3514,28 @@ public class PanelPenerimaan extends javax.swing.JPanel {
 
     private void jButtonSimpanPenerimaanDokumenFilateliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSimpanPenerimaanDokumenFilateliActionPerformed
         // TODO add your handling code here:
+        String tanggalPenerimaan="";
+        int subTotalTerima=0;
+        String jenisProduk="df";
+        validasiTanggal(jenisProduk);
+
         String noOrder = fieldNoOrderDokumenFilateli.getText();
-        SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
-        
-        String tanggalPenerimaan = dt.format(fieldTglPenerimaanDokumenFilateli.getDate());
+        if(validasiTanggal(jenisProduk)==true){
+            SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
+            tanggalPenerimaan = dt.format(fieldTglPenerimaanDokumenFilateli.getDate());            
+        }else {    
+            JOptionPane.showMessageDialog(null, "Tanggal Salah !");
+        }
         String jumlahTerima = fieldJmlTerimaDokumenFilateli.getText();
         String noPemesanan = ComboNoPemesananDokumenFilateli.getSelectedItem().toString();
         String stokAwal = fieldStokAwalDokumenFilateli.getText();
         String keterangan = fieldKeteranganDokumenFilateli.getText();
         String totalPemesanan = fieldTotalPemesananDokumenFilateli.getText();
         String idSuplier = fieldIdSuplierDokumenFilateli.getText();
-        int subTotalTerima = Integer.parseInt(fieldSubtotalTerimaDokumenFilateli.getText());
+        if (fieldSubtotalTerimaDokumenFilateli.getText().equals("")){
+        }else {
+            subTotalTerima = Integer.parseInt(fieldSubtotalTerimaDokumenFilateli.getText());
+        }
         String sisaBelumDikirimm = fieldSisaBelumDikirimDokumenFilateli.getText();
         String kodeProduk = fieldKodeProdukDokumenFilateli.getText();
         
@@ -3420,9 +3546,9 @@ public class PanelPenerimaan extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Nomor Order tidak boleh Kosong");
             fieldNoOrderDokumenFilateli.requestFocus();
             fieldNoOrderDokumenFilateli.setEditable(true);
-        } else if (fieldTglPenerimaanDokumenFilateli.getDate().equals("")) {
-            JOptionPane.showMessageDialog(null, "Tangga Penerimaan tidak boleh Kosong");
-            fieldTglPenerimaanDokumenFilateli.requestFocus();
+        } else if (ComboNoPemesananDokumenFilateli.getSelectedItem()== "- Pilih Pemesanan -") {
+            JOptionPane.showMessageDialog(null, "No Pemesanan Belum dipilih");
+            ComboNoPemesananDokumenFilateli.requestFocus();
         } else if (fieldJmlTerimaDokumenFilateli.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Jumlah terima tidak boleh Kosong");
             fieldJmlTerimaDokumenFilateli.requestFocus();
