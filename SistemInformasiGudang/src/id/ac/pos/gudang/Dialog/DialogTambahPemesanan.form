@@ -46,7 +46,7 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="buttonSimpanPesanPemesanan" min="-2" pref="71" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jButton70" min="-2" pref="73" max="-2" attributes="0"/>
+                              <Component id="buttonReset" min="-2" pref="73" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -139,7 +139,7 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="buttonSimpanPesanPemesanan" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton70" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="buttonReset" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -155,10 +155,13 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonSimpanPesanPemesananActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton70">
+    <Component class="javax.swing.JButton" name="buttonReset">
       <Properties>
         <Property name="text" type="java.lang.String" value="Reset"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonResetActionPerformed"/>
+      </Events>
     </Component>
     <Component class="com.toedter.calendar.JDateChooser" name="fieldTglPemesanan">
     </Component>
@@ -252,6 +255,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="fieldJumlahPemesanan">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldJumlahPemesananKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
@@ -272,7 +278,7 @@
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="10">
-            <StringItem index="0" value="- Pilih Jenis - "/>
+            <StringItem index="0" value="- Pilih Jenis -"/>
             <StringItem index="1" value="Prangko"/>
             <StringItem index="2" value="MS"/>
             <StringItem index="3" value="SS"/>

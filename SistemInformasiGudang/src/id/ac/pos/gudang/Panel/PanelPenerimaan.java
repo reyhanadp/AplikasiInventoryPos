@@ -6,6 +6,7 @@ import id.ac.pos.gudang.entity.Pemesanan;
 import id.ac.pos.gudang.entity.Penerimaan;
 import id.ac.pos.gudang.tablemodel.PenerimaanTM;
 import id.ac.pos.gudang.utility.DatabaseConnectivity;
+import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -912,6 +913,12 @@ public class PanelPenerimaan extends javax.swing.JPanel {
 
         jLabel61.setText("Jumlah Terima");
 
+        fieldJmlTerima.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                fieldJmlTerimaKeyTyped(evt);
+            }
+        });
+
         jButtonSimpanPenerimaan.setText("Simpan");
         jButtonSimpanPenerimaan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1603,7 +1610,6 @@ public class PanelPenerimaan extends javax.swing.JPanel {
                     .addGroup(jPanel75Layout.createSequentialGroup()
                         .addComponent(fieldSubtotalTerimaSHP_SHPSS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(3, 3, 3)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel75Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel75Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(fieldSisaBelumDikirimSHP_SHPSS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -3758,6 +3764,18 @@ public class PanelPenerimaan extends javax.swing.JPanel {
 
         tablePenerimaanDokumenFilateli.setModel(penerimaanTableModel);
     }//GEN-LAST:event_buttonCariPenerimaanDokumenFilateliActionPerformed
+
+    private void fieldJmlTerimaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldJmlTerimaKeyTyped
+        // TODO add your handling code here:
+        char karakter = evt.getKeyChar();
+        if (!(((karakter >= '0') && (karakter <= '9')
+                || (karakter == KeyEvent.VK_BACK_SPACE)
+                || (karakter == KeyEvent.VK_DELETE)
+                || (karakter == KeyEvent.VK_ENTER)))) {
+            JOptionPane.showMessageDialog(null, "Hanya Boleh Angka !");
+            evt.consume();
+        }
+    }//GEN-LAST:event_fieldJmlTerimaKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

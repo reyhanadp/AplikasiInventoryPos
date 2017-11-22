@@ -13,6 +13,7 @@ import id.ac.pos.gudang.daoimpl.ProdukDAOImpl;
 import id.ac.pos.gudang.entity.Pemesanan;
 import id.ac.pos.gudang.entity.Produk;
 import id.ac.pos.gudang.utility.DatabaseConnectivity;
+import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -41,6 +42,32 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
         autoIncrementNoPemesanan();
         setLocationRelativeTo(this);
 
+    }
+    
+    public void resetField(){
+        comboJenisPesan.setSelectedItem("- Pilih Jenis -");
+        comboKodeProduk.setSelectedItem("- Pilih Kode -");
+        comboNamaSuplier.setSelectedItem("- Pilih Suplier -");
+        fieldBiayaCetakPemesanan.setText("");
+        fieldJumlahPemesanan.setText("");
+        fieldNamaProdukPemesanan.setText("");
+        fieldNominalPemesanan.setText("");
+        fieldTahunPemesanan.setText("");
+        fieldTglPemesanan.setDateFormatString("");
+    }
+    
+    public boolean validasiTanggal(){
+        java.sql.Date date=java.sql.Date.valueOf("1990-11-12");
+            if(fieldTglPemesanan.getDate() == null){
+                date = (java.sql.Date) fieldTglPemesanan.getDate();
+            }
+       
+        if (date == null) 
+        {           
+            return false;
+        }else{
+        return true;
+        }
     }
     
     public void autofillfield(String kode){
@@ -379,16 +406,6 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
-    public void resetField(){
-        fieldBiayaCetakPemesanan.setText("");
-        fieldJumlahPemesanan.setText("");
-        fieldNamaProdukPemesanan.setText("");
-        fieldNominalPemesanan.setText("");
-        fieldTahunPemesanan.setText("");
-        fieldTglPemesanan.setDateFormatString("");
-    
-    }
-    
     public String CariJenis(){ 
     String Jenis = comboJenisPesan.getSelectedItem().toString();
         if (Jenis.equals("Dokumen Filateli")){
@@ -466,7 +483,7 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
 
         radioPrangko = new javax.swing.ButtonGroup();
         buttonSimpanPesanPemesanan = new javax.swing.JButton();
-        jButton70 = new javax.swing.JButton();
+        buttonReset = new javax.swing.JButton();
         fieldTglPemesanan = new com.toedter.calendar.JDateChooser();
         fieldTahunPemesanan = new javax.swing.JTextField();
         fieldBiayaCetakPemesanan = new javax.swing.JTextField();
@@ -499,7 +516,12 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
             }
         });
 
-        jButton70.setText("Reset");
+        buttonReset.setText("Reset");
+        buttonReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonResetActionPerformed(evt);
+            }
+        });
 
         fieldTahunPemesanan.setEditable(false);
         fieldTahunPemesanan.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -569,12 +591,18 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
 
         jLabel119.setText("Tanggal Pesan");
 
+        fieldJumlahPemesanan.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                fieldJumlahPemesananKeyTyped(evt);
+            }
+        });
+
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setText("TAMBAH DATA PEMESANAN");
 
         jLabel120.setText("Jenis Produk");
 
-        comboJenisPesan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "- Pilih Jenis - ", "Prangko", "MS", "SS", "SHP", "SHPSS", "Kemasan", "Prisma", "Merchandise", "Dokumen Filateli" }));
+        comboJenisPesan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "- Pilih Jenis -", "Prangko", "MS", "SS", "SHP", "SHPSS", "Kemasan", "Prisma", "Merchandise", "Dokumen Filateli" }));
         comboJenisPesan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboJenisPesanActionPerformed(evt);
@@ -619,7 +647,7 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
                                 .addGap(18, 18, 18)
                                 .addComponent(buttonSimpanPesanPemesanan, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton70, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(buttonReset, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel112)
@@ -692,7 +720,7 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonSimpanPesanPemesanan)
-                    .addComponent(jButton70))
+                    .addComponent(buttonReset))
                 .addContainerGap())
         );
 
@@ -701,6 +729,8 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
 
     private void buttonSimpanPesanPemesananActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSimpanPesanPemesananActionPerformed
         // TODO add your handling code here:
+        String tanggalPemesanan="";
+        
         String noPemesanan = fieldNoPemesanan.getText();
         String kodeProduk = comboKodeProduk.getSelectedItem().toString();
         String namaProduk = fieldNamaProdukPemesanan.getText();
@@ -708,10 +738,13 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
         String biayaCetak = fieldBiayaCetakPemesanan.getText();
         String tahun = fieldTahunPemesanan.getText();
         String jumlahPemesanan = fieldJumlahPemesanan.getText();
-        SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
         
-        String tanggalPemesanan = dt.format(fieldTglPemesanan.getDate());
-        String namaSuplier = comboNamaSuplier.getSelectedItem().toString();
+        if(validasiTanggal()==true){
+            SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
+            tanggalPemesanan = dt.format(fieldTglPemesanan.getDate());            
+        }else {    
+            JOptionPane.showMessageDialog(null, "Tanggal tidak boleh kosong !");
+        }String namaSuplier = comboNamaSuplier.getSelectedItem().toString();
         String idSuplier = null;
         
         try {
@@ -729,26 +762,20 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
         }
         //validasi apakah filed 
         //sudah diisi atau belum
-        
-        if (fieldNamaProdukPemesanan.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Nama Produk tidak boleh Kosong");
-            fieldNamaProdukPemesanan.requestFocus();
-            fieldNamaProdukPemesanan.setEditable(true);
-        } else if (fieldNominalPemesanan.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Nominal tidak boleh Kosong");
-            fieldNominalPemesanan.requestFocus();
-            fieldNominalPemesanan.setEditable(true);
-        } else if (fieldBiayaCetakPemesanan.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Biaya Cetak tidak boleh Kosong");
-            fieldBiayaCetakPemesanan.requestFocus();
-            fieldBiayaCetakPemesanan.setEditable(true);
-            
-        } else if (fieldTahunPemesanan.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Tahun tidak boleh Kosong");
-            fieldTahunPemesanan.requestFocus();
-            fieldTahunPemesanan.setEditable(true);
-            
-        } else {
+        System.out.println(comboJenisPesan.getSelectedItem());
+        if (comboJenisPesan.getSelectedItem()== "- Pilih Jenis -") {
+            JOptionPane.showMessageDialog(null, "Jenis produk belum dipilih!");
+            comboJenisPesan.requestFocus();
+        }else if (comboKodeProduk.getSelectedItem()== "- Pilih Kode -") {
+            JOptionPane.showMessageDialog(null, "Kode produk belum dipilih!");
+            comboKodeProduk.requestFocus();
+        } else if (comboNamaSuplier.getSelectedItem()== "- Pilih Suplier -") {
+            JOptionPane.showMessageDialog(null, "Suplier belum dipilih!");
+            comboNamaSuplier.requestFocus();
+        }else if (jumlahPemesanan.equals("")||jumlahPemesanan.equals("0")) {
+            JOptionPane.showMessageDialog(null, "Jumlah pemesanan tidak boleh kosong atau 0!");
+            fieldJumlahPemesanan.requestFocus();
+        }else {
             JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin "
                     + "menyimpan " + namaProduk
                     + "?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
@@ -858,6 +885,23 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
         autofillfield(kode);
     }//GEN-LAST:event_comboKodeProdukActionPerformed
 
+    private void buttonResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonResetActionPerformed
+        // TODO add your handling code here:
+        resetField();
+    }//GEN-LAST:event_buttonResetActionPerformed
+
+    private void fieldJumlahPemesananKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldJumlahPemesananKeyTyped
+        // TODO add your handling code here:
+        char karakter = evt.getKeyChar();
+        if (!(((karakter >= '0') && (karakter <= '9')
+                || (karakter == KeyEvent.VK_BACK_SPACE)
+                || (karakter == KeyEvent.VK_DELETE)
+                || (karakter == KeyEvent.VK_ENTER)))) {
+            JOptionPane.showMessageDialog(null, "Hanya Boleh Angka !");
+            evt.consume();
+        }
+    }//GEN-LAST:event_fieldJumlahPemesananKeyTyped
+
     /**
      * @param args the command line arguments
      */
@@ -887,6 +931,10 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -904,6 +952,7 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonReset;
     private javax.swing.JButton buttonSimpanPesanPemesanan;
     private javax.swing.JComboBox<String> comboJenisPesan;
     private javax.swing.JComboBox<String> comboKodeProduk;
@@ -915,7 +964,6 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
     private javax.swing.JTextField fieldNominalPemesanan;
     private javax.swing.JTextField fieldTahunPemesanan;
     private com.toedter.calendar.JDateChooser fieldTglPemesanan;
-    private javax.swing.JButton jButton70;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel112;
     private javax.swing.JLabel jLabel113;
