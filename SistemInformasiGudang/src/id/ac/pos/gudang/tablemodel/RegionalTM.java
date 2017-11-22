@@ -28,7 +28,7 @@ public class RegionalTM extends AbstractTableModel {
 
     @Override
     public int getColumnCount() {
-        return 3;
+        return 5;
     }
 
     @Override
@@ -37,9 +37,13 @@ public class RegionalTM extends AbstractTableModel {
             case 0:
                 return arrayRegional.get(rowIndex).getIdRegional();
             case 1:
-                return arrayRegional.get(rowIndex).getRegional();
+                return arrayRegional.get(rowIndex).getNamaRegional();
             case 2:
                 return arrayRegional.get(rowIndex).getKodePos();
+            case 3:
+                return arrayRegional.get(rowIndex).getNoTelp();
+            case 4:
+                return arrayRegional.get(rowIndex).getAlamat();
         }
         return null;
     }
@@ -50,9 +54,13 @@ public class RegionalTM extends AbstractTableModel {
             case 0:
                 return "Id Regional";
             case 1:
-                return "Regional"; 
-                case 2:
+                return "Regional";
+            case 2:
                 return "Kode Pos";
+            case 3:
+                return "No. Telepon";
+            case 4:
+                return "Alamat";
         }
         return null;
     }

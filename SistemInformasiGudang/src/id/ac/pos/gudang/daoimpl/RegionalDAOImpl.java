@@ -48,7 +48,10 @@ public class RegionalDAOImpl implements RegionalDAO {
                     //mengambil 1 data
                     Regional regional = new Regional();
                     regional.setIdRegional(result.getString(1));
-                    regional.setRegional(result.getString(2));
+                    regional.setNamaRegional(result.getString(2));
+                    regional.setKodePos(result.getString(3));
+                    regional.setNoTelp(result.getString(4));
+                    regional.setAlamat(result.getString(5));
 
                     //menambahkan data ke array
                     arrayRegional.add(regional);
@@ -83,7 +86,7 @@ public class RegionalDAOImpl implements RegionalDAO {
                     //mengambil 1 data
                     Regional regional = new Regional();
                     regional.setIdRegional(result.getString(1));
-                    regional.setRegional(result.getString(2));
+                    regional.setNamaRegional(result.getString(2));
 
                     //menambahkan data ke array
                     arrayRegional.add(regional);
@@ -97,14 +100,17 @@ public class RegionalDAOImpl implements RegionalDAO {
 
     @Override
     public boolean tambahRegional(Regional regional) {
-        String INSERT = "INSERT INTO tb_regional VALUES (?, ?, ?, NULL, NULL)";
+        String INSERT = "INSERT INTO tb_regional (id_regional, regional, "
+                + "kode_pos, no_telp, alamat) VALUES (?, ?, ?, ?, ?)";
         PreparedStatement state = null;
 
         try {
             state = conn.prepareStatement(INSERT);
             state.setString(1, regional.getIdRegional());
-            state.setString(2, regional.getRegional());
+            state.setString(2, regional.getNamaRegional());
             state.setString(3, regional.getKodePos());
+            state.setString(4, regional.getNoTelp());
+            state.setString(5, regional.getAlamat());
 
             int qty = state.executeUpdate();
             return qty > 0;
@@ -115,13 +121,13 @@ public class RegionalDAOImpl implements RegionalDAO {
     }
 
     @Override
-    public boolean hapusRegional(int idRegional) {
+    public boolean hapusRegional(String idRegional) {
         String DELETE = "DELETE FROM tb_regional WHERE id_regional = ?";
         PreparedStatement state = null;
 
         try {
             state = conn.prepareStatement(DELETE);
-            state.setInt(1, idRegional);
+            state.setString(1, idRegional);
 
             int qty = state.executeUpdate();
             return qty > 0;
@@ -140,7 +146,7 @@ public class RegionalDAOImpl implements RegionalDAO {
 
         try {
             state = conn.prepareStatement(UPDATE);
-            state.setString(1, regional.getRegional());
+            state.setString(1, regional.getNamaRegional());
             state.setString(2, regional.getIdRegional());
 
             int qty = state.executeUpdate();

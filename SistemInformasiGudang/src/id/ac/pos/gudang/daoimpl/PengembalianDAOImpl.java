@@ -147,7 +147,7 @@ public class PengembalianDAOImpl implements PengembalianDAO{
 
                     //mengambil 1 data
                     Regional regional = new Regional();
-                    regional.setRegional(result.getString(2));
+                    regional.setNamaRegional(result.getString(2));
 
                     //menambahkan data ke array
                     arrayRegional.add(regional);

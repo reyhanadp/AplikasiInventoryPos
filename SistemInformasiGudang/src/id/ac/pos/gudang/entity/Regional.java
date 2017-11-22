@@ -13,8 +13,26 @@ package id.ac.pos.gudang.entity;
 public class Regional {
     
     private String idRegional;
-    private String regional;
+    private String namaRegional;
     private String kodePos;
+    private String noTelp;
+    private String alamat;
+
+    public String getNoTelp() {
+        return noTelp;
+    }
+
+    public void setNoTelp(String noTelp) {
+        this.noTelp = noTelp;
+    }
+
+    public String getAlamat() {
+        return alamat;
+    }
+
+    public void setAlamat(String alamat) {
+        this.alamat = alamat;
+    }
 
     public String getKodePos() {
         return kodePos;
@@ -32,12 +50,12 @@ public class Regional {
         this.idRegional = idRegional;
     }
 
-    public String getRegional() {
-        return regional;
+    public String getNamaRegional() {
+        return namaRegional;
     }
 
-    public void setRegional(String regional) {
-        this.regional = regional;
+    public void setNamaRegional(String regional) {
+        this.namaRegional = regional;
     }
     
     
