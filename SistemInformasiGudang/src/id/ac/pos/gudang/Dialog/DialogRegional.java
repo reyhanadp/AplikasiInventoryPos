@@ -65,7 +65,7 @@ public class DialogRegional extends javax.swing.JDialog {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        fieldCariRegional = new javax.swing.JTextField();
         buttonCari = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableRegional = new javax.swing.JTable();
@@ -79,6 +79,11 @@ public class DialogRegional extends javax.swing.JDialog {
         jLabel1.setText("Cari Regional");
 
         buttonCari.setText("Cari");
+        buttonCari.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCariActionPerformed(evt);
+            }
+        });
 
         tableRegional.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -116,6 +121,11 @@ public class DialogRegional extends javax.swing.JDialog {
         });
 
         buttonRefresh.setText("Refresh");
+        buttonRefresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonRefreshActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -140,7 +150,7 @@ public class DialogRegional extends javax.swing.JDialog {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(fieldCariRegional, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(buttonCari)))
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -152,7 +162,7 @@ public class DialogRegional extends javax.swing.JDialog {
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(fieldCariRegional, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(buttonCari))
                     .addComponent(jLabel1))
                 .addGap(16, 16, 16)
@@ -219,6 +229,25 @@ public class DialogRegional extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_buttonUbahActionPerformed
 
+    private void buttonCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariActionPerformed
+        // TODO add your handling code here:
+        String keyword = fieldCariRegional.getText();
+        
+        //lakukan pencarian 
+        dao = new RegionalDAOImpl();
+        arrayRegional = dao.cariRegional(keyword);
+        
+        RegionalTM regionalTableModel = new RegionalTM();
+        regionalTableModel.setDataRegional(arrayRegional);
+        
+        tableRegional.setModel(regionalTableModel);
+    }//GEN-LAST:event_buttonCariActionPerformed
+
+    private void buttonRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRefreshActionPerformed
+        // TODO add your handling code here:
+        getData();
+    }//GEN-LAST:event_buttonRefreshActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -256,7 +285,7 @@ public class DialogRegional extends javax.swing.JDialog {
                         System.exit(0);
                     }
                 });
-                dialog.setVisible(false);
+                dialog.setVisible(true);
             }
         });
     }
@@ -267,9 +296,9 @@ public class DialogRegional extends javax.swing.JDialog {
     private javax.swing.JButton buttonRefresh;
     private javax.swing.JButton buttonTambah;
     private javax.swing.JButton buttonUbah;
+    private javax.swing.JTextField fieldCariRegional;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTable tableRegional;
     // End of variables declaration//GEN-END:variables
 }

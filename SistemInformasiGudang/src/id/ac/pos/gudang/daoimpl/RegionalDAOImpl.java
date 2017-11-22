@@ -87,6 +87,9 @@ public class RegionalDAOImpl implements RegionalDAO {
                     Regional regional = new Regional();
                     regional.setIdRegional(result.getString(1));
                     regional.setNamaRegional(result.getString(2));
+                    regional.setKodePos(result.getString(3));
+                    regional.setNoTelp(result.getString(4));
+                    regional.setAlamat(result.getString(5));
 
                     //menambahkan data ke array
                     arrayRegional.add(regional);
