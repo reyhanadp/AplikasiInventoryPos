@@ -60,9 +60,24 @@ public class PengembalianDAOImpl implements PengembalianDAO{
     }
 
     @Override
-    public ArrayList<Produk> getProdukPrangko(Object pilihan) {
+    public ArrayList<Produk> getProduk(Object pilihan, String jenis_produk) {
         ArrayList<Produk> arrayProdukPrangko = null;
-        String SELECT = "SELECT * FROM tb_produk where nama_produk='"+pilihan+"'";
+        String SELECT = "";
+        if(jenis_produk.compareTo("MS")==0){
+            SELECT = "SELECT * FROM tb_produk "
+                    + "WHERE nama_produk='"+pilihan+"' && "
+                    + "id_jenis_produk in (SELECT id_jenis_produk FROM"
+                    + " tb_produk WHERE id_jenis_produk = 'SS'"
+                    + " || id_jenis_produk = 'MS')";
+        }else if(jenis_produk.compareTo("SHP")==0){
+            SELECT = "SELECT * FROM tb_produk "
+                    + "WHERE nama_produk='"+pilihan+"' && "
+                    + "id_jenis_produk in (SELECT id_jenis_produk FROM"
+                    + " tb_produk WHERE id_jenis_produk = 'SHP'"
+                    + " || id_jenis_produk = 'SHPSS')";
+        }else{
+            SELECT = "SELECT * FROM tb_produk where nama_produk='"+pilihan+"' and id_jenis_produk='"+jenis_produk+"'";
+        }
         PreparedStatement state = null;
 
         try {

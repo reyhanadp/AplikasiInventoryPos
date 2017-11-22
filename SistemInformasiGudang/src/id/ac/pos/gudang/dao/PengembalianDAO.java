@@ -19,7 +19,7 @@ public interface PengembalianDAO {
     ArrayList<Regional> getRegional();
     ArrayList<Pengembalian> getPengembalianPrangko();
     ArrayList<Regional> getIsiRegional(Object pilihan);
-    ArrayList<Produk> getProdukPrangko(Object pilihan);
+    ArrayList<Produk> getProduk(Object pilihan, String jenis_produk);
     boolean tambahPengembalian(Pengembalian pengembalian);
     String getIdPengembalian();
 }

@@ -533,7 +533,7 @@
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Tabel Data Produk"/>
+                    <TitledBorder title="Tabel Data Pengembalian"/>
                   </Border>
                 </Property>
               </Properties>
@@ -574,7 +574,7 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
-                    <Component class="javax.swing.JTable" name="tablePrangko15">
+                    <Component class="javax.swing.JTable" name="TablePengembalianMSSS">
                       <Properties>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                           <Table columnCount="4" rowCount="4">
@@ -589,7 +589,7 @@
                         </Property>
                       </Properties>
                       <Events>
-                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tablePrangko15MouseClicked"/>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="TablePengembalianMSSSMouseClicked"/>
                       </Events>
                     </Component>
                   </SubComponents>
@@ -658,29 +658,29 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jDateChooser17" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jTextField12" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jTextField13" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jTextField44" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jTextField7" alignment="0" min="-2" pref="95" max="-2" attributes="0"/>
+                                      <Component id="TanggalPenerimaanMSSS" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="StokGudangMSSS" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="JumlahTerimaMSSS" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="NomorDusMSSS" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="KodeRegionalMSSS" alignment="0" min="-2" pref="95" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="jLabel16" min="-2" pref="54" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jTextField8" max="32767" attributes="0"/>
+                                  <Component id="KodePosMSSS" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="1" attributes="0">
-                                          <Component id="jTextField5" min="-2" pref="95" max="-2" attributes="0"/>
+                                          <Component id="KodeProdukMSSS" min="-2" pref="95" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Component id="jLabel14" min="-2" pref="54" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jTextField6" min="-2" pref="84" max="-2" attributes="0"/>
+                                          <Component id="NominalMSSS" min="-2" pref="84" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="KotaPengirimPrangko1" alignment="1" max="32767" attributes="0"/>
-                                      <Component id="jComboBox10" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="KotaPengirimMSSS" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="NamaProdukMSSS" alignment="1" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -689,6 +689,8 @@
                                       <Component id="jScrollPane36" alignment="1" max="32767" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="jButton13" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="resetPrangko1" min="-2" pref="95" max="-2" attributes="0"/>
                                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
@@ -703,50 +705,50 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel133" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jComboBox10" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="NamaProdukMSSS" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel7" alignment="0" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField6" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField5" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="NominalMSSS" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="KodeProdukMSSS" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel44" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                              <Component id="KotaPengirimPrangko1" alignment="3" max="32767" attributes="0"/>
+                              <Component id="KotaPengirimMSSS" alignment="3" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel15" alignment="0" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField8" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField7" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="KodePosMSSS" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="KodeRegionalMSSS" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel6" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                              <Component id="jTextField44" alignment="3" max="32767" attributes="0"/>
+                              <Component id="NomorDusMSSS" alignment="3" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jDateChooser17" alignment="0" max="32767" attributes="0"/>
+                              <Component id="TanggalPenerimaanMSSS" alignment="0" max="32767" attributes="0"/>
                               <Component id="jLabel132" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel49" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                              <Component id="jTextField12" alignment="3" max="32767" attributes="0"/>
+                              <Component id="StokGudangMSSS" alignment="3" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel50" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextField13" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="JumlahTerimaMSSS" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -754,7 +756,10 @@
                               <Component id="jScrollPane36" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jButton13" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jButton13" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="resetPrangko1" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                          </Group>
                           <EmptySpace min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -766,21 +771,21 @@
                     <Property name="text" type="java.lang.String" value="Tanggal Penerimaan"/>
                   </Properties>
                 </Component>
-                <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser17">
+                <Component class="com.toedter.calendar.JDateChooser" name="TanggalPenerimaanMSSS">
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel49">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Stok Gudang"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField12">
+                <Component class="javax.swing.JTextField" name="StokGudangMSSS">
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel50">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Jumlah Terima"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField13">
+                <Component class="javax.swing.JTextField" name="JumlahTerimaMSSS">
                 </Component>
                 <Component class="javax.swing.JButton" name="jButton13">
                   <Properties>
@@ -800,9 +805,9 @@
                     <Property name="text" type="java.lang.String" value="Nomor Dus"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField44">
+                <Component class="javax.swing.JTextField" name="NomorDusMSSS">
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField44ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NomorDusMSSSActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel44">
@@ -810,7 +815,7 @@
                     <Property name="text" type="java.lang.String" value="Regional Pengirim"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="KotaPengirimPrangko1">
+                <Component class="javax.swing.JComboBox" name="KotaPengirimMSSS">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="0"/>
@@ -825,15 +830,15 @@
                     <Property name="text" type="java.lang.String" value="Nama Produk"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="jComboBox10">
+                <Component class="javax.swing.JComboBox" name="NamaProdukMSSS">
                   <Properties>
-                    <Property name="editable" type="boolean" value="true"/>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="0"/>
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBox10ActionPerformed"/>
+                    <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="NamaProdukMSSSItemStateChanged"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NamaProdukMSSSActionPerformed"/>
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -844,16 +849,16 @@
                     <Property name="text" type="java.lang.String" value="Kode Produk"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField5">
+                <Component class="javax.swing.JTextField" name="KodeProdukMSSS">
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel14">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Nominal"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField6">
+                <Component class="javax.swing.JTextField" name="NominalMSSS">
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField6ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NominalMSSSActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel15">
@@ -861,14 +866,14 @@
                     <Property name="text" type="java.lang.String" value="Kode Regional"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField7">
+                <Component class="javax.swing.JTextField" name="KodeRegionalMSSS">
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel16">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Kode Pos"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField8">
+                <Component class="javax.swing.JTextField" name="KodePosMSSS">
                 </Component>
                 <Container class="javax.swing.JScrollPane" name="jScrollPane36">
                   <AuxValues>
@@ -877,7 +882,7 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
-                    <Component class="javax.swing.JTextArea" name="KeteranganPrangko1">
+                    <Component class="javax.swing.JTextArea" name="KeteranganMSSS">
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="lineWrap" type="boolean" value="true"/>
@@ -886,6 +891,17 @@
                     </Component>
                   </SubComponents>
                 </Container>
+                <Component class="javax.swing.JToggleButton" name="resetPrangko1">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/img/icons/Reset.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Reset"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="resetPrangko1ActionPerformed"/>
+                  </Events>
+                </Component>
               </SubComponents>
             </Container>
           </SubComponents>
@@ -927,7 +943,7 @@
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Tabel Data Produk"/>
+                    <TitledBorder title="Tabel Data Pengembalian"/>
                   </Border>
                 </Property>
               </Properties>
@@ -968,7 +984,7 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
-                    <Component class="javax.swing.JTable" name="tablePrangko16">
+                    <Component class="javax.swing.JTable" name="TablePengembalianSHPSS">
                       <Properties>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                           <Table columnCount="4" rowCount="4">
@@ -983,7 +999,7 @@
                         </Property>
                       </Properties>
                       <Events>
-                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tablePrangko16MouseClicked"/>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="TablePengembalianSHPSSMouseClicked"/>
                       </Events>
                     </Component>
                   </SubComponents>
@@ -1052,29 +1068,29 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jDateChooser18" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jTextField14" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jTextField15" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jTextField45" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jTextField29" alignment="0" min="-2" pref="95" max="-2" attributes="0"/>
+                                      <Component id="TanggalPenerimaanSHPSS" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="StokGudangSHPSS" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="JumlahTerimaSHPSS" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="NomorDusSHPSS" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="KodeRegionalSHPSS" alignment="0" min="-2" pref="95" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="jLabel21" min="-2" pref="54" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jTextField30" max="32767" attributes="0"/>
+                                  <Component id="KodePosSHPSS" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="1" attributes="0">
-                                          <Component id="jTextField9" min="-2" pref="95" max="-2" attributes="0"/>
+                                          <Component id="KodeProdukSHPSS" min="-2" pref="95" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Component id="jLabel19" min="-2" pref="54" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jTextField16" min="-2" pref="84" max="-2" attributes="0"/>
+                                          <Component id="NominalSHPSS" min="-2" pref="84" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="KotaPengirimPrangko2" alignment="1" max="32767" attributes="0"/>
-                                      <Component id="jComboBox11" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="KotaPengirimSHPSS" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="NamaProdukSHPSS" alignment="1" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -1083,6 +1099,8 @@
                                       <Component id="jScrollPane37" alignment="1" max="32767" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="jButton14" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="resetPrangko2" min="-2" pref="95" max="-2" attributes="0"/>
                                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
@@ -1097,50 +1115,50 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel135" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jComboBox11" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="NamaProdukSHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel18" alignment="0" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel19" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField16" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField9" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="NominalSHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="KodeProdukSHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel60" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                              <Component id="KotaPengirimPrangko2" alignment="3" max="32767" attributes="0"/>
+                              <Component id="KotaPengirimSHPSS" alignment="3" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel20" alignment="0" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel21" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField30" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField29" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="KodePosSHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="KodeRegionalSHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel17" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                              <Component id="jTextField45" alignment="3" max="32767" attributes="0"/>
+                              <Component id="NomorDusSHPSS" alignment="3" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jDateChooser18" alignment="0" max="32767" attributes="0"/>
+                              <Component id="TanggalPenerimaanSHPSS" alignment="0" max="32767" attributes="0"/>
                               <Component id="jLabel134" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel52" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                              <Component id="jTextField14" alignment="3" max="32767" attributes="0"/>
+                              <Component id="StokGudangSHPSS" alignment="3" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel53" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextField15" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="JumlahTerimaSHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -1148,7 +1166,10 @@
                               <Component id="jScrollPane37" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jButton14" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jButton14" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="resetPrangko2" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                          </Group>
                           <EmptySpace min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -1160,21 +1181,21 @@
                     <Property name="text" type="java.lang.String" value="Tanggal Penerimaan"/>
                   </Properties>
                 </Component>
-                <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser18">
+                <Component class="com.toedter.calendar.JDateChooser" name="TanggalPenerimaanSHPSS">
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel52">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Stok Gudang"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField14">
+                <Component class="javax.swing.JTextField" name="StokGudangSHPSS">
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel53">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Jumlah Terima"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField15">
+                <Component class="javax.swing.JTextField" name="JumlahTerimaSHPSS">
                 </Component>
                 <Component class="javax.swing.JButton" name="jButton14">
                   <Properties>
@@ -1194,9 +1215,9 @@
                     <Property name="text" type="java.lang.String" value="Nomor Dus"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField45">
+                <Component class="javax.swing.JTextField" name="NomorDusSHPSS">
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField45ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NomorDusSHPSSActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel60">
@@ -1204,7 +1225,7 @@
                     <Property name="text" type="java.lang.String" value="Regional Pengirim"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="KotaPengirimPrangko2">
+                <Component class="javax.swing.JComboBox" name="KotaPengirimSHPSS">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="0"/>
@@ -1219,15 +1240,15 @@
                     <Property name="text" type="java.lang.String" value="Nama Produk"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="jComboBox11">
+                <Component class="javax.swing.JComboBox" name="NamaProdukSHPSS">
                   <Properties>
-                    <Property name="editable" type="boolean" value="true"/>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="0"/>
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBox11ActionPerformed"/>
+                    <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="NamaProdukSHPSSItemStateChanged"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NamaProdukSHPSSActionPerformed"/>
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -1238,16 +1259,16 @@
                     <Property name="text" type="java.lang.String" value="Kode Produk"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField9">
+                <Component class="javax.swing.JTextField" name="KodeProdukSHPSS">
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel19">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Nominal"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField16">
+                <Component class="javax.swing.JTextField" name="NominalSHPSS">
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField16ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NominalSHPSSActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel20">
@@ -1255,14 +1276,14 @@
                     <Property name="text" type="java.lang.String" value="Kode Regional"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField29">
+                <Component class="javax.swing.JTextField" name="KodeRegionalSHPSS">
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel21">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Kode Pos"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField30">
+                <Component class="javax.swing.JTextField" name="KodePosSHPSS">
                 </Component>
                 <Container class="javax.swing.JScrollPane" name="jScrollPane37">
                   <AuxValues>
@@ -1271,7 +1292,7 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
-                    <Component class="javax.swing.JTextArea" name="KeteranganPrangko2">
+                    <Component class="javax.swing.JTextArea" name="KeteranganSHPSS">
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="lineWrap" type="boolean" value="true"/>
@@ -1280,6 +1301,17 @@
                     </Component>
                   </SubComponents>
                 </Container>
+                <Component class="javax.swing.JToggleButton" name="resetPrangko2">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/img/icons/Reset.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Reset"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="resetPrangko2ActionPerformed"/>
+                  </Events>
+                </Component>
               </SubComponents>
             </Container>
           </SubComponents>
@@ -1321,7 +1353,7 @@
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Tabel Data Produk"/>
+                    <TitledBorder title="Tabel Data Pengembalian"/>
                   </Border>
                 </Property>
               </Properties>
@@ -1362,7 +1394,7 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
-                    <Component class="javax.swing.JTable" name="tablePrangko17">
+                    <Component class="javax.swing.JTable" name="TablePengembalianKemasan">
                       <Properties>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                           <Table columnCount="4" rowCount="4">
@@ -1377,7 +1409,7 @@
                         </Property>
                       </Properties>
                       <Events>
-                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tablePrangko17MouseClicked"/>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="TablePengembalianKemasanMouseClicked"/>
                       </Events>
                     </Component>
                   </SubComponents>
@@ -1446,29 +1478,29 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jDateChooser19" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jTextField31" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jTextField32" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jTextField46" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jTextField35" alignment="0" min="-2" pref="95" max="-2" attributes="0"/>
+                                      <Component id="TanggalPenerimaanKemasan" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="StokGudangKemasan" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="JumlahTerimaKemasan" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="NomorDusKemasan" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="KodeRegionalKemasan" alignment="0" min="-2" pref="95" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="jLabel26" min="-2" pref="54" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jTextField36" max="32767" attributes="0"/>
+                                  <Component id="KodePosKemasan" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="1" attributes="0">
-                                          <Component id="jTextField33" min="-2" pref="95" max="-2" attributes="0"/>
+                                          <Component id="KodeProdukKemasan" min="-2" pref="95" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Component id="jLabel24" min="-2" pref="54" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jTextField34" min="-2" pref="84" max="-2" attributes="0"/>
+                                          <Component id="NominalKemasan" min="-2" pref="84" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="KotaPengirimPrangko3" alignment="1" max="32767" attributes="0"/>
-                                      <Component id="jComboBox12" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="KotaPengirimKemasan" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="NamaProdukKemasan" alignment="1" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -1477,6 +1509,8 @@
                                       <Component id="jScrollPane38" alignment="1" max="32767" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="jButton15" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="resetPrangko3" min="-2" pref="95" max="-2" attributes="0"/>
                                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
@@ -1491,50 +1525,50 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel137" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jComboBox12" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="NamaProdukKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel23" alignment="0" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel24" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField34" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField33" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="NominalKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="KodeProdukKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel64" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                              <Component id="KotaPengirimPrangko3" alignment="3" max="32767" attributes="0"/>
+                              <Component id="KotaPengirimKemasan" alignment="3" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel25" alignment="0" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel26" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField36" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField35" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="KodePosKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="KodeRegionalKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel22" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                              <Component id="jTextField46" alignment="3" max="32767" attributes="0"/>
+                              <Component id="NomorDusKemasan" alignment="3" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jDateChooser19" alignment="0" max="32767" attributes="0"/>
+                              <Component id="TanggalPenerimaanKemasan" alignment="0" max="32767" attributes="0"/>
                               <Component id="jLabel136" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel61" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                              <Component id="jTextField31" alignment="3" max="32767" attributes="0"/>
+                              <Component id="StokGudangKemasan" alignment="3" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel62" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextField32" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="JumlahTerimaKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -1542,7 +1576,10 @@
                               <Component id="jScrollPane38" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jButton15" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jButton15" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="resetPrangko3" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                          </Group>
                           <EmptySpace min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -1554,21 +1591,21 @@
                     <Property name="text" type="java.lang.String" value="Tanggal Penerimaan"/>
                   </Properties>
                 </Component>
-                <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser19">
+                <Component class="com.toedter.calendar.JDateChooser" name="TanggalPenerimaanKemasan">
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel61">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Stok Gudang"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField31">
+                <Component class="javax.swing.JTextField" name="StokGudangKemasan">
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel62">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Jumlah Terima"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField32">
+                <Component class="javax.swing.JTextField" name="JumlahTerimaKemasan">
                 </Component>
                 <Component class="javax.swing.JButton" name="jButton15">
                   <Properties>
@@ -1588,9 +1625,9 @@
                     <Property name="text" type="java.lang.String" value="Nomor Dus"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField46">
+                <Component class="javax.swing.JTextField" name="NomorDusKemasan">
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField46ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NomorDusKemasanActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel64">
@@ -1598,7 +1635,7 @@
                     <Property name="text" type="java.lang.String" value="Regional Pengirim"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="KotaPengirimPrangko3">
+                <Component class="javax.swing.JComboBox" name="KotaPengirimKemasan">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="0"/>
@@ -1613,15 +1650,14 @@
                     <Property name="text" type="java.lang.String" value="Nama Produk"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="jComboBox12">
+                <Component class="javax.swing.JComboBox" name="NamaProdukKemasan">
                   <Properties>
-                    <Property name="editable" type="boolean" value="true"/>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="0"/>
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBox12ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NamaProdukKemasanActionPerformed"/>
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -1632,16 +1668,16 @@
                     <Property name="text" type="java.lang.String" value="Kode Produk"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField33">
+                <Component class="javax.swing.JTextField" name="KodeProdukKemasan">
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel24">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Nominal"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField34">
+                <Component class="javax.swing.JTextField" name="NominalKemasan">
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField34ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NominalKemasanActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel25">
@@ -1649,14 +1685,14 @@
                     <Property name="text" type="java.lang.String" value="Kode Regional"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField35">
+                <Component class="javax.swing.JTextField" name="KodeRegionalKemasan">
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel26">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Kode Pos"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField36">
+                <Component class="javax.swing.JTextField" name="KodePosKemasan">
                 </Component>
                 <Container class="javax.swing.JScrollPane" name="jScrollPane38">
                   <AuxValues>
@@ -1665,7 +1701,7 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
-                    <Component class="javax.swing.JTextArea" name="KeteranganPrangko3">
+                    <Component class="javax.swing.JTextArea" name="KeteranganKemasan">
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="lineWrap" type="boolean" value="true"/>
@@ -1674,6 +1710,17 @@
                     </Component>
                   </SubComponents>
                 </Container>
+                <Component class="javax.swing.JToggleButton" name="resetPrangko3">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/img/icons/Reset.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Reset"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="resetPrangko3ActionPerformed"/>
+                  </Events>
+                </Component>
               </SubComponents>
             </Container>
           </SubComponents>
@@ -1712,7 +1759,7 @@
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Tabel Data Produk"/>
+                    <TitledBorder title="Tabel Data Pengembalian"/>
                   </Border>
                 </Property>
               </Properties>
@@ -1837,29 +1884,29 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jDateChooser20" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jTextField37" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jTextField38" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jTextField47" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jTextField41" alignment="0" min="-2" pref="95" max="-2" attributes="0"/>
+                                      <Component id="TanggalPenerimaanMerchandise" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="StokGudangMerchandise" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="JumlahTerimaMerchandise" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="NomorDusMerchandise" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="KodeRegionalMerchandise" alignment="0" min="-2" pref="95" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="jLabel31" min="-2" pref="54" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jTextField42" max="32767" attributes="0"/>
+                                  <Component id="KodePosMerchandise" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="1" attributes="0">
-                                          <Component id="jTextField39" min="-2" pref="95" max="-2" attributes="0"/>
+                                          <Component id="KodeProdukMerchandise" min="-2" pref="95" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Component id="jLabel29" min="-2" pref="54" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jTextField40" min="-2" pref="84" max="-2" attributes="0"/>
+                                          <Component id="NominalMerchandise" min="-2" pref="84" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="KotaPengirimPrangko4" alignment="1" max="32767" attributes="0"/>
-                                      <Component id="jComboBox13" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="KotaPengirimMerchandise" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="NamaProdukMerchandise" alignment="1" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -1868,6 +1915,8 @@
                                       <Component id="jScrollPane39" alignment="1" max="32767" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="jButton16" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="resetPrangko4" min="-2" pref="95" max="-2" attributes="0"/>
                                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
@@ -1882,50 +1931,50 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel139" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jComboBox13" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="NamaProdukMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel28" alignment="0" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel29" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField40" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField39" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="NominalMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="KodeProdukMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel68" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                              <Component id="KotaPengirimPrangko4" alignment="3" max="32767" attributes="0"/>
+                              <Component id="KotaPengirimMerchandise" alignment="3" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel30" alignment="0" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel31" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField42" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField41" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="KodePosMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="KodeRegionalMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel27" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                              <Component id="jTextField47" alignment="3" max="32767" attributes="0"/>
+                              <Component id="NomorDusMerchandise" alignment="3" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jDateChooser20" alignment="0" max="32767" attributes="0"/>
+                              <Component id="TanggalPenerimaanMerchandise" alignment="0" max="32767" attributes="0"/>
                               <Component id="jLabel138" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel65" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                              <Component id="jTextField37" alignment="3" max="32767" attributes="0"/>
+                              <Component id="StokGudangMerchandise" alignment="3" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel66" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextField38" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="JumlahTerimaMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -1933,7 +1982,10 @@
                               <Component id="jScrollPane39" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jButton16" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jButton16" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="resetPrangko4" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                          </Group>
                           <EmptySpace min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -1945,21 +1997,21 @@
                     <Property name="text" type="java.lang.String" value="Tanggal Penerimaan"/>
                   </Properties>
                 </Component>
-                <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser20">
+                <Component class="com.toedter.calendar.JDateChooser" name="TanggalPenerimaanMerchandise">
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel65">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Stok Gudang"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField37">
+                <Component class="javax.swing.JTextField" name="StokGudangMerchandise">
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel66">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Jumlah Terima"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField38">
+                <Component class="javax.swing.JTextField" name="JumlahTerimaMerchandise">
                 </Component>
                 <Component class="javax.swing.JButton" name="jButton16">
                   <Properties>
@@ -1979,9 +2031,9 @@
                     <Property name="text" type="java.lang.String" value="Nomor Dus"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField47">
+                <Component class="javax.swing.JTextField" name="NomorDusMerchandise">
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField47ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NomorDusMerchandiseActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel68">
@@ -1989,7 +2041,7 @@
                     <Property name="text" type="java.lang.String" value="Regional Pengirim"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="KotaPengirimPrangko4">
+                <Component class="javax.swing.JComboBox" name="KotaPengirimMerchandise">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="0"/>
@@ -2004,15 +2056,14 @@
                     <Property name="text" type="java.lang.String" value="Nama Produk"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="jComboBox13">
+                <Component class="javax.swing.JComboBox" name="NamaProdukMerchandise">
                   <Properties>
-                    <Property name="editable" type="boolean" value="true"/>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="0"/>
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBox13ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NamaProdukMerchandiseActionPerformed"/>
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -2023,16 +2074,16 @@
                     <Property name="text" type="java.lang.String" value="Kode Produk"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField39">
+                <Component class="javax.swing.JTextField" name="KodeProdukMerchandise">
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel29">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Nominal"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField40">
+                <Component class="javax.swing.JTextField" name="NominalMerchandise">
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField40ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NominalMerchandiseActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel30">
@@ -2040,14 +2091,14 @@
                     <Property name="text" type="java.lang.String" value="Kode Regional"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField41">
+                <Component class="javax.swing.JTextField" name="KodeRegionalMerchandise">
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel31">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Kode Pos"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField42">
+                <Component class="javax.swing.JTextField" name="KodePosMerchandise">
                 </Component>
                 <Container class="javax.swing.JScrollPane" name="jScrollPane39">
                   <AuxValues>
@@ -2056,7 +2107,7 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
-                    <Component class="javax.swing.JTextArea" name="KeteranganPrangko4">
+                    <Component class="javax.swing.JTextArea" name="KeteranganMerchandise">
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="lineWrap" type="boolean" value="true"/>
@@ -2065,6 +2116,17 @@
                     </Component>
                   </SubComponents>
                 </Container>
+                <Component class="javax.swing.JToggleButton" name="resetPrangko4">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/img/icons/Reset.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Reset"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="resetPrangko4ActionPerformed"/>
+                  </Events>
+                </Component>
               </SubComponents>
             </Container>
           </SubComponents>
@@ -2103,7 +2165,7 @@
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Tabel Data Produk"/>
+                    <TitledBorder title="Tabel Data Pengembalian"/>
                   </Border>
                 </Property>
               </Properties>
@@ -2228,29 +2290,29 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jDateChooser21" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jTextField48" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jTextField49" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jTextField56" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jTextField59" alignment="0" min="-2" pref="95" max="-2" attributes="0"/>
+                                      <Component id="TanggalPenerimaanPrisma" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="StokGudangPrisma" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="JumlahTerimaPrisma" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="NomorDusPrisma" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="KodeRegionalPrisma" alignment="0" min="-2" pref="95" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="jLabel36" min="-2" pref="54" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jTextField60" max="32767" attributes="0"/>
+                                  <Component id="KodePosPrisma" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="1" attributes="0">
-                                          <Component id="jTextField57" min="-2" pref="95" max="-2" attributes="0"/>
+                                          <Component id="KodeProdukPrisma" min="-2" pref="95" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Component id="jLabel34" min="-2" pref="54" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jTextField58" min="-2" pref="84" max="-2" attributes="0"/>
+                                          <Component id="NominalPrisma" min="-2" pref="84" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="KotaPengirimPrangko5" alignment="1" max="32767" attributes="0"/>
-                                      <Component id="jComboBox14" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="KotaPengirimPrisma" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="NamaProdukPrisma" alignment="1" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -2259,6 +2321,8 @@
                                       <Component id="jScrollPane40" alignment="1" max="32767" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="jButton17" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="resetPrangko5" min="-2" pref="95" max="-2" attributes="0"/>
                                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
@@ -2273,50 +2337,50 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel141" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jComboBox14" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="NamaProdukPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel33" alignment="0" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel34" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField58" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField57" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="NominalPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="KodeProdukPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel72" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                              <Component id="KotaPengirimPrangko5" alignment="3" max="32767" attributes="0"/>
+                              <Component id="KotaPengirimPrisma" alignment="3" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel35" alignment="0" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel36" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField60" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField59" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="KodePosPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="KodeRegionalPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel32" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                              <Component id="jTextField56" alignment="3" max="32767" attributes="0"/>
+                              <Component id="NomorDusPrisma" alignment="3" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jDateChooser21" alignment="0" max="32767" attributes="0"/>
+                              <Component id="TanggalPenerimaanPrisma" alignment="0" max="32767" attributes="0"/>
                               <Component id="jLabel140" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel69" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                              <Component id="jTextField48" alignment="3" max="32767" attributes="0"/>
+                              <Component id="StokGudangPrisma" alignment="3" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel70" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextField49" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="JumlahTerimaPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -2324,7 +2388,10 @@
                               <Component id="jScrollPane40" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jButton17" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jButton17" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="resetPrangko5" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                          </Group>
                           <EmptySpace min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -2336,21 +2403,21 @@
                     <Property name="text" type="java.lang.String" value="Tanggal Penerimaan"/>
                   </Properties>
                 </Component>
-                <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser21">
+                <Component class="com.toedter.calendar.JDateChooser" name="TanggalPenerimaanPrisma">
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel69">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Stok Gudang"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField48">
+                <Component class="javax.swing.JTextField" name="StokGudangPrisma">
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel70">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Jumlah Terima"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField49">
+                <Component class="javax.swing.JTextField" name="JumlahTerimaPrisma">
                 </Component>
                 <Component class="javax.swing.JButton" name="jButton17">
                   <Properties>
@@ -2370,9 +2437,9 @@
                     <Property name="text" type="java.lang.String" value="Nomor Dus"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField56">
+                <Component class="javax.swing.JTextField" name="NomorDusPrisma">
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField56ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NomorDusPrismaActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel72">
@@ -2380,7 +2447,7 @@
                     <Property name="text" type="java.lang.String" value="Regional Pengirim"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="KotaPengirimPrangko5">
+                <Component class="javax.swing.JComboBox" name="KotaPengirimPrisma">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="0"/>
@@ -2395,15 +2462,14 @@
                     <Property name="text" type="java.lang.String" value="Nama Produk"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="jComboBox14">
+                <Component class="javax.swing.JComboBox" name="NamaProdukPrisma">
                   <Properties>
-                    <Property name="editable" type="boolean" value="true"/>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="0"/>
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBox14ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NamaProdukPrismaActionPerformed"/>
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -2414,16 +2480,16 @@
                     <Property name="text" type="java.lang.String" value="Kode Produk"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField57">
+                <Component class="javax.swing.JTextField" name="KodeProdukPrisma">
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel34">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Nominal"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField58">
+                <Component class="javax.swing.JTextField" name="NominalPrisma">
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField58ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NominalPrismaActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel35">
@@ -2431,14 +2497,14 @@
                     <Property name="text" type="java.lang.String" value="Kode Regional"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField59">
+                <Component class="javax.swing.JTextField" name="KodeRegionalPrisma">
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel36">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Kode Pos"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField60">
+                <Component class="javax.swing.JTextField" name="KodePosPrisma">
                 </Component>
                 <Container class="javax.swing.JScrollPane" name="jScrollPane40">
                   <AuxValues>
@@ -2447,7 +2513,7 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
-                    <Component class="javax.swing.JTextArea" name="KeteranganPrangko5">
+                    <Component class="javax.swing.JTextArea" name="KeteranganPrisma">
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="lineWrap" type="boolean" value="true"/>
@@ -2456,6 +2522,17 @@
                     </Component>
                   </SubComponents>
                 </Container>
+                <Component class="javax.swing.JToggleButton" name="resetPrangko5">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/img/icons/Reset.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Reset"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="resetPrangko5ActionPerformed"/>
+                  </Events>
+                </Component>
               </SubComponents>
             </Container>
           </SubComponents>
@@ -2494,7 +2571,7 @@
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Tabel Data Produk"/>
+                    <TitledBorder title="Tabel Data Pengembalian"/>
                   </Border>
                 </Property>
               </Properties>
@@ -2619,29 +2696,29 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jDateChooser22" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jTextField61" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jTextField62" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jTextField63" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jTextField66" alignment="0" min="-2" pref="95" max="-2" attributes="0"/>
+                                      <Component id="TanggalPenerimaanDokumenFilateli" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="StokGudangDokumenFilateli" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="JumlahTerimaDokumenFilateli" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="NomorDusDokumenFilateli" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="KodeRegionalDokumenFilateli" alignment="0" min="-2" pref="95" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="jLabel41" min="-2" pref="54" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jTextField67" max="32767" attributes="0"/>
+                                  <Component id="KodePosDokumenFilateli" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="1" attributes="0">
-                                          <Component id="jTextField64" min="-2" pref="95" max="-2" attributes="0"/>
+                                          <Component id="KodeProdukDokumenFilateli" min="-2" pref="95" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Component id="jLabel39" min="-2" pref="54" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jTextField65" min="-2" pref="84" max="-2" attributes="0"/>
+                                          <Component id="NominalDokumenFilateli" min="-2" pref="84" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="KotaPengirimPrangko6" alignment="1" max="32767" attributes="0"/>
-                                      <Component id="jComboBox15" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="KotaPengirimDokumenFilateli" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="NamaProdukDokumenFilateli" alignment="1" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -2650,6 +2727,8 @@
                                       <Component id="jScrollPane41" alignment="1" max="32767" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="jButton18" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="resetPrangko6" min="-2" pref="95" max="-2" attributes="0"/>
                                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
@@ -2664,50 +2743,50 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel143" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jComboBox15" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="NamaProdukDokumenFilateli" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel38" alignment="0" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel39" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField65" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField64" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="NominalDokumenFilateli" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="KodeProdukDokumenFilateli" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel76" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                              <Component id="KotaPengirimPrangko6" alignment="3" max="32767" attributes="0"/>
+                              <Component id="KotaPengirimDokumenFilateli" alignment="3" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel40" alignment="0" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel41" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField67" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField66" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="KodePosDokumenFilateli" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="KodeRegionalDokumenFilateli" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel37" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                              <Component id="jTextField63" alignment="3" max="32767" attributes="0"/>
+                              <Component id="NomorDusDokumenFilateli" alignment="3" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jDateChooser22" alignment="0" max="32767" attributes="0"/>
+                              <Component id="TanggalPenerimaanDokumenFilateli" alignment="0" max="32767" attributes="0"/>
                               <Component id="jLabel142" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel73" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                              <Component id="jTextField61" alignment="3" max="32767" attributes="0"/>
+                              <Component id="StokGudangDokumenFilateli" alignment="3" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel74" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextField62" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="JumlahTerimaDokumenFilateli" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -2715,7 +2794,10 @@
                               <Component id="jScrollPane41" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jButton18" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jButton18" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="resetPrangko6" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                          </Group>
                           <EmptySpace min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -2727,21 +2809,21 @@
                     <Property name="text" type="java.lang.String" value="Tanggal Penerimaan"/>
                   </Properties>
                 </Component>
-                <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser22">
+                <Component class="com.toedter.calendar.JDateChooser" name="TanggalPenerimaanDokumenFilateli">
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel73">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Stok Gudang"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField61">
+                <Component class="javax.swing.JTextField" name="StokGudangDokumenFilateli">
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel74">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Jumlah Terima"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField62">
+                <Component class="javax.swing.JTextField" name="JumlahTerimaDokumenFilateli">
                 </Component>
                 <Component class="javax.swing.JButton" name="jButton18">
                   <Properties>
@@ -2761,9 +2843,9 @@
                     <Property name="text" type="java.lang.String" value="Nomor Dus"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField63">
+                <Component class="javax.swing.JTextField" name="NomorDusDokumenFilateli">
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField63ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NomorDusDokumenFilateliActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel76">
@@ -2771,7 +2853,7 @@
                     <Property name="text" type="java.lang.String" value="Regional Pengirim"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="KotaPengirimPrangko6">
+                <Component class="javax.swing.JComboBox" name="KotaPengirimDokumenFilateli">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="0"/>
@@ -2786,15 +2868,14 @@
                     <Property name="text" type="java.lang.String" value="Nama Produk"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="jComboBox15">
+                <Component class="javax.swing.JComboBox" name="NamaProdukDokumenFilateli">
                   <Properties>
-                    <Property name="editable" type="boolean" value="true"/>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="0"/>
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBox15ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NamaProdukDokumenFilateliActionPerformed"/>
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -2805,16 +2886,16 @@
                     <Property name="text" type="java.lang.String" value="Kode Produk"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField64">
+                <Component class="javax.swing.JTextField" name="KodeProdukDokumenFilateli">
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel39">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Nominal"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField65">
+                <Component class="javax.swing.JTextField" name="NominalDokumenFilateli">
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField65ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NominalDokumenFilateliActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel40">
@@ -2822,14 +2903,14 @@
                     <Property name="text" type="java.lang.String" value="Kode Regional"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField66">
+                <Component class="javax.swing.JTextField" name="KodeRegionalDokumenFilateli">
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel41">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Kode Pos"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField67">
+                <Component class="javax.swing.JTextField" name="KodePosDokumenFilateli">
                 </Component>
                 <Container class="javax.swing.JScrollPane" name="jScrollPane41">
                   <AuxValues>
@@ -2838,7 +2919,7 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
-                    <Component class="javax.swing.JTextArea" name="KeteranganPrangko6">
+                    <Component class="javax.swing.JTextArea" name="KeteranganDokumenFilateli">
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="lineWrap" type="boolean" value="true"/>
@@ -2847,6 +2928,17 @@
                     </Component>
                   </SubComponents>
                 </Container>
+                <Component class="javax.swing.JToggleButton" name="resetPrangko6">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/img/icons/Reset.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Reset"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="resetPrangko6ActionPerformed"/>
+                  </Events>
+                </Component>
               </SubComponents>
             </Container>
           </SubComponents>
