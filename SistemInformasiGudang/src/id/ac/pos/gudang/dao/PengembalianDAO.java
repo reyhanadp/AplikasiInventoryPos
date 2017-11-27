@@ -16,6 +16,8 @@ import java.util.ArrayList;
  */
 public interface PengembalianDAO {
     
+    ArrayList<Produk> getKodeProduk(Object nominal,Object tahun, Object nama_produk, String jenis_produk);
+    ArrayList<Produk> getNamaProduk(String jenis_produk);
     ArrayList<Regional> getRegional();
     ArrayList<Pengembalian> getPengembalianPrangko();
     ArrayList<Regional> getIsiRegional(Object pilihan);

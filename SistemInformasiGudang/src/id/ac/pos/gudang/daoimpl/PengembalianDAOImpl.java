@@ -242,5 +242,95 @@ public class PengembalianDAOImpl implements PengembalianDAO{
         return arrayPengembalian;
     }
 
-    
+    @Override
+    public ArrayList<Produk> getNamaProduk(String jenis_produk) {
+        ArrayList<Produk> arrayProduk = null;
+        String SELECT = "";
+        if(jenis_produk.compareTo("MS")==0){
+            SELECT = "SELECT nama_produk,tahun,nominal FROM `tb_produk` where id_jenis_produk='MS' OR id_jenis_produk='SS' ORDER BY nama_produk ASC";
+        }else if(jenis_produk.compareTo("SHP")==0){
+            SELECT = "SELECT nama_produk,tahun,nominal FROM `tb_produk` where id_jenis_produk='SHP' OR id_jenis_produk='SHPSS' ORDER BY nama_produk ASC";
+        }else{
+            SELECT = "SELECT nama_produk,tahun,nominal FROM `tb_produk` where id_jenis_produk='"+jenis_produk+"' ORDER BY nama_produk ASC";
+        }
+        
+        PreparedStatement state = null;
+
+        try {
+            state = conn.prepareStatement(SELECT);
+
+            ResultSet result = state.executeQuery();
+            if (result != null) {
+                arrayProduk = new ArrayList<>();
+
+                //selama result memiliki data 
+                // return lebih dari 1 data 
+                while (result.next()) {
+
+                    //mengambil 1 data
+                    Produk produk = new Produk();
+                    produk.setNamaProduk(result.getString(1));
+                    produk.setTahun(result.getString(2));
+                    produk.setNominal(Integer.parseInt(result.getString(3)));
+
+                    //menambahkan data ke array
+                    arrayProduk.add(produk);
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(RegionalDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return arrayProduk;
+    }
+
+    @Override
+    public ArrayList<Produk> getKodeProduk(Object nominal, Object tahun, Object nama_produk, String jenis_produk) {
+    ArrayList<Produk> arrayProduk = null;
+        String SELECT = "";
+        if(jenis_produk.compareTo("MS")==0){
+            SELECT = "SELECT id_produk FROM tb_produk "
+                    + "WHERE nama_produk='"+nama_produk+"' && tahun='"+tahun+"' && nominal='"+nominal+"' && "
+                    + "id_jenis_produk in (SELECT id_jenis_produk FROM"
+                    + " tb_produk WHERE id_jenis_produk = 'SS'"
+                    + " || id_jenis_produk = 'MS')";
+        }else if(jenis_produk.compareTo("SHP")==0){
+            SELECT = "SELECT id_produk FROM tb_produk "
+                    + "WHERE nama_produk='"+nama_produk+"' && tahun='"+tahun+"' && nominal='"+nominal+"' && "
+                    + "id_jenis_produk in (SELECT id_jenis_produk FROM"
+                    + " tb_produk WHERE id_jenis_produk = 'SHP'"
+                    + " || id_jenis_produk = 'SHPSS')";
+        }else{
+            SELECT = "SELECT id_produk FROM tb_produk "
+                    + "WHERE nama_produk='"+nama_produk+"' && tahun='"+tahun+"' && nominal='"+nominal+"' && "
+                    + "id_jenis_produk='"+jenis_produk+"'";
+        }
+        
+        PreparedStatement state = null;
+
+        try {
+            state = conn.prepareStatement(SELECT);
+
+            ResultSet result = state.executeQuery();
+            if (result != null) {
+                arrayProduk = new ArrayList<>();
+
+                //selama result memiliki data 
+                // return lebih dari 1 data 
+                while (result.next()) {
+
+                    //mengambil 1 data
+                    Produk produk = new Produk();
+                    produk.setIdProduk(result.getString(1));
+
+                    //menambahkan data ke array
+                    arrayProduk.add(produk);
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(RegionalDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return arrayProduk;
+    }
 }
