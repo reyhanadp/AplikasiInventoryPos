@@ -21,7 +21,7 @@ public interface PengembalianDAO {
     ArrayList<Produk> getTahunProduk(Object nama_produk, String jenis_produk);
     ArrayList<Produk> getNamaProduk(String jenis_produk);
     ArrayList<Regional> getRegional();
-    ArrayList<Pengembalian> getPengembalianPrangko();
+    ArrayList<Pengembalian> getPengembalian(String jenis_produk);
     ArrayList<Regional> getIsiRegional(Object pilihan);
     ArrayList<Produk> getProduk(Object pilihan, String jenis_produk);
     boolean tambahPengembalian(Pengembalian pengembalian);
