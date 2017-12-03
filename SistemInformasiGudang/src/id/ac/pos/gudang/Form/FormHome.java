@@ -8,6 +8,7 @@ package id.ac.pos.gudang.Form;
 import id.ac.pos.gudang.Dialog.DialogHistoryDelete;
 import id.ac.pos.gudang.Dialog.DialogRecycleBin;
 import id.ac.pos.gudang.Dialog.DialogHistoryUpdate;
+import id.ac.pos.gudang.Panel.PanelLaporan;
 import id.ac.pos.gudang.Panel.PanelPemesanan;
 import id.ac.pos.gudang.Panel.PanelPenerimaan;
 import id.ac.pos.gudang.Panel.PanelPengembalian;
@@ -21,8 +22,12 @@ import javax.swing.JFrame;
 import javax.swing.*;
 import java.awt.event.KeyEvent;
 import java.beans.PropertyVetoException;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.TableRowSorter;
+import jxl.write.WriteException;
 
 /**
  *
@@ -796,6 +801,11 @@ public final class FormHome extends javax.swing.JFrame {
         jButton6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton6.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         jButton6.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -5108,6 +5118,25 @@ public final class FormHome extends javax.swing.JFrame {
     private void comboCariPrangkoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboCariPrangkoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_comboCariPrangkoActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        jPanel3.removeAll();
+        jPanel3.repaint();
+        jPanel3.revalidate();
+        CardLayout cardLayout = (CardLayout) jPanel3.getLayout();
+        PanelLaporan panelLaporan = null;
+        try {
+            panelLaporan = new PanelLaporan();
+        } catch (IOException ex) {
+            Logger.getLogger(FormHome.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (WriteException ex) {
+            Logger.getLogger(FormHome.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        jPanel3.add("Panel Laporan", panelLaporan);
+        jPanel3.repaint();
+        jPanel3.revalidate();
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments

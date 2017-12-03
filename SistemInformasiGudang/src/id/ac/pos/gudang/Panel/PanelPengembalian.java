@@ -46,17 +46,7 @@ public final class PanelPengembalian extends javax.swing.JPanel {
     Pengembalian pengembalian;
     Regional regional;
     ArrayList<Regional> arrayRegional;
-    ArrayList<Produk> arrayProdukPrangko, arrayProdukPrangko1, arrayProdukPrangko2, arrayProdukMSSS, arrayProdukSHPSS, arrayProdukKemasan, arrayProdukMerchandise, arrayProdukPrisma, arrayProdukDokumenFilateli;
-    Vector vectorTahun = new Vector();
-    Vector vectorNominal = new Vector();
-    Vector vectorPrangko = new Vector();
-    Vector vectorMSSS = new Vector();
-    Vector vectorSHPSS = new Vector();
-    Vector vectorKemasan = new Vector();
-    Vector vectorMerchandise = new Vector();
-    Vector vectorPrisma = new Vector();
-    Vector vectorDokumenFilateli = new Vector();
-    Vector vectorRegional = new Vector();
+    ArrayList<Produk> arrayProduk;
     TableRowSorter sorter;
 
     /**
@@ -74,89 +64,124 @@ public final class PanelPengembalian extends javax.swing.JPanel {
     }
 
     public void getDataPengembalianPrangko() {
+        Vector vector_produk = new Vector();
         dao = new PengembalianDAOImpl();
         String jenis_produk = "PR";
         ArrayList<Pengembalian> arrayPengembalian = dao.getPengembalian(jenis_produk);
+        
+        for (int i = 0; i < arrayPengembalian.size(); i++) {
+            arrayProduk = dao.getNama(arrayPengembalian.get(i).getId_produk());
+            vector_produk.add(arrayProduk.get(0).getNamaProduk());
+        }
 
         PengembalianTM pengembalianTM = new PengembalianTM();
-        pengembalianTM.setDataPengembalian(arrayPengembalian);
+        pengembalianTM.setDataPengembalian(arrayPengembalian, vector_produk);
         sorter = new TableRowSorter(pengembalianTM);
         TablePengembalianPrangko.setRowSorter(sorter);
         TablePengembalianPrangko.setModel(pengembalianTM);
     }
-    
+
     public void getDataPengembalianMSSS() {
+        Vector vector_produk = new Vector();
         dao = new PengembalianDAOImpl();
         String jenis_produk = "MS";
         ArrayList<Pengembalian> arrayPengembalian = dao.getPengembalian(jenis_produk);
+        for (int i = 0; i < arrayPengembalian.size(); i++) {
+            arrayProduk = dao.getNama(arrayPengembalian.get(i).getId_produk());
+            vector_produk.add(arrayProduk.get(0).getNamaProduk());
+        }
 
         PengembalianTM pengembalianTM = new PengembalianTM();
-        pengembalianTM.setDataPengembalian(arrayPengembalian);
+        pengembalianTM.setDataPengembalian(arrayPengembalian, vector_produk);
         sorter = new TableRowSorter(pengembalianTM);
         TablePengembalianMSSS.setRowSorter(sorter);
         TablePengembalianMSSS.setModel(pengembalianTM);
     }
-    
+
     public void getDataPengembalianSHP() {
+        Vector vector_produk = new Vector();
         dao = new PengembalianDAOImpl();
         String jenis_produk = "SHP";
         ArrayList<Pengembalian> arrayPengembalian = dao.getPengembalian(jenis_produk);
+        for (int i = 0; i < arrayPengembalian.size(); i++) {
+            arrayProduk = dao.getNama(arrayPengembalian.get(i).getId_produk());
+            vector_produk.add(arrayProduk.get(0).getNamaProduk());
+        }
 
         PengembalianTM pengembalianTM = new PengembalianTM();
-        pengembalianTM.setDataPengembalian(arrayPengembalian);
+        pengembalianTM.setDataPengembalian(arrayPengembalian, vector_produk);
         sorter = new TableRowSorter(pengembalianTM);
         TablePengembalianSHPSS.setRowSorter(sorter);
         TablePengembalianSHPSS.setModel(pengembalianTM);
     }
-    
+
     public void getDataPengembalianKemasan() {
+        Vector vector_produk = new Vector();
         dao = new PengembalianDAOImpl();
         String jenis_produk = "KM";
         ArrayList<Pengembalian> arrayPengembalian = dao.getPengembalian(jenis_produk);
+        for (int i = 0; i < arrayPengembalian.size(); i++) {
+            arrayProduk = dao.getNama(arrayPengembalian.get(i).getId_produk());
+            vector_produk.add(arrayProduk.get(0).getNamaProduk());
+        }
 
         PengembalianTM pengembalianTM = new PengembalianTM();
-        pengembalianTM.setDataPengembalian(arrayPengembalian);
+        pengembalianTM.setDataPengembalian(arrayPengembalian, vector_produk);
         sorter = new TableRowSorter(pengembalianTM);
         TablePengembalianKemasan.setRowSorter(sorter);
         TablePengembalianKemasan.setModel(pengembalianTM);
     }
-    
+
     public void getDataPengembalianMerchandise() {
+        Vector vector_produk = new Vector();
         dao = new PengembalianDAOImpl();
         String jenis_produk = "MC";
         ArrayList<Pengembalian> arrayPengembalian = dao.getPengembalian(jenis_produk);
+        for (int i = 0; i < arrayPengembalian.size(); i++) {
+            arrayProduk = dao.getNama(arrayPengembalian.get(i).getId_produk());
+            vector_produk.add(arrayProduk.get(0).getNamaProduk());
+        }
 
         PengembalianTM pengembalianTM = new PengembalianTM();
-        pengembalianTM.setDataPengembalian(arrayPengembalian);
+        pengembalianTM.setDataPengembalian(arrayPengembalian, vector_produk);
         sorter = new TableRowSorter(pengembalianTM);
         TablePengembalianMerchandise.setRowSorter(sorter);
         TablePengembalianMerchandise.setModel(pengembalianTM);
     }
-    
+
     public void getDataPengembalianPrisma() {
+        Vector vector_produk = new Vector();
         dao = new PengembalianDAOImpl();
         String jenis_produk = "PS";
         ArrayList<Pengembalian> arrayPengembalian = dao.getPengembalian(jenis_produk);
+        for (int i = 0; i < arrayPengembalian.size(); i++) {
+            arrayProduk = dao.getNama(arrayPengembalian.get(i).getId_produk());
+            vector_produk.add(arrayProduk.get(0).getNamaProduk());
+        }
 
         PengembalianTM pengembalianTM = new PengembalianTM();
-        pengembalianTM.setDataPengembalian(arrayPengembalian);
+        pengembalianTM.setDataPengembalian(arrayPengembalian, vector_produk);
         sorter = new TableRowSorter(pengembalianTM);
         TablePengembalianPrisma.setRowSorter(sorter);
         TablePengembalianPrisma.setModel(pengembalianTM);
     }
-    
+
     public void getDataPengembalianDokumenFilateli() {
+        Vector vector_produk = new Vector();
         dao = new PengembalianDAOImpl();
         String jenis_produk = "DF";
         ArrayList<Pengembalian> arrayPengembalian = dao.getPengembalian(jenis_produk);
+        for (int i = 0; i < arrayPengembalian.size(); i++) {
+            arrayProduk = dao.getNama(arrayPengembalian.get(i).getId_produk());
+            vector_produk.add(arrayProduk.get(0).getNamaProduk());
+        }
 
         PengembalianTM pengembalianTM = new PengembalianTM();
-        pengembalianTM.setDataPengembalian(arrayPengembalian);
+        pengembalianTM.setDataPengembalian(arrayPengembalian, vector_produk);
         sorter = new TableRowSorter(pengembalianTM);
         TablePengembalianDokumenFilateli.setRowSorter(sorter);
         TablePengembalianDokumenFilateli.setModel(pengembalianTM);
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.

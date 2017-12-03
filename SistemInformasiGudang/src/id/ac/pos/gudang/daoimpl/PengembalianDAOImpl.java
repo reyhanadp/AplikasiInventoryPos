@@ -478,4 +478,50 @@ public class PengembalianDAOImpl implements PengembalianDAO {
 
         return arrayProduk;
     }
+
+    @Override
+    public ArrayList<Produk> getNama(String kode_produk) {
+        conn = DatabaseConnectivity.getConnection();
+        ArrayList<Produk> arrayProduk = null;
+        String SELECT = "SELECT nama_produk FROM `tb_produk` where id_produk='"+kode_produk+"'";
+
+
+        PreparedStatement state = null;
+
+        try {
+            state = conn.prepareStatement(SELECT);
+
+            ResultSet result = state.executeQuery();
+            if (result != null) {
+                arrayProduk = new ArrayList<>();
+
+                //selama result memiliki data 
+                // return lebih dari 1 data 
+                while (result.next()) {
+
+                    //mengambil 1 data
+                    Produk produk = new Produk();
+                    produk.setNamaProduk(result.getString(1));
+
+                    //menambahkan data ke array
+                    arrayProduk.add(produk);
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(RegionalDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            try {
+                state.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try {
+                conn.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+        return arrayProduk;
+    }
 }

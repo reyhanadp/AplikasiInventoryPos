@@ -6,7 +6,9 @@
 package id.ac.pos.gudang.tablemodel;
 
 import id.ac.pos.gudang.entity.Pengembalian;
+import id.ac.pos.gudang.entity.Produk;
 import java.util.ArrayList;
+import java.util.Vector;
 import javax.swing.table.AbstractTableModel;
 
 /**
@@ -16,9 +18,11 @@ import javax.swing.table.AbstractTableModel;
 public class PengembalianTM extends AbstractTableModel {
 
     private ArrayList<Pengembalian> arrayPengembalian;
+    Vector vector_nama_produk;
 
-    public void setDataPengembalian(ArrayList<Pengembalian> arrayPengembalian) {
+    public void setDataPengembalian(ArrayList<Pengembalian> arrayPengembalian,  Vector vector_nama_produk) {
         this.arrayPengembalian = arrayPengembalian;
+        this.vector_nama_produk = vector_nama_produk;
     }
 
     @Override
@@ -28,7 +32,7 @@ public class PengembalianTM extends AbstractTableModel {
 
     @Override
     public int getColumnCount() {
-        return 9;
+        return 10;
     }
 
     @Override
@@ -51,14 +55,17 @@ public class PengembalianTM extends AbstractTableModel {
 
             case 5:
                 return arrayPengembalian.get(rowIndex).getId_produk();
-
+            
             case 6:
+                return vector_nama_produk.get(rowIndex);
+                
+            case 7:
                 return arrayPengembalian.get(rowIndex).getStok_awal();
 
-            case 7:
+            case 8:
                 return arrayPengembalian.get(rowIndex).getStok_akhir();
 
-            case 8:
+            case 9:
                 return arrayPengembalian.get(rowIndex).getKeterangan();
 
         }
@@ -85,14 +92,17 @@ public class PengembalianTM extends AbstractTableModel {
 
             case 5:
                 return "Kode Produk";
-
+                
             case 6:
-                return "Stok Awal";
+                return "Nama Produk";
 
             case 7:
-                return "Stok Akhir";
+                return "Stok Awal";
 
             case 8:
+                return "Stok Akhir";
+
+            case 9:
                 return "Keterangan";
         }
         return null;
