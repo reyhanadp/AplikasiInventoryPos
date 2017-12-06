@@ -195,7 +195,7 @@ public class PengembalianDAOImpl implements PengembalianDAO {
             int qty = state.executeUpdate();
             return qty > 0;
         } catch (SQLException ex) {
-            Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return false;
@@ -242,7 +242,7 @@ public class PengembalianDAOImpl implements PengembalianDAO {
                 }
             }
         } catch (SQLException ex) {
-            Logger.getLogger(RegionalDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return arrayPengembalian;

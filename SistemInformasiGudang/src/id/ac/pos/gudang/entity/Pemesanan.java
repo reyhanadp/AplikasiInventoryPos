@@ -14,38 +14,17 @@ import java.util.Date;
 public class Pemesanan {
     String noPemesanan;
     String kodeProduk;
-    String namaProduk;
-    int nominal;
-    float biayaCetak;
-    int stok;
-    String tahun;
-    String idJenisProduk;
-    String TglPemesanan;
-    int jumlahPemesanan;
+    Date TglPemesanan;
+    String jumlahPemesanan;
     String idSuplier;
+    String status;
 
-    public String getIdSuplier() {
-        return idSuplier;
+    public String getKodeProduk() {
+        return kodeProduk;
     }
 
-    public void setIdSuplier(String idSuplier) {
-        this.idSuplier = idSuplier;
-    }
-
-    public String getTglPemesanan() {
-        return TglPemesanan;
-    }
-
-    public void setTglPemesanan(String TglPemesanan) {
-        this.TglPemesanan = TglPemesanan;
-    }
-
-    public int getJumlahPemesanan() {
-        return jumlahPemesanan;
-    }
-
-    public void setJumlahPemesanan(int jumlahPemesanan) {
-        this.jumlahPemesanan = jumlahPemesanan;
+    public void setKodeProduk(String kodeProduk) {
+        this.kodeProduk = kodeProduk;
     }
 
     public String getNoPemesanan() {
@@ -56,67 +35,37 @@ public class Pemesanan {
         this.noPemesanan = noPemesanan;
     }
 
-    public String getKodeProduk() {
-        return kodeProduk;
+    public Date getTglPemesanan() {
+        return TglPemesanan;
     }
 
-    public void setKodeProduk(String kodeProduk) {
-        this.kodeProduk = kodeProduk;
+    public void setTglPemesanan(Date TglPemesanan) {
+        this.TglPemesanan = TglPemesanan;
     }
 
-    public String getNamaProduk() {
-        return namaProduk;
+    public String getJumlahPemesanan() {
+        return jumlahPemesanan;
     }
 
-    public void setNamaProduk(String namaProduk) {
-        this.namaProduk = namaProduk;
+    public void setJumlahPemesanan(String jumlahPemesanan) {
+        this.jumlahPemesanan = jumlahPemesanan;
     }
 
-    public int getNominal() {
-        return nominal;
+    public String getIdSuplier() {
+        return idSuplier;
     }
 
-    public void setNominal(int nominal) {
-        this.nominal = nominal;
+    public void setIdSuplier(String idSuplier) {
+        this.idSuplier = idSuplier;
     }
 
-    public float getBiayaCetak() {
-        return biayaCetak;
+    public String getStatus() {
+        return status;
     }
 
-    public void setBiayaCetak(float biayaCetak) {
-        this.biayaCetak = biayaCetak;
+    public void setStatus(String status) {
+        this.status = status;
     }
-
-    public int getStok() {
-        return stok;
-    }
-
-    public void setStok(int stok) {
-        this.stok = stok;
-    }
-
-    public String getTahun() {
-        return tahun;
-    }
-
-    public void setTahun(String tahun) {
-        this.tahun = tahun;
-    }
-
-    public String getIdJenisProduk() {
-        return idJenisProduk;
-    }
-
-    public void setIdJenisProduk(String idJenisProduk) {
-        this.idJenisProduk = idJenisProduk;
-    }
-
-    public void getNoPemesananarray(String noPemesanan) {
-        this.noPemesanan=noPemesanan; //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    
     
     
 }

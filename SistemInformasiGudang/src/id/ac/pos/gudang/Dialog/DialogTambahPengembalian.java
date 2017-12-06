@@ -78,8 +78,8 @@ public class DialogTambahPengembalian extends javax.swing.JDialog {
     }
 
     private void reset() {
-        NamaProduk.setSelectedIndex(0);
-        KotaPengirim.setSelectedIndex(0);
+        NamaProduk.setSelectedItem("");
+        KotaPengirim.setSelectedItem("");
         KodeProduk.setText("");
 //        NominalPrangko.setText("");
         KodePos.setText("");
@@ -184,6 +184,11 @@ public class DialogTambahPengembalian extends javax.swing.JDialog {
         NamaProduk.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 NamaProdukItemStateChanged(evt);
+            }
+        });
+        NamaProduk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NamaProdukActionPerformed(evt);
             }
         });
 
@@ -754,6 +759,10 @@ public class DialogTambahPengembalian extends javax.swing.JDialog {
             StokGudang.setText("");
         }
     }//GEN-LAST:event_JenisProdukItemStateChanged
+
+    private void NamaProdukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NamaProdukActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NamaProdukActionPerformed
 
     /**
      * @param args the command line arguments
