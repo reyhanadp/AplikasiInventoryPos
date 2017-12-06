@@ -13,6 +13,13 @@ import java.util.ArrayList;
  * @author Operator
  */
 public interface LaporanDAO {
+    
     ArrayList<Produk> getProduk(String jenis_produk, String tahun);
-    ArrayList<Produk> getTahunTerkecil();
+    ArrayList<Produk> getTahunTerkecil(String jenis_produk);
+    Integer getBulanSekarang();
+    Integer getTahunSekarang();
+    Integer getJumlahTerima(String kode_produk, int bulan, Object tahun , int bulan_sekarang, int tahun_sekarang, String status, int pilihan);
+    Integer getJumlahPengiriman(String kode_produk, int bulan, Object tahun , int bulan_sekarang, int tahun_sekarang, String status, int pilihan);
+    Integer getJumlahPengembalian(String kode_produk, int bulan, Object tahun , int bulan_sekarang, int tahun_sekarang, String status, int pilihan);
+    Integer getStokProduk(String kode_produk);
 }

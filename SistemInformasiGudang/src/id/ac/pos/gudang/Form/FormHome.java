@@ -8,7 +8,7 @@ package id.ac.pos.gudang.Form;
 import id.ac.pos.gudang.Dialog.DialogHistoryDelete;
 import id.ac.pos.gudang.Dialog.DialogRecycleBin;
 import id.ac.pos.gudang.Dialog.DialogHistoryUpdate;
-import id.ac.pos.gudang.Panel.PanelLaporan;
+import id.ac.pos.gudang.Dialog.DialogLaporan;
 import id.ac.pos.gudang.Panel.PanelPemesanan;
 import id.ac.pos.gudang.Panel.PanelPenerimaan;
 import id.ac.pos.gudang.Panel.PanelPengembalian;
@@ -553,10 +553,10 @@ public final class FormHome extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         buttonKelolaProduk = new javax.swing.JButton();
-        buttonTransaksi = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        buttonPemesanan = new javax.swing.JButton();
+        buttonPengembalian = new javax.swing.JButton();
+        buttonPenerimaan = new javax.swing.JButton();
+        buttonPengiriman = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         tabKelolaProduk = new javax.swing.JPanel();
@@ -752,47 +752,47 @@ public final class FormHome extends javax.swing.JFrame {
             }
         });
 
-        buttonTransaksi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/pemesanan3.png"))); // NOI18N
-        buttonTransaksi.setText("PEMESANAN");
-        buttonTransaksi.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        buttonTransaksi.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        buttonTransaksi.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        buttonTransaksi.addActionListener(new java.awt.event.ActionListener() {
+        buttonPemesanan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/pemesanan3.png"))); // NOI18N
+        buttonPemesanan.setText("PEMESANAN");
+        buttonPemesanan.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        buttonPemesanan.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        buttonPemesanan.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        buttonPemesanan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonTransaksiActionPerformed(evt);
+                buttonPemesananActionPerformed(evt);
             }
         });
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/pengembalian1.png"))); // NOI18N
-        jButton3.setText("PENGEMBALIAN");
-        jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton3.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        jButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        buttonPengembalian.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/pengembalian1.png"))); // NOI18N
+        buttonPengembalian.setText("PENGEMBALIAN");
+        buttonPengembalian.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        buttonPengembalian.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        buttonPengembalian.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        buttonPengembalian.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                buttonPengembalianActionPerformed(evt);
             }
         });
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/penerimaan3.png"))); // NOI18N
-        jButton4.setText("PENERIMAAN");
-        jButton4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton4.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        jButton4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        buttonPenerimaan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/penerimaan3.png"))); // NOI18N
+        buttonPenerimaan.setText("PENERIMAAN");
+        buttonPenerimaan.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        buttonPenerimaan.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        buttonPenerimaan.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        buttonPenerimaan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                buttonPenerimaanActionPerformed(evt);
             }
         });
 
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/pengiriman.png"))); // NOI18N
-        jButton5.setText("PENGIRIMAN");
-        jButton5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton5.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        jButton5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        buttonPengiriman.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/pengiriman.png"))); // NOI18N
+        buttonPengiriman.setText("PENGIRIMAN");
+        buttonPengiriman.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        buttonPengiriman.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        buttonPengiriman.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        buttonPengiriman.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                buttonPengirimanActionPerformed(evt);
             }
         });
 
@@ -812,10 +812,10 @@ public final class FormHome extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-            .addComponent(buttonTransaksi, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(buttonPengembalian, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(buttonPengiriman, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(buttonPenerimaan, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(buttonPemesanan, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
             .addComponent(buttonKelolaProduk, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         jPanel2Layout.setVerticalGroup(
@@ -823,13 +823,13 @@ public final class FormHome extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(buttonKelolaProduk, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(buttonTransaksi, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonPemesanan, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonPenerimaan, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonPengiriman, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonPengembalian, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -2742,7 +2742,7 @@ public final class FormHome extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void buttonTransaksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTransaksiActionPerformed
+    private void buttonPemesananActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPemesananActionPerformed
         // TODO add your handling code here:
         jPanel3.removeAll();
         jPanel3.repaint();
@@ -2752,7 +2752,7 @@ public final class FormHome extends javax.swing.JFrame {
         jPanel3.add("Panel Pemesanan", panelPemesanan);
         jPanel3.repaint();
         jPanel3.revalidate();
-    }//GEN-LAST:event_buttonTransaksiActionPerformed
+    }//GEN-LAST:event_buttonPemesananActionPerformed
 
     private void buttonKelolaProdukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonKelolaProdukActionPerformed
         // TODO add your handling code here:
@@ -5079,7 +5079,7 @@ public final class FormHome extends javax.swing.JFrame {
         refresh();
     }//GEN-LAST:event_buttonRefresh7ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void buttonPenerimaanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPenerimaanActionPerformed
         // TODO add your handling code here:
         jPanel3.removeAll();
         jPanel3.repaint();
@@ -5089,9 +5089,9 @@ public final class FormHome extends javax.swing.JFrame {
         jPanel3.add("Panel Penerimaan", panelPenerimaan);
         jPanel3.repaint();
         jPanel3.revalidate();
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_buttonPenerimaanActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void buttonPengirimanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPengirimanActionPerformed
         // TODO add your handling code here:
         jPanel3.removeAll();
         jPanel3.repaint();
@@ -5101,9 +5101,9 @@ public final class FormHome extends javax.swing.JFrame {
         jPanel3.add("Panel Pengiriman", panelPengiriman);
         jPanel3.repaint();
         jPanel3.revalidate();
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_buttonPengirimanActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void buttonPengembalianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPengembalianActionPerformed
         // TODO add your handling code here:
         jPanel3.removeAll();
         jPanel3.repaint();
@@ -5113,7 +5113,7 @@ public final class FormHome extends javax.swing.JFrame {
         jPanel3.add("Panel Pengembalian", panelPengembalian);
         jPanel3.repaint();
         jPanel3.revalidate();
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_buttonPengembalianActionPerformed
 
     private void comboCariPrangkoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboCariPrangkoActionPerformed
         // TODO add your handling code here:
@@ -5121,21 +5121,8 @@ public final class FormHome extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
-        jPanel3.removeAll();
-        jPanel3.repaint();
-        jPanel3.revalidate();
-        CardLayout cardLayout = (CardLayout) jPanel3.getLayout();
-        PanelLaporan panelLaporan = null;
-        try {
-            panelLaporan = new PanelLaporan();
-        } catch (IOException ex) {
-            Logger.getLogger(FormHome.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (WriteException ex) {
-            Logger.getLogger(FormHome.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        jPanel3.add("Panel Laporan", panelLaporan);
-        jPanel3.repaint();
-        jPanel3.revalidate();
+        boolean rootPaneCheckingEnabled = false;
+        new DialogLaporan(this, rootPaneCheckingEnabled).setVisible(true);
     }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
@@ -5207,6 +5194,10 @@ public final class FormHome extends javax.swing.JFrame {
     private javax.swing.JButton buttonHapusPrisma;
     private javax.swing.JButton buttonHapusSHPSHPSS;
     private javax.swing.JButton buttonKelolaProduk;
+    private javax.swing.JButton buttonPemesanan;
+    private javax.swing.JButton buttonPenerimaan;
+    private javax.swing.JButton buttonPengembalian;
+    private javax.swing.JButton buttonPengiriman;
     private javax.swing.JButton buttonRefresh;
     private javax.swing.JButton buttonRefresh1;
     private javax.swing.JButton buttonRefresh2;
@@ -5229,7 +5220,6 @@ public final class FormHome extends javax.swing.JFrame {
     private javax.swing.JButton buttonSimpanPrangko;
     private javax.swing.JButton buttonSimpanPrisma;
     private javax.swing.JButton buttonSimpanSHPSHPSS;
-    private javax.swing.JButton buttonTransaksi;
     private javax.swing.JButton buttonUbahDokumenFilateli;
     private javax.swing.JButton buttonUbahKemasan;
     private javax.swing.JButton buttonUbahMSSS;
@@ -5290,9 +5280,6 @@ public final class FormHome extends javax.swing.JFrame {
     private javax.swing.JMenuItem itemHistoryUpdate;
     private javax.swing.JMenuItem itemRecycleBin;
     private javax.swing.JMenu itemRegional;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

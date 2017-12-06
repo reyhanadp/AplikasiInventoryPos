@@ -200,7 +200,7 @@ public final class PanelPengembalian extends javax.swing.JPanel {
         CariPrangko = new javax.swing.JButton();
         FieldCariPrangko = new javax.swing.JTextField();
         ComboboxCariPrangko = new javax.swing.JComboBox<>();
-        jButton2 = new javax.swing.JButton();
+        TambahPengembalian = new javax.swing.JButton();
         MS_SS2 = new javax.swing.JPanel();
         jPanel52 = new javax.swing.JPanel();
         jScrollPane18 = new javax.swing.JScrollPane();
@@ -298,10 +298,10 @@ public final class PanelPengembalian extends javax.swing.JPanel {
 
         ComboboxCariPrangko.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
 
-        jButton2.setText("Tambah Pengembalian");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        TambahPengembalian.setText("Tambah Pengembalian");
+        TambahPengembalian.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                TambahPengembalianActionPerformed(evt);
             }
         });
 
@@ -312,7 +312,7 @@ public final class PanelPengembalian extends javax.swing.JPanel {
             .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 1038, Short.MAX_VALUE)
             .addGroup(jPanel38Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton2)
+                .addComponent(TambahPengembalian)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(ComboboxCariPrangko, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -327,7 +327,7 @@ public final class PanelPengembalian extends javax.swing.JPanel {
                     .addComponent(CariPrangko)
                     .addComponent(FieldCariPrangko, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ComboboxCariPrangko, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2))
+                    .addComponent(TambahPengembalian))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE))
         );
@@ -1005,12 +1005,12 @@ public final class PanelPengembalian extends javax.swing.JPanel {
         new DialogTambahPengembalian(formHome, rootPaneCheckingEnabled).setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void TambahPengembalianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TambahPengembalianActionPerformed
         // TODO add your handling code here:
         FormHome formHome = new FormHome();
         boolean rootPaneCheckingEnabled = false;
         new DialogTambahPengembalian(formHome, rootPaneCheckingEnabled).setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_TambahPengembalianActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
@@ -1073,6 +1073,7 @@ public final class PanelPengembalian extends javax.swing.JPanel {
     private javax.swing.JTable TablePengembalianPrangko;
     private javax.swing.JTable TablePengembalianPrisma;
     private javax.swing.JTable TablePengembalianSHPSS;
+    private javax.swing.JButton TambahPengembalian;
     private javax.swing.JButton buttonCariPrangko17;
     private javax.swing.JButton buttonCariPrangko18;
     private javax.swing.JButton buttonCariPrangko19;
@@ -1086,7 +1087,6 @@ public final class PanelPengembalian extends javax.swing.JPanel {
     private javax.swing.JTextField fieldCariPrangko19;
     private javax.swing.JTextField fieldCariPrangko20;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;

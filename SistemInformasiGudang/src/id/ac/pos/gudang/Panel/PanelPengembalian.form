@@ -73,7 +73,7 @@
                       <Component id="jScrollPane11" alignment="0" pref="1038" max="32767" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                          <Component id="TambahPengembalian" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="ComboboxCariPrangko" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -90,7 +90,7 @@
                               <Component id="CariPrangko" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="FieldCariPrangko" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="ComboboxCariPrangko" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="TambahPengembalian" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jScrollPane11" pref="506" max="32767" attributes="0"/>
@@ -180,12 +180,12 @@
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton2">
+                <Component class="javax.swing.JButton" name="TambahPengembalian">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Tambah Pengembalian"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TambahPengembalianActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
