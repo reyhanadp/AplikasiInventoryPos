@@ -19,12 +19,14 @@ import javax.swing.table.AbstractTableModel;
 public class PemesananTM extends AbstractTableModel{
  
     private ArrayList<Pemesanan> arrayPemesanan;
-    Vector vector_nama_produk,vector_nama_suplier;
+    Vector vector_nama_produk,vector_nama_suplier,vector_nominal,vector_tahun;
 
-    public void setDataPemesanan(ArrayList<Pemesanan> arrayPemesanan,  Vector vector_nama_produk, Vector vector_nama_suplier) {
+    public void setDataPemesanan(ArrayList<Pemesanan> arrayPemesanan,  Vector vector_nama_produk, Vector vector_nama_suplier, Vector vector_nominal, Vector vector_tahun) {
         this.arrayPemesanan = arrayPemesanan;
         this.vector_nama_produk = vector_nama_produk;
         this.vector_nama_suplier = vector_nama_suplier;
+        this.vector_nominal = vector_nominal;
+        this.vector_tahun = vector_tahun;
     }
 
     @Override
@@ -34,7 +36,7 @@ public class PemesananTM extends AbstractTableModel{
 
     @Override
     public int getColumnCount() {
-        return 8;
+        return 10;
     }
 
     @Override
@@ -53,15 +55,21 @@ public class PemesananTM extends AbstractTableModel{
                 return vector_nama_produk.get(rowIndex);
                                 
             case 4:
-                return arrayPemesanan.get(rowIndex).getIdSuplier();
+                return vector_nominal.get(rowIndex);
 
             case 5:
+                return vector_tahun.get(rowIndex);
+                              
+            case 6:
+                return arrayPemesanan.get(rowIndex).getIdSuplier();
+
+            case 7:
                 return vector_nama_suplier.get(rowIndex);
                 
-            case 6:
+            case 8:
                 return arrayPemesanan.get(rowIndex).getJumlahPemesanan();
    
-            case 7:
+            case 9:
                 return arrayPemesanan.get(rowIndex).getStatus();
 
         }
@@ -82,17 +90,23 @@ public class PemesananTM extends AbstractTableModel{
 
             case 3:
                 return "Nama Produk";
-
+                
             case 4:
-                return "Id Suplier";
+                return "Nominal";
 
             case 5:
-                return "Nama Suplier";
+                return "Tahun";
                 
             case 6:
-                return "Jumlah Pemesanan";
+                return "Id Suplier";
 
             case 7:
+                return "Nama Suplier";
+                
+            case 8:
+                return "Jumlah Pemesanan";
+
+            case 9:
                 return "Status";
         }
         return null;

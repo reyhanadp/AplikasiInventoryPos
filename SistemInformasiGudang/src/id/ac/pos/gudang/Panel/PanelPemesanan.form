@@ -143,12 +143,14 @@
                 <Component class="javax.swing.JComboBox" name="comboCariPemesananPrangko">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="5">
+                      <StringArray count="7">
                         <StringItem index="0" value="Nama Produk"/>
-                        <StringItem index="1" value="Nomor Pemesanan"/>
-                        <StringItem index="2" value="Kode Produk"/>
-                        <StringItem index="3" value="Nominal"/>
-                        <StringItem index="4" value="Tahun"/>
+                        <StringItem index="1" value="Nama Suplier"/>
+                        <StringItem index="2" value="Nomor Pemesanan"/>
+                        <StringItem index="3" value="Kode Produk"/>
+                        <StringItem index="4" value="Nominal"/>
+                        <StringItem index="5" value="Tahun"/>
+                        <StringItem index="6" value="Status"/>
                       </StringArray>
                     </Property>
                   </Properties>
@@ -273,12 +275,14 @@
                 <Component class="javax.swing.JComboBox" name="comboCariPemesananMS_SS">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="5">
+                      <StringArray count="7">
                         <StringItem index="0" value="Nama Produk"/>
-                        <StringItem index="1" value="Nomor Pemesanan"/>
-                        <StringItem index="2" value="Kode Produk"/>
-                        <StringItem index="3" value="Nominal"/>
-                        <StringItem index="4" value="Tahun"/>
+                        <StringItem index="1" value="Nama Suplier"/>
+                        <StringItem index="2" value="Nomor Pemesanan"/>
+                        <StringItem index="3" value="Kode Produk"/>
+                        <StringItem index="4" value="Nominal"/>
+                        <StringItem index="5" value="Tahun"/>
+                        <StringItem index="6" value="Status"/>
                       </StringArray>
                     </Property>
                   </Properties>
@@ -297,6 +301,143 @@
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCariPemesananMSSSActionPerformed"/>
+                  </Events>
+                </Component>
+              </SubComponents>
+            </Container>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="SHP_SHPSS4">
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="SHP_SHPSS4MouseClicked"/>
+          </Events>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="SHP &amp; SHPSS">
+                <Property name="tabTitle" type="java.lang.String" value="SHP &amp; SHPSS"/>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jPanel59" alignment="0" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jPanel59" alignment="1" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Container class="javax.swing.JPanel" name="jPanel59">
+              <Properties>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                    <TitledBorder title="Tabel Data Pemesanan"/>
+                  </Border>
+                </Property>
+              </Properties>
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="ButtonTambahPemesananSHPSS" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="comboCariPemesananSHP_SHPSS" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="fieldCariPemesananSHP_SHPSS" min="-2" pref="146" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="buttonCariPemesananSHP_SHPSS" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="jScrollPane23" pref="975" max="32767" attributes="0"/>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                  <Component id="buttonCariPemesananSHP_SHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="fieldCariPemesananSHP_SHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="comboCariPemesananSHP_SHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="ButtonTambahPemesananSHPSS" min="-2" pref="33" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jScrollPane23" pref="420" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Container class="javax.swing.JScrollPane" name="jScrollPane23">
+                  <AuxValues>
+                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                  </AuxValues>
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                  <SubComponents>
+                    <Component class="javax.swing.JTable" name="tablePemesananSHP_SHPSS">
+                      <Properties>
+                        <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                          <Table columnCount="4" rowCount="4">
+                            <Column editable="true" title="Title 1" type="java.lang.Object"/>
+                            <Column editable="true" title="Title 2" type="java.lang.Object"/>
+                            <Column editable="true" title="Title 3" type="java.lang.Object"/>
+                            <Column editable="true" title="Title 4" type="java.lang.Object"/>
+                          </Table>
+                        </Property>
+                        <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                          <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                        </Property>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tablePemesananSHP_SHPSSMouseClicked"/>
+                      </Events>
+                    </Component>
+                  </SubComponents>
+                </Container>
+                <Component class="javax.swing.JButton" name="ButtonTambahPemesananSHPSS">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Tambah Pemesanan"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonTambahPemesananSHPSSActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JComboBox" name="comboCariPemesananSHP_SHPSS">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="7">
+                        <StringItem index="0" value="Nama Produk"/>
+                        <StringItem index="1" value="Nama Suplier"/>
+                        <StringItem index="2" value="Nomor Pemesanan"/>
+                        <StringItem index="3" value="Kode Produk"/>
+                        <StringItem index="4" value="Nominal"/>
+                        <StringItem index="5" value="Tahun"/>
+                        <StringItem index="6" value="Status"/>
+                      </StringArray>
+                    </Property>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JTextField" name="fieldCariPemesananSHP_SHPSS">
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="fieldCariPemesananSHP_SHPSSMouseClicked"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="buttonCariPemesananSHP_SHPSS">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Cari"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCariPemesananSHP_SHPSSActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -408,12 +549,14 @@
                 <Component class="javax.swing.JComboBox" name="comboCariPemesananKemasan">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="5">
+                      <StringArray count="7">
                         <StringItem index="0" value="Nama Produk"/>
-                        <StringItem index="1" value="Nomor Pemesanan"/>
-                        <StringItem index="2" value="Kode Produk"/>
-                        <StringItem index="3" value="Nominal"/>
-                        <StringItem index="4" value="Tahun"/>
+                        <StringItem index="1" value="Nama Suplier"/>
+                        <StringItem index="2" value="Nomor Pemesanan"/>
+                        <StringItem index="3" value="Kode Produk"/>
+                        <StringItem index="4" value="Nominal"/>
+                        <StringItem index="5" value="Tahun"/>
+                        <StringItem index="6" value="Status"/>
                       </StringArray>
                     </Property>
                   </Properties>
@@ -540,12 +683,14 @@
                 <Component class="javax.swing.JComboBox" name="comboCariPemesananMerchandise">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="5">
+                      <StringArray count="7">
                         <StringItem index="0" value="Nama Produk"/>
-                        <StringItem index="1" value="Nomor Pemesanan"/>
-                        <StringItem index="2" value="Kode Produk"/>
-                        <StringItem index="3" value="Nominal"/>
-                        <StringItem index="4" value="Tahun"/>
+                        <StringItem index="1" value="Nama Suplier"/>
+                        <StringItem index="2" value="Nomor Pemesanan"/>
+                        <StringItem index="3" value="Kode Produk"/>
+                        <StringItem index="4" value="Nominal"/>
+                        <StringItem index="5" value="Tahun"/>
+                        <StringItem index="6" value="Status"/>
                       </StringArray>
                     </Property>
                   </Properties>
@@ -672,12 +817,14 @@
                 <Component class="javax.swing.JComboBox" name="comboCariPemesananPrisma">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="5">
+                      <StringArray count="7">
                         <StringItem index="0" value="Nama Produk"/>
-                        <StringItem index="1" value="Nomor Pemesanan"/>
-                        <StringItem index="2" value="Kode Produk"/>
-                        <StringItem index="3" value="Nominal"/>
-                        <StringItem index="4" value="Tahun"/>
+                        <StringItem index="1" value="Nama Suplier"/>
+                        <StringItem index="2" value="Nomor Pemesanan"/>
+                        <StringItem index="3" value="Kode Produk"/>
+                        <StringItem index="4" value="Nominal"/>
+                        <StringItem index="5" value="Tahun"/>
+                        <StringItem index="6" value="Status"/>
                       </StringArray>
                     </Property>
                   </Properties>
@@ -804,12 +951,14 @@
                 <Component class="javax.swing.JComboBox" name="comboCariPemesananDokumenFilateli">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="5">
+                      <StringArray count="7">
                         <StringItem index="0" value="Nama Produk"/>
-                        <StringItem index="1" value="Nomor Pemesanan"/>
-                        <StringItem index="2" value="Kode Produk"/>
-                        <StringItem index="3" value="Nominal"/>
-                        <StringItem index="4" value="Tahun"/>
+                        <StringItem index="1" value="Nama Suplier"/>
+                        <StringItem index="2" value="Nomor Pemesanan"/>
+                        <StringItem index="3" value="Kode Produk"/>
+                        <StringItem index="4" value="Nominal"/>
+                        <StringItem index="5" value="Tahun"/>
+                        <StringItem index="6" value="Status"/>
                       </StringArray>
                     </Property>
                   </Properties>
@@ -828,141 +977,6 @@
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCariPemesananDokumenFilateliActionPerformed"/>
-                  </Events>
-                </Component>
-              </SubComponents>
-            </Container>
-          </SubComponents>
-        </Container>
-        <Container class="javax.swing.JPanel" name="SHP_SHPSS4">
-          <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="SHP_SHPSS4MouseClicked"/>
-          </Events>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="SHP &amp; SHPSS">
-                <Property name="tabTitle" type="java.lang.String" value="SHP &amp; SHPSS"/>
-              </JTabbedPaneConstraints>
-            </Constraint>
-          </Constraints>
-
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jPanel59" alignment="0" max="32767" attributes="0"/>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jPanel59" alignment="1" max="32767" attributes="0"/>
-              </Group>
-            </DimensionLayout>
-          </Layout>
-          <SubComponents>
-            <Container class="javax.swing.JPanel" name="jPanel59">
-              <Properties>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Tabel Data Pemesanan"/>
-                  </Border>
-                </Property>
-              </Properties>
-
-              <Layout>
-                <DimensionLayout dim="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="ButtonTambahPemesananSHPSS" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="comboCariPemesananSHP_SHPSS" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="fieldCariPemesananSHP_SHPSS" min="-2" pref="146" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="buttonCariPemesananSHP_SHPSS" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Component id="jScrollPane23" pref="975" max="32767" attributes="0"/>
-                  </Group>
-                </DimensionLayout>
-                <DimensionLayout dim="1">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                  <Component id="buttonCariPemesananSHP_SHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="fieldCariPemesananSHP_SHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="comboCariPemesananSHP_SHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="ButtonTambahPemesananSHPSS" min="-2" pref="33" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane23" pref="420" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-              </Layout>
-              <SubComponents>
-                <Container class="javax.swing.JScrollPane" name="jScrollPane23">
-                  <AuxValues>
-                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-                  </AuxValues>
-
-                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-                  <SubComponents>
-                    <Component class="javax.swing.JTable" name="tablePemesananSHP_SHPSS">
-                      <Properties>
-                        <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                          <Table columnCount="4" rowCount="4">
-                            <Column editable="true" title="Title 1" type="java.lang.Object"/>
-                            <Column editable="true" title="Title 2" type="java.lang.Object"/>
-                            <Column editable="true" title="Title 3" type="java.lang.Object"/>
-                            <Column editable="true" title="Title 4" type="java.lang.Object"/>
-                          </Table>
-                        </Property>
-                        <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
-                          <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
-                        </Property>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tablePemesananSHP_SHPSSMouseClicked"/>
-                      </Events>
-                    </Component>
-                  </SubComponents>
-                </Container>
-                <Component class="javax.swing.JButton" name="ButtonTambahPemesananSHPSS">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Tambah Pemesanan"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonTambahPemesananSHPSSActionPerformed"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JComboBox" name="comboCariPemesananSHP_SHPSS">
-                  <Properties>
-                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="5">
-                        <StringItem index="0" value="Nama Produk"/>
-                        <StringItem index="1" value="Nomor Pemesanan"/>
-                        <StringItem index="2" value="Kode Produk"/>
-                        <StringItem index="3" value="Nominal"/>
-                        <StringItem index="4" value="Tahun"/>
-                      </StringArray>
-                    </Property>
-                  </Properties>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                  </AuxValues>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldCariPemesananSHP_SHPSS">
-                  <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="fieldCariPemesananSHP_SHPSSMouseClicked"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JButton" name="buttonCariPemesananSHP_SHPSS">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Cari"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCariPemesananSHP_SHPSSActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>

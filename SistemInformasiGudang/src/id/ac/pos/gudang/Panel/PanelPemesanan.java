@@ -71,15 +71,19 @@ public class PanelPemesanan extends javax.swing.JPanel {
         String jenisCari = null;
 
         if (pilihanCari == "Kode Produk") {
-            jenisCari = "id_produk";
+            jenisCari = "pm.id_produk";
         } else if (pilihanCari == "Nama Produk") {
             jenisCari = "nama_produk";
-        } else if (pilihanCari == "Nominal") {
-            jenisCari = "nominal";
+        } else if (pilihanCari == "Nama Suplier") {
+            jenisCari = "nama_suplier";
         } else if (pilihanCari == "Nomor Pemesanan") {
             jenisCari = "no_pemesanan";
+        } else if (pilihanCari == "Nominal") {
+            jenisCari = "nominal";
         } else if (pilihanCari == "Tahun") {
             jenisCari = "tahun";
+        } else if (pilihanCari == "Status") {
+            jenisCari = "status";
         }
 
         return jenisCari;
@@ -111,6 +115,8 @@ public class PanelPemesanan extends javax.swing.JPanel {
     private void getDataPrangko(){
         Vector vector_produk = new Vector();
         Vector vector_suplier= new Vector();
+        Vector vector_nominal= new Vector();
+        Vector vector_tahun= new Vector();
         dao = new PemesananDAOImpl();
         String jenis_produk = "PR";
         arrayPemesanan = dao.getPemesanan(jenis_produk);
@@ -118,12 +124,14 @@ public class PanelPemesanan extends javax.swing.JPanel {
         for (int i = 0; i < arrayPemesanan.size(); i++) {
             arrayProduk = dao.getNama(arrayPemesanan.get(i).getKodeProduk());
             vector_produk.add(arrayProduk.get(0).getNamaProduk());
+            vector_nominal.add(arrayProduk.get(0).getNominal());
+            vector_tahun.add(arrayProduk.get(0).getTahun());
             arraySuplier = dao.getNamaSuplier(arrayPemesanan.get(i).getIdSuplier());
             vector_suplier.add(arraySuplier.get(0).getNama_suplier());
         }
         
         PemesananTM pemesananTableModel = new PemesananTM();
-        pemesananTableModel.setDataPemesanan(arrayPemesanan, vector_produk, vector_suplier);
+        pemesananTableModel.setDataPemesanan(arrayPemesanan, vector_produk, vector_suplier,vector_nominal, vector_tahun);
         sorter = new TableRowSorter(pemesananTableModel);
         tablePemesananPrangko.setRowSorter(sorter);
         tablePemesananPrangko.setModel(pemesananTableModel);
@@ -132,6 +140,8 @@ public class PanelPemesanan extends javax.swing.JPanel {
     private void getDataMS_SS(){
         Vector vector_produk = new Vector();
         Vector vector_suplier= new Vector();
+        Vector vector_nominal= new Vector();
+        Vector vector_tahun= new Vector();
         dao = new PemesananDAOImpl();
         String jenis_produk = "MS";
         arrayPemesanan = dao.getPemesanan(jenis_produk);
@@ -139,12 +149,14 @@ public class PanelPemesanan extends javax.swing.JPanel {
         for (int i = 0; i < arrayPemesanan.size(); i++) {
             arrayProduk = dao.getNama(arrayPemesanan.get(i).getKodeProduk());
             vector_produk.add(arrayProduk.get(0).getNamaProduk());
+            vector_nominal.add(arrayProduk.get(0).getNominal());
+            vector_tahun.add(arrayProduk.get(0).getTahun());
             arraySuplier = dao.getNamaSuplier(arrayPemesanan.get(i).getIdSuplier());
             vector_suplier.add(arraySuplier.get(0).getNama_suplier());
         }
         
         PemesananTM pemesananTableModel = new PemesananTM();
-        pemesananTableModel.setDataPemesanan(arrayPemesanan, vector_produk, vector_suplier);
+        pemesananTableModel.setDataPemesanan(arrayPemesanan, vector_produk, vector_suplier,vector_nominal, vector_tahun);
         sorter = new TableRowSorter(pemesananTableModel);
         tablePemesananMS_SS.setRowSorter(sorter);
         tablePemesananMS_SS.setModel(pemesananTableModel);
@@ -153,6 +165,8 @@ public class PanelPemesanan extends javax.swing.JPanel {
     private void getDataKemasan(){
         Vector vector_produk = new Vector();
         Vector vector_suplier= new Vector();
+        Vector vector_nominal= new Vector();
+        Vector vector_tahun= new Vector();
         dao = new PemesananDAOImpl();
         String jenis_produk = "KM";
         arrayPemesanan = dao.getPemesanan(jenis_produk);
@@ -160,12 +174,14 @@ public class PanelPemesanan extends javax.swing.JPanel {
         for (int i = 0; i < arrayPemesanan.size(); i++) {
             arrayProduk = dao.getNama(arrayPemesanan.get(i).getKodeProduk());
             vector_produk.add(arrayProduk.get(0).getNamaProduk());
+            vector_nominal.add(arrayProduk.get(0).getNominal());
+            vector_tahun.add(arrayProduk.get(0).getTahun());
             arraySuplier = dao.getNamaSuplier(arrayPemesanan.get(i).getIdSuplier());
             vector_suplier.add(arraySuplier.get(0).getNama_suplier());
         }
         
         PemesananTM pemesananTableModel = new PemesananTM();
-        pemesananTableModel.setDataPemesanan(arrayPemesanan, vector_produk, vector_suplier);
+        pemesananTableModel.setDataPemesanan(arrayPemesanan, vector_produk, vector_suplier,vector_nominal, vector_tahun);
         sorter = new TableRowSorter(pemesananTableModel);
         tablePemesananKemasan.setRowSorter(sorter);
         tablePemesananKemasan.setModel(pemesananTableModel);
@@ -174,6 +190,8 @@ public class PanelPemesanan extends javax.swing.JPanel {
     private void getDataMerchandise(){
         Vector vector_produk = new Vector();
         Vector vector_suplier= new Vector();
+        Vector vector_nominal= new Vector();
+        Vector vector_tahun= new Vector();
         dao = new PemesananDAOImpl();
         String jenis_produk = "MC";
         arrayPemesanan = dao.getPemesanan(jenis_produk);
@@ -181,12 +199,14 @@ public class PanelPemesanan extends javax.swing.JPanel {
         for (int i = 0; i < arrayPemesanan.size(); i++) {
             arrayProduk = dao.getNama(arrayPemesanan.get(i).getKodeProduk());
             vector_produk.add(arrayProduk.get(0).getNamaProduk());
+            vector_nominal.add(arrayProduk.get(0).getNominal());
+            vector_tahun.add(arrayProduk.get(0).getTahun());
             arraySuplier = dao.getNamaSuplier(arrayPemesanan.get(i).getIdSuplier());
             vector_suplier.add(arraySuplier.get(0).getNama_suplier());
         }
         
         PemesananTM pemesananTableModel = new PemesananTM();
-        pemesananTableModel.setDataPemesanan(arrayPemesanan, vector_produk, vector_suplier);
+        pemesananTableModel.setDataPemesanan(arrayPemesanan, vector_produk, vector_suplier,vector_nominal, vector_tahun);
         sorter = new TableRowSorter(pemesananTableModel);
         tablePemesananMerchandise.setRowSorter(sorter);
         tablePemesananMerchandise.setModel(pemesananTableModel);
@@ -195,6 +215,8 @@ public class PanelPemesanan extends javax.swing.JPanel {
     private void getDataPrisma(){
         Vector vector_produk = new Vector();
         Vector vector_suplier= new Vector();
+        Vector vector_nominal= new Vector();
+        Vector vector_tahun= new Vector();
         dao = new PemesananDAOImpl();
         String jenis_produk = "PS";
         arrayPemesanan = dao.getPemesanan(jenis_produk);
@@ -202,12 +224,14 @@ public class PanelPemesanan extends javax.swing.JPanel {
         for (int i = 0; i < arrayPemesanan.size(); i++) {
             arrayProduk = dao.getNama(arrayPemesanan.get(i).getKodeProduk());
             vector_produk.add(arrayProduk.get(0).getNamaProduk());
+            vector_nominal.add(arrayProduk.get(0).getNominal());
+            vector_tahun.add(arrayProduk.get(0).getTahun());
             arraySuplier = dao.getNamaSuplier(arrayPemesanan.get(i).getIdSuplier());
             vector_suplier.add(arraySuplier.get(0).getNama_suplier());
         }
         
         PemesananTM pemesananTableModel = new PemesananTM();
-        pemesananTableModel.setDataPemesanan(arrayPemesanan, vector_produk, vector_suplier);
+        pemesananTableModel.setDataPemesanan(arrayPemesanan, vector_produk, vector_suplier,vector_nominal, vector_tahun);
         sorter = new TableRowSorter(pemesananTableModel);
         tablePemesananPrisma.setRowSorter(sorter);
         tablePemesananPrisma.setModel(pemesananTableModel);
@@ -216,6 +240,8 @@ public class PanelPemesanan extends javax.swing.JPanel {
     private void getDataDokumenFilateli(){
         Vector vector_produk = new Vector();
         Vector vector_suplier= new Vector();
+        Vector vector_nominal= new Vector();
+        Vector vector_tahun= new Vector();
         dao = new PemesananDAOImpl();
         String jenis_produk = "DF";
         arrayPemesanan = dao.getPemesanan(jenis_produk);
@@ -223,20 +249,24 @@ public class PanelPemesanan extends javax.swing.JPanel {
         for (int i = 0; i < arrayPemesanan.size(); i++) {
             arrayProduk = dao.getNama(arrayPemesanan.get(i).getKodeProduk());
             vector_produk.add(arrayProduk.get(0).getNamaProduk());
+            vector_nominal.add(arrayProduk.get(0).getNominal());
+            vector_tahun.add(arrayProduk.get(0).getTahun());
             arraySuplier = dao.getNamaSuplier(arrayPemesanan.get(i).getIdSuplier());
             vector_suplier.add(arraySuplier.get(0).getNama_suplier());
         }
         
         PemesananTM pemesananTableModel = new PemesananTM();
-        pemesananTableModel.setDataPemesanan(arrayPemesanan, vector_produk, vector_suplier);
+        pemesananTableModel.setDataPemesanan(arrayPemesanan, vector_produk, vector_suplier,vector_nominal, vector_tahun);
         sorter = new TableRowSorter(pemesananTableModel);
         tablePemesananDokumenFilateli.setRowSorter(sorter);
         tablePemesananDokumenFilateli.setModel(pemesananTableModel);
     }
     
     private void getDataSHP_SHPSS(){
-        Vector vector_produk = new Vector();
+       Vector vector_produk = new Vector();
         Vector vector_suplier= new Vector();
+        Vector vector_nominal= new Vector();
+        Vector vector_tahun= new Vector();
         dao = new PemesananDAOImpl();
         String jenis_produk = "SHP";
         arrayPemesanan = dao.getPemesanan(jenis_produk);
@@ -244,12 +274,14 @@ public class PanelPemesanan extends javax.swing.JPanel {
         for (int i = 0; i < arrayPemesanan.size(); i++) {
             arrayProduk = dao.getNama(arrayPemesanan.get(i).getKodeProduk());
             vector_produk.add(arrayProduk.get(0).getNamaProduk());
+            vector_nominal.add(arrayProduk.get(0).getNominal());
+            vector_tahun.add(arrayProduk.get(0).getTahun());
             arraySuplier = dao.getNamaSuplier(arrayPemesanan.get(i).getIdSuplier());
             vector_suplier.add(arraySuplier.get(0).getNama_suplier());
         }
         
         PemesananTM pemesananTableModel = new PemesananTM();
-        pemesananTableModel.setDataPemesanan(arrayPemesanan, vector_produk, vector_suplier);
+        pemesananTableModel.setDataPemesanan(arrayPemesanan, vector_produk, vector_suplier,vector_nominal, vector_tahun);
         sorter = new TableRowSorter(pemesananTableModel);
         tablePemesananSHP_SHPSS.setRowSorter(sorter);
         tablePemesananSHP_SHPSS.setModel(pemesananTableModel);
@@ -281,6 +313,14 @@ public class PanelPemesanan extends javax.swing.JPanel {
         comboCariPemesananMS_SS = new javax.swing.JComboBox<>();
         fieldCariPemesananMS_SS = new javax.swing.JTextField();
         buttonCariPemesananMSSS = new javax.swing.JButton();
+        SHP_SHPSS4 = new javax.swing.JPanel();
+        jPanel59 = new javax.swing.JPanel();
+        jScrollPane23 = new javax.swing.JScrollPane();
+        tablePemesananSHP_SHPSS = new javax.swing.JTable();
+        ButtonTambahPemesananSHPSS = new javax.swing.JButton();
+        comboCariPemesananSHP_SHPSS = new javax.swing.JComboBox<>();
+        fieldCariPemesananSHP_SHPSS = new javax.swing.JTextField();
+        buttonCariPemesananSHP_SHPSS = new javax.swing.JButton();
         Kemasan4 = new javax.swing.JPanel();
         jPanel55 = new javax.swing.JPanel();
         jScrollPane19 = new javax.swing.JScrollPane();
@@ -313,14 +353,6 @@ public class PanelPemesanan extends javax.swing.JPanel {
         comboCariPemesananDokumenFilateli = new javax.swing.JComboBox<>();
         fieldCariPemesananDokumenFilateli = new javax.swing.JTextField();
         buttonCariPemesananDokumenFilateli = new javax.swing.JButton();
-        SHP_SHPSS4 = new javax.swing.JPanel();
-        jPanel59 = new javax.swing.JPanel();
-        jScrollPane23 = new javax.swing.JScrollPane();
-        tablePemesananSHP_SHPSS = new javax.swing.JTable();
-        ButtonTambahPemesananSHPSS = new javax.swing.JButton();
-        comboCariPemesananSHP_SHPSS = new javax.swing.JComboBox<>();
-        fieldCariPemesananSHP_SHPSS = new javax.swing.JTextField();
-        buttonCariPemesananSHP_SHPSS = new javax.swing.JButton();
 
         jTabbedPane6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -367,7 +399,7 @@ public class PanelPemesanan extends javax.swing.JPanel {
             }
         });
 
-        comboCariPemesananPrangko.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Nomor Pemesanan", "Kode Produk", "Nominal", "Tahun" }));
+        comboCariPemesananPrangko.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Nama Suplier", "Nomor Pemesanan", "Kode Produk", "Nominal", "Tahun", "Status" }));
 
         ButtonTambahPemesananPrangko.setText("Tambah Pemesanan");
         ButtonTambahPemesananPrangko.addActionListener(new java.awt.event.ActionListener() {
@@ -449,7 +481,7 @@ public class PanelPemesanan extends javax.swing.JPanel {
             }
         });
 
-        comboCariPemesananMS_SS.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Nomor Pemesanan", "Kode Produk", "Nominal", "Tahun" }));
+        comboCariPemesananMS_SS.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Nama Suplier", "Nomor Pemesanan", "Kode Produk", "Nominal", "Tahun", "Status" }));
 
         fieldCariPemesananMS_SS.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -504,6 +536,94 @@ public class PanelPemesanan extends javax.swing.JPanel {
 
         jTabbedPane6.addTab("MS & SS", MS_SS4);
 
+        SHP_SHPSS4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SHP_SHPSS4MouseClicked(evt);
+            }
+        });
+
+        jPanel59.setBorder(javax.swing.BorderFactory.createTitledBorder("Tabel Data Pemesanan"));
+
+        tablePemesananSHP_SHPSS.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tablePemesananSHP_SHPSS.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablePemesananSHP_SHPSSMouseClicked(evt);
+            }
+        });
+        jScrollPane23.setViewportView(tablePemesananSHP_SHPSS);
+
+        ButtonTambahPemesananSHPSS.setText("Tambah Pemesanan");
+        ButtonTambahPemesananSHPSS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonTambahPemesananSHPSSActionPerformed(evt);
+            }
+        });
+
+        comboCariPemesananSHP_SHPSS.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Nama Suplier", "Nomor Pemesanan", "Kode Produk", "Nominal", "Tahun", "Status" }));
+
+        fieldCariPemesananSHP_SHPSS.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                fieldCariPemesananSHP_SHPSSMouseClicked(evt);
+            }
+        });
+
+        buttonCariPemesananSHP_SHPSS.setText("Cari");
+        buttonCariPemesananSHP_SHPSS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCariPemesananSHP_SHPSSActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel59Layout = new javax.swing.GroupLayout(jPanel59);
+        jPanel59.setLayout(jPanel59Layout);
+        jPanel59Layout.setHorizontalGroup(
+            jPanel59Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel59Layout.createSequentialGroup()
+                .addComponent(ButtonTambahPemesananSHPSS)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(comboCariPemesananSHP_SHPSS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(fieldCariPemesananSHP_SHPSS, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(buttonCariPemesananSHP_SHPSS))
+            .addComponent(jScrollPane23, javax.swing.GroupLayout.DEFAULT_SIZE, 975, Short.MAX_VALUE)
+        );
+        jPanel59Layout.setVerticalGroup(
+            jPanel59Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel59Layout.createSequentialGroup()
+                .addGroup(jPanel59Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel59Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(buttonCariPemesananSHP_SHPSS)
+                        .addComponent(fieldCariPemesananSHP_SHPSS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(comboCariPemesananSHP_SHPSS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ButtonTambahPemesananSHPSS, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane23, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout SHP_SHPSS4Layout = new javax.swing.GroupLayout(SHP_SHPSS4);
+        SHP_SHPSS4.setLayout(SHP_SHPSS4Layout);
+        SHP_SHPSS4Layout.setHorizontalGroup(
+            SHP_SHPSS4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel59, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        SHP_SHPSS4Layout.setVerticalGroup(
+            SHP_SHPSS4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel59, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jTabbedPane6.addTab("SHP & SHPSS", SHP_SHPSS4);
+
         Kemasan4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Kemasan4MouseClicked(evt);
@@ -537,7 +657,7 @@ public class PanelPemesanan extends javax.swing.JPanel {
             }
         });
 
-        comboCariPemesananKemasan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Nomor Pemesanan", "Kode Produk", "Nominal", "Tahun" }));
+        comboCariPemesananKemasan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Nama Suplier", "Nomor Pemesanan", "Kode Produk", "Nominal", "Tahun", "Status" }));
 
         fieldCariPemesananKemasan.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -619,7 +739,7 @@ public class PanelPemesanan extends javax.swing.JPanel {
             }
         });
 
-        comboCariPemesananMerchandise.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Nomor Pemesanan", "Kode Produk", "Nominal", "Tahun" }));
+        comboCariPemesananMerchandise.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Nama Suplier", "Nomor Pemesanan", "Kode Produk", "Nominal", "Tahun", "Status" }));
 
         fieldCariPemesananMerchandise.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -701,7 +821,7 @@ public class PanelPemesanan extends javax.swing.JPanel {
             }
         });
 
-        comboCariPemesananPrisma.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Nomor Pemesanan", "Kode Produk", "Nominal", "Tahun" }));
+        comboCariPemesananPrisma.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Nama Suplier", "Nomor Pemesanan", "Kode Produk", "Nominal", "Tahun", "Status" }));
 
         fieldCariPemesananPrisma.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -783,7 +903,7 @@ public class PanelPemesanan extends javax.swing.JPanel {
             }
         });
 
-        comboCariPemesananDokumenFilateli.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Nomor Pemesanan", "Kode Produk", "Nominal", "Tahun" }));
+        comboCariPemesananDokumenFilateli.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Nama Suplier", "Nomor Pemesanan", "Kode Produk", "Nominal", "Tahun", "Status" }));
 
         fieldCariPemesananDokumenFilateli.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -838,94 +958,6 @@ public class PanelPemesanan extends javax.swing.JPanel {
 
         jTabbedPane6.addTab("Dokumen Filateli", DokumenFilateli4);
 
-        SHP_SHPSS4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                SHP_SHPSS4MouseClicked(evt);
-            }
-        });
-
-        jPanel59.setBorder(javax.swing.BorderFactory.createTitledBorder("Tabel Data Pemesanan"));
-
-        tablePemesananSHP_SHPSS.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        tablePemesananSHP_SHPSS.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tablePemesananSHP_SHPSSMouseClicked(evt);
-            }
-        });
-        jScrollPane23.setViewportView(tablePemesananSHP_SHPSS);
-
-        ButtonTambahPemesananSHPSS.setText("Tambah Pemesanan");
-        ButtonTambahPemesananSHPSS.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonTambahPemesananSHPSSActionPerformed(evt);
-            }
-        });
-
-        comboCariPemesananSHP_SHPSS.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Nomor Pemesanan", "Kode Produk", "Nominal", "Tahun" }));
-
-        fieldCariPemesananSHP_SHPSS.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                fieldCariPemesananSHP_SHPSSMouseClicked(evt);
-            }
-        });
-
-        buttonCariPemesananSHP_SHPSS.setText("Cari");
-        buttonCariPemesananSHP_SHPSS.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonCariPemesananSHP_SHPSSActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel59Layout = new javax.swing.GroupLayout(jPanel59);
-        jPanel59.setLayout(jPanel59Layout);
-        jPanel59Layout.setHorizontalGroup(
-            jPanel59Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel59Layout.createSequentialGroup()
-                .addComponent(ButtonTambahPemesananSHPSS)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(comboCariPemesananSHP_SHPSS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(fieldCariPemesananSHP_SHPSS, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(buttonCariPemesananSHP_SHPSS))
-            .addComponent(jScrollPane23, javax.swing.GroupLayout.DEFAULT_SIZE, 975, Short.MAX_VALUE)
-        );
-        jPanel59Layout.setVerticalGroup(
-            jPanel59Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel59Layout.createSequentialGroup()
-                .addGroup(jPanel59Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel59Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(buttonCariPemesananSHP_SHPSS)
-                        .addComponent(fieldCariPemesananSHP_SHPSS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(comboCariPemesananSHP_SHPSS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(ButtonTambahPemesananSHPSS, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane23, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout SHP_SHPSS4Layout = new javax.swing.GroupLayout(SHP_SHPSS4);
-        SHP_SHPSS4.setLayout(SHP_SHPSS4Layout);
-        SHP_SHPSS4Layout.setHorizontalGroup(
-            SHP_SHPSS4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel59, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        SHP_SHPSS4Layout.setVerticalGroup(
-            SHP_SHPSS4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel59, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-
-        jTabbedPane6.addTab("SHP & SHPSS", SHP_SHPSS4);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -964,23 +996,35 @@ public class PanelPemesanan extends javax.swing.JPanel {
 
     private void buttonCariPemesananPrangkoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariPemesananPrangkoActionPerformed
         // TODO add your handling code here:
+        Vector vector_produk = new Vector();
+        Vector vector_suplier= new Vector();
+        Vector vector_nominal=new Vector();
+        Vector vector_tahun=new Vector();
         String keyword = fieldCariPemesananPrangko.getText();
         String status = "prangko";
         String tabCari = cariJenis(status);
         String jenisCari = cariData(tabCari);
         String idJenis = cariJenis(status);
-/*
+
         // lakukan proses pencarian
         dao = new PemesananDAOImpl();
         arrayPemesanan = dao.cariProdukPemesanan(keyword, jenisCari, idJenis);
-
+        for (int i = 0; i < arrayPemesanan.size(); i++) {
+            arrayProduk = dao.getNama(arrayPemesanan.get(i).getKodeProduk());
+            vector_produk.add(arrayProduk.get(0).getNamaProduk());
+            vector_nominal.add(arrayProduk.get(0).getNominal());
+            vector_tahun.add(arrayProduk.get(0).getTahun());
+            arraySuplier = dao.getNamaSuplier(arrayPemesanan.get(i).getIdSuplier());
+            vector_suplier.add(arraySuplier.get(0).getNama_suplier());
+        }
+        
         PemesananTM pemesananTableModel = new PemesananTM();
-        pemesananTableModel.setDataPemesanan(arrayPemesanan);
+        pemesananTableModel.setDataPemesanan(arrayPemesanan, vector_produk, vector_suplier,vector_nominal, vector_tahun);
         sorter = new TableRowSorter(pemesananTableModel);
         tablePemesananPrangko.setRowSorter(sorter);
 
         tablePemesananPrangko.setModel(pemesananTableModel);
-        */
+        
     }//GEN-LAST:event_buttonCariPemesananPrangkoActionPerformed
 
     private void fieldCariPemesananPrangkoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fieldCariPemesananPrangkoMouseClicked
@@ -1065,23 +1109,34 @@ public class PanelPemesanan extends javax.swing.JPanel {
     }//GEN-LAST:event_fieldCariPemesananMS_SSMouseClicked
 
     private void buttonCariPemesananMSSSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariPemesananMSSSActionPerformed
-        // TODO add your handling code here:
-        /*String keyword = fieldCariPemesananMS_SS.getText();
+        Vector vector_produk = new Vector();
+        Vector vector_suplier= new Vector();
+        Vector vector_nominal=new Vector();
+        Vector vector_tahun=new Vector();
+        String keyword = fieldCariPemesananMS_SS.getText();
         String status = "ss";
         String tabCari = cariJenis(status);
         String jenisCari = cariData(tabCari);
         String idJenis = cariJenis(status);
-        System.err.println(jenisCari);
+
         // lakukan proses pencarian
         dao = new PemesananDAOImpl();
         arrayPemesanan = dao.cariProdukPemesanan(keyword, jenisCari, idJenis);
-
+        for (int i = 0; i < arrayPemesanan.size(); i++) {
+            arrayProduk = dao.getNama(arrayPemesanan.get(i).getKodeProduk());
+            vector_produk.add(arrayProduk.get(0).getNamaProduk());
+            vector_nominal.add(arrayProduk.get(0).getNominal());
+            vector_tahun.add(arrayProduk.get(0).getTahun());
+            arraySuplier = dao.getNamaSuplier(arrayPemesanan.get(i).getIdSuplier());
+            vector_suplier.add(arraySuplier.get(0).getNama_suplier());
+        }
+        
         PemesananTM pemesananTableModel = new PemesananTM();
-        pemesananTableModel.setDataPemesanan(arrayPemesanan);
+        pemesananTableModel.setDataPemesanan(arrayPemesanan, vector_produk, vector_suplier,vector_nominal, vector_tahun);
         sorter = new TableRowSorter(pemesananTableModel);
         tablePemesananMS_SS.setRowSorter(sorter);
 
-        tablePemesananMS_SS.setModel(pemesananTableModel);*/
+        tablePemesananMS_SS.setModel(pemesananTableModel);
     }//GEN-LAST:event_buttonCariPemesananMSSSActionPerformed
 
     private void fieldCariPemesananKemasanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fieldCariPemesananKemasanMouseClicked
@@ -1089,22 +1144,34 @@ public class PanelPemesanan extends javax.swing.JPanel {
     }//GEN-LAST:event_fieldCariPemesananKemasanMouseClicked
 
     private void buttonCariPemesananKemasanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariPemesananKemasanActionPerformed
-        // TODO add your handling code here:
-       /* String keyword = fieldCariPemesananKemasan.getText();
+        Vector vector_produk = new Vector();
+        Vector vector_suplier= new Vector();
+        Vector vector_nominal=new Vector();
+        Vector vector_tahun=new Vector();
+        String keyword = fieldCariPemesananKemasan.getText();
         String status = "kemasan";
         String tabCari = cariJenis(status);
         String jenisCari = cariData(tabCari);
         String idJenis = cariJenis(status);
+
         // lakukan proses pencarian
         dao = new PemesananDAOImpl();
         arrayPemesanan = dao.cariProdukPemesanan(keyword, jenisCari, idJenis);
-
+        for (int i = 0; i < arrayPemesanan.size(); i++) {
+            arrayProduk = dao.getNama(arrayPemesanan.get(i).getKodeProduk());
+            vector_produk.add(arrayProduk.get(0).getNamaProduk());
+            vector_nominal.add(arrayProduk.get(0).getNominal());
+            vector_tahun.add(arrayProduk.get(0).getTahun());
+            arraySuplier = dao.getNamaSuplier(arrayPemesanan.get(i).getIdSuplier());
+            vector_suplier.add(arraySuplier.get(0).getNama_suplier());
+        }
+        
         PemesananTM pemesananTableModel = new PemesananTM();
-        pemesananTableModel.setDataPemesanan(arrayPemesanan);
+        pemesananTableModel.setDataPemesanan(arrayPemesanan, vector_produk, vector_suplier,vector_nominal, vector_tahun);
         sorter = new TableRowSorter(pemesananTableModel);
         tablePemesananKemasan.setRowSorter(sorter);
 
-        tablePemesananKemasan.setModel(pemesananTableModel);*/
+        tablePemesananKemasan.setModel(pemesananTableModel);
     }//GEN-LAST:event_buttonCariPemesananKemasanActionPerformed
 
     private void fieldCariPemesananMerchandiseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fieldCariPemesananMerchandiseMouseClicked
@@ -1112,22 +1179,34 @@ public class PanelPemesanan extends javax.swing.JPanel {
     }//GEN-LAST:event_fieldCariPemesananMerchandiseMouseClicked
 
     private void buttonCariPemesananMerchandiseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariPemesananMerchandiseActionPerformed
-        // TODO add your handling code here:
-        /*String keyword = fieldCariPemesananMerchandise.getText();
+        Vector vector_produk = new Vector();
+        Vector vector_suplier= new Vector();
+        Vector vector_nominal=new Vector();
+        Vector vector_tahun=new Vector();
+        String keyword = fieldCariPemesananMerchandise.getText();
         String status = "merchandise";
         String tabCari = cariJenis(status);
         String jenisCari = cariData(tabCari);
         String idJenis = cariJenis(status);
+
         // lakukan proses pencarian
         dao = new PemesananDAOImpl();
         arrayPemesanan = dao.cariProdukPemesanan(keyword, jenisCari, idJenis);
-
+        for (int i = 0; i < arrayPemesanan.size(); i++) {
+            arrayProduk = dao.getNama(arrayPemesanan.get(i).getKodeProduk());
+            vector_produk.add(arrayProduk.get(0).getNamaProduk());
+            vector_nominal.add(arrayProduk.get(0).getNominal());
+            vector_tahun.add(arrayProduk.get(0).getTahun());
+            arraySuplier = dao.getNamaSuplier(arrayPemesanan.get(i).getIdSuplier());
+            vector_suplier.add(arraySuplier.get(0).getNama_suplier());
+        }
+        
         PemesananTM pemesananTableModel = new PemesananTM();
-        pemesananTableModel.setDataPemesanan(arrayPemesanan);
+        pemesananTableModel.setDataPemesanan(arrayPemesanan, vector_produk, vector_suplier,vector_nominal, vector_tahun);
         sorter = new TableRowSorter(pemesananTableModel);
         tablePemesananMerchandise.setRowSorter(sorter);
 
-        tablePemesananMerchandise.setModel(pemesananTableModel);*/
+        tablePemesananMerchandise.setModel(pemesananTableModel);
     }//GEN-LAST:event_buttonCariPemesananMerchandiseActionPerformed
 
     private void fieldCariPemesananPrismaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fieldCariPemesananPrismaMouseClicked
@@ -1135,22 +1214,34 @@ public class PanelPemesanan extends javax.swing.JPanel {
     }//GEN-LAST:event_fieldCariPemesananPrismaMouseClicked
 
     private void buttonCariPemesananPrismaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariPemesananPrismaActionPerformed
-        // TODO add your handling code here:
-        /*String keyword = fieldCariPemesananPrisma.getText();
+        Vector vector_produk = new Vector();
+        Vector vector_suplier= new Vector();
+        Vector vector_nominal=new Vector();
+        Vector vector_tahun=new Vector();
+        String keyword = fieldCariPemesananPrisma.getText();
         String status = "prisma";
         String tabCari = cariJenis(status);
         String jenisCari = cariData(tabCari);
         String idJenis = cariJenis(status);
+
         // lakukan proses pencarian
         dao = new PemesananDAOImpl();
         arrayPemesanan = dao.cariProdukPemesanan(keyword, jenisCari, idJenis);
-
+        for (int i = 0; i < arrayPemesanan.size(); i++) {
+            arrayProduk = dao.getNama(arrayPemesanan.get(i).getKodeProduk());
+            vector_produk.add(arrayProduk.get(0).getNamaProduk());
+            vector_nominal.add(arrayProduk.get(0).getNominal());
+            vector_tahun.add(arrayProduk.get(0).getTahun());
+            arraySuplier = dao.getNamaSuplier(arrayPemesanan.get(i).getIdSuplier());
+            vector_suplier.add(arraySuplier.get(0).getNama_suplier());
+        }
+        
         PemesananTM pemesananTableModel = new PemesananTM();
-        pemesananTableModel.setDataPemesanan(arrayPemesanan);
+        pemesananTableModel.setDataPemesanan(arrayPemesanan, vector_produk, vector_suplier,vector_nominal, vector_tahun);
         sorter = new TableRowSorter(pemesananTableModel);
         tablePemesananPrisma.setRowSorter(sorter);
 
-        tablePemesananPrisma.setModel(pemesananTableModel);*/
+        tablePemesananPrisma.setModel(pemesananTableModel);
     }//GEN-LAST:event_buttonCariPemesananPrismaActionPerformed
 
     private void fieldCariPemesananDokumenFilateliMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fieldCariPemesananDokumenFilateliMouseClicked
@@ -1158,22 +1249,34 @@ public class PanelPemesanan extends javax.swing.JPanel {
     }//GEN-LAST:event_fieldCariPemesananDokumenFilateliMouseClicked
 
     private void buttonCariPemesananDokumenFilateliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariPemesananDokumenFilateliActionPerformed
-        // TODO add your handling code here:
-        /*String keyword = fieldCariPemesananDokumenFilateli.getText();
+        Vector vector_produk = new Vector();
+        Vector vector_suplier= new Vector();
+        Vector vector_nominal=new Vector();
+        Vector vector_tahun=new Vector();
+        String keyword = fieldCariPemesananDokumenFilateli.getText();
         String status = "df";
         String tabCari = cariJenis(status);
         String jenisCari = cariData(tabCari);
         String idJenis = cariJenis(status);
+
         // lakukan proses pencarian
         dao = new PemesananDAOImpl();
         arrayPemesanan = dao.cariProdukPemesanan(keyword, jenisCari, idJenis);
-
+        for (int i = 0; i < arrayPemesanan.size(); i++) {
+            arrayProduk = dao.getNama(arrayPemesanan.get(i).getKodeProduk());
+            vector_produk.add(arrayProduk.get(0).getNamaProduk());
+            vector_nominal.add(arrayProduk.get(0).getNominal());
+            vector_tahun.add(arrayProduk.get(0).getTahun());
+            arraySuplier = dao.getNamaSuplier(arrayPemesanan.get(i).getIdSuplier());
+            vector_suplier.add(arraySuplier.get(0).getNama_suplier());
+        }
+        
         PemesananTM pemesananTableModel = new PemesananTM();
-        pemesananTableModel.setDataPemesanan(arrayPemesanan);
+        pemesananTableModel.setDataPemesanan(arrayPemesanan, vector_produk, vector_suplier,vector_nominal, vector_tahun);
         sorter = new TableRowSorter(pemesananTableModel);
         tablePemesananDokumenFilateli.setRowSorter(sorter);
 
-        tablePemesananDokumenFilateli.setModel(pemesananTableModel);*/
+        tablePemesananDokumenFilateli.setModel(pemesananTableModel);
     }//GEN-LAST:event_buttonCariPemesananDokumenFilateliActionPerformed
 
     private void fieldCariPemesananSHP_SHPSSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fieldCariPemesananSHP_SHPSSMouseClicked
@@ -1181,22 +1284,34 @@ public class PanelPemesanan extends javax.swing.JPanel {
     }//GEN-LAST:event_fieldCariPemesananSHP_SHPSSMouseClicked
 
     private void buttonCariPemesananSHP_SHPSSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariPemesananSHP_SHPSSActionPerformed
-        // TODO add your handling code here:
-        /*String keyword = fieldCariPemesananSHP_SHPSS.getText();
+       Vector vector_produk = new Vector();
+        Vector vector_suplier= new Vector();
+        Vector vector_nominal=new Vector();
+        Vector vector_tahun=new Vector();
+        String keyword = fieldCariPemesananSHP_SHPSS.getText();
         String status = "shp";
         String tabCari = cariJenis(status);
         String jenisCari = cariData(tabCari);
         String idJenis = cariJenis(status);
+
         // lakukan proses pencarian
         dao = new PemesananDAOImpl();
         arrayPemesanan = dao.cariProdukPemesanan(keyword, jenisCari, idJenis);
-
+        for (int i = 0; i < arrayPemesanan.size(); i++) {
+            arrayProduk = dao.getNama(arrayPemesanan.get(i).getKodeProduk());
+            vector_produk.add(arrayProduk.get(0).getNamaProduk());
+            vector_nominal.add(arrayProduk.get(0).getNominal());
+            vector_tahun.add(arrayProduk.get(0).getTahun());
+            arraySuplier = dao.getNamaSuplier(arrayPemesanan.get(i).getIdSuplier());
+            vector_suplier.add(arraySuplier.get(0).getNama_suplier());
+        }
+        
         PemesananTM pemesananTableModel = new PemesananTM();
-        pemesananTableModel.setDataPemesanan(arrayPemesanan);
+        pemesananTableModel.setDataPemesanan(arrayPemesanan, vector_produk, vector_suplier,vector_nominal, vector_tahun);
         sorter = new TableRowSorter(pemesananTableModel);
         tablePemesananSHP_SHPSS.setRowSorter(sorter);
 
-        tablePemesananSHP_SHPSS.setModel(pemesananTableModel);*/
+        tablePemesananSHP_SHPSS.setModel(pemesananTableModel);
     }//GEN-LAST:event_buttonCariPemesananSHP_SHPSSActionPerformed
 
 
