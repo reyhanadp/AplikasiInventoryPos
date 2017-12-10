@@ -168,6 +168,11 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
             }
         });
 
+        JumlahPemesanan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JumlahPemesananActionPerformed(evt);
+            }
+        });
         JumlahPemesanan.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 JumlahPemesananKeyPressed(evt);
@@ -217,10 +222,20 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
                 TahunItemStateChanged(evt);
             }
         });
+        Tahun.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TahunActionPerformed(evt);
+            }
+        });
 
         Nominal.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 NominalItemStateChanged(evt);
+            }
+        });
+        Nominal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NominalActionPerformed(evt);
             }
         });
 
@@ -244,6 +259,11 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
         JenisProduk.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 JenisProdukItemStateChanged(evt);
+            }
+        });
+        JenisProduk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JenisProdukActionPerformed(evt);
             }
         });
 
@@ -376,8 +396,6 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
                 .addContainerGap())
         );
 
-        jPanel37.getAccessibleContext().setAccessibleName("Form Pemesanan");
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -395,6 +413,7 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
                 || (karakter == KeyEvent.VK_BACK_SPACE)
                 || (karakter == KeyEvent.VK_DELETE)
                 || (karakter == KeyEvent.VK_ENTER)))) {
+            JOptionPane.showMessageDialog(null, "Hanya Angka!");
             evt.consume();
         }
     }//GEN-LAST:event_JumlahPemesananKeyTyped
@@ -443,8 +462,7 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
         if (kode_produk.compareTo("") != 0) {
             if (id_suplier.compareTo("") != 0) {
                 if (tanggal != null) {
-                    if (jumlah_pemesanan.compareTo("") != 0 || jumlah_pemesanan.compareTo("0") != 0 ) {
-                        
+                    if (!jumlah_pemesanan.equals("") && !jumlah_pemesanan.equals("0")) {
                         pemesanan = new Pemesanan();
                         pemesanan.setNoPemesanan(no_pemesanan_string);
                         pemesanan.setKodeProduk(kode_produk);
@@ -502,7 +520,36 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
 
     private void NamaProdukItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_NamaProdukItemStateChanged
         // TODO add your handling code here:
-        Object nama_produk = evt.getItem();
+        
+    }//GEN-LAST:event_NamaProdukItemStateChanged
+
+    private void ResetPrangkoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetPrangkoActionPerformed
+        // TODO add your handling code here:
+        reset();
+    }//GEN-LAST:event_ResetPrangkoActionPerformed
+
+    private void TahunItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_TahunItemStateChanged
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_TahunItemStateChanged
+
+    private void NominalItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_NominalItemStateChanged
+        // TODO add your handling code here:
+       
+    }//GEN-LAST:event_NominalItemStateChanged
+
+    private void jPanel37MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel37MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel37MouseClicked
+
+    private void JenisProdukItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_JenisProdukItemStateChanged
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_JenisProdukItemStateChanged
+
+    private void NamaProdukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NamaProdukActionPerformed
+        // TODO add your handling code here:
+        Object nama_produk = NamaProduk.getSelectedItem();
         Object jenis_produk = JenisProduk.getSelectedItem();
         if (nama_produk != "- Pilih Nama Produk -") {
             Tahun.removeAllItems();
@@ -563,16 +610,60 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
             Nominal.removeAllItems();
             KodeProduk.setText("");
         }
-    }//GEN-LAST:event_NamaProdukItemStateChanged
+    }//GEN-LAST:event_NamaProdukActionPerformed
 
-    private void ResetPrangkoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetPrangkoActionPerformed
+    private void fieldNoPemesananKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldNoPemesananKeyPressed
         // TODO add your handling code here:
-        reset();
-    }//GEN-LAST:event_ResetPrangkoActionPerformed
+    }//GEN-LAST:event_fieldNoPemesananKeyPressed
 
-    private void TahunItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_TahunItemStateChanged
+    private void fieldIdSuplierKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldIdSuplierKeyPressed
         // TODO add your handling code here:
-        Object tahun = evt.getItem();
+    }//GEN-LAST:event_fieldIdSuplierKeyPressed
+
+    private void JenisProdukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JenisProdukActionPerformed
+        // TODO add your handling code here:
+        Object jenis_produk = JenisProduk.getSelectedItem();
+        if (jenis_produk != "- Pilih Jenis Produk -") {
+            NamaProduk.removeAllItems();
+            dao = new PemesananDAOImpl();
+            if (jenis_produk == "Prangko") {
+                jenis_produk = "PR";
+            } else if (jenis_produk == "MS & SS") {
+                jenis_produk = "MS";
+            } else if (jenis_produk == "SHP & SHPSS") {
+                jenis_produk = "SHP";
+            } else if (jenis_produk == "Kemasan") {
+                jenis_produk = "KM";
+            } else if (jenis_produk == "Merchandise") {
+                jenis_produk = "MC";
+            } else if (jenis_produk == "Prisma") {
+                jenis_produk = "PS";
+            } else if (jenis_produk == "Dokumen Filateli") {
+                jenis_produk = "DF";
+            }
+
+            arrayProdukPrangko = dao.getNamaProduk((String) jenis_produk);
+
+            vectorPrangko.add("- Pilih Nama Produk -");
+
+            for (int i = 0; i < arrayProdukPrangko.size(); i++) {
+                vectorPrangko.add(arrayProdukPrangko.get(i).getNamaProduk());
+            }
+
+            NamaProduk.setModel(new DefaultComboBoxModel(vectorPrangko));
+
+            AutoCompleteDecorator.decorate(NamaProduk);
+        } else {
+            NamaProduk.removeAllItems();
+            Tahun.removeAllItems();
+            Nominal.removeAllItems();
+            KodeProduk.setText("");
+        }
+    }//GEN-LAST:event_JenisProdukActionPerformed
+
+    private void TahunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TahunActionPerformed
+        // TODO add your handling code here:
+        Object tahun = Tahun.getSelectedItem();
         Object nama_produk = NamaProduk.getSelectedItem();
         Object jenis_produk = JenisProduk.getSelectedItem();
 
@@ -616,11 +707,11 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
             Nominal.removeAllItems();
             KodeProduk.setText("");
         }
-    }//GEN-LAST:event_TahunItemStateChanged
+    }//GEN-LAST:event_TahunActionPerformed
 
-    private void NominalItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_NominalItemStateChanged
+    private void NominalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NominalActionPerformed
         // TODO add your handling code here:
-        Object nominal = evt.getItem();
+        Object nominal = Nominal.getSelectedItem();
         Object nama_produk = NamaProduk.getSelectedItem();
         Object tahun = Tahun.getSelectedItem();
         Object jenis_produk = JenisProduk.getSelectedItem();
@@ -651,64 +742,11 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
         } else {
             KodeProduk.setText("");
         }
-    }//GEN-LAST:event_NominalItemStateChanged
+    }//GEN-LAST:event_NominalActionPerformed
 
-    private void jPanel37MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel37MouseClicked
+    private void JumlahPemesananActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JumlahPemesananActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jPanel37MouseClicked
-
-    private void JenisProdukItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_JenisProdukItemStateChanged
-        // TODO add your handling code here:
-        Object jenis_produk = evt.getItem();
-        if (jenis_produk != "- Pilih Jenis Produk -") {
-            NamaProduk.removeAllItems();
-            dao = new PemesananDAOImpl();
-            if (jenis_produk == "Prangko") {
-                jenis_produk = "PR";
-            } else if (jenis_produk == "MS & SS") {
-                jenis_produk = "MS";
-            } else if (jenis_produk == "SHP & SHPSS") {
-                jenis_produk = "SHP";
-            } else if (jenis_produk == "Kemasan") {
-                jenis_produk = "KM";
-            } else if (jenis_produk == "Merchandise") {
-                jenis_produk = "MC";
-            } else if (jenis_produk == "Prisma") {
-                jenis_produk = "PS";
-            } else if (jenis_produk == "Dokumen Filateli") {
-                jenis_produk = "DF";
-            }
-
-            arrayProdukPrangko = dao.getNamaProduk((String) jenis_produk);
-
-            vectorPrangko.add("- Pilih Nama Produk -");
-
-            for (int i = 0; i < arrayProdukPrangko.size(); i++) {
-                vectorPrangko.add(arrayProdukPrangko.get(i).getNamaProduk());
-            }
-
-            NamaProduk.setModel(new DefaultComboBoxModel(vectorPrangko));
-
-            AutoCompleteDecorator.decorate(NamaProduk);
-        } else {
-            NamaProduk.removeAllItems();
-            Tahun.removeAllItems();
-            Nominal.removeAllItems();
-            KodeProduk.setText("");
-        }
-    }//GEN-LAST:event_JenisProdukItemStateChanged
-
-    private void NamaProdukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NamaProdukActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_NamaProdukActionPerformed
-
-    private void fieldNoPemesananKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldNoPemesananKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fieldNoPemesananKeyPressed
-
-    private void fieldIdSuplierKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldIdSuplierKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fieldIdSuplierKeyPressed
+    }//GEN-LAST:event_JumlahPemesananActionPerformed
 
     /**
      * @param args the command line arguments
@@ -735,6 +773,10 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(DialogTambahPemesanan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>

@@ -5,13 +5,15 @@
  */
 package id.ac.pos.gudang.entity;
 
+import java.util.Date;
+
 /**
  *
  * @author muhamad solahudin
  */
 public class Penerimaan {
     String noOrder;
-    String tglPenerimaan;
+    Date tglPenerimaan;
     int jmlTerima;
     String noPemesanan;
     String idProduk;
@@ -22,20 +24,20 @@ public class Penerimaan {
     int sisaBelumDikirim;
     String keterangan;
 
+    public Date getTglPenerimaan() {
+        return tglPenerimaan;
+    }
+
+    public void setTglPenerimaan(Date tglPenerimaan) {
+        this.tglPenerimaan = tglPenerimaan;
+    }
+
     public String getNoOrder() {
         return noOrder;
     }
 
     public void setNoOrder(String noOrder) {
         this.noOrder = noOrder;
-    }
-
-    public String getTglPenerimaan() {
-        return tglPenerimaan;
-    }
-
-    public void setTglPenerimaan(String tglPenerimaan) {
-        this.tglPenerimaan = tglPenerimaan;
     }
 
     public int getJmlTerima() {

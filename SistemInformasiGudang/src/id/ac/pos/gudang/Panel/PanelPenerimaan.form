@@ -48,322 +48,22 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="jPanel40" max="32767" attributes="0"/>
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Component id="jPanel39" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jDesktopPane15" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jPanel40" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="20" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jDesktopPane15" min="-2" max="-2" attributes="0"/>
-                          <Component id="jPanel39" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jPanel40" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="jPanel40" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Container class="javax.swing.JPanel" name="jPanel39">
-              <Properties>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Form Produk"/>
-                  </Border>
-                </Property>
-              </Properties>
-              <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jPanel39MouseClicked"/>
-              </Events>
-
-              <Layout>
-                <DimensionLayout dim="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel151" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel150" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel61" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
-                                      <Group type="102" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="fieldTotalPemesanan" alignment="0" min="-2" pref="61" max="-2" attributes="0"/>
-                                              <Component id="fieldIdSuplier" alignment="0" min="-2" pref="61" max="-2" attributes="0"/>
-                                              <Component id="fieldStokAwal" alignment="0" min="-2" pref="61" max="-2" attributes="0"/>
-                                              <Component id="fieldJmlTerima" min="-2" pref="61" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                                                  <Component id="fieldNamaProduk" min="-2" pref="135" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                                  <Group type="102" alignment="1" attributes="0">
-                                                      <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace max="32767" attributes="0"/>
-                                                      <Component id="fieldSubtotalTerima" min="-2" pref="61" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <Group type="102" alignment="1" attributes="0">
-                                                      <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
-                                                      <Component id="fieldKodeProduk" min="-2" pref="61" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <Group type="103" groupAlignment="1" attributes="0">
-                                                          <Component id="jButtonSimpanPenerimaan" min="-2" max="-2" attributes="0"/>
-                                                          <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <EmptySpace max="32767" attributes="0"/>
-                                                      <Component id="fieldSisaBelumDikirim" min="-2" pref="61" max="-2" attributes="0"/>
-                                                  </Group>
-                                              </Group>
-                                          </Group>
-                                      </Group>
-                                      <Component id="fieldNoOrder" alignment="0" min="-2" pref="61" max="-2" attributes="0"/>
-                                      <Component id="fieldTglPenerimaan" alignment="0" min="-2" pref="163" max="-2" attributes="0"/>
-                                      <Component id="ComboNoPemesanan" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace pref="133" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-                <DimensionLayout dim="1">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel150" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="fieldNoOrder" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="fieldTglPenerimaan" max="32767" attributes="0"/>
-                              <Component id="jLabel151" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="ComboNoPemesanan" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="fieldNamaProduk" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel61" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="fieldJmlTerima" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="fieldKodeProduk" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="fieldIdSuplier" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="fieldSubtotalTerima" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="fieldStokAwal" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                  <Component id="fieldSisaBelumDikirim" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="fieldTotalPemesanan" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                              <Component id="jScrollPane1" min="-2" pref="80" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                          <Component id="jButtonSimpanPenerimaan" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-              </Layout>
-              <SubComponents>
-                <Component class="javax.swing.JLabel" name="jLabel150">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="No Order"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel151">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Tanggal Penerimaan"/>
-                  </Properties>
-                </Component>
-                <Component class="com.toedter.calendar.JDateChooser" name="fieldTglPenerimaan">
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel61">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Jumlah Terima"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldJmlTerima">
-                  <Events>
-                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldJmlTerimaKeyTyped"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JButton" name="jButtonSimpanPenerimaan">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Simpan"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSimpanPenerimaanActionPerformed"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldNoOrder">
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel1">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="No Pemesanan"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JComboBox" name="ComboNoPemesanan">
-                  <Properties>
-                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="1">
-                        <StringItem index="0" value="- Pilih Pemesanan -"/>
-                      </StringArray>
-                    </Property>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ComboNoPemesananActionPerformed"/>
-                    <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="ComboNoPemesananKeyReleased"/>
-                  </Events>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                  </AuxValues>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel2">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Id Suplier"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel3">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Stok Awal"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldStokAwal">
-                  <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel4">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Total Pemesanan"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldTotalPemesanan">
-                  <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel5">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Keterangan"/>
-                  </Properties>
-                </Component>
-                <Container class="javax.swing.JScrollPane" name="jScrollPane1">
-                  <AuxValues>
-                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-                  </AuxValues>
-
-                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-                  <SubComponents>
-                    <Component class="javax.swing.JTextArea" name="fieldKeterangan">
-                      <Properties>
-                        <Property name="columns" type="int" value="20"/>
-                        <Property name="rows" type="int" value="5"/>
-                      </Properties>
-                    </Component>
-                  </SubComponents>
-                </Container>
-                <Component class="javax.swing.JTextField" name="fieldIdSuplier">
-                  <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel6">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Kode Produk"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldKodeProduk">
-                  <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel7">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Subtotal Terima"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldSubtotalTerima">
-                  <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel8">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Sisa Belum Dikirim"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldSisaBelumDikirim">
-                  <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel9">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Nama Produk"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldNamaProduk">
-                  <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
-                  </Properties>
-                </Component>
-              </SubComponents>
-            </Container>
             <Container class="javax.swing.JPanel" name="jPanel40">
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -376,27 +76,34 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPane13" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                           <Component id="comboCariPenerimaanPrangko" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="fieldCariPenerimaanPrangko" min="-2" pref="146" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="buttonCariPenerimaanPrangko" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <Component id="jScrollPane13" pref="1224" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="buttonCariPenerimaanPrangko" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="fieldCariPenerimaanPrangko" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="comboCariPenerimaanPrangko" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="buttonCariPenerimaanPrangko" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="fieldCariPenerimaanPrangko" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="comboCariPenerimaanPrangko" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="0" pref="12" max="32767" attributes="0"/>
+                              </Group>
+                              <Component id="jButton1" alignment="0" pref="35" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane13" pref="185" max="32767" attributes="0"/>
+                          <Component id="jScrollPane13" pref="458" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -432,11 +139,15 @@
                 <Component class="javax.swing.JComboBox" name="comboCariPenerimaanPrangko">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="4">
+                      <StringArray count="8">
                         <StringItem index="0" value="Nomor Order"/>
                         <StringItem index="1" value="Tanggal Penerimaan"/>
                         <StringItem index="2" value="Nomor Pemesanan"/>
                         <StringItem index="3" value="Kode Produk"/>
+                        <StringItem index="4" value="Nama Produk"/>
+                        <StringItem index="5" value="Nominal"/>
+                        <StringItem index="6" value="Tahun"/>
+                        <StringItem index="7" value="Nama Suplier"/>
                       </StringArray>
                     </Property>
                   </Properties>
@@ -457,27 +168,15 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCariPenerimaanPrangkoActionPerformed"/>
                   </Events>
                 </Component>
+                <Component class="javax.swing.JButton" name="jButton1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Tambah Penerimaan"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+                  </Events>
+                </Component>
               </SubComponents>
-            </Container>
-            <Container class="javax.swing.JDesktopPane" name="jDesktopPane15">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="f0" green="f0" red="f0" type="rgb"/>
-                </Property>
-              </Properties>
-
-              <Layout>
-                <DimensionLayout dim="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="503" max="32767" attributes="0"/>
-                  </Group>
-                </DimensionLayout>
-                <DimensionLayout dim="1">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="326" max="32767" attributes="0"/>
-                  </Group>
-                </DimensionLayout>
-              </Layout>
             </Container>
           </SubComponents>
         </Container>
@@ -496,9 +195,8 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jPanel74" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jPanel73" min="-2" max="-2" attributes="0"/>
+                      <Component id="jPanel41" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jDesktopPane16" max="32767" attributes="0"/>
                   </Group>
@@ -506,308 +204,17 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jDesktopPane16" min="-2" max="-2" attributes="0"/>
-                          <Component id="jPanel73" min="-2" max="-2" attributes="0"/>
+                          <Component id="jPanel41" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jPanel74" max="32767" attributes="0"/>
+                      <EmptySpace pref="19" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Container class="javax.swing.JPanel" name="jPanel73">
-              <Properties>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Form Produk"/>
-                  </Border>
-                </Property>
-              </Properties>
-              <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jPanel73MouseClicked"/>
-              </Events>
-
-              <Layout>
-                <DimensionLayout dim="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel183" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel182" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel62" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel14" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel15" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel16" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jScrollPane2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="fieldNoOrderMS_SS" alignment="0" min="-2" pref="61" max="-2" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="fieldTotalPemesananMS_SS" alignment="0" min="-2" pref="61" max="-2" attributes="0"/>
-                                              <Component id="fieldIdSuplierMS_SS" alignment="0" min="-2" pref="61" max="-2" attributes="0"/>
-                                              <Component id="fieldStokAwalMS_SS" alignment="0" min="-2" pref="61" max="-2" attributes="0"/>
-                                              <Component id="fieldJmlTerimaMS_SS" min="-2" pref="61" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                                                  <Component id="fieldNamaProdukMS_SS" min="-2" pref="135" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                                  <Group type="102" alignment="1" attributes="0">
-                                                      <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace max="32767" attributes="0"/>
-                                                      <Component id="fieldSubtotalTerimaMS_SS" min="-2" pref="61" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <Group type="102" alignment="1" attributes="0">
-                                                      <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
-                                                      <Component id="fieldKodeProdukMS_SS" min="-2" pref="61" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <Group type="103" groupAlignment="1" attributes="0">
-                                                          <Component id="jButtonSimpanPenerimaanMS_SS" min="-2" max="-2" attributes="0"/>
-                                                          <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <EmptySpace max="32767" attributes="0"/>
-                                                      <Component id="fieldSisaBelumDikirimMS_SS" min="-2" pref="61" max="-2" attributes="0"/>
-                                                  </Group>
-                                              </Group>
-                                          </Group>
-                                      </Group>
-                                      <Component id="fieldTglPenerimaanMS_SS" alignment="0" min="-2" pref="163" max="-2" attributes="0"/>
-                                      <Component id="ComboNoPemesananMS_SS" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace pref="133" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-                <DimensionLayout dim="1">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel182" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="fieldNoOrderMS_SS" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="fieldTglPenerimaanMS_SS" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jLabel183" alignment="0" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="ComboNoPemesananMS_SS" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="fieldNamaProdukMS_SS" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel62" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="fieldJmlTerimaMS_SS" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="fieldKodeProdukMS_SS" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="fieldIdSuplierMS_SS" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="fieldSubtotalTerimaMS_SS" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="fieldStokAwalMS_SS" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                  <Component id="fieldSisaBelumDikirimMS_SS" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel18" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="fieldTotalPemesananMS_SS" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel16" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jScrollPane2" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                          <Component id="jButtonSimpanPenerimaanMS_SS" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-              </Layout>
-              <SubComponents>
-                <Component class="javax.swing.JLabel" name="jLabel182">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="No Order"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldNoOrderMS_SS">
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel183">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Tanggal Penerimaan"/>
-                  </Properties>
-                </Component>
-                <Component class="com.toedter.calendar.JDateChooser" name="fieldTglPenerimaanMS_SS">
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel62">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Jumlah Terima"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldJmlTerimaMS_SS">
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel10">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="No Pemesanan"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JComboBox" name="ComboNoPemesananMS_SS">
-                  <Properties>
-                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="1">
-                        <StringItem index="0" value="- Pilih Pemesanan -"/>
-                      </StringArray>
-                    </Property>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ComboNoPemesananMS_SSActionPerformed"/>
-                    <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="ComboNoPemesananMS_SSKeyReleased"/>
-                  </Events>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                  </AuxValues>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel11">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Nama Produk"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldNamaProdukMS_SS">
-                  <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldKodeProdukMS_SS">
-                  <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel12">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Kode Produk"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldIdSuplierMS_SS">
-                  <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel13">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Id Suplier"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel14">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Stok Awal"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldStokAwalMS_SS">
-                  <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel15">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Total Pemesanan"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldTotalPemesananMS_SS">
-                  <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel16">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Keterangan"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldSisaBelumDikirimMS_SS">
-                  <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldSubtotalTerimaMS_SS">
-                  <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel17">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Subtotal Terima"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel18">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Sisa Belum Dikirim"/>
-                  </Properties>
-                </Component>
-                <Container class="javax.swing.JScrollPane" name="jScrollPane2">
-                  <AuxValues>
-                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-                  </AuxValues>
-
-                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-                  <SubComponents>
-                    <Component class="javax.swing.JTextArea" name="fieldKeteranganMS_SS">
-                      <Properties>
-                        <Property name="columns" type="int" value="20"/>
-                        <Property name="rows" type="int" value="5"/>
-                      </Properties>
-                    </Component>
-                  </SubComponents>
-                </Container>
-                <Component class="javax.swing.JButton" name="jButtonSimpanPenerimaanMS_SS">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Simpan"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSimpanPenerimaanMS_SSActionPerformed"/>
-                  </Events>
-                </Component>
-              </SubComponents>
-            </Container>
             <Container class="javax.swing.JDesktopPane" name="jDesktopPane16">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -818,7 +225,7 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="14" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -828,7 +235,7 @@
                 </DimensionLayout>
               </Layout>
             </Container>
-            <Container class="javax.swing.JPanel" name="jPanel74">
+            <Container class="javax.swing.JPanel" name="jPanel41">
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -840,9 +247,10 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPane42" pref="1185" max="32767" attributes="0"/>
+                      <Component id="jScrollPane14" pref="1224" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                           <Component id="comboCariPenerimaanMS_SS" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="fieldCariPenerimaanMS_SS" min="-2" pref="146" max="-2" attributes="0"/>
@@ -854,19 +262,25 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="buttonCariPenerimaanMS_SS" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="fieldCariPenerimaanMS_SS" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="comboCariPenerimaanMS_SS" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="buttonCariPenerimaanMS_SS" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="fieldCariPenerimaanMS_SS" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="comboCariPenerimaanMS_SS" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="0" pref="12" max="32767" attributes="0"/>
+                              </Group>
+                              <Component id="jButton2" alignment="0" pref="35" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane42" pref="185" max="32767" attributes="0"/>
+                          <Component id="jScrollPane14" pref="458" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Container class="javax.swing.JScrollPane" name="jScrollPane42">
+                <Container class="javax.swing.JScrollPane" name="jScrollPane14">
                   <AuxValues>
                     <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
                   </AuxValues>
@@ -896,11 +310,15 @@
                 <Component class="javax.swing.JComboBox" name="comboCariPenerimaanMS_SS">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="4">
+                      <StringArray count="8">
                         <StringItem index="0" value="Nomor Order"/>
                         <StringItem index="1" value="Tanggal Penerimaan"/>
                         <StringItem index="2" value="Nomor Pemesanan"/>
                         <StringItem index="3" value="Kode Produk"/>
+                        <StringItem index="4" value="Nama Produk"/>
+                        <StringItem index="5" value="Nominal"/>
+                        <StringItem index="6" value="Tahun"/>
+                        <StringItem index="7" value="Nama Suplier"/>
                       </StringArray>
                     </Property>
                   </Properties>
@@ -919,6 +337,14 @@
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCariPenerimaanMS_SSActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="jButton2">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Tambah Penerimaan"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -940,338 +366,23 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jPanel76" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jPanel75" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jDesktopPane17" max="32767" attributes="0"/>
+                      <Component id="jPanel42" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="20" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jDesktopPane17" min="-2" max="-2" attributes="0"/>
-                          <Component id="jPanel75" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jPanel76" max="32767" attributes="0"/>
+                      <Component id="jPanel42" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="19" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Container class="javax.swing.JPanel" name="jPanel75">
-              <Properties>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Form Produk"/>
-                  </Border>
-                </Property>
-              </Properties>
-              <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jPanel75MouseClicked"/>
-              </Events>
-
-              <Layout>
-                <DimensionLayout dim="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel153" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel152" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel63" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel22" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel23" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel26" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel27" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jScrollPane3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="fieldTotalPemesananSHP_SHPSS" alignment="0" min="-2" pref="61" max="-2" attributes="0"/>
-                                              <Component id="fieldIdSuplierSHP_SHPSS" alignment="0" min="-2" pref="61" max="-2" attributes="0"/>
-                                              <Component id="fieldStokAwalSHP_SHPSS" alignment="0" min="-2" pref="61" max="-2" attributes="0"/>
-                                              <Component id="fieldJmlTerimaSHP_SHPSS" min="-2" pref="61" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="1" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                                                      <Component id="fieldNamaProdukSHP_SHPSS" min="-2" pref="135" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <Component id="jLabel24" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                                      <Component id="jButtonSimpanPenerimaanSHP_SHPSS" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="jLabel25" min="-2" max="-2" attributes="0"/>
-                                                  </Group>
-                                              </Group>
-                                              <Group type="102" alignment="1" attributes="0">
-                                                  <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="fieldSubtotalTerimaSHP_SHPSS" min="-2" pref="61" max="-2" attributes="0"/>
-                                                      <Component id="fieldKodeProdukSHP_SHPSS" min="-2" pref="75" max="-2" attributes="0"/>
-                                                      <Component id="fieldSisaBelumDikirimSHP_SHPSS" alignment="0" min="-2" pref="61" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                      </Group>
-                                      <Component id="fieldNoOrderSHP_SHPSS" alignment="0" min="-2" pref="61" max="-2" attributes="0"/>
-                                      <Component id="fieldTglPenerimaanSHP_SHPSS" alignment="0" min="-2" pref="163" max="-2" attributes="0"/>
-                                      <Component id="ComboNoPemesananSHP_SHPSS" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Component id="jLabel19" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace pref="133" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-                <DimensionLayout dim="1">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel152" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="fieldNoOrderSHP_SHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="fieldTglPenerimaanSHP_SHPSS" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jLabel153" alignment="0" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel19" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="ComboNoPemesananSHP_SHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel20" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="fieldNamaProdukSHP_SHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel63" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="fieldJmlTerimaSHP_SHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel21" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="fieldKodeProdukSHP_SHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel22" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="fieldIdSuplierSHP_SHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel24" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                      <Component id="jLabel23" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="fieldStokAwalSHP_SHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="fieldSubtotalTerimaSHP_SHPSS" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                  <Component id="fieldSisaBelumDikirimSHP_SHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel25" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel26" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="fieldTotalPemesananSHP_SHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel27" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jScrollPane3" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                          <Component id="jButtonSimpanPenerimaanSHP_SHPSS" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-              </Layout>
-              <SubComponents>
-                <Component class="javax.swing.JLabel" name="jLabel152">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="No Order"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldNoOrderSHP_SHPSS">
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel153">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Tanggal Penerimaan"/>
-                  </Properties>
-                </Component>
-                <Component class="com.toedter.calendar.JDateChooser" name="fieldTglPenerimaanSHP_SHPSS">
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel63">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Jumlah Terima"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldJmlTerimaSHP_SHPSS">
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel19">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="No Pemesanan"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JComboBox" name="ComboNoPemesananSHP_SHPSS">
-                  <Properties>
-                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="1">
-                        <StringItem index="0" value="- Pilih Pemesanan -"/>
-                      </StringArray>
-                    </Property>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ComboNoPemesananSHP_SHPSSActionPerformed"/>
-                    <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="ComboNoPemesananSHP_SHPSSKeyReleased"/>
-                  </Events>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                  </AuxValues>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel20">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Nama Produk"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldNamaProdukSHP_SHPSS">
-                  <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldKodeProdukSHP_SHPSS">
-                  <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel21">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Kode Produk"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldIdSuplierSHP_SHPSS">
-                  <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel22">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Id Suplier"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel23">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Stok Awal"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldStokAwalSHP_SHPSS">
-                  <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel24">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Subtotal Terima"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldSubtotalTerimaSHP_SHPSS">
-                  <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldSisaBelumDikirimSHP_SHPSS">
-                  <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel25">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Sisa Belum Dikirim"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldTotalPemesananSHP_SHPSS">
-                  <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel26">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Total Pemesanan"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel27">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Keterangan"/>
-                  </Properties>
-                </Component>
-                <Container class="javax.swing.JScrollPane" name="jScrollPane3">
-                  <AuxValues>
-                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-                  </AuxValues>
-
-                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-                  <SubComponents>
-                    <Component class="javax.swing.JTextArea" name="fieldKeteranganSHP_SHPSS">
-                      <Properties>
-                        <Property name="columns" type="int" value="20"/>
-                        <Property name="rows" type="int" value="5"/>
-                      </Properties>
-                    </Component>
-                  </SubComponents>
-                </Container>
-                <Component class="javax.swing.JButton" name="jButtonSimpanPenerimaanSHP_SHPSS">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Simpan"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSimpanPenerimaanSHP_SHPSSActionPerformed"/>
-                  </Events>
-                </Component>
-              </SubComponents>
-            </Container>
-            <Container class="javax.swing.JDesktopPane" name="jDesktopPane17">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="f0" green="f0" red="f0" type="rgb"/>
-                </Property>
-              </Properties>
-
-              <Layout>
-                <DimensionLayout dim="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  </Group>
-                </DimensionLayout>
-                <DimensionLayout dim="1">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="326" max="32767" attributes="0"/>
-                  </Group>
-                </DimensionLayout>
-              </Layout>
-            </Container>
-            <Container class="javax.swing.JPanel" name="jPanel76">
+            <Container class="javax.swing.JPanel" name="jPanel42">
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -1283,9 +394,10 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPane44" pref="1185" max="32767" attributes="0"/>
+                      <Component id="jScrollPane15" pref="1224" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Component id="jButton3" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                           <Component id="comboCariPenerimaanSHP_SHPSS" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="fieldCariPenerimaanSHP_SHPSS" min="-2" pref="146" max="-2" attributes="0"/>
@@ -1297,19 +409,25 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="buttonCariPenerimaanSHP_SHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="fieldCariPenerimaanSHP_SHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="comboCariPenerimaanSHP_SHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="buttonCariPenerimaanSHP_SHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="fieldCariPenerimaanSHP_SHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="comboCariPenerimaanSHP_SHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="0" pref="12" max="32767" attributes="0"/>
+                              </Group>
+                              <Component id="jButton3" alignment="0" pref="35" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane44" pref="185" max="32767" attributes="0"/>
+                          <Component id="jScrollPane15" pref="458" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Container class="javax.swing.JScrollPane" name="jScrollPane44">
+                <Container class="javax.swing.JScrollPane" name="jScrollPane15">
                   <AuxValues>
                     <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
                   </AuxValues>
@@ -1339,11 +457,15 @@
                 <Component class="javax.swing.JComboBox" name="comboCariPenerimaanSHP_SHPSS">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="4">
+                      <StringArray count="8">
                         <StringItem index="0" value="Nomor Order"/>
                         <StringItem index="1" value="Tanggal Penerimaan"/>
                         <StringItem index="2" value="Nomor Pemesanan"/>
                         <StringItem index="3" value="Kode Produk"/>
+                        <StringItem index="4" value="Nama Produk"/>
+                        <StringItem index="5" value="Nominal"/>
+                        <StringItem index="6" value="Tahun"/>
+                        <StringItem index="7" value="Nama Suplier"/>
                       </StringArray>
                     </Property>
                   </Properties>
@@ -1362,6 +484,14 @@
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCariPenerimaanSHP_SHPSSActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="jButton3">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Tambah Penerimaan"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -1383,339 +513,23 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jPanel78" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jPanel77" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jDesktopPane18" max="32767" attributes="0"/>
+                      <Component id="jPanel43" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="20" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jDesktopPane18" min="-2" max="-2" attributes="0"/>
-                          <Component id="jPanel77" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jPanel78" max="32767" attributes="0"/>
+                      <Component id="jPanel43" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="19" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Container class="javax.swing.JPanel" name="jPanel77">
-              <Properties>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Form Produk"/>
-                  </Border>
-                </Property>
-              </Properties>
-              <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jPanel77MouseClicked"/>
-              </Events>
-
-              <Layout>
-                <DimensionLayout dim="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel185" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel184" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel64" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel31" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel32" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel35" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel36" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jScrollPane4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="fieldTotalPemesananKemasan" alignment="0" min="-2" pref="61" max="-2" attributes="0"/>
-                                              <Component id="fieldIdSuplierKemasan" alignment="0" min="-2" pref="61" max="-2" attributes="0"/>
-                                              <Component id="fieldStokAwalKemasan" alignment="0" min="-2" pref="61" max="-2" attributes="0"/>
-                                              <Component id="fieldJmlTerimaKemasan" min="-2" pref="61" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="jLabel29" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                                                  <Component id="fieldNamaProdukKemasan" min="-2" pref="135" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                                  <Group type="102" alignment="1" attributes="0">
-                                                      <Component id="jLabel33" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace max="32767" attributes="0"/>
-                                                      <Component id="fieldSubtotalTerimaKemasan" min="-2" pref="61" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <Group type="102" alignment="1" attributes="0">
-                                                      <Component id="jLabel30" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
-                                                      <Component id="fieldKodeProdukKemasan" min="-2" pref="61" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <Group type="103" groupAlignment="1" attributes="0">
-                                                          <Component id="jButtonSimpanPenerimaanKemasan" min="-2" max="-2" attributes="0"/>
-                                                          <Component id="jLabel34" min="-2" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <EmptySpace max="32767" attributes="0"/>
-                                                      <Component id="fieldSisaBelumDikirimKemasan" min="-2" pref="61" max="-2" attributes="0"/>
-                                                  </Group>
-                                              </Group>
-                                          </Group>
-                                      </Group>
-                                      <Component id="fieldNoOrderKemasan" alignment="0" min="-2" pref="61" max="-2" attributes="0"/>
-                                      <Component id="fieldTglPenerimaanKemasan" alignment="0" min="-2" pref="163" max="-2" attributes="0"/>
-                                      <Component id="ComboNoPemesananKemasan" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Component id="jLabel28" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace pref="133" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-                <DimensionLayout dim="1">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel184" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="fieldNoOrderKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="fieldTglPenerimaanKemasan" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jLabel185" alignment="0" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel28" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="ComboNoPemesananKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel29" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="fieldNamaProdukKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel64" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="fieldJmlTerimaKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel30" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="fieldKodeProdukKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel31" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="fieldIdSuplierKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel33" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="fieldSubtotalTerimaKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel32" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="fieldStokAwalKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                  <Component id="fieldSisaBelumDikirimKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel34" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel35" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="fieldTotalPemesananKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel36" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jScrollPane4" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                          <Component id="jButtonSimpanPenerimaanKemasan" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-              </Layout>
-              <SubComponents>
-                <Component class="javax.swing.JLabel" name="jLabel184">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="No Order"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldNoOrderKemasan">
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel185">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Tanggal Penerimaan"/>
-                  </Properties>
-                </Component>
-                <Component class="com.toedter.calendar.JDateChooser" name="fieldTglPenerimaanKemasan">
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel64">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Jumlah Terima"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldJmlTerimaKemasan">
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel28">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="No Pemesanan"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JComboBox" name="ComboNoPemesananKemasan">
-                  <Properties>
-                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="1">
-                        <StringItem index="0" value="- Pilih Pemesanan -"/>
-                      </StringArray>
-                    </Property>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ComboNoPemesananKemasanActionPerformed"/>
-                    <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="ComboNoPemesananKemasanKeyReleased"/>
-                  </Events>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                  </AuxValues>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel29">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Nama Produk"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldNamaProdukKemasan">
-                  <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldKodeProdukKemasan">
-                  <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel30">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Kode Produk"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldIdSuplierKemasan">
-                  <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel31">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Id Suplier"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel32">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Stok Awal"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldStokAwalKemasan">
-                  <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel33">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Subtotal Terima"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldSubtotalTerimaKemasan">
-                  <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldSisaBelumDikirimKemasan">
-                  <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel34">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Sisa Belum Dikirim"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldTotalPemesananKemasan">
-                  <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel35">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Total Pemesanan"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel36">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Keterangan"/>
-                  </Properties>
-                </Component>
-                <Container class="javax.swing.JScrollPane" name="jScrollPane4">
-                  <AuxValues>
-                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-                  </AuxValues>
-
-                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-                  <SubComponents>
-                    <Component class="javax.swing.JTextArea" name="fieldKeteranganKemasan">
-                      <Properties>
-                        <Property name="columns" type="int" value="20"/>
-                        <Property name="rows" type="int" value="5"/>
-                      </Properties>
-                    </Component>
-                  </SubComponents>
-                </Container>
-                <Component class="javax.swing.JButton" name="jButtonSimpanPenerimaanKemasan">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Simpan"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSimpanPenerimaanKemasanActionPerformed"/>
-                  </Events>
-                </Component>
-              </SubComponents>
-            </Container>
-            <Container class="javax.swing.JDesktopPane" name="jDesktopPane18">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="f0" green="f0" red="f0" type="rgb"/>
-                </Property>
-              </Properties>
-
-              <Layout>
-                <DimensionLayout dim="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  </Group>
-                </DimensionLayout>
-                <DimensionLayout dim="1">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="326" max="32767" attributes="0"/>
-                  </Group>
-                </DimensionLayout>
-              </Layout>
-            </Container>
-            <Container class="javax.swing.JPanel" name="jPanel78">
+            <Container class="javax.swing.JPanel" name="jPanel43">
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -1727,9 +541,10 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPane46" pref="1185" max="32767" attributes="0"/>
+                      <Component id="jScrollPane16" pref="1224" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Component id="jButton4" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                           <Component id="comboCariPenerimaanKemasan" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="fieldCariPenerimaanKemasan" min="-2" pref="146" max="-2" attributes="0"/>
@@ -1741,19 +556,25 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="buttonCariPenerimaanKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="fieldCariPenerimaanKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="comboCariPenerimaanKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="buttonCariPenerimaanKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="fieldCariPenerimaanKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="comboCariPenerimaanKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="0" pref="12" max="32767" attributes="0"/>
+                              </Group>
+                              <Component id="jButton4" alignment="0" pref="35" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane46" pref="185" max="32767" attributes="0"/>
+                          <Component id="jScrollPane16" pref="458" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Container class="javax.swing.JScrollPane" name="jScrollPane46">
+                <Container class="javax.swing.JScrollPane" name="jScrollPane16">
                   <AuxValues>
                     <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
                   </AuxValues>
@@ -1783,11 +604,15 @@
                 <Component class="javax.swing.JComboBox" name="comboCariPenerimaanKemasan">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="4">
+                      <StringArray count="8">
                         <StringItem index="0" value="Nomor Order"/>
                         <StringItem index="1" value="Tanggal Penerimaan"/>
                         <StringItem index="2" value="Nomor Pemesanan"/>
                         <StringItem index="3" value="Kode Produk"/>
+                        <StringItem index="4" value="Nama Produk"/>
+                        <StringItem index="5" value="Nominal"/>
+                        <StringItem index="6" value="Tahun"/>
+                        <StringItem index="7" value="Nama Suplier"/>
                       </StringArray>
                     </Property>
                   </Properties>
@@ -1808,6 +633,14 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCariPenerimaanKemasanActionPerformed"/>
                   </Events>
                 </Component>
+                <Component class="javax.swing.JButton" name="jButton4">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Tambah Penerimaan"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>
+                  </Events>
+                </Component>
               </SubComponents>
             </Container>
           </SubComponents>
@@ -1824,335 +657,23 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jPanel80" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jPanel79" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jDesktopPane19" max="32767" attributes="0"/>
+                      <Component id="jPanel44" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="20" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jDesktopPane19" min="-2" max="-2" attributes="0"/>
-                          <Component id="jPanel79" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jPanel80" max="32767" attributes="0"/>
+                      <Component id="jPanel44" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="19" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Container class="javax.swing.JPanel" name="jPanel79">
-              <Properties>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Form Produk"/>
-                  </Border>
-                </Property>
-              </Properties>
-              <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jPanel79MouseClicked"/>
-              </Events>
-
-              <Layout>
-                <DimensionLayout dim="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel187" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel186" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel65" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel40" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel41" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel44" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel45" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel37" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="ComboNoPemesananMerchandise" min="-2" max="-2" attributes="0"/>
-                              <Component id="jScrollPane5" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="fieldNoOrderMerchandise" alignment="0" min="-2" pref="61" max="-2" attributes="0"/>
-                              <Component id="fieldTglPenerimaanMerchandise" alignment="0" min="-2" pref="163" max="-2" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="fieldTotalPemesananMerchandise" alignment="0" min="-2" pref="61" max="-2" attributes="0"/>
-                                      <Component id="fieldIdSuplierMerchandise" alignment="0" min="-2" pref="61" max="-2" attributes="0"/>
-                                      <Component id="fieldStokAwalMerchandise" alignment="0" min="-2" pref="61" max="-2" attributes="0"/>
-                                      <Component id="fieldJmlTerimaMerchandise" min="-2" pref="61" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jLabel38" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                                          <Component id="fieldNamaProdukMerchandise" min="-2" pref="135" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <Component id="jLabel42" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="32767" attributes="0"/>
-                                              <Component id="fieldSubtotalTerimaMerchandise" min="-2" pref="61" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <Component id="jLabel39" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
-                                              <Component id="fieldKodeProdukMerchandise" min="-2" pref="61" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="1" attributes="0">
-                                                  <Component id="jButtonSimpanPenerimaanMerchandise" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jLabel43" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace max="32767" attributes="0"/>
-                                              <Component id="fieldSisaBelumDikirimMerchandise" min="-2" pref="61" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                  </Group>
-                              </Group>
-                          </Group>
-                          <EmptySpace pref="133" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-                <DimensionLayout dim="1">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel186" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="fieldNoOrderMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="fieldTglPenerimaanMerchandise" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jLabel187" alignment="0" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel37" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="ComboNoPemesananMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel38" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="fieldNamaProdukMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel65" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="fieldJmlTerimaMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel39" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="fieldKodeProdukMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel40" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="fieldIdSuplierMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel42" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="fieldSubtotalTerimaMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel41" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="fieldStokAwalMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                  <Component id="fieldSisaBelumDikirimMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel43" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel44" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="fieldTotalPemesananMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel45" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jScrollPane5" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                          <Component id="jButtonSimpanPenerimaanMerchandise" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-              </Layout>
-              <SubComponents>
-                <Component class="javax.swing.JLabel" name="jLabel186">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="No Order"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldNoOrderMerchandise">
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel187">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Tanggal Penerimaan"/>
-                  </Properties>
-                </Component>
-                <Component class="com.toedter.calendar.JDateChooser" name="fieldTglPenerimaanMerchandise">
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel65">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Jumlah Terima"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldJmlTerimaMerchandise">
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel37">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="No Pemesanan"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JComboBox" name="ComboNoPemesananMerchandise">
-                  <Properties>
-                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="1">
-                        <StringItem index="0" value="- Pilih Pemesanan -"/>
-                      </StringArray>
-                    </Property>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ComboNoPemesananMerchandiseActionPerformed"/>
-                    <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="ComboNoPemesananMerchandiseKeyReleased"/>
-                  </Events>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                  </AuxValues>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel38">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Nama Produk"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldNamaProdukMerchandise">
-                  <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldKodeProdukMerchandise">
-                  <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel39">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Kode Produk"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldIdSuplierMerchandise">
-                  <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel40">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Id Suplier"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel41">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Stok Awal"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldStokAwalMerchandise">
-                  <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel42">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Subtotal Terima"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldSubtotalTerimaMerchandise">
-                  <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldSisaBelumDikirimMerchandise">
-                  <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel43">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Sisa Belum Dikirim"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldTotalPemesananMerchandise">
-                  <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel44">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Total Pemesanan"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel45">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Keterangan"/>
-                  </Properties>
-                </Component>
-                <Container class="javax.swing.JScrollPane" name="jScrollPane5">
-                  <AuxValues>
-                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-                  </AuxValues>
-
-                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-                  <SubComponents>
-                    <Component class="javax.swing.JTextArea" name="fieldKeteranganMerchandise">
-                      <Properties>
-                        <Property name="columns" type="int" value="20"/>
-                        <Property name="rows" type="int" value="5"/>
-                      </Properties>
-                    </Component>
-                  </SubComponents>
-                </Container>
-                <Component class="javax.swing.JButton" name="jButtonSimpanPenerimaanMerchandise">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Simpan"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSimpanPenerimaanMerchandiseActionPerformed"/>
-                  </Events>
-                </Component>
-              </SubComponents>
-            </Container>
-            <Container class="javax.swing.JDesktopPane" name="jDesktopPane19">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="f0" green="f0" red="f0" type="rgb"/>
-                </Property>
-              </Properties>
-
-              <Layout>
-                <DimensionLayout dim="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  </Group>
-                </DimensionLayout>
-                <DimensionLayout dim="1">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="326" max="32767" attributes="0"/>
-                  </Group>
-                </DimensionLayout>
-              </Layout>
-            </Container>
-            <Container class="javax.swing.JPanel" name="jPanel80">
+            <Container class="javax.swing.JPanel" name="jPanel44">
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -2164,9 +685,10 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPane48" pref="1185" max="32767" attributes="0"/>
+                      <Component id="jScrollPane17" pref="1224" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Component id="jButton5" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                           <Component id="comboCariPenerimaanMerchandise" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="fieldCariPenerimaanMerchandise" min="-2" pref="146" max="-2" attributes="0"/>
@@ -2178,19 +700,25 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="buttonCariPenerimaanMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="fieldCariPenerimaanMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="comboCariPenerimaanMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="buttonCariPenerimaanMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="fieldCariPenerimaanMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="comboCariPenerimaanMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="0" pref="12" max="32767" attributes="0"/>
+                              </Group>
+                              <Component id="jButton5" alignment="0" pref="35" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane48" pref="185" max="32767" attributes="0"/>
+                          <Component id="jScrollPane17" pref="458" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Container class="javax.swing.JScrollPane" name="jScrollPane48">
+                <Container class="javax.swing.JScrollPane" name="jScrollPane17">
                   <AuxValues>
                     <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
                   </AuxValues>
@@ -2220,11 +748,15 @@
                 <Component class="javax.swing.JComboBox" name="comboCariPenerimaanMerchandise">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="4">
+                      <StringArray count="8">
                         <StringItem index="0" value="Nomor Order"/>
                         <StringItem index="1" value="Tanggal Penerimaan"/>
                         <StringItem index="2" value="Nomor Pemesanan"/>
                         <StringItem index="3" value="Kode Produk"/>
+                        <StringItem index="4" value="Nama Produk"/>
+                        <StringItem index="5" value="Nominal"/>
+                        <StringItem index="6" value="Tahun"/>
+                        <StringItem index="7" value="Nama Suplier"/>
                       </StringArray>
                     </Property>
                   </Properties>
@@ -2245,6 +777,14 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCariPenerimaanMerchandiseActionPerformed"/>
                   </Events>
                 </Component>
+                <Component class="javax.swing.JButton" name="jButton5">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Tambah Penerimaan"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton5ActionPerformed"/>
+                  </Events>
+                </Component>
               </SubComponents>
             </Container>
           </SubComponents>
@@ -2261,339 +801,23 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jPanel82" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jPanel81" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jDesktopPane20" max="32767" attributes="0"/>
+                      <Component id="jPanel45" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="20" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jDesktopPane20" min="-2" max="-2" attributes="0"/>
-                          <Component id="jPanel81" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jPanel82" max="32767" attributes="0"/>
+                      <Component id="jPanel45" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="19" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Container class="javax.swing.JPanel" name="jPanel81">
-              <Properties>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Form Produk"/>
-                  </Border>
-                </Property>
-              </Properties>
-              <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jPanel81MouseClicked"/>
-              </Events>
-
-              <Layout>
-                <DimensionLayout dim="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel189" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel188" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel66" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel49" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel50" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel53" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel54" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jScrollPane6" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="fieldNoOrderPrisma" alignment="0" min="-2" pref="61" max="-2" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="fieldTotalPemesananPrisma" alignment="0" min="-2" pref="61" max="-2" attributes="0"/>
-                                              <Component id="fieldIdSuplierPrisma" alignment="0" min="-2" pref="61" max="-2" attributes="0"/>
-                                              <Component id="fieldStokAwalPrisma" alignment="0" min="-2" pref="61" max="-2" attributes="0"/>
-                                              <Component id="fieldJmlTerimaPrisma" min="-2" pref="61" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="jLabel47" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                                                  <Component id="fieldNamaProdukPrisma" min="-2" pref="135" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                                  <Group type="102" alignment="1" attributes="0">
-                                                      <Component id="jLabel51" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace max="32767" attributes="0"/>
-                                                      <Component id="fieldSubtotalTerimaPrisma" min="-2" pref="61" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <Group type="102" alignment="1" attributes="0">
-                                                      <Component id="jLabel48" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
-                                                      <Component id="fieldKodeProdukPrisma" min="-2" pref="61" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <Group type="103" groupAlignment="1" attributes="0">
-                                                          <Component id="jButtonSimpanPenerimaanPrisma" min="-2" max="-2" attributes="0"/>
-                                                          <Component id="jLabel52" min="-2" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <EmptySpace max="32767" attributes="0"/>
-                                                      <Component id="fieldSisaBelumDikirimPrisma" min="-2" pref="61" max="-2" attributes="0"/>
-                                                  </Group>
-                                              </Group>
-                                          </Group>
-                                      </Group>
-                                      <Component id="fieldTglPenerimaanPrisma" alignment="0" min="-2" pref="163" max="-2" attributes="0"/>
-                                      <Component id="ComboNoPemesananPrisma" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Component id="jLabel46" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace pref="133" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-                <DimensionLayout dim="1">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel188" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="fieldNoOrderPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="fieldTglPenerimaanPrisma" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jLabel189" alignment="0" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel46" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="ComboNoPemesananPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel47" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="fieldNamaProdukPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel66" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="fieldJmlTerimaPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel48" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="fieldKodeProdukPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel49" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="fieldIdSuplierPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel51" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="fieldSubtotalTerimaPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel50" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="fieldStokAwalPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                  <Component id="fieldSisaBelumDikirimPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel52" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel53" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="fieldTotalPemesananPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel54" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jScrollPane6" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                          <Component id="jButtonSimpanPenerimaanPrisma" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-              </Layout>
-              <SubComponents>
-                <Component class="javax.swing.JLabel" name="jLabel188">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="No Order"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldNoOrderPrisma">
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel189">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Tanggal Penerimaan"/>
-                  </Properties>
-                </Component>
-                <Component class="com.toedter.calendar.JDateChooser" name="fieldTglPenerimaanPrisma">
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel66">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Jumlah Terima"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldJmlTerimaPrisma">
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel46">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="No Pemesanan"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JComboBox" name="ComboNoPemesananPrisma">
-                  <Properties>
-                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="1">
-                        <StringItem index="0" value="- Pilih Pemesanan -"/>
-                      </StringArray>
-                    </Property>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ComboNoPemesananPrismaActionPerformed"/>
-                    <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="ComboNoPemesananPrismaKeyReleased"/>
-                  </Events>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                  </AuxValues>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel47">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Nama Produk"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldNamaProdukPrisma">
-                  <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldKodeProdukPrisma">
-                  <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel48">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Kode Produk"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldIdSuplierPrisma">
-                  <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel49">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Id Suplier"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel50">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Stok Awal"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldStokAwalPrisma">
-                  <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel51">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Subtotal Terima"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldSubtotalTerimaPrisma">
-                  <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldSisaBelumDikirimPrisma">
-                  <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel52">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Sisa Belum Dikirim"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldTotalPemesananPrisma">
-                  <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel53">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Total Pemesanan"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel54">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Keterangan"/>
-                  </Properties>
-                </Component>
-                <Container class="javax.swing.JScrollPane" name="jScrollPane6">
-                  <AuxValues>
-                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-                  </AuxValues>
-
-                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-                  <SubComponents>
-                    <Component class="javax.swing.JTextArea" name="fieldKeteranganPrisma">
-                      <Properties>
-                        <Property name="columns" type="int" value="20"/>
-                        <Property name="rows" type="int" value="5"/>
-                      </Properties>
-                    </Component>
-                  </SubComponents>
-                </Container>
-                <Component class="javax.swing.JButton" name="jButtonSimpanPenerimaanPrisma">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Simpan"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSimpanPenerimaanPrismaActionPerformed"/>
-                  </Events>
-                </Component>
-              </SubComponents>
-            </Container>
-            <Container class="javax.swing.JDesktopPane" name="jDesktopPane20">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="f0" green="f0" red="f0" type="rgb"/>
-                </Property>
-              </Properties>
-
-              <Layout>
-                <DimensionLayout dim="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  </Group>
-                </DimensionLayout>
-                <DimensionLayout dim="1">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="326" max="32767" attributes="0"/>
-                  </Group>
-                </DimensionLayout>
-              </Layout>
-            </Container>
-            <Container class="javax.swing.JPanel" name="jPanel82">
+            <Container class="javax.swing.JPanel" name="jPanel45">
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -2605,9 +829,10 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPane50" pref="1185" max="32767" attributes="0"/>
+                      <Component id="jScrollPane18" pref="1224" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Component id="jButton6" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                           <Component id="comboCariPenerimaanPrisma" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="fieldCariPenerimaanPrisma" min="-2" pref="146" max="-2" attributes="0"/>
@@ -2619,19 +844,25 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="buttonCariPenerimaanPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="fieldCariPenerimaanPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="comboCariPenerimaanPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="buttonCariPenerimaanPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="fieldCariPenerimaanPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="comboCariPenerimaanPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="0" pref="12" max="32767" attributes="0"/>
+                              </Group>
+                              <Component id="jButton6" alignment="0" pref="35" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane50" pref="185" max="32767" attributes="0"/>
+                          <Component id="jScrollPane18" pref="458" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Container class="javax.swing.JScrollPane" name="jScrollPane50">
+                <Container class="javax.swing.JScrollPane" name="jScrollPane18">
                   <AuxValues>
                     <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
                   </AuxValues>
@@ -2661,11 +892,15 @@
                 <Component class="javax.swing.JComboBox" name="comboCariPenerimaanPrisma">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="4">
+                      <StringArray count="8">
                         <StringItem index="0" value="Nomor Order"/>
                         <StringItem index="1" value="Tanggal Penerimaan"/>
                         <StringItem index="2" value="Nomor Pemesanan"/>
                         <StringItem index="3" value="Kode Produk"/>
+                        <StringItem index="4" value="Nama Produk"/>
+                        <StringItem index="5" value="Nominal"/>
+                        <StringItem index="6" value="Tahun"/>
+                        <StringItem index="7" value="Nama Suplier"/>
                       </StringArray>
                     </Property>
                   </Properties>
@@ -2686,6 +921,14 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCariPenerimaanPrismaActionPerformed"/>
                   </Events>
                 </Component>
+                <Component class="javax.swing.JButton" name="jButton6">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Tambah Penerimaan"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton6ActionPerformed"/>
+                  </Events>
+                </Component>
               </SubComponents>
             </Container>
           </SubComponents>
@@ -2702,339 +945,23 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jPanel84" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jPanel83" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jDesktopPane21" max="32767" attributes="0"/>
+                      <Component id="jPanel46" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="20" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jDesktopPane21" min="-2" max="-2" attributes="0"/>
-                          <Component id="jPanel83" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jPanel84" max="32767" attributes="0"/>
+                      <Component id="jPanel46" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="19" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Container class="javax.swing.JPanel" name="jPanel83">
-              <Properties>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Form Produk"/>
-                  </Border>
-                </Property>
-              </Properties>
-              <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jPanel83MouseClicked"/>
-              </Events>
-
-              <Layout>
-                <DimensionLayout dim="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel191" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel190" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel69" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel58" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel59" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel71" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel72" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jScrollPane7" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="fieldNoOrderDokumenFilateli" alignment="0" min="-2" pref="61" max="-2" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="fieldTotalPemesananDokumenFilateli" alignment="0" min="-2" pref="61" max="-2" attributes="0"/>
-                                              <Component id="fieldIdSuplierDokumenFilateli" alignment="0" min="-2" pref="61" max="-2" attributes="0"/>
-                                              <Component id="fieldStokAwalDokumenFilateli" alignment="0" min="-2" pref="61" max="-2" attributes="0"/>
-                                              <Component id="fieldJmlTerimaDokumenFilateli" min="-2" pref="61" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="jLabel56" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                                                  <Component id="fieldNamaProdukDokumenFilateli" min="-2" pref="135" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                                  <Group type="102" alignment="1" attributes="0">
-                                                      <Component id="jLabel60" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace max="32767" attributes="0"/>
-                                                      <Component id="fieldSubtotalTerimaDokumenFilateli" min="-2" pref="61" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <Group type="102" alignment="1" attributes="0">
-                                                      <Component id="jLabel57" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
-                                                      <Component id="fieldKodeProdukDokumenFilateli" min="-2" pref="61" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <Group type="103" groupAlignment="1" attributes="0">
-                                                          <Component id="jButtonSimpanPenerimaanDokumenFilateli" min="-2" max="-2" attributes="0"/>
-                                                          <Component id="jLabel70" min="-2" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <EmptySpace max="32767" attributes="0"/>
-                                                      <Component id="fieldSisaBelumDikirimDokumenFilateli" min="-2" pref="61" max="-2" attributes="0"/>
-                                                  </Group>
-                                              </Group>
-                                          </Group>
-                                      </Group>
-                                      <Component id="fieldTglPenerimaanDokumenFilateli" alignment="0" min="-2" pref="163" max="-2" attributes="0"/>
-                                      <Component id="ComboNoPemesananDokumenFilateli" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Component id="jLabel55" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace pref="133" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-                <DimensionLayout dim="1">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel190" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="fieldNoOrderDokumenFilateli" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="fieldTglPenerimaanDokumenFilateli" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jLabel191" alignment="0" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel55" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="ComboNoPemesananDokumenFilateli" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel56" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="fieldNamaProdukDokumenFilateli" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel69" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="fieldJmlTerimaDokumenFilateli" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel57" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="fieldKodeProdukDokumenFilateli" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel58" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="fieldIdSuplierDokumenFilateli" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel60" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="fieldSubtotalTerimaDokumenFilateli" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel59" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="fieldStokAwalDokumenFilateli" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                  <Component id="fieldSisaBelumDikirimDokumenFilateli" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel70" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel71" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="fieldTotalPemesananDokumenFilateli" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel72" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jScrollPane7" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                          <Component id="jButtonSimpanPenerimaanDokumenFilateli" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-              </Layout>
-              <SubComponents>
-                <Component class="javax.swing.JLabel" name="jLabel190">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="No Order"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldNoOrderDokumenFilateli">
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel191">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Tanggal Penerimaan"/>
-                  </Properties>
-                </Component>
-                <Component class="com.toedter.calendar.JDateChooser" name="fieldTglPenerimaanDokumenFilateli">
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel69">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Jumlah Terima"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldJmlTerimaDokumenFilateli">
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel55">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="No Pemesanan"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JComboBox" name="ComboNoPemesananDokumenFilateli">
-                  <Properties>
-                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="1">
-                        <StringItem index="0" value="- Pilih Pemesanan -"/>
-                      </StringArray>
-                    </Property>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ComboNoPemesananDokumenFilateliActionPerformed"/>
-                    <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="ComboNoPemesananDokumenFilateliKeyReleased"/>
-                  </Events>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                  </AuxValues>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel56">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Nama Produk"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldNamaProdukDokumenFilateli">
-                  <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldKodeProdukDokumenFilateli">
-                  <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel57">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Kode Produk"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldIdSuplierDokumenFilateli">
-                  <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel58">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Id Suplier"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel59">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Stok Awal"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldStokAwalDokumenFilateli">
-                  <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel60">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Subtotal Terima"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldSubtotalTerimaDokumenFilateli">
-                  <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldSisaBelumDikirimDokumenFilateli">
-                  <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel70">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Sisa Belum Dikirim"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="fieldTotalPemesananDokumenFilateli">
-                  <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel71">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Total Pemesanan"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel72">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Keterangan"/>
-                  </Properties>
-                </Component>
-                <Container class="javax.swing.JScrollPane" name="jScrollPane7">
-                  <AuxValues>
-                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-                  </AuxValues>
-
-                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-                  <SubComponents>
-                    <Component class="javax.swing.JTextArea" name="fieldKeteranganDokumenFilateli">
-                      <Properties>
-                        <Property name="columns" type="int" value="20"/>
-                        <Property name="rows" type="int" value="5"/>
-                      </Properties>
-                    </Component>
-                  </SubComponents>
-                </Container>
-                <Component class="javax.swing.JButton" name="jButtonSimpanPenerimaanDokumenFilateli">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Simpan"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSimpanPenerimaanDokumenFilateliActionPerformed"/>
-                  </Events>
-                </Component>
-              </SubComponents>
-            </Container>
-            <Container class="javax.swing.JDesktopPane" name="jDesktopPane21">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="f0" green="f0" red="f0" type="rgb"/>
-                </Property>
-              </Properties>
-
-              <Layout>
-                <DimensionLayout dim="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  </Group>
-                </DimensionLayout>
-                <DimensionLayout dim="1">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="326" max="32767" attributes="0"/>
-                  </Group>
-                </DimensionLayout>
-              </Layout>
-            </Container>
-            <Container class="javax.swing.JPanel" name="jPanel84">
+            <Container class="javax.swing.JPanel" name="jPanel46">
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -3046,33 +973,40 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPane52" pref="1185" max="32767" attributes="0"/>
+                      <Component id="jScrollPane19" pref="1224" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          <Component id="comboCariPenerimaanDokumenFilateli" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButton7" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="comboCariPenerimaanDF" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="fieldCariPenerimaanDokumenFilateli" min="-2" pref="146" max="-2" attributes="0"/>
+                          <Component id="fieldCariPenerimaanDF" min="-2" pref="146" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="buttonCariPenerimaanDokumenFilateli" min="-2" max="-2" attributes="0"/>
+                          <Component id="buttonCariPenerimaanDF" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="buttonCariPenerimaanDokumenFilateli" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="fieldCariPenerimaanDokumenFilateli" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="comboCariPenerimaanDokumenFilateli" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="buttonCariPenerimaanDF" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="fieldCariPenerimaanDF" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="comboCariPenerimaanDF" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="0" pref="12" max="32767" attributes="0"/>
+                              </Group>
+                              <Component id="jButton7" alignment="0" pref="35" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane52" pref="185" max="32767" attributes="0"/>
+                          <Component id="jScrollPane19" pref="458" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Container class="javax.swing.JScrollPane" name="jScrollPane52">
+                <Container class="javax.swing.JScrollPane" name="jScrollPane19">
                   <AuxValues>
                     <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
                   </AuxValues>
@@ -3099,14 +1033,18 @@
                     </Component>
                   </SubComponents>
                 </Container>
-                <Component class="javax.swing.JComboBox" name="comboCariPenerimaanDokumenFilateli">
+                <Component class="javax.swing.JComboBox" name="comboCariPenerimaanDF">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="4">
+                      <StringArray count="8">
                         <StringItem index="0" value="Nomor Order"/>
                         <StringItem index="1" value="Tanggal Penerimaan"/>
                         <StringItem index="2" value="Nomor Pemesanan"/>
                         <StringItem index="3" value="Kode Produk"/>
+                        <StringItem index="4" value="Nama Produk"/>
+                        <StringItem index="5" value="Nominal"/>
+                        <StringItem index="6" value="Tahun"/>
+                        <StringItem index="7" value="Nama Suplier"/>
                       </StringArray>
                     </Property>
                   </Properties>
@@ -3114,17 +1052,25 @@
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JTextField" name="fieldCariPenerimaanDokumenFilateli">
+                <Component class="javax.swing.JTextField" name="fieldCariPenerimaanDF">
                   <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="fieldCariPenerimaanDokumenFilateliMouseClicked"/>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="fieldCariPenerimaanDFMouseClicked"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="buttonCariPenerimaanDokumenFilateli">
+                <Component class="javax.swing.JButton" name="buttonCariPenerimaanDF">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Cari"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCariPenerimaanDokumenFilateliActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCariPenerimaanDFActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="jButton7">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Tambah Penerimaan"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton7ActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>

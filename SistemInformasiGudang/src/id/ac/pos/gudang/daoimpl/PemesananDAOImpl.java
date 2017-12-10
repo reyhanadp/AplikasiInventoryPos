@@ -295,8 +295,15 @@ public class PemesananDAOImpl implements PemesananDAO{
             }
         } catch (SQLException ex) {
             Logger.getLogger(PemesananDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }finally {
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PemesananDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
         }
-
         return arrayPemesanan;
     }
     
@@ -339,11 +346,6 @@ public class PemesananDAOImpl implements PemesananDAO{
         }finally{
             try {
                 state.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            try {
-                conn.close();
             } catch (SQLException ex) {
                 Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -405,11 +407,6 @@ public class PemesananDAOImpl implements PemesananDAO{
             } catch (SQLException ex) {
                 Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
             }
-            try {
-                conn.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-            }
         }
 
         return arrayProduk;
@@ -460,11 +457,6 @@ public class PemesananDAOImpl implements PemesananDAO{
         }finally{
             try {
                 state.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            try {
-                conn.close();
             } catch (SQLException ex) {
                 Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -521,11 +513,6 @@ public class PemesananDAOImpl implements PemesananDAO{
             } catch (SQLException ex) {
                 Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
             }
-            try {
-                conn.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-            }
         }
 
         return arrayProduk;
@@ -569,11 +556,6 @@ public class PemesananDAOImpl implements PemesananDAO{
             } catch (SQLException ex) {
                 Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
             }
-            try {
-                conn.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-            }
         }
 
         return arrayProduk;
@@ -612,11 +594,6 @@ public class PemesananDAOImpl implements PemesananDAO{
         }finally{
             try {
                 state.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(SuplierDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            try {
-                conn.close();
             } catch (SQLException ex) {
                 Logger.getLogger(SuplierDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
             }
