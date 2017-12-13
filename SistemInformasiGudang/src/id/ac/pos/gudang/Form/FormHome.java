@@ -59,6 +59,21 @@ public final class FormHome extends javax.swing.JFrame {
 
     }
 
+    FormHome(String string) {
+        initComponents();
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        inisialisasiField();
+        autoincrementPrangko();
+        autoincrementMS_SS();
+        autoincrementSHP_SHPSS();
+        autoincrementKemasan();
+        autoincrementMerchandise();
+        autoincrementPrisma();
+        autoincrementDokumenFilateli();
+        refresh();
+        SelamatDatang.setText("SELAMAT DATANG, "+string.toUpperCase());
+    }
+
     private void refresh() {
         getDataPrangko();
         getDataMS_SS();
@@ -728,6 +743,7 @@ public final class FormHome extends javax.swing.JFrame {
         comboDokumenFIlateli = new javax.swing.JComboBox<>();
         buttonRefresh6 = new javax.swing.JButton();
         buttonLogout = new javax.swing.JButton();
+        SelamatDatang = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         itemRegional = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -2674,13 +2690,19 @@ public final class FormHome extends javax.swing.JFrame {
             }
         });
 
+        SelamatDatang.setFont(new java.awt.Font("High Tower Text", 1, 36)); // NOI18N
+        SelamatDatang.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        SelamatDatang.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(SelamatDatang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(buttonLogout)
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -2691,11 +2713,12 @@ public final class FormHome extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(buttonLogout)))
+                        .addComponent(buttonLogout))
+                    .addComponent(SelamatDatang, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -5224,6 +5247,7 @@ public final class FormHome extends javax.swing.JFrame {
     private javax.swing.JPanel Prangko;
     private javax.swing.JPanel Prisma;
     private javax.swing.JPanel SHP_SHPSS;
+    private javax.swing.JLabel SelamatDatang;
     private javax.swing.JButton buttonCariDokumenFilateli;
     private javax.swing.JButton buttonCariKemasan;
     private javax.swing.JButton buttonCariMS_SS;

@@ -5,12 +5,13 @@
  */
 package id.ac.pos.gudang.Form;
 
-import id.ac.pos.gudang.utility.koneksi;
+import id.ac.pos.gudang.utility.DatabaseConnectivity;
+import java.awt.HeadlessException;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.ArrayList;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 
@@ -24,17 +25,12 @@ public class FormLogin extends javax.swing.JFrame {
      * Creates new form FormLogin
      */
     Connection con;
-    Statement stat;
+    PreparedStatement state = null;
     ResultSet rs;
     String sql;
 
     public FormLogin() {
         initComponents();
-        //pemanggilan fungsi koneksi database yang sudah kita buat pada class koneksi.java
-        koneksi DB = new koneksi();
-        DB.config();
-        con = DB.con;
-        stat = DB.stm;
     }
 
     /**
@@ -126,15 +122,19 @@ public class FormLogin extends javax.swing.JFrame {
     private void buttonLogin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLogin1ActionPerformed
         // TODO add your handling code here:
         try {
+            con = DatabaseConnectivity.getConnection();
+            
             sql = "SELECT * FROM tb_user WHERE nik='" + fieldNik.getText() 
                     + "' AND password='" + fieldPassword.getText()+"'";
-            rs = stat.executeQuery(sql);
+            
+            state = con.prepareStatement(sql);
+            rs = state.executeQuery();
             if (rs.next()) {
                 if (fieldPassword.getText().equals(rs.getString("password")) 
                         && fieldNik.getText().equals(rs.getString("nik")) 
                         && "fl".equals(rs.getString("hak_akses"))) {
                     JOptionPane.showMessageDialog(null, "Login Sukses !");
-                    FormHome fh = new FormHome();
+                    FormHome fh = new FormHome(rs.getString("nama_user"));
                     fh.setVisible(true);
                     this.setVisible(false); //form login akan tertutup
                 }else if (fieldPassword.getText().equals(rs.getString("password")) 
@@ -151,7 +151,7 @@ public class FormLogin extends javax.swing.JFrame {
                 fieldPassword.setText(null);//set nilai txtPass menjadi kosong
                 fieldNik.requestFocus();
             }
-        } catch (Exception e) {
+        } catch (HeadlessException | SQLException e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
     }//GEN-LAST:event_buttonLogin1ActionPerformed

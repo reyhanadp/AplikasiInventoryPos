@@ -5,35 +5,18 @@
  */
 package id.ac.pos.gudang.Panel;
 
-import id.ac.pos.gudang.Dialog.DialogTambahPemesanan;
 import id.ac.pos.gudang.Dialog.DialogTambahPengembalian;
 import id.ac.pos.gudang.Form.FormHome;
 import id.ac.pos.gudang.dao.PengembalianDAO;
 import id.ac.pos.gudang.dao.ProdukDAO;
 import id.ac.pos.gudang.daoimpl.PengembalianDAOImpl;
-import id.ac.pos.gudang.daoimpl.ProdukDAOImpl;
 import id.ac.pos.gudang.entity.Pengembalian;
 import id.ac.pos.gudang.entity.Produk;
 import id.ac.pos.gudang.entity.Regional;
 import id.ac.pos.gudang.tablemodel.PengembalianTM;
-import id.ac.pos.gudang.utility.JComboboxListener;
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Vector;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JComboBox;
-import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 import javax.swing.table.TableRowSorter;
-import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 
 /**
  *

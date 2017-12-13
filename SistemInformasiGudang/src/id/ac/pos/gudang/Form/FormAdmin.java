@@ -23,6 +23,7 @@ public class FormAdmin extends javax.swing.JFrame {
      */
     public FormAdmin() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
