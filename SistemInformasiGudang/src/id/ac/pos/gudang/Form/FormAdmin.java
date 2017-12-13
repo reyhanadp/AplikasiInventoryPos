@@ -245,7 +245,7 @@ public class FormAdmin extends javax.swing.JFrame {
 
     private void buttonUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonUserMouseClicked
         // TODO add your handling code here:
-        DialogUser du = new DialogUser(null, rootPaneCheckingEnabled);
+        DialogUser du = new DialogUser(FormAdmin.this, true);
         du.setLocationRelativeTo(null);
         du.setVisible(true);
     }//GEN-LAST:event_buttonUserMouseClicked

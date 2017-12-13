@@ -6,6 +6,7 @@
 
 package id.ac.pos.gudang.Dialog.Admin.User;
 
+import id.ac.pos.gudang.Form.FormAdmin;
 import id.ac.pos.gudang.entity.User;
 
 /**
@@ -25,13 +26,17 @@ public class DialogUbahUser extends javax.swing.JDialog {
         initComponents();
     }
     
-   public DialogUbahUser(java.awt.Dialog parent, boolean modal, User user) {
+//   public DialogUbahUser(java.awt.Dialog parent, boolean modal, User user) {
+//        
+//        
+//    }
+
+    DialogUbahUser(FormAdmin admin, boolean b, User userTerpilih) {
         initComponents();
-        nik = user.getNik();
-        fieldPassword.setText(user.getPassword());
-        fieldNamaUser.setText(user.getNamaUser());
-        fieldHakAkses.setText(user.getHakAkses());
-        
+        nik = userTerpilih.getNik();
+        fieldPassword.setText(userTerpilih.getPassword());
+        fieldNamaUser.setText(userTerpilih.getNamaUser());
+        fieldHakAkses.setText(userTerpilih.getHakAkses());
     }
 
     

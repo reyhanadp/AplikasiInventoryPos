@@ -5,10 +5,12 @@
  */
 package id.ac.pos.gudang.Dialog.Admin.User;
 
+import id.ac.pos.gudang.Form.FormAdmin;
 import id.ac.pos.gudang.dao.admin.UserDAO;
 import id.ac.pos.gudang.daoimpl.admin.UserDAOImpl;
 import id.ac.pos.gudang.entity.User;
 import id.ac.pos.gudang.tablemodel.admin.UserTM;
+import java.awt.Dialog;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -140,7 +142,7 @@ public class DialogUser extends javax.swing.JDialog {
 
     private void buttonTambahUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTambahUserActionPerformed
         // TODO add your handling code here:
-        DialogTambahUser dtu = new DialogTambahUser(null, rootPaneCheckingEnabled);
+        DialogTambahUser dtu = new DialogTambahUser(null, true);
         dtu.setLocationRelativeTo(null);
         dtu.setVisible(true);
         getData();
@@ -176,9 +178,10 @@ public class DialogUser extends javax.swing.JDialog {
         if (baris >= 0) {
             //mengambil user dari baris table
             User userTerpilih = arrayUser.get(baris);
-
+            FormAdmin admin = new FormAdmin();
             //munculkan dialog
-            DialogUbahUser duu = new DialogUbahUser(this, true, userTerpilih);
+            DialogUbahUser duu = new DialogUbahUser(admin, true, userTerpilih);
+            duu.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
             duu.setLocationRelativeTo(null);
             duu.setVisible(true);
         } else {
