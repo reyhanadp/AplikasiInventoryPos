@@ -5,9 +5,9 @@
  */
 package id.ac.pos.gudang.Form;
 
-import id.ac.pos.gudang.Dialog.DialogHistoryDelete;
-import id.ac.pos.gudang.Dialog.DialogRecycleBin;
-import id.ac.pos.gudang.Dialog.DialogHistoryUpdate;
+import id.ac.pos.gudang.Dialog.Admin.DialogHistoryDelete;
+import id.ac.pos.gudang.Dialog.Admin.DialogRecycleBin;
+import id.ac.pos.gudang.Dialog.Admin.DialogHistoryUpdate;
 import id.ac.pos.gudang.Dialog.DialogLaporan;
 import id.ac.pos.gudang.Panel.PanelPemesanan;
 import id.ac.pos.gudang.Panel.PanelPenerimaan;
@@ -727,6 +727,7 @@ public final class FormHome extends javax.swing.JFrame {
         fieldCariDokumenFIlateli = new javax.swing.JTextField();
         comboDokumenFIlateli = new javax.swing.JComboBox<>();
         buttonRefresh6 = new javax.swing.JButton();
+        buttonLogout = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         itemRegional = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -2665,13 +2666,23 @@ public final class FormHome extends javax.swing.JFrame {
 
         jPanel3.add(tabKelolaProduk, "card2");
 
+        buttonLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/icon-logout-1.png"))); // NOI18N
+        buttonLogout.setText("Logout");
+        buttonLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonLogoutActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(buttonLogout)
+                .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -2680,7 +2691,11 @@ public final class FormHome extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel1)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(buttonLogout)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -2801,9 +2816,10 @@ public final class FormHome extends javax.swing.JFrame {
             fieldTahunPrangko.setEditable(true);
             getDataPrangko();
         } else {
-            JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin "
+             int pilih = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin "
                     + "menyimpan " + namaProduk
                     + "?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
+            if (pilih == JOptionPane.YES_OPTION){
             //buat objek pegawai
             Produk produk = new Produk();
             produk.setIdProduk(idProduk);
@@ -2829,9 +2845,11 @@ public final class FormHome extends javax.swing.JFrame {
                 getDataPrangko();
                 autoincrementPrangko();
             }
+            getDataPrangko();
+            autoincrementPrangko();
+            }
         }
-        getDataPrangko();
-        autoincrementPrangko();
+        
     }//GEN-LAST:event_buttonSimpanPrangkoActionPerformed
 
     private void buttonHapusPrangkoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHapusPrangkoActionPerformed
@@ -3132,9 +3150,10 @@ public final class FormHome extends javax.swing.JFrame {
             fieldTahunProdukMSSS.setEditable(true);
             getDataMS_SS();
         } else {
-            JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin "
+            int pilih = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin "
                     + "menyimpan " + namaProduk
                     + "?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
+            if (pilih == JOptionPane.YES_OPTION){            
             //buat objek pegawai
             Produk produk = new Produk();
             produk.setIdProduk(idProduk);
@@ -3169,9 +3188,12 @@ public final class FormHome extends javax.swing.JFrame {
                 getDataMS_SS();
                 autoincrementMS_SS();
             }
+            
+            getDataMS_SS();
+            autoincrementMS_SS();
+            }
         }
-        getDataMS_SS();
-        autoincrementMS_SS();
+        
     }//GEN-LAST:event_buttonSimpanMSSSActionPerformed
 
     private void fieldNamaProdukMSSSKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldNamaProdukMSSSKeyPressed
@@ -3372,9 +3394,10 @@ public final class FormHome extends javax.swing.JFrame {
             fieldTahunProdukSHPSHPSS.setEditable(true);
             getDataSHP_SHPSS();
         } else {
-            JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin "
+            int pilih = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin "
                     + "menyimpan " + namaProduk
                     + "?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
+            if (pilih == JOptionPane.YES_OPTION){
             //buat objek pegawai
             Produk produk = new Produk();
             produk.setIdProduk(idProduk);
@@ -3408,8 +3431,10 @@ public final class FormHome extends javax.swing.JFrame {
                 autoincrementSHP_SHPSS();
                 resetField();
             }
+            
             getDataSHP_SHPSS();
             autoincrementSHP_SHPSS();
+            }
         }
     }//GEN-LAST:event_buttonSimpanSHPSHPSSActionPerformed
 
@@ -3586,9 +3611,10 @@ public final class FormHome extends javax.swing.JFrame {
             fieldTahunProdukKemasan.setEditable(true);
             getDataKemasan();
         } else {
-            JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin "
+            int pilih = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin "
                     + "menyimpan " + namaProduk
                     + "?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
+            if (pilih == JOptionPane.YES_OPTION){
             //buat objek pegawai
             Produk produk = new Produk();
             produk.setIdProduk(idProduk);
@@ -3616,6 +3642,7 @@ public final class FormHome extends javax.swing.JFrame {
             }
             getDataKemasan();
             autoincrementKemasan();
+            }
         }
     }//GEN-LAST:event_buttonSImpanKemasanActionPerformed
 
@@ -3792,9 +3819,10 @@ public final class FormHome extends javax.swing.JFrame {
             fieldTahunProdukMerchandise.setEditable(true);
             getDataMerchandise();
         } else {
-            JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin "
+            int pilih = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin "
                     + "menyimpan " + namaProduk
                     + "?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
+            if (pilih == JOptionPane.YES_OPTION){
             //buat objek pegawai
             Produk produk = new Produk();
             produk.setIdProduk(idProduk);
@@ -3821,6 +3849,7 @@ public final class FormHome extends javax.swing.JFrame {
             }
             getDataMerchandise();
             autoincrementMerchandise();
+            }
         }
     }//GEN-LAST:event_buttonSImpanMerchandiseActionPerformed
 
@@ -3998,9 +4027,10 @@ public final class FormHome extends javax.swing.JFrame {
             fieldTahunProdukPrisma.setEditable(true);
             getDataPrisma();
         } else {
-            JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin "
+            int pilih = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin "
                     + "menyimpan " + namaProduk
                     + "?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
+            if (pilih == JOptionPane.YES_OPTION){
             //buat objek pegawai
             Produk produk = new Produk();
             produk.setIdProduk(idProduk);
@@ -4027,6 +4057,7 @@ public final class FormHome extends javax.swing.JFrame {
             }
             getDataPrisma();
             autoincrementPrisma();
+            }
         }
     }//GEN-LAST:event_buttonSimpanPrismaActionPerformed
 
@@ -4204,9 +4235,10 @@ public final class FormHome extends javax.swing.JFrame {
             fieldTahunProdukDokumenFilateli.setEditable(true);
             getDataDokumenFilateli();
         } else {
-            JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin "
+            int pilih = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin "
                     + "menyimpan " + namaProduk
                     + "?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
+            if (pilih == JOptionPane.YES_OPTION){
             //buat objek pegawai
             Produk produk = new Produk();
             produk.setIdProduk(idProduk);
@@ -4233,6 +4265,7 @@ public final class FormHome extends javax.swing.JFrame {
             }
             getDataDokumenFilateli();
             autoincrementDokumenFilateli();
+            }
         }
     }//GEN-LAST:event_buttonSimpanDokumenFIlateliActionPerformed
 
@@ -5125,6 +5158,18 @@ public final class FormHome extends javax.swing.JFrame {
         new DialogLaporan(this, rootPaneCheckingEnabled).setVisible(true);
     }//GEN-LAST:event_jButton6ActionPerformed
 
+    private void buttonLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLogoutActionPerformed
+        // TODO add your handling code here:
+        int pilih = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin Logout ?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
+        if (pilih == JOptionPane.YES_OPTION){
+        FormLogin fl = new FormLogin();
+        fl.setLocationRelativeTo(null);
+        fl.setVisible(true);
+        this.setVisible(false);
+        }
+        
+    }//GEN-LAST:event_buttonLogoutActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -5194,6 +5239,7 @@ public final class FormHome extends javax.swing.JFrame {
     private javax.swing.JButton buttonHapusPrisma;
     private javax.swing.JButton buttonHapusSHPSHPSS;
     private javax.swing.JButton buttonKelolaProduk;
+    private javax.swing.JButton buttonLogout;
     private javax.swing.JButton buttonPemesanan;
     private javax.swing.JButton buttonPenerimaan;
     private javax.swing.JButton buttonPengembalian;

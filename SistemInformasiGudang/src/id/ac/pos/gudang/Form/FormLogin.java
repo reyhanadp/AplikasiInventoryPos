@@ -51,7 +51,7 @@ public class FormLogin extends javax.swing.JFrame {
         jTextField3 = new javax.swing.JTextField();
         labelUsername = new javax.swing.JLabel();
         fieldPassword = new javax.swing.JPasswordField();
-        fieldUsername = new javax.swing.JTextField();
+        fieldNik = new javax.swing.JTextField();
         labelPassword = new javax.swing.JLabel();
         buttonReset = new javax.swing.JButton();
         buttonLogin1 = new javax.swing.JButton();
@@ -74,7 +74,7 @@ public class FormLogin extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelUsername.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        labelUsername.setText("Username ");
+        labelUsername.setText("NIK");
         getContentPane().add(labelUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 100, 70, 30));
 
         fieldPassword.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -84,12 +84,12 @@ public class FormLogin extends javax.swing.JFrame {
         });
         getContentPane().add(fieldPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 140, 160, 30));
 
-        fieldUsername.addKeyListener(new java.awt.event.KeyAdapter() {
+        fieldNik.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                fieldUsernameKeyPressed(evt);
+                fieldNikKeyPressed(evt);
             }
         });
-        getContentPane().add(fieldUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 100, 160, 30));
+        getContentPane().add(fieldNik, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 100, 160, 30));
 
         labelPassword.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         labelPassword.setText("Password");
@@ -126,21 +126,29 @@ public class FormLogin extends javax.swing.JFrame {
     private void buttonLogin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLogin1ActionPerformed
         // TODO add your handling code here:
         try {
-            sql = "SELECT * FROM tb_user WHERE username='" + fieldUsername.getText() 
+            sql = "SELECT * FROM tb_user WHERE nik='" + fieldNik.getText() 
                     + "' AND password='" + fieldPassword.getText()+"'";
             rs = stat.executeQuery(sql);
             if (rs.next()) {
                 if (fieldPassword.getText().equals(rs.getString("password")) 
-                        && fieldUsername.getText().equals(rs.getString("username"))) {
+                        && fieldNik.getText().equals(rs.getString("nik")) 
+                        && "fl".equals(rs.getString("hak_akses"))) {
                     JOptionPane.showMessageDialog(null, "Login Sukses !");
                     FormHome fh = new FormHome();
                     fh.setVisible(true);
+                    this.setVisible(false); //form login akan tertutup
+                }else if (fieldPassword.getText().equals(rs.getString("password")) 
+                        && fieldNik.getText().equals(rs.getString("nik")) 
+                        && "ad".equals(rs.getString("hak_akses"))) {
+                    JOptionPane.showMessageDialog(null, "Login Sukses !");
+                    FormAdmin fa = new FormAdmin();
+                    fa.setVisible(true);
                     this.setVisible(false); //form login akan tertutup
                 }
             } else {
                 JOptionPane.showMessageDialog(null, "Login Gagal", "", 1);
                 JOptionPane.showMessageDialog(null, "Username dan Password Invalid", "", 1);
-                fieldUsername.setText(null);//set nilai txtUser menjadi kosong
+                fieldNik.setText(null);//set nilai txtUser menjadi kosong
                 fieldPassword.setText(null);//set nilai txtPass menjadi kosong
             }
         } catch (Exception e) {
@@ -148,18 +156,18 @@ public class FormLogin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_buttonLogin1ActionPerformed
 
-    private void fieldUsernameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldUsernameKeyPressed
+    private void fieldNikKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldNikKeyPressed
         // TODO add your handling code here:
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             fieldPassword.requestFocus();
         }
-    }//GEN-LAST:event_fieldUsernameKeyPressed
+    }//GEN-LAST:event_fieldNikKeyPressed
 
     private void fieldPasswordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldPasswordKeyPressed
         // TODO add your handling code here:
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             buttonLogin1.requestFocus();
-            fieldUsername.setText(null);//set nilai txtUser menjadi kosong
+            fieldNik.setText(null);//set nilai txtUser menjadi kosong
             fieldPassword.setText(null);//set nilai txtPass menjadi kosongFF
         }
     }//GEN-LAST:event_fieldPasswordKeyPressed
@@ -218,8 +226,8 @@ public class FormLogin extends javax.swing.JFrame {
     private javax.swing.JLabel background;
     private javax.swing.JButton buttonLogin1;
     private javax.swing.JButton buttonReset;
+    private javax.swing.JTextField fieldNik;
     private javax.swing.JPasswordField fieldPassword;
-    private javax.swing.JTextField fieldUsername;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTextField jTextField3;
