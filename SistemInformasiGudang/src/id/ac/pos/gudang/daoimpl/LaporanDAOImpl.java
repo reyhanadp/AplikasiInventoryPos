@@ -166,25 +166,25 @@ public class LaporanDAOImpl implements LaporanDAO{
         String SELECT = "";
         
         if(status == "sekarang"){
-            SELECT = "SELECT jml_pengeluaran FROM `tb_trans_pengeluaran` WHERE id_produk='"+kode_produk+"' and tgl_pengeluaran between '"+tahun+"-"+bulan+"-01' and '"+tahun_sekarang+"-"+bulan_sekarang+"-31'";
+            SELECT = "SELECT jml_pengiriman FROM `tb_trans_pengiriman` WHERE id_produk='"+kode_produk+"' and tgl_pengiriman between '"+tahun+"-"+bulan+"-01' and '"+tahun_sekarang+"-"+bulan_sekarang+"-31'";
         }else if(status == "tidak sekarang"){
             if(pilihan == 3){
                 if(bulan==11){
                     int tahun_int = Integer.parseInt((String) tahun);
                     tahun_int = tahun_int + 1;
                     int bulan2 = 1;
-                    SELECT = "SELECT jml_pengeluaran FROM `tb_trans_pengeluaran` WHERE id_produk='"+kode_produk+"' and tgl_pengeluaran between '"+tahun+"-"+bulan+"-01' and '"+tahun_int+"-"+bulan2+"-31'";
+                    SELECT = "SELECT jml_pengiriman FROM `tb_trans_pengiriman` WHERE id_produk='"+kode_produk+"' and tgl_pengiriman between '"+tahun+"-"+bulan+"-01' and '"+tahun_int+"-"+bulan2+"-31'";
                 }else if(bulan==12){
                     int tahun_int = Integer.parseInt((String) tahun);
                     tahun_int = tahun_int + 1;
                     int bulan2 = 2;
-                    SELECT = "SELECT jml_pengeluaran FROM `tb_trans_pengeluaran` WHERE id_produk='"+kode_produk+"' and tgl_pengeluaran between '"+tahun+"-"+bulan+"-01' and '"+tahun_int+"-"+bulan2+"-31'";
+                    SELECT = "SELECT jml_pengiriman FROM `tb_trans_pengiriman` WHERE id_produk='"+kode_produk+"' and tgl_pengiriman between '"+tahun+"-"+bulan+"-01' and '"+tahun_int+"-"+bulan2+"-31'";
                 }else{
                     int bulan2 = bulan + 2;
-                    SELECT = "SELECT jml_pengeluaran FROM `tb_trans_pengeluaran` WHERE id_produk='"+kode_produk+"' and tgl_pengeluaran between '"+tahun+"-"+bulan+"-01' and '"+tahun+"-"+bulan2+"-31'";
+                    SELECT = "SELECT jml_pengiriman FROM `tb_trans_pengiriman` WHERE id_produk='"+kode_produk+"' and tgl_pengiriman between '"+tahun+"-"+bulan+"-01' and '"+tahun+"-"+bulan2+"-31'";
                 }
             }else if(pilihan==1){
-                SELECT = "SELECT jml_pengeluaran FROM `tb_trans_pengeluaran` WHERE id_produk='"+kode_produk+"' and tgl_pengeluaran between '"+tahun+"-"+bulan+"-01' and '"+tahun+"-"+bulan+"-31'";
+                SELECT = "SELECT jml_pengiriman FROM `tb_trans_pengiriman` WHERE id_produk='"+kode_produk+"' and tgl_pengiriman between '"+tahun+"-"+bulan+"-01' and '"+tahun+"-"+bulan+"-31'";
             }
         }
         PreparedStatement state = null;

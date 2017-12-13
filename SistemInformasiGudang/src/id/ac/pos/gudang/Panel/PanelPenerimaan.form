@@ -56,10 +56,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="jPanel40" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                  </Group>
+                  <Component id="jPanel40" alignment="0" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -91,19 +88,14 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="buttonCariPenerimaanPrangko" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="fieldCariPenerimaanPrangko" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="comboCariPenerimaanPrangko" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="0" pref="12" max="32767" attributes="0"/>
-                              </Group>
-                              <Component id="jButton1" alignment="0" pref="35" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="buttonCariPenerimaanPrangko" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="fieldCariPenerimaanPrangko" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="comboCariPenerimaanPrangko" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButton1" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane13" pref="458" max="32767" attributes="0"/>
+                          <Component id="jScrollPane13" pref="525" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -205,12 +197,10 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jDesktopPane16" min="-2" max="-2" attributes="0"/>
-                          <Component id="jPanel41" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace pref="19" max="32767" attributes="0"/>
+                      <Component id="jDesktopPane16" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="251" max="32767" attributes="0"/>
                   </Group>
+                  <Component id="jPanel41" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -262,19 +252,14 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="buttonCariPenerimaanMS_SS" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="fieldCariPenerimaanMS_SS" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="comboCariPenerimaanMS_SS" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="0" pref="12" max="32767" attributes="0"/>
-                              </Group>
-                              <Component id="jButton2" alignment="0" pref="35" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="buttonCariPenerimaanMS_SS" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="fieldCariPenerimaanMS_SS" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="comboCariPenerimaanMS_SS" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButton2" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane14" pref="458" max="32767" attributes="0"/>
+                          <Component id="jScrollPane14" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -374,10 +359,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jPanel42" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="19" max="32767" attributes="0"/>
-                  </Group>
+                  <Component id="jPanel42" alignment="0" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -409,19 +391,14 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="buttonCariPenerimaanSHP_SHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="fieldCariPenerimaanSHP_SHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="comboCariPenerimaanSHP_SHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="0" pref="12" max="32767" attributes="0"/>
-                              </Group>
-                              <Component id="jButton3" alignment="0" pref="35" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="buttonCariPenerimaanSHP_SHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="fieldCariPenerimaanSHP_SHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="comboCariPenerimaanSHP_SHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButton3" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane15" pref="458" max="32767" attributes="0"/>
+                          <Component id="jScrollPane15" pref="525" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -521,10 +498,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jPanel43" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="19" max="32767" attributes="0"/>
-                  </Group>
+                  <Component id="jPanel43" alignment="0" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -556,19 +530,14 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="buttonCariPenerimaanKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="fieldCariPenerimaanKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="comboCariPenerimaanKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="0" pref="12" max="32767" attributes="0"/>
-                              </Group>
-                              <Component id="jButton4" alignment="0" pref="35" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="buttonCariPenerimaanKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="fieldCariPenerimaanKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="comboCariPenerimaanKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButton4" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane16" pref="458" max="32767" attributes="0"/>
+                          <Component id="jScrollPane16" pref="525" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -665,10 +634,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jPanel44" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="19" max="32767" attributes="0"/>
-                  </Group>
+                  <Component id="jPanel44" alignment="0" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -700,19 +666,14 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="buttonCariPenerimaanMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="fieldCariPenerimaanMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="comboCariPenerimaanMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="0" pref="12" max="32767" attributes="0"/>
-                              </Group>
-                              <Component id="jButton5" alignment="0" pref="35" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="buttonCariPenerimaanMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="fieldCariPenerimaanMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="comboCariPenerimaanMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButton5" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane17" pref="458" max="32767" attributes="0"/>
+                          <Component id="jScrollPane17" pref="525" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -809,10 +770,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jPanel45" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="19" max="32767" attributes="0"/>
-                  </Group>
+                  <Component id="jPanel45" alignment="0" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -844,19 +802,14 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="buttonCariPenerimaanPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="fieldCariPenerimaanPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="comboCariPenerimaanPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="0" pref="12" max="32767" attributes="0"/>
-                              </Group>
-                              <Component id="jButton6" alignment="0" pref="35" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="buttonCariPenerimaanPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="fieldCariPenerimaanPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="comboCariPenerimaanPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButton6" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane18" pref="458" max="32767" attributes="0"/>
+                          <Component id="jScrollPane18" pref="525" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -953,10 +906,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jPanel46" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="19" max="32767" attributes="0"/>
-                  </Group>
+                  <Component id="jPanel46" alignment="0" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -988,19 +938,14 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="buttonCariPenerimaanDF" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="fieldCariPenerimaanDF" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="comboCariPenerimaanDF" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="0" pref="12" max="32767" attributes="0"/>
-                              </Group>
-                              <Component id="jButton7" alignment="0" pref="35" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="buttonCariPenerimaanDF" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="fieldCariPenerimaanDF" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="comboCariPenerimaanDF" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButton7" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane19" pref="458" max="32767" attributes="0"/>
+                          <Component id="jScrollPane19" pref="525" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>

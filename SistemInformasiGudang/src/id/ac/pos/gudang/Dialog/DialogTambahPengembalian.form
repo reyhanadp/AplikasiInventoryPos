@@ -85,9 +85,9 @@
                               </Group>
                               <Component id="NamaProduk" alignment="0" max="32767" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="SimpanPrangko" min="-2" pref="95" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="ResetPrangko" min="-2" pref="95" max="-2" attributes="0"/>
+                                  <Component id="SimpanPrangko" min="-2" pref="217" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="ResetPrangko" max="32767" attributes="0"/>
                               </Group>
                               <Component id="jScrollPane35" alignment="0" max="32767" attributes="0"/>
                               <Component id="JenisProduk" alignment="0" max="32767" attributes="0"/>

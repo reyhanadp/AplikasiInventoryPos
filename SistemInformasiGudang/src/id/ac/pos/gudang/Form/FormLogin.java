@@ -146,10 +146,10 @@ public class FormLogin extends javax.swing.JFrame {
                     this.setVisible(false); //form login akan tertutup
                 }
             } else {
-                JOptionPane.showMessageDialog(null, "Login Gagal", "", 1);
-                JOptionPane.showMessageDialog(null, "Username dan Password Invalid", "", 1);
+                JOptionPane.showMessageDialog(null, "                Login Gagal! \n Username dan Password Salah!", "", 1);
                 fieldNik.setText(null);//set nilai txtUser menjadi kosong
                 fieldPassword.setText(null);//set nilai txtPass menjadi kosong
+                fieldNik.requestFocus();
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
@@ -166,9 +166,7 @@ public class FormLogin extends javax.swing.JFrame {
     private void fieldPasswordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldPasswordKeyPressed
         // TODO add your handling code here:
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            buttonLogin1.requestFocus();
-            fieldNik.setText(null);//set nilai txtUser menjadi kosong
-            fieldPassword.setText(null);//set nilai txtPass menjadi kosongFF
+            buttonLogin1.doClick();
         }
     }//GEN-LAST:event_fieldPasswordKeyPressed
 
@@ -201,7 +199,7 @@ public class FormLogin extends javax.swing.JFrame {
         try
             {
                 com.jtattoo.plaf.noire.NoireLookAndFeel.setTheme("Large-Font", "Java Swing", "");
-                UIManager.setLookAndFeel("com.jtattoo.plaf.noire.NoireLookAndFeel");
+                UIManager.setLookAndFeel("com.jtattoo.plaf.acryl.AcrylLookAndFeel");
                 FormLogin fl = new FormLogin();
                 fl.setLocationRelativeTo(null);
                 fl.setVisible(true);
