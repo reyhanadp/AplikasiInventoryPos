@@ -28,21 +28,19 @@ public class UserTM extends AbstractTableModel {
 
     @Override
     public int getColumnCount() {
-        return 5;
+        return 4;
     }
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         switch (columnIndex) {
             case 0:
-                return arrayUser.get(rowIndex).getUsername();
+                return arrayUser.get(rowIndex).getNik();
             case 1:
                 return arrayUser.get(rowIndex).getPassword();
             case 2:
                 return arrayUser.get(rowIndex).getNamaUser();
             case 3:
-                return arrayUser.get(rowIndex).getNik();
-            case 4:
                 return arrayUser.get(rowIndex).getHakAkses();
         }
         return null;
@@ -52,14 +50,12 @@ public class UserTM extends AbstractTableModel {
     public String getColumnName(int column) {
         switch (column) {
             case 0:
-                return "ID Mitra";
+                return "NIK";
             case 1:
-                return "Nama Mitra";
+                return "Password";
             case 2:
-                return "Alamat";
+                return "Nama User";
             case 3:
-                return "No. Telp";
-            case 4:
                 return "Hak Akses";
         }
         return null;

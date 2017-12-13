@@ -47,11 +47,10 @@ public class UserDAOImpl implements UserDAO {
 
                     //mengambil 1 data
                     User user = new User();
-                    user.setUsername(result.getString(1));
+                    user.setNik(result.getString(1));
                     user.setPassword(result.getString(2));
                     user.setNamaUser(result.getString(3));
-                    user.setNik(result.getString(4));
-                    user.setHakAkses(result.getString(5));
+                    user.setHakAkses(result.getString(4));
 
                     //menambahkan data ke array
                     arrayUser.add(user);
@@ -65,17 +64,16 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public boolean tambahUser(User user) {
-        String INSERT = "INSERT INTO tb_user (username, password, "
-                + "nama_user, nik, hak_akses) VALUES (?, ?, ?, ?, ?)";
+        String INSERT = "INSERT INTO tb_user (nik, password, "
+                + "nama_user, hak_akses) VALUES (?, ?, ?, ?)";
         PreparedStatement state = null;
 
         try {
             state = conn.prepareStatement(INSERT);
-            state.setString(1, user.getUsername());
+            state.setString(1, user.getNik());
             state.setString(2, user.getPassword());
             state.setString(3, user.getNamaUser());
-            state.setString(4, user.getNik());
-            state.setString(5, user.getHakAkses());
+            state.setString(4, user.getHakAkses());
 
             int qty = state.executeUpdate();
             return qty > 0;
@@ -105,17 +103,16 @@ public class UserDAOImpl implements UserDAO {
     @Override
     public boolean ubahUser(User user) {
         String UPDATE = "UPDATE tb_user"
-                + "SET username = ?, password = ?, nama_user = ?, hak_akses = ? "
+                + "SET password = ?, nama_user = ?, hak_akses = ? "
                 + "WHERE nik = ?";
         PreparedStatement state = null;
 
         try {
             state = conn.prepareStatement(UPDATE);
-            state.setString(1, user.getUsername());
-            state.setString(2, user.getPassword());
-            state.setString(3, user.getNamaUser());
-            state.setString(4, user.getHakAkses());
-            state.setString(5, user.getNik());
+            state.setString(1, user.getPassword());
+            state.setString(2, user.getNamaUser());
+            state.setString(3, user.getHakAkses());
+            state.setString(4, user.getNik());
 
             int qty = state.executeUpdate();
             return qty > 0;

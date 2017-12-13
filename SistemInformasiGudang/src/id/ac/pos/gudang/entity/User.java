@@ -11,19 +11,10 @@ package id.ac.pos.gudang.entity;
  */
 public class User {
 
-    private String username;
+    private String nik;
     private String password;
     private String namaUser;
-    private String nik;
     private String hakAkses;
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
 
     public String getPassword() {
         return password;
