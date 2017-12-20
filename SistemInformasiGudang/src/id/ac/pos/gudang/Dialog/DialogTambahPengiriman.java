@@ -63,7 +63,6 @@ public class DialogTambahPengiriman extends javax.swing.JDialog {
                 }));
     }
 
-    
     private void autocomplete_regional() {
 //        KotaPengirimPrangko.removeAllItems();
 //        KotaPengirimPrangko.addItem("- - - - - - - - - - - -Pilih Regional- - - - - - - - - - - -");
@@ -397,12 +396,10 @@ public class DialogTambahPengiriman extends javax.swing.JDialog {
                     .addComponent(jLabel11)
                     .addComponent(JumlahKirim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(reset, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(tambah, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(hapus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(reset, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(tambah, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(hapus, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -686,13 +683,14 @@ public class DialogTambahPengiriman extends javax.swing.JDialog {
         // TODO add your handling code here:
         String kosong = null;
         int no;
-        int baris;
+        int baris = tabel_pengiriman.getRowCount();
         String no_order = NoOrder.getText();
         Date tanggal_pengiriman = TanggalPengiriman.getDate();
         String kode_regional = KodeRegional.getText();
         String kode_produk = KodeProduk.getText();
         Object nominal = Nominal.getSelectedItem();
         Object nama_produk = NamaProduk.getSelectedItem();
+        int indeks = 0;
 
         if (no_order.compareTo("") != 0) {
             if (tanggal_pengiriman != null) {
@@ -702,35 +700,51 @@ public class DialogTambahPengiriman extends javax.swing.JDialog {
                             int stok = Integer.parseInt(Stok.getText());
                             if (stok == 0) {
                                 JOptionPane.showMessageDialog(null, "Stok produk kosong!");
+                            } else if (stok < Integer.parseInt(JumlahKirim.getText())) {
+                                JOptionPane.showMessageDialog(null, "Stok produk kurang!");
                             } else {
-                                int nominal_string = (int) nominal;
-                                long jumlah_dikirim = Long.parseLong(JumlahKirim.getText());
-                                NoOrder.setEditable(false);
-                                TanggalPengiriman.setEnabled(false);
-                                Regional.setEnabled(false);
-                                long bsu = jumlah_dikirim * nominal_string;
-                                if (tabel_pengiriman.getRowCount() == 0) {
-                                    no = 1;
-                                } else {
-                                    baris = tabel_pengiriman.getRowCount();
-                                    no = baris + 1;
-                                }
-                                DefaultTableModel dataModel = (DefaultTableModel) tabel_pengiriman.getModel();
-                                List list = new ArrayList<>();
-                                tabel_pengiriman.setAutoCreateColumnsFromModel(true);
-                                list.add(no);
-                                list.add(kode_produk);
-                                list.add(nama_produk);
-                                list.add(nominal);
-                                list.add(jumlah_dikirim);
-                                list.add(bsu);
-                                dataModel.addRow(list.toArray());
 
-                                JenisProduk.setSelectedIndex(0);
-                                JumlahKirim.setText("");
-                                simpan.setEnabled(true);
-                                batal.setEnabled(true);
-                                hapus.setEnabled(true);
+                                if (baris > 0) {
+                                    for (int i = 0; i < baris; i++) {
+                                        Object kode = tabel_pengiriman.getValueAt(i, 1);
+                                        if (kode_produk.compareTo((String) kode) == 0) {
+                                            indeks = 1;
+                                        }
+                                    }
+                                }
+
+                                if (indeks == 0) {
+                                    int nominal_string = (int) nominal;
+                                    long jumlah_dikirim = Long.parseLong(JumlahKirim.getText());
+                                    NoOrder.setEditable(false);
+                                    TanggalPengiriman.setEnabled(false);
+                                    Regional.setEnabled(false);
+                                    long bsu = jumlah_dikirim * nominal_string;
+                                    if (tabel_pengiriman.getRowCount() == 0) {
+                                        no = 1;
+                                    } else {
+                                        no = baris + 1;
+                                    }
+                                    DefaultTableModel dataModel = (DefaultTableModel) tabel_pengiriman.getModel();
+                                    List list = new ArrayList<>();
+                                    tabel_pengiriman.setAutoCreateColumnsFromModel(true);
+                                    list.add(no);
+                                    list.add(kode_produk);
+                                    list.add(nama_produk);
+                                    list.add(nominal);
+                                    list.add(jumlah_dikirim);
+                                    list.add(bsu);
+                                    dataModel.addRow(list.toArray());
+
+                                    JenisProduk.setSelectedIndex(0);
+                                    JumlahKirim.setText("");
+                                    simpan.setEnabled(true);
+                                    batal.setEnabled(true);
+                                    hapus.setEnabled(true);
+                                }else{
+                                    JOptionPane.showMessageDialog(null, "Produk sudah terdaftar!");
+                                }
+
                             }
                         } else {
                             JOptionPane.showMessageDialog(null, "Silakan isi Jumlah Kirim terlebih dahulu!");
@@ -859,19 +873,19 @@ public class DialogTambahPengiriman extends javax.swing.JDialog {
 
                 List list = new ArrayList<>();
                 tabel_pengiriman.setAutoCreateColumnsFromModel(true);
-                list.add(i+1);
+                list.add(i + 1);
                 list.add(kode_produk);
                 list.add(nama_produk);
                 list.add(nominal);
                 list.add(jumlah_kirim);
                 list.add(bsu);
                 model.addRow(list.toArray());
-                
+
                 model.removeRow(0);
             }
-            
+
             baris = tabel_pengiriman.getRowCount();
-            if(baris==0){
+            if (baris == 0) {
                 NoOrder.setEditable(true);
                 TanggalPengiriman.setEnabled(true);
                 Regional.setEnabled(true);

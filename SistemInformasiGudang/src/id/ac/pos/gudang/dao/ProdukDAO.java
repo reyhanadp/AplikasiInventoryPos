@@ -14,6 +14,8 @@ import java.util.ArrayList;
  */
 public interface ProdukDAO {
 
+    Integer getTahunSekarang();
+
     ArrayList<Produk> getProdukPrangko();
 
     ArrayList<Produk> getProdukKemasan();
@@ -41,13 +43,13 @@ public interface ProdukDAO {
     ArrayList<Produk> getProdukPrismaDeleted();
 
     ArrayList<Produk> getProdukDokumenFilateliDeleted();
-    
+
     ArrayList<Produk> getHistoryUpdate();
-    
+
     ArrayList<Produk> getHistoryDelete();
 
     boolean restoreProduk(Produk produk, String jenisProduk);
-    
+
     boolean hapusPermanent(String idProduk);
 
     ArrayList<Produk> cariProduk(String keyword, String jenisCari, String idJenis);
@@ -57,11 +59,11 @@ public interface ProdukDAO {
     boolean tambahProduk(Produk produk, String jenisProduk);
 
     boolean hapusProduk(String idProduk);
-    
+
     boolean hapusHistoryUpdate();
-    
+
     boolean hapusHistoryDelete();
-    
+
     boolean ubahProduk(Produk produk);
 
 }

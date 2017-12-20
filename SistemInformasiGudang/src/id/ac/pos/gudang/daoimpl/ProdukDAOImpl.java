@@ -926,4 +926,32 @@ public class ProdukDAOImpl implements ProdukDAO {
         }
         return false;
     }
+
+    @Override
+    public Integer getTahunSekarang() {
+        int tahun = 0;
+        String SELECT = "SELECT YEAR(CURDATE())";
+        PreparedStatement state = null;
+        
+        try {
+            state = conn.prepareStatement(SELECT);
+
+            ResultSet result = state.executeQuery();
+            if (result != null) {
+
+                //selama result memiliki data
+                //return lebih dari 1 data
+                while (result.next()) {
+
+                    //mengambil 1 data
+                    tahun = Integer.parseInt(result.getString(1));
+                }
+            }
+        } catch (SQLException ex) {
+
+            Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return tahun;
+    }
 }

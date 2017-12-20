@@ -21,13 +21,8 @@ import java.awt.CardLayout;
 import javax.swing.JFrame;
 import javax.swing.*;
 import java.awt.event.KeyEvent;
-import java.beans.PropertyVetoException;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.table.TableRowSorter;
-import jxl.write.WriteException;
 
 /**
  *
@@ -43,22 +38,10 @@ public final class FormHome extends javax.swing.JFrame {
     ArrayList<Produk> arrayProduk;
     TableRowSorter sorter;
 
+
     public FormHome() {
-        initComponents();
-        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        inisialisasiField();
-        autoincrementPrangko();
-        autoincrementMS_SS();
-        autoincrementSHP_SHPSS();
-        autoincrementKemasan();
-        autoincrementMerchandise();
-        autoincrementPrisma();
-        autoincrementDokumenFilateli();
-        refresh();
-        //fieldNamaProdukPenerimaan.addKeyListener(new keyTextField(fieldNamaProdukPenerimaan));
-
     }
-
+    
     FormHome(String string) {
         initComponents();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -71,6 +54,15 @@ public final class FormHome extends javax.swing.JFrame {
         autoincrementPrisma();
         autoincrementDokumenFilateli();
         refresh();
+        int tahun;
+        tahun = dao.getTahunSekarang();
+        fieldTahunPrangko.setText(Integer.toString(tahun));
+        fieldTahunProdukDokumenFilateli.setText(Integer.toString(tahun));
+        fieldTahunProdukKemasan.setText(Integer.toString(tahun));
+        fieldTahunProdukMSSS.setText(Integer.toString(tahun));
+        fieldTahunProdukMerchandise.setText(Integer.toString(tahun));
+        fieldTahunProdukPrisma.setText(Integer.toString(tahun));
+        fieldTahunProdukSHPSHPSS.setText(Integer.toString(tahun));
         SelamatDatang.setText("SELAMAT DATANG, "+string.toUpperCase());
     }
 
@@ -418,6 +410,16 @@ public final class FormHome extends javax.swing.JFrame {
         fieldTahunProdukKemasan.setText("");
         fieldTahunProdukDokumenFilateli.setText("");
         fieldTahunProdukPrisma.setText("");
+        
+        int tahun;
+        tahun = dao.getTahunSekarang();
+        fieldTahunPrangko.setText(Integer.toString(tahun));
+        fieldTahunProdukDokumenFilateli.setText(Integer.toString(tahun));
+        fieldTahunProdukKemasan.setText(Integer.toString(tahun));
+        fieldTahunProdukMSSS.setText(Integer.toString(tahun));
+        fieldTahunProdukMerchandise.setText(Integer.toString(tahun));
+        fieldTahunProdukPrisma.setText(Integer.toString(tahun));
+        fieldTahunProdukSHPSHPSS.setText(Integer.toString(tahun));
 
         autoincrementPrangko();
         autoincrementMS_SS();
@@ -892,6 +894,11 @@ public final class FormHome extends javax.swing.JFrame {
 
         jLabel4.setText("Nominal");
 
+        fieldNominalPrangko.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                fieldNominalPrangkoMouseClicked(evt);
+            }
+        });
         fieldNominalPrangko.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 fieldNominalPrangkoKeyPressed(evt);
@@ -903,6 +910,7 @@ public final class FormHome extends javax.swing.JFrame {
 
         jLabel5.setText("Biaya Cetak  ");
 
+        fieldTahunPrangko.setEditable(false);
         fieldTahunPrangko.setToolTipText("");
         fieldTahunPrangko.setAutoscrolls(false);
         fieldTahunPrangko.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
@@ -922,6 +930,11 @@ public final class FormHome extends javax.swing.JFrame {
 
         jLabel6.setText("Tahun");
 
+        fieldBiayaCetakPrangko.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                fieldBiayaCetakPrangkoMouseClicked(evt);
+            }
+        });
         fieldBiayaCetakPrangko.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 fieldBiayaCetakPrangkoKeyPressed(evt);
@@ -1177,6 +1190,7 @@ public final class FormHome extends javax.swing.JFrame {
 
         jLabel15.setText("Biaya Cetak  ");
 
+        fieldTahunProdukMSSS.setEditable(false);
         fieldTahunProdukMSSS.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 fieldTahunProdukMSSSKeyPressed(evt);
@@ -1458,6 +1472,7 @@ public final class FormHome extends javax.swing.JFrame {
 
         jLabel20.setText("Biaya Cetak  ");
 
+        fieldTahunProdukSHPSHPSS.setEditable(false);
         fieldTahunProdukSHPSHPSS.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 fieldTahunProdukSHPSHPSSKeyTyped(evt);
@@ -1728,6 +1743,7 @@ public final class FormHome extends javax.swing.JFrame {
 
         jLabel25.setText("Biaya Cetak  ");
 
+        fieldTahunProdukKemasan.setEditable(false);
         fieldTahunProdukKemasan.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 fieldTahunProdukKemasanKeyPressed(evt);
@@ -1983,6 +1999,7 @@ public final class FormHome extends javax.swing.JFrame {
 
         jLabel30.setText("Biaya Cetak  ");
 
+        fieldTahunProdukMerchandise.setEditable(false);
         fieldTahunProdukMerchandise.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 fieldTahunProdukMerchandiseKeyPressed(evt);
@@ -2224,6 +2241,7 @@ public final class FormHome extends javax.swing.JFrame {
 
         jLabel35.setText("Biaya Cetak  ");
 
+        fieldTahunProdukPrisma.setEditable(false);
         fieldTahunProdukPrisma.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 fieldTahunProdukPrismaKeyPressed(evt);
@@ -2460,6 +2478,7 @@ public final class FormHome extends javax.swing.JFrame {
 
         jLabel40.setText("Biaya Cetak  ");
 
+        fieldTahunProdukDokumenFilateli.setEditable(false);
         fieldTahunProdukDokumenFilateli.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 fieldTahunProdukDokumenFilateliKeyPressed(evt);
@@ -2836,7 +2855,6 @@ public final class FormHome extends javax.swing.JFrame {
         } else if (fieldTahunPrangko.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Tahun tidak boleh Kosong");
             fieldTahunPrangko.requestFocus();
-            fieldTahunPrangko.setEditable(true);
             getDataPrangko();
         } else {
              int pilih = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin "
@@ -2891,6 +2909,7 @@ public final class FormHome extends javax.swing.JFrame {
                 resetField();
                 getDataPrangko();
                 autoincrementPrangko();
+                JOptionPane.showMessageDialog(this, "Data berhasil dihapus!");
             }
         } else {
             JOptionPane.showMessageDialog(this, "Anda harus memilih dahulu produk "
@@ -2945,7 +2964,6 @@ public final class FormHome extends javax.swing.JFrame {
                 } else if (fieldTahunPrangko.getText().equals("")) {
                     JOptionPane.showMessageDialog(null, "Tahun tidak boleh Kosong");
                     fieldTahunPrangko.requestFocus();
-                    fieldTahunPrangko.setEditable(true);
                     getDataPrangko();
                     fieldTahunPrangko.setText(tahun);
                     fieldKodeProdukPrangko.setText(kodeProduk);
@@ -3257,6 +3275,7 @@ public final class FormHome extends javax.swing.JFrame {
                 resetField();
                 getDataMS_SS();
                 autoincrementMS_SS();
+                JOptionPane.showMessageDialog(this, "Data berhasil dihapus!");
             }
         } else {
             JOptionPane.showMessageDialog(this, "Anda harus memilih dahulu produk "
@@ -3560,6 +3579,7 @@ public final class FormHome extends javax.swing.JFrame {
                 resetField();
                 getDataSHP_SHPSS();
                 autoincrementSHP_SHPSS();
+                JOptionPane.showMessageDialog(this, "Data berhasil dihapus!");
             }
         } else {
             JOptionPane.showMessageDialog(this, "Anda harus memilih dahulu produk "
@@ -3768,6 +3788,7 @@ public final class FormHome extends javax.swing.JFrame {
                 resetField();
                 getDataKemasan();
                 autoincrementKemasan();
+                JOptionPane.showMessageDialog(this, "Data berhasil dihapus!");
             }
         } else {
             JOptionPane.showMessageDialog(this, "Anda harus memilih dahulu produk "
@@ -3975,6 +3996,7 @@ public final class FormHome extends javax.swing.JFrame {
                 resetField();
                 getDataMerchandise();
                 autoincrementMerchandise();
+                JOptionPane.showMessageDialog(this, "Data berhasil dihapus!");
             }
         } else {
             JOptionPane.showMessageDialog(this, "Anda harus memilih dahulu produk "
@@ -4184,6 +4206,7 @@ public final class FormHome extends javax.swing.JFrame {
                 resetField();
                 getDataPrisma();
                 autoincrementPrisma();
+                JOptionPane.showMessageDialog(this, "Data berhasil dihapus!");
             }
         } else {
             JOptionPane.showMessageDialog(this, "Anda harus memilih dahulu produk "
@@ -4392,6 +4415,7 @@ public final class FormHome extends javax.swing.JFrame {
                 resetField();
                 getDataDokumenFilateli();
                 autoincrementDokumenFilateli();
+                JOptionPane.showMessageDialog(this, "Data berhasil dihapus!");
             }
         } else {
             JOptionPane.showMessageDialog(this, "Anda harus memilih dahulu produk "
@@ -5192,6 +5216,16 @@ public final class FormHome extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_buttonLogoutActionPerformed
+
+    private void fieldNominalPrangkoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fieldNominalPrangkoMouseClicked
+        // TODO add your handling code here:
+        fieldNominalPrangko.selectAll();
+    }//GEN-LAST:event_fieldNominalPrangkoMouseClicked
+
+    private void fieldBiayaCetakPrangkoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fieldBiayaCetakPrangkoMouseClicked
+        // TODO add your handling code here:
+        fieldBiayaCetakPrangko.selectAll();
+    }//GEN-LAST:event_fieldBiayaCetakPrangkoMouseClicked
 
     /**
      * @param args the command line arguments

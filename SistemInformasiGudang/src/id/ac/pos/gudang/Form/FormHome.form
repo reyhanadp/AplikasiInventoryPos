@@ -468,6 +468,7 @@
                             </Component>
                             <Component class="javax.swing.JTextField" name="fieldNominalPrangko">
                               <Events>
+                                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="fieldNominalPrangkoMouseClicked"/>
                                 <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldNominalPrangkoKeyPressed"/>
                                 <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldNominalPrangkoKeyTyped"/>
                               </Events>
@@ -479,6 +480,7 @@
                             </Component>
                             <Component class="javax.swing.JTextField" name="fieldTahunPrangko">
                               <Properties>
+                                <Property name="editable" type="boolean" value="false"/>
                                 <Property name="toolTipText" type="java.lang.String" value=""/>
                                 <Property name="autoscrolls" type="boolean" value="false"/>
                                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -498,6 +500,7 @@
                             </Component>
                             <Component class="javax.swing.JTextField" name="fieldBiayaCetakPrangko">
                               <Events>
+                                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="fieldBiayaCetakPrangkoMouseClicked"/>
                                 <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldBiayaCetakPrangkoKeyPressed"/>
                                 <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldBiayaCetakPrangkoKeyTyped"/>
                               </Events>
@@ -862,6 +865,9 @@
                               </Properties>
                             </Component>
                             <Component class="javax.swing.JTextField" name="fieldTahunProdukMSSS">
+                              <Properties>
+                                <Property name="editable" type="boolean" value="false"/>
+                              </Properties>
                               <Events>
                                 <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldTahunProdukMSSSKeyPressed"/>
                                 <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldTahunProdukMSSSKeyTyped"/>
@@ -1259,6 +1265,9 @@
                               </Properties>
                             </Component>
                             <Component class="javax.swing.JTextField" name="fieldTahunProdukSHPSHPSS">
+                              <Properties>
+                                <Property name="editable" type="boolean" value="false"/>
+                              </Properties>
                               <Events>
                                 <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldTahunProdukSHPSHPSSKeyTyped"/>
                               </Events>
@@ -1642,6 +1651,9 @@
                               </Properties>
                             </Component>
                             <Component class="javax.swing.JTextField" name="fieldTahunProdukKemasan">
+                              <Properties>
+                                <Property name="editable" type="boolean" value="false"/>
+                              </Properties>
                               <Events>
                                 <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldTahunProdukKemasanKeyPressed"/>
                                 <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldTahunProdukKemasanKeyTyped"/>
@@ -2024,6 +2036,9 @@
                               </Properties>
                             </Component>
                             <Component class="javax.swing.JTextField" name="fieldTahunProdukMerchandise">
+                              <Properties>
+                                <Property name="editable" type="boolean" value="false"/>
+                              </Properties>
                               <Events>
                                 <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldTahunProdukMerchandiseKeyPressed"/>
                                 <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldTahunProdukMerchandiseKeyTyped"/>
@@ -2383,6 +2398,9 @@
                               </Properties>
                             </Component>
                             <Component class="javax.swing.JTextField" name="fieldTahunProdukPrisma">
+                              <Properties>
+                                <Property name="editable" type="boolean" value="false"/>
+                              </Properties>
                               <Events>
                                 <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldTahunProdukPrismaKeyPressed"/>
                                 <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldTahunProdukPrismaKeyTyped"/>
@@ -2738,6 +2756,9 @@
                               </Properties>
                             </Component>
                             <Component class="javax.swing.JTextField" name="fieldTahunProdukDokumenFilateli">
+                              <Properties>
+                                <Property name="editable" type="boolean" value="false"/>
+                              </Properties>
                               <Events>
                                 <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldTahunProdukDokumenFilateliKeyPressed"/>
                                 <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldTahunProdukDokumenFilateliKeyTyped"/>
