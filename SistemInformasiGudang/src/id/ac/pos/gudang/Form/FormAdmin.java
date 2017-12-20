@@ -43,12 +43,6 @@ public class FormAdmin extends javax.swing.JFrame {
         buttonReional = new javax.swing.JLabel();
         buttonLogout = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
-        itemRegional = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        itemRecycleBin = new javax.swing.JMenuItem();
-        itemHistoryUpdate = new javax.swing.JMenuItem();
-        itemHistoryDelete = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -134,52 +128,13 @@ public class FormAdmin extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(buttonMitra)
                     .addComponent(buttonUser)
                     .addComponent(buttonReional))
                 .addGap(50, 50, 50))
         );
-
-        itemRegional.setText("File");
-
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem1.setText("Regional");
-        itemRegional.add(jMenuItem1);
-
-        jMenuBar1.add(itemRegional);
-
-        jMenu2.setText("Help");
-
-        itemRecycleBin.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_MASK));
-        itemRecycleBin.setText("Recycle Bin");
-        itemRecycleBin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itemRecycleBinActionPerformed(evt);
-            }
-        });
-        jMenu2.add(itemRecycleBin);
-
-        itemHistoryUpdate.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_MASK));
-        itemHistoryUpdate.setText("History Update");
-        itemHistoryUpdate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itemHistoryUpdateActionPerformed(evt);
-            }
-        });
-        jMenu2.add(itemHistoryUpdate);
-
-        itemHistoryDelete.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_MASK));
-        itemHistoryDelete.setText("History Delete");
-        itemHistoryDelete.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itemHistoryDeleteActionPerformed(evt);
-            }
-        });
-        jMenu2.add(itemHistoryDelete);
-
-        jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
 
@@ -202,21 +157,6 @@ public class FormAdmin extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void itemRecycleBinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemRecycleBinActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_itemRecycleBinActionPerformed
-
-    private void itemHistoryUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemHistoryUpdateActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_itemHistoryUpdateActionPerformed
-
-    private void itemHistoryDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemHistoryDeleteActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_itemHistoryDeleteActionPerformed
 
     private void buttonReionalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonReionalMouseClicked
         // TODO add your handling code here:
@@ -298,14 +238,8 @@ public class FormAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel buttonMitra;
     private javax.swing.JLabel buttonReional;
     private javax.swing.JLabel buttonUser;
-    private javax.swing.JMenuItem itemHistoryDelete;
-    private javax.swing.JMenuItem itemHistoryUpdate;
-    private javax.swing.JMenuItem itemRecycleBin;
-    private javax.swing.JMenu itemRegional;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables

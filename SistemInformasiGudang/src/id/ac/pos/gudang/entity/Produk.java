@@ -24,6 +24,15 @@ public class Produk {
     String idJenisProduk;
     Date tglHapus;
     Date tglUbah;
+    String nik;
+
+    public String getNik() {
+        return nik;
+    }
+
+    public void setNik(String nik) {
+        this.nik = nik;
+    }
 
     public int getNo() {
         return no;

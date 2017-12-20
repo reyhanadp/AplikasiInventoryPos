@@ -5,6 +5,7 @@
  */
 package id.ac.pos.gudang.Form;
 
+import id.ac.pos.gudang.entity.User;
 import id.ac.pos.gudang.utility.DatabaseConnectivity;
 import java.awt.HeadlessException;
 import java.awt.event.KeyEvent;
@@ -50,7 +51,7 @@ public class FormLogin extends javax.swing.JFrame {
         fieldNik = new javax.swing.JTextField();
         labelPassword = new javax.swing.JLabel();
         buttonReset = new javax.swing.JButton();
-        buttonLogin1 = new javax.swing.JButton();
+        buttonLogin = new javax.swing.JButton();
         background = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -99,13 +100,13 @@ public class FormLogin extends javax.swing.JFrame {
         });
         getContentPane().add(buttonReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 177, 80, -1));
 
-        buttonLogin1.setText("Login");
-        buttonLogin1.addActionListener(new java.awt.event.ActionListener() {
+        buttonLogin.setText("Login");
+        buttonLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonLogin1ActionPerformed(evt);
+                buttonLoginActionPerformed(evt);
             }
         });
-        getContentPane().add(buttonLogin1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 177, 80, -1));
+        getContentPane().add(buttonLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 177, 80, -1));
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/background.png"))); // NOI18N
         getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, -1));
@@ -119,28 +120,28 @@ public class FormLogin extends javax.swing.JFrame {
 
     }//GEN-LAST:event_buttonResetActionPerformed
 
-    private void buttonLogin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLogin1ActionPerformed
+    private void buttonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLoginActionPerformed
         // TODO add your handling code here:
         try {
             con = DatabaseConnectivity.getConnection();
-            
-            sql = "SELECT * FROM tb_user WHERE nik='" + fieldNik.getText() 
-                    + "' AND password='" + fieldPassword.getText()+"'";
-            
+
+            sql = "SELECT * FROM tb_user WHERE nik='" + fieldNik.getText()
+                    + "' AND password='" + fieldPassword.getText() + "'";
+
             state = con.prepareStatement(sql);
             rs = state.executeQuery();
             //validasi
             if (rs.next()) {
                 if (fieldPassword.getText().equals(rs.getString("password"))
                         && fieldNik.getText().equals(rs.getString("nik"))
-                        && "fl".equals(rs.getString("hak_akses"))) {
+                        && "FL".equals(rs.getString("hak_akses"))) {
                     JOptionPane.showMessageDialog(null, "Login Sukses !");
-                    FormHome fh = new FormHome(rs.getString("nama_user"));
+                    FormHome fh = new FormHome(rs.getString("nama_user"),rs.getString("nik"));
                     fh.setVisible(true);
                     this.setVisible(false); //form login akan tertutup
                 } else if (fieldPassword.getText().equals(rs.getString("password"))
                         && fieldNik.getText().equals(rs.getString("nik"))
-                        && "ad".equals(rs.getString("hak_akses"))) {
+                        && "AD".equals(rs.getString("hak_akses"))) {
                     JOptionPane.showMessageDialog(null, "Login Sukses !");
                     FormAdmin fa = new FormAdmin();
                     fa.setVisible(true);
@@ -152,11 +153,10 @@ public class FormLogin extends javax.swing.JFrame {
                 fieldPassword.setText(null);//set nilai txtPass menjadi kosong
                 fieldNik.requestFocus();
             }
-            //Show Message Dialog
         } catch (HeadlessException | SQLException e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
-    }//GEN-LAST:event_buttonLogin1ActionPerformed
+    }//GEN-LAST:event_buttonLoginActionPerformed
 
     private void fieldNikKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldNikKeyPressed
         // TODO add your handling code here:
@@ -168,7 +168,7 @@ public class FormLogin extends javax.swing.JFrame {
     private void fieldPasswordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldPasswordKeyPressed
         // TODO add your handling code here:
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            buttonLogin1.doClick();
+            buttonLogin.doClick();
         }
     }//GEN-LAST:event_fieldPasswordKeyPressed
 
@@ -198,19 +198,16 @@ public class FormLogin extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(FormLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        try
-            {
-                com.jtattoo.plaf.noire.NoireLookAndFeel.setTheme("Large-Font", "Java Swing", "");
-                UIManager.setLookAndFeel("com.jtattoo.plaf.acryl.AcrylLookAndFeel");
-                FormLogin fl = new FormLogin();
-                fl.setLocationRelativeTo(null);
-                fl.setVisible(true);
-                fl.dispose();
-            } 
-          catch (Exception ex) 
-            {
-                ex.printStackTrace();
-            }
+        try {
+            com.jtattoo.plaf.noire.NoireLookAndFeel.setTheme("Large-Font", "Java Swing", "");
+            UIManager.setLookAndFeel("com.jtattoo.plaf.acryl.AcrylLookAndFeel");
+            FormLogin fl = new FormLogin();
+            fl.setLocationRelativeTo(null);
+            fl.setVisible(true);
+            fl.dispose();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -224,7 +221,7 @@ public class FormLogin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background;
-    private javax.swing.JButton buttonLogin1;
+    private javax.swing.JButton buttonLogin;
     private javax.swing.JButton buttonReset;
     private javax.swing.JTextField fieldNik;
     private javax.swing.JPasswordField fieldPassword;

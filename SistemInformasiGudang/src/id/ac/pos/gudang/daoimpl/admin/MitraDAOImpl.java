@@ -146,9 +146,9 @@ public class MitraDAOImpl implements MitraDAO {
         try {
             state = conn.prepareStatement(UPDATE);
             state.setString(1, mitra.getNama_suplier());
-            state.setString(1, mitra.getAlamat());
-            state.setString(1, mitra.getNo_telp());
-            state.setString(2, mitra.getId_supplier());
+            state.setString(2, mitra.getAlamat());
+            state.setString(3, mitra.getNo_telp());
+            state.setString(4, mitra.getId_supplier());
 
             int qty = state.executeUpdate();
             return qty > 0;

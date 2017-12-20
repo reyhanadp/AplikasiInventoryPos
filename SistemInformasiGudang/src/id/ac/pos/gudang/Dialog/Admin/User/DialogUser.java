@@ -152,10 +152,10 @@ public class DialogUser extends javax.swing.JDialog {
         // TODO add your handling code here:
         int baris = tableUser.getSelectedRow();
         if (baris >= 0) {
-            String nik = tableUser.getValueAt(baris, 3).toString();
+            String nik = tableUser.getValueAt(baris, 0).toString();
             String namaUser = tableUser.getValueAt(baris, 1).toString();
             int ok = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin "
-                    + "menghapus Username dengan user : " + nik
+                    + "menghapus Nik dengan nik : " + nik
                     + " dengan Nama User " + namaUser
                     + "?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
             if (ok == 0) {
@@ -184,8 +184,10 @@ public class DialogUser extends javax.swing.JDialog {
             duu.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
             duu.setLocationRelativeTo(null);
             duu.setVisible(true);
+            getData();
         } else {
             JOptionPane.showMessageDialog(this, "Anda Harus Memilih Terlebih Dahulu User Yang Akan Diubah!");
+            getData();
         }
     }//GEN-LAST:event_buttonUbahUserActionPerformed
 
@@ -219,6 +221,7 @@ public class DialogUser extends javax.swing.JDialog {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(DialogUser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */

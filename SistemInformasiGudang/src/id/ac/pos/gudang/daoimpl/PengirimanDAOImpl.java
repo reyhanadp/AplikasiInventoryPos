@@ -6,6 +6,7 @@
 package id.ac.pos.gudang.daoimpl;
 
 import id.ac.pos.gudang.dao.PengirimanDAO;
+import id.ac.pos.gudang.daoimpl.admin.RegionalDAOImpl;
 import id.ac.pos.gudang.entity.Pengiriman;
 import id.ac.pos.gudang.entity.Produk;
 import id.ac.pos.gudang.entity.Regional;

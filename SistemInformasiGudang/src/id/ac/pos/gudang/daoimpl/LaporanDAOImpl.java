@@ -6,6 +6,7 @@
 package id.ac.pos.gudang.daoimpl;
 
 import id.ac.pos.gudang.dao.LaporanDAO;
+import id.ac.pos.gudang.daoimpl.admin.RegionalDAOImpl;
 import id.ac.pos.gudang.entity.Produk;
 import id.ac.pos.gudang.utility.DatabaseConnectivity;
 import java.sql.Connection;

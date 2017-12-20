@@ -3,8 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package id.ac.pos.gudang.Dialog.Admin.MItra;
+
+import id.ac.pos.gudang.Form.FormAdmin;
+import id.ac.pos.gudang.dao.admin.MitraDAO;
+import id.ac.pos.gudang.daoimpl.admin.MitraDAOImpl;
+import id.ac.pos.gudang.entity.Mitra;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -15,9 +20,19 @@ public class DialogUbahMitra extends javax.swing.JDialog {
     /**
      * Creates new form DialogUbahMitra
      */
+    private String id_suplier;
+
     public DialogUbahMitra(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+    }
+
+    DialogUbahMitra(FormAdmin admin, boolean b, Mitra mitraTerpilih) {
+        initComponents();
+        id_suplier = mitraTerpilih.getId_supplier();
+        fieldNamaMitra.setText(mitraTerpilih.getNama_suplier());
+        fieldAlamat.setText(mitraTerpilih.getAlamat());
+        fieldNoTelp.setText(mitraTerpilih.getNo_telp());
     }
 
     /**
@@ -29,42 +44,42 @@ public class DialogUbahMitra extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tableMitra = new javax.swing.JTable();
-        buttonTambahMItra = new javax.swing.JButton();
-        buttonHapusMitra = new javax.swing.JButton();
         buttonHapusMItra = new javax.swing.JButton();
-        buttonRefresh = new javax.swing.JButton();
+        buttonCancel = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        buttonHapusMItra1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        fieldNamaMitra = new javax.swing.JTextField();
+        fieldAlamat = new javax.swing.JTextField();
+        fieldNoTelp = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        tableMitra.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(tableMitra);
-
-        buttonTambahMItra.setText("Tambah");
-
-        buttonHapusMitra.setText("Hapus");
-
         buttonHapusMItra.setText("Ubah");
+        buttonHapusMItra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonHapusMItraActionPerformed(evt);
+            }
+        });
 
-        buttonRefresh.setText("Refresh");
+        buttonCancel.setText("Cancel");
+        buttonCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCancelActionPerformed(evt);
+            }
+        });
 
-        jLabel1.setText("Cari Mitra");
+        jLabel4.setText("Nama Mitra");
 
-        buttonHapusMItra1.setText("Cari");
+        jLabel1.setText("Alamat");
+
+        jLabel2.setText("No. Telp");
+
+        fieldNamaMitra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fieldNamaMitraActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -73,26 +88,21 @@ public class DialogUbahMitra extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 1, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(buttonTambahMItra)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(buttonHapusMitra)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(buttonHapusMItra, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(buttonRefresh))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(buttonHapusMItra1)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(fieldAlamat)
+                            .addComponent(fieldNoTelp)
+                            .addComponent(fieldNamaMitra, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(buttonHapusMItra)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(buttonCancel)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -100,22 +110,68 @@ public class DialogUbahMitra extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonHapusMItra1))
-                .addGap(9, 9, 9)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                    .addComponent(jLabel4)
+                    .addComponent(fieldNamaMitra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonTambahMItra)
-                    .addComponent(buttonHapusMitra)
+                    .addComponent(jLabel1)
+                    .addComponent(fieldAlamat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(fieldNoTelp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(39, 39, 39)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonHapusMItra)
-                    .addComponent(buttonRefresh))
+                    .addComponent(buttonCancel))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void fieldNamaMitraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldNamaMitraActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fieldNamaMitraActionPerformed
+
+    private void buttonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_buttonCancelActionPerformed
+
+    private void buttonHapusMItraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHapusMItraActionPerformed
+        // TODO add your handling code here:
+        Mitra mitra = new Mitra();
+        String namaMitra = fieldNamaMitra.getText();
+        String alamat = fieldAlamat.getText();
+        String noTelp = fieldNoTelp.getText();
+
+        if (fieldNamaMitra.getText().isEmpty() && fieldNamaMitra.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Nama Mitra Tidak boleh Kosong");
+        } else if (fieldAlamat.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Alamat Tidak boleh Kosong");
+        } else if (fieldNoTelp.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "No.Telp Tidak boleh Kosong");
+        } else {
+            JOptionPane.showMessageDialog(null, "Simpan Data");
+        }
+
+        mitra.setId_supplier(id_suplier);
+        mitra.setNama_suplier(namaMitra);
+        mitra.setAlamat(alamat);
+        mitra.setNo_telp(noTelp);
+
+        //ubah mitra
+        MitraDAO dao = new MitraDAOImpl();
+        boolean sukses = dao.ubahMitra(mitra);
+
+        if (sukses) {
+            JOptionPane.showMessageDialog(this, "Data berhasil diubah");
+            dispose();
+        } else {
+            JOptionPane.showMessageDialog(this, "Data gagal diubah");
+        }
+    }//GEN-LAST:event_buttonHapusMItraActionPerformed
 
     /**
      * @param args the command line arguments
@@ -143,6 +199,7 @@ public class DialogUbahMitra extends javax.swing.JDialog {
             java.util.logging.Logger.getLogger(DialogUbahMitra.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -160,14 +217,13 @@ public class DialogUbahMitra extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonCancel;
     private javax.swing.JButton buttonHapusMItra;
-    private javax.swing.JButton buttonHapusMItra1;
-    private javax.swing.JButton buttonHapusMitra;
-    private javax.swing.JButton buttonRefresh;
-    private javax.swing.JButton buttonTambahMItra;
+    private javax.swing.JTextField fieldAlamat;
+    private javax.swing.JTextField fieldNamaMitra;
+    private javax.swing.JTextField fieldNoTelp;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTable tableMitra;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
     // End of variables declaration//GEN-END:variables
 }

@@ -9,6 +9,7 @@ import id.ac.pos.gudang.dao.admin.RegionalDAO;
 import id.ac.pos.gudang.daoimpl.admin.RegionalDAOImpl;
 import id.ac.pos.gudang.entity.Regional;
 import id.ac.pos.gudang.tablemodel.admin.RegionalTM;
+import java.awt.Dialog;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -221,6 +222,7 @@ public class DialogRegional extends javax.swing.JDialog {
 
             // munculkan dialog
             DialogUbahRegional dur = new DialogUbahRegional (this, true, regionalTerpilih);
+            dur.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
             dur.setLocationRelativeTo(null);
             dur.setVisible(true);
             getData();
@@ -274,6 +276,7 @@ public class DialogRegional extends javax.swing.JDialog {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(DialogRegional.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */

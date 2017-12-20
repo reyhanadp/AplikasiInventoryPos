@@ -142,15 +142,20 @@ public class RegionalDAOImpl implements RegionalDAO {
 
     @Override
     public boolean ubahRegional(Regional regional) {
+        System.out.println("ieu");
         String UPDATE = "UPDATE tb_regional "
-                + "SET regional = ? "
+                + "SET regional = ?, kode_pos = ?, alamat = ?, no_telp = ? "
                 + "WHERE id_regional = ?";
         PreparedStatement state = null;
-
+        
+        System.out.println(regional.getIdRegional());
         try {
             state = conn.prepareStatement(UPDATE);
             state.setString(1, regional.getNamaRegional());
-            state.setString(2, regional.getIdRegional());
+            state.setString(2, regional.getKodePos());
+            state.setString(3, regional.getAlamat());
+            state.setString(4, regional.getNoTelp());
+            state.setString(5, regional.getIdRegional());
 
             int qty = state.executeUpdate();
             return qty > 0;

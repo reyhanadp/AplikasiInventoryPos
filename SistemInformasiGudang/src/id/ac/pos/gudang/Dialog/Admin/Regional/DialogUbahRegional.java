@@ -26,17 +26,16 @@ public class DialogUbahRegional extends javax.swing.JDialog {
     }
 
     private String idRegional;
-    
+
     DialogUbahRegional(java.awt.Dialog parent, boolean modal, Regional regional) {
         initComponents();
         idRegional = regional.getIdRegional();
-        fieldIdRegional.setText(regional.getIdRegional());
         fieldNamaRegional.setText(regional.getNamaRegional());
         fieldKodePos.setText(regional.getKodePos());
         fieldNoTelp.setText(regional.getNoTelp());
         fieldAlamat.setText(regional.getAlamat());
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -46,8 +45,6 @@ public class DialogUbahRegional extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        fieldIdRegional = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         fieldNamaRegional = new javax.swing.JTextField();
         buttonUbah = new javax.swing.JButton();
@@ -60,14 +57,6 @@ public class DialogUbahRegional extends javax.swing.JDialog {
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
-        jLabel1.setText("Id Regional");
-
-        fieldIdRegional.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fieldIdRegionalActionPerformed(evt);
-            }
-        });
 
         jLabel2.setText("Nama Regional");
 
@@ -122,15 +111,14 @@ public class DialogUbahRegional extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 123, Short.MAX_VALUE)
                         .addComponent(buttonUbah)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(buttonCancel))
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
-                            .addComponent(jLabel1)
                             .addComponent(jLabel3)
                             .addComponent(jLabel4)
                             .addComponent(jLabel5))
@@ -139,7 +127,6 @@ public class DialogUbahRegional extends javax.swing.JDialog {
                             .addComponent(fieldAlamat, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
                             .addComponent(fieldNoTelp)
                             .addComponent(fieldKodePos, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(fieldIdRegional, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(fieldNamaRegional, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addContainerGap())
         );
@@ -147,26 +134,24 @@ public class DialogUbahRegional extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(fieldIdRegional, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(fieldNamaRegional, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(fieldKodePos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(fieldNoTelp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(fieldAlamat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel5))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(fieldNamaRegional, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(fieldKodePos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(fieldNoTelp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(fieldAlamat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonUbah)
                     .addComponent(buttonCancel))
@@ -176,10 +161,6 @@ public class DialogUbahRegional extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void fieldIdRegionalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldIdRegionalActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fieldIdRegionalActionPerformed
-
     private void fieldNamaRegionalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldNamaRegionalActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_fieldNamaRegionalActionPerformed
@@ -187,7 +168,6 @@ public class DialogUbahRegional extends javax.swing.JDialog {
     private void buttonUbahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonUbahActionPerformed
         // TODO add your handling code here:
         Regional regional = new Regional();
-        String idRegional = fieldIdRegional.getText();
         String namaRegional = fieldNamaRegional.getText();
         String kodePos = fieldKodePos.getText();
         String noTelp = fieldNoTelp.getText();
@@ -195,9 +175,7 @@ public class DialogUbahRegional extends javax.swing.JDialog {
 
         //validasi
         //validasi field
-        if (fieldIdRegional.getText().isEmpty() && fieldIdRegional.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Id Regional tidak boleh Kosong");
-        } else if (fieldNamaRegional.getText().isEmpty()) {
+        if (fieldNamaRegional.getText().isEmpty() && fieldNamaRegional.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Nama Regional Tidak boleh Kosong");
         } else if (fieldKodePos.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Kode Pos Tidak boleh Kosong");
@@ -206,27 +184,25 @@ public class DialogUbahRegional extends javax.swing.JDialog {
         } else if (fieldAlamat.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Alamat Tidak boleh Kosong");
         } else {
-            JOptionPane.showMessageDialog(null, "Simpan Data");
+            
+            regional.setIdRegional(idRegional);
+            regional.setNamaRegional(namaRegional);
+            regional.setKodePos(kodePos);
+            regional.setNoTelp(noTelp);
+            regional.setAlamat(alamat);
+            //insert regional 
+            RegionalDAO dao = new RegionalDAOImpl();
+            boolean sukses = dao.ubahRegional(regional);
+
+            // cek sukses atau tidak
+            if (sukses) {
+                JOptionPane.showMessageDialog(this, "Data berhasil diubah");
+                dispose();
+            } else {
+                JOptionPane.showMessageDialog(this, "Data gagal diubah");
+            }
         }
 
-        regional.setIdRegional(idRegional);
-        regional.setNamaRegional(namaRegional);
-        regional.setKodePos(kodePos);
-        regional.setNoTelp(noTelp);
-        regional.setAlamat(alamat);
-
-        //insert regional 
-        RegionalDAO dao = new RegionalDAOImpl();
-        boolean sukses = dao.ubahRegional(regional);
-
-        //cek sukses atau tidak 
-        // cek sukses atau tidak
-        if (sukses) {
-            JOptionPane.showMessageDialog(this, "Data berhasil diubah");
-            dispose();
-        } else {
-            JOptionPane.showMessageDialog(this, "Data gagal diubah");
-        }
     }//GEN-LAST:event_buttonUbahActionPerformed
 
     private void buttonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelActionPerformed
@@ -272,6 +248,7 @@ public class DialogUbahRegional extends javax.swing.JDialog {
             java.util.logging.Logger.getLogger(DialogUbahRegional.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -292,11 +269,9 @@ public class DialogUbahRegional extends javax.swing.JDialog {
     private javax.swing.JButton buttonCancel;
     private javax.swing.JButton buttonUbah;
     private javax.swing.JTextField fieldAlamat;
-    private javax.swing.JTextField fieldIdRegional;
     private javax.swing.JTextField fieldKodePos;
     private javax.swing.JTextField fieldNamaRegional;
     private javax.swing.JTextField fieldNoTelp;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

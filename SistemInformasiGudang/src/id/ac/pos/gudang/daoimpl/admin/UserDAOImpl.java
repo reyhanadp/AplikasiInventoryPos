@@ -87,7 +87,7 @@ public class UserDAOImpl implements UserDAO {
     public boolean hapusUser(String nik) {
         String DELETE = "DELETE FROM tb_user WHERE nik = ?";
         PreparedStatement state = null;
-
+        System.out.println(nik);
         try {
             state = conn.prepareStatement(DELETE);
             state.setString(1, nik);
@@ -102,8 +102,9 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public boolean ubahUser(User user) {
-        String UPDATE = "UPDATE tb_user"
-                + "SET password = ?, nama_user = ?, hak_akses = ? "
+        String UPDATE = "UPDATE tb_user "
+                + "SET password = ?, nama_user = ?, "
+                + "hak_akses = ? "
                 + "WHERE nik = ?";
         PreparedStatement state = null;
 

@@ -3,13 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package id.ac.pos.gudang.Dialog.Admin.MItra;
 
+import id.ac.pos.gudang.Form.FormAdmin;
 import id.ac.pos.gudang.dao.admin.MitraDAO;
 import id.ac.pos.gudang.daoimpl.admin.MitraDAOImpl;
 import id.ac.pos.gudang.entity.Mitra;
 import id.ac.pos.gudang.tablemodel.admin.MitraTM;
+import java.awt.Dialog;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -22,23 +23,22 @@ public class DialogMitra extends javax.swing.JDialog {
     /**
      * Creates new form DialogMitra
      */
-    
     private Mitra mitra;
     private MitraDAO dao;
     private ArrayList<Mitra> arrayMitra;
-    
+
     public void getData() {
         dao = new MitraDAOImpl();
         arrayMitra = dao.getMitra();
-        
+
         MitraTM mitraTableModel = new MitraTM();
         mitraTableModel.setDataMitra(arrayMitra);
-        
+
         tableMitra.setModel(mitraTableModel);
-        
+
         fieldCariMitra.setText("");
     }
-    
+
     public DialogMitra(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -190,20 +190,22 @@ public class DialogMitra extends javax.swing.JDialog {
 
     private void buttonUbahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonUbahActionPerformed
         // TODO add your handling code here:
-        //int baris = tableRegional.getSelectedRow();
-       // if (baris >= 0) {
-            // mengambil anggota dari baris table
-           // Regional regionalTerpilih = arrayRegional.get(baris);
+        int baris = tableMitra.getSelectedRow();
+        if (baris >= 0) {
+            //mengambil anggota dari baris table 
+            Mitra mitraTerpilih = arrayMitra.get(baris);
+            FormAdmin admin = new FormAdmin();
 
-            // munculkan dialog
-           // DialogUbahRegional dur = new DialogUbahRegional (this, true, regionalTerpilih);
-           // dur.setLocationRelativeTo(null);
-           // dur.setVisible(true);
-            //getData();
+            //munculkan dialog
+            DialogUbahMitra dum = new DialogUbahMitra(admin, true, mitraTerpilih);
+            dum.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
+            dum.setLocationRelativeTo(null);
+            dum.setVisible(true);
+            getData();
 
-       // } else {
-        //    JOptionPane.showMessageDialog(this, "Anda Harus Memilih Terlebih Dahulu Regional Yang Akan Diubah!");
-        //}
+        } else {
+            JOptionPane.showMessageDialog(this, "Anda Harus Memilih Terlebih Dahulu Mitra Yang Akan Diubah!");
+        }
     }//GEN-LAST:event_buttonUbahActionPerformed
 
     private void buttonHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHapusActionPerformed
@@ -262,6 +264,7 @@ public class DialogMitra extends javax.swing.JDialog {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(DialogMitra.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */

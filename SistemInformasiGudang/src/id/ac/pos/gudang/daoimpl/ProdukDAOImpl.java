@@ -85,8 +85,8 @@ public class ProdukDAOImpl implements ProdukDAO {
     @Override
     public boolean tambahProduk(Produk produk, String jenisProduk) {
         String INSERT = "INSERT INTO tb_produk (id_produk, nama_produk, nominal, "
-                + "biaya_cetak, stok, tahun, id_jenis_produk"
-                + ") VALUES (?, ?, ?, ?, ?, ?, ?)";
+                + "biaya_cetak, stok, tahun, id_jenis_produk,nik"
+                + ") VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         PreparedStatement state = null;
 
         try {
@@ -98,6 +98,7 @@ public class ProdukDAOImpl implements ProdukDAO {
             state.setInt(5, produk.getStok());
             state.setString(6, produk.getTahun());
             state.setString(7, jenisProduk);
+            state.setString(8, produk.getNik());
 
             int qty = state.executeUpdate();
             return qty > 0;
@@ -113,7 +114,6 @@ public class ProdukDAOImpl implements ProdukDAO {
         String DELETE = "DELETE FROM tb_produk "
                 + "WHERE id_produk = ?";
         PreparedStatement state = null;
-
         try {
             state = conn.prepareStatement(DELETE);
             state.setString(1, idProduk);
@@ -475,7 +475,8 @@ public class ProdukDAOImpl implements ProdukDAO {
                     produk.setStok(result.getInt(5));
                     produk.setTahun(result.getString(6));
                     produk.setIdJenisProduk(result.getString(7));
-                    produk.setTglHapus(result.getDate(8));
+                    produk.setNik(result.getString(8));
+                    produk.setTglHapus(result.getDate(9));
 
                     //menambahkan data ke array
                     arrayProduk.add(produk);
@@ -522,8 +523,8 @@ public class ProdukDAOImpl implements ProdukDAO {
                     produk.setStok(result.getInt(5));
                     produk.setTahun(result.getString(6));
                     produk.setIdJenisProduk(result.getString(7));
-                    produk.setTglHapus(result.getDate(8));
-
+                    produk.setNik(result.getString(8));
+                    produk.setTglHapus(result.getDate(9));
                     //menambahkan data ke array
                     arrayProduk.add(produk);
                 }
@@ -569,8 +570,8 @@ public class ProdukDAOImpl implements ProdukDAO {
                     produk.setStok(result.getInt(5));
                     produk.setTahun(result.getString(6));
                     produk.setIdJenisProduk(result.getString(7));
-                    produk.setTglHapus(result.getDate(8));
-
+                    produk.setNik(result.getString(8));
+                    produk.setTglHapus(result.getDate(9));
                     //menambahkan data ke array
                     arrayProduk.add(produk);
                 }
@@ -615,8 +616,8 @@ public class ProdukDAOImpl implements ProdukDAO {
                     produk.setStok(result.getInt(5));
                     produk.setTahun(result.getString(6));
                     produk.setIdJenisProduk(result.getString(7));
-                    produk.setTglHapus(result.getDate(8));
-
+                    produk.setNik(result.getString(8));
+                    produk.setTglHapus(result.getDate(9));
                     //menambahkan data ke array
                     arrayProduk.add(produk);
                 }
@@ -661,8 +662,8 @@ public class ProdukDAOImpl implements ProdukDAO {
                     produk.setStok(result.getInt(5));
                     produk.setTahun(result.getString(6));
                     produk.setIdJenisProduk(result.getString(7));
-                    produk.setTglHapus(result.getDate(8));
-
+                    produk.setNik(result.getString(8));
+                    produk.setTglHapus(result.getDate(9));
                     //menambahkan data ke array
                     arrayProduk.add(produk);
                 }
@@ -707,8 +708,8 @@ public class ProdukDAOImpl implements ProdukDAO {
                     produk.setStok(result.getInt(5));
                     produk.setTahun(result.getString(6));
                     produk.setIdJenisProduk(result.getString(7));
-                    produk.setTglHapus(result.getDate(8));
-
+                    produk.setNik(result.getString(8));
+                    produk.setTglHapus(result.getDate(9));
                     //menambahkan data ke array
                     arrayProduk.add(produk);
                 }
@@ -753,8 +754,8 @@ public class ProdukDAOImpl implements ProdukDAO {
                     produk.setStok(result.getInt(5));
                     produk.setTahun(result.getString(6));
                     produk.setIdJenisProduk(result.getString(7));
-                    produk.setTglHapus(result.getDate(8));
-
+                    produk.setNik(result.getString(8));
+                    produk.setTglHapus(result.getDate(9));
                     //menambahkan data ke array
                     arrayProduk.add(produk);
                 }
@@ -777,8 +778,8 @@ public class ProdukDAOImpl implements ProdukDAO {
     @Override
     public boolean restoreProduk(Produk produk, String jenisProduk) {
         String INSERT = "INSERT INTO tb_produk (id_produk, nama_produk, nominal, "
-                + "biaya_cetak, stok, tahun, id_jenis_produk"
-                + ") VALUES (?, ?, ?, ?, ?, ?, ?)";
+                + "biaya_cetak, stok, tahun, id_jenis_produk,nik"
+                + ") VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         PreparedStatement state = null;
 
         try {
@@ -790,6 +791,7 @@ public class ProdukDAOImpl implements ProdukDAO {
             state.setInt(5, produk.getStok());
             state.setString(6, produk.getTahun());
             state.setString(7, produk.getIdJenisProduk());
+            state.setString(8, produk.getNik());
 
             int qty = state.executeUpdate();
             return qty > 0;
@@ -817,45 +819,7 @@ public class ProdukDAOImpl implements ProdukDAO {
         return false;
     }
 
-    @Override
-    public ArrayList<Produk> getHistoryUpdate() {
-        ArrayList<Produk> arrayProduk = null;
-        String SELECT = "SELECT * FROM tb_update_produk";
-        PreparedStatement state = null;
-
-        try {
-            state = conn.prepareStatement(SELECT);
-
-            ResultSet result = state.executeQuery();
-            if (result != null) {
-                arrayProduk = new ArrayList<>();
-
-                //selama result memiliki data
-                //return lebih dari 1 data
-                while (result.next()) {
-
-                    //mengambil 1 data
-                    Produk produk = new Produk();
-                    produk.setNo(result.getInt(1));
-                    produk.setIdProduk(result.getString(2));
-                    produk.setNamaProduk(result.getString(3));
-                    produk.setNominal(result.getInt(4));
-                    produk.setBiayaCetak(result.getFloat(5));
-                    produk.setStok(result.getInt(6));
-                    produk.setTahun(result.getString(7));
-                    produk.setTglUbah(result.getDate(9));
-
-                    //menambahkan data ke array
-                    arrayProduk.add(produk);
-                }
-            }
-        } catch (SQLException ex) {
-
-            Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return arrayProduk;
-    }
-
+   
     @Override
     public ArrayList<Produk> getHistoryDelete() {
         ArrayList<Produk> arrayProduk = null;

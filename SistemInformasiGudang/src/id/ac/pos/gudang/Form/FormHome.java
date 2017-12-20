@@ -5,9 +5,7 @@
  */
 package id.ac.pos.gudang.Form;
 
-import id.ac.pos.gudang.Dialog.Admin.DialogHistoryDelete;
 import id.ac.pos.gudang.Dialog.Admin.DialogRecycleBin;
-import id.ac.pos.gudang.Dialog.Admin.DialogHistoryUpdate;
 import id.ac.pos.gudang.Dialog.DialogLaporan;
 import id.ac.pos.gudang.Panel.PanelPemesanan;
 import id.ac.pos.gudang.Panel.PanelPenerimaan;
@@ -41,7 +39,7 @@ public final class FormHome extends javax.swing.JFrame {
     public FormHome() {
     }
 
-    FormHome(String string) {
+    FormHome(String nama,String nik) {
         initComponents();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         refresh();
@@ -54,9 +52,10 @@ public final class FormHome extends javax.swing.JFrame {
         fieldTahunProdukMerchandise.setText(Integer.toString(tahun));
         fieldTahunProdukPrisma.setText(Integer.toString(tahun));
         fieldTahunProdukSHPSHPSS.setText(Integer.toString(tahun));
-        SelamatDatang.setText("SELAMAT DATANG, " + string.toUpperCase());
+        SelamatDatang.setText("SELAMAT DATANG, " + nama.toUpperCase());
+        this.nik.setText(nik);
     }
-
+    
     private void refresh() {
         
         autoincrementProduk();
@@ -574,6 +573,7 @@ public final class FormHome extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        nik = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -756,12 +756,11 @@ public final class FormHome extends javax.swing.JFrame {
         SelamatDatang = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         itemRegional = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         itemRecycleBin = new javax.swing.JMenuItem();
-        itemHistoryUpdate = new javax.swing.JMenuItem();
-        itemHistoryDelete = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
+
+        nik.setText("jLabel7");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -2754,11 +2753,6 @@ public final class FormHome extends javax.swing.JFrame {
         );
 
         itemRegional.setText("File");
-
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem1.setText("Regional");
-        itemRegional.add(jMenuItem1);
-
         jMenuBar1.add(itemRegional);
 
         jMenu2.setText("Help");
@@ -2771,24 +2765,6 @@ public final class FormHome extends javax.swing.JFrame {
             }
         });
         jMenu2.add(itemRecycleBin);
-
-        itemHistoryUpdate.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_MASK));
-        itemHistoryUpdate.setText("History Update");
-        itemHistoryUpdate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itemHistoryUpdateActionPerformed(evt);
-            }
-        });
-        jMenu2.add(itemHistoryUpdate);
-
-        itemHistoryDelete.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_MASK));
-        itemHistoryDelete.setText("History Delete");
-        itemHistoryDelete.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itemHistoryDeleteActionPerformed(evt);
-            }
-        });
-        jMenu2.add(itemHistoryDelete);
 
         jMenuBar1.add(jMenu2);
 
@@ -2841,7 +2817,8 @@ public final class FormHome extends javax.swing.JFrame {
         String nominal = fieldNominalPrangko.getText();
         String biayaCetak = fieldBiayaCetakPrangko.getText();
         String tahun = fieldTahunPrangko.getText();
-
+        String nik = this.nik.getText();
+        
         //validasi apakah filed 
         //sudah diisi atau belum
         if (fieldKodeProdukPrangko.getText().equals("")) {
@@ -2880,6 +2857,7 @@ public final class FormHome extends javax.swing.JFrame {
                 produk.setNominal(Integer.parseInt(nominal));
                 produk.setBiayaCetak(Float.parseFloat(biayaCetak));
                 produk.setTahun(tahun);
+                produk.setNik(nik);
 
                 //inisialisasi
                 String jenisProduk = "PR";
@@ -2890,6 +2868,7 @@ public final class FormHome extends javax.swing.JFrame {
 
                 //cek sukses atau tidak
                 if (sukses) {
+                    JOptionPane.showMessageDialog(this, "Data berhasil ditambahkan");
                     getDataPrangko();
                     autoincrementPrangko();
                     resetField();
@@ -5115,27 +5094,6 @@ public final class FormHome extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_buttonResetMerchandiseActionPerformed
 
-    private void itemRecycleBinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemRecycleBinActionPerformed
-        // TODO add your handling code here:
-        DialogRecycleBin drb = new DialogRecycleBin(this, true);
-        drb.setLocationRelativeTo(null);
-        drb.setVisible(true);
-    }//GEN-LAST:event_itemRecycleBinActionPerformed
-
-    private void itemHistoryUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemHistoryUpdateActionPerformed
-        // TODO add your handling code here:
-        DialogHistoryUpdate drb = new DialogHistoryUpdate(this, true);
-        drb.setLocationRelativeTo(null);
-        drb.setVisible(true);
-    }//GEN-LAST:event_itemHistoryUpdateActionPerformed
-
-    private void itemHistoryDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemHistoryDeleteActionPerformed
-        // TODO add your handling code here:
-        DialogHistoryDelete drd = new DialogHistoryDelete(this, true);
-        drd.setLocationRelativeTo(null);
-        drd.setVisible(true);
-    }//GEN-LAST:event_itemHistoryDeleteActionPerformed
-
     private void buttonRefreshPrangkoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRefreshPrangkoActionPerformed
         // TODO add your handling code here:
         refresh();
@@ -5238,6 +5196,13 @@ public final class FormHome extends javax.swing.JFrame {
         // TODO add your handling code here:
         fieldBiayaCetakPrangko.selectAll();
     }//GEN-LAST:event_fieldBiayaCetakPrangkoMouseClicked
+
+    private void itemRecycleBinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemRecycleBinActionPerformed
+        // TODO add your handling code here:
+        DialogRecycleBin drb = new DialogRecycleBin(this, true);
+        drb.setLocationRelativeTo(null);
+        drb.setVisible(true);
+    }//GEN-LAST:event_itemRecycleBinActionPerformed
 
     /**
      * @param args the command line arguments
@@ -5392,8 +5357,6 @@ public final class FormHome extends javax.swing.JFrame {
     private javax.swing.JTextField fieldTahunProdukMerchandise;
     private javax.swing.JTextField fieldTahunProdukPrisma;
     private javax.swing.JTextField fieldTahunProdukSHPSHPSS;
-    private javax.swing.JMenuItem itemHistoryDelete;
-    private javax.swing.JMenuItem itemHistoryUpdate;
     private javax.swing.JMenuItem itemRecycleBin;
     private javax.swing.JMenu itemRegional;
     private javax.swing.JButton jButton6;
@@ -5438,7 +5401,6 @@ public final class FormHome extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
@@ -5463,6 +5425,7 @@ public final class FormHome extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JLabel nik;
     private javax.swing.JPanel tabKelolaProduk;
     private javax.swing.JTabbedPane tabbedPaneProduk;
     private javax.swing.JTable tableDokumenFilateli;
