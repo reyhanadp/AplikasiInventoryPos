@@ -39,6 +39,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
     ArrayList<Penerimaan> arrayPenerimaan;
     ArrayList<Produk> arrayProduk;
     ArrayList<Suplier> arraySuplier;
+    ArrayList<Pemesanan> arrayPemesanan;
     TableRowSorter sorter;
     
     public PanelPenerimaan() {
@@ -80,6 +81,8 @@ public class PanelPenerimaan extends javax.swing.JPanel {
             jenisCari = "nama_suplier";
         } else if (pilihanCari == "Nomor Pemesanan") {
             jenisCari = "no_pemesanan";
+        } else if (pilihanCari == "Id Pemesanan") {
+            jenisCari = "ps.id_pemesanan";
         } else if (pilihanCari == "Nominal") {
             jenisCari = "nominal";
         } else if (pilihanCari == "Tahun") {
@@ -216,7 +219,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
         });
         jScrollPane13.setViewportView(tablePenerimaanPrangko);
 
-        comboCariPenerimaanPrangko.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nomor Order", "Tanggal Penerimaan", "Nomor Pemesanan", "Kode Produk", "Nama Produk", "Nominal", "Tahun", "Nama Suplier" }));
+        comboCariPenerimaanPrangko.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nomor Order", "Tanggal Penerimaan", "Nomor Pemesanan", "Id Pemesanan", "Kode Produk", "Nama Produk", "Nominal", "Tahun", "Nama Suplier" }));
 
         fieldCariPenerimaanPrangko.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -318,7 +321,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
         });
         jScrollPane14.setViewportView(tablePenerimaanMS_SS);
 
-        comboCariPenerimaanMS_SS.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nomor Order", "Tanggal Penerimaan", "Nomor Pemesanan", "Kode Produk", "Nama Produk", "Nominal", "Tahun", "Nama Suplier" }));
+        comboCariPenerimaanMS_SS.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nomor Order", "Tanggal Penerimaan", "Nomor Pemesanan", "Id Pemesanan", "Kode Produk", "Nama Produk", "Nominal", "Tahun", "Nama Suplier" }));
 
         fieldCariPenerimaanMS_SS.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -411,7 +414,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
         });
         jScrollPane15.setViewportView(tablePenerimaanSHP_SHPSS);
 
-        comboCariPenerimaanSHP_SHPSS.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nomor Order", "Tanggal Penerimaan", "Nomor Pemesanan", "Kode Produk", "Nama Produk", "Nominal", "Tahun", "Nama Suplier" }));
+        comboCariPenerimaanSHP_SHPSS.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nomor Order", "Tanggal Penerimaan", "Nomor Pemesanan", "Id Pemesanan", "Kode Produk", "Nama Produk", "Nominal", "Tahun", "Nama Suplier" }));
 
         fieldCariPenerimaanSHP_SHPSS.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -500,7 +503,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
         });
         jScrollPane16.setViewportView(tablePenerimaanKemasan);
 
-        comboCariPenerimaanKemasan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nomor Order", "Tanggal Penerimaan", "Nomor Pemesanan", "Kode Produk", "Nama Produk", "Nominal", "Tahun", "Nama Suplier" }));
+        comboCariPenerimaanKemasan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nomor Order", "Tanggal Penerimaan", "Nomor Pemesanan", "Id Pemesanan", "Kode Produk", "Nama Produk", "Nominal", "Tahun", "Nama Suplier" }));
 
         fieldCariPenerimaanKemasan.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -583,7 +586,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
         });
         jScrollPane17.setViewportView(tablePenerimaanMerchandise);
 
-        comboCariPenerimaanMerchandise.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nomor Order", "Tanggal Penerimaan", "Nomor Pemesanan", "Kode Produk", "Nama Produk", "Nominal", "Tahun", "Nama Suplier" }));
+        comboCariPenerimaanMerchandise.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nomor Order", "Tanggal Penerimaan", "Nomor Pemesanan", "Id Pemesanan", "Kode Produk", "Nama Produk", "Nominal", "Tahun", "Nama Suplier" }));
 
         fieldCariPenerimaanMerchandise.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -666,7 +669,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
         });
         jScrollPane18.setViewportView(tablePenerimaanPrisma);
 
-        comboCariPenerimaanPrisma.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nomor Order", "Tanggal Penerimaan", "Nomor Pemesanan", "Kode Produk", "Nama Produk", "Nominal", "Tahun", "Nama Suplier" }));
+        comboCariPenerimaanPrisma.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nomor Order", "Tanggal Penerimaan", "Nomor Pemesanan", "Id Pemesanan", "Kode Produk", "Nama Produk", "Nominal", "Tahun", "Nama Suplier" }));
 
         fieldCariPenerimaanPrisma.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -749,7 +752,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
         });
         jScrollPane19.setViewportView(tablePenerimaanDokumenFilateli);
 
-        comboCariPenerimaanDF.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nomor Order", "Tanggal Penerimaan", "Nomor Pemesanan", "Kode Produk", "Nama Produk", "Nominal", "Tahun", "Nama Suplier" }));
+        comboCariPenerimaanDF.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nomor Order", "Tanggal Penerimaan", "Nomor Pemesanan", "Id Pemesanan", "Kode Produk", "Nama Produk", "Nominal", "Tahun", "Nama Suplier" }));
 
         fieldCariPenerimaanDF.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -845,6 +848,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
         Vector vector_suplier= new Vector();
         Vector vector_nominal= new Vector();
         Vector vector_tahun= new Vector();
+        Vector vector_no_pemesanan= new Vector();
         dao = new PenerimaanDAOImpl();
         String jenis_produk = "PR";
         arrayPenerimaan = dao.getDataPenerimaan(jenis_produk);
@@ -855,10 +859,13 @@ public class PanelPenerimaan extends javax.swing.JPanel {
             vector_tahun.add(arrayProduk.get(0).getTahun());
             arraySuplier = dao.getNamaSuplier(arrayPenerimaan.get(i).getIdSuplier());
             vector_suplier.add(arraySuplier.get(0).getNama_suplier());
+            arrayPemesanan = dao.getNoPemesanan(arrayPenerimaan.get(i).getIdPemesanan());
+            
+            vector_no_pemesanan.add(arrayPemesanan.get(0).getNoPemesanan());
         }
         
         PenerimaanTM penerimaanTableModel = new PenerimaanTM();
-        penerimaanTableModel.setDataPenerimaan(arrayPenerimaan, vector_produk, vector_suplier, vector_nominal, vector_tahun);
+        penerimaanTableModel.setDataPenerimaan(arrayPenerimaan, vector_produk, vector_suplier, vector_nominal, vector_tahun, vector_no_pemesanan);
         sorter = new TableRowSorter(penerimaanTableModel);
         tablePenerimaanPrangko.setRowSorter(sorter);
         tablePenerimaanPrangko.setModel(penerimaanTableModel);
@@ -869,6 +876,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
         Vector vector_suplier= new Vector();
         Vector vector_nominal= new Vector();
         Vector vector_tahun= new Vector();
+        Vector vector_no_pemesanan= new Vector();
         dao = new PenerimaanDAOImpl();
         String jenis_produk = "MS";
         arrayPenerimaan = dao.getDataPenerimaan(jenis_produk);
@@ -880,10 +888,12 @@ public class PanelPenerimaan extends javax.swing.JPanel {
             vector_tahun.add(arrayProduk.get(0).getTahun());
             arraySuplier = dao.getNamaSuplier(arrayPenerimaan.get(i).getIdSuplier());
             vector_suplier.add(arraySuplier.get(0).getNama_suplier());
+            arrayPemesanan = dao.getNoPemesanan(arrayPenerimaan.get(i).getIdPemesanan());
+            vector_no_pemesanan.add(arrayPemesanan.get(0).getNoPemesanan());
         }
         
         PenerimaanTM penerimaanTableModel = new PenerimaanTM();
-        penerimaanTableModel.setDataPenerimaan(arrayPenerimaan, vector_produk, vector_suplier, vector_nominal, vector_tahun);
+        penerimaanTableModel.setDataPenerimaan(arrayPenerimaan, vector_produk, vector_suplier, vector_nominal, vector_tahun, vector_no_pemesanan);
         sorter = new TableRowSorter(penerimaanTableModel);
         tablePenerimaanMS_SS.setRowSorter(sorter);
         tablePenerimaanMS_SS.setModel(penerimaanTableModel);
@@ -894,6 +904,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
         Vector vector_suplier= new Vector();
         Vector vector_nominal= new Vector();
         Vector vector_tahun= new Vector();
+        Vector vector_no_pemesanan= new Vector();
         dao = new PenerimaanDAOImpl();
         String jenis_produk = "SHP";
         arrayPenerimaan = dao.getDataPenerimaan(jenis_produk);
@@ -905,10 +916,12 @@ public class PanelPenerimaan extends javax.swing.JPanel {
             vector_tahun.add(arrayProduk.get(0).getTahun());
             arraySuplier = dao.getNamaSuplier(arrayPenerimaan.get(i).getIdSuplier());
             vector_suplier.add(arraySuplier.get(0).getNama_suplier());
+            arrayPemesanan = dao.getNoPemesanan(arrayPenerimaan.get(i).getIdPemesanan());
+            vector_no_pemesanan.add(arrayPemesanan.get(0).getNoPemesanan());
         }
         
         PenerimaanTM penerimaanTableModel = new PenerimaanTM();
-        penerimaanTableModel.setDataPenerimaan(arrayPenerimaan, vector_produk, vector_suplier, vector_nominal, vector_tahun);
+        penerimaanTableModel.setDataPenerimaan(arrayPenerimaan, vector_produk, vector_suplier, vector_nominal, vector_tahun, vector_no_pemesanan);
         sorter = new TableRowSorter(penerimaanTableModel);
         tablePenerimaanSHP_SHPSS.setRowSorter(sorter);
         tablePenerimaanSHP_SHPSS.setModel(penerimaanTableModel);
@@ -919,6 +932,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
         Vector vector_suplier= new Vector();
         Vector vector_nominal= new Vector();
         Vector vector_tahun= new Vector();
+        Vector vector_no_pemesanan= new Vector();
         dao = new PenerimaanDAOImpl();
         String jenis_produk = "KM";
         arrayPenerimaan = dao.getDataPenerimaan(jenis_produk);
@@ -930,10 +944,12 @@ public class PanelPenerimaan extends javax.swing.JPanel {
             vector_tahun.add(arrayProduk.get(0).getTahun());
             arraySuplier = dao.getNamaSuplier(arrayPenerimaan.get(i).getIdSuplier());
             vector_suplier.add(arraySuplier.get(0).getNama_suplier());
+            arrayPemesanan = dao.getNoPemesanan(arrayPenerimaan.get(i).getIdPemesanan());
+            vector_no_pemesanan.add(arrayPemesanan.get(0).getNoPemesanan());
         }
         
         PenerimaanTM penerimaanTableModel = new PenerimaanTM();
-        penerimaanTableModel.setDataPenerimaan(arrayPenerimaan, vector_produk, vector_suplier, vector_nominal, vector_tahun);
+        penerimaanTableModel.setDataPenerimaan(arrayPenerimaan, vector_produk, vector_suplier, vector_nominal, vector_tahun, vector_no_pemesanan);
         sorter = new TableRowSorter(penerimaanTableModel);
         tablePenerimaanKemasan.setRowSorter(sorter);
         tablePenerimaanKemasan.setModel(penerimaanTableModel);
@@ -944,6 +960,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
         Vector vector_suplier= new Vector();
         Vector vector_nominal= new Vector();
         Vector vector_tahun= new Vector();
+        Vector vector_no_pemesanan= new Vector();
         dao = new PenerimaanDAOImpl();
         String jenis_produk = "MC";
         arrayPenerimaan = dao.getDataPenerimaan(jenis_produk);
@@ -955,10 +972,12 @@ public class PanelPenerimaan extends javax.swing.JPanel {
             vector_tahun.add(arrayProduk.get(0).getTahun());
             arraySuplier = dao.getNamaSuplier(arrayPenerimaan.get(i).getIdSuplier());
             vector_suplier.add(arraySuplier.get(0).getNama_suplier());
+            arrayPemesanan = dao.getNoPemesanan(arrayPenerimaan.get(i).getIdPemesanan());
+            vector_no_pemesanan.add(arrayPemesanan.get(0).getNoPemesanan());
         }
         
         PenerimaanTM penerimaanTableModel = new PenerimaanTM();
-        penerimaanTableModel.setDataPenerimaan(arrayPenerimaan, vector_produk, vector_suplier, vector_nominal, vector_tahun);
+        penerimaanTableModel.setDataPenerimaan(arrayPenerimaan, vector_produk, vector_suplier, vector_nominal, vector_tahun, vector_no_pemesanan);
         sorter = new TableRowSorter(penerimaanTableModel);
         tablePenerimaanMerchandise.setRowSorter(sorter);
         tablePenerimaanMerchandise.setModel(penerimaanTableModel);
@@ -969,6 +988,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
         Vector vector_suplier= new Vector();
         Vector vector_nominal= new Vector();
         Vector vector_tahun= new Vector();
+        Vector vector_no_pemesanan= new Vector();
         dao = new PenerimaanDAOImpl();
         String jenis_produk = "PS";
         arrayPenerimaan = dao.getDataPenerimaan(jenis_produk);
@@ -980,10 +1000,12 @@ public class PanelPenerimaan extends javax.swing.JPanel {
             vector_tahun.add(arrayProduk.get(0).getTahun());
             arraySuplier = dao.getNamaSuplier(arrayPenerimaan.get(i).getIdSuplier());
             vector_suplier.add(arraySuplier.get(0).getNama_suplier());
+            arrayPemesanan = dao.getNoPemesanan(arrayPenerimaan.get(i).getIdPemesanan());
+            vector_no_pemesanan.add(arrayPemesanan.get(0).getNoPemesanan());
         }
         
         PenerimaanTM penerimaanTableModel = new PenerimaanTM();
-        penerimaanTableModel.setDataPenerimaan(arrayPenerimaan, vector_produk, vector_suplier, vector_nominal, vector_tahun);
+        penerimaanTableModel.setDataPenerimaan(arrayPenerimaan, vector_produk, vector_suplier, vector_nominal, vector_tahun, vector_no_pemesanan);
         sorter = new TableRowSorter(penerimaanTableModel);
         tablePenerimaanPrisma.setRowSorter(sorter);
         tablePenerimaanPrisma.setModel(penerimaanTableModel);
@@ -994,6 +1016,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
         Vector vector_suplier= new Vector();
         Vector vector_nominal= new Vector();
         Vector vector_tahun= new Vector();
+        Vector vector_no_pemesanan= new Vector();
         dao = new PenerimaanDAOImpl();
         String jenis_produk = "DF";
         arrayPenerimaan = dao.getDataPenerimaan(jenis_produk);
@@ -1005,10 +1028,12 @@ public class PanelPenerimaan extends javax.swing.JPanel {
             vector_tahun.add(arrayProduk.get(0).getTahun());
             arraySuplier = dao.getNamaSuplier(arrayPenerimaan.get(i).getIdSuplier());
             vector_suplier.add(arraySuplier.get(0).getNama_suplier());
+            arrayPemesanan = dao.getNoPemesanan(arrayPenerimaan.get(i).getIdPemesanan());
+            vector_no_pemesanan.add(arrayPemesanan.get(0).getNoPemesanan());
         }
         
         PenerimaanTM penerimaanTableModel = new PenerimaanTM();
-        penerimaanTableModel.setDataPenerimaan(arrayPenerimaan, vector_produk, vector_suplier, vector_nominal, vector_tahun);
+        penerimaanTableModel.setDataPenerimaan(arrayPenerimaan, vector_produk, vector_suplier, vector_nominal, vector_tahun, vector_no_pemesanan);
         sorter = new TableRowSorter(penerimaanTableModel);
         tablePenerimaanDokumenFilateli.setRowSorter(sorter);
         tablePenerimaanDokumenFilateli.setModel(penerimaanTableModel);
@@ -1032,6 +1057,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
         Vector vector_suplier= new Vector();
         Vector vector_nominal=new Vector();
         Vector vector_tahun=new Vector();
+        Vector vector_no_pemesanan= new Vector();
         String keyword = fieldCariPenerimaanPrangko.getText();
         String status = "prangko";
         String tabCari = cariJenis(status);
@@ -1048,10 +1074,12 @@ public class PanelPenerimaan extends javax.swing.JPanel {
             vector_tahun.add(arrayProduk.get(0).getTahun());
             arraySuplier = dao.getNamaSuplier(arrayPenerimaan.get(i).getIdSuplier());
             vector_suplier.add(arraySuplier.get(0).getNama_suplier());
+            arrayPemesanan = dao.getNoPemesanan(arrayPenerimaan.get(i).getIdPemesanan());
+            vector_no_pemesanan.add(arrayPemesanan.get(0).getNoPemesanan());
         }
         
         PenerimaanTM penerimaanTableModel = new PenerimaanTM();
-        penerimaanTableModel.setDataPenerimaan(arrayPenerimaan, vector_produk, vector_suplier, vector_nominal, vector_tahun);
+        penerimaanTableModel.setDataPenerimaan(arrayPenerimaan, vector_produk, vector_suplier, vector_nominal, vector_tahun, vector_no_pemesanan);
         sorter = new TableRowSorter(penerimaanTableModel);
         tablePenerimaanPrangko.setRowSorter(sorter);
 
@@ -1080,6 +1108,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
         Vector vector_suplier= new Vector();
         Vector vector_nominal=new Vector();
         Vector vector_tahun=new Vector();
+        Vector vector_no_pemesanan= new Vector();
         String keyword = fieldCariPenerimaanMS_SS.getText();
         String status = "ss";
         String tabCari = cariJenis(status);
@@ -1096,10 +1125,12 @@ public class PanelPenerimaan extends javax.swing.JPanel {
             vector_tahun.add(arrayProduk.get(0).getTahun());
             arraySuplier = dao.getNamaSuplier(arrayPenerimaan.get(i).getIdSuplier());
             vector_suplier.add(arraySuplier.get(0).getNama_suplier());
+            arrayPemesanan = dao.getNoPemesanan(arrayPenerimaan.get(i).getIdPemesanan());
+            vector_no_pemesanan.add(arrayPemesanan.get(0).getNoPemesanan());
         }
         
         PenerimaanTM penerimaanTableModel = new PenerimaanTM();
-        penerimaanTableModel.setDataPenerimaan(arrayPenerimaan, vector_produk, vector_suplier, vector_nominal, vector_tahun);
+        penerimaanTableModel.setDataPenerimaan(arrayPenerimaan, vector_produk, vector_suplier, vector_nominal, vector_tahun, vector_no_pemesanan);
         sorter = new TableRowSorter(penerimaanTableModel);
         tablePenerimaanMS_SS.setRowSorter(sorter);
 
@@ -1124,6 +1155,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
         Vector vector_suplier= new Vector();
         Vector vector_nominal=new Vector();
         Vector vector_tahun=new Vector();
+        Vector vector_no_pemesanan= new Vector();
         String keyword = fieldCariPenerimaanSHP_SHPSS.getText();
         String status = "shp";
         String tabCari = cariJenis(status);
@@ -1140,10 +1172,12 @@ public class PanelPenerimaan extends javax.swing.JPanel {
             vector_tahun.add(arrayProduk.get(0).getTahun());
             arraySuplier = dao.getNamaSuplier(arrayPenerimaan.get(i).getIdSuplier());
             vector_suplier.add(arraySuplier.get(0).getNama_suplier());
+            arrayPemesanan = dao.getNoPemesanan(arrayPenerimaan.get(i).getIdPemesanan());
+            vector_no_pemesanan.add(arrayPemesanan.get(0).getNoPemesanan());
         }
         
         PenerimaanTM penerimaanTableModel = new PenerimaanTM();
-        penerimaanTableModel.setDataPenerimaan(arrayPenerimaan, vector_produk, vector_suplier, vector_nominal, vector_tahun);
+        penerimaanTableModel.setDataPenerimaan(arrayPenerimaan, vector_produk, vector_suplier, vector_nominal, vector_tahun, vector_no_pemesanan);
         sorter = new TableRowSorter(penerimaanTableModel);
         tablePenerimaanSHP_SHPSS.setRowSorter(sorter);
 
@@ -1168,6 +1202,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
         Vector vector_suplier= new Vector();
         Vector vector_nominal=new Vector();
         Vector vector_tahun=new Vector();
+        Vector vector_no_pemesanan= new Vector();
         String keyword = fieldCariPenerimaanKemasan.getText();
         String status = "kemasan";
         String tabCari = cariJenis(status);
@@ -1184,10 +1219,12 @@ public class PanelPenerimaan extends javax.swing.JPanel {
             vector_tahun.add(arrayProduk.get(0).getTahun());
             arraySuplier = dao.getNamaSuplier(arrayPenerimaan.get(i).getIdSuplier());
             vector_suplier.add(arraySuplier.get(0).getNama_suplier());
+            arrayPemesanan = dao.getNoPemesanan(arrayPenerimaan.get(i).getIdPemesanan());
+            vector_no_pemesanan.add(arrayPemesanan.get(0).getNoPemesanan());
         }
         
         PenerimaanTM penerimaanTableModel = new PenerimaanTM();
-        penerimaanTableModel.setDataPenerimaan(arrayPenerimaan, vector_produk, vector_suplier, vector_nominal, vector_tahun);
+        penerimaanTableModel.setDataPenerimaan(arrayPenerimaan, vector_produk, vector_suplier, vector_nominal, vector_tahun, vector_no_pemesanan);
         sorter = new TableRowSorter(penerimaanTableModel);
         tablePenerimaanKemasan.setRowSorter(sorter);
 
@@ -1212,6 +1249,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
         Vector vector_suplier= new Vector();
         Vector vector_nominal=new Vector();
         Vector vector_tahun=new Vector();
+        Vector vector_no_pemesanan= new Vector();
         String keyword = fieldCariPenerimaanMerchandise.getText();
         String status = "mc";
         String tabCari = cariJenis(status);
@@ -1228,10 +1266,12 @@ public class PanelPenerimaan extends javax.swing.JPanel {
             vector_tahun.add(arrayProduk.get(0).getTahun());
             arraySuplier = dao.getNamaSuplier(arrayPenerimaan.get(i).getIdSuplier());
             vector_suplier.add(arraySuplier.get(0).getNama_suplier());
+            arrayPemesanan = dao.getNoPemesanan(arrayPenerimaan.get(i).getIdPemesanan());
+            vector_no_pemesanan.add(arrayPemesanan.get(0).getNoPemesanan());
         }
         
         PenerimaanTM penerimaanTableModel = new PenerimaanTM();
-        penerimaanTableModel.setDataPenerimaan(arrayPenerimaan, vector_produk, vector_suplier, vector_nominal, vector_tahun);
+        penerimaanTableModel.setDataPenerimaan(arrayPenerimaan, vector_produk, vector_suplier, vector_nominal, vector_tahun, vector_no_pemesanan);
         sorter = new TableRowSorter(penerimaanTableModel);
         tablePenerimaanMerchandise.setRowSorter(sorter);
 
@@ -1256,6 +1296,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
         Vector vector_suplier= new Vector();
         Vector vector_nominal=new Vector();
         Vector vector_tahun=new Vector();
+        Vector vector_no_pemesanan= new Vector();
         String keyword = fieldCariPenerimaanPrisma.getText();
         String status = "prisma";
         String tabCari = cariJenis(status);
@@ -1272,10 +1313,12 @@ public class PanelPenerimaan extends javax.swing.JPanel {
             vector_tahun.add(arrayProduk.get(0).getTahun());
             arraySuplier = dao.getNamaSuplier(arrayPenerimaan.get(i).getIdSuplier());
             vector_suplier.add(arraySuplier.get(0).getNama_suplier());
+            arrayPemesanan = dao.getNoPemesanan(arrayPenerimaan.get(i).getIdPemesanan());
+            vector_no_pemesanan.add(arrayPemesanan.get(0).getNoPemesanan());
         }
         
         PenerimaanTM penerimaanTableModel = new PenerimaanTM();
-        penerimaanTableModel.setDataPenerimaan(arrayPenerimaan, vector_produk, vector_suplier, vector_nominal, vector_tahun);
+        penerimaanTableModel.setDataPenerimaan(arrayPenerimaan, vector_produk, vector_suplier, vector_nominal, vector_tahun, vector_no_pemesanan);
         sorter = new TableRowSorter(penerimaanTableModel);
         tablePenerimaanPrisma.setRowSorter(sorter);
 
@@ -1300,6 +1343,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
         Vector vector_suplier= new Vector();
         Vector vector_nominal=new Vector();
         Vector vector_tahun=new Vector();
+        Vector vector_no_pemesanan= new Vector();
         String keyword = fieldCariPenerimaanDF.getText();
         String status = "df";
         String tabCari = cariJenis(status);
@@ -1316,10 +1360,12 @@ public class PanelPenerimaan extends javax.swing.JPanel {
             vector_tahun.add(arrayProduk.get(0).getTahun());
             arraySuplier = dao.getNamaSuplier(arrayPenerimaan.get(i).getIdSuplier());
             vector_suplier.add(arraySuplier.get(0).getNama_suplier());
+            arrayPemesanan = dao.getNoPemesanan(arrayPenerimaan.get(i).getIdPemesanan());
+            vector_no_pemesanan.add(arrayPemesanan.get(0).getNoPemesanan());
         }
         
         PenerimaanTM penerimaanTableModel = new PenerimaanTM();
-        penerimaanTableModel.setDataPenerimaan(arrayPenerimaan, vector_produk, vector_suplier, vector_nominal, vector_tahun);
+        penerimaanTableModel.setDataPenerimaan(arrayPenerimaan, vector_produk, vector_suplier, vector_nominal, vector_tahun, vector_no_pemesanan);
         sorter = new TableRowSorter(penerimaanTableModel);
         tablePenerimaanDokumenFilateli.setRowSorter(sorter);
 

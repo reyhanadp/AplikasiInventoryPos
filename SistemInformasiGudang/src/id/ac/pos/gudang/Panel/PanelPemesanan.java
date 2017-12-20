@@ -6,6 +6,7 @@
 package id.ac.pos.gudang.Panel;
 
 import id.ac.pos.gudang.Dialog.DialogTambahPemesanan;
+import javax.swing.JDialog;
 import id.ac.pos.gudang.Form.FormHome;
 import id.ac.pos.gudang.dao.PemesananDAO;
 import id.ac.pos.gudang.dao.ProdukDAO;
@@ -14,6 +15,7 @@ import id.ac.pos.gudang.entity.Pemesanan;
 import id.ac.pos.gudang.entity.Produk;
 import id.ac.pos.gudang.entity.Suplier;
 import id.ac.pos.gudang.tablemodel.PemesananTM;
+import id.ac.pos.gudang.utility.JComboboxListener;
 import java.util.ArrayList;
 import java.util.Vector;
 import javax.swing.table.TableRowSorter;

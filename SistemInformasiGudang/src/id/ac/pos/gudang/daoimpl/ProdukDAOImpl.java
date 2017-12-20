@@ -156,7 +156,7 @@ public class ProdukDAOImpl implements ProdukDAO {
                 + "WHERE id_jenis_produk='" + jenisProduk + "')"
                 + " UNION "
                 + "(SELECT id_produk FROM tb_hapus_produk "
-                + "WHERE id_jenis_produk='" + jenisProduk + "')"
+                + "WHERE substring(id_produk,1,2)='" + jenisProduk + "')"
                 + " ORDER BY id_produk";
         PreparedStatement state = null;
 

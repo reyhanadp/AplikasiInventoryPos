@@ -16,16 +16,20 @@ import java.util.ArrayList;
  * @author muhamad solahudin
  */
 public interface PenerimaanDAO {
-    
-    boolean tambahPenerimaan(Penerimaan penerimaan);
-    ArrayList<Penerimaan> cariProdukPenerimaan(String keyword, String jenisCari, String idJenis);
-    ArrayList<Penerimaan> getDataPenerimaan(String jenis_produk);
-    ArrayList<Penerimaan> IsiPemesanan(String noPemesanan);
-    ArrayList<Produk> getNama(String kode_produk);
-    ArrayList<Suplier> getNamaSuplier(String id_suplier);
+    String getIdPenerimaan();
+    ArrayList<Pemesanan> getNoPemesanan(String idPemesanan);
+    ArrayList<Produk> getKodeProduk(Object nominal, Object tahun, Object nama_produk, String jenis_produk);
+    ArrayList<Produk> getNominalProduk(Object nama_produk, Object tahun, String jenis_produk);
+    ArrayList<Produk> getTahunProduk(Object nama_produk, String jenis_produk);
+    ArrayList<Pemesanan> getIdPemesanan(String kodeProduk);
+    ArrayList<Produk> getNamaProduk(String jenis_produk);
+    ArrayList<Penerimaan> IsiPemesanan(String idPemesanan);
     ArrayList<Produk> getDetailProduk(Object noPemesanan);
     ArrayList<Pemesanan> getTotalPesan(Object noPemesanan);
-    ArrayList<Produk> getNamaProduk(String jenis_produk);
-    ArrayList<Pemesanan> getNoPemesanan(String kodeProduk);
+    ArrayList<Penerimaan> cariProdukPenerimaan(String keyword, String jenisCari, String idJenis);
+    boolean tambahPenerimaan(Penerimaan penerimaan);
+    ArrayList<Penerimaan> getDataPenerimaan(String jenis_produk);
     ArrayList<Produk> getStok(String kode_produk);
+    ArrayList<Produk> getNama(String kode_produk);
+    ArrayList<Suplier> getNamaSuplier(String id_suplier);
 }

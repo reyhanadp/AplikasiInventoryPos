@@ -34,13 +34,52 @@ public class PenerimaanDAOImpl implements PenerimaanDAO {
     }
     
     
+    @Override
+    public String getIdPenerimaan() {
+        String id_penerimaan = null;
+        String SELECT = "select * from tb_trans_penerimaan";
+        PreparedStatement state = null;
+
+        try {
+            state = conn.prepareStatement(SELECT);
+
+            ResultSet result = state.executeQuery();
+            if (result != null) {
+
+                //selama result memiliki data
+                //return lebih dari 1 data
+                while (result.next()) {
+
+                    //mengambil 1 data
+                    id_penerimaan = result.getString("id_penerimaan");
+                }
+            }
+        } catch (SQLException ex) {
+
+            Logger.getLogger(PemesananDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            try {
+                state.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try {
+                conn.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+        return id_penerimaan;
+    }
     
-    public ArrayList<Pemesanan> getNoPemesanan(String kodeProduk) {
+    
+    public ArrayList<Pemesanan> getNoPemesanan(String idPemesanan) {
         conn = DatabaseConnectivity.getConnection();
         ArrayList<Pemesanan> arrayPemesanan = null;
         String SELECT = "";
-        SELECT = "SELECT no_pemesanan,id_suplier FROM tb_pemesanan "
-                    + "where id_produk='"+kodeProduk+"' AND status='belum selesai'";
+        SELECT = "SELECT no_pemesanan FROM tb_trans_pemesanan "
+                    + "where id_pemesanan='"+idPemesanan+"'";
        
         PreparedStatement state = null;
         try {
@@ -57,6 +96,251 @@ public class PenerimaanDAOImpl implements PenerimaanDAO {
                     //mengambil 1 data
                     Pemesanan pemesanan = new Pemesanan();
                     pemesanan.setNoPemesanan(result.getString(1));
+                    //menambahkan data ke array
+                    arrayPemesanan.add(pemesanan);
+                }
+            }
+            state.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(PemesananDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            try {
+                state.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try {
+                conn.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+        return arrayPemesanan;
+    }
+    
+    @Override
+    public ArrayList<Produk> getKodeProduk(Object nominal, Object tahun, Object nama_produk, String jenis_produk) {
+        conn = DatabaseConnectivity.getConnection();
+        ArrayList<Produk> arrayProduk = null;
+        String SELECT = "";
+        if (jenis_produk.compareTo("MS") == 0) {
+            SELECT = "SELECT pr.id_produk,stok FROM tb_produk pr JOIN tb_trans_pemesanan pm "
+                    + "ON pr.id_produk=pm.id_produk "
+                    + "WHERE nama_produk='" + nama_produk + "' && tahun='" + tahun + "' && nominal='" + nominal + "' && "
+                    + "id_jenis_produk in (SELECT id_jenis_produk FROM"
+                    + " tb_produk WHERE id_jenis_produk = 'SS'"
+                    + " || id_jenis_produk = 'MS') AND pm.status='belum selesai'";
+        } else if (jenis_produk.compareTo("SHP") == 0) {
+            SELECT = "SELECT pr.id_produk,stok FROM tb_produk pr JOIN tb_trans_pemesanan pm "
+                    + "ON pr.id_produk=pm.id_produk "
+                    + "WHERE nama_produk='" + nama_produk + "' && tahun='" + tahun + "' && nominal='" + nominal + "' && "
+                    + "id_jenis_produk in (SELECT id_jenis_produk FROM"
+                    + " tb_produk WHERE id_jenis_produk = 'SHP'"
+                    + " || id_jenis_produk = 'SHPSS') AND pm.status='belum selesai'";
+        } else {
+            SELECT = "SELECT pr.id_produk,stok FROM tb_produk pr JOIN tb_trans_pemesanan pm "
+                    + "ON pr.id_produk=pm.id_produk "
+                    + "WHERE nama_produk='" + nama_produk + "' && tahun='" + tahun + "' && nominal='" + nominal + "' && "
+                    + "id_jenis_produk='" + jenis_produk + "' AND pm.status='belum selesai'";
+        }
+
+        PreparedStatement state = null;
+
+        try {
+            state = conn.prepareStatement(SELECT);
+
+            ResultSet result = state.executeQuery();
+            if (result != null) {
+                arrayProduk = new ArrayList<>();
+
+                //selama result memiliki data 
+                // return lebih dari 1 data 
+                while (result.next()) {
+
+                    //mengambil 1 data
+                    Produk produk = new Produk();
+                    produk.setIdProduk(result.getString(1));
+                    produk.setStok(Integer.parseInt(result.getString(2)));
+
+                    //menambahkan data ke array
+                    arrayProduk.add(produk);
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } finally{
+            try {
+                state.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try {
+                conn.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+        return arrayProduk;
+    }
+    
+    @Override
+    public ArrayList<Produk> getNominalProduk(Object nama_produk, Object tahun, String jenis_produk) {
+       conn = DatabaseConnectivity.getConnection();
+        ArrayList<Produk> arrayProduk = null;
+        String SELECT = "";
+        if (jenis_produk.compareTo("MS") == 0) {
+            SELECT = "SELECT nominal FROM `tb_produk` pr JOIN tb_trans_pemesanan pm "
+                    + "ON pr.id_produk=pm.id_produk "
+                    + "where nama_produk='" + nama_produk + "' AND tahun='" + tahun + "' AND "
+                    + "id_jenis_produk in (SELECT id_jenis_produk FROM"
+                    + " tb_produk WHERE id_jenis_produk = 'SS'"
+                    + " || id_jenis_produk = 'MS') AND pm.status='belum selesai' "
+                    + "ORDER BY nominal";
+        } else if (jenis_produk.compareTo("SHP") == 0) {
+            SELECT = "SELECT nominal FROM `tb_produk` pr JOIN tb_trans_pemesanan pm "
+                    + "ON pr.id_produk=pm.id_produk "
+                    + "where nama_produk='" + nama_produk + "' AND tahun='" + tahun + "' AND "
+                    + "id_jenis_produk in (SELECT id_jenis_produk FROM"
+                    + " tb_produk WHERE id_jenis_produk = 'SHP'"
+                    + " || id_jenis_produk = 'SHPSS') AND pm.status='belum selesai'"
+                    + " ORDER BY nominal";
+        } else {
+            SELECT = "SELECT nominal FROM `tb_produk` pr JOIN tb_trans_pemesanan pm "
+                    + "ON pr.id_produk=pm.id_produk "
+                    + "where nama_produk='" + nama_produk + "' AND tahun='" + tahun + "' "
+                    + "AND id_jenis_produk='" + jenis_produk + "' AND pm.status='belum selesai' ORDER BY nominal";
+        }
+
+        PreparedStatement state = null;
+
+        try {
+            state = conn.prepareStatement(SELECT);
+
+            ResultSet result = state.executeQuery();
+            if (result != null) {
+                arrayProduk = new ArrayList<>();
+
+                //selama result memiliki data 
+                // return lebih dari 1 data 
+                while (result.next()) {
+
+                    //mengambil 1 data
+                    Produk produk = new Produk();
+                    produk.setNominal(Integer.parseInt(result.getString(1)));
+
+                    //menambahkan data ke array
+                    arrayProduk.add(produk);
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            try {
+                state.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try {
+                conn.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+        return arrayProduk;
+    }
+    
+    @Override
+    public ArrayList<Produk> getTahunProduk(Object nama_produk, String jenis_produk) {
+        conn = DatabaseConnectivity.getConnection();
+        ArrayList<Produk> arrayProduk = null;
+        String SELECT = "";
+        if (jenis_produk.compareTo("MS") == 0) {
+            SELECT = "SELECT distinct(tahun) FROM `tb_produk` pr JOIN tb_trans_pemesanan pm "
+                    + "ON pr.id_produk=pm.id_produk "
+                    + "where nama_produk='" + nama_produk + "' AND "
+                    + "id_jenis_produk in (SELECT id_jenis_produk FROM"
+                    + " tb_produk WHERE id_jenis_produk = 'SS'"
+                    + " || id_jenis_produk = 'MS') "
+                    + "AND pm.status='belum selesai' ORDER BY tahun";
+        } else if (jenis_produk.compareTo("SHP") == 0) {
+            SELECT = "SELECT distinct(tahun) FROM `tb_produk` pr JOIN tb_trans_pemesanan pm "
+                    + "ON pr.id_produk=pm.id_produk "
+                    + "where nama_produk='" + nama_produk + "' AND "
+                    + "id_jenis_produk in (SELECT id_jenis_produk FROM"
+                    + " tb_produk WHERE id_jenis_produk = 'SHP'"
+                    + " || id_jenis_produk = 'SHPSS') "
+                    + "AND pm.status='belum selesai' ORDER BY tahun";
+        } else {
+            SELECT = "SELECT distinct(tahun) FROM `tb_produk` pr JOIN tb_trans_pemesanan pm "
+                    + "ON pr.id_produk=pm.id_produk "
+                    + "where nama_produk='" + nama_produk + "' AND id_jenis_produk='" + jenis_produk + "' "
+                    + "AND pm.status='belum selesai' ORDER BY tahun";
+        }
+
+        PreparedStatement state = null;
+
+        try {
+            state = conn.prepareStatement(SELECT);
+
+            ResultSet result = state.executeQuery();
+            if (result != null) {
+                arrayProduk = new ArrayList<>();
+
+                //selama result memiliki data 
+                // return lebih dari 1 data 
+                while (result.next()) {
+
+                    //mengambil 1 data
+                    Produk produk = new Produk();
+                    produk.setTahun(result.getString(1));
+
+                    //menambahkan data ke array
+                    arrayProduk.add(produk);
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            try {
+                state.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try {
+                conn.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+        return arrayProduk;
+    }
+    
+    public ArrayList<Pemesanan> getIdPemesanan(String kodeProduk) {
+        conn = DatabaseConnectivity.getConnection();
+        ArrayList<Pemesanan> arrayPemesanan = null;
+        String SELECT = "";
+        SELECT = "SELECT id_pemesanan,id_suplier FROM tb_trans_pemesanan "
+                    + "where id_produk='"+kodeProduk+"' AND status='belum selesai'";
+       
+        PreparedStatement state = null;
+        try {
+            state = conn.prepareStatement(SELECT);
+
+            ResultSet result = state.executeQuery();
+            if (result != null) {
+                arrayPemesanan = new ArrayList<>();
+
+                //selama result memiliki data 
+                // return lebih dari 1 data 
+                while (result.next()) {
+
+                    //mengambil 1 data
+                    Pemesanan pemesanan = new Pemesanan();
+                    pemesanan.setIdPemesanan(result.getString(1));
                     pemesanan.setIdSuplier(result.getString(2));
                     //menambahkan data ke array
                     arrayPemesanan.add(pemesanan);
@@ -65,6 +349,17 @@ public class PenerimaanDAOImpl implements PenerimaanDAO {
             state.close();
         } catch (SQLException ex) {
             Logger.getLogger(PemesananDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            try {
+                state.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try {
+                conn.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
 
         return arrayPemesanan;
@@ -76,7 +371,7 @@ public class PenerimaanDAOImpl implements PenerimaanDAO {
         conn = DatabaseConnectivity.getConnection();
         ArrayList<Produk> arrayProduk = null;
         String SELECT = "";
-        SELECT = "SELECT distinct(nama_produk) FROM `tb_produk` pr JOIN tb_pemesanan pm "
+        SELECT = "SELECT distinct(nama_produk) FROM `tb_produk` pr JOIN tb_trans_pemesanan pm "
                + "ON pr.id_produk=pm.id_produk"
                + " where id_jenis_produk='" + jenis_produk + "' AND status='belum selesai' ORDER BY nama_produk ASC";
         
@@ -104,20 +399,32 @@ public class PenerimaanDAOImpl implements PenerimaanDAO {
             state.close();
         } catch (SQLException ex) {
             Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            try {
+                state.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try {
+                conn.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
 
         return arrayProduk;
     }
     
     @Override
-    public ArrayList<Penerimaan> IsiPemesanan(String noPemesanan){
+    public ArrayList<Penerimaan> IsiPemesanan(String idPemesanan){
         ArrayList<Penerimaan> arrayPenerimaan = null;
         String SELECT = "";
-        SELECT = "SELECT tb_pemesanan.id_suplier,tb_produk.id_produk,tb_trans_penerimaan.sisa_belum_dikirim,"
+        SELECT = "SELECT tb_trans_pemesanan.id_suplier,tb_produk.id_produk,tb_trans_penerimaan.sisa_belum_dikirim,"
                     + "tb_produk.nama_produk,tb_trans_penerimaan.subtotal_terima,jumlah_pesan,stok "
-                    + "FROM tb_pemesanan,tb_produk,tb_trans_penerimaan "
-                    + "WHERE tb_pemesanan.no_pemesanan = '"+noPemesanan+"' AND tb_pemesanan.id_produk=tb_produk.id_produk"
-                    + " AND tb_trans_penerimaan.no_pemesanan=tb_pemesanan.no_pemesanan";
+                    + "FROM tb_trans_pemesanan,tb_produk,tb_trans_penerimaan "
+                    + "WHERE tb_trans_pemesanan.id_pemesanan = '"+idPemesanan+"' AND tb_trans_pemesanan.id_produk=tb_produk.id_produk"
+                    + " AND tb_trans_penerimaan.id_pemesanan=tb_trans_pemesanan.id_pemesanan "
+                + "ORDER BY tb_trans_penerimaan.subtotal_terima DESC";
         PreparedStatement state = null;
         try {
             state = conn.prepareStatement(SELECT);
@@ -142,6 +449,17 @@ public class PenerimaanDAOImpl implements PenerimaanDAO {
 
             Logger.getLogger(PenerimaanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
             
+        }finally{
+            try {
+                state.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try {
+                conn.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
         } 
         return arrayPenerimaan;
      }
@@ -151,10 +469,10 @@ public class PenerimaanDAOImpl implements PenerimaanDAO {
         conn = DatabaseConnectivity.getConnection();
         ArrayList<Produk> arrayProduk = null;
         String SELECT = "";
-        SELECT = "SELECT tb_pemesanan.id_suplier,tb_produk.id_produk,tb_produk.stok,"
+        SELECT = "SELECT tb_trans_pemesanan.id_suplier,tb_produk.id_produk,tb_produk.stok,"
                     + "tb_produk.nama_produk,nominal,tahun "
-                    + "FROM tb_pemesanan,tb_produk "
-                    + "WHERE no_pemesanan = '"+noPemesanan+"' AND tb_pemesanan.id_produk=tb_produk.id_produk";
+                    + "FROM tb_trans_pemesanan,tb_produk "
+                    + "WHERE id_pemesanan = '"+noPemesanan+"' AND tb_trans_pemesanan.id_produk=tb_produk.id_produk";
 
         PreparedStatement state = null;
 
@@ -183,6 +501,17 @@ public class PenerimaanDAOImpl implements PenerimaanDAO {
             state.close();
         } catch (SQLException ex) {
             Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            try {
+                state.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try {
+                conn.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         
         return arrayProduk;
@@ -194,8 +523,8 @@ public class PenerimaanDAOImpl implements PenerimaanDAO {
         ArrayList<Pemesanan> arrayPemesanan = null;
         String SELECT = "";
         SELECT = "SELECT jumlah_pesan "
-                    + "FROM tb_pemesanan "
-                    + "WHERE no_pemesanan = '"+noPemesanan+"'";
+                    + "FROM tb_trans_pemesanan "
+                    + "WHERE id_pemesanan = '"+noPemesanan+"'";
 
         PreparedStatement state = null;
 
@@ -221,7 +550,18 @@ public class PenerimaanDAOImpl implements PenerimaanDAO {
             state.close();
         } catch (SQLException ex) {
             Logger.getLogger(PemesananDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-        } 
+        } finally{
+            try {
+                state.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try {
+                conn.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
 
         return arrayPemesanan;
     }
@@ -233,7 +573,8 @@ public class PenerimaanDAOImpl implements PenerimaanDAO {
         if (idJenis.compareTo("SS") == 0) {
             SELECT = "SELECT * FROM tb_trans_penerimaan pn JOIN tb_produk pr "
                     + "ON pn.id_produk=pr.id_produk JOIN tb_suplier sp "
-                    + "ON sp.id_suplier=pn.id_suplier "
+                    + "ON sp.id_suplier=pn.id_suplier JOIN tb_trans_pemesanan ps "
+                    + "ON ps.id_pemesanan=pn.id_pemesanan "
                     + "WHERE " + jenisCari + " LIKE '%" + keyword + "%' && "
                     + "substring(pr.id_produk,1,2) in (SELECT substring(id_produk,1,2) FROM"
                     + " tb_produk WHERE id_jenis_produk = 'SS'"
@@ -241,7 +582,8 @@ public class PenerimaanDAOImpl implements PenerimaanDAO {
         } else if (idJenis.compareTo("SHP") == 0) {
             SELECT = "SELECT * FROM tb_trans_penerimaan pn JOIN tb_produk pr "
                     + "ON pn.id_produk=pr.id_produk JOIN tb_suplier sp "
-                    + "ON sp.id_suplier=pn.id_suplier "
+                    + "ON sp.id_suplier=pn.id_suplier JOIN tb_trans_pemesanan ps "
+                    + "ON ps.id_pemesanan=pn.id_pemesanan "
                     + "WHERE " + jenisCari + " LIKE '%" + keyword + "%' && "
                     + "substring(pr.id_produk,1,2) in (SELECT substring(id_produk,1,2) FROM"
                     + " tb_produk WHERE id_jenis_produk = 'SHP'"
@@ -249,7 +591,8 @@ public class PenerimaanDAOImpl implements PenerimaanDAO {
         } else {
                 SELECT = "SELECT * FROM tb_trans_penerimaan pn JOIN tb_produk pr "
                     + "ON pn.id_produk=pr.id_produk JOIN tb_suplier sp "
-                    + "ON sp.id_suplier=pn.id_suplier "
+                    + "ON sp.id_suplier=pn.id_suplier JOIN tb_trans_pemesanan ps "
+                    + "ON ps.id_pemesanan=pn.id_pemesanan "
                     + "WHERE " + jenisCari + " LIKE '%" + keyword + "%' && substring(pr.id_produk,1,2) = '" + idJenis + "'";
         }
         PreparedStatement state = null;
@@ -267,7 +610,7 @@ public class PenerimaanDAOImpl implements PenerimaanDAO {
                     penerimaan.setNoOrder(result.getString("no_order_penerimaan"));
                     penerimaan.setTglPenerimaan(result.getDate("tgl_penerimaan"));
                     penerimaan.setJmlTerima(result.getInt("jml_terima"));
-                    penerimaan.setNoPemesanan(result.getString("no_pemesanan"));
+                    penerimaan.setIdPemesanan(result.getString("id_pemesanan"));
                     penerimaan.setIdProduk(result.getString("id_produk"));
                     penerimaan.setIdSuplier(result.getString("id_suplier"));
                     penerimaan.setStokAwal(result.getInt("stok_awal"));
@@ -284,29 +627,41 @@ public class PenerimaanDAOImpl implements PenerimaanDAO {
         } catch (SQLException ex) {
 
             Logger.getLogger(PenerimaanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-        } 
+        } finally{
+            try {
+                state.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try {
+                conn.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
         return arrayPenerimaan;
     }
         
     public boolean tambahPenerimaan(Penerimaan penerimaan){
-        String INSERT = "INSERT INTO tb_trans_penerimaan (no_order_penerimaan,tgl_penerimaan, jml_terima, no_pemesanan,"
+        String INSERT = "INSERT INTO tb_trans_penerimaan (id_penerimaan,no_order_penerimaan,tgl_penerimaan, jml_terima, id_pemesanan,"
                 + "id_produk, id_suplier, stok_awal, stok_akhir, subtotal_terima,sisa_belum_dikirim, keterangan"
-                + ") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)";
+                + ") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)";
         PreparedStatement state = null;
         
         try {
             state = conn.prepareStatement(INSERT);
-            state.setString(1, penerimaan.getNoOrder());
-            state.setDate(2, new java.sql.Date (penerimaan.getTglPenerimaan().getTime()));
-            state.setInt(3, penerimaan.getJmlTerima());
-            state.setString(4,penerimaan.getNoPemesanan());
-            state.setString(5, penerimaan.getIdProduk());
-            state.setString(6, penerimaan.getIdSuplier());
-            state.setInt(7, penerimaan.getStokAwal());
-            state.setInt(8, penerimaan.getStokAkhir());
-            state.setInt(9, penerimaan.getSubTotalTerima());
-            state.setInt(10, penerimaan.getSisaBelumDikirim());
-            state.setString(11, penerimaan.getKeterangan());
+            state.setString(1, penerimaan.getIdPenerimaan());
+            state.setString(2, penerimaan.getNoOrder());
+            state.setDate(3, new java.sql.Date (penerimaan.getTglPenerimaan().getTime()));
+            state.setInt(4, penerimaan.getJmlTerima());
+            state.setString(5,penerimaan.getIdPemesanan());
+            state.setString(6, penerimaan.getIdProduk());
+            state.setString(7, penerimaan.getIdSuplier());
+            state.setInt(8, penerimaan.getStokAwal());
+            state.setInt(9, penerimaan.getStokAkhir());
+            state.setInt(10, penerimaan.getSubTotalTerima());
+            state.setInt(11, penerimaan.getSisaBelumDikirim());
+            state.setString(12, penerimaan.getKeterangan());
             
             int qty = state.executeUpdate();
             state.close();
@@ -349,7 +704,7 @@ public class PenerimaanDAOImpl implements PenerimaanDAO {
                     penerimaan.setNoOrder(result.getString("no_order_penerimaan"));
                     penerimaan.setTglPenerimaan(result.getDate("tgl_penerimaan"));
                     penerimaan.setJmlTerima(result.getInt("jml_terima"));
-                    penerimaan.setNoPemesanan(result.getString("no_pemesanan"));
+                    penerimaan.setIdPemesanan(result.getString("id_pemesanan"));
                     penerimaan.setIdProduk(result.getString("id_produk"));
                     penerimaan.setIdSuplier(result.getString("id_suplier"));
                     penerimaan.setStokAwal(result.getInt("stok_awal"));
@@ -401,6 +756,17 @@ public class PenerimaanDAOImpl implements PenerimaanDAO {
             state.close();
         } catch (SQLException ex) {
             Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            try {
+                state.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try {
+                conn.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         return arrayProduk;
     }
@@ -436,8 +802,20 @@ public class PenerimaanDAOImpl implements PenerimaanDAO {
                 }
             }
             state.close();
+            conn.close();
         } catch (SQLException ex) {
             Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            try {
+                state.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try {
+                conn.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
 
         return arrayProduk;
@@ -472,8 +850,20 @@ public class PenerimaanDAOImpl implements PenerimaanDAO {
                 }
             }
             state.close();
+            conn.close();
         } catch (SQLException ex) {
             Logger.getLogger(SuplierDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            try {
+                state.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try {
+                conn.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         return arraySuplier;
     }

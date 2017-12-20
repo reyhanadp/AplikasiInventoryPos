@@ -23,9 +23,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Vector;
+import javax.swing.table.DefaultTableModel;
+import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
+
 
 /**
  *
@@ -61,18 +64,72 @@ public class DialogTambahPenerimaan extends javax.swing.JDialog {
     public DialogTambahPenerimaan(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        autocompleteNamaProduk();
+        simpan.setEnabled(false);
+        batal.setEnabled(false);
+        hapus.setEnabled(false);
         setLocationRelativeTo(this);
+        tabel_penerimaan.setModel(new javax.swing.table.DefaultTableModel(new Object[][]{},
+                new String[]{
+                    "No", "Kode Produk", "Nama Produk", "Nominal","Stok Awal",
+                    "Subtotal Terima","Sisa Belum Dikirim","Jumlah Pemesanan",
+                    "Id Pemesanan", "Id Suplier", "Keterangan"
+                }));
     }
 
-    private void autocompleteNamaProduk() {
-
+    private void isiField(String kode_produk) {
+        
+        System.out.println(kode_produk);
+                
+                    daoPenerimaan = new PenerimaanDAOImpl();
+                   // arrayPemesanan = daoPenerimaan.getIdPemesanan(kode_produk);
+                    //fieldIdPemesanan.setText(arrayPemesanan.get(0).getIdPemesanan());
+                    //fieldIdSuplier.setText(arrayPemesanan.get(0).getIdSuplier());
+                    
+                    //arrayProdukPrangko = daoPenerimaan.getStok(kode_produk);
+                    //fieldStokAwal.setText(String.valueOf(arrayProdukPrangko.get(0).getStok()));
+                    
+                    if (fieldIdSuplier.getText()!=""){
+                    //arraySuplier = daoPenerimaan.getNamaSuplier(fieldIdSuplier.getText());
+                    //fieldNamaSuplier.setText(arraySuplier.get(0).getNama_suplier());
+                }
+               /* if (fieldIdPemesanan.getText()!=""){
+                    arrayPemesanan = daoPenerimaan.getTotalPesan(fieldIdPemesanan.getText());
+                    fieldTotalPemesanan.setText(arrayPemesanan.get(0).getJumlahPemesanan());
+                    
+                    
+                    arrayPenerimaan = daoPenerimaan.IsiPemesanan(fieldIdPemesanan.getText());
+                    if (arrayPenerimaan.size()>=1){
+                        fieldSubtotalTerima.setText(String.valueOf(arrayPenerimaan.get(0).getSubTotalTerima()));
+                        fieldSisaBelumDikirim.setText(String.valueOf(arrayPenerimaan.get(0).getSisaBelumDikirim()));
+                    }else{
+                        fieldSubtotalTerima.setText("0");
+                        fieldSisaBelumDikirim.setText(arrayPemesanan.get(0).getJumlahPemesanan());
+                    }
+                }*/
+                
+                
     }
-            
+    
+    private void reset_simpan() {
+        DefaultTableModel model = (DefaultTableModel) tabel_penerimaan.getModel();
+
+        int baris = tabel_penerimaan.getRowCount();
+        for (int i = 0; i < baris; i++) {
+            model.removeRow(0);
+        }
+
+        fieldTglPenerimaan.setDate(null);
+        fieldTglPenerimaan.setEnabled(true);
+        JenisProduk.setSelectedIndex(0);
+        fieldJmlTerima.setText("");
+        simpan.setEnabled(false);
+        batal.setEnabled(false);
+    }
+        
     private void reset() {
         Nominal.setSelectedItem("");
         Tahun.setSelectedItem("");
-        fieldNoPemesanan.setText("");
+        fieldIdPemesanan.setText("");
         KodeProduk.setText("");
         fieldTglPenerimaan.setDate(null);
         fieldJmlTerima.setText("");
@@ -100,9 +157,8 @@ public class DialogTambahPenerimaan extends javax.swing.JDialog {
         jPanel37 = new javax.swing.JPanel();
         fieldTglPenerimaan = new com.toedter.calendar.JDateChooser();
         fieldJmlTerima = new javax.swing.JTextField();
-        SimpanPenerimaan = new javax.swing.JButton();
+        simpan = new javax.swing.JButton();
         KodeProduk = new javax.swing.JTextField();
-        ResetPrangko = new javax.swing.JToggleButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -132,7 +188,19 @@ public class DialogTambahPenerimaan extends javax.swing.JDialog {
         NamaProduk = new javax.swing.JComboBox<>();
         Tahun = new javax.swing.JComboBox<>();
         Nominal = new javax.swing.JComboBox<>();
-        fieldNoPemesanan = new javax.swing.JTextField();
+        fieldIdPemesanan = new javax.swing.JTextField();
+        tambah = new javax.swing.JButton();
+        reset = new javax.swing.JButton();
+        hapus = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tabel_penerimaan = new javax.swing.JTable();
+        batal = new javax.swing.JButton();
+        fieldNoOrder1 = new javax.swing.JTextField();
+        fieldNoOrder2 = new javax.swing.JTextField();
+        fieldNoOrder3 = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -152,23 +220,15 @@ public class DialogTambahPenerimaan extends javax.swing.JDialog {
             }
         });
 
-        SimpanPenerimaan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/save.png"))); // NOI18N
-        SimpanPenerimaan.setText("Simpan");
-        SimpanPenerimaan.addActionListener(new java.awt.event.ActionListener() {
+        simpan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/save.png"))); // NOI18N
+        simpan.setText("Simpan");
+        simpan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SimpanPenerimaanActionPerformed(evt);
+                simpanActionPerformed(evt);
             }
         });
 
         KodeProduk.setEditable(false);
-
-        ResetPrangko.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/Reset.png"))); // NOI18N
-        ResetPrangko.setText("Reset");
-        ResetPrangko.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ResetPrangkoActionPerformed(evt);
-            }
-        });
 
         jLabel1.setText("Nama Produk");
 
@@ -243,7 +303,7 @@ public class DialogTambahPenerimaan extends javax.swing.JDialog {
         jLabel12.setText("Keterangan");
 
         fieldKeterangan.setColumns(20);
-        fieldKeterangan.setRows(5);
+        fieldKeterangan.setRows(3);
         jScrollPane1.setViewportView(fieldKeterangan);
 
         fieldNoOrder.addActionListener(new java.awt.event.ActionListener() {
@@ -252,12 +312,18 @@ public class DialogTambahPenerimaan extends javax.swing.JDialog {
             }
         });
         fieldNoOrder.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                fieldNoOrderKeyPressed(evt);
+            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 fieldNoOrderKeyReleased(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                fieldNoOrderKeyTyped(evt);
+            }
         });
 
-        jLabel44.setText("No. Pemesanan");
+        jLabel44.setText("Id Pemesanan");
 
         NamaProduk.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -312,61 +378,123 @@ public class DialogTambahPenerimaan extends javax.swing.JDialog {
             }
         });
 
-        fieldNoPemesanan.setEditable(false);
-        fieldNoPemesanan.addKeyListener(new java.awt.event.KeyAdapter() {
+        fieldIdPemesanan.setEditable(false);
+        fieldIdPemesanan.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                fieldNoPemesananKeyPressed(evt);
+                fieldIdPemesananKeyPressed(evt);
             }
         });
+
+        tambah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/Tambah.png"))); // NOI18N
+        tambah.setText("Tambah");
+        tambah.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tambahActionPerformed(evt);
+            }
+        });
+
+        reset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/Reset.png"))); // NOI18N
+        reset.setText("Reset");
+        reset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resetActionPerformed(evt);
+            }
+        });
+
+        hapus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/Empty_Trash.png"))); // NOI18N
+        hapus.setText("Hapus");
+        hapus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hapusActionPerformed(evt);
+            }
+        });
+
+        tabel_penerimaan.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(tabel_penerimaan);
+
+        batal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/Delete.png"))); // NOI18N
+        batal.setText("Batal");
+        batal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                batalActionPerformed(evt);
+            }
+        });
+
+        fieldNoOrder1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fieldNoOrder1ActionPerformed(evt);
+            }
+        });
+        fieldNoOrder1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                fieldNoOrder1KeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                fieldNoOrder1KeyTyped(evt);
+            }
+        });
+
+        fieldNoOrder2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fieldNoOrder2ActionPerformed(evt);
+            }
+        });
+        fieldNoOrder2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                fieldNoOrder2KeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                fieldNoOrder2KeyTyped(evt);
+            }
+        });
+
+        fieldNoOrder3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fieldNoOrder3ActionPerformed(evt);
+            }
+        });
+        fieldNoOrder3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                fieldNoOrder3KeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                fieldNoOrder3KeyTyped(evt);
+            }
+        });
+
+        jLabel13.setText("-");
+
+        jLabel14.setText("-");
+
+        jLabel15.setText("-");
 
         javax.swing.GroupLayout jPanel37Layout = new javax.swing.GroupLayout(jPanel37);
         jPanel37.setLayout(jPanel37Layout);
         jPanel37Layout.setHorizontalGroup(
             jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel37Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel112))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel37Layout.createSequentialGroup()
                 .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel37Layout.createSequentialGroup()
-                        .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel112))
-                        .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel37Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel8)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel37Layout.createSequentialGroup()
-                                            .addComponent(jLabel7)
-                                            .addGap(297, 297, 297)))
-                                    .addGroup(jPanel37Layout.createSequentialGroup()
-                                        .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel44)
-                                            .addComponent(jLabel11)
-                                            .addGroup(jPanel37Layout.createSequentialGroup()
-                                                .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jLabel43)
-                                                    .addComponent(jLabel42))
-                                                .addGap(59, 59, 59)
-                                                .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                    .addComponent(fieldSisaBelumDikirim, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(fieldJmlTerima)
-                                                    .addComponent(fieldSubtotalTerima, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(fieldIdSuplier, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(fieldNoPemesanan, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(Nominal, 0, 139, Short.MAX_VALUE))))
-                                        .addGap(180, 180, 180))))
-                            .addGroup(jPanel37Layout.createSequentialGroup()
-                                .addGap(46, 46, 46)
-                                .addComponent(SimpanPenerimaan, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(ResetPrangko, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))))
-                    .addGroup(jPanel37Layout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel9)
                             .addComponent(jLabel10)
@@ -375,23 +503,68 @@ public class DialogTambahPenerimaan extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel37Layout.createSequentialGroup()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(JenisProduk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel37Layout.createSequentialGroup()
+                                        .addComponent(fieldNoOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 4, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(fieldNoOrder1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel14)
+                                        .addGap(8, 8, 8)
+                                        .addComponent(fieldNoOrder2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 4, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(fieldNoOrder3, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(jPanel37Layout.createSequentialGroup()
                                 .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(NamaProduk, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(fieldStokAwal, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(fieldTotalPemesanan, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(fieldTglPenerimaan, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(fieldNamaSuplier, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(KodeProduk, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Tahun, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
+                                .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel8)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel37Layout.createSequentialGroup()
+                                            .addComponent(jLabel7)
+                                            .addGap(168, 168, 168)))
+                                    .addComponent(jLabel44)
+                                    .addComponent(jLabel11)
                                     .addGroup(jPanel37Layout.createSequentialGroup()
                                         .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(fieldStokAwal, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(fieldTotalPemesanan, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(fieldTglPenerimaan, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(JenisProduk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(fieldNamaSuplier, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(KodeProduk, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(Tahun, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(fieldNoOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(0, 219, Short.MAX_VALUE)))
-                                .addGap(180, 180, 180))))))
+                                            .addComponent(jLabel43)
+                                            .addComponent(jLabel42))
+                                        .addGap(59, 59, 59)
+                                        .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(fieldSisaBelumDikirim, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(fieldJmlTerima)
+                                            .addComponent(fieldSubtotalTerima, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(fieldIdSuplier, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(fieldIdPemesanan, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(Nominal, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addComponent(NamaProduk, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel37Layout.createSequentialGroup()
+                        .addGap(217, 217, 217)
+                        .addComponent(simpan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(batal, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane2)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel37Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(tambah, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(reset, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(hapus, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         jPanel37Layout.setVerticalGroup(
             jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -399,7 +572,13 @@ public class DialogTambahPenerimaan extends javax.swing.JDialog {
                 .addGap(5, 5, 5)
                 .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel112)
-                    .addComponent(fieldNoOrder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fieldNoOrder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fieldNoOrder1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fieldNoOrder2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fieldNoOrder3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13)
+                    .addComponent(jLabel14)
+                    .addComponent(jLabel15))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
@@ -419,7 +598,7 @@ public class DialogTambahPenerimaan extends javax.swing.JDialog {
                     .addComponent(KodeProduk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
                     .addComponent(jLabel44)
-                    .addComponent(fieldNoPemesanan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fieldIdPemesanan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -443,11 +622,7 @@ public class DialogTambahPenerimaan extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel12)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                        .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(SimpanPenerimaan)
-                            .addComponent(ResetPrangko, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel37Layout.createSequentialGroup()
                         .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7)
@@ -459,8 +634,18 @@ public class DialogTambahPenerimaan extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel11)
-                            .addComponent(fieldJmlTerima, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                            .addComponent(fieldJmlTerima, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(hapus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(reset, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(tambah, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(simpan, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(batal, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -468,15 +653,15 @@ public class DialogTambahPenerimaan extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel37, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel37, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(21, Short.MAX_VALUE)
                 .addComponent(jPanel37, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -487,7 +672,7 @@ public class DialogTambahPenerimaan extends javax.swing.JDialog {
     private void fieldJmlTerimaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldJmlTerimaKeyPressed
         // TODO add your handling code here:
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            SimpanPenerimaan.requestFocus();
+            simpan.requestFocus();
         }
     }//GEN-LAST:event_fieldJmlTerimaKeyPressed
 
@@ -503,70 +688,92 @@ public class DialogTambahPenerimaan extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_fieldJmlTerimaKeyTyped
 
-    private void SimpanPenerimaanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SimpanPenerimaanActionPerformed
+    private void simpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simpanActionPerformed
         // TODO add your handling code here:
-        String no_order = fieldNoOrder.getText();
+        boolean sukses = false;
+        String kosong = null;
+        int i;
+        int banyak_baris = tabel_penerimaan.getRowCount();
+        String no_order1 = fieldNoOrder.getText();
+        String no_order2 = fieldNoOrder1.getText();
+        String no_order3 = fieldNoOrder2.getText();
+        String no_order4 = fieldNoOrder3.getText();
+        String no_order = no_order1+"-"+no_order2+"-"+no_order3+"-"+no_order4;
         java.util.Date tanggal = (java.util.Date) fieldTglPenerimaan.getDate();
-        String jumlah_penerimaan = fieldJmlTerima.getText();
-        String no_pemesanan = fieldNoPemesanan.getText();
-        String kode_produk = KodeProduk.getText();
-        String id_suplier = fieldIdSuplier.getText();
-        String stok_awal = fieldStokAwal.getText();
-        String keterangan = fieldKeterangan.getText();
+        
         
         daoPenerimaan = new PenerimaanDAOImpl();
-        if (no_order.compareTo("") != 0) {
-            if(kode_produk.compareTo("")!= 0){
-                if (tanggal != null) {
-                    if (!fieldJmlTerima.getText().equals("") && !fieldJmlTerima.getText().equals("0")) {
+        
+        for (i = 0; i < banyak_baris; i++) {
+            String kode_produk = tabel_penerimaan.getValueAt(i, 1).toString();
+            String stok_awal = tabel_penerimaan.getValueAt(i, 4).toString();
+            String subtotal_terima = tabel_penerimaan.getValueAt(i, 5).toString();
+            String sisa = tabel_penerimaan.getValueAt(i, 6).toString();
+            String jumlah_penerimaan = tabel_penerimaan.getValueAt(i, 7).toString();
+            String id_pemesanan = tabel_penerimaan.getValueAt(i, 8).toString();
+            String id_suplier = tabel_penerimaan.getValueAt(i, 9).toString();
+            String keterangan = tabel_penerimaan.getValueAt(i, 10).toString();
+            
+        String id_penerimaan_string = daoPenerimaan.getIdPenerimaan();
+        if (id_penerimaan_string == null) {
+            id_penerimaan_string = "00000";
+        }
+        Integer id_penerimaan = Integer.parseInt(id_penerimaan_string);
+        id_penerimaan++;
+        id_penerimaan_string = Integer.toString(id_penerimaan);
+        int panjang = id_penerimaan_string.length();
+
+        switch (panjang) {
+            case 1:
+            kosong = "0000";
+            break;
+            case 2:
+            kosong = "000";
+            break;
+            case 3:
+            kosong = "00";
+            break;
+            case 4:
+            kosong = "0";
+            break;
+            case 5:
+            kosong = null;
+            break;
+            default:
+            break;
+        }
+
+        id_penerimaan_string = kosong + id_penerimaan_string;
+
                         penerimaan = new Penerimaan();
+                        penerimaan.setIdPenerimaan(id_penerimaan_string);
                         penerimaan.setNoOrder(no_order);
                         penerimaan.setTglPenerimaan(tanggal);
                         penerimaan.setJmlTerima(Integer.parseInt(jumlah_penerimaan));
-                        penerimaan.setNoPemesanan(no_pemesanan);
+                        penerimaan.setIdPemesanan(id_pemesanan);
                         penerimaan.setIdProduk(kode_produk);
                         penerimaan.setIdSuplier(id_suplier);
                         penerimaan.setStokAwal(Integer.parseInt(stok_awal));
                         int stok_akhir = Integer.parseInt(stok_awal) + Integer.parseInt(jumlah_penerimaan);
-                        int sub_total_terima = Integer.parseInt(fieldSubtotalTerima.getText()) + Integer.parseInt(jumlah_penerimaan);
-                        int sisa_belum_dikirim = Integer.parseInt(fieldSisaBelumDikirim.getText())-sub_total_terima;
+                        int sub_total_terima = Integer.parseInt(subtotal_terima) + Integer.parseInt(jumlah_penerimaan);
+                        int sisa_belum_dikirim = Integer.parseInt(sisa)-Integer.parseInt(jumlah_penerimaan);
                         penerimaan.setStokAkhir(stok_akhir);
                         penerimaan.setSubTotalTerima(sub_total_terima);
                         penerimaan.setSisaBelumDikirim(sisa_belum_dikirim);
                         penerimaan.setKeterangan(keterangan);
-                        boolean sukses = daoPenerimaan.tambahPenerimaan(penerimaan);
-
+                        sukses = daoPenerimaan.tambahPenerimaan(penerimaan);
+        }
                         //cek sukses atau tidak
                         if (sukses) {
                             JOptionPane.showMessageDialog(this, "Data berhasil ditambahkan");
-                            reset();
+                            reset_simpan();
                         } else {
                             JOptionPane.showMessageDialog(this, "Data gagal ditambahkan");
-                            reset();
+                            reset_simpan();
                         }
-                    } else {
-                        JOptionPane.showMessageDialog(null, "Silakan isi jumlah penerimaan terlebih dahulu, tidak boleh 0!");
-                        fieldJmlTerima.requestFocus();
-                    }
-                } else {
-                    JOptionPane.showMessageDialog(null, "Silakan isi tanggal penerimaan terlebih dahulu!");
-                    fieldTglPenerimaan.requestFocus();
-                }
-            }else{
-                JOptionPane.showMessageDialog(null, "Silakan pilih produk penerimaan terlebih dahulu!");
-                NamaProduk.requestFocus();                        
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "Silakan isi nomor order terlebih dahulu!");
-            fieldNoOrder.requestFocus();
-        }
+                    
 
-    }//GEN-LAST:event_SimpanPenerimaanActionPerformed
-
-    private void ResetPrangkoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetPrangkoActionPerformed
-        // TODO add your handling code here:
-        reset();
-    }//GEN-LAST:event_ResetPrangkoActionPerformed
+    }//GEN-LAST:event_simpanActionPerformed
 
     private void jPanel37MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel37MouseClicked
         // TODO add your handling code here:
@@ -587,11 +794,12 @@ public class DialogTambahPenerimaan extends javax.swing.JDialog {
 
     private void JenisProdukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JenisProdukActionPerformed
         // TODO add your handling code here:
-          Object jenis_produk = JenisProduk.getSelectedItem();
+        Object jenis_produk = JenisProduk.getSelectedItem();
         if (jenis_produk != "- Pilih Jenis Produk -") {
             NamaProduk.removeAllItems();
+            
             KodeProduk.setText("");
-            fieldNoPemesanan.setText("");
+            fieldIdPemesanan.setText("");
             fieldNamaSuplier.setText("");
             fieldIdSuplier.setText("");
             fieldStokAwal.setText("");
@@ -629,8 +837,10 @@ public class DialogTambahPenerimaan extends javax.swing.JDialog {
             AutoCompleteDecorator.decorate(NamaProduk);
         } else {
             NamaProduk.removeAllItems();
+            Tahun.removeAllItems();
+            Nominal.removeAllItems();
             KodeProduk.setText("");
-            fieldNoPemesanan.setText("");
+            fieldIdPemesanan.setText("");
             fieldNamaSuplier.setText("");
             fieldIdSuplier.setText("");
             fieldStokAwal.setText("");
@@ -652,10 +862,10 @@ public class DialogTambahPenerimaan extends javax.swing.JDialog {
         // TODO add your handling code here:
         Object nama_produk = NamaProduk.getSelectedItem();
         Object jenis_produk = JenisProduk.getSelectedItem();
-        if (nama_produk != "- Pilih Nama Produk -") {
+        if (nama_produk != "- Pilih Nama Produk -" && nama_produk !=null) {
             
             KodeProduk.setText("");
-            fieldNoPemesanan.setText("");
+            fieldIdPemesanan.setText("");
             fieldNamaSuplier.setText("");
             fieldIdSuplier.setText("");
             fieldStokAwal.setText("");
@@ -682,10 +892,19 @@ public class DialogTambahPenerimaan extends javax.swing.JDialog {
                 jenis_produk = "DF";
             }
             
-            dao = new PemesananDAOImpl();
-            arrayProdukPrangko = dao.getTahunProduk(nama_produk, (String) jenis_produk);
+            daoPenerimaan = new PenerimaanDAOImpl();
+            arrayProdukPrangko = daoPenerimaan.getTahunProduk(nama_produk, (String) jenis_produk);
             if (arrayProdukPrangko.size() > 1) {
                 vectorTahun.add("- Pilih Tahun Produk -");
+                    KodeProduk.setText("");
+                    fieldIdPemesanan.setText("");
+                    fieldNamaSuplier.setText("");
+                    fieldIdSuplier.setText("");
+                    fieldStokAwal.setText("");
+                    fieldSubtotalTerima.setText("");
+                    fieldTotalPemesanan.setText("");
+                    fieldSisaBelumDikirim.setText("");
+                    fieldJmlTerima.setText("");
                 for (int i = 0; i < arrayProdukPrangko.size(); i++) {
                     vectorTahun.add(arrayProdukPrangko.get(i).getTahun());
                 }
@@ -695,8 +914,8 @@ public class DialogTambahPenerimaan extends javax.swing.JDialog {
                     vectorTahun.add(arrayProdukPrangko.get(i).getTahun());
                 }
                 Tahun.setModel(new DefaultComboBoxModel(vectorTahun));
-
-                arrayProdukPrangko1 = dao.getNominalProduk(nama_produk, arrayProdukPrangko.get(0).getTahun(), (String) jenis_produk);
+                                
+                arrayProdukPrangko1 = daoPenerimaan.getNominalProduk(nama_produk, arrayProdukPrangko.get(0).getTahun(), (String) jenis_produk);
                 if (arrayProdukPrangko1.size() > 1) {
                     vectorNominal.add("- Pilih Nominal Produk -");
                     for (int i = 0; i < arrayProdukPrangko1.size(); i++) {
@@ -709,13 +928,14 @@ public class DialogTambahPenerimaan extends javax.swing.JDialog {
                         vectorNominal.add(arrayProdukPrangko1.get(i).getNominal());
                     }
                     Nominal.setModel(new DefaultComboBoxModel(vectorNominal));
-                    arrayProdukPrangko2 = dao.getKodeProduk(arrayProdukPrangko1.get(0).getNominal(), arrayProdukPrangko.get(0).getTahun(), nama_produk, (String) jenis_produk);
+                    arrayProdukPrangko2 = daoPenerimaan.getKodeProduk(arrayProdukPrangko1.get(0).getNominal(), arrayProdukPrangko.get(0).getTahun(), nama_produk, (String) jenis_produk);
                     KodeProduk.setText(arrayProdukPrangko2.get(0).getIdProduk());
-                }
-                if(KodeProduk.getText()!=""){
+                    
+                    //isi field
+                    if(KodeProduk.getText()!=""){
                     daoPenerimaan = new PenerimaanDAOImpl();
-                    arrayPemesanan = daoPenerimaan.getNoPemesanan(KodeProduk.getText());
-                    fieldNoPemesanan.setText(arrayPemesanan.get(0).getNoPemesanan());
+                    arrayPemesanan = daoPenerimaan.getIdPemesanan(KodeProduk.getText());
+                    fieldIdPemesanan.setText(arrayPemesanan.get(0).getIdPemesanan());
                     fieldIdSuplier.setText(arrayPemesanan.get(0).getIdSuplier());
                     
                     arrayProdukPrangko = daoPenerimaan.getStok(KodeProduk.getText());
@@ -725,13 +945,13 @@ public class DialogTambahPenerimaan extends javax.swing.JDialog {
                     arraySuplier = daoPenerimaan.getNamaSuplier(fieldIdSuplier.getText());
                     fieldNamaSuplier.setText(arraySuplier.get(0).getNama_suplier());
                 }
-                if (fieldNoPemesanan.getText()!=""){
-                    arrayPemesanan = daoPenerimaan.getTotalPesan(fieldNoPemesanan.getText());
+                if (fieldIdPemesanan.getText()!=""){
+                    arrayPemesanan = daoPenerimaan.getTotalPesan(fieldIdPemesanan.getText());
                     fieldTotalPemesanan.setText(arrayPemesanan.get(0).getJumlahPemesanan());
                     
                     
-                    arrayPenerimaan = daoPenerimaan.IsiPemesanan(fieldNoPemesanan.getText());
-                    if (arrayPenerimaan.size()==1){
+                    arrayPenerimaan = daoPenerimaan.IsiPemesanan(fieldIdPemesanan.getText());
+                    if (arrayPenerimaan.size()>=1){
                         fieldSubtotalTerima.setText(String.valueOf(arrayPenerimaan.get(0).getSubTotalTerima()));
                         fieldSisaBelumDikirim.setText(String.valueOf(arrayPenerimaan.get(0).getSisaBelumDikirim()));
                     }else{
@@ -739,12 +959,13 @@ public class DialogTambahPenerimaan extends javax.swing.JDialog {
                         fieldSisaBelumDikirim.setText(arrayPemesanan.get(0).getJumlahPemesanan());
                     }
                 }
+                }
+                
             }
 
-            //            NamaProdukPrangko.setSelectedIndex(-1);
         } else {
             KodeProduk.setText("");
-            fieldNoPemesanan.setText("");
+            fieldIdPemesanan.setText("");
             fieldNamaSuplier.setText("");
             fieldIdSuplier.setText("");
             fieldStokAwal.setText("");
@@ -760,72 +981,28 @@ public class DialogTambahPenerimaan extends javax.swing.JDialog {
 
     private void TahunItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_TahunItemStateChanged
         // TODO add your handling code here:
-        Object tahun = evt.getItem();
-        Object nama_produk = NamaProduk.getSelectedItem();
-        Object jenis_produk = JenisProduk.getSelectedItem();
-
-        if (tahun != "- Pilih Tahun Produk -") {
-            Nominal.removeAllItems();
-            KodeProduk.setText("");
-
-            if (jenis_produk == "Prangko") {
-                jenis_produk = "PR";
-            } else if (jenis_produk == "MS & SS") {
-                jenis_produk = "MS";
-            } else if (jenis_produk == "SHP & SHPSS") {
-                jenis_produk = "SHP";
-            } else if (jenis_produk == "Kemasan") {
-                jenis_produk = "KM";
-            } else if (jenis_produk == "Merchandise") {
-                jenis_produk = "MC";
-            } else if (jenis_produk == "Prisma") {
-                jenis_produk = "PS";
-            } else if (jenis_produk == "Dokumen Filateli") {
-                jenis_produk = "DF";
-            }
-            dao = new PemesananDAOImpl();
-            arrayProdukPrangko1 = dao.getNominalProduk(nama_produk, tahun, (String) jenis_produk);
-            if (arrayProdukPrangko1.size() > 1) {
-                vectorNominal.add("- Pilih Nominal Produk -");
-                for (int i = 0; i < arrayProdukPrangko1.size(); i++) {
-                    vectorNominal.add(arrayProdukPrangko1.get(i).getNominal());
-                }
-                Nominal.setModel(new DefaultComboBoxModel(vectorNominal));
-
-            } else if (arrayProdukPrangko1.size() == 1) {
-                for (int i = 0; i < arrayProdukPrangko1.size(); i++) {
-                    vectorNominal.add(arrayProdukPrangko1.get(i).getNominal());
-                }
-                Nominal.setModel(new DefaultComboBoxModel(vectorNominal));
-                arrayProdukPrangko2 = dao.getKodeProduk(arrayProdukPrangko1.get(0).getNominal(), tahun, nama_produk, (String) jenis_produk);
-                KodeProduk.setText(arrayProdukPrangko2.get(0).getIdProduk());
-            }
-        } else {
-            Nominal.removeAllItems();
-            KodeProduk.setText("");
-        }
+        
         
     }//GEN-LAST:event_TahunItemStateChanged
 
     private void NominalItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_NominalItemStateChanged
         // TODO add your handling code here:
-       
+        
     }//GEN-LAST:event_NominalItemStateChanged
 
-    private void fieldNoPemesananKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldNoPemesananKeyPressed
+    private void fieldIdPemesananKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldIdPemesananKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_fieldNoPemesananKeyPressed
+    }//GEN-LAST:event_fieldIdPemesananKeyPressed
 
     private void TahunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TahunActionPerformed
         // TODO add your handling code here:
         Object tahun = Tahun.getSelectedItem();
         Object nama_produk = NamaProduk.getSelectedItem();
         Object jenis_produk = JenisProduk.getSelectedItem();
-
-        if (tahun != "- Pilih Tahun Produk -") {
+        if (tahun != "- Pilih Tahun Produk -" && tahun != null) {
             Nominal.removeAllItems();
             KodeProduk.setText("");
-            
+
             if (jenis_produk == "Prangko") {
                 jenis_produk = "PR";
             } else if (jenis_produk == "MS & SS") {
@@ -842,7 +1019,7 @@ public class DialogTambahPenerimaan extends javax.swing.JDialog {
                 jenis_produk = "DF";
             }
             dao = new PemesananDAOImpl();
-            arrayProdukPrangko1 = dao.getNominalProduk(nama_produk, tahun, (String) jenis_produk);
+            arrayProdukPrangko1 = daoPenerimaan.getNominalProduk(nama_produk, tahun, (String) jenis_produk);
             if (arrayProdukPrangko1.size() > 1) {
                 vectorNominal.add("- Pilih Nominal Produk -");
                 for (int i = 0; i < arrayProdukPrangko1.size(); i++) {
@@ -855,14 +1032,49 @@ public class DialogTambahPenerimaan extends javax.swing.JDialog {
                     vectorNominal.add(arrayProdukPrangko1.get(i).getNominal());
                 }
                 Nominal.setModel(new DefaultComboBoxModel(vectorNominal));
-                arrayProdukPrangko2 = dao.getKodeProduk(arrayProdukPrangko1.get(0).getNominal(), tahun, nama_produk, (String) jenis_produk);
+                arrayProdukPrangko2 = daoPenerimaan.getKodeProduk(arrayProdukPrangko1.get(0).getNominal(), tahun, nama_produk, (String) jenis_produk);
                 KodeProduk.setText(arrayProdukPrangko2.get(0).getIdProduk());
             }
-
+            if(KodeProduk.getText()!=""){
+                    daoPenerimaan = new PenerimaanDAOImpl();
+                    arrayPemesanan = daoPenerimaan.getIdPemesanan(KodeProduk.getText());
+                    fieldIdPemesanan.setText(arrayPemesanan.get(0).getIdPemesanan());
+                    fieldIdSuplier.setText(arrayPemesanan.get(0).getIdSuplier());
+                    
+                    arrayProdukPrangko = daoPenerimaan.getStok(KodeProduk.getText());
+                    fieldStokAwal.setText(String.valueOf(arrayProdukPrangko.get(0).getStok()));
+                }
+                if (fieldIdSuplier.getText()!=""){
+                    arraySuplier = daoPenerimaan.getNamaSuplier(fieldIdSuplier.getText());
+                    fieldNamaSuplier.setText(arraySuplier.get(0).getNama_suplier());
+                }
+                if (fieldIdPemesanan.getText()!=""){
+                    arrayPemesanan = daoPenerimaan.getTotalPesan(fieldIdPemesanan.getText());
+                    fieldTotalPemesanan.setText(arrayPemesanan.get(0).getJumlahPemesanan());
+                    
+                    
+                    arrayPenerimaan = daoPenerimaan.IsiPemesanan(fieldIdPemesanan.getText());
+                    if (arrayPenerimaan.size()>=1){
+                        fieldSubtotalTerima.setText(String.valueOf(arrayPenerimaan.get(0).getSubTotalTerima()));
+                        fieldSisaBelumDikirim.setText(String.valueOf(arrayPenerimaan.get(0).getSisaBelumDikirim()));
+                    }else{
+                        fieldSubtotalTerima.setText("0");
+                        fieldSisaBelumDikirim.setText(arrayPemesanan.get(0).getJumlahPemesanan());
+                    }
+                }
         } else {
             Nominal.removeAllItems();
             KodeProduk.setText("");
+            fieldIdPemesanan.setText("");
+            fieldNamaSuplier.setText("");
+            fieldIdSuplier.setText("");
+            fieldStokAwal.setText("");
+            fieldSubtotalTerima.setText("");
+            fieldTotalPemesanan.setText("");
+            fieldSisaBelumDikirim.setText("");
+            fieldJmlTerima.setText("");
         }
+        
     }//GEN-LAST:event_TahunActionPerformed
 
     private void NominalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NominalActionPerformed
@@ -871,7 +1083,9 @@ public class DialogTambahPenerimaan extends javax.swing.JDialog {
         Object nama_produk = NamaProduk.getSelectedItem();
         Object tahun = Tahun.getSelectedItem();
         Object jenis_produk = JenisProduk.getSelectedItem();
-        if (nominal != "- Pilih Nominal Produk -") {
+        String kode_produk = KodeProduk.getText();
+        
+        if (nominal != "- Pilih Nominal Produk -" && nominal != null) {
             KodeProduk.setText("");
             if (jenis_produk == "Prangko") {
                 jenis_produk = "PR";
@@ -891,13 +1105,48 @@ public class DialogTambahPenerimaan extends javax.swing.JDialog {
             dao = new PemesananDAOImpl();
             arrayProdukPrangko = dao.getKodeProduk(nominal, tahun, nama_produk, (String) jenis_produk);
             if (arrayProdukPrangko.size() == 1) {
-                String kode_produk = arrayProdukPrangko.get(0).getIdProduk();
+                kode_produk = arrayProdukPrangko.get(0).getIdProduk();
                 KodeProduk.setText(kode_produk);
             }
-
+            if(KodeProduk.getText()!=""){
+                    daoPenerimaan = new PenerimaanDAOImpl();
+                    arrayPemesanan = daoPenerimaan.getIdPemesanan(KodeProduk.getText());
+                    fieldIdPemesanan.setText(arrayPemesanan.get(0).getIdPemesanan());
+                    fieldIdSuplier.setText(arrayPemesanan.get(0).getIdSuplier());
+                    
+                    arrayProdukPrangko = daoPenerimaan.getStok(KodeProduk.getText());
+                    fieldStokAwal.setText(String.valueOf(arrayProdukPrangko.get(0).getStok()));
+                }
+                if (fieldIdSuplier.getText()!=""){
+                    arraySuplier = daoPenerimaan.getNamaSuplier(fieldIdSuplier.getText());
+                    fieldNamaSuplier.setText(arraySuplier.get(0).getNama_suplier());
+                }
+                if (fieldIdPemesanan.getText()!=""){
+                    arrayPemesanan = daoPenerimaan.getTotalPesan(fieldIdPemesanan.getText());
+                    fieldTotalPemesanan.setText(arrayPemesanan.get(0).getJumlahPemesanan());
+                    
+                    
+                    arrayPenerimaan = daoPenerimaan.IsiPemesanan(fieldIdPemesanan.getText());
+                    if (arrayPenerimaan.size()>=1){
+                        fieldSubtotalTerima.setText(String.valueOf(arrayPenerimaan.get(0).getSubTotalTerima()));
+                        fieldSisaBelumDikirim.setText(String.valueOf(arrayPenerimaan.get(0).getSisaBelumDikirim()));
+                    }else{
+                        fieldSubtotalTerima.setText("0");
+                        fieldSisaBelumDikirim.setText(arrayPemesanan.get(0).getJumlahPemesanan());
+                    }
+                }
         } else {
             KodeProduk.setText("");
+            fieldIdPemesanan.setText("");
+            fieldNamaSuplier.setText("");
+            fieldIdSuplier.setText("");
+            fieldStokAwal.setText("");
+            fieldSubtotalTerima.setText("");
+            fieldTotalPemesanan.setText("");
+            fieldSisaBelumDikirim.setText("");
+            fieldJmlTerima.setText("");
         }
+        
     }//GEN-LAST:event_NominalActionPerformed
 
     private void fieldNoOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldNoOrderActionPerformed
@@ -939,6 +1188,204 @@ public class DialogTambahPenerimaan extends javax.swing.JDialog {
     private void NamaProdukMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NamaProdukMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_NamaProdukMouseClicked
+
+    private void tambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tambahActionPerformed
+        // TODO add your handling code here:
+        String kosong = null;
+        int no;
+        int baris;
+        String no_order = fieldNoOrder.getText();
+        String no_order1 = fieldNoOrder1.getText();
+        String no_order2 = fieldNoOrder2.getText();
+        String no_order3 = fieldNoOrder3.getText();
+        String id_pemesanan = fieldIdPemesanan.getText();
+        String kode_produk = KodeProduk.getText();
+        String id_suplier = fieldIdSuplier.getText();
+        java.util.Date tanggal_penerimaan = (java.util.Date) fieldTglPenerimaan.getDate();
+        String jumlah_penerimaan = fieldJmlTerima.getText();
+        Object nama_produk = NamaProduk.getSelectedItem();
+        Object nominal = Nominal.getSelectedItem();
+        String stok_awal = fieldStokAwal.getText();
+        String subtotal_terima = fieldSubtotalTerima.getText();
+        String sisa_blm_dikirim = fieldSisaBelumDikirim.getText();
+        String keterangan = fieldKeterangan.getText();
+        
+        if (no_order.compareTo("") != 0 && no_order1.compareTo("") != 0 && no_order2.compareTo("") != 0 && no_order3.compareTo("") != 0 ){
+        if (id_pemesanan.compareTo("") != 0) {
+            if (tanggal_penerimaan != null) {
+                if (id_suplier.compareTo("") != 0) {
+                    if (kode_produk.compareTo("") != 0) {
+                        if (jumlah_penerimaan.compareTo("") != 0) {
+                            fieldTglPenerimaan.setEnabled(false);
+                            fieldNoOrder.setEnabled(false);
+                            fieldNoOrder1.setEnabled(false);
+                            fieldNoOrder2.setEnabled(false);
+                            fieldNoOrder3.setEnabled(false);
+                            fieldKeterangan.setText("");
+                            
+                            if (tabel_penerimaan.getRowCount() == 0) {
+                                no = 1;
+                            } else {
+                                baris = tabel_penerimaan.getRowCount();
+                                no = baris + 1;
+                            }
+                            DefaultTableModel dataModel = (DefaultTableModel) tabel_penerimaan.getModel();
+                            List list = new ArrayList<>();
+                            tabel_penerimaan.setAutoCreateColumnsFromModel(true);
+                            list.add(no);
+                            list.add(kode_produk);
+                            list.add(nama_produk);
+                            list.add(nominal);
+                            list.add(stok_awal);
+                            list.add(subtotal_terima);
+                            list.add(sisa_blm_dikirim);
+                            list.add(jumlah_penerimaan);
+                            list.add(id_pemesanan);
+                            list.add(id_suplier);
+                            list.add(keterangan);
+                            dataModel.addRow(list.toArray());
+
+                            NamaProduk.setSelectedItem("");
+                            JenisProduk.setSelectedIndex(0);
+                            fieldJmlTerima.setText("");
+                            simpan.setEnabled(true);
+                            batal.setEnabled(true);
+                            hapus.setEnabled(true);
+
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Silakan isi Jumlah pesan terlebih dahulu!");
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Silakan pilih Produk terlebih dahulu!");
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "Silakan pilih Suplier terlebih dahulu!");
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Silakan isi Tanggal Pemesanan terlebih dahulu!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Silakan isi Id Pemesanan terlebih dahulu!");
+        }
+        } else {
+            JOptionPane.showMessageDialog(null, "Silakan isi Nomor Order terlebih dahulu!");
+        
+        }
+    }//GEN-LAST:event_tambahActionPerformed
+
+    private void resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetActionPerformed
+        // TODO add your handling code here:
+        int baris = tabel_penerimaan.getRowCount();
+        if (baris > 0) {
+            JenisProduk.setSelectedIndex(0);
+            fieldJmlTerima.setText("");
+        } else {
+            reset();
+        }
+    }//GEN-LAST:event_resetActionPerformed
+
+    private void hapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hapusActionPerformed
+        // TODO add your handling code here:
+        String nama_produk, kode_produk, nominal, jumlah_pesan;
+        int baris_pilih = tabel_penerimaan.getSelectedRow();
+        if (baris_pilih >= 0) {
+            DefaultTableModel model = (DefaultTableModel) tabel_penerimaan.getModel();
+            model.removeRow(baris_pilih);
+
+            int baris = tabel_penerimaan.getRowCount();
+            for (int i = 0; i < baris; i++) {
+                kode_produk = tabel_penerimaan.getValueAt(0, 1).toString();
+                nama_produk = tabel_penerimaan.getValueAt(0, 2).toString();
+                nominal = tabel_penerimaan.getValueAt(0, 3).toString();
+                jumlah_pesan = tabel_penerimaan.getValueAt(0, 4).toString();
+
+                List list = new ArrayList<>();
+                tabel_penerimaan.setAutoCreateColumnsFromModel(true);
+                list.add(i+1);
+                list.add(kode_produk);
+                list.add(nama_produk);
+                list.add(nominal);
+                list.add(jumlah_pesan);
+                model.addRow(list.toArray());
+
+                model.removeRow(0);
+            }
+
+            baris = tabel_penerimaan.getRowCount();
+            if(baris==0){
+                hapus.setEnabled(false);
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(this, "Anda harus memilih dahulu produk yang akan dihapus!");
+        }
+    }//GEN-LAST:event_hapusActionPerformed
+
+    private void batalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_batalActionPerformed
+        // TODO add your handling code here:
+        reset_simpan();
+    }//GEN-LAST:event_batalActionPerformed
+
+    private void fieldNoOrder1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldNoOrder1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fieldNoOrder1ActionPerformed
+
+    private void fieldNoOrder1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldNoOrder1KeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fieldNoOrder1KeyReleased
+
+    private void fieldNoOrder2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldNoOrder2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fieldNoOrder2ActionPerformed
+
+    private void fieldNoOrder2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldNoOrder2KeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fieldNoOrder2KeyReleased
+
+    private void fieldNoOrder3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldNoOrder3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fieldNoOrder3ActionPerformed
+
+    private void fieldNoOrder3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldNoOrder3KeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fieldNoOrder3KeyReleased
+
+    private void fieldNoOrderKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldNoOrderKeyPressed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_fieldNoOrderKeyPressed
+
+    private void fieldNoOrderKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldNoOrderKeyTyped
+        // TODO add your handling code here:
+        fieldNoOrder1.requestFocus();
+    }//GEN-LAST:event_fieldNoOrderKeyTyped
+
+    private void fieldNoOrder1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldNoOrder1KeyTyped
+        // TODO add your handling code here:
+        String no_order = fieldNoOrder1.getText();
+        int panjang = no_order.length();
+        if(panjang>2){
+            fieldNoOrder2.requestFocus();
+        }
+    }//GEN-LAST:event_fieldNoOrder1KeyTyped
+
+    private void fieldNoOrder2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldNoOrder2KeyTyped
+        // TODO add your handling code here:
+        String no_order = fieldNoOrder2.getText();
+        int panjang = no_order.length();
+        if(panjang>0){
+            fieldNoOrder3.requestFocus();
+        }
+    }//GEN-LAST:event_fieldNoOrder2KeyTyped
+
+    private void fieldNoOrder3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldNoOrder3KeyTyped
+        // TODO add your handling code here:
+        String no_order = fieldNoOrder3.getText();
+        int panjang = no_order.length();
+        if(panjang>2){
+            JenisProduk.requestFocus();
+        }
+    }//GEN-LAST:event_fieldNoOrder3KeyTyped
 
     /**
      * @param args the command line arguments
@@ -997,6 +1444,102 @@ public class DialogTambahPenerimaan extends javax.swing.JDialog {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -1018,25 +1561,31 @@ public class DialogTambahPenerimaan extends javax.swing.JDialog {
     private javax.swing.JTextField KodeProduk;
     private javax.swing.JComboBox<String> NamaProduk;
     private javax.swing.JComboBox<String> Nominal;
-    private javax.swing.JToggleButton ResetPrangko;
-    private javax.swing.JButton SimpanPenerimaan;
     private javax.swing.JComboBox<String> Tahun;
+    private javax.swing.JButton batal;
+    private javax.swing.JTextField fieldIdPemesanan;
     private javax.swing.JTextField fieldIdSuplier;
     private javax.swing.JTextField fieldJmlTerima;
     private javax.swing.JTextArea fieldKeterangan;
     private javax.swing.JTextField fieldNamaSuplier;
     private javax.swing.JTextField fieldNoOrder;
-    private javax.swing.JTextField fieldNoPemesanan;
+    private javax.swing.JTextField fieldNoOrder1;
+    private javax.swing.JTextField fieldNoOrder2;
+    private javax.swing.JTextField fieldNoOrder3;
     private javax.swing.JTextField fieldSisaBelumDikirim;
     private javax.swing.JTextField fieldStokAwal;
     private javax.swing.JTextField fieldSubtotalTerima;
     private com.toedter.calendar.JDateChooser fieldTglPenerimaan;
     private javax.swing.JTextField fieldTotalPemesanan;
+    private javax.swing.JButton hapus;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel112;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1050,5 +1599,10 @@ public class DialogTambahPenerimaan extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel37;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JButton reset;
+    private javax.swing.JButton simpan;
+    private javax.swing.JTable tabel_penerimaan;
+    private javax.swing.JButton tambah;
     // End of variables declaration//GEN-END:variables
 }

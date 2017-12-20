@@ -12,10 +12,11 @@ import java.util.Date;
  * @author muhamad solahudin
  */
 public class Penerimaan {
+    String idPenerimaan;
     String noOrder;
     Date tglPenerimaan;
     int jmlTerima;
-    String noPemesanan;
+    String idPemesanan;
     String idProduk;
     String idSuplier;
     int stokAwal;
@@ -23,6 +24,14 @@ public class Penerimaan {
     int subTotalTerima;
     int sisaBelumDikirim;
     String keterangan;
+
+    public String getIdPenerimaan() {
+        return idPenerimaan;
+    }
+
+    public void setIdPenerimaan(String idPenerimaan) {
+        this.idPenerimaan = idPenerimaan;
+    }
 
     public Date getTglPenerimaan() {
         return tglPenerimaan;
@@ -48,12 +57,12 @@ public class Penerimaan {
         this.jmlTerima = jmlTerima;
     }
 
-    public String getNoPemesanan() {
-        return noPemesanan;
+    public String getIdPemesanan() {
+        return idPemesanan;
     }
 
-    public void setNoPemesanan(String noPemesanan) {
-        this.noPemesanan = noPemesanan;
+    public void setIdPemesanan(String noPemesanan) {
+        this.idPemesanan = noPemesanan;
     }
 
     public String getIdSuplier() {

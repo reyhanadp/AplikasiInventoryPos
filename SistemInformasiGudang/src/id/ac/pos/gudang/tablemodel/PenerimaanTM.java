@@ -19,15 +19,16 @@ import javax.swing.table.AbstractTableModel;
  */
 public class PenerimaanTM extends AbstractTableModel{
     private ArrayList<Penerimaan> arrayPenerimaan;
-      Vector vector_nama_produk,vector_nama_suplier,vector_nominal,vector_tahun;
+      Vector vector_nama_produk,vector_nama_suplier,vector_nominal,vector_tahun,vector_no_pemesanan;
 
     
-    public void setDataPenerimaan(ArrayList<Penerimaan> arrayPenerimaan,Vector vector_nama_produk, Vector vector_nama_suplier, Vector vector_nominal, Vector vector_tahun) {
+    public void setDataPenerimaan(ArrayList<Penerimaan> arrayPenerimaan,Vector vector_nama_produk, Vector vector_nama_suplier, Vector vector_nominal, Vector vector_tahun, Vector vector_no_pemesanan) {
         this.arrayPenerimaan = arrayPenerimaan;
         this.vector_nama_produk = vector_nama_produk;
         this.vector_nama_suplier = vector_nama_suplier;
         this.vector_nominal = vector_nominal;
         this.vector_tahun = vector_tahun;
+        this.vector_no_pemesanan = vector_no_pemesanan;
     }
 
     @Override
@@ -37,7 +38,7 @@ public class PenerimaanTM extends AbstractTableModel{
 
     @Override
     public int getColumnCount() {
-        return 14;  //To change body of generated methods, choose Tools | Templates.
+        return 15;  //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
@@ -54,36 +55,39 @@ public class PenerimaanTM extends AbstractTableModel{
                 return arrayPenerimaan.get(rowIndex).getJmlTerima();
 
             case 3:
-                return arrayPenerimaan.get(rowIndex).getNoPemesanan();
-
+                return arrayPenerimaan.get(rowIndex).getIdPemesanan();
+                
             case 4:
+                return vector_no_pemesanan.get(rowIndex);
+                
+            case 5:
                 return arrayPenerimaan.get(rowIndex).getIdProduk();    
             
-            case 5:
+            case 6:
                 return vector_nama_produk.get(rowIndex);    
                                 
-            case 6:
+            case 7:
                 return vector_nominal.get(rowIndex);
 
-            case 7:
+            case 8:
                 return vector_tahun.get(rowIndex);
                               
-            case 8:
+            case 9:
                 return vector_nama_suplier.get(rowIndex);
                 
-            case 9:
+            case 10:
                 return arrayPenerimaan.get(rowIndex).getStokAwal();
 
-            case 10:
+            case 11:
                 return arrayPenerimaan.get(rowIndex).getStokAkhir();
 
-            case 11:
+            case 12:
                 return arrayPenerimaan.get(rowIndex).getSubTotalTerima();
 
-            case 12:
+            case 13:
                 return arrayPenerimaan.get(rowIndex).getSisaBelumDikirim();
 
-            case 13:
+            case 14:
                 return arrayPenerimaan.get(rowIndex).getKeterangan();    
         }
         return null;
@@ -101,36 +105,39 @@ public class PenerimaanTM extends AbstractTableModel{
                 return "Jumlah Terima";
                 
             case 3:
-                return "No. Pemesanan";
-                
+                return "Id Pemesanan";
+            
             case 4:
+                return "No Pemesanan";
+                
+            case 5:
                 return "Kode_Produk";
             
-            case 5:
+            case 6:
                 return "Nama Produk";
                 
-            case 6:
+            case 7:
                 return "Nominal";
 
-            case 7:
+            case 8:
                 return "Tahun";    
                 
-            case 8:
+            case 9:
                 return "Nama Suplier";
                   
-            case 9:
+            case 10:
                 return "Stok Awal";
                 
-            case 10:
+            case 11:
                 return "Stok Akhir";
                 
-            case 11:
+            case 12:
                 return "Subtotal Terima";
                 
-            case 12:
+            case 13:
                 return "Sisa Belum dikirim";
                 
-            case 13:
+            case 14:
                 return "keterangan";
         }
         return null; //To change body of generated methods, choose Tools | Templates.

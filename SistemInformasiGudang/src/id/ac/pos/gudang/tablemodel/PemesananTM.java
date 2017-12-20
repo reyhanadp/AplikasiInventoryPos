@@ -36,40 +36,43 @@ public class PemesananTM extends AbstractTableModel{
 
     @Override
     public int getColumnCount() {
-        return 10;
+        return 11;
     }
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         switch (columnIndex) {
             case 0:
+                return arrayPemesanan.get(rowIndex).getIdPemesanan();
+                
+            case 1:
                 return arrayPemesanan.get(rowIndex).getNoPemesanan();
 
-            case 1:
+            case 2:
                 return arrayPemesanan.get(rowIndex).getTglPemesanan();
 
-            case 2:
+            case 3:
                 return arrayPemesanan.get(rowIndex).getKodeProduk();
 
-            case 3:
+            case 4:
                 return vector_nama_produk.get(rowIndex);
                                 
-            case 4:
+            case 5:
                 return vector_nominal.get(rowIndex);
 
-            case 5:
+            case 6:
                 return vector_tahun.get(rowIndex);
                               
-            case 6:
+            case 7:
                 return arrayPemesanan.get(rowIndex).getIdSuplier();
 
-            case 7:
+            case 8:
                 return vector_nama_suplier.get(rowIndex);
                 
-            case 8:
+            case 9:
                 return arrayPemesanan.get(rowIndex).getJumlahPemesanan();
    
-            case 9:
+            case 10:
                 return arrayPemesanan.get(rowIndex).getStatus();
 
         }
@@ -80,33 +83,36 @@ public class PemesananTM extends AbstractTableModel{
     public String getColumnName(int column) {
         switch (column) {
             case 0:
+                return "Id Pemesanan";
+                
+            case 1:
                 return "No Pemesanan";
 
-            case 1:
+            case 2:
                 return "Tanggal";
 
-            case 2:
+            case 3:
                 return "Kode Produk";
 
-            case 3:
+            case 4:
                 return "Nama Produk";
                 
-            case 4:
+            case 5:
                 return "Nominal";
 
-            case 5:
+            case 6:
                 return "Tahun";
                 
-            case 6:
+            case 7:
                 return "Id Suplier";
 
-            case 7:
+            case 8:
                 return "Nama Suplier";
                 
-            case 8:
+            case 9:
                 return "Jumlah Pemesanan";
 
-            case 9:
+            case 10:
                 return "Status";
         }
         return null;
