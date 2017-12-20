@@ -31,13 +31,7 @@ public class DialogRecycleBin extends javax.swing.JDialog {
     public DialogRecycleBin(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        getDataPrangkoDeleted();
-        getDataMSSSDeleted();
-        getDataSHPSHPSSDeleted();
-        getDataKemasanDeleted();
-        getDataMerchandiseDeleted();
-        getDataPrismaDeleted();
-        getDataDokumenFilateliDeleted();
+        refresh();
     }
 
     public void restore(int baris, String idJenisProduk, JTable jenisTabel) {
@@ -68,17 +62,14 @@ public class DialogRecycleBin extends javax.swing.JDialog {
             if (sukses) {
                 JOptionPane.showMessageDialog(this, "Data berhasil direstore");
                 dao.hapusPermanent(kodeProduk);
-                refresh();
             } else {
                 JOptionPane.showMessageDialog(this, "Data gagal direstore");
-                getDataPrangkoDeleted();
             }
         } else {
             JOptionPane.showMessageDialog(this, "Anda harus memilih dahulu produk "
                     + "yang akan direstore !");
-            refresh();
         }
-
+        refresh();
     }
 
     /**
@@ -115,7 +106,6 @@ public class DialogRecycleBin extends javax.swing.JDialog {
         jScrollPane7 = new javax.swing.JScrollPane();
         tableRecycleBinDokumenFilateli = new javax.swing.JTable();
         jPanel6 = new javax.swing.JPanel();
-        buttonCancel = new javax.swing.JButton();
         buttonRestore = new javax.swing.JButton();
         buttonRefresh = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -331,15 +321,6 @@ public class DialogRecycleBin extends javax.swing.JDialog {
                 .addGap(384, 384, 384))
         );
 
-        buttonCancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/Cancel.png"))); // NOI18N
-        buttonCancel.setText("Cancel");
-        buttonCancel.setMargin(new java.awt.Insets(2, 8, 2, 14));
-        buttonCancel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonCancelActionPerformed(evt);
-            }
-        });
-
         buttonRestore.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/restore.png"))); // NOI18N
         buttonRestore.setText("Restore");
         buttonRestore.setMargin(new java.awt.Insets(5, 8, 5, 14));
@@ -369,23 +350,15 @@ public class DialogRecycleBin extends javax.swing.JDialog {
                 .addComponent(buttonRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(buttonRestore, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(buttonCancel)
-                .addGap(19, 19, 19))
+                .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(buttonCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(buttonRestore, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(buttonRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(23, 23, 23))))
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonRestore, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 34, Short.MAX_VALUE))
         );
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -434,11 +407,6 @@ public class DialogRecycleBin extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void buttonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelActionPerformed
-        // TODO add your handling code here:
-        this.setVisible(false); //form login akan tertutup
-    }//GEN-LAST:event_buttonCancelActionPerformed
-
     private void refresh() {
         getDataPrangkoDeleted();
         getDataMSSSDeleted();
@@ -447,15 +415,6 @@ public class DialogRecycleBin extends javax.swing.JDialog {
         getDataMerchandiseDeleted();
         getDataPrismaDeleted();
         getDataDokumenFilateliDeleted();
-
-        FormHome fh = new FormHome();
-        fh.getDataPrangko();
-        fh.getDataMS_SS();
-        fh.getDataSHP_SHPSS();
-        fh.getDataKemasan();
-        fh.getDataMerchandise();
-        fh.getDataPrisma();
-        fh.getDataDokumenFilateli();
     }
 
     private void buttonRestoreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRestoreActionPerformed
@@ -468,6 +427,7 @@ public class DialogRecycleBin extends javax.swing.JDialog {
             restore(baris1, jenisProduk, jenisTabel);
             refresh();
         }
+        
         int baris2 = tableRecycleBinDokumenFilateli.getSelectedRow();
         if (baris2 >= 0) {
             String jenisProduk = "DF";
@@ -475,6 +435,7 @@ public class DialogRecycleBin extends javax.swing.JDialog {
             restore(baris2, jenisProduk, jenisTabel);
             refresh();
         }
+        
         int baris3 = tableRecycleBinKemasan.getSelectedRow();
         if (baris3 >= 0) {
             String kodeProduk = tableRecycleBinKemasan.getValueAt(baris3, 0).toString();
@@ -484,6 +445,7 @@ public class DialogRecycleBin extends javax.swing.JDialog {
             restore(baris3, jenisProduk, jenisTabel);
             refresh();
         }
+        
         int baris4 = tableRecycleBinMSSS.getSelectedRow();
         if (baris4 >= 0) {
             String jenisProduk = tableRecycleBinMSSS.getValueAt(baris4, 0).toString();
@@ -492,6 +454,7 @@ public class DialogRecycleBin extends javax.swing.JDialog {
             restore(baris4, jenisProduk, jenisTabel);
             refresh();
         }
+        
         int baris5 = tableRecycleBinMerchandise.getSelectedRow();
         if (baris5 >= 0) {
             String jenisProduk = "MC";
@@ -499,6 +462,7 @@ public class DialogRecycleBin extends javax.swing.JDialog {
             restore(baris5, jenisProduk, jenisTabel);
             refresh();
         }
+        
         int baris6 = tableRecycleBinPrisma.getSelectedRow();
         if (baris6 >= 0) {
             String jenisProduk = "PS";
@@ -506,6 +470,7 @@ public class DialogRecycleBin extends javax.swing.JDialog {
             restore(baris6, jenisProduk, jenisTabel);
             refresh();
         }
+        
         int baris7 = tableRecycleBinSHPSHPSS.getSelectedRow();
         if (baris7 >= 0) {
             String jenisProduk = tableRecycleBinSHPSHPSS.getValueAt(baris7, 0).toString();
@@ -674,7 +639,6 @@ public class DialogRecycleBin extends javax.swing.JDialog {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonCancel;
     private javax.swing.JButton buttonRefresh;
     private javax.swing.JButton buttonRestore;
     private javax.swing.JLabel jLabel1;

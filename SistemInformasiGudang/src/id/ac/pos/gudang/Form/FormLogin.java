@@ -129,16 +129,17 @@ public class FormLogin extends javax.swing.JFrame {
             
             state = con.prepareStatement(sql);
             rs = state.executeQuery();
+            //validasi
             if (rs.next()) {
-                if (fieldPassword.getText().equals(rs.getString("password")) 
-                        && fieldNik.getText().equals(rs.getString("nik")) 
+                if (fieldPassword.getText().equals(rs.getString("password"))
+                        && fieldNik.getText().equals(rs.getString("nik"))
                         && "fl".equals(rs.getString("hak_akses"))) {
                     JOptionPane.showMessageDialog(null, "Login Sukses !");
                     FormHome fh = new FormHome(rs.getString("nama_user"));
                     fh.setVisible(true);
                     this.setVisible(false); //form login akan tertutup
-                }else if (fieldPassword.getText().equals(rs.getString("password")) 
-                        && fieldNik.getText().equals(rs.getString("nik")) 
+                } else if (fieldPassword.getText().equals(rs.getString("password"))
+                        && fieldNik.getText().equals(rs.getString("nik"))
                         && "ad".equals(rs.getString("hak_akses"))) {
                     JOptionPane.showMessageDialog(null, "Login Sukses !");
                     FormAdmin fa = new FormAdmin();
@@ -151,6 +152,7 @@ public class FormLogin extends javax.swing.JFrame {
                 fieldPassword.setText(null);//set nilai txtPass menjadi kosong
                 fieldNik.requestFocus();
             }
+            //Show Message Dialog
         } catch (HeadlessException | SQLException e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }

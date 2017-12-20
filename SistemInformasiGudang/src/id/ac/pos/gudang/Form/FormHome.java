@@ -38,21 +38,12 @@ public final class FormHome extends javax.swing.JFrame {
     ArrayList<Produk> arrayProduk;
     TableRowSorter sorter;
 
-
     public FormHome() {
     }
-    
+
     FormHome(String string) {
         initComponents();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        inisialisasiField();
-        autoincrementPrangko();
-        autoincrementMS_SS();
-        autoincrementSHP_SHPSS();
-        autoincrementKemasan();
-        autoincrementMerchandise();
-        autoincrementPrisma();
-        autoincrementDokumenFilateli();
         refresh();
         int tahun;
         tahun = dao.getTahunSekarang();
@@ -63,10 +54,17 @@ public final class FormHome extends javax.swing.JFrame {
         fieldTahunProdukMerchandise.setText(Integer.toString(tahun));
         fieldTahunProdukPrisma.setText(Integer.toString(tahun));
         fieldTahunProdukSHPSHPSS.setText(Integer.toString(tahun));
-        SelamatDatang.setText("SELAMAT DATANG, "+string.toUpperCase());
+        SelamatDatang.setText("SELAMAT DATANG, " + string.toUpperCase());
     }
 
     private void refresh() {
+        
+        autoincrementProduk();
+        inisialisasiField();
+        getDataProduk();
+    }
+
+    public void getDataProduk(){
         getDataPrangko();
         getDataMS_SS();
         getDataSHP_SHPSS();
@@ -75,7 +73,17 @@ public final class FormHome extends javax.swing.JFrame {
         getDataPrisma();
         getDataDokumenFilateli();
     }
-
+    
+    public void autoincrementProduk(){
+        autoincrementPrangko();
+        autoincrementMS_SS();
+        autoincrementSHP_SHPSS();
+        autoincrementKemasan();
+        autoincrementMerchandise();
+        autoincrementPrisma();
+        autoincrementDokumenFilateli();
+    }
+    
     public void inisialisasiField() {
         fieldNominalPrangko.setText("0");
         fieldNominalProdukMSSS.setText("0");
@@ -410,7 +418,7 @@ public final class FormHome extends javax.swing.JFrame {
         fieldTahunProdukKemasan.setText("");
         fieldTahunProdukDokumenFilateli.setText("");
         fieldTahunProdukPrisma.setText("");
-        
+
         int tahun;
         tahun = dao.getTahunSekarang();
         fieldTahunPrangko.setText(Integer.toString(tahun));
@@ -577,7 +585,7 @@ public final class FormHome extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         tabKelolaProduk = new javax.swing.JPanel();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        tabbedPaneProduk = new javax.swing.JTabbedPane();
         Prangko = new javax.swing.JPanel();
         jPanel13 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -753,6 +761,7 @@ public final class FormHome extends javax.swing.JFrame {
         itemRecycleBin = new javax.swing.JMenuItem();
         itemHistoryUpdate = new javax.swing.JMenuItem();
         itemHistoryDelete = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -856,9 +865,9 @@ public final class FormHome extends javax.swing.JFrame {
         jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
         jPanel3.setLayout(new java.awt.CardLayout());
 
-        jTabbedPane1.addMouseListener(new java.awt.event.MouseAdapter() {
+        tabbedPaneProduk.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTabbedPane1MouseClicked(evt);
+                tabbedPaneProdukMouseClicked(evt);
             }
         });
 
@@ -1150,7 +1159,7 @@ public final class FormHome extends javax.swing.JFrame {
                 .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Prangko", Prangko);
+        tabbedPaneProduk.addTab("Prangko", Prangko);
 
         MS_SS.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1437,7 +1446,7 @@ public final class FormHome extends javax.swing.JFrame {
                 .addComponent(jPanel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("MS & SS", MS_SS);
+        tabbedPaneProduk.addTab("MS & SS", MS_SS);
 
         SHP_SHPSS.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1708,7 +1717,7 @@ public final class FormHome extends javax.swing.JFrame {
                 .addComponent(jPanel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("SHP & SHPSS", SHP_SHPSS);
+        tabbedPaneProduk.addTab("SHP & SHPSS", SHP_SHPSS);
 
         Kemasan.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1970,7 +1979,7 @@ public final class FormHome extends javax.swing.JFrame {
                 .addComponent(jPanel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Kemasan", Kemasan);
+        tabbedPaneProduk.addTab("Kemasan", Kemasan);
 
         jPanel22.setBorder(javax.swing.BorderFactory.createTitledBorder("Form Produk"));
 
@@ -2212,7 +2221,7 @@ public final class FormHome extends javax.swing.JFrame {
                 .addComponent(jPanel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Merchandise", Merchandise);
+        tabbedPaneProduk.addTab("Merchandise", Merchandise);
 
         jPanel24.setBorder(javax.swing.BorderFactory.createTitledBorder("Form Produk"));
 
@@ -2449,7 +2458,7 @@ public final class FormHome extends javax.swing.JFrame {
                 .addComponent(jPanel25, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Prisma", Prisma);
+        tabbedPaneProduk.addTab("Prisma", Prisma);
 
         jPanel26.setBorder(javax.swing.BorderFactory.createTitledBorder("Form Produk"));
 
@@ -2686,17 +2695,17 @@ public final class FormHome extends javax.swing.JFrame {
                 .addComponent(jPanel27, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Dokumen Filateli", DokumenFilateli);
+        tabbedPaneProduk.addTab("Dokumen Filateli", DokumenFilateli);
 
         javax.swing.GroupLayout tabKelolaProdukLayout = new javax.swing.GroupLayout(tabKelolaProduk);
         tabKelolaProduk.setLayout(tabKelolaProdukLayout);
         tabKelolaProdukLayout.setHorizontalGroup(
             tabKelolaProdukLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addComponent(tabbedPaneProduk)
         );
         tabKelolaProdukLayout.setVerticalGroup(
             tabKelolaProdukLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 605, Short.MAX_VALUE)
+            .addComponent(tabbedPaneProduk, javax.swing.GroupLayout.DEFAULT_SIZE, 605, Short.MAX_VALUE)
         );
 
         jPanel3.add(tabKelolaProduk, "card2");
@@ -2783,6 +2792,9 @@ public final class FormHome extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu2);
 
+        jMenu1.setText("Backup & Restore");
+        jMenuBar1.add(jMenu1);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -2857,40 +2869,40 @@ public final class FormHome extends javax.swing.JFrame {
             fieldTahunPrangko.requestFocus();
             getDataPrangko();
         } else {
-             int pilih = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin "
+            int pilih = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin "
                     + "menyimpan " + namaProduk
                     + "?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
-            if (pilih == JOptionPane.YES_OPTION){
-            //buat objek pegawai
-            Produk produk = new Produk();
-            produk.setIdProduk(idProduk);
-            produk.setNamaProduk(namaProduk);
-            produk.setNominal(Integer.parseInt(nominal));
-            produk.setBiayaCetak(Float.parseFloat(biayaCetak));
-            produk.setTahun(tahun);
+            if (pilih == JOptionPane.YES_OPTION) {
+                //buat objek pegawai
+                Produk produk = new Produk();
+                produk.setIdProduk(idProduk);
+                produk.setNamaProduk(namaProduk);
+                produk.setNominal(Integer.parseInt(nominal));
+                produk.setBiayaCetak(Float.parseFloat(biayaCetak));
+                produk.setTahun(tahun);
 
-            //inisialisasi
-            String jenisProduk = "PR";
+                //inisialisasi
+                String jenisProduk = "PR";
 
-            //insert produk
-            ProdukDAO dao = new ProdukDAOImpl();
-            boolean sukses = dao.tambahProduk(produk, jenisProduk);
+                //insert produk
+                ProdukDAO dao = new ProdukDAOImpl();
+                boolean sukses = dao.tambahProduk(produk, jenisProduk);
 
-            //cek sukses atau tidak
-            if (sukses) {
+                //cek sukses atau tidak
+                if (sukses) {
+                    getDataPrangko();
+                    autoincrementPrangko();
+                    resetField();
+                } else {
+                    JOptionPane.showMessageDialog(this, "Data gagal ditambahkan");
+                    getDataPrangko();
+                    autoincrementPrangko();
+                }
                 getDataPrangko();
                 autoincrementPrangko();
-                resetField();
-            } else {
-                JOptionPane.showMessageDialog(this, "Data gagal ditambahkan");
-                getDataPrangko();
-                autoincrementPrangko();
-            }
-            getDataPrangko();
-            autoincrementPrangko();
             }
         }
-        
+
     }//GEN-LAST:event_buttonSimpanPrangkoActionPerformed
 
     private void buttonHapusPrangkoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHapusPrangkoActionPerformed
@@ -3194,47 +3206,47 @@ public final class FormHome extends javax.swing.JFrame {
             int pilih = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin "
                     + "menyimpan " + namaProduk
                     + "?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
-            if (pilih == JOptionPane.YES_OPTION){            
-            //buat objek pegawai
-            Produk produk = new Produk();
-            produk.setIdProduk(idProduk);
-            produk.setNamaProduk(namaProduk);
-            produk.setNominal(Integer.parseInt(nominal));
-            produk.setBiayaCetak(Float.parseFloat(biayaCetak));
-            produk.setTahun(tahun);
+            if (pilih == JOptionPane.YES_OPTION) {
+                //buat objek pegawai
+                Produk produk = new Produk();
+                produk.setIdProduk(idProduk);
+                produk.setNamaProduk(namaProduk);
+                produk.setNominal(Integer.parseInt(nominal));
+                produk.setBiayaCetak(Float.parseFloat(biayaCetak));
+                produk.setTahun(tahun);
 
-            //inisialisasi
-            Object jenisMS_SS = ComboJenisMS_SS.getSelectedItem();
-            String kosong = null;
-            String jenisProduk = null;
+                //inisialisasi
+                Object jenisMS_SS = ComboJenisMS_SS.getSelectedItem();
+                String kosong = null;
+                String jenisProduk = null;
 
-            //insert produk
-            ProdukDAO dao = new ProdukDAOImpl();
-            if (jenisMS_SS == "MS") {
-                jenisProduk = "MS";
-                //Tambahkan pilihan item untuk buah
+                //insert produk
+                ProdukDAO dao = new ProdukDAOImpl();
+                if (jenisMS_SS == "MS") {
+                    jenisProduk = "MS";
+                    //Tambahkan pilihan item untuk buah
 
-            } else if (jenisMS_SS == "SS") {
-                jenisProduk = "SS";
-            }
-            boolean sukses = dao.tambahProduk(produk, jenisProduk);
+                } else if (jenisMS_SS == "SS") {
+                    jenisProduk = "SS";
+                }
+                boolean sukses = dao.tambahProduk(produk, jenisProduk);
 
-            //cek sukses atau tidak
-            if (sukses) {
+                //cek sukses atau tidak
+                if (sukses) {
+                    getDataMS_SS();
+                    autoincrementMS_SS();
+                    resetField();
+                } else {
+                    JOptionPane.showMessageDialog(this, "Data gagal ditambahkan");
+                    getDataMS_SS();
+                    autoincrementMS_SS();
+                }
+
                 getDataMS_SS();
                 autoincrementMS_SS();
-                resetField();
-            } else {
-                JOptionPane.showMessageDialog(this, "Data gagal ditambahkan");
-                getDataMS_SS();
-                autoincrementMS_SS();
-            }
-            
-            getDataMS_SS();
-            autoincrementMS_SS();
             }
         }
-        
+
     }//GEN-LAST:event_buttonSimpanMSSSActionPerformed
 
     private void fieldNamaProdukMSSSKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldNamaProdukMSSSKeyPressed
@@ -3439,43 +3451,43 @@ public final class FormHome extends javax.swing.JFrame {
             int pilih = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin "
                     + "menyimpan " + namaProduk
                     + "?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
-            if (pilih == JOptionPane.YES_OPTION){
-            //buat objek pegawai
-            Produk produk = new Produk();
-            produk.setIdProduk(idProduk);
-            produk.setNamaProduk(namaProduk);
-            produk.setNominal(Integer.parseInt(nominal));
-            produk.setBiayaCetak(Float.parseFloat(biayaCetak));
-            produk.setTahun(tahun);
+            if (pilih == JOptionPane.YES_OPTION) {
+                //buat objek pegawai
+                Produk produk = new Produk();
+                produk.setIdProduk(idProduk);
+                produk.setNamaProduk(namaProduk);
+                produk.setNominal(Integer.parseInt(nominal));
+                produk.setBiayaCetak(Float.parseFloat(biayaCetak));
+                produk.setTahun(tahun);
 
-            //inisialisasi
-            Object jenisSHP_SHPSS = ComboJenisSHP_SHPSS.getSelectedItem();
-            String kosong = null;
-            String jenisProduk = null;
+                //inisialisasi
+                Object jenisSHP_SHPSS = ComboJenisSHP_SHPSS.getSelectedItem();
+                String kosong = null;
+                String jenisProduk = null;
 
-            //insert produk
-            dao = new ProdukDAOImpl();
-            if (jenisSHP_SHPSS == "SHP") {
-                jenisProduk = "SHP";
+                //insert produk
+                dao = new ProdukDAOImpl();
+                if (jenisSHP_SHPSS == "SHP") {
+                    jenisProduk = "SHP";
 
-            } else if (jenisSHP_SHPSS == "SHPSS") {
-                jenisProduk = "SHPSS";
-            }
+                } else if (jenisSHP_SHPSS == "SHPSS") {
+                    jenisProduk = "SHPSS";
+                }
 
-            boolean sukses = dao.tambahProduk(produk, jenisProduk);
-            //cek sukses atau tidak
-            if (sukses) {
+                boolean sukses = dao.tambahProduk(produk, jenisProduk);
+                //cek sukses atau tidak
+                if (sukses) {
+                    getDataSHP_SHPSS();
+                    autoincrementSHP_SHPSS();
+                } else {
+                    JOptionPane.showMessageDialog(this, "Data gagal ditambahkan");
+                    getDataSHP_SHPSS();
+                    autoincrementSHP_SHPSS();
+                    resetField();
+                }
+
                 getDataSHP_SHPSS();
                 autoincrementSHP_SHPSS();
-            } else {
-                JOptionPane.showMessageDialog(this, "Data gagal ditambahkan");
-                getDataSHP_SHPSS();
-                autoincrementSHP_SHPSS();
-                resetField();
-            }
-            
-            getDataSHP_SHPSS();
-            autoincrementSHP_SHPSS();
             }
         }
     }//GEN-LAST:event_buttonSimpanSHPSHPSSActionPerformed
@@ -3657,34 +3669,34 @@ public final class FormHome extends javax.swing.JFrame {
             int pilih = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin "
                     + "menyimpan " + namaProduk
                     + "?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
-            if (pilih == JOptionPane.YES_OPTION){
-            //buat objek pegawai
-            Produk produk = new Produk();
-            produk.setIdProduk(idProduk);
-            produk.setNamaProduk(namaProduk);
-            produk.setNominal(Integer.parseInt(nominal));
-            produk.setBiayaCetak(Float.parseFloat(biayaCetak));
-            produk.setTahun(tahun);
+            if (pilih == JOptionPane.YES_OPTION) {
+                //buat objek pegawai
+                Produk produk = new Produk();
+                produk.setIdProduk(idProduk);
+                produk.setNamaProduk(namaProduk);
+                produk.setNominal(Integer.parseInt(nominal));
+                produk.setBiayaCetak(Float.parseFloat(biayaCetak));
+                produk.setTahun(tahun);
 
-            //inisialisasi
-            String jenisProduk = "KM";
+                //inisialisasi
+                String jenisProduk = "KM";
 
-            ProdukDAO dao = new ProdukDAOImpl();
-            boolean sukses = dao.tambahProduk(produk, jenisProduk);
+                ProdukDAO dao = new ProdukDAOImpl();
+                boolean sukses = dao.tambahProduk(produk, jenisProduk);
 
-            //cek sukses atau tidak
-            if (sukses) {
-                JOptionPane.showMessageDialog(this, "Data berhasil ditambahkan");
+                //cek sukses atau tidak
+                if (sukses) {
+                    JOptionPane.showMessageDialog(this, "Data berhasil ditambahkan");
+                    getDataKemasan();
+                    autoincrementKemasan();
+                    resetField();
+                } else {
+                    JOptionPane.showMessageDialog(this, "Data gagal ditambahkan");
+                    getDataKemasan();
+                    autoincrementKemasan();
+                }
                 getDataKemasan();
                 autoincrementKemasan();
-                resetField();
-            } else {
-                JOptionPane.showMessageDialog(this, "Data gagal ditambahkan");
-                getDataKemasan();
-                autoincrementKemasan();
-            }
-            getDataKemasan();
-            autoincrementKemasan();
             }
         }
     }//GEN-LAST:event_buttonSImpanKemasanActionPerformed
@@ -3866,33 +3878,33 @@ public final class FormHome extends javax.swing.JFrame {
             int pilih = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin "
                     + "menyimpan " + namaProduk
                     + "?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
-            if (pilih == JOptionPane.YES_OPTION){
-            //buat objek pegawai
-            Produk produk = new Produk();
-            produk.setIdProduk(idProduk);
-            produk.setNamaProduk(namaProduk);
-            produk.setNominal(Integer.parseInt(nominal));
-            produk.setBiayaCetak(Float.parseFloat(biayaCetak));
-            produk.setTahun(tahun);
+            if (pilih == JOptionPane.YES_OPTION) {
+                //buat objek pegawai
+                Produk produk = new Produk();
+                produk.setIdProduk(idProduk);
+                produk.setNamaProduk(namaProduk);
+                produk.setNominal(Integer.parseInt(nominal));
+                produk.setBiayaCetak(Float.parseFloat(biayaCetak));
+                produk.setTahun(tahun);
 
-            //inisialisasi
-            String jenisProduk = "MC";
+                //inisialisasi
+                String jenisProduk = "MC";
 
-            ProdukDAO dao = new ProdukDAOImpl();
-            boolean sukses = dao.tambahProduk(produk, jenisProduk);
+                ProdukDAO dao = new ProdukDAOImpl();
+                boolean sukses = dao.tambahProduk(produk, jenisProduk);
 
-            //cek sukses atau tidak
-            if (sukses) {
-                resetField();
+                //cek sukses atau tidak
+                if (sukses) {
+                    resetField();
+                    getDataMerchandise();
+                    autoincrementMerchandise();
+                } else {
+                    JOptionPane.showMessageDialog(this, "Data gagal ditambahkan");
+                    getDataMerchandise();
+                    autoincrementMerchandise();
+                }
                 getDataMerchandise();
                 autoincrementMerchandise();
-            } else {
-                JOptionPane.showMessageDialog(this, "Data gagal ditambahkan");
-                getDataMerchandise();
-                autoincrementMerchandise();
-            }
-            getDataMerchandise();
-            autoincrementMerchandise();
             }
         }
     }//GEN-LAST:event_buttonSImpanMerchandiseActionPerformed
@@ -4075,33 +4087,33 @@ public final class FormHome extends javax.swing.JFrame {
             int pilih = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin "
                     + "menyimpan " + namaProduk
                     + "?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
-            if (pilih == JOptionPane.YES_OPTION){
-            //buat objek pegawai
-            Produk produk = new Produk();
-            produk.setIdProduk(idProduk);
-            produk.setNamaProduk(namaProduk);
-            produk.setNominal(Integer.parseInt(nominal));
-            produk.setBiayaCetak(Float.parseFloat(biayaCetak));
-            produk.setTahun(tahun);
+            if (pilih == JOptionPane.YES_OPTION) {
+                //buat objek pegawai
+                Produk produk = new Produk();
+                produk.setIdProduk(idProduk);
+                produk.setNamaProduk(namaProduk);
+                produk.setNominal(Integer.parseInt(nominal));
+                produk.setBiayaCetak(Float.parseFloat(biayaCetak));
+                produk.setTahun(tahun);
 
-            //inisialisasi
-            String jenisProduk = "PS";
+                //inisialisasi
+                String jenisProduk = "PS";
 
-            ProdukDAO dao = new ProdukDAOImpl();
-            boolean sukses = dao.tambahProduk(produk, jenisProduk);
+                ProdukDAO dao = new ProdukDAOImpl();
+                boolean sukses = dao.tambahProduk(produk, jenisProduk);
 
-            //cek sukses atau tidak
-            if (sukses) {
-                resetField();
+                //cek sukses atau tidak
+                if (sukses) {
+                    resetField();
+                    getDataPrisma();
+                    autoincrementPrisma();
+                } else {
+                    JOptionPane.showMessageDialog(this, "Data gagal ditambahkan");
+                    getDataPrisma();
+                    autoincrementPrisma();
+                }
                 getDataPrisma();
                 autoincrementPrisma();
-            } else {
-                JOptionPane.showMessageDialog(this, "Data gagal ditambahkan");
-                getDataPrisma();
-                autoincrementPrisma();
-            }
-            getDataPrisma();
-            autoincrementPrisma();
             }
         }
     }//GEN-LAST:event_buttonSimpanPrismaActionPerformed
@@ -4284,33 +4296,33 @@ public final class FormHome extends javax.swing.JFrame {
             int pilih = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin "
                     + "menyimpan " + namaProduk
                     + "?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
-            if (pilih == JOptionPane.YES_OPTION){
-            //buat objek pegawai
-            Produk produk = new Produk();
-            produk.setIdProduk(idProduk);
-            produk.setNamaProduk(namaProduk);
-            produk.setNominal(Integer.parseInt(nominal));
-            produk.setBiayaCetak(Float.parseFloat(biayaCetak));
-            produk.setTahun(tahun);
+            if (pilih == JOptionPane.YES_OPTION) {
+                //buat objek pegawai
+                Produk produk = new Produk();
+                produk.setIdProduk(idProduk);
+                produk.setNamaProduk(namaProduk);
+                produk.setNominal(Integer.parseInt(nominal));
+                produk.setBiayaCetak(Float.parseFloat(biayaCetak));
+                produk.setTahun(tahun);
 
-            //inisialisasi
-            String jenisProduk = "DF";
+                //inisialisasi
+                String jenisProduk = "DF";
 
-            ProdukDAO dao = new ProdukDAOImpl();
-            boolean sukses = dao.tambahProduk(produk, jenisProduk);
+                ProdukDAO dao = new ProdukDAOImpl();
+                boolean sukses = dao.tambahProduk(produk, jenisProduk);
 
-            //cek sukses atau tidak
-            if (sukses) {
-                resetField();
+                //cek sukses atau tidak
+                if (sukses) {
+                    resetField();
+                    getDataDokumenFilateli();
+                    autoincrementDokumenFilateli();
+                } else {
+                    JOptionPane.showMessageDialog(this, "Data gagal ditambahkan");
+                    getDataDokumenFilateli();
+                    autoincrementDokumenFilateli();
+                }
                 getDataDokumenFilateli();
                 autoincrementDokumenFilateli();
-            } else {
-                JOptionPane.showMessageDialog(this, "Data gagal ditambahkan");
-                getDataDokumenFilateli();
-                autoincrementDokumenFilateli();
-            }
-            getDataDokumenFilateli();
-            autoincrementDokumenFilateli();
             }
         }
     }//GEN-LAST:event_buttonSimpanDokumenFIlateliActionPerformed
@@ -4475,7 +4487,7 @@ public final class FormHome extends javax.swing.JFrame {
         tablePrangko.setModel(produkTableModel);
     }//GEN-LAST:event_buttonCariPrangkoActionPerformed
 
-    private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseClicked
+    private void tabbedPaneProdukMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabbedPaneProdukMouseClicked
         // TODO add your handling code here:
         resetField();
         autoincrementPrangko();
@@ -4492,7 +4504,7 @@ public final class FormHome extends javax.swing.JFrame {
         getDataMerchandise();
         getDataPrisma();
         getDataDokumenFilateli();
-    }//GEN-LAST:event_jTabbedPane1MouseClicked
+    }//GEN-LAST:event_tabbedPaneProdukMouseClicked
 
     private void jPanel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel13MouseClicked
         // TODO add your handling code here:
@@ -5208,13 +5220,13 @@ public final class FormHome extends javax.swing.JFrame {
     private void buttonLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLogoutActionPerformed
         // TODO add your handling code here:
         int pilih = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin Logout ?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
-        if (pilih == JOptionPane.YES_OPTION){
-        FormLogin fl = new FormLogin();
-        fl.setLocationRelativeTo(null);
-        fl.setVisible(true);
-        this.setVisible(false);
+        if (pilih == JOptionPane.YES_OPTION) {
+            FormLogin fl = new FormLogin();
+            fl.setLocationRelativeTo(null);
+            fl.setVisible(true);
+            this.setVisible(false);
         }
-        
+
     }//GEN-LAST:event_buttonLogoutActionPerformed
 
     private void fieldNominalPrangkoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fieldNominalPrangkoMouseClicked
@@ -5423,6 +5435,7 @@ public final class FormHome extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
@@ -5450,8 +5463,8 @@ public final class FormHome extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
-    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JPanel tabKelolaProduk;
+    private javax.swing.JTabbedPane tabbedPaneProduk;
     private javax.swing.JTable tableDokumenFilateli;
     private javax.swing.JTable tableKemasan;
     private javax.swing.JTable tableMSSS;

@@ -796,7 +796,6 @@ public class ProdukDAOImpl implements ProdukDAO {
         } catch (SQLException ex) {
             Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
-
         return false;
     }
 
