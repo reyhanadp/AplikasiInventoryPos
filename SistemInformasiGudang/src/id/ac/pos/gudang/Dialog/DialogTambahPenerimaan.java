@@ -117,7 +117,15 @@ public class DialogTambahPenerimaan extends javax.swing.JDialog {
         for (int i = 0; i < baris; i++) {
             model.removeRow(0);
         }
-
+        
+        fieldNoOrder.setText("");
+        fieldNoOrder1.setText("");
+        fieldNoOrder2.setText("");
+        fieldNoOrder3.setText("");
+        fieldNoOrder.setEnabled(true);
+        fieldNoOrder1.setEnabled(true);
+        fieldNoOrder2.setEnabled(true);
+        fieldNoOrder3.setEnabled(true);
         fieldTglPenerimaan.setDate(null);
         fieldTglPenerimaan.setEnabled(true);
         JenisProduk.setSelectedIndex(0);
@@ -142,6 +150,9 @@ public class DialogTambahPenerimaan extends javax.swing.JDialog {
         NamaProduk.setSelectedItem("- Pilih Nama Produk -");
         JenisProduk.setSelectedItem("- Pilih Jenis produk -");
         fieldNoOrder.setText("");
+        fieldNoOrder1.setText("");
+        fieldNoOrder2.setText("");
+        fieldNoOrder3.setText("");
         fieldStokAwal.setText("");
     }
 
@@ -766,6 +777,8 @@ public class DialogTambahPenerimaan extends javax.swing.JDialog {
                         //cek sukses atau tidak
                         if (sukses) {
                             JOptionPane.showMessageDialog(this, "Data berhasil ditambahkan");
+                            
+                            
                             reset_simpan();
                         } else {
                             JOptionPane.showMessageDialog(this, "Data gagal ditambahkan");
@@ -951,6 +964,7 @@ public class DialogTambahPenerimaan extends javax.swing.JDialog {
                     
                     
                     arrayPenerimaan = daoPenerimaan.IsiPemesanan(fieldIdPemesanan.getText());
+                    System.out.println(arrayPenerimaan.size());
                     if (arrayPenerimaan.size()>=1){
                         fieldSubtotalTerima.setText(String.valueOf(arrayPenerimaan.get(0).getSubTotalTerima()));
                         fieldSisaBelumDikirim.setText(String.valueOf(arrayPenerimaan.get(0).getSisaBelumDikirim()));
@@ -1278,7 +1292,7 @@ public class DialogTambahPenerimaan extends javax.swing.JDialog {
         int baris = tabel_penerimaan.getRowCount();
         if (baris > 0) {
             JenisProduk.setSelectedIndex(0);
-            fieldJmlTerima.setText("");
+            reset_simpan();
         } else {
             reset();
         }
