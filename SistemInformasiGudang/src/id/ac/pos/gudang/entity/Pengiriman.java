@@ -12,15 +12,15 @@ import java.util.Date;
  * @author reyha
  */
 public class Pengiriman {
-    String id_pengiriman;
-    String no_order_pengiriman;
-    Date tgl_pengiriman;
-    int jumlah_pengiriman;
-    String bsu;
-    String id_regional;
-    String id_produk;
-    int stok_awal;
-    int stok_akhir;
+    private String id_pengiriman;
+    private String no_order_pengiriman;
+    private Date tgl_pengiriman;
+    private int jumlah_pengiriman;
+    private String bsu;
+    private String id_regional;
+    private String id_produk;
+    private int stok_awal;
+    private int stok_akhir;
 
     public void setStok_akhir(int stok_akhir) {
         this.stok_akhir = stok_akhir;

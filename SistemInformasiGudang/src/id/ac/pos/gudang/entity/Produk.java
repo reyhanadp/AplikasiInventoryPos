@@ -14,17 +14,26 @@ import java.util.Date;
  */
 public class Produk {
     
-    int no;
-    String idProduk;
-    String namaProduk;
-    int nominal;
-    float biayaCetak;
-    int stok;
-    String tahun;
-    String idJenisProduk;
-    Date tglHapus;
-    Date tglUbah;
-    String nik;
+    private int no;
+    private String idProduk;
+    private String namaProduk;
+    private int nominal;
+    private float biayaCetak;
+    private int stok;
+    private String tahun;
+    private String idJenisProduk;
+    private Date tglHapus;
+    private Date tglUbah;
+    private String nik;
+    private char status;
+
+    public char getStatus() {
+        return status;
+    }
+
+    public void setStatus(char status) {
+        this.status = status;
+    }
 
     public String getNik() {
         return nik;

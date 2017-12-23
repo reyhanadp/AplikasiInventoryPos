@@ -15,6 +15,15 @@ public class User {
     private String password;
     private String namaUser;
     private String hakAkses;
+    private char status;
+
+    public char getStatus() {
+        return status;
+    }
+
+    public void setStatus(char status) {
+        this.status = status;
+    }
 
     public String getPassword() {
         return password;

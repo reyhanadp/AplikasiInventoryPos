@@ -12,15 +12,15 @@ import java.util.Date;
  * @author Operator
  */
 public class Pengembalian {
-    String id_pengembalian;
-    Date tanggal_pengembalian;
-    String jumlah_pengembalian;
-    String dus;
-    String id_regional;
-    String id_produk;
-    String stok_awal;
-    String stok_akhir;
-    String keterangan;
+    private String id_pengembalian;
+    private Date tanggal_pengembalian;
+    private String jumlah_pengembalian;
+    private String dus;
+    private String id_regional;
+    private String id_produk;
+    private String stok_awal;
+    private String stok_akhir;
+    private String keterangan;
 
     public String getId_pengembalian() {
         return id_pengembalian;

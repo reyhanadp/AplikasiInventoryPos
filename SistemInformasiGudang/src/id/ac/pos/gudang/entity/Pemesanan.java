@@ -12,13 +12,13 @@ import java.util.Date;
  * @author muhamad solahudin
  */
 public class Pemesanan {
-    String idPemesanan;
-    String noPemesanan;
-    String kodeProduk;
-    Date TglPemesanan;
-    String jumlahPemesanan;
-    String idSuplier;
-    String status;
+    private String idPemesanan;
+    private String noPemesanan;
+    private String kodeProduk;
+    private Date TglPemesanan;
+    private String jumlahPemesanan;
+    private String idSuplier;
+    private String status;
 
     public String getIdPemesanan() {
         return idPemesanan;

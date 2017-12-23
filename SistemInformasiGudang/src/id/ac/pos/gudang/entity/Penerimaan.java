@@ -12,18 +12,18 @@ import java.util.Date;
  * @author muhamad solahudin
  */
 public class Penerimaan {
-    String idPenerimaan;
-    String noOrder;
-    Date tglPenerimaan;
-    int jmlTerima;
-    String idPemesanan;
-    String idProduk;
-    String idSuplier;
-    int stokAwal;
-    int stokAkhir;
-    int subTotalTerima;
-    int sisaBelumDikirim;
-    String keterangan;
+    private String idPenerimaan;
+    private String noOrder;
+    private Date tglPenerimaan;
+    private int jmlTerima;
+    private String idPemesanan;
+    private String idProduk;
+    private String idSuplier;
+    private int stokAwal;
+    private int stokAkhir;
+    private int subTotalTerima;
+    private int sisaBelumDikirim;
+    private String keterangan;
 
     public String getIdPenerimaan() {
         return idPenerimaan;
