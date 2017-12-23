@@ -63,11 +63,7 @@ public class PenerimaanDAOImpl implements PenerimaanDAO {
             } catch (SQLException ex) {
                 Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
             }
-            try {
-                conn.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            
         }
 
         return id_penerimaan;
@@ -109,11 +105,7 @@ public class PenerimaanDAOImpl implements PenerimaanDAO {
             } catch (SQLException ex) {
                 Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
             }
-            try {
-                conn.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            
         }
 
         return arrayPemesanan;
@@ -175,11 +167,7 @@ public class PenerimaanDAOImpl implements PenerimaanDAO {
             } catch (SQLException ex) {
                 Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
             }
-            try {
-                conn.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            
         }
 
         return arrayProduk;
@@ -242,11 +230,7 @@ public class PenerimaanDAOImpl implements PenerimaanDAO {
             } catch (SQLException ex) {
                 Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
             }
-            try {
-                conn.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            
         }
 
         return arrayProduk;
@@ -309,11 +293,7 @@ public class PenerimaanDAOImpl implements PenerimaanDAO {
             } catch (SQLException ex) {
                 Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
             }
-            try {
-                conn.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            
         }
 
         return arrayProduk;
@@ -355,11 +335,7 @@ public class PenerimaanDAOImpl implements PenerimaanDAO {
             } catch (SQLException ex) {
                 Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
             }
-            try {
-                conn.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            
         }
 
         return arrayPemesanan;
@@ -405,11 +381,7 @@ public class PenerimaanDAOImpl implements PenerimaanDAO {
             } catch (SQLException ex) {
                 Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
             }
-            try {
-                conn.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            
         }
 
         return arrayProduk;
@@ -419,11 +391,12 @@ public class PenerimaanDAOImpl implements PenerimaanDAO {
     public ArrayList<Penerimaan> IsiPemesanan(String idPemesanan){
         ArrayList<Penerimaan> arrayPenerimaan = null;
         String SELECT = "";
+        System.out.println(idPemesanan);
         SELECT = "SELECT tb_trans_pemesanan.id_suplier,tb_produk.id_produk,tb_trans_penerimaan.sisa_belum_dikirim,"
                     + "tb_produk.nama_produk,tb_trans_penerimaan.subtotal_terima,jumlah_pesan,stok "
-                    + "FROM tb_trans_pemesanan,tb_produk,tb_trans_penerimaan "
-                    + "WHERE tb_trans_pemesanan.id_pemesanan = '"+idPemesanan+"' AND tb_trans_pemesanan.id_produk=tb_produk.id_produk"
-                    + " AND tb_trans_penerimaan.id_pemesanan=tb_trans_pemesanan.id_pemesanan "
+                    + "FROM tb_trans_pemesanan JOIN tb_produk ON tb_trans_pemesanan.id_produk=tb_produk.id_produk "
+                + "JOIN tb_trans_penerimaan ON tb_trans_penerimaan.id_pemesanan=tb_trans_pemesanan.id_pemesanan "
+                    + "WHERE tb_trans_pemesanan.id_pemesanan = '"+idPemesanan+"' "
                 + "ORDER BY tb_trans_penerimaan.subtotal_terima DESC";
         PreparedStatement state = null;
         try {
@@ -455,11 +428,7 @@ public class PenerimaanDAOImpl implements PenerimaanDAO {
             } catch (SQLException ex) {
                 Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
             }
-            try {
-                conn.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            
         } 
         return arrayPenerimaan;
      }
@@ -507,11 +476,7 @@ public class PenerimaanDAOImpl implements PenerimaanDAO {
             } catch (SQLException ex) {
                 Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
             }
-            try {
-                conn.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            
         }
         
         return arrayProduk;
@@ -556,11 +521,7 @@ public class PenerimaanDAOImpl implements PenerimaanDAO {
             } catch (SQLException ex) {
                 Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
             }
-            try {
-                conn.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            
         }
 
         return arrayPemesanan;
@@ -633,11 +594,7 @@ public class PenerimaanDAOImpl implements PenerimaanDAO {
             } catch (SQLException ex) {
                 Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
             }
-            try {
-                conn.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            
         }
         return arrayPenerimaan;
     }
@@ -762,11 +719,7 @@ public class PenerimaanDAOImpl implements PenerimaanDAO {
             } catch (SQLException ex) {
                 Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
             }
-            try {
-                conn.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            
         }
         return arrayProduk;
     }
@@ -811,11 +764,7 @@ public class PenerimaanDAOImpl implements PenerimaanDAO {
             } catch (SQLException ex) {
                 Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
             }
-            try {
-                conn.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            
         }
 
         return arrayProduk;
@@ -859,11 +808,7 @@ public class PenerimaanDAOImpl implements PenerimaanDAO {
             } catch (SQLException ex) {
                 Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
             }
-            try {
-                conn.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            
         }
         return arraySuplier;
     }
