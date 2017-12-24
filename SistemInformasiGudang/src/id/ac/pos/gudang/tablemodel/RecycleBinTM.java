@@ -28,7 +28,7 @@ public class RecycleBinTM extends AbstractTableModel {
 
     @Override
     public int getColumnCount() {
-        return 7;
+        return 6;
     }
 
     @Override
@@ -51,9 +51,6 @@ public class RecycleBinTM extends AbstractTableModel {
 
             case 5:
                 return arrayProduk.get(rowIndex).getTahun();
-
-            case 6:
-                return arrayProduk.get(rowIndex).getTglHapus();
 
         }
         return null;
@@ -79,9 +76,6 @@ public class RecycleBinTM extends AbstractTableModel {
 
             case 5:
                 return "Tahun";
-
-            case 6:
-                return "Tanggal Penghapusan";
         }
         return null;
     }

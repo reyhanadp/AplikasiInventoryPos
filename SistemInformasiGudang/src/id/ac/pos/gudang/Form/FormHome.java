@@ -57,9 +57,7 @@ public final class FormHome extends javax.swing.JFrame {
     }
     
     private void refresh() {
-        
         autoincrementProduk();
-        inisialisasiField();
         getDataProduk();
     }
 
@@ -83,24 +81,6 @@ public final class FormHome extends javax.swing.JFrame {
         autoincrementDokumenFilateli();
     }
     
-    public void inisialisasiField() {
-        fieldNominalPrangko.setText("0");
-        fieldNominalProdukMSSS.setText("0");
-        fieldNominalProdukSHPSHPSS.setText("0");
-        fieldNominalProdukMerchandise.setText("0");
-        fieldNominalProdukKemasan.setText("0");
-        fieldNominalProdukDokumenFilateli.setText("0");
-        fieldNominalProdukPrisma.setText("0");
-
-        fieldBiayaCetakPrangko.setText("0");
-        fieldBiayaCetakProdukMSSS.setText("0");
-        fieldBiayaCetakSHPSHPSS.setText("0");
-        fieldBiayaCetakProdukMerchandise.setText("0");
-        fieldBiayaCetakProdukKemasan.setText("0");
-        fieldBiayaCetakDokumenFilateli.setText("0");
-        fieldBiayaCetakProdukPrisma.setText("0");
-    }
-
     private void autoincrementPrangko() {
         String kosong = null;
         dao = new ProdukDAOImpl();
@@ -108,20 +88,38 @@ public final class FormHome extends javax.swing.JFrame {
 
         String kode_prangko = dao.getIdProduk(jenisProduk);
         if (kode_prangko == null) {
-            kode_prangko = "PR000";
+            kode_prangko = "PR000000000";
         }
-        String sub_nomor_string = kode_prangko.substring(2, 5);
+        String sub_nomor_string = kode_prangko.substring(2, 11);
         int sub_nomor_int = Integer.parseInt(sub_nomor_string);
         sub_nomor_string = String.valueOf(sub_nomor_int);
         int panjang = sub_nomor_string.length();
         switch (panjang) {
             case 1:
-                kosong = "00";
+                kosong = "00000000";
                 break;
             case 2:
-                kosong = "0";
+                kosong = "0000000";
                 break;
             case 3:
+                kosong = "000000";
+                break;
+            case 4:
+                kosong = "00000";
+                break;
+            case 5:
+                kosong = "0000";
+                break;
+            case 6:
+                kosong = "000";
+                break;
+            case 7:
+                kosong = "00";
+                break;
+            case 8:
+                kosong = "0";
+                break;    
+            case 9:
                 kosong = null;
                 break;
             default:
@@ -149,20 +147,38 @@ public final class FormHome extends javax.swing.JFrame {
 
         String kodeMS_SS = dao.getIdProduk(jenisProduk);
         if (kodeMS_SS == null) {
-            kodeMS_SS = "" + jenisProduk + "000";
+            kodeMS_SS = "" + jenisProduk + "000000000";
         }
-        String sub_nomor_string = kodeMS_SS.substring(2, 5);
+        String sub_nomor_string = kodeMS_SS.substring(2, 11);
         int sub_nomor_int = Integer.parseInt(sub_nomor_string);
         sub_nomor_string = String.valueOf(sub_nomor_int);
         int panjang = sub_nomor_string.length();
         switch (panjang) {
             case 1:
-                kosong = "00";
+                kosong = "00000000";
                 break;
             case 2:
-                kosong = "0";
+                kosong = "0000000";
                 break;
             case 3:
+                kosong = "000000";
+                break;
+            case 4:
+                kosong = "00000";
+                break;
+            case 5:
+                kosong = "0000";
+                break;
+            case 6:
+                kosong = "000";
+                break;
+            case 7:
+                kosong = "00";
+                break;
+            case 8:
+                kosong = "0";
+                break;    
+            case 9:
                 kosong = null;
                 break;
             default:
@@ -181,20 +197,38 @@ public final class FormHome extends javax.swing.JFrame {
 
         String kode_prangko = dao.getIdProduk(jenisProduk);
         if (kode_prangko == null) {
-            kode_prangko = "KM000";
+            kode_prangko = "KM000000000";
         }
-        String sub_nomor_string = kode_prangko.substring(2, 5);
+        String sub_nomor_string = kode_prangko.substring(2, 11);
         int sub_nomor_int = Integer.parseInt(sub_nomor_string);
         sub_nomor_string = String.valueOf(sub_nomor_int);
         int panjang = sub_nomor_string.length();
         switch (panjang) {
             case 1:
-                kosong = "00";
+                kosong = "00000000";
                 break;
             case 2:
-                kosong = "0";
+                kosong = "0000000";
                 break;
             case 3:
+                kosong = "000000";
+                break;
+            case 4:
+                kosong = "00000";
+                break;
+            case 5:
+                kosong = "0000";
+                break;
+            case 6:
+                kosong = "000";
+                break;
+            case 7:
+                kosong = "00";
+                break;
+            case 8:
+                kosong = "0";
+                break;    
+            case 9:
                 kosong = null;
                 break;
             default:
@@ -213,20 +247,38 @@ public final class FormHome extends javax.swing.JFrame {
 
         String kode_merchandise = dao.getIdProduk(jenisProduk);
         if (kode_merchandise == null) {
-            kode_merchandise = "MC000";
+            kode_merchandise = "MC000000000";
         }
-        String sub_nomor_string = kode_merchandise.substring(2, 5);
+        String sub_nomor_string = kode_merchandise.substring(2, 11);
         int sub_nomor_int = Integer.parseInt(sub_nomor_string);
         sub_nomor_string = String.valueOf(sub_nomor_int);
         int panjang = sub_nomor_string.length();
         switch (panjang) {
             case 1:
-                kosong = "00";
+                kosong = "00000000";
                 break;
             case 2:
-                kosong = "0";
+                kosong = "0000000";
                 break;
             case 3:
+                kosong = "000000";
+                break;
+            case 4:
+                kosong = "00000";
+                break;
+            case 5:
+                kosong = "0000";
+                break;
+            case 6:
+                kosong = "000";
+                break;
+            case 7:
+                kosong = "00";
+                break;
+            case 8:
+                kosong = "0";
+                break;    
+            case 9:
                 kosong = null;
                 break;
             default:
@@ -245,20 +297,38 @@ public final class FormHome extends javax.swing.JFrame {
 
         String kode_prisma = dao.getIdProduk(jenisProduk);
         if (kode_prisma == null) {
-            kode_prisma = "PS000";
+            kode_prisma = "PS000000000";
         }
-        String sub_nomor_string = kode_prisma.substring(2, 5);
+        String sub_nomor_string = kode_prisma.substring(2, 11);
         int sub_nomor_int = Integer.parseInt(sub_nomor_string);
         sub_nomor_string = String.valueOf(sub_nomor_int);
         int panjang = sub_nomor_string.length();
         switch (panjang) {
             case 1:
-                kosong = "00";
+                kosong = "00000000";
                 break;
             case 2:
-                kosong = "0";
+                kosong = "0000000";
                 break;
             case 3:
+                kosong = "000000";
+                break;
+            case 4:
+                kosong = "00000";
+                break;
+            case 5:
+                kosong = "0000";
+                break;
+            case 6:
+                kosong = "000";
+                break;
+            case 7:
+                kosong = "00";
+                break;
+            case 8:
+                kosong = "0";
+                break;    
+            case 9:
                 kosong = null;
                 break;
             default:
@@ -359,20 +429,38 @@ public final class FormHome extends javax.swing.JFrame {
 
         String kode_dokumen_filateli = dao.getIdProduk(jenisProduk);
         if (kode_dokumen_filateli == null) {
-            kode_dokumen_filateli = "DF000";
+            kode_dokumen_filateli = "DF000000000";
         }
-        String sub_nomor_string = kode_dokumen_filateli.substring(2, 5);
+        String sub_nomor_string = kode_dokumen_filateli.substring(2, 11);
         int sub_nomor_int = Integer.parseInt(sub_nomor_string);
         sub_nomor_string = String.valueOf(sub_nomor_int);
         int panjang = sub_nomor_string.length();
         switch (panjang) {
             case 1:
-                kosong = "00";
+                kosong = "00000000";
                 break;
             case 2:
-                kosong = "0";
+                kosong = "0000000";
                 break;
             case 3:
+                kosong = "000000";
+                break;
+            case 4:
+                kosong = "00000";
+                break;
+            case 5:
+                kosong = "0000";
+                break;
+            case 6:
+                kosong = "000";
+                break;
+            case 7:
+                kosong = "00";
+                break;
+            case 8:
+                kosong = "0";
+                break;    
+            case 9:
                 kosong = null;
                 break;
             default:
@@ -394,29 +482,21 @@ public final class FormHome extends javax.swing.JFrame {
         fieldNamaProdukDokumenFilateli.setText("");
         fieldNamaProdukPrisma.setText("");
 
-        fieldNominalPrangko.setText("0");
-        fieldNominalProdukMSSS.setText("0");
-        fieldNominalProdukSHPSHPSS.setText("0");
-        fieldNominalProdukMerchandise.setText("0");
-        fieldNominalProdukKemasan.setText("0");
-        fieldNominalProdukDokumenFilateli.setText("0");
-        fieldNominalProdukPrisma.setText("0");
+        fieldNominalPrangko.setText("");
+        fieldNominalProdukMSSS.setText("");
+        fieldNominalProdukSHPSHPSS.setText("");
+        fieldNominalProdukMerchandise.setText("");
+        fieldNominalProdukKemasan.setText("");
+        fieldNominalProdukDokumenFilateli.setText("");
+        fieldNominalProdukPrisma.setText("");
 
-        fieldBiayaCetakPrangko.setText("0");
-        fieldBiayaCetakProdukMSSS.setText("0");
-        fieldBiayaCetakSHPSHPSS.setText("0");
-        fieldBiayaCetakProdukMerchandise.setText("0");
-        fieldBiayaCetakProdukKemasan.setText("0");
-        fieldBiayaCetakDokumenFilateli.setText("0");
-        fieldBiayaCetakProdukPrisma.setText("0");
-
-        fieldTahunPrangko.setText("");
-        fieldTahunProdukMSSS.setText("");
-        fieldTahunProdukSHPSHPSS.setText("");
-        fieldTahunProdukMerchandise.setText("");
-        fieldTahunProdukKemasan.setText("");
-        fieldTahunProdukDokumenFilateli.setText("");
-        fieldTahunProdukPrisma.setText("");
+        fieldBiayaCetakPrangko.setText("");
+        fieldBiayaCetakProdukMSSS.setText("");
+        fieldBiayaCetakSHPSHPSS.setText("");
+        fieldBiayaCetakProdukMerchandise.setText("");
+        fieldBiayaCetakProdukKemasan.setText("");
+        fieldBiayaCetakDokumenFilateli.setText("");
+        fieldBiayaCetakProdukPrisma.setText("");
 
         int tahun;
         tahun = dao.getTahunSekarang();
@@ -454,32 +534,72 @@ public final class FormHome extends javax.swing.JFrame {
 
         String kodeSHP_SHPSS = dao.getIdProduk(jenisProduk);
         if (kodeSHP_SHPSS == null) {
-            kodeSHP_SHPSS = "" + jenisProduk + "000";
+            kodeSHP_SHPSS = "" + jenisProduk + "000000000";
         }
 
         if (jenisSHP_SHPSS == "SHP") {
-            sub_nomor_string = kodeSHP_SHPSS.substring(3, 6);
+            sub_nomor_string = kodeSHP_SHPSS.substring(3, 10);
             //Tambahkan pilihan item untuk buah
 
         } else if (jenisSHP_SHPSS == "SHPSS") {
-            sub_nomor_string = kodeSHP_SHPSS.substring(5, 8);
+            sub_nomor_string = kodeSHP_SHPSS.substring(5, 11);
         }
 
         int sub_nomor_int = Integer.parseInt(sub_nomor_string);
         sub_nomor_string = String.valueOf(sub_nomor_int);
         int panjang = sub_nomor_string.length();
+        if (jenisProduk.compareTo("SHP")==0){
         switch (panjang) {
             case 1:
-                kosong = "00";
+                kosong = "0000000";
                 break;
             case 2:
-                kosong = "0";
+                kosong = "000000";
                 break;
             case 3:
+                kosong = "00000";
+                break;
+            case 4:
+                kosong = "0000";
+                break;
+            case 5:
+                kosong = "000";
+                break;
+            case 6:
+                kosong = "00";
+                break;
+            case 7:
+                kosong = "0";
+                break;    
+            case 8:
                 kosong = null;
                 break;
             default:
                 break;
+        }
+        }else{
+            switch (panjang) {
+            case 1:
+                kosong = "00000";
+                break;
+            case 2:
+                kosong = "0000";
+                break;
+            case 3:
+                kosong = "000";
+                break;
+            case 4:
+                kosong = "00";
+                break;
+            case 5:
+                kosong = "0";
+                break;    
+            case 6:
+                kosong = null;
+                break;
+            default:
+                break;
+            }
         }
         sub_nomor_int = sub_nomor_int + 1;
         sub_nomor_string = String.valueOf(sub_nomor_int);
@@ -918,7 +1038,6 @@ public final class FormHome extends javax.swing.JFrame {
 
         jLabel5.setText("Biaya Cetak  ");
 
-        fieldTahunPrangko.setEditable(false);
         fieldTahunPrangko.setToolTipText("");
         fieldTahunPrangko.setAutoscrolls(false);
         fieldTahunPrangko.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
@@ -1017,7 +1136,7 @@ public final class FormHome extends javax.swing.JFrame {
                                 .addComponent(buttonHapusPrangko, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(buttonResetPrangko, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(fieldKodeProdukPrangko, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(fieldKodeProdukPrangko, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel13Layout.setVerticalGroup(
@@ -1154,8 +1273,9 @@ public final class FormHome extends javax.swing.JFrame {
             PrangkoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PrangkoLayout.createSequentialGroup()
                 .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(5, 5, 5))
         );
 
         tabbedPaneProduk.addTab("Prangko", Prangko);
@@ -1198,7 +1318,6 @@ public final class FormHome extends javax.swing.JFrame {
 
         jLabel15.setText("Biaya Cetak  ");
 
-        fieldTahunProdukMSSS.setEditable(false);
         fieldTahunProdukMSSS.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 fieldTahunProdukMSSSKeyPressed(evt);
@@ -1302,7 +1421,7 @@ public final class FormHome extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel12)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(fieldKodeProdukMS_SS, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(fieldKodeProdukMS_SS, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel16Layout.createSequentialGroup()
                                 .addComponent(buttonSimpanMSSS)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -1311,7 +1430,7 @@ public final class FormHome extends javax.swing.JFrame {
                                 .addComponent(buttonHapusMSSS, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(buttonResetMSSS, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(0, 428, Short.MAX_VALUE))))
         );
         jPanel16Layout.setVerticalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1480,7 +1599,6 @@ public final class FormHome extends javax.swing.JFrame {
 
         jLabel20.setText("Biaya Cetak  ");
 
-        fieldTahunProdukSHPSHPSS.setEditable(false);
         fieldTahunProdukSHPSHPSS.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 fieldTahunProdukSHPSHPSSKeyTyped(evt);
@@ -1565,7 +1683,7 @@ public final class FormHome extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jLabel17)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(fieldKodeProdukSHP_SHPSS, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(fieldKodeProdukSHP_SHPSS, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel18Layout.createSequentialGroup()
                         .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -1583,7 +1701,7 @@ public final class FormHome extends javax.swing.JFrame {
                                 .addComponent(buttonHapusSHPSHPSS, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(buttonResetSHPSHPSS, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                .addGap(0, 428, Short.MAX_VALUE))
                             .addComponent(fieldNamaProdukSHPSHPSS, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(fieldNominalProdukSHPSHPSS, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(fieldBiayaCetakSHPSHPSS, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -1751,7 +1869,6 @@ public final class FormHome extends javax.swing.JFrame {
 
         jLabel25.setText("Biaya Cetak  ");
 
-        fieldTahunProdukKemasan.setEditable(false);
         fieldTahunProdukKemasan.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 fieldTahunProdukKemasanKeyPressed(evt);
@@ -1822,22 +1939,22 @@ public final class FormHome extends javax.swing.JFrame {
                     .addComponent(jLabel26, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel20Layout.createSequentialGroup()
-                        .addComponent(buttonSImpanKemasan)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(buttonUbahKemasan, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(buttonHapusKemasan, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(buttonResetKemasan, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel20Layout.createSequentialGroup()
-                        .addComponent(fieldKodeProdukKemasan, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(774, Short.MAX_VALUE))
                     .addComponent(fieldNamaProdukKemasan)
                     .addComponent(fieldNominalProdukKemasan, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(fieldBiayaCetakProdukKemasan, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(fieldTahunProdukKemasan)))
+                    .addComponent(fieldTahunProdukKemasan)
+                    .addGroup(jPanel20Layout.createSequentialGroup()
+                        .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel20Layout.createSequentialGroup()
+                                .addComponent(buttonSImpanKemasan)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(buttonUbahKemasan, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(buttonHapusKemasan, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(buttonResetKemasan, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(fieldKodeProdukKemasan, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel20Layout.setVerticalGroup(
             jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2007,7 +2124,6 @@ public final class FormHome extends javax.swing.JFrame {
 
         jLabel30.setText("Biaya Cetak  ");
 
-        fieldTahunProdukMerchandise.setEditable(false);
         fieldTahunProdukMerchandise.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 fieldTahunProdukMerchandiseKeyPressed(evt);
@@ -2084,7 +2200,6 @@ public final class FormHome extends javax.swing.JFrame {
                     .addComponent(fieldTahunProdukMerchandise)
                     .addGroup(jPanel22Layout.createSequentialGroup()
                         .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(fieldKodeProdukMerchandise, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel22Layout.createSequentialGroup()
                                 .addComponent(buttonSImpanMerchandise)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -2092,7 +2207,8 @@ public final class FormHome extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(buttonHapusMerchandise, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(buttonResetMerchandise, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(buttonResetMerchandise, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(fieldKodeProdukMerchandise, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel22Layout.setVerticalGroup(
@@ -2249,7 +2365,6 @@ public final class FormHome extends javax.swing.JFrame {
 
         jLabel35.setText("Biaya Cetak  ");
 
-        fieldTahunProdukPrisma.setEditable(false);
         fieldTahunProdukPrisma.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 fieldTahunProdukPrismaKeyPressed(evt);
@@ -2329,7 +2444,7 @@ public final class FormHome extends javax.swing.JFrame {
                                 .addComponent(buttonHapusPrisma, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(buttonResetPrisma, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(fieldKodeProdukPrisma, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(fieldKodeProdukPrisma, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel24Layout.setVerticalGroup(
@@ -2486,7 +2601,6 @@ public final class FormHome extends javax.swing.JFrame {
 
         jLabel40.setText("Biaya Cetak  ");
 
-        fieldTahunProdukDokumenFilateli.setEditable(false);
         fieldTahunProdukDokumenFilateli.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 fieldTahunProdukDokumenFilateliKeyPressed(evt);
@@ -2552,22 +2666,22 @@ public final class FormHome extends javax.swing.JFrame {
                     .addComponent(jLabel41, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel26Layout.createSequentialGroup()
-                        .addComponent(buttonSimpanDokumenFIlateli)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(buttonUbahDokumenFilateli, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(buttonHapusDokumenFilateli, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(buttonResetDokumenFIlateli, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel26Layout.createSequentialGroup()
-                        .addComponent(fieldKodeProdukDokumenFilateli, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(774, Short.MAX_VALUE))
                     .addComponent(fieldNamaProdukDokumenFilateli)
                     .addComponent(fieldNominalProdukDokumenFilateli, javax.swing.GroupLayout.DEFAULT_SIZE, 854, Short.MAX_VALUE)
                     .addComponent(fieldBiayaCetakDokumenFilateli, javax.swing.GroupLayout.DEFAULT_SIZE, 854, Short.MAX_VALUE)
-                    .addComponent(fieldTahunProdukDokumenFilateli)))
+                    .addComponent(fieldTahunProdukDokumenFilateli)
+                    .addGroup(jPanel26Layout.createSequentialGroup()
+                        .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel26Layout.createSequentialGroup()
+                                .addComponent(buttonSimpanDokumenFIlateli)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(buttonUbahDokumenFilateli, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(buttonHapusDokumenFilateli, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(buttonResetDokumenFIlateli, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(fieldKodeProdukDokumenFilateli, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel26Layout.setVerticalGroup(
             jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2896,11 +3010,21 @@ public final class FormHome extends javax.swing.JFrame {
                     + "?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
             if (ok == 0) {
                 dao = new ProdukDAOImpl();
-                dao.hapusProduk(kodeProduk);
-                resetField();
-                getDataPrangko();
-                autoincrementPrangko();
-                JOptionPane.showMessageDialog(this, "Data berhasil dihapus!");
+                boolean sukses = dao.hapusProduk(kodeProduk);
+
+                //cek sukses atau tidak
+                if (sukses) {
+                    resetField();
+                    getDataPrangko();
+                    autoincrementPrangko();
+                    JOptionPane.showMessageDialog(this, "Data berhasil dihapus!");
+                    
+                } else {
+                    resetField();
+                    getDataPrangko();
+                    autoincrementPrangko();
+                    JOptionPane.showMessageDialog(this, "Data gagal dihapus");
+                }
             }
         } else {
             JOptionPane.showMessageDialog(this, "Anda harus memilih dahulu produk "
@@ -3153,6 +3277,7 @@ public final class FormHome extends javax.swing.JFrame {
         String nominal = fieldNominalProdukMSSS.getText();
         String biayaCetak = fieldBiayaCetakProdukMSSS.getText();
         String tahun = fieldTahunProdukMSSS.getText();
+        String nik = this.nik.getText();
 
         //validasi apakah filed 
         //sudah diisi atau belum
@@ -3193,6 +3318,7 @@ public final class FormHome extends javax.swing.JFrame {
                 produk.setNominal(Integer.parseInt(nominal));
                 produk.setBiayaCetak(Float.parseFloat(biayaCetak));
                 produk.setTahun(tahun);
+                produk.setNik(nik);
 
                 //inisialisasi
                 Object jenisMS_SS = ComboJenisMS_SS.getSelectedItem();
@@ -3209,9 +3335,10 @@ public final class FormHome extends javax.swing.JFrame {
                     jenisProduk = "SS";
                 }
                 boolean sukses = dao.tambahProduk(produk, jenisProduk);
-
+                
                 //cek sukses atau tidak
                 if (sukses) {
+                    JOptionPane.showMessageDialog(this, "Data berhasil ditambahkan");
                     getDataMS_SS();
                     autoincrementMS_SS();
                     resetField();
@@ -3398,6 +3525,7 @@ public final class FormHome extends javax.swing.JFrame {
         String nominal = fieldNominalProdukSHPSHPSS.getText();
         String biayaCetak = fieldBiayaCetakSHPSHPSS.getText();
         String tahun = fieldTahunProdukSHPSHPSS.getText();
+        String nik = this.nik.getText();
 
         //validasi apakah filed 
         //sudah diisi atau belum
@@ -3438,6 +3566,7 @@ public final class FormHome extends javax.swing.JFrame {
                 produk.setNominal(Integer.parseInt(nominal));
                 produk.setBiayaCetak(Float.parseFloat(biayaCetak));
                 produk.setTahun(tahun);
+                produk.setNik(nik);
 
                 //inisialisasi
                 Object jenisSHP_SHPSS = ComboJenisSHP_SHPSS.getSelectedItem();
@@ -3456,13 +3585,14 @@ public final class FormHome extends javax.swing.JFrame {
                 boolean sukses = dao.tambahProduk(produk, jenisProduk);
                 //cek sukses atau tidak
                 if (sukses) {
+                    JOptionPane.showMessageDialog(this, "Data berhasil ditambahkan");
                     getDataSHP_SHPSS();
                     autoincrementSHP_SHPSS();
+                    resetField();
                 } else {
                     JOptionPane.showMessageDialog(this, "Data gagal ditambahkan");
                     getDataSHP_SHPSS();
                     autoincrementSHP_SHPSS();
-                    resetField();
                 }
 
                 getDataSHP_SHPSS();
@@ -3616,6 +3746,7 @@ public final class FormHome extends javax.swing.JFrame {
         String nominal = fieldNominalProdukKemasan.getText();
         String biayaCetak = fieldBiayaCetakProdukKemasan.getText();
         String tahun = fieldTahunProdukKemasan.getText();
+        String nik = this.nik.getText();
 
         //validasi apakah filed 
         //sudah diisi atau belum
@@ -3656,6 +3787,7 @@ public final class FormHome extends javax.swing.JFrame {
                 produk.setNominal(Integer.parseInt(nominal));
                 produk.setBiayaCetak(Float.parseFloat(biayaCetak));
                 produk.setTahun(tahun);
+                produk.setNik(nik);
 
                 //inisialisasi
                 String jenisProduk = "KM";
@@ -3825,6 +3957,7 @@ public final class FormHome extends javax.swing.JFrame {
         String nominal = fieldNominalProdukMerchandise.getText();
         String biayaCetak = fieldBiayaCetakProdukMerchandise.getText();
         String tahun = fieldTahunProdukMerchandise.getText();
+        String nik = this.nik.getText();
 
         //validasi apakah filed 
         //sudah diisi atau belum
@@ -3865,6 +3998,7 @@ public final class FormHome extends javax.swing.JFrame {
                 produk.setNominal(Integer.parseInt(nominal));
                 produk.setBiayaCetak(Float.parseFloat(biayaCetak));
                 produk.setTahun(tahun);
+                produk.setNik(nik);
 
                 //inisialisasi
                 String jenisProduk = "MC";
@@ -3874,6 +4008,7 @@ public final class FormHome extends javax.swing.JFrame {
 
                 //cek sukses atau tidak
                 if (sukses) {
+                    JOptionPane.showMessageDialog(this, "Data berhasil ditambahkan");
                     resetField();
                     getDataMerchandise();
                     autoincrementMerchandise();
@@ -4034,6 +4169,7 @@ public final class FormHome extends javax.swing.JFrame {
         String nominal = fieldNominalProdukPrisma.getText();
         String biayaCetak = fieldBiayaCetakProdukPrisma.getText();
         String tahun = fieldTahunProdukPrisma.getText();
+        String nik = this.nik.getText();
 
         //validasi apakah filed 
         //sudah diisi atau belum
@@ -4074,6 +4210,7 @@ public final class FormHome extends javax.swing.JFrame {
                 produk.setNominal(Integer.parseInt(nominal));
                 produk.setBiayaCetak(Float.parseFloat(biayaCetak));
                 produk.setTahun(tahun);
+                produk.setNik(nik);
 
                 //inisialisasi
                 String jenisProduk = "PS";
@@ -4083,6 +4220,7 @@ public final class FormHome extends javax.swing.JFrame {
 
                 //cek sukses atau tidak
                 if (sukses) {
+                    JOptionPane.showMessageDialog(this, "Data berhasil ditambahkan");
                     resetField();
                     getDataPrisma();
                     autoincrementPrisma();
@@ -4243,6 +4381,7 @@ public final class FormHome extends javax.swing.JFrame {
         String nominal = fieldNominalProdukDokumenFilateli.getText();
         String biayaCetak = fieldBiayaCetakDokumenFilateli.getText();
         String tahun = fieldTahunProdukDokumenFilateli.getText();
+        String nik = this.nik.getText();
 
         //validasi apakah filed 
         //sudah diisi atau belum
@@ -4283,6 +4422,7 @@ public final class FormHome extends javax.swing.JFrame {
                 produk.setNominal(Integer.parseInt(nominal));
                 produk.setBiayaCetak(Float.parseFloat(biayaCetak));
                 produk.setTahun(tahun);
+                produk.setNik(nik);
 
                 //inisialisasi
                 String jenisProduk = "DF";
@@ -4292,6 +4432,7 @@ public final class FormHome extends javax.swing.JFrame {
 
                 //cek sukses atau tidak
                 if (sukses) {
+                    JOptionPane.showMessageDialog(this, "Data berhasil ditambahkan");
                     resetField();
                     getDataDokumenFilateli();
                     autoincrementDokumenFilateli();

@@ -349,7 +349,7 @@ public class PenerimaanDAOImpl implements PenerimaanDAO {
         String SELECT = "";
         SELECT = "SELECT distinct(nama_produk) FROM `tb_produk` pr JOIN tb_trans_pemesanan pm "
                + "ON pr.id_produk=pm.id_produk"
-               + " where id_jenis_produk='" + jenis_produk + "' AND status='belum selesai' ORDER BY nama_produk ASC";
+               + " where id_jenis_produk='" + jenis_produk + "' AND pm.status='belum selesai' ORDER BY nama_produk ASC";
         
         PreparedStatement state = null;
 

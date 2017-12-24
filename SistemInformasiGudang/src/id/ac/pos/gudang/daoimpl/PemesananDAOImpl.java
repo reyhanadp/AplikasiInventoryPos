@@ -343,11 +343,11 @@ public class PemesananDAOImpl implements PemesananDAO{
         ArrayList<Produk> arrayProduk = null;
         String SELECT = "";
         if (jenis_produk.compareTo("MS") == 0) {
-            SELECT = "SELECT distinct(nama_produk) FROM `tb_produk` where id_jenis_produk='MS' OR id_jenis_produk='SS' ORDER BY nama_produk ASC";
+            SELECT = "SELECT distinct(nama_produk) FROM `tb_produk` where id_jenis_produk='MS' OR id_jenis_produk='SS' AND status=0 ORDER BY nama_produk ASC";
         } else if (jenis_produk.compareTo("SHP") == 0) {
-            SELECT = "SELECT distinct(nama_produk) FROM `tb_produk` where id_jenis_produk='SHP' OR id_jenis_produk='SHPSS' ORDER BY nama_produk ASC";
+            SELECT = "SELECT distinct(nama_produk) FROM `tb_produk` where id_jenis_produk='SHP' OR id_jenis_produk='SHPSS' AND status=0 ORDER BY nama_produk ASC";
         } else {
-            SELECT = "SELECT distinct(nama_produk) FROM `tb_produk` where id_jenis_produk='" + jenis_produk + "' ORDER BY nama_produk ASC";
+            SELECT = "SELECT distinct(nama_produk) FROM `tb_produk` where id_jenis_produk='" + jenis_produk + "' AND status=0 ORDER BY nama_produk ASC";
         }
 
         PreparedStatement state = null;
@@ -394,17 +394,17 @@ public class PemesananDAOImpl implements PemesananDAO{
                     + "WHERE nama_produk='" + nama_produk + "' && tahun='" + tahun + "' && nominal='" + nominal + "' && "
                     + "id_jenis_produk in (SELECT id_jenis_produk FROM"
                     + " tb_produk WHERE id_jenis_produk = 'SS'"
-                    + " || id_jenis_produk = 'MS')";
+                    + " || id_jenis_produk = 'MS') AND status=0 ";
         } else if (jenis_produk.compareTo("SHP") == 0) {
             SELECT = "SELECT id_produk,stok FROM tb_produk "
                     + "WHERE nama_produk='" + nama_produk + "' && tahun='" + tahun + "' && nominal='" + nominal + "' && "
                     + "id_jenis_produk in (SELECT id_jenis_produk FROM"
                     + " tb_produk WHERE id_jenis_produk = 'SHP'"
-                    + " || id_jenis_produk = 'SHPSS')";
+                    + " || id_jenis_produk = 'SHPSS') AND status=0 ";
         } else {
             SELECT = "SELECT id_produk,stok FROM tb_produk "
                     + "WHERE nama_produk='" + nama_produk + "' && tahun='" + tahun + "' && nominal='" + nominal + "' && "
-                    + "id_jenis_produk='" + jenis_produk + "'";
+                    + "id_jenis_produk='" + jenis_produk + "' AND status=0 ";
         }
 
         PreparedStatement state = null;
@@ -451,14 +451,15 @@ public class PemesananDAOImpl implements PemesananDAO{
             SELECT = "SELECT distinct(tahun) FROM `tb_produk` where nama_produk='" + nama_produk + "' AND "
                     + "id_jenis_produk in (SELECT id_jenis_produk FROM"
                     + " tb_produk WHERE id_jenis_produk = 'SS'"
-                    + " || id_jenis_produk = 'MS')";
+                    + " || id_jenis_produk = 'MS' AND status=0)";
         } else if (jenis_produk.compareTo("SHP") == 0) {
             SELECT = "SELECT distinct(tahun) FROM `tb_produk` where nama_produk='" + nama_produk + "' AND "
                     + "id_jenis_produk in (SELECT id_jenis_produk FROM"
                     + " tb_produk WHERE id_jenis_produk = 'SHP'"
-                    + " || id_jenis_produk = 'SHPSS')";
+                    + " || id_jenis_produk = 'SHPSS' AND status=0)";
         } else {
-            SELECT = "SELECT distinct(tahun) FROM `tb_produk` where nama_produk='" + nama_produk + "' AND id_jenis_produk='" + jenis_produk + "' ORDER BY nama_produk ASC";
+            SELECT = "SELECT distinct(tahun) FROM `tb_produk` where nama_produk='" + nama_produk + "' "
+                    + "AND id_jenis_produk='" + jenis_produk + "' AND status=0 ORDER BY nama_produk ASC";
         }
 
         PreparedStatement state = null;
@@ -504,14 +505,16 @@ public class PemesananDAOImpl implements PemesananDAO{
             SELECT = "SELECT nominal FROM `tb_produk` where nama_produk='" + nama_produk + "' AND tahun='" + tahun + "' AND "
                     + "id_jenis_produk in (SELECT id_jenis_produk FROM"
                     + " tb_produk WHERE id_jenis_produk = 'SS'"
-                    + " || id_jenis_produk = 'MS')";
+                    + " || id_jenis_produk = 'MS' AND status=0)";
         } else if (jenis_produk.compareTo("SHP") == 0) {
             SELECT = "SELECT nominal FROM `tb_produk` where nama_produk='" + nama_produk + "' AND tahun='" + tahun + "' AND "
                     + "id_jenis_produk in (SELECT id_jenis_produk FROM"
                     + " tb_produk WHERE id_jenis_produk = 'SHP'"
-                    + " || id_jenis_produk = 'SHPSS')";
+                    + " || id_jenis_produk = 'SHPSS' AND status=0)";
         } else {
-            SELECT = "SELECT nominal FROM `tb_produk` where nama_produk='" + nama_produk + "' AND tahun='" + tahun + "' AND id_jenis_produk='" + jenis_produk + "' ORDER BY nama_produk ASC";
+            SELECT = "SELECT nominal FROM `tb_produk` where nama_produk='" + nama_produk + "' "
+                    + "AND tahun='" + tahun + "' AND id_jenis_produk='" + jenis_produk + "' AND status=0 "
+                    + "ORDER BY nama_produk ASC";
         }
 
         PreparedStatement state = null;

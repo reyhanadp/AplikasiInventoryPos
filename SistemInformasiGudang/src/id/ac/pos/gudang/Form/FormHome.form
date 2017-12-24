@@ -317,8 +317,9 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jPanel13" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jPanel14" max="32767" attributes="0"/>
+                                  <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -367,7 +368,7 @@
                                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                       <Component id="buttonResetPrangko" min="-2" pref="99" max="-2" attributes="0"/>
                                                   </Group>
-                                                  <Component id="fieldKodeProdukPrangko" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                                                  <Component id="fieldKodeProdukPrangko" alignment="0" min="-2" pref="121" max="-2" attributes="0"/>
                                               </Group>
                                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                           </Group>
@@ -458,7 +459,6 @@
                             </Component>
                             <Component class="javax.swing.JTextField" name="fieldTahunPrangko">
                               <Properties>
-                                <Property name="editable" type="boolean" value="false"/>
                                 <Property name="toolTipText" type="java.lang.String" value=""/>
                                 <Property name="autoscrolls" type="boolean" value="false"/>
                                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -744,7 +744,7 @@
                                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                                       <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
                                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                      <Component id="fieldKodeProdukMS_SS" min="-2" pref="80" max="-2" attributes="0"/>
+                                                      <Component id="fieldKodeProdukMS_SS" min="-2" pref="121" max="-2" attributes="0"/>
                                                   </Group>
                                                   <Group type="102" alignment="0" attributes="0">
                                                       <Component id="buttonSimpanMSSS" min="-2" max="-2" attributes="0"/>
@@ -756,7 +756,7 @@
                                                       <Component id="buttonResetMSSS" min="-2" pref="99" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
-                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                              <EmptySpace min="0" pref="428" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
@@ -843,9 +843,6 @@
                               </Properties>
                             </Component>
                             <Component class="javax.swing.JTextField" name="fieldTahunProdukMSSS">
-                              <Properties>
-                                <Property name="editable" type="boolean" value="false"/>
-                              </Properties>
                               <Events>
                                 <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldTahunProdukMSSSKeyPressed"/>
                                 <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldTahunProdukMSSSKeyTyped"/>
@@ -1131,7 +1128,7 @@
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
                                               <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="fieldKodeProdukSHP_SHPSS" min="-2" pref="80" max="-2" attributes="0"/>
+                                              <Component id="fieldKodeProdukSHP_SHPSS" min="-2" pref="121" max="-2" attributes="0"/>
                                               <EmptySpace max="32767" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
@@ -1151,7 +1148,7 @@
                                                       <Component id="buttonHapusSHPSHPSS" min="-2" pref="99" max="-2" attributes="0"/>
                                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                       <Component id="buttonResetSHPSHPSS" min="-2" pref="99" max="-2" attributes="0"/>
-                                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                                      <EmptySpace min="0" pref="428" max="32767" attributes="0"/>
                                                   </Group>
                                                   <Component id="fieldNamaProdukSHPSHPSS" alignment="1" max="32767" attributes="0"/>
                                                   <Component id="fieldNominalProdukSHPSHPSS" alignment="1" max="32767" attributes="0"/>
@@ -1243,9 +1240,6 @@
                               </Properties>
                             </Component>
                             <Component class="javax.swing.JTextField" name="fieldTahunProdukSHPSHPSS">
-                              <Properties>
-                                <Property name="editable" type="boolean" value="false"/>
-                              </Properties>
                               <Events>
                                 <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldTahunProdukSHPSHPSSKeyTyped"/>
                               </Events>
@@ -1529,24 +1523,25 @@
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <Component id="buttonSImpanKemasan" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="buttonUbahKemasan" min="-2" pref="99" max="-2" attributes="0"/>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="buttonHapusKemasan" min="-2" pref="99" max="-2" attributes="0"/>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="buttonResetKemasan" min="-2" pref="99" max="-2" attributes="0"/>
-                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" attributes="0">
-                                              <Component id="fieldKodeProdukKemasan" min="-2" pref="80" max="-2" attributes="0"/>
-                                              <EmptySpace pref="774" max="32767" attributes="0"/>
-                                          </Group>
                                           <Component id="fieldNamaProdukKemasan" max="32767" attributes="0"/>
                                           <Component id="fieldNominalProdukKemasan" alignment="1" max="32767" attributes="0"/>
                                           <Component id="fieldBiayaCetakProdukKemasan" alignment="1" max="32767" attributes="0"/>
                                           <Component id="fieldTahunProdukKemasan" alignment="0" max="32767" attributes="0"/>
+                                          <Group type="102" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="102" attributes="0">
+                                                      <Component id="buttonSImpanKemasan" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                      <Component id="buttonUbahKemasan" min="-2" pref="99" max="-2" attributes="0"/>
+                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                      <Component id="buttonHapusKemasan" min="-2" pref="99" max="-2" attributes="0"/>
+                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                      <Component id="buttonResetKemasan" min="-2" pref="99" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Component id="fieldKodeProdukKemasan" alignment="0" min="-2" pref="121" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          </Group>
                                       </Group>
                                   </Group>
                               </Group>
@@ -1629,9 +1624,6 @@
                               </Properties>
                             </Component>
                             <Component class="javax.swing.JTextField" name="fieldTahunProdukKemasan">
-                              <Properties>
-                                <Property name="editable" type="boolean" value="false"/>
-                              </Properties>
                               <Events>
                                 <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldTahunProdukKemasanKeyPressed"/>
                                 <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldTahunProdukKemasanKeyTyped"/>
@@ -1919,8 +1911,7 @@
                                           <Component id="fieldTahunProdukMerchandise" alignment="0" max="32767" attributes="0"/>
                                           <Group type="102" attributes="0">
                                               <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="fieldKodeProdukMerchandise" min="-2" pref="80" max="-2" attributes="0"/>
-                                                  <Group type="102" alignment="0" attributes="0">
+                                                  <Group type="102" attributes="0">
                                                       <Component id="buttonSImpanMerchandise" min="-2" max="-2" attributes="0"/>
                                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                       <Component id="buttonUbahMerchandise" min="-2" pref="99" max="-2" attributes="0"/>
@@ -1929,6 +1920,7 @@
                                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                       <Component id="buttonResetMerchandise" min="-2" pref="99" max="-2" attributes="0"/>
                                                   </Group>
+                                                  <Component id="fieldKodeProdukMerchandise" alignment="0" min="-2" pref="121" max="-2" attributes="0"/>
                                               </Group>
                                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                           </Group>
@@ -2014,9 +2006,6 @@
                               </Properties>
                             </Component>
                             <Component class="javax.swing.JTextField" name="fieldTahunProdukMerchandise">
-                              <Properties>
-                                <Property name="editable" type="boolean" value="false"/>
-                              </Properties>
                               <Events>
                                 <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldTahunProdukMerchandiseKeyPressed"/>
                                 <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldTahunProdukMerchandiseKeyTyped"/>
@@ -2290,7 +2279,7 @@
                                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                       <Component id="buttonResetPrisma" min="-2" pref="99" max="-2" attributes="0"/>
                                                   </Group>
-                                                  <Component id="fieldKodeProdukPrisma" min="-2" pref="80" max="-2" attributes="0"/>
+                                                  <Component id="fieldKodeProdukPrisma" alignment="0" min="-2" pref="121" max="-2" attributes="0"/>
                                               </Group>
                                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                           </Group>
@@ -2376,9 +2365,6 @@
                               </Properties>
                             </Component>
                             <Component class="javax.swing.JTextField" name="fieldTahunProdukPrisma">
-                              <Properties>
-                                <Property name="editable" type="boolean" value="false"/>
-                              </Properties>
                               <Events>
                                 <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldTahunProdukPrismaKeyPressed"/>
                                 <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldTahunProdukPrismaKeyTyped"/>
@@ -2634,24 +2620,25 @@
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <Component id="buttonSimpanDokumenFIlateli" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="buttonUbahDokumenFilateli" min="-2" pref="99" max="-2" attributes="0"/>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="buttonHapusDokumenFilateli" min="-2" pref="99" max="-2" attributes="0"/>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="buttonResetDokumenFIlateli" min="-2" pref="99" max="-2" attributes="0"/>
-                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" attributes="0">
-                                              <Component id="fieldKodeProdukDokumenFilateli" min="-2" pref="80" max="-2" attributes="0"/>
-                                              <EmptySpace pref="774" max="32767" attributes="0"/>
-                                          </Group>
                                           <Component id="fieldNamaProdukDokumenFilateli" max="32767" attributes="0"/>
                                           <Component id="fieldNominalProdukDokumenFilateli" alignment="0" pref="854" max="32767" attributes="0"/>
                                           <Component id="fieldBiayaCetakDokumenFilateli" alignment="0" pref="854" max="32767" attributes="0"/>
                                           <Component id="fieldTahunProdukDokumenFilateli" alignment="0" max="32767" attributes="0"/>
+                                          <Group type="102" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="102" attributes="0">
+                                                      <Component id="buttonSimpanDokumenFIlateli" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                      <Component id="buttonUbahDokumenFilateli" min="-2" pref="99" max="-2" attributes="0"/>
+                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                      <Component id="buttonHapusDokumenFilateli" min="-2" pref="99" max="-2" attributes="0"/>
+                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                      <Component id="buttonResetDokumenFIlateli" min="-2" pref="99" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Component id="fieldKodeProdukDokumenFilateli" alignment="0" min="-2" pref="121" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          </Group>
                                       </Group>
                                   </Group>
                               </Group>
@@ -2734,9 +2721,6 @@
                               </Properties>
                             </Component>
                             <Component class="javax.swing.JTextField" name="fieldTahunProdukDokumenFilateli">
-                              <Properties>
-                                <Property name="editable" type="boolean" value="false"/>
-                              </Properties>
                               <Events>
                                 <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldTahunProdukDokumenFilateliKeyPressed"/>
                                 <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldTahunProdukDokumenFilateliKeyTyped"/>

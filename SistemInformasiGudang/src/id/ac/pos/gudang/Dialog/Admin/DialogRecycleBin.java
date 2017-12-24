@@ -37,10 +37,6 @@ public class DialogRecycleBin extends javax.swing.JDialog {
     public void restore(int baris, String idJenisProduk, JTable jenisTabel) {
         String kodeProduk = jenisTabel.getValueAt(baris, 0).toString();
         String namaProduk = jenisTabel.getValueAt(baris, 1).toString();
-        String nominal = jenisTabel.getValueAt(baris, 2).toString();
-        String biayaCetak = jenisTabel.getValueAt(baris, 3).toString();
-        String stok = jenisTabel.getValueAt(baris, 4).toString();
-        String tahun = jenisTabel.getValueAt(baris, 5).toString();
 
         int ok = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin "
                 + "mengembalikan Produk dengan kode : " + kodeProduk
@@ -49,19 +45,12 @@ public class DialogRecycleBin extends javax.swing.JDialog {
         if (ok == 0) {
             Produk produk = new Produk();
             produk.setIdProduk(kodeProduk);
-            produk.setNamaProduk(namaProduk);
-            produk.setNominal(Integer.parseInt(nominal));
-            produk.setBiayaCetak(Float.parseFloat(biayaCetak));
-            produk.setStok(Integer.parseInt(stok));
-            produk.setTahun(tahun);
-            produk.setIdJenisProduk(idJenisProduk);
 
             ProdukDAO dao = new ProdukDAOImpl();
-            boolean sukses = dao.restoreProduk(produk, idJenisProduk);
+            boolean sukses = dao.restoreProduk(produk, kodeProduk);
 
             if (sukses) {
                 JOptionPane.showMessageDialog(this, "Data berhasil direstore");
-                dao.hapusPermanent(kodeProduk);
             } else {
                 JOptionPane.showMessageDialog(this, "Data gagal direstore");
             }

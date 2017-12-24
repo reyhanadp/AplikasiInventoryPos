@@ -44,11 +44,7 @@ public interface ProdukDAO {
 
     ArrayList<Produk> getProdukDokumenFilateliDeleted();
 
-    ArrayList<Produk> getHistoryDelete();
-
-    boolean restoreProduk(Produk produk, String jenisProduk);
-
-    boolean hapusPermanent(String idProduk);
+    boolean restoreProduk(Produk produk, String idProduk);
 
     ArrayList<Produk> cariProduk(String keyword, String jenisCari, String idJenis);
 
@@ -57,10 +53,6 @@ public interface ProdukDAO {
     boolean tambahProduk(Produk produk, String jenisProduk);
 
     boolean hapusProduk(String idProduk);
-
-    boolean hapusHistoryUpdate();
-
-    boolean hapusHistoryDelete();
 
     boolean ubahProduk(Produk produk);
 
