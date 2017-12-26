@@ -41,11 +41,11 @@ public class PengirimanDAOImpl implements PengirimanDAO {
 
             String SELECT = "";
             if (jenis_produk.compareTo("MS") == 0) {
-                SELECT = "SELECT distinct(nama_produk) FROM `tb_produk` where id_jenis_produk='MS' OR id_jenis_produk='SS' ORDER BY nama_produk ASC";
+                SELECT = "SELECT distinct(nama_produk) FROM `tb_produk` where id_jenis_produk='MS' OR id_jenis_produk='SS' AND status='0' ORDER BY nama_produk ASC";
             } else if (jenis_produk.compareTo("SHP") == 0) {
-                SELECT = "SELECT distinct(nama_produk) FROM `tb_produk` where id_jenis_produk='SHP' OR id_jenis_produk='SHPSS' ORDER BY nama_produk ASC";
+                SELECT = "SELECT distinct(nama_produk) FROM `tb_produk` where id_jenis_produk='SHP' OR id_jenis_produk='SHPSS' AND status='0' ORDER BY nama_produk ASC";
             } else {
-                SELECT = "SELECT distinct(nama_produk) FROM `tb_produk` where id_jenis_produk='" + jenis_produk + "' ORDER BY nama_produk ASC";
+                SELECT = "SELECT distinct(nama_produk) FROM `tb_produk` where id_jenis_produk='" + jenis_produk + "' AND status='0' ORDER BY nama_produk ASC";
             }
             state = conn.prepareStatement(SELECT);
 
@@ -105,17 +105,17 @@ public class PengirimanDAOImpl implements PengirimanDAO {
             conn = DatabaseConnectivity.getConnection();
             String SELECT = "";
             if (jenis_produk.compareTo("MS") == 0) {
-                SELECT = "SELECT distinct(tahun) FROM `tb_produk` where nama_produk='" + nama_produk + "' AND "
+                SELECT = "SELECT distinct(tahun) FROM `tb_produk` where nama_produk='" + nama_produk + "' AND status='0' AND "
                         + "id_jenis_produk in (SELECT id_jenis_produk FROM"
                         + " tb_produk WHERE id_jenis_produk = 'SS'"
                         + " || id_jenis_produk = 'MS')";
             } else if (jenis_produk.compareTo("SHP") == 0) {
-                SELECT = "SELECT distinct(tahun) FROM `tb_produk` where nama_produk='" + nama_produk + "' AND "
+                SELECT = "SELECT distinct(tahun) FROM `tb_produk` where nama_produk='" + nama_produk + "' AND status='0' AND "
                         + "id_jenis_produk in (SELECT id_jenis_produk FROM"
                         + " tb_produk WHERE id_jenis_produk = 'SHP'"
                         + " || id_jenis_produk = 'SHPSS')";
             } else {
-                SELECT = "SELECT distinct(tahun) FROM `tb_produk` where nama_produk='" + nama_produk + "' AND id_jenis_produk='" + jenis_produk + "' ORDER BY nama_produk ASC";
+                SELECT = "SELECT distinct(tahun) FROM `tb_produk` where nama_produk='" + nama_produk + "' AND status='0' AND id_jenis_produk='" + jenis_produk + "' ORDER BY nama_produk ASC";
             }
             state = conn.prepareStatement(SELECT);
 
@@ -172,17 +172,17 @@ public class PengirimanDAOImpl implements PengirimanDAO {
             conn = DatabaseConnectivity.getConnection();
             String SELECT = "";
             if (jenis_produk.compareTo("MS") == 0) {
-                SELECT = "SELECT nominal FROM `tb_produk` where nama_produk='" + nama_produk + "' AND tahun='" + tahun + "' AND "
+                SELECT = "SELECT nominal FROM `tb_produk` where nama_produk='" + nama_produk + "' AND tahun='" + tahun + "' AND status='0' AND "
                         + "id_jenis_produk in (SELECT id_jenis_produk FROM"
                         + " tb_produk WHERE id_jenis_produk = 'SS'"
                         + " || id_jenis_produk = 'MS')";
             } else if (jenis_produk.compareTo("SHP") == 0) {
-                SELECT = "SELECT nominal FROM `tb_produk` where nama_produk='" + nama_produk + "' AND tahun='" + tahun + "' AND "
+                SELECT = "SELECT nominal FROM `tb_produk` where nama_produk='" + nama_produk + "' AND tahun='" + tahun + "' AND status='0' AND "
                         + "id_jenis_produk in (SELECT id_jenis_produk FROM"
                         + " tb_produk WHERE id_jenis_produk = 'SHP'"
                         + " || id_jenis_produk = 'SHPSS')";
             } else {
-                SELECT = "SELECT nominal FROM `tb_produk` where nama_produk='" + nama_produk + "' AND tahun='" + tahun + "' AND id_jenis_produk='" + jenis_produk + "' ORDER BY nama_produk ASC";
+                SELECT = "SELECT nominal FROM `tb_produk` where nama_produk='" + nama_produk + "' AND tahun='" + tahun + "' AND status='0' AND id_jenis_produk='" + jenis_produk + "' ORDER BY nama_produk ASC";
             }
             state = conn.prepareStatement(SELECT);
 
@@ -240,19 +240,19 @@ public class PengirimanDAOImpl implements PengirimanDAO {
             String SELECT = "";
             if (jenis_produk.compareTo("MS") == 0) {
                 SELECT = "SELECT id_produk,stok FROM tb_produk "
-                        + "WHERE nama_produk='" + nama_produk + "' && tahun='" + tahun + "' && nominal='" + nominal + "' && "
+                        + "WHERE nama_produk='" + nama_produk + "' && tahun='" + tahun + "' && nominal='" + nominal + "' && status='0' && "
                         + "id_jenis_produk in (SELECT id_jenis_produk FROM"
                         + " tb_produk WHERE id_jenis_produk = 'SS'"
                         + " || id_jenis_produk = 'MS')";
             } else if (jenis_produk.compareTo("SHP") == 0) {
                 SELECT = "SELECT id_produk,stok FROM tb_produk "
-                        + "WHERE nama_produk='" + nama_produk + "' && tahun='" + tahun + "' && nominal='" + nominal + "' && "
+                        + "WHERE nama_produk='" + nama_produk + "' && tahun='" + tahun + "' && nominal='" + nominal + "' && status='0' && "
                         + "id_jenis_produk in (SELECT id_jenis_produk FROM"
                         + " tb_produk WHERE id_jenis_produk = 'SHP'"
                         + " || id_jenis_produk = 'SHPSS')";
             } else {
                 SELECT = "SELECT id_produk,stok FROM tb_produk "
-                        + "WHERE nama_produk='" + nama_produk + "' && tahun='" + tahun + "' && nominal='" + nominal + "' && "
+                        + "WHERE nama_produk='" + nama_produk + "' && tahun='" + tahun + "' && nominal='" + nominal + "' && status='0' && "
                         + "id_jenis_produk='" + jenis_produk + "'";
             }
             state = conn.prepareStatement(SELECT);
@@ -503,7 +503,7 @@ public class PengirimanDAOImpl implements PengirimanDAO {
     public ArrayList<Produk> getNama(String kode_produk) {
         conn = DatabaseConnectivity.getConnection();
         ArrayList<Produk> arrayProduk = null;
-        String SELECT = "SELECT nama_produk FROM `tb_produk` where id_produk='"+kode_produk+"'";
+        String SELECT = "SELECT nama_produk FROM `tb_produk` where id_produk='"+kode_produk+"' AND status='0'";
 
 
         PreparedStatement state = null;
