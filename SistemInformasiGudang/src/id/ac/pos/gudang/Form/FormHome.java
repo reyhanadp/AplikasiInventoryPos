@@ -3117,98 +3117,26 @@ public final class FormHome extends javax.swing.JFrame {
 
     private void tableMSSSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableMSSSMouseClicked
         // TODO add your handling code here:
-        int baris = tableMSSS.getSelectedRow();
-        String kodeProduk = tableMSSS.getValueAt(baris, 0).toString();
-        String namaProduk = tableMSSS.getValueAt(baris, 1).toString();
-        String nominal = tableMSSS.getValueAt(baris, 2).toString();
-        String biayaCetak = tableMSSS.getValueAt(baris, 3).toString();
-        String tahun = tableMSSS.getValueAt(baris, 5).toString();
-
-        fieldKodeProdukMS_SS.setText(kodeProduk);
-        fieldNamaProdukMSSS.setText(namaProduk);
-        fieldNominalProdukMSSS.setText(nominal);
-        fieldBiayaCetakProdukMSSS.setText(biayaCetak);
-        fieldTahunProdukMSSS.setText(tahun);
     }//GEN-LAST:event_tableMSSSMouseClicked
 
     private void tableSHPSHPSSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableSHPSHPSSMouseClicked
         // TODO add your handling code here:
-        int baris = tableSHPSHPSS.getSelectedRow();
-        String kodeProduk = tableSHPSHPSS.getValueAt(baris, 0).toString();
-        String namaProduk = tableSHPSHPSS.getValueAt(baris, 1).toString();
-        String nominal = tableSHPSHPSS.getValueAt(baris, 2).toString();
-        String biayaCetak = tableSHPSHPSS.getValueAt(baris, 3).toString();
-        String tahun = tableSHPSHPSS.getValueAt(baris, 5).toString();
-
-        fieldKodeProdukSHP_SHPSS.setText(kodeProduk);
-        fieldNamaProdukSHPSHPSS.setText(namaProduk);
-        fieldNominalProdukSHPSHPSS.setText(nominal);
-        fieldBiayaCetakSHPSHPSS.setText(biayaCetak);
-        fieldTahunProdukSHPSHPSS.setText(tahun);
     }//GEN-LAST:event_tableSHPSHPSSMouseClicked
 
     private void tableKemasanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableKemasanMouseClicked
         // TODO add your handling code here:
-        int baris = tableKemasan.getSelectedRow();
-        String kodeProduk = tableKemasan.getValueAt(baris, 0).toString();
-        String namaProduk = tableKemasan.getValueAt(baris, 1).toString();
-        String nominal = tableKemasan.getValueAt(baris, 2).toString();
-        String biayaCetak = tableKemasan.getValueAt(baris, 3).toString();
-        String tahun = tableKemasan.getValueAt(baris, 5).toString();
-
-        fieldKodeProdukKemasan.setText(kodeProduk);
-        fieldNamaProdukKemasan.setText(namaProduk);
-        fieldNominalProdukKemasan.setText(nominal);
-        fieldBiayaCetakProdukKemasan.setText(biayaCetak);
-        fieldTahunProdukKemasan.setText(tahun);
     }//GEN-LAST:event_tableKemasanMouseClicked
 
     private void tableMerchandiseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableMerchandiseMouseClicked
         // TODO add your handling code here:
-        int baris = tableMerchandise.getSelectedRow();
-        String kodeProduk = tableMerchandise.getValueAt(baris, 0).toString();
-        String namaProduk = tableMerchandise.getValueAt(baris, 1).toString();
-        String nominal = tableMerchandise.getValueAt(baris, 2).toString();
-        String biayaCetak = tableMerchandise.getValueAt(baris, 3).toString();
-        String tahun = tableMerchandise.getValueAt(baris, 5).toString();
-
-        fieldKodeProdukMerchandise.setText(kodeProduk);
-        fieldNamaProdukMerchandise.setText(namaProduk);
-        fieldNominalProdukMerchandise.setText(nominal);
-        fieldBiayaCetakProdukMerchandise.setText(biayaCetak);
-        fieldTahunProdukMerchandise.setText(tahun);
     }//GEN-LAST:event_tableMerchandiseMouseClicked
 
     private void tablePrismaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePrismaMouseClicked
         // TODO add your handling code here:
-        int baris = tablePrisma.getSelectedRow();
-        String kodeProduk = tablePrisma.getValueAt(baris, 0).toString();
-        String namaProduk = tablePrisma.getValueAt(baris, 1).toString();
-        String nominal = tablePrisma.getValueAt(baris, 2).toString();
-        String biayaCetak = tablePrisma.getValueAt(baris, 3).toString();
-        String tahun = tablePrisma.getValueAt(baris, 5).toString();
-
-        fieldKodeProdukPrisma.setText(kodeProduk);
-        fieldNamaProdukPrisma.setText(namaProduk);
-        fieldNominalProdukPrisma.setText(nominal);
-        fieldBiayaCetakProdukPrisma.setText(biayaCetak);
-        fieldTahunProdukPrisma.setText(tahun);
     }//GEN-LAST:event_tablePrismaMouseClicked
 
     private void tableDokumenFilateliMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableDokumenFilateliMouseClicked
         // TODO add your handling code here:
-        int baris = tableDokumenFilateli.getSelectedRow();
-        String kodeProduk = tableDokumenFilateli.getValueAt(baris, 0).toString();
-        String namaProduk = tableDokumenFilateli.getValueAt(baris, 1).toString();
-        String nominal = tableDokumenFilateli.getValueAt(baris, 2).toString();
-        String biayaCetak = tableDokumenFilateli.getValueAt(baris, 3).toString();
-        String tahun = tableDokumenFilateli.getValueAt(baris, 5).toString();
-
-        fieldKodeProdukDokumenFilateli.setText(kodeProduk);
-        fieldNamaProdukDokumenFilateli.setText(namaProduk);
-        fieldNominalProdukDokumenFilateli.setText(nominal);
-        fieldBiayaCetakDokumenFilateli.setText(biayaCetak);
-        fieldTahunProdukDokumenFilateli.setText(tahun);
     }//GEN-LAST:event_tableDokumenFilateliMouseClicked
 
     private void buttonSimpanMSSSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSimpanMSSSActionPerformed
@@ -3353,86 +3281,24 @@ public final class FormHome extends javax.swing.JFrame {
         // TODO add your handling code here:
         int baris = tableMSSS.getSelectedRow();
         if (baris >= 0) {
+            //mengambil anggota dari baris table 
             String kodeProduk = tableMSSS.getValueAt(baris, 0).toString();
             String NamaProduk = tableMSSS.getValueAt(baris, 1).toString();
             String nominal = tableMSSS.getValueAt(baris, 2).toString();
             String biayaCetak = tableMSSS.getValueAt(baris, 3).toString();
             String tahun = tableMSSS.getValueAt(baris, 5).toString();
+            FormHome home = new FormHome();
 
-            int ok = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin "
-                    + "Mengubah Produk dengan kode : " + kodeProduk
-                    + " dengan Nama Produk " + NamaProduk
-                    + "?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
+            //munculkan dialog
+            DialogUbahProduk dup = new DialogUbahProduk(home, true, kodeProduk,NamaProduk,nominal,biayaCetak,tahun);
+            dup.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
+            dup.setLocationRelativeTo(null);
+            dup.setVisible(true);
+            getDataProduk();
 
-            if (ok == 0) {
-                //validasi apakah filed 
-                //sudah diisi atau belum
-                if (fieldNamaProdukMSSS.getText().equals("")) {
-                    JOptionPane.showMessageDialog(null, "Nama Produk tidak boleh Kosong");
-                    fieldNamaProdukMSSS.requestFocus();
-                    fieldNamaProdukMSSS.setEditable(true);
-                    getDataMS_SS();
-                    fieldNamaProdukMSSS.setText(NamaProduk);
-                    fieldKodeProdukMS_SS.setText(kodeProduk);
-                } else if (fieldNominalProdukMSSS.getText().equals("")) {
-                    JOptionPane.showMessageDialog(null, "Nominal tidak boleh Kosong");
-                    fieldNominalProdukMSSS.requestFocus();
-                    fieldNominalProdukMSSS.setEditable(true);
-                    getDataMS_SS();
-                    fieldNominalProdukMSSS.setText(nominal);
-                    fieldKodeProdukMS_SS.setText(kodeProduk);
-                } else if (fieldBiayaCetakProdukMSSS.getText().equals("")) {
-                    JOptionPane.showMessageDialog(null, "Biaya Cetak tidak boleh Kosong");
-                    fieldBiayaCetakProdukMSSS.requestFocus();
-                    fieldBiayaCetakProdukMSSS.setEditable(true);
-                    getDataMS_SS();
-                    fieldBiayaCetakProdukMSSS.setText(biayaCetak);
-                    fieldKodeProdukMS_SS.setText(kodeProduk);
-                } else if (fieldTahunProdukMSSS.getText().equals("")) {
-                    JOptionPane.showMessageDialog(null, "Tahun tidak boleh Kosong");
-                    fieldTahunProdukMSSS.requestFocus();
-                    fieldTahunProdukMSSS.setEditable(true);
-                    getDataMS_SS();
-                    fieldTahunProdukMSSS.setText(tahun);
-                    fieldKodeProdukMS_SS.setText(kodeProduk);
-                } else {
-                    Produk produk = new Produk();
-                    produk.setIdProduk(fieldKodeProdukMS_SS.getText());
-                    produk.setNamaProduk(fieldNamaProdukMSSS.getText());
-                    produk.setNominal(Integer.parseInt(fieldNominalProdukMSSS.getText()));
-                    produk.setBiayaCetak(Float.parseFloat(fieldBiayaCetakProdukMSSS.getText()));
-                    produk.setTahun(fieldTahunProdukMSSS.getText());
-
-                    //insert produk
-                    ProdukDAO dao = new ProdukDAOImpl();
-                    boolean sukses = dao.ubahProduk(produk);
-
-                    //cek sukses atau tidak
-                    if (sukses) {
-                        JOptionPane.showMessageDialog(this, "Data berhasil diubah");
-                        getDataMS_SS();
-                        resetField();
-                        autoincrementMS_SS();
-                    } else {
-                        JOptionPane.showMessageDialog(this, "Data gagal diubah");
-                        getDataMS_SS();
-                        autoincrementMS_SS();
-                    }
-                }
-            } else if (ok == 1) {
-                resetField();
-                getDataMS_SS();
-                autoincrementMS_SS();
-            }
         } else {
-            JOptionPane.showMessageDialog(this, "Anda harus memilih dahulu produk "
-                    + "yang akan diubah !");
-            resetField();
-            getDataMS_SS();
-            autoincrementMS_SS();
+            JOptionPane.showMessageDialog(this, "Anda Harus Memilih Terlebih Dahulu Produk Yang Akan Diubah!");
         }
-        getDataMS_SS();
-        tableMSSS.setRowSelectionInterval(baris, baris);
     }//GEN-LAST:event_buttonUbahMSSSActionPerformed
 
     private void fieldBiayaCetakProdukMSSSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldBiayaCetakProdukMSSSActionPerformed
@@ -3547,83 +3413,24 @@ public final class FormHome extends javax.swing.JFrame {
         // TODO add your handling code here:
         int baris = tableSHPSHPSS.getSelectedRow();
         if (baris >= 0) {
+            //mengambil anggota dari baris table 
             String kodeProduk = tableSHPSHPSS.getValueAt(baris, 0).toString();
             String NamaProduk = tableSHPSHPSS.getValueAt(baris, 1).toString();
             String nominal = tableSHPSHPSS.getValueAt(baris, 2).toString();
             String biayaCetak = tableSHPSHPSS.getValueAt(baris, 3).toString();
             String tahun = tableSHPSHPSS.getValueAt(baris, 5).toString();
+            FormHome home = new FormHome();
 
-            int ok = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin "
-                    + "Mengubah Produk dengan kode : " + kodeProduk
-                    + " dengan Nama Produk " + NamaProduk
-                    + "?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
-            if (ok == 0) {
-                //validasi apakah filed 
-                //sudah diisi atau belum
-                if (fieldNamaProdukSHPSHPSS.getText().equals("")) {
-                    JOptionPane.showMessageDialog(null, "Nama Produk tidak boleh Kosong");
-                    fieldNamaProdukSHPSHPSS.requestFocus();
-                    fieldNamaProdukSHPSHPSS.setEditable(true);
-                    getDataSHP_SHPSS();
-                    fieldNamaProdukSHPSHPSS.setText(NamaProduk);
-                    fieldKodeProdukSHP_SHPSS.setText(kodeProduk);
-                } else if (fieldNominalProdukSHPSHPSS.getText().equals("")) {
-                    JOptionPane.showMessageDialog(null, "Nominal tidak boleh Kosong");
-                    fieldNominalProdukSHPSHPSS.requestFocus();
-                    fieldNominalProdukSHPSHPSS.setEditable(true);
-                    getDataSHP_SHPSS();
-                    fieldNominalProdukSHPSHPSS.setText(nominal);
-                    fieldKodeProdukSHP_SHPSS.setText(kodeProduk);
-                } else if (fieldBiayaCetakSHPSHPSS.getText().equals("")) {
-                    JOptionPane.showMessageDialog(null, "Biaya Cetak tidak boleh Kosong");
-                    fieldBiayaCetakSHPSHPSS.requestFocus();
-                    fieldBiayaCetakSHPSHPSS.setEditable(true);
-                    getDataSHP_SHPSS();
-                    fieldBiayaCetakSHPSHPSS.setText(biayaCetak);
-                    fieldKodeProdukSHP_SHPSS.setText(kodeProduk);
-                } else if (fieldTahunProdukSHPSHPSS.getText().equals("")) {
-                    JOptionPane.showMessageDialog(null, "Tahun tidak boleh Kosong");
-                    fieldTahunProdukSHPSHPSS.requestFocus();
-                    fieldTahunProdukSHPSHPSS.setEditable(true);
-                    getDataSHP_SHPSS();
-                    fieldTahunProdukSHPSHPSS.setText(tahun);
-                    fieldKodeProdukSHP_SHPSS.setText(kodeProduk);
-                } else {
-                    Produk produk = new Produk();
-                    produk.setIdProduk(fieldKodeProdukSHP_SHPSS.getText());
-                    produk.setNamaProduk(fieldNamaProdukSHPSHPSS.getText());
-                    produk.setNominal(Integer.parseInt(fieldNominalProdukSHPSHPSS.getText()));
-                    produk.setBiayaCetak(Float.parseFloat(fieldBiayaCetakSHPSHPSS.getText()));
-                    produk.setTahun(fieldTahunProdukSHPSHPSS.getText());
-                    //insert produk
-                    ProdukDAO dao = new ProdukDAOImpl();
-                    boolean sukses = dao.ubahProduk(produk);
+            //munculkan dialog
+            DialogUbahProduk dup = new DialogUbahProduk(home, true, kodeProduk,NamaProduk,nominal,biayaCetak,tahun);
+            dup.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
+            dup.setLocationRelativeTo(null);
+            dup.setVisible(true);
+            getDataProduk();
 
-                    //cek sukses atau tidak
-                    if (sukses) {
-                        JOptionPane.showMessageDialog(this, "Data berhasil diubah");
-                        getDataSHP_SHPSS();
-                        resetField();
-                        autoincrementSHP_SHPSS();
-                    } else {
-                        JOptionPane.showMessageDialog(this, "Data gagal diubah");
-                        getDataSHP_SHPSS();
-                        autoincrementSHP_SHPSS();
-                    }
-                }
-            } else if (ok == 1) {
-                resetField();
-                getDataSHP_SHPSS();
-                autoincrementSHP_SHPSS();
-            }
         } else {
-            JOptionPane.showMessageDialog(this, "Anda harus memilih dahulu produk "
-                    + "yang akan diubah !");
-            getDataSHP_SHPSS();
-            autoincrementSHP_SHPSS();
+            JOptionPane.showMessageDialog(this, "Anda Harus Memilih Terlebih Dahulu Produk Yang Akan Diubah!");
         }
-        getDataSHP_SHPSS();
-        tableSHPSHPSS.setRowSelectionInterval(baris, baris);
     }//GEN-LAST:event_buttonUbahSHPSHPSSActionPerformed
 
     private void buttonHapusSHPSHPSSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHapusSHPSHPSSActionPerformed
@@ -3631,7 +3438,7 @@ public final class FormHome extends javax.swing.JFrame {
         int baris = tableSHPSHPSS.getSelectedRow();
         if (baris >= 0) {
             String kodeProduk = tableSHPSHPSS.getValueAt(baris, 0).toString();
-            String namaProduk = tablePrangko.getValueAt(baris, 1).toString();
+            String namaProduk = tableSHPSHPSS.getValueAt(baris, 1).toString();
             int ok = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin "
                     + "menghapus Produk dengan kode : " + kodeProduk
                     + " dengan Nama Produk " + namaProduk
@@ -3758,81 +3565,24 @@ public final class FormHome extends javax.swing.JFrame {
         // TODO add your handling code here:
         int baris = tableKemasan.getSelectedRow();
         if (baris >= 0) {
+            //mengambil anggota dari baris table 
             String kodeProduk = tableKemasan.getValueAt(baris, 0).toString();
             String NamaProduk = tableKemasan.getValueAt(baris, 1).toString();
             String nominal = tableKemasan.getValueAt(baris, 2).toString();
             String biayaCetak = tableKemasan.getValueAt(baris, 3).toString();
             String tahun = tableKemasan.getValueAt(baris, 5).toString();
+            FormHome home = new FormHome();
 
-            int ok = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin "
-                    + "Mengubah Produk dengan kode : " + kodeProduk
-                    + " dengan Nama Produk " + NamaProduk
-                    + "?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
-            if (ok == 0) {
-                //validasi apakah filed 
-                //sudah diisi atau belum
-                if (fieldNamaProdukKemasan.getText().equals("")) {
-                    JOptionPane.showMessageDialog(null, "Nama Produk tidak boleh Kosong");
-                    fieldNamaProdukKemasan.requestFocus();
-                    fieldNamaProdukKemasan.setEditable(true);
-                    getDataKemasan();
-                    fieldNamaProdukKemasan.setText(NamaProduk);
-                    fieldKodeProdukKemasan.setText(kodeProduk);
-                } else if (fieldNominalProdukKemasan.getText().equals("")) {
-                    JOptionPane.showMessageDialog(null, "Nominal tidak boleh Kosong");
-                    fieldNominalProdukKemasan.requestFocus();
-                    fieldNominalProdukKemasan.setEditable(true);
-                    getDataKemasan();
-                    fieldNominalProdukKemasan.setText(nominal);
-                    fieldKodeProdukKemasan.setText(kodeProduk);
-                } else if (fieldBiayaCetakProdukKemasan.getText().equals("")) {
-                    JOptionPane.showMessageDialog(null, "Biaya Cetak tidak boleh Kosong");
-                    fieldBiayaCetakProdukKemasan.requestFocus();
-                    fieldBiayaCetakProdukKemasan.setEditable(true);
-                    getDataKemasan();
-                    fieldBiayaCetakProdukKemasan.setText(biayaCetak);
-                    fieldKodeProdukKemasan.setText(kodeProduk);
-                } else if (fieldTahunProdukKemasan.getText().equals("")) {
-                    JOptionPane.showMessageDialog(null, "Tahun tidak boleh Kosong");
-                    fieldTahunProdukKemasan.requestFocus();
-                    fieldTahunProdukKemasan.setEditable(true);
-                    getDataKemasan();
-                    fieldTahunProdukKemasan.setText(tahun);
-                    fieldKodeProdukKemasan.setText(kodeProduk);
-                } else {
-                    Produk produk = new Produk();
-                    produk.setIdProduk(fieldKodeProdukKemasan.getText());
-                    produk.setNamaProduk(fieldNamaProdukKemasan.getText());
-                    produk.setNominal(Integer.parseInt(fieldNominalProdukKemasan.getText()));
-                    produk.setBiayaCetak(Float.parseFloat(fieldBiayaCetakProdukKemasan.getText()));
-                    produk.setTahun(fieldTahunProdukKemasan.getText());
+            //munculkan dialog
+            DialogUbahProduk dup = new DialogUbahProduk(home, true, kodeProduk,NamaProduk,nominal,biayaCetak,tahun);
+            dup.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
+            dup.setLocationRelativeTo(null);
+            dup.setVisible(true);
+            getDataProduk();
 
-                    //insert produk
-                    ProdukDAO dao = new ProdukDAOImpl();
-                    boolean sukses = dao.ubahProduk(produk);
-
-                    //cek sukses atau tidak
-                    if (sukses) {
-                        JOptionPane.showMessageDialog(this, "Data berhasil diubah");
-                        getDataKemasan();
-                        resetField();
-                        autoincrementKemasan();
-                    } else {
-                        JOptionPane.showMessageDialog(this, "Data gagal diubah");
-                        getDataKemasan();
-                        autoincrementKemasan();
-                    }
-                }
-            }
         } else {
-            JOptionPane.showMessageDialog(this, "Anda harus memilih dahulu produk "
-                    + "yang akan diubah !");
-            getDataKemasan();
-            resetField();
-            autoincrementKemasan();
+            JOptionPane.showMessageDialog(this, "Anda Harus Memilih Terlebih Dahulu Produk Yang Akan Diubah!");
         }
-        getDataKemasan();
-        tableKemasan.setRowSelectionInterval(baris, baris);
     }//GEN-LAST:event_buttonUbahKemasanActionPerformed
 
     private void buttonHapusKemasanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHapusKemasanActionPerformed
@@ -3840,7 +3590,7 @@ public final class FormHome extends javax.swing.JFrame {
         int baris = tableKemasan.getSelectedRow();
         if (baris >= 0) {
             String kodeProduk = tableKemasan.getValueAt(baris, 0).toString();
-            String namaProduk = tablePrangko.getValueAt(baris, 1).toString();
+            String namaProduk = tableKemasan.getValueAt(baris, 1).toString();
 
             int ok = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin "
                     + "menghapus Produk dengan kode : " + kodeProduk
@@ -3969,80 +3719,24 @@ public final class FormHome extends javax.swing.JFrame {
         // TODO add your handling code here:
         int baris = tableMerchandise.getSelectedRow();
         if (baris >= 0) {
+            //mengambil anggota dari baris table 
             String kodeProduk = tableMerchandise.getValueAt(baris, 0).toString();
             String NamaProduk = tableMerchandise.getValueAt(baris, 1).toString();
             String nominal = tableMerchandise.getValueAt(baris, 2).toString();
             String biayaCetak = tableMerchandise.getValueAt(baris, 3).toString();
             String tahun = tableMerchandise.getValueAt(baris, 5).toString();
+            FormHome home = new FormHome();
 
-            int ok = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin "
-                    + "Mengubah Produk dengan kode : " + kodeProduk
-                    + " dengan Nama Produk " + NamaProduk
-                    + "?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
-            if (ok == 0) {
-                //validasi apakah filed 
-                //sudah diisi atau belum
-                if (fieldNamaProdukMerchandise.getText().equals("")) {
-                    JOptionPane.showMessageDialog(null, "Nama Produk tidak boleh Kosong");
-                    fieldNamaProdukMerchandise.requestFocus();
-                    fieldNamaProdukMerchandise.setEditable(true);
-                    getDataMerchandise();
-                    fieldNamaProdukMerchandise.setText(NamaProduk);
-                    fieldKodeProdukMerchandise.setText(kodeProduk);
-                } else if (fieldNominalProdukMerchandise.getText().equals("")) {
-                    JOptionPane.showMessageDialog(null, "Nominal tidak boleh Kosong");
-                    fieldNominalProdukMerchandise.requestFocus();
-                    fieldNominalProdukMerchandise.setEditable(true);
-                    getDataMerchandise();
-                    fieldNominalProdukMerchandise.setText(nominal);
-                    fieldKodeProdukMerchandise.setText(kodeProduk);
-                } else if (fieldBiayaCetakProdukMerchandise.getText().equals("")) {
-                    JOptionPane.showMessageDialog(null, "Biaya Cetak tidak boleh Kosong");
-                    fieldBiayaCetakProdukMerchandise.requestFocus();
-                    fieldBiayaCetakProdukMerchandise.setEditable(true);
-                    getDataMerchandise();
-                    fieldBiayaCetakProdukMerchandise.setText(biayaCetak);
-                    fieldKodeProdukMerchandise.setText(kodeProduk);
-                } else if (fieldTahunProdukMerchandise.getText().equals("")) {
-                    JOptionPane.showMessageDialog(null, "Tahun tidak boleh Kosong");
-                    fieldTahunProdukMerchandise.requestFocus();
-                    fieldTahunProdukMerchandise.setEditable(true);
-                    getDataMerchandise();
-                    fieldTahunProdukMerchandise.setText(tahun);
-                    fieldKodeProdukMerchandise.setText(kodeProduk);
-                } else {
-                    Produk produk = new Produk();
-                    produk.setIdProduk(fieldKodeProdukMerchandise.getText());
-                    produk.setNamaProduk(fieldNamaProdukMerchandise.getText());
-                    produk.setNominal(Integer.parseInt(fieldNominalProdukMerchandise.getText()));
-                    produk.setBiayaCetak(Float.parseFloat(fieldBiayaCetakProdukMerchandise.getText()));
-                    produk.setTahun(fieldTahunProdukMerchandise.getText());
+            //munculkan dialog
+            DialogUbahProduk dup = new DialogUbahProduk(home, true, kodeProduk,NamaProduk,nominal,biayaCetak,tahun);
+            dup.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
+            dup.setLocationRelativeTo(null);
+            dup.setVisible(true);
+            getDataProduk();
 
-                    //insert produk
-                    ProdukDAO dao = new ProdukDAOImpl();
-                    boolean sukses = dao.ubahProduk(produk);
-
-                    //cek sukses atau tidak
-                    if (sukses) {
-                        JOptionPane.showMessageDialog(this, "Data berhasil diubah");
-                        getDataMerchandise();
-                        resetField();
-                        autoincrementMerchandise();
-                    } else {
-                        JOptionPane.showMessageDialog(this, "Data gagal diubah");
-                        getDataMerchandise();
-                        autoincrementMerchandise();
-                    }
-                }
-            }
         } else {
-            JOptionPane.showMessageDialog(this, "Anda harus memilih dahulu produk "
-                    + "yang akan diubah !");
-            getDataMerchandise();
-            autoincrementMerchandise();
+            JOptionPane.showMessageDialog(this, "Anda Harus Memilih Terlebih Dahulu Produk Yang Akan Diubah!");
         }
-        getDataMerchandise();
-        tableMerchandise.setRowSelectionInterval(baris, baris);
     }//GEN-LAST:event_buttonUbahMerchandiseActionPerformed
 
     private void buttonHapusMerchandiseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHapusMerchandiseActionPerformed
@@ -4050,7 +3744,7 @@ public final class FormHome extends javax.swing.JFrame {
         int baris = tableMerchandise.getSelectedRow();
         if (baris >= 0) {
             String kodeProduk = tableMerchandise.getValueAt(baris, 0).toString();
-            String namaProduk = tablePrangko.getValueAt(baris, 1).toString();
+            String namaProduk = tableMerchandise.getValueAt(baris, 1).toString();
             int ok = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin "
                     + "menghapus Produk dengan kode : " + kodeProduk
                     + " dengan Nama Produk " + namaProduk
@@ -4181,81 +3875,24 @@ public final class FormHome extends javax.swing.JFrame {
         // TODO add your handling code here:
         int baris = tablePrisma.getSelectedRow();
         if (baris >= 0) {
+            //mengambil anggota dari baris table 
             String kodeProduk = tablePrisma.getValueAt(baris, 0).toString();
             String NamaProduk = tablePrisma.getValueAt(baris, 1).toString();
             String nominal = tablePrisma.getValueAt(baris, 2).toString();
             String biayaCetak = tablePrisma.getValueAt(baris, 3).toString();
             String tahun = tablePrisma.getValueAt(baris, 5).toString();
+            FormHome home = new FormHome();
 
-            int ok = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin "
-                    + "Mengubah Produk dengan kode : " + kodeProduk
-                    + " dengan Nama Produk " + NamaProduk
-                    + "?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
-            if (ok == 0) {
-                //validasi apakah filed 
-                //sudah diisi atau belum
-                if (fieldNamaProdukPrisma.getText().equals("")) {
-                    JOptionPane.showMessageDialog(null, "Nama Produk tidak boleh Kosong");
-                    fieldNamaProdukPrisma.requestFocus();
-                    fieldNamaProdukPrisma.setEditable(true);
-                    getDataPrisma();
-                    fieldNamaProdukPrisma.setText(NamaProduk);
-                    fieldKodeProdukPrisma.setText(kodeProduk);
-                } else if (fieldNominalProdukPrisma.getText().equals("")) {
-                    JOptionPane.showMessageDialog(null, "Nominal tidak boleh Kosong");
-                    fieldNominalProdukPrisma.requestFocus();
-                    fieldNominalProdukPrisma.setEditable(true);
-                    getDataPrisma();
-                    fieldNominalProdukPrisma.setText(nominal);
-                    fieldKodeProdukPrisma.setText(kodeProduk);
-                } else if (fieldBiayaCetakProdukPrisma.getText().equals("")) {
-                    JOptionPane.showMessageDialog(null, "Biaya Cetak tidak boleh Kosong");
-                    fieldBiayaCetakProdukPrisma.requestFocus();
-                    fieldBiayaCetakProdukPrisma.setEditable(true);
-                    getDataPrisma();
-                    fieldBiayaCetakProdukPrisma.setText(biayaCetak);
-                    fieldKodeProdukPrisma.setText(kodeProduk);
-                } else if (fieldTahunProdukPrisma.getText().equals("")) {
-                    JOptionPane.showMessageDialog(null, "Tahun tidak boleh Kosong");
-                    fieldTahunProdukPrisma.requestFocus();
-                    fieldTahunProdukPrisma.setEditable(true);
-                    getDataPrisma();
-                    fieldTahunProdukPrisma.setText(tahun);
-                    fieldKodeProdukPrisma.setText(kodeProduk);
-                } else {
-                    Produk produk = new Produk();
-                    produk.setIdProduk(fieldKodeProdukPrisma.getText());
-                    produk.setNamaProduk(fieldNamaProdukPrisma.getText());
-                    produk.setNominal(Integer.parseInt(fieldNominalProdukPrisma.getText()));
-                    produk.setBiayaCetak(Float.parseFloat(fieldBiayaCetakProdukPrisma.getText()));
-                    produk.setTahun(fieldTahunProdukPrisma.getText());
+            //munculkan dialog
+            DialogUbahProduk dup = new DialogUbahProduk(home, true, kodeProduk,NamaProduk,nominal,biayaCetak,tahun);
+            dup.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
+            dup.setLocationRelativeTo(null);
+            dup.setVisible(true);
+            getDataProduk();
 
-                    //insert produk
-                    ProdukDAO dao = new ProdukDAOImpl();
-                    boolean sukses = dao.ubahProduk(produk);
-
-                    //cek sukses atau tidak
-                    if (sukses) {
-                        JOptionPane.showMessageDialog(this, "Data berhasil diubah");
-                        resetField();
-                        getDataPrisma();
-                        autoincrementPrisma();
-                    } else {
-                        JOptionPane.showMessageDialog(this, "Data gagal diubah");
-                        getDataPrisma();
-                        autoincrementPrisma();
-                    }
-                }
-            }
         } else {
-            JOptionPane.showMessageDialog(this, "Anda harus memilih dahulu produk "
-                    + "yang akan diubah !");
-            resetField();
-            getDataPrisma();
-            autoincrementPrisma();
+            JOptionPane.showMessageDialog(this, "Anda Harus Memilih Terlebih Dahulu Produk Yang Akan Diubah!");
         }
-        getDataPrisma();
-        tablePrisma.setRowSelectionInterval(baris, baris);
     }//GEN-LAST:event_buttonUbahPrismaActionPerformed
 
     private void buttonHapusPrismaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHapusPrismaActionPerformed
@@ -4263,7 +3900,7 @@ public final class FormHome extends javax.swing.JFrame {
         int baris = tablePrisma.getSelectedRow();
         if (baris >= 0) {
             String kodeProduk = tablePrisma.getValueAt(baris, 0).toString();
-            String namaProduk = tablePrangko.getValueAt(baris, 1).toString();
+            String namaProduk = tablePrisma.getValueAt(baris, 1).toString();
             int ok = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin "
                     + "menghapus Produk dengan kode : " + kodeProduk
                     + " dengan Nama Produk " + namaProduk
@@ -4393,82 +4030,24 @@ public final class FormHome extends javax.swing.JFrame {
         // TODO add your handling code here:
         int baris = tableDokumenFilateli.getSelectedRow();
         if (baris >= 0) {
+            //mengambil anggota dari baris table 
             String kodeProduk = tableDokumenFilateli.getValueAt(baris, 0).toString();
             String NamaProduk = tableDokumenFilateli.getValueAt(baris, 1).toString();
             String nominal = tableDokumenFilateli.getValueAt(baris, 2).toString();
             String biayaCetak = tableDokumenFilateli.getValueAt(baris, 3).toString();
             String tahun = tableDokumenFilateli.getValueAt(baris, 5).toString();
+            FormHome home = new FormHome();
 
-            int ok = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin "
-                    + "Mengubah Produk dengan kode : " + kodeProduk
-                    + " dengan Nama Produk " + NamaProduk
-                    + "?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
+            //munculkan dialog
+            DialogUbahProduk dup = new DialogUbahProduk(home, true, kodeProduk,NamaProduk,nominal,biayaCetak,tahun);
+            dup.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
+            dup.setLocationRelativeTo(null);
+            dup.setVisible(true);
+            getDataProduk();
 
-            if (ok == 0) {
-                //validasi apakah filed 
-                //sudah diisi atau belum
-                if (fieldNamaProdukDokumenFilateli.getText().equals("")) {
-                    JOptionPane.showMessageDialog(null, "Nama Produk tidak boleh Kosong");
-                    fieldNamaProdukDokumenFilateli.requestFocus();
-                    fieldNamaProdukDokumenFilateli.setEditable(true);
-                    getDataDokumenFilateli();
-                    fieldNamaProdukDokumenFilateli.setText(NamaProduk);
-                    fieldKodeProdukDokumenFilateli.setText(kodeProduk);
-                } else if (fieldNominalProdukDokumenFilateli.getText().equals("")) {
-                    JOptionPane.showMessageDialog(null, "Nominal tidak boleh Kosong");
-                    fieldNominalProdukDokumenFilateli.requestFocus();
-                    fieldNominalProdukDokumenFilateli.setEditable(true);
-                    getDataDokumenFilateli();
-                    fieldNominalProdukDokumenFilateli.setText(nominal);
-                    fieldKodeProdukDokumenFilateli.setText(kodeProduk);
-                } else if (fieldBiayaCetakDokumenFilateli.getText().equals("")) {
-                    JOptionPane.showMessageDialog(null, "Biaya Cetak tidak boleh Kosong");
-                    fieldBiayaCetakDokumenFilateli.requestFocus();
-                    fieldBiayaCetakDokumenFilateli.setEditable(true);
-                    getDataDokumenFilateli();
-                    fieldBiayaCetakDokumenFilateli.setText(biayaCetak);
-                    fieldKodeProdukDokumenFilateli.setText(kodeProduk);
-                } else if (fieldTahunProdukDokumenFilateli.getText().equals("")) {
-                    JOptionPane.showMessageDialog(null, "Tahun tidak boleh Kosong");
-                    fieldTahunProdukDokumenFilateli.requestFocus();
-                    fieldTahunProdukDokumenFilateli.setEditable(true);
-                    getDataDokumenFilateli();
-                    fieldTahunProdukDokumenFilateli.setText(tahun);
-                    fieldKodeProdukDokumenFilateli.setText(kodeProduk);
-                } else {
-                    Produk produk = new Produk();
-                    produk.setIdProduk(fieldKodeProdukDokumenFilateli.getText());
-                    produk.setNamaProduk(fieldNamaProdukDokumenFilateli.getText());
-                    produk.setNominal(Integer.parseInt(fieldNominalProdukDokumenFilateli.getText()));
-                    produk.setBiayaCetak(Float.parseFloat(fieldBiayaCetakDokumenFilateli.getText()));
-                    produk.setTahun(fieldTahunProdukDokumenFilateli.getText());
-
-                    //insert produk
-                    ProdukDAO dao = new ProdukDAOImpl();
-                    boolean sukses = dao.ubahProduk(produk);
-
-                    //cek sukses atau tidak
-                    if (sukses) {
-                        JOptionPane.showMessageDialog(this, "Data berhasil diubah");
-                        resetField();
-                        getDataDokumenFilateli();
-                        autoincrementDokumenFilateli();
-                    } else {
-                        JOptionPane.showMessageDialog(this, "Data gagal diubah");
-                        getDataDokumenFilateli();
-                        autoincrementDokumenFilateli();
-                    }
-                }
-            }
         } else {
-            JOptionPane.showMessageDialog(this, "Anda harus memilih dahulu produk "
-                    + "yang akan diubah !");
-            resetField();
-            getDataDokumenFilateli();
-            autoincrementDokumenFilateli();
+            JOptionPane.showMessageDialog(this, "Anda Harus Memilih Terlebih Dahulu Produk Yang Akan Diubah!");
         }
-        getDataDokumenFilateli();
-        tableDokumenFilateli.setRowSelectionInterval(baris, baris);
     }//GEN-LAST:event_buttonUbahDokumenFilateliActionPerformed
 
     private void buttonHapusDokumenFilateliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHapusDokumenFilateliActionPerformed
@@ -4476,7 +4055,7 @@ public final class FormHome extends javax.swing.JFrame {
         int baris = tableDokumenFilateli.getSelectedRow();
         if (baris >= 0) {
             String kodeProduk = tableDokumenFilateli.getValueAt(baris, 0).toString();
-            String namaProduk = tablePrangko.getValueAt(baris, 1).toString();
+            String namaProduk = tableDokumenFilateli.getValueAt(baris, 1).toString();
 
             int ok = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin "
                     + "menghapus Produk dengan kode : " + kodeProduk
