@@ -6,10 +6,7 @@
 package id.ac.pos.gudang.tablemodel;
 
 import id.ac.pos.gudang.entity.Pemesanan;
-import id.ac.pos.gudang.entity.Produk;
-import id.ac.pos.gudang.entity.Suplier;
 import java.util.ArrayList;
-import java.util.Vector;
 import javax.swing.table.AbstractTableModel;
 
 /**
@@ -19,14 +16,10 @@ import javax.swing.table.AbstractTableModel;
 public class PemesananTM extends AbstractTableModel{
  
     private ArrayList<Pemesanan> arrayPemesanan;
-    Vector vector_nama_produk,vector_nama_suplier,vector_nominal,vector_tahun;
 
-    public void setDataPemesanan(ArrayList<Pemesanan> arrayPemesanan,  Vector vector_nama_produk, Vector vector_nama_suplier, Vector vector_nominal, Vector vector_tahun) {
+    public void setDataPemesanan(ArrayList<Pemesanan> arrayPemesanan) {
         this.arrayPemesanan = arrayPemesanan;
-        this.vector_nama_produk = vector_nama_produk;
-        this.vector_nama_suplier = vector_nama_suplier;
-        this.vector_nominal = vector_nominal;
-        this.vector_tahun = vector_tahun;
+        
     }
 
     @Override
@@ -36,7 +29,7 @@ public class PemesananTM extends AbstractTableModel{
 
     @Override
     public int getColumnCount() {
-        return 11;
+        return 10;
     }
 
     @Override
@@ -55,24 +48,21 @@ public class PemesananTM extends AbstractTableModel{
                 return arrayPemesanan.get(rowIndex).getKodeProduk();
 
             case 4:
-                return vector_nama_produk.get(rowIndex);
+                return arrayPemesanan.get(rowIndex).getNamaProduk();
                                 
             case 5:
-                return vector_nominal.get(rowIndex);
+                return arrayPemesanan.get(rowIndex).getNominal();
 
             case 6:
-                return vector_tahun.get(rowIndex);
+                return arrayPemesanan.get(rowIndex).getTahun();
                               
             case 7:
-                return arrayPemesanan.get(rowIndex).getIdSuplier();
-
-            case 8:
-                return vector_nama_suplier.get(rowIndex);
+                return arrayPemesanan.get(rowIndex).getNamaMitra();
                 
-            case 9:
+            case 8:
                 return arrayPemesanan.get(rowIndex).getJumlahPemesanan();
    
-            case 10:
+            case 9:
                 return arrayPemesanan.get(rowIndex).getStatus();
 
         }
@@ -102,17 +92,14 @@ public class PemesananTM extends AbstractTableModel{
 
             case 6:
                 return "Tahun";
-                
-            case 7:
-                return "Id Suplier";
 
-            case 8:
-                return "Nama Suplier";
+            case 7:
+                return "Nama Mitra";
                 
-            case 9:
+            case 8:
                 return "Jumlah Pemesanan";
 
-            case 10:
+            case 9:
                 return "Status";
         }
         return null;

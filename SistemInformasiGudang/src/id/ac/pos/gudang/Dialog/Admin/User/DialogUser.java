@@ -55,7 +55,6 @@ public class DialogUser extends javax.swing.JDialog {
         jScrollPane1 = new javax.swing.JScrollPane();
         tableUser = new javax.swing.JTable();
         buttonTambahUser = new javax.swing.JButton();
-        buttonHapusUser = new javax.swing.JButton();
         buttonUbahUser = new javax.swing.JButton();
         buttonRefresh = new javax.swing.JButton();
 
@@ -78,13 +77,6 @@ public class DialogUser extends javax.swing.JDialog {
         buttonTambahUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonTambahUserActionPerformed(evt);
-            }
-        });
-
-        buttonHapusUser.setText("Hapus");
-        buttonHapusUser.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonHapusUserActionPerformed(evt);
             }
         });
 
@@ -114,9 +106,7 @@ public class DialogUser extends javax.swing.JDialog {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(buttonTambahUser)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(buttonHapusUser)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(buttonUbahUser, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(buttonRefresh)
@@ -131,7 +121,6 @@ public class DialogUser extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonTambahUser)
-                    .addComponent(buttonHapusUser)
                     .addComponent(buttonUbahUser)
                     .addComponent(buttonRefresh))
                 .addContainerGap(15, Short.MAX_VALUE))
@@ -147,30 +136,6 @@ public class DialogUser extends javax.swing.JDialog {
         dtu.setVisible(true);
         getData();
     }//GEN-LAST:event_buttonTambahUserActionPerformed
-
-    private void buttonHapusUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHapusUserActionPerformed
-        // TODO add your handling code here:
-        int baris = tableUser.getSelectedRow();
-        if (baris >= 0) {
-            String nik = tableUser.getValueAt(baris, 0).toString();
-            String namaUser = tableUser.getValueAt(baris, 1).toString();
-            int ok = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin "
-                    + "menghapus Nik dengan nik : " + nik
-                    + " dengan Nama User " + namaUser
-                    + "?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
-            if (ok == 0) {
-                dao = new UserDAOImpl();
-                dao.hapusUser(nik);
-                getData();
-            }
-        } else {
-            JOptionPane.showMessageDialog(this, "Anda harus memilih dahulu user "
-                    + "yang akan dihapus !");
-            getData();
-        }
-        JOptionPane.showMessageDialog(this, "Data berhasil dihapus");
-        getData();
-    }//GEN-LAST:event_buttonHapusUserActionPerformed
 
     private void buttonUbahUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonUbahUserActionPerformed
         // TODO add your handling code here:
@@ -240,7 +205,6 @@ public class DialogUser extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonHapusUser;
     private javax.swing.JButton buttonRefresh;
     private javax.swing.JButton buttonTambahUser;
     private javax.swing.JButton buttonUbahUser;

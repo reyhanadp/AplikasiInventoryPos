@@ -220,8 +220,8 @@ public class ProdukDAOImpl implements ProdukDAO {
     @Override
     public ArrayList<Produk> getProdukMS_SS() {
         ArrayList<Produk> arrayProduk = null;
-        String SELECT = "SELECT * FROM tb_produk where id_produk like 'SS%' ||"
-                + " id_produk like 'MS%' AND status=0";
+        String SELECT = "SELECT * FROM tb_produk where (id_produk like 'SS%' ||"
+                + " id_produk like 'MS%') AND status=0";
         PreparedStatement state = null;
 
         try {
@@ -259,8 +259,8 @@ public class ProdukDAOImpl implements ProdukDAO {
     @Override
     public ArrayList<Produk> getProdukSHP_SHPSS() {
         ArrayList<Produk> arrayProduk = null;
-        String SELECT = "SELECT * FROM tb_produk where id_produk like 'SH%' ||"
-                + " id_produk like 'SP%' AND status=0";
+        String SELECT = "SELECT * FROM tb_produk where (id_produk like 'SH%' ||"
+                + " id_produk like 'SP%') AND status=0";
         PreparedStatement state = null;
 
         try {
@@ -496,8 +496,8 @@ public class ProdukDAOImpl implements ProdukDAO {
     @Override
     public ArrayList<Produk> getProdukMSSSDeleted() {
         ArrayList<Produk> arrayProduk = null;
-        String SELECT = "SELECT * FROM tb_produk where id_produk like 'SS%' ||"
-                + " id_produk like 'MS%' AND status=1";
+        String SELECT = "SELECT * FROM tb_produk where (id_produk like 'SS%' ||"
+                + " id_produk like 'MS%') AND status=1";
         PreparedStatement state = null;
 
         try {
@@ -542,8 +542,8 @@ public class ProdukDAOImpl implements ProdukDAO {
     @Override
     public ArrayList<Produk> getProdukSHPSHPSSDeleted() {
         ArrayList<Produk> arrayProduk = null;
-        String SELECT = "SELECT * FROM tb_produk where id_produk like 'SHP%' ||"
-                + " id_produk like 'SHPSS%' AND status=1";
+        String SELECT = "SELECT * FROM tb_produk where (id_produk like 'SHP%' ||"
+                + " id_produk like 'SHPSS%') AND status=1";
         PreparedStatement state = null;
 
         try {

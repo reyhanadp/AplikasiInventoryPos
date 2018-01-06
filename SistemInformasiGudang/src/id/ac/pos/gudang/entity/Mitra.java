@@ -11,25 +11,25 @@ package id.ac.pos.gudang.entity;
  * @author Oyoy
  */
 public class Mitra {
-    private String id_supplier;
-    private String nama_suplier;
+    private String id_mitra;
+    private String nama_mitra;
     private String alamat;
     private String no_telp;
 
-    public String getId_supplier() {
-        return id_supplier;
+    public String getId_mitra() {
+        return id_mitra;
     }
 
-    public void setId_supplier(String id_supplier) {
-        this.id_supplier = id_supplier;
+    public void setId_mitra(String id_mitra) {
+        this.id_mitra = id_mitra;
     }
 
-    public String getNama_suplier() {
-        return nama_suplier;
+    public String getNama_mitra() {
+        return nama_mitra;
     }
 
-    public void setNama_suplier(String nama_suplier) {
-        this.nama_suplier = nama_suplier;
+    public void setNama_mitra(String nama_mitra) {
+        this.nama_mitra = nama_mitra;
     }
 
     public String getAlamat() {
@@ -47,6 +47,8 @@ public class Mitra {
     public void setNo_telp(String no_telp) {
         this.no_telp = no_telp;
     }
+
+    
     
     
 }

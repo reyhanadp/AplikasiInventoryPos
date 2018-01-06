@@ -61,7 +61,6 @@ public class DialogMitra extends javax.swing.JDialog {
         tableMitra = new javax.swing.JTable();
         buttonRefresh = new javax.swing.JButton();
         buttonUbah = new javax.swing.JButton();
-        buttonHapus = new javax.swing.JButton();
         buttonTambah = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -103,13 +102,6 @@ public class DialogMitra extends javax.swing.JDialog {
             }
         });
 
-        buttonHapus.setText("Hapus");
-        buttonHapus.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonHapusActionPerformed(evt);
-            }
-        });
-
         buttonTambah.setText("Tambah");
         buttonTambah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -131,11 +123,9 @@ public class DialogMitra extends javax.swing.JDialog {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(buttonTambah)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(buttonHapus)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(buttonUbah)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(buttonUbah, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(buttonRefresh))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1)
@@ -161,7 +151,6 @@ public class DialogMitra extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonTambah)
                     .addComponent(buttonUbah)
-                    .addComponent(buttonHapus)
                     .addComponent(buttonRefresh))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -175,7 +164,7 @@ public class DialogMitra extends javax.swing.JDialog {
 
         //lakukan pencarian
         dao = new MitraDAOImpl();
-        arrayMitra = dao.cariMira(keyword);
+        arrayMitra = dao.cariMitra(keyword);
 
         MitraTM regionalTableModel = new MitraTM();
         regionalTableModel.setDataMitra(arrayMitra);
@@ -207,29 +196,6 @@ public class DialogMitra extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(this, "Anda Harus Memilih Terlebih Dahulu Mitra Yang Akan Diubah!");
         }
     }//GEN-LAST:event_buttonUbahActionPerformed
-
-    private void buttonHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHapusActionPerformed
-        int baris = tableMitra.getSelectedRow();
-        if (baris >= 0) {
-            String idMitra = tableMitra.getValueAt(baris, 0).toString();
-            String namaMitra = tableMitra.getValueAt(baris, 1).toString();
-            int ok = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin "
-                    + "menghapus Mitra dengan id : " + idMitra
-                    + " dengan Nama Mitra " + namaMitra
-                    + "?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
-            if (ok == 0) {
-                dao = new MitraDAOImpl();
-                dao.hapusMitra(idMitra);
-                getData();
-            }
-        } else {
-            JOptionPane.showMessageDialog(this, "Anda harus memilih dahulu mitra "
-                    + "yang akan dihapus !");
-            getData();
-        }
-        JOptionPane.showMessageDialog(this, "Data berhasil dihapus");
-        getData();
-    }//GEN-LAST:event_buttonHapusActionPerformed
 
     private void buttonTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTambahActionPerformed
         // TODO add your handling code here:
@@ -284,7 +250,6 @@ public class DialogMitra extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonCari;
-    private javax.swing.JButton buttonHapus;
     private javax.swing.JButton buttonRefresh;
     private javax.swing.JButton buttonTambah;
     private javax.swing.JButton buttonUbah;

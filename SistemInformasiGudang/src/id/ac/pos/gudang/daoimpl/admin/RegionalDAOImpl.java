@@ -123,7 +123,7 @@ public class RegionalDAOImpl implements RegionalDAO {
         return false;
     }
 
-    @Override
+    /*@Override
     public boolean hapusRegional(String idRegional) {
         String DELETE = "DELETE FROM tb_regional WHERE id_regional = ?";
         PreparedStatement state = null;
@@ -138,7 +138,7 @@ public class RegionalDAOImpl implements RegionalDAO {
             Logger.getLogger(RegionalDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
-    }
+    }*/
 
     @Override
     public boolean ubahRegional(Regional regional) {

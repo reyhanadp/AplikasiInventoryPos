@@ -21,8 +21,6 @@ public interface RegionalDAO {
     
     boolean tambahRegional(Regional regional);
     
-    boolean hapusRegional(String idRegional);
-    
     boolean ubahRegional(Regional regional);
           
 }

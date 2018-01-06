@@ -71,7 +71,7 @@ public class DialogTambahRegional extends javax.swing.JDialog {
             }
         });
 
-        buttonCancel.setText("Cancel");
+        buttonCancel.setText("Batal");
         buttonCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonCancelActionPerformed(evt);
@@ -110,10 +110,10 @@ public class DialogTambahRegional extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 113, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(buttonSimpan)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(buttonCancel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(buttonCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
@@ -121,7 +121,7 @@ public class DialogTambahRegional extends javax.swing.JDialog {
                             .addComponent(jLabel3)
                             .addComponent(jLabel4)
                             .addComponent(jLabel5))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(fieldAlamat, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
                             .addComponent(fieldNoTelp)
@@ -193,25 +193,24 @@ public class DialogTambahRegional extends javax.swing.JDialog {
         } else if (fieldAlamat.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Alamat Tidak boleh Kosong");
         } else {
-            JOptionPane.showMessageDialog(null, "Simpan Data");
-        }
 
-        regional.setIdRegional(idRegional);
-        regional.setNamaRegional(namaRegional);
-        regional.setKodePos(kodePos);
-        regional.setNoTelp(noTelp);
-        regional.setAlamat(alamat);
+                regional.setIdRegional(idRegional);
+                regional.setNamaRegional(namaRegional);
+                regional.setKodePos(kodePos);
+                regional.setNoTelp(noTelp);
+                regional.setAlamat(alamat);
 
-        //insert regional 
-        RegionalDAO dao = new RegionalDAOImpl();
-        boolean sukses = dao.tambahRegional(regional);
+                //insert regional 
+                RegionalDAO dao = new RegionalDAOImpl();
+                boolean sukses = dao.tambahRegional(regional);
 
-        // cek sukses atau tidak
-        if (sukses) {
-            JOptionPane.showMessageDialog(this, "Data berhasil ditambahkan");
-            dispose();
-        } else {
-            JOptionPane.showMessageDialog(this, "Data gagal ditambahkan");
+                // cek sukses atau tidak
+                if (sukses) {
+                    JOptionPane.showMessageDialog(this, "Data berhasil ditambahkan");
+                    dispose();
+                } else {
+                    JOptionPane.showMessageDialog(this, "Data gagal ditambahkan");
+                }
         }
     }//GEN-LAST:event_buttonSimpanActionPerformed
 

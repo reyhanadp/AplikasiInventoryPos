@@ -105,11 +105,11 @@
                                               </Group>
                                               <Component id="fieldNoPemesanan" alignment="0" min="-2" pref="112" max="-2" attributes="0"/>
                                               <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="NamaSuplier" min="-2" pref="160" max="-2" attributes="0"/>
+                                                  <Component id="NamaMitra" min="-2" pref="160" max="-2" attributes="0"/>
                                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                                   <Component id="jLabel43" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-                                                  <Component id="fieldIdSuplier" min="-2" pref="112" max="-2" attributes="0"/>
+                                                  <Component id="fieldIdMitra" min="-2" pref="112" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -162,10 +162,10 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="NamaSuplier" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="NamaMitra" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel43" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="fieldIdSuplier" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="fieldIdMitra" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -205,14 +205,15 @@
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="JumlahPemesananKeyTyped"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JComboBox" name="NamaSuplier">
+        <Component class="javax.swing.JComboBox" name="NamaMitra">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="0"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="NamaSuplierItemStateChanged"/>
+            <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="NamaMitraItemStateChanged"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NamaMitraActionPerformed"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -282,7 +283,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Suplier"/>
+            <Property name="text" type="java.lang.String" value="Mitra"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel9">
@@ -343,15 +344,15 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel43">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Id Suplier"/>
+            <Property name="text" type="java.lang.String" value="Id Mitra"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="fieldIdSuplier">
+        <Component class="javax.swing.JTextField" name="fieldIdMitra">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
           </Properties>
           <Events>
-            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldIdSuplierKeyPressed"/>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldIdMitraKeyPressed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="tambah">

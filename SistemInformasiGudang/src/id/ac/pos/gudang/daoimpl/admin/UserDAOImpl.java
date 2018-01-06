@@ -51,6 +51,7 @@ public class UserDAOImpl implements UserDAO {
                     user.setPassword(result.getString(2));
                     user.setNamaUser(result.getString(3));
                     user.setHakAkses(result.getString(4));
+                    user.setStatus(result.getString(5));
 
                     //menambahkan data ke array
                     arrayUser.add(user);
@@ -83,11 +84,10 @@ public class UserDAOImpl implements UserDAO {
         return false;
     }
 
-    @Override
+    /*@Override
     public boolean hapusUser(String nik) {
         String DELETE = "DELETE FROM tb_user WHERE nik = ?";
         PreparedStatement state = null;
-        System.out.println(nik);
         try {
             state = conn.prepareStatement(DELETE);
             state.setString(1, nik);
@@ -98,13 +98,13 @@ public class UserDAOImpl implements UserDAO {
             Logger.getLogger(UserDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
-    }
+    }*/
 
     @Override
     public boolean ubahUser(User user) {
         String UPDATE = "UPDATE tb_user "
                 + "SET password = ?, nama_user = ?, "
-                + "hak_akses = ? "
+                + "hak_akses = ? , status = ? "
                 + "WHERE nik = ?";
         PreparedStatement state = null;
 
@@ -113,7 +113,55 @@ public class UserDAOImpl implements UserDAO {
             state.setString(1, user.getPassword());
             state.setString(2, user.getNamaUser());
             state.setString(3, user.getHakAkses());
-            state.setString(4, user.getNik());
+            state.setString(4, user.getStatus());
+            state.setString(5, user.getNik());
+
+            int qty = state.executeUpdate();
+            return qty > 0;
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+    
+    @Override
+    public String getPassword(String nik) {
+        String pass = null;
+        String SELECT = "select password from tb_user WHERE nik = '"+nik+"'";
+        PreparedStatement state = null;
+
+        try {
+            state = conn.prepareStatement(SELECT);
+
+            ResultSet result = state.executeQuery();
+            if (result != null) {
+
+                //selama result memiliki data
+                //return lebih dari 1 data
+                while (result.next()) {
+
+                    //mengambil 1 data
+                    pass = result.getString("password");
+                }
+            }
+        } catch (SQLException ex) {
+
+            Logger.getLogger(UserDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return pass;
+    }
+    
+    public boolean ubahPassword(User user) {
+        String UPDATE = "UPDATE tb_user "
+                + "SET password = ? "
+                + "WHERE nik = ?";
+        PreparedStatement state = null;
+
+        try {
+            state = conn.prepareStatement(UPDATE);
+            state.setString(1, user.getPassword());
+            state.setString(2, user.getNik());
 
             int qty = state.executeUpdate();
             return qty > 0;

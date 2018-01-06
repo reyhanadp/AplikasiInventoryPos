@@ -8,7 +8,8 @@ package id.ac.pos.gudang.daoimpl;
 import id.ac.pos.gudang.dao.PemesananDAO;
 import id.ac.pos.gudang.entity.Pemesanan;
 import id.ac.pos.gudang.entity.Produk;
-import id.ac.pos.gudang.entity.Suplier;
+import id.ac.pos.gudang.entity.Mitra;
+import id.ac.pos.gudang.daoimpl.admin.MitraDAOImpl;
 import id.ac.pos.gudang.utility.DatabaseConnectivity;
 import java.sql.Connection;
 import java.sql.Date;
@@ -65,23 +66,26 @@ public class PemesananDAOImpl implements PemesananDAO{
         ArrayList<Pemesanan> arrayPemesanan = null;
         String SELECT = "";
         if (idJenis.compareTo("SS") == 0) {
-            SELECT = "SELECT * FROM tb_trans_pemesanan pm JOIN tb_produk pr ON pm.id_produk=pr.id_produk "
-                    + "JOIN tb_suplier sp ON pm.id_suplier=sp.id_suplier "
+            SELECT = "SELECT id_pemesanan,no_pemesanan,pr.id_produk,nama_produk,nominal,tahun,jumlah_pesan,tgl_pesan,nama_mitra,pm.status"
+                    + " FROM tb_trans_pemesanan pm JOIN tb_produk pr ON pm.id_produk=pr.id_produk "
+                    + "JOIN tb_mitra sp ON pm.id_mitra=sp.id_mitra "
                     + "WHERE " + jenisCari + " LIKE '%" + keyword + "%' && "
                     + "id_jenis_produk in (SELECT id_jenis_produk FROM"
                     + " tb_produk WHERE id_jenis_produk = 'SS'"
-                    + " || id_jenis_produk = 'MS')";
+                    + " || id_jenis_produk = 'MS') && pr.status=0";
         } else if (idJenis.compareTo("SHP") == 0) {
-            SELECT = "SELECT * FROM tb_trans_pemesanan pm JOIN tb_produk pr ON pm.id_produk=pr.id_produk "
-                    + "JOIN tb_suplier sp ON pm.id_suplier=sp.id_suplier "
+            SELECT = "SELECT id_pemesanan,no_pemesanan,pr.id_produk,nama_produk,nominal,tahun,jumlah_pesan,tgl_pesan,nama_mitra,pm.status"
+                    + " FROM tb_trans_pemesanan pm JOIN tb_produk pr ON pm.id_produk=pr.id_produk "
+                    + "JOIN tb_mitra sp ON pm.id_mitra=sp.id_mitra "
                     + "WHERE " + jenisCari + " LIKE '%" + keyword + "%' && "
                     + "id_jenis_produk in (SELECT id_jenis_produk FROM"
                     + " tb_produk WHERE id_jenis_produk = 'SHP'"
-                    + " || id_jenis_produk = 'SHPSS')";
+                    + " || id_jenis_produk = 'SHPSS') && pr.status=0";
         } else {
-            SELECT = "SELECT * FROM tb_trans_pemesanan pm JOIN tb_produk pr ON pm.id_produk=pr.id_produk "
-                    + "JOIN tb_suplier sp ON pm.id_suplier=sp.id_suplier "
-                    + "WHERE " + jenisCari + " LIKE '%" + keyword + "%' && id_jenis_produk = '" + idJenis + "'";
+            SELECT = "SELECT id_pemesanan,no_pemesanan,pr.id_produk,nama_produk,nominal,tahun,jumlah_pesan,tgl_pesan,nama_mitra,pm.status"
+                    + " FROM tb_trans_pemesanan pm JOIN tb_produk pr ON pm.id_produk=pr.id_produk "
+                    + "JOIN tb_mitra sp ON pm.id_mitra=sp.id_mitra "
+                    + "WHERE " + jenisCari + " LIKE '%" + keyword + "%' && id_jenis_produk = '" + idJenis + "' && pr.status=0";
         }
         PreparedStatement state = null;
 
@@ -97,12 +101,16 @@ public class PemesananDAOImpl implements PemesananDAO{
 
                     // mengambil 1 data
                     Pemesanan pemesanan = new Pemesanan();
-                    pemesanan.setNoPemesanan(result.getString("no_pemesanan"));
-                    pemesanan.setKodeProduk(result.getString("id_produk"));
-                    pemesanan.setJumlahPemesanan(result.getString("jumlah_pesan"));
-                    pemesanan.setTglPemesanan(result.getDate("tgl_pesan"));
-                    pemesanan.setIdSuplier(result.getString("id_suplier"));
-                    pemesanan.setStatus(result.getString("status"));
+                    pemesanan.setIdPemesanan(result.getString(1));
+                    pemesanan.setNoPemesanan(result.getString(2));
+                    pemesanan.setKodeProduk(result.getString(3));
+                    pemesanan.setNamaProduk(result.getString(4));
+                    pemesanan.setNominal(Integer.valueOf(result.getString(5)));
+                    pemesanan.setTahun(result.getString(6));
+                    pemesanan.setJumlahPemesanan(result.getString(7));
+                    pemesanan.setTglPemesanan(result.getDate(8));
+                    pemesanan.setNamaMitra(result.getString(9));
+                    pemesanan.setStatus(result.getString(10));
 
                     // menambahkan data ke array
                     arrayPemesanan.add(pemesanan);
@@ -197,9 +205,9 @@ public class PemesananDAOImpl implements PemesananDAO{
     }
     
     @Override
-    public ArrayList<Suplier> getIsiSuplier(Object pilihan) {
-        ArrayList<Suplier> arraySuplier = null;
-        String SELECT = "SELECT * FROM tb_suplier";
+    public ArrayList<Mitra> getIdMitra(Object pilihan) {
+        ArrayList<Mitra> arrayMitra = null;
+        String SELECT = "SELECT id_mitra FROM tb_mitra Where nama_mitra = '"+pilihan+"'";
         PreparedStatement state = null;
 
         try {
@@ -207,32 +215,31 @@ public class PemesananDAOImpl implements PemesananDAO{
 
             ResultSet result = state.executeQuery();
             if (result != null) {
-                arraySuplier = new ArrayList<>();
+                arrayMitra = new ArrayList<>();
 
                 //selama result memiliki data 
                 // return lebih dari 1 data 
                 while (result.next()) {
 
                     //mengambil 1 data
-                    Suplier suplier = new Suplier();
-                    suplier.setIdSuplier(result.getString(1));
-                    suplier.setNama_suplier(result.getString(2));
+                    Mitra mitra = new Mitra();
+                    mitra.setId_mitra(result.getString(1));
 
                     //menambahkan data ke array
-                    arraySuplier.add(suplier);
+                    arrayMitra.add(mitra);
                 }
             }
         } catch (SQLException ex) {
-            Logger.getLogger(SuplierDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MitraDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        return arraySuplier;
+        return arrayMitra;
     }
     
     @Override
-    public ArrayList<Suplier> getSuplier() {
-        ArrayList<Suplier> arraySuplier = null;
-        String SELECT = "SELECT * FROM tb_suplier";
+    public ArrayList<Mitra> getMitra() {
+        ArrayList<Mitra> arrayMitra = null;
+        String SELECT = "SELECT * FROM tb_mitra";
         PreparedStatement state = null;
 
         try {
@@ -240,31 +247,31 @@ public class PemesananDAOImpl implements PemesananDAO{
 
             ResultSet result = state.executeQuery();
             if (result != null) {
-                arraySuplier = new ArrayList<>();
+                arrayMitra = new ArrayList<>();
 
                 //selama result memiliki data 
                 // return lebih dari 1 data 
                 while (result.next()) {
 
                     //mengambil 1 data
-                    Suplier suplier = new Suplier();
-                    suplier.setNama_suplier(result.getString(2));
+                    Mitra mitra = new Mitra();
+                    mitra.setNama_mitra(result.getString(2));
 
                     //menambahkan data ke array
-                    arraySuplier.add(suplier);
+                    arrayMitra.add(mitra);
                 }
             }
         } catch (SQLException ex) {
-            Logger.getLogger(SuplierDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MitraDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        return arraySuplier;
+        return arrayMitra;
     }
     
     @Override
     public boolean tambahPemesanan(Pemesanan pemesanan) {
        String INSERT = "INSERT INTO tb_trans_pemesanan (id_pemesanan,no_pemesanan,id_produk,"
-                + "jumlah_pesan,tgl_pesan,id_suplier,status"
+                + "jumlah_pesan,tgl_pesan,id_mitra,status"
                 + ") VALUES (?, ?, ?, ?, ?, ?, 'belum selesai')";
         PreparedStatement state = null;
         
@@ -275,7 +282,7 @@ public class PemesananDAOImpl implements PemesananDAO{
             state.setString(3, pemesanan.getKodeProduk());
             state.setString(4, pemesanan.getJumlahPemesanan());
             state.setDate(5, new java.sql.Date(pemesanan.getTglPemesanan().getTime()));
-            state.setString(6, pemesanan.getIdSuplier());
+            state.setString(6, pemesanan.getIdMitra());
             
             int qty = state.executeUpdate();
             return qty > 0;
@@ -287,16 +294,13 @@ public class PemesananDAOImpl implements PemesananDAO{
     }
     
     @Override
-    public ArrayList<Pemesanan> getPemesanan(String jenis_produk) {
+    public ArrayList<Pemesanan> getPemesanan() {
         ArrayList<Pemesanan> arrayPemesanan = null;
         String SELECT = "";
-        if (jenis_produk.compareTo("MS") == 0) {
-            SELECT = "SELECT * FROM tb_trans_pemesanan where id_produk like 'MS%' OR id_produk like 'SS%'";
-        } else if (jenis_produk.compareTo("SHP") == 0) {
-            SELECT = "SELECT * FROM tb_trans_pemesanan where id_produk like 'SHP%' OR id_produk like 'SHPSS%'";
-        }else{
-            SELECT = "SELECT * FROM tb_trans_pemesanan where id_produk like '"+jenis_produk+"%'";
-        }
+            SELECT = "SELECT id_pemesanan,no_pemesanan,pr.id_produk,nama_produk,nominal,tahun,jumlah_pesan,tgl_pesan,nama_mitra,pm.status "
+                    + "FROM tb_trans_pemesanan pm JOIN tb_produk pr ON pr.id_produk=pm.id_produk "
+                    + "JOIN tb_mitra sp ON pm.id_mitra=sp.id_mitra "
+                    + "WHERE pr.status=0";
         PreparedStatement state = null;
 
         try {
@@ -315,10 +319,13 @@ public class PemesananDAOImpl implements PemesananDAO{
                     pemesanan.setIdPemesanan(result.getString(1));
                     pemesanan.setNoPemesanan(result.getString(2));
                     pemesanan.setKodeProduk(result.getString(3));
-                    pemesanan.setJumlahPemesanan(result.getString(4));
-                    pemesanan.setTglPemesanan(result.getDate(5));
-                    pemesanan.setIdSuplier(result.getString(6));
-                    pemesanan.setStatus(result.getString(7));
+                    pemesanan.setNamaProduk(result.getString(4));
+                    pemesanan.setNominal(Integer.valueOf(result.getString(5)));
+                    pemesanan.setTahun(result.getString(6));
+                    pemesanan.setJumlahPemesanan(result.getString(7));
+                    pemesanan.setTglPemesanan(result.getDate(8));
+                    pemesanan.setNamaMitra(result.getString(9));
+                    pemesanan.setStatus(result.getString(10));
                     //menambahkan data ke array
                     arrayPemesanan.add(pemesanan);
                 }
@@ -451,15 +458,15 @@ public class PemesananDAOImpl implements PemesananDAO{
             SELECT = "SELECT distinct(tahun) FROM `tb_produk` where nama_produk='" + nama_produk + "' AND "
                     + "id_jenis_produk in (SELECT id_jenis_produk FROM"
                     + " tb_produk WHERE id_jenis_produk = 'SS'"
-                    + " || id_jenis_produk = 'MS' AND status=0)";
+                    + " || id_jenis_produk = 'MS') AND status=0 ORDER BY tahun";
         } else if (jenis_produk.compareTo("SHP") == 0) {
             SELECT = "SELECT distinct(tahun) FROM `tb_produk` where nama_produk='" + nama_produk + "' AND "
                     + "id_jenis_produk in (SELECT id_jenis_produk FROM"
                     + " tb_produk WHERE id_jenis_produk = 'SHP'"
-                    + " || id_jenis_produk = 'SHPSS' AND status=0)";
+                    + " || id_jenis_produk = 'SHPSS') AND status=0 ORDER BY tahun";
         } else {
             SELECT = "SELECT distinct(tahun) FROM `tb_produk` where nama_produk='" + nama_produk + "' "
-                    + "AND id_jenis_produk='" + jenis_produk + "' AND status=0 ORDER BY nama_produk ASC";
+                    + "AND id_jenis_produk='" + jenis_produk + "' AND status=0 ORDER BY tahun";
         }
 
         PreparedStatement state = null;
@@ -505,16 +512,16 @@ public class PemesananDAOImpl implements PemesananDAO{
             SELECT = "SELECT nominal FROM `tb_produk` where nama_produk='" + nama_produk + "' AND tahun='" + tahun + "' AND "
                     + "id_jenis_produk in (SELECT id_jenis_produk FROM"
                     + " tb_produk WHERE id_jenis_produk = 'SS'"
-                    + " || id_jenis_produk = 'MS' AND status=0)";
+                    + " || id_jenis_produk = 'MS') AND status=0 ORDER BY nominal";
         } else if (jenis_produk.compareTo("SHP") == 0) {
             SELECT = "SELECT nominal FROM `tb_produk` where nama_produk='" + nama_produk + "' AND tahun='" + tahun + "' AND "
                     + "id_jenis_produk in (SELECT id_jenis_produk FROM"
                     + " tb_produk WHERE id_jenis_produk = 'SHP'"
-                    + " || id_jenis_produk = 'SHPSS' AND status=0)";
+                    + " || id_jenis_produk = 'SHPSS') AND status=0 ORDER BY nominal";
         } else {
             SELECT = "SELECT nominal FROM `tb_produk` where nama_produk='" + nama_produk + "' "
                     + "AND tahun='" + tahun + "' AND id_jenis_produk='" + jenis_produk + "' AND status=0 "
-                    + "ORDER BY nama_produk ASC";
+                    + "ORDER BY nominal";
         }
 
         PreparedStatement state = null;
@@ -595,10 +602,10 @@ public class PemesananDAOImpl implements PemesananDAO{
     }
     
     @Override
-    public ArrayList<Suplier> getNamaSuplier(String id_suplier) {
+    public ArrayList<Mitra> getNamaMitra(String id_mitra) {
         conn = DatabaseConnectivity.getConnection();
-        ArrayList<Suplier> arraySuplier = null;
-        String SELECT = "SELECT nama_suplier FROM `tb_suplier` where id_suplier='"+id_suplier+"'";
+        ArrayList<Mitra> arrayMitra = null;
+        String SELECT = "SELECT nama_mitra FROM `tb_mitra` where id_mitra='"+id_mitra+"'";
 
 
         PreparedStatement state = null;
@@ -608,31 +615,31 @@ public class PemesananDAOImpl implements PemesananDAO{
 
             ResultSet result = state.executeQuery();
             if (result != null) {
-                arraySuplier = new ArrayList<>();
+                arrayMitra = new ArrayList<>();
 
                 //selama result memiliki data 
                 // return lebih dari 1 data 
                 while (result.next()) {
 
                     //mengambil 1 data
-                    Suplier suplier = new Suplier();
-                    suplier.setNama_suplier(result.getString(1));
+                    Mitra mitra = new Mitra();
+                    mitra.setNama_mitra(result.getString(1));
 
                     //menambahkan data ke array
-                    arraySuplier.add(suplier);
+                    arrayMitra.add(mitra);
                 }
             }
         } catch (SQLException ex) {
-            Logger.getLogger(SuplierDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MitraDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
         }finally{
             try {
                 state.close();
             } catch (SQLException ex) {
-                Logger.getLogger(SuplierDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(MitraDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
 
-        return arraySuplier;
+        return arrayMitra;
     }
       
 }

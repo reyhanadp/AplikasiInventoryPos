@@ -32,9 +32,7 @@
                   </Group>
                   <Group type="102" attributes="0">
                       <Component id="buttonTambahUser" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="buttonHapusUser" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="buttonUbahUser" min="-2" pref="68" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="buttonRefresh" min="-2" max="-2" attributes="0"/>
@@ -53,7 +51,6 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="buttonTambahUser" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="buttonHapusUser" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="buttonUbahUser" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="buttonRefresh" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -90,14 +87,6 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonTambahUserActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="buttonHapusUser">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Hapus"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonHapusUserActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="buttonUbahUser">

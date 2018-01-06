@@ -20,7 +20,7 @@ public class DialogUbahMitra extends javax.swing.JDialog {
     /**
      * Creates new form DialogUbahMitra
      */
-    private String id_suplier;
+    private String id_mitra;
 
     public DialogUbahMitra(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -29,8 +29,8 @@ public class DialogUbahMitra extends javax.swing.JDialog {
 
     DialogUbahMitra(FormAdmin admin, boolean b, Mitra mitraTerpilih) {
         initComponents();
-        id_suplier = mitraTerpilih.getId_supplier();
-        fieldNamaMitra.setText(mitraTerpilih.getNama_suplier());
+        id_mitra = mitraTerpilih.getId_mitra();
+        fieldNamaMitra.setText(mitraTerpilih.getNama_mitra());
         fieldAlamat.setText(mitraTerpilih.getAlamat());
         fieldNoTelp.setText(mitraTerpilih.getNo_telp());
     }
@@ -44,7 +44,7 @@ public class DialogUbahMitra extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonHapusMItra = new javax.swing.JButton();
+        buttonSimpanMItra = new javax.swing.JButton();
         buttonCancel = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -55,14 +55,14 @@ public class DialogUbahMitra extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        buttonHapusMItra.setText("Ubah");
-        buttonHapusMItra.addActionListener(new java.awt.event.ActionListener() {
+        buttonSimpanMItra.setText("Simpan");
+        buttonSimpanMItra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonHapusMItraActionPerformed(evt);
+                buttonSimpanMItraActionPerformed(evt);
             }
         });
 
-        buttonCancel.setText("Cancel");
+        buttonCancel.setText("Batal");
         buttonCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonCancelActionPerformed(evt);
@@ -98,11 +98,11 @@ public class DialogUbahMitra extends javax.swing.JDialog {
                             .addComponent(fieldAlamat)
                             .addComponent(fieldNoTelp)
                             .addComponent(fieldNamaMitra, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(buttonHapusMItra)
+                        .addComponent(buttonSimpanMItra)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(buttonCancel)))
+                        .addComponent(buttonCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -120,9 +120,9 @@ public class DialogUbahMitra extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(fieldNoTelp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonHapusMItra)
+                    .addComponent(buttonSimpanMItra)
                     .addComponent(buttonCancel))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -139,7 +139,7 @@ public class DialogUbahMitra extends javax.swing.JDialog {
         dispose();
     }//GEN-LAST:event_buttonCancelActionPerformed
 
-    private void buttonHapusMItraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHapusMItraActionPerformed
+    private void buttonSimpanMItraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSimpanMItraActionPerformed
         // TODO add your handling code here:
         Mitra mitra = new Mitra();
         String namaMitra = fieldNamaMitra.getText();
@@ -148,30 +148,24 @@ public class DialogUbahMitra extends javax.swing.JDialog {
 
         if (fieldNamaMitra.getText().isEmpty() && fieldNamaMitra.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Nama Mitra Tidak boleh Kosong");
-        } else if (fieldAlamat.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Alamat Tidak boleh Kosong");
-        } else if (fieldNoTelp.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "No.Telp Tidak boleh Kosong");
-        } else {
-            JOptionPane.showMessageDialog(null, "Simpan Data");
+        }  else {
+                mitra.setId_mitra(id_mitra);
+                mitra.setNama_mitra(namaMitra);
+                mitra.setAlamat(alamat);
+                mitra.setNo_telp(noTelp);
+
+                //ubah mitra
+                MitraDAO dao = new MitraDAOImpl();
+                boolean sukses = dao.ubahMitra(mitra);
+
+                if (sukses) {
+                    JOptionPane.showMessageDialog(this, "Data berhasil diubah");
+                    dispose();
+                } else {
+                    JOptionPane.showMessageDialog(this, "Data gagal diubah");
+                }
         }
-
-        mitra.setId_supplier(id_suplier);
-        mitra.setNama_suplier(namaMitra);
-        mitra.setAlamat(alamat);
-        mitra.setNo_telp(noTelp);
-
-        //ubah mitra
-        MitraDAO dao = new MitraDAOImpl();
-        boolean sukses = dao.ubahMitra(mitra);
-
-        if (sukses) {
-            JOptionPane.showMessageDialog(this, "Data berhasil diubah");
-            dispose();
-        } else {
-            JOptionPane.showMessageDialog(this, "Data gagal diubah");
-        }
-    }//GEN-LAST:event_buttonHapusMItraActionPerformed
+    }//GEN-LAST:event_buttonSimpanMItraActionPerformed
 
     /**
      * @param args the command line arguments
@@ -218,7 +212,7 @@ public class DialogUbahMitra extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonCancel;
-    private javax.swing.JButton buttonHapusMItra;
+    private javax.swing.JButton buttonSimpanMItra;
     private javax.swing.JTextField fieldAlamat;
     private javax.swing.JTextField fieldNamaMitra;
     private javax.swing.JTextField fieldNoTelp;

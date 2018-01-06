@@ -17,11 +17,9 @@ public interface MitraDAO {
     
     ArrayList<Mitra> getMitra();
     
-    ArrayList<Mitra> cariMira(String keyword);
+    ArrayList<Mitra> cariMitra(String keyword);
     
     boolean tambahMitra(Mitra mitra);
-    
-    boolean hapusMitra(String idSuplie);
     
     boolean ubahMitra(Mitra mitra);
     

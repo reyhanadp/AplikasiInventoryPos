@@ -7,6 +7,8 @@ package id.ac.pos.gudang.Form;
 
 import id.ac.pos.gudang.Dialog.Admin.DialogRecycleBin;
 import id.ac.pos.gudang.Dialog.DialogLaporan;
+import id.ac.pos.gudang.Dialog.DialogUbahPassword;
+import id.ac.pos.gudang.Dialog.DialogUbahProduk;
 import id.ac.pos.gudang.Panel.PanelPemesanan;
 import id.ac.pos.gudang.Panel.PanelPenerimaan;
 import id.ac.pos.gudang.Panel.PanelPengembalian;
@@ -15,6 +17,7 @@ import id.ac.pos.gudang.dao.ProdukDAO;
 import id.ac.pos.gudang.daoimpl.ProdukDAOImpl;
 import id.ac.pos.gudang.entity.Produk;
 import id.ac.pos.gudang.tablemodel.ProdukTM;
+import java.awt.Dialog;
 import java.awt.CardLayout;
 import javax.swing.JFrame;
 import javax.swing.*;
@@ -878,6 +881,7 @@ public final class FormHome extends javax.swing.JFrame {
         itemRegional = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
         itemRecycleBin = new javax.swing.JMenuItem();
+        itemUbahPassword = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
 
         nik.setText("jLabel7");
@@ -2880,6 +2884,14 @@ public final class FormHome extends javax.swing.JFrame {
         });
         jMenu2.add(itemRecycleBin);
 
+        itemUbahPassword.setText("Ubah Password");
+        itemUbahPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemUbahPasswordActionPerformed(evt);
+            }
+        });
+        jMenu2.add(itemUbahPassword);
+
         jMenuBar1.add(jMenu2);
 
         jMenu1.setText("Backup & Restore");
@@ -3041,99 +3053,29 @@ public final class FormHome extends javax.swing.JFrame {
         // TODO add your handling code here:
         int baris = tablePrangko.getSelectedRow();
         if (baris >= 0) {
+            //mengambil anggota dari baris table 
             String kodeProduk = tablePrangko.getValueAt(baris, 0).toString();
             String NamaProduk = tablePrangko.getValueAt(baris, 1).toString();
             String nominal = tablePrangko.getValueAt(baris, 2).toString();
             String biayaCetak = tablePrangko.getValueAt(baris, 3).toString();
             String tahun = tablePrangko.getValueAt(baris, 5).toString();
+            FormHome home = new FormHome();
 
-            int ok = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin "
-                    + "Mengubah Produk dengan kode : " + kodeProduk
-                    + " dengan Nama Produk " + NamaProduk
-                    + "?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
+            //munculkan dialog
+            DialogUbahProduk dup = new DialogUbahProduk(home, true, kodeProduk,NamaProduk,nominal,biayaCetak,tahun);
+            dup.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
+            dup.setLocationRelativeTo(null);
+            dup.setVisible(true);
+            getDataProduk();
 
-            if (ok == 0) {
-                //validasi apakah filed 
-                //sudah diisi atau belum
-                if (fieldNamaProdukPrangko.getText().equals("")) {
-                    JOptionPane.showMessageDialog(null, "Nama Produk tidak boleh Kosong");
-                    fieldNamaProdukPrangko.requestFocus();
-                    fieldNamaProdukPrangko.setEditable(true);
-                    getDataPrangko();
-                    fieldNamaProdukPrangko.setText(NamaProduk);
-                    fieldKodeProdukPrangko.setText(kodeProduk);
-                } else if ((fieldNominalPrangko.getText().equals(""))) {
-                    JOptionPane.showMessageDialog(null, "Nominal tidak boleh Kosong");
-                    fieldNominalPrangko.requestFocus();
-                    fieldNominalPrangko.setEditable(true);
-                    getDataPrangko();
-                    fieldNominalPrangko.setText(nominal);
-                    fieldKodeProdukPrangko.setText(kodeProduk);
-                } else if (fieldBiayaCetakPrangko.getText().equals("")) {
-                    JOptionPane.showMessageDialog(null, "Biaya Cetak tidak boleh Kosong");
-                    fieldBiayaCetakPrangko.requestFocus();
-                    fieldBiayaCetakPrangko.setEditable(true);
-                    getDataPrangko();
-                    fieldBiayaCetakPrangko.setText(biayaCetak);
-                    fieldKodeProdukPrangko.setText(kodeProduk);
-                } else if (fieldTahunPrangko.getText().equals("")) {
-                    JOptionPane.showMessageDialog(null, "Tahun tidak boleh Kosong");
-                    fieldTahunPrangko.requestFocus();
-                    getDataPrangko();
-                    fieldTahunPrangko.setText(tahun);
-                    fieldKodeProdukPrangko.setText(kodeProduk);
-                } else {
-                    Produk produk = new Produk();
-                    produk.setIdProduk(fieldKodeProdukPrangko.getText());
-                    produk.setNamaProduk(fieldNamaProdukPrangko.getText());
-                    produk.setNominal(Integer.parseInt(fieldNominalPrangko.getText()));
-                    produk.setBiayaCetak(Float.parseFloat(fieldBiayaCetakPrangko.getText()));
-                    produk.setTahun(fieldTahunPrangko.getText());
-
-                    //insert produk
-                    boolean sukses = dao.ubahProduk(produk);
-
-                    //cek sukses atau tidak
-                    if (sukses) {
-                        JOptionPane.showMessageDialog(this, "Data berhasil diubah");
-                        resetField();
-                        getDataPrangko();
-                        autoincrementPrangko();
-                    } else {
-                        JOptionPane.showMessageDialog(this, "Data gagal diubah");
-                        getDataPrangko();
-                        autoincrementPrangko();
-                    }
-                }
-            } else if (ok == 1) {
-                resetField();
-                getDataPrangko();
-                autoincrementPrangko();
-            }
         } else {
-            JOptionPane.showMessageDialog(this, "Anda harus memilih dahulu produk "
-                    + "yang akan diubah !");
-            getDataPrangko();
-            autoincrementPrangko();
+            JOptionPane.showMessageDialog(this, "Anda Harus Memilih Terlebih Dahulu Produk Yang Akan Diubah!");
         }
-        getDataPrangko();
-        tablePrangko.setRowSelectionInterval(baris, baris);
     }//GEN-LAST:event_buttonUbahPrangkoActionPerformed
 
     private void tablePrangkoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePrangkoMouseClicked
         // TODO add your handling code here:
-        int baris = tablePrangko.getSelectedRow();
-        String kodeProduk = tablePrangko.getValueAt(baris, 0).toString();
-        String namaProduk = tablePrangko.getValueAt(baris, 1).toString();
-        String nominal = tablePrangko.getValueAt(baris, 2).toString();
-        String biayaCetak = tablePrangko.getValueAt(baris, 3).toString();
-        String tahun = tablePrangko.getValueAt(baris, 5).toString();
-
-        fieldKodeProdukPrangko.setText(kodeProduk);
-        fieldNamaProdukPrangko.setText(namaProduk);
-        fieldNominalPrangko.setText(nominal);
-        fieldBiayaCetakPrangko.setText(biayaCetak);
-        fieldTahunPrangko.setText(tahun);
+        
     }//GEN-LAST:event_tablePrangkoMouseClicked
 
     private void ComboJenisMS_SSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboJenisMS_SSActionPerformed
@@ -5345,6 +5287,14 @@ public final class FormHome extends javax.swing.JFrame {
         drb.setVisible(true);
     }//GEN-LAST:event_itemRecycleBinActionPerformed
 
+    private void itemUbahPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemUbahPasswordActionPerformed
+        // TODO add your handling code here:
+        String nik = this.nik.getText();
+        DialogUbahPassword dup = new DialogUbahPassword(this, true, nik);
+        dup.setLocationRelativeTo(null);
+        dup.setVisible(true);
+    }//GEN-LAST:event_itemUbahPasswordActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -5500,6 +5450,7 @@ public final class FormHome extends javax.swing.JFrame {
     private javax.swing.JTextField fieldTahunProdukSHPSHPSS;
     private javax.swing.JMenuItem itemRecycleBin;
     private javax.swing.JMenu itemRegional;
+    private javax.swing.JMenuItem itemUbahPassword;
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

@@ -28,7 +28,7 @@ public class UserTM extends AbstractTableModel {
 
     @Override
     public int getColumnCount() {
-        return 4;
+        return 5;
     }
 
     @Override
@@ -42,6 +42,8 @@ public class UserTM extends AbstractTableModel {
                 return arrayUser.get(rowIndex).getNamaUser();
             case 3:
                 return arrayUser.get(rowIndex).getHakAkses();
+            case 4:
+                return arrayUser.get(rowIndex).getStatus();
         }
         return null;
     }
@@ -57,6 +59,8 @@ public class UserTM extends AbstractTableModel {
                 return "Nama User";
             case 3:
                 return "Hak Akses";
+            case 4:
+                return "Status";
         }
         return null;
     }

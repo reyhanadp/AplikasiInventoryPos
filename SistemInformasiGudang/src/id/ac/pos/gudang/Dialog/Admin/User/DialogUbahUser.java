@@ -9,6 +9,8 @@ import id.ac.pos.gudang.Form.FormAdmin;
 import id.ac.pos.gudang.dao.admin.UserDAO;
 import id.ac.pos.gudang.daoimpl.admin.UserDAOImpl;
 import id.ac.pos.gudang.entity.User;
+import java.util.Vector;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
 /**
@@ -21,7 +23,9 @@ public class DialogUbahUser extends javax.swing.JDialog {
      * Creates new form DialogUbahUser
      */
     private String nik;
-
+    Vector hak_akses = new Vector();
+    Vector status = new Vector();
+    
     public DialogUbahUser(java.awt.Dialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -36,7 +40,22 @@ public class DialogUbahUser extends javax.swing.JDialog {
         nik = userTerpilih.getNik();
         fieldPassword.setText(userTerpilih.getPassword());
         fieldNamaUser.setText(userTerpilih.getNamaUser());
-        comboHakAkses.setSelectedItem(userTerpilih.getHakAkses());
+        if (userTerpilih.getHakAkses().compareTo("AD")==0){
+            hak_akses.add("Admin");
+            hak_akses.add("Filatelli");
+        } else {
+            hak_akses.add("Filatelli");
+            hak_akses.add("Admin");
+        }
+        if (userTerpilih.getStatus().compareTo("0")==0){
+            status.add("0");
+            status.add("1");
+        } else {
+            status.add("1");
+            status.add("0");
+        }
+        comboHakAkses.setModel(new DefaultComboBoxModel(hak_akses));
+        comboStatus.setModel(new DefaultComboBoxModel(status));
     }
 
     /**
@@ -53,9 +72,11 @@ public class DialogUbahUser extends javax.swing.JDialog {
         jLabel2 = new javax.swing.JLabel();
         fieldNamaUser = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        buttonUbah = new javax.swing.JButton();
+        buttonSimpan = new javax.swing.JButton();
         buttonCancel = new javax.swing.JButton();
         comboHakAkses = new javax.swing.JComboBox();
+        jLabel4 = new javax.swing.JLabel();
+        comboStatus = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -65,16 +86,21 @@ public class DialogUbahUser extends javax.swing.JDialog {
 
         jLabel3.setText("Hak Akses");
 
-        buttonUbah.setText("Ubah");
-        buttonUbah.addActionListener(new java.awt.event.ActionListener() {
+        buttonSimpan.setText("Simpan");
+        buttonSimpan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonUbahActionPerformed(evt);
+                buttonSimpanActionPerformed(evt);
             }
         });
 
-        buttonCancel.setText("Cancel");
+        buttonCancel.setText("Batal");
+        buttonCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCancelActionPerformed(evt);
+            }
+        });
 
-        comboHakAkses.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Filatelli", "Admin", " " }));
+        jLabel4.setText("Status");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -95,13 +121,17 @@ public class DialogUbahUser extends javax.swing.JDialog {
                         .addGap(0, 1, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(buttonUbah)
+                                .addComponent(buttonSimpan)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(buttonCancel))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(comboHakAkses, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(comboHakAkses, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(comboStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -119,17 +149,21 @@ public class DialogUbahUser extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(comboHakAkses, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(comboStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonUbah)
+                    .addComponent(buttonSimpan)
                     .addComponent(buttonCancel))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void buttonUbahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonUbahActionPerformed
+    private void buttonSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSimpanActionPerformed
         // TODO add your handling code here:
 
         String hakAkses = null;
@@ -138,13 +172,12 @@ public class DialogUbahUser extends javax.swing.JDialog {
         String password = fieldPassword.getText();
         String namaUser = fieldNamaUser.getText();
         Object jenisHakAkses = comboHakAkses.getSelectedItem();
+        String status = comboStatus.getSelectedItem().toString();
 
         if (jenisHakAkses == "Filatelli") {
             hakAkses = "FL";
         } else if (jenisHakAkses == "Admin") {
             hakAkses = "AD";
-        } else {
-            hakAkses = "";
         }
 
         //validasi field
@@ -152,29 +185,32 @@ public class DialogUbahUser extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null, "Password Tidak boleh Kosong");
         } else if (fieldNamaUser.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Nama User Tidak boleh Kosong");
-        } else if (comboHakAkses.getSelectedItem() == null) {
-            JOptionPane.showMessageDialog(null, "Hak Akses Tidak boleh Kosong");
         } else {
-            JOptionPane.showMessageDialog(null, "Simpan Data");
-        }
 
-        user.setNik(nik);
-        user.setPassword(password);
-        user.setNamaUser(namaUser);
-        user.setHakAkses(hakAkses);
+                user.setNik(nik);
+                user.setPassword(password);
+                user.setNamaUser(namaUser);
+                user.setHakAkses(hakAkses);
+                user.setStatus(status);
 
-        //ubah user
-        UserDAO dao = new UserDAOImpl();
-        boolean sukses = dao.ubahUser(user);
+                //ubah user
+                UserDAO dao = new UserDAOImpl();
+                boolean sukses = dao.ubahUser(user);
 
-        // cek sukses atau tidak
-        if (sukses) {
-            JOptionPane.showMessageDialog(this, "Data berhasil diubah");
-            dispose();
-        } else {
-            JOptionPane.showMessageDialog(this, "Data gagal diubah");
-        }
-    }//GEN-LAST:event_buttonUbahActionPerformed
+                // cek sukses atau tidak
+                if (sukses) {
+                    JOptionPane.showMessageDialog(this, "Data berhasil diubah");
+                    dispose();
+                } else {
+                    JOptionPane.showMessageDialog(this, "Data gagal diubah");
+                }
+                }
+    }//GEN-LAST:event_buttonSimpanActionPerformed
+
+    private void buttonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelActionPerformed
+        // TODO add your handling code here:
+        DialogUbahUser.this.setVisible(false);
+    }//GEN-LAST:event_buttonCancelActionPerformed
 
     /**
      * @param args the command line arguments
@@ -221,12 +257,14 @@ public class DialogUbahUser extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonCancel;
-    private javax.swing.JButton buttonUbah;
+    private javax.swing.JButton buttonSimpan;
     private javax.swing.JComboBox comboHakAkses;
+    private javax.swing.JComboBox comboStatus;
     private javax.swing.JTextField fieldNamaUser;
     private javax.swing.JTextField fieldPassword;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     // End of variables declaration//GEN-END:variables
 }

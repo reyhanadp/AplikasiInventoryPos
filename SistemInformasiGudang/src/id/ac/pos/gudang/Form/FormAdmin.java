@@ -56,7 +56,7 @@ public class FormAdmin extends javax.swing.JFrame {
 
         buttonMitra.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         buttonMitra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/icon-mitra-1.png"))); // NOI18N
-        buttonMitra.setText("PARTNERS");
+        buttonMitra.setText("MITRA");
         buttonMitra.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         buttonMitra.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         buttonMitra.addMouseListener(new java.awt.event.MouseAdapter() {

@@ -9,7 +9,7 @@ import id.ac.pos.gudang.daoimpl.PenerimaanDAOImpl;
 import id.ac.pos.gudang.entity.Pemesanan;
 import id.ac.pos.gudang.entity.Penerimaan;
 import id.ac.pos.gudang.entity.Produk;
-import id.ac.pos.gudang.entity.Suplier;
+import id.ac.pos.gudang.entity.Mitra;
 import id.ac.pos.gudang.tablemodel.PenerimaanTM;
 import java.util.ArrayList;
 import java.util.Vector;
@@ -35,22 +35,16 @@ public class PanelPenerimaan extends javax.swing.JPanel {
     private Penerimaan penerimaan;
     private PenerimaanDAO dao;
     private ProdukDAO daoProduk;
-    private Suplier suplier;
+    private Mitra mitra;
     ArrayList<Penerimaan> arrayPenerimaan;
     ArrayList<Produk> arrayProduk;
-    ArrayList<Suplier> arraySuplier;
+    ArrayList<Mitra> arraySuplier;
     ArrayList<Pemesanan> arrayPemesanan;
     TableRowSorter sorter;
     
     public PanelPenerimaan() {
         initComponents();       
-        getDataPrangko();
-        getDataMS_SS();
-        getDataSHP_SHPSS();
-        getDataKemasan();
-        getDataMerchandise();
-        getDataPrisma();
-        getDataDokumenFilateli();
+        getDataPenerimaan();
     }
         
     public String cariData(String tabCari) {
@@ -77,7 +71,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
             jenisCari = "pr.id_produk";
         } else if (pilihanCari == "Nama Produk") {
             jenisCari = "nama_produk";
-        } else if (pilihanCari == "Nama Suplier") {
+        } else if (pilihanCari == "Nama Mitra") {
             jenisCari = "nama_suplier";
         } else if (pilihanCari == "Nomor Pemesanan") {
             jenisCari = "no_pemesanan";
@@ -219,7 +213,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
         });
         jScrollPane13.setViewportView(tablePenerimaanPrangko);
 
-        comboCariPenerimaanPrangko.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nomor Order", "Tanggal Penerimaan", "Nomor Pemesanan", "Id Pemesanan", "Kode Produk", "Nama Produk", "Nominal", "Tahun", "Nama Suplier" }));
+        comboCariPenerimaanPrangko.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nomor Order", "Tanggal Penerimaan", "Nomor Pemesanan", "Kode Produk", "Nama Produk", "Nominal", "Tahun", "Nama Suplier" }));
 
         fieldCariPenerimaanPrangko.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -262,9 +256,9 @@ public class PanelPenerimaan extends javax.swing.JPanel {
                     .addComponent(buttonCariPenerimaanPrangko)
                     .addComponent(fieldCariPenerimaanPrangko, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboCariPenerimaanPrangko, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane13, javax.swing.GroupLayout.DEFAULT_SIZE, 525, Short.MAX_VALUE))
+                .addComponent(jScrollPane13, javax.swing.GroupLayout.DEFAULT_SIZE, 516, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout Prangko3Layout = new javax.swing.GroupLayout(Prangko3);
@@ -321,7 +315,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
         });
         jScrollPane14.setViewportView(tablePenerimaanMS_SS);
 
-        comboCariPenerimaanMS_SS.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nomor Order", "Tanggal Penerimaan", "Nomor Pemesanan", "Id Pemesanan", "Kode Produk", "Nama Produk", "Nominal", "Tahun", "Nama Suplier" }));
+        comboCariPenerimaanMS_SS.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nomor Order", "Tanggal Penerimaan", "Nomor Pemesanan", "Kode Produk", "Nama Produk", "Nominal", "Tahun", "Nama Suplier" }));
 
         fieldCariPenerimaanMS_SS.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -364,7 +358,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
                     .addComponent(buttonCariPenerimaanMS_SS)
                     .addComponent(fieldCariPenerimaanMS_SS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboCariPenerimaanMS_SS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane14))
         );
@@ -414,7 +408,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
         });
         jScrollPane15.setViewportView(tablePenerimaanSHP_SHPSS);
 
-        comboCariPenerimaanSHP_SHPSS.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nomor Order", "Tanggal Penerimaan", "Nomor Pemesanan", "Id Pemesanan", "Kode Produk", "Nama Produk", "Nominal", "Tahun", "Nama Suplier" }));
+        comboCariPenerimaanSHP_SHPSS.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nomor Order", "Tanggal Penerimaan", "Nomor Pemesanan", "Kode Produk", "Nama Produk", "Nominal", "Tahun", "Nama Suplier" }));
 
         fieldCariPenerimaanSHP_SHPSS.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -457,9 +451,9 @@ public class PanelPenerimaan extends javax.swing.JPanel {
                     .addComponent(buttonCariPenerimaanSHP_SHPSS)
                     .addComponent(fieldCariPenerimaanSHP_SHPSS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboCariPenerimaanSHP_SHPSS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane15, javax.swing.GroupLayout.DEFAULT_SIZE, 525, Short.MAX_VALUE))
+                .addComponent(jScrollPane15, javax.swing.GroupLayout.DEFAULT_SIZE, 517, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout SHP_SHPSS3Layout = new javax.swing.GroupLayout(SHP_SHPSS3);
@@ -503,7 +497,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
         });
         jScrollPane16.setViewportView(tablePenerimaanKemasan);
 
-        comboCariPenerimaanKemasan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nomor Order", "Tanggal Penerimaan", "Nomor Pemesanan", "Id Pemesanan", "Kode Produk", "Nama Produk", "Nominal", "Tahun", "Nama Suplier" }));
+        comboCariPenerimaanKemasan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nomor Order", "Tanggal Penerimaan", "Nomor Pemesanan", "Kode Produk", "Nama Produk", "Nominal", "Tahun", "Nama Suplier" }));
 
         fieldCariPenerimaanKemasan.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -546,9 +540,9 @@ public class PanelPenerimaan extends javax.swing.JPanel {
                     .addComponent(buttonCariPenerimaanKemasan)
                     .addComponent(fieldCariPenerimaanKemasan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboCariPenerimaanKemasan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane16, javax.swing.GroupLayout.DEFAULT_SIZE, 525, Short.MAX_VALUE))
+                .addComponent(jScrollPane16, javax.swing.GroupLayout.DEFAULT_SIZE, 517, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout Kemasan3Layout = new javax.swing.GroupLayout(Kemasan3);
@@ -586,7 +580,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
         });
         jScrollPane17.setViewportView(tablePenerimaanMerchandise);
 
-        comboCariPenerimaanMerchandise.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nomor Order", "Tanggal Penerimaan", "Nomor Pemesanan", "Id Pemesanan", "Kode Produk", "Nama Produk", "Nominal", "Tahun", "Nama Suplier" }));
+        comboCariPenerimaanMerchandise.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nomor Order", "Tanggal Penerimaan", "Nomor Pemesanan", "Kode Produk", "Nama Produk", "Nominal", "Tahun", "Nama Suplier" }));
 
         fieldCariPenerimaanMerchandise.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -629,9 +623,9 @@ public class PanelPenerimaan extends javax.swing.JPanel {
                     .addComponent(buttonCariPenerimaanMerchandise)
                     .addComponent(fieldCariPenerimaanMerchandise, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboCariPenerimaanMerchandise, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane17, javax.swing.GroupLayout.DEFAULT_SIZE, 525, Short.MAX_VALUE))
+                .addComponent(jScrollPane17, javax.swing.GroupLayout.DEFAULT_SIZE, 515, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout Merchandise3Layout = new javax.swing.GroupLayout(Merchandise3);
@@ -669,7 +663,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
         });
         jScrollPane18.setViewportView(tablePenerimaanPrisma);
 
-        comboCariPenerimaanPrisma.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nomor Order", "Tanggal Penerimaan", "Nomor Pemesanan", "Id Pemesanan", "Kode Produk", "Nama Produk", "Nominal", "Tahun", "Nama Suplier" }));
+        comboCariPenerimaanPrisma.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nomor Order", "Tanggal Penerimaan", "Nomor Pemesanan", "Kode Produk", "Nama Produk", "Nominal", "Tahun", "Nama Suplier" }));
 
         fieldCariPenerimaanPrisma.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -712,9 +706,9 @@ public class PanelPenerimaan extends javax.swing.JPanel {
                     .addComponent(buttonCariPenerimaanPrisma)
                     .addComponent(fieldCariPenerimaanPrisma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboCariPenerimaanPrisma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane18, javax.swing.GroupLayout.DEFAULT_SIZE, 525, Short.MAX_VALUE))
+                .addComponent(jScrollPane18, javax.swing.GroupLayout.DEFAULT_SIZE, 516, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout Prisma3Layout = new javax.swing.GroupLayout(Prisma3);
@@ -752,7 +746,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
         });
         jScrollPane19.setViewportView(tablePenerimaanDokumenFilateli);
 
-        comboCariPenerimaanDF.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nomor Order", "Tanggal Penerimaan", "Nomor Pemesanan", "Id Pemesanan", "Kode Produk", "Nama Produk", "Nominal", "Tahun", "Nama Suplier" }));
+        comboCariPenerimaanDF.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nomor Order", "Tanggal Penerimaan", "Nomor Pemesanan", "Kode Produk", "Nama Produk", "Nominal", "Tahun", "Nama Suplier" }));
 
         fieldCariPenerimaanDF.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -795,9 +789,9 @@ public class PanelPenerimaan extends javax.swing.JPanel {
                     .addComponent(buttonCariPenerimaanDF)
                     .addComponent(fieldCariPenerimaanDF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboCariPenerimaanDF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane19, javax.swing.GroupLayout.DEFAULT_SIZE, 525, Short.MAX_VALUE))
+                .addComponent(jScrollPane19, javax.swing.GroupLayout.DEFAULT_SIZE, 517, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout DokumenFilateli3Layout = new javax.swing.GroupLayout(DokumenFilateli3);
@@ -843,201 +837,193 @@ public class PanelPenerimaan extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTabbedPane5MouseClicked
 
-    private void getDataPrangko(){
-        Vector vector_produk = new Vector();
-        Vector vector_suplier= new Vector();
-        Vector vector_nominal= new Vector();
-        Vector vector_tahun= new Vector();
-        Vector vector_no_pemesanan= new Vector();
+    private void getDataPenerimaan(){
         dao = new PenerimaanDAOImpl();
-        String jenis_produk = "PR";
-        arrayPenerimaan = dao.getDataPenerimaan(jenis_produk);
+        ArrayList<Penerimaan> arrayPenerimaanPrangko = new ArrayList<>();
+        ArrayList<Penerimaan> arrayPenerimaanMSSS = new ArrayList<>();
+        ArrayList<Penerimaan> arrayPenerimaanSHPSS = new ArrayList<>();
+        ArrayList<Penerimaan> arrayPenerimaanKemasan = new ArrayList<>();
+        ArrayList<Penerimaan> arrayPenerimaanMerchandise = new ArrayList<>();
+        ArrayList<Penerimaan> arrayPenerimaanPrisma = new ArrayList<>();
+        ArrayList<Penerimaan> arrayPenerimaanDokumenFilateli = new ArrayList<>();
+       
+        arrayPenerimaan = dao.getDataPenerimaan();
         for (int i = 0; i < arrayPenerimaan.size(); i++) {
-            arrayProduk = dao.getNama(arrayPenerimaan.get(i).getIdProduk());
-            vector_produk.add(arrayProduk.get(0).getNamaProduk());
-            vector_nominal.add(arrayProduk.get(0).getNominal());
-            vector_tahun.add(arrayProduk.get(0).getTahun());
-            arraySuplier = dao.getNamaSuplier(arrayPenerimaan.get(i).getIdSuplier());
-            vector_suplier.add(arraySuplier.get(0).getNama_suplier());
-            arrayPemesanan = dao.getNoPemesanan(arrayPenerimaan.get(i).getIdPemesanan());
+            String kode_produk = arrayPenerimaan.get(i).getIdProduk();
+            String jenis_produk = kode_produk.substring(0,2);
             
-            vector_no_pemesanan.add(arrayPemesanan.get(0).getNoPemesanan());
+                if(jenis_produk.compareTo("PR")==0){
+                    Penerimaan pn = new Penerimaan();
+                    pn.setNoOrder(arrayPenerimaan.get(i).getNoOrder());
+                    pn.setTglPenerimaan(arrayPenerimaan.get(i).getTglPenerimaan());
+                    pn.setJmlTerima(arrayPenerimaan.get(i).getJmlTerima());
+                    pn.setNoPemesanan(arrayPenerimaan.get(i).getNoPemesanan());
+                    pn.setIdProduk(arrayPenerimaan.get(i).getIdProduk());
+                    pn.setNamaProduk(arrayPenerimaan.get(i).getNamaProduk());
+                    pn.setNominal(arrayPenerimaan.get(i).getNominal());
+                    pn.setTahun(arrayPenerimaan.get(i).getTahun());
+                    pn.setStokAwal(arrayPenerimaan.get(i).getStokAwal());
+                    pn.setStokAkhir(arrayPenerimaan.get(i).getStokAkhir());
+                    pn.setNamaMitra(arrayPenerimaan.get(i).getNamaMitra());
+                    pn.setSubTotalTerima(arrayPenerimaan.get(i).getSubTotalTerima());
+                    pn.setSisaBelumDikirim(arrayPenerimaan.get(i).getSisaBelumDikirim());
+                    pn.setKeterangan(arrayPenerimaan.get(i).getKeterangan());
+                    
+                    arrayPenerimaanPrangko.add(pn);
+                } else if (jenis_produk.compareTo("MS")==0 || jenis_produk.compareTo("SS")==0){
+                    Penerimaan pn = new Penerimaan();
+                    pn.setNoOrder(arrayPenerimaan.get(i).getNoOrder());
+                    pn.setTglPenerimaan(arrayPenerimaan.get(i).getTglPenerimaan());
+                    pn.setJmlTerima(arrayPenerimaan.get(i).getJmlTerima());
+                    pn.setNoPemesanan(arrayPenerimaan.get(i).getNoPemesanan());
+                    pn.setIdProduk(arrayPenerimaan.get(i).getIdProduk());
+                    pn.setNamaProduk(arrayPenerimaan.get(i).getNamaProduk());
+                    pn.setNominal(arrayPenerimaan.get(i).getNominal());
+                    pn.setTahun(arrayPenerimaan.get(i).getTahun());
+                    pn.setStokAwal(arrayPenerimaan.get(i).getStokAwal());
+                    pn.setStokAkhir(arrayPenerimaan.get(i).getStokAkhir());
+                    pn.setNamaMitra(arrayPenerimaan.get(i).getNamaMitra());
+                    pn.setSubTotalTerima(arrayPenerimaan.get(i).getSubTotalTerima());
+                    pn.setSisaBelumDikirim(arrayPenerimaan.get(i).getSisaBelumDikirim());
+                    pn.setKeterangan(arrayPenerimaan.get(i).getKeterangan());
+                    
+                    arrayPenerimaanMSSS.add(pn);
+                }else if (jenis_produk.compareTo("PS")==0){
+                    Penerimaan pn = new Penerimaan();
+                    pn.setNoOrder(arrayPenerimaan.get(i).getNoOrder());
+                    pn.setTglPenerimaan(arrayPenerimaan.get(i).getTglPenerimaan());
+                    pn.setJmlTerima(arrayPenerimaan.get(i).getJmlTerima());
+                    pn.setNoPemesanan(arrayPenerimaan.get(i).getNoPemesanan());
+                    pn.setIdProduk(arrayPenerimaan.get(i).getIdProduk());
+                    pn.setNamaProduk(arrayPenerimaan.get(i).getNamaProduk());
+                    pn.setNominal(arrayPenerimaan.get(i).getNominal());
+                    pn.setTahun(arrayPenerimaan.get(i).getTahun());
+                    pn.setStokAwal(arrayPenerimaan.get(i).getStokAwal());
+                    pn.setStokAkhir(arrayPenerimaan.get(i).getStokAkhir());
+                    pn.setNamaMitra(arrayPenerimaan.get(i).getNamaMitra());
+                    pn.setSubTotalTerima(arrayPenerimaan.get(i).getSubTotalTerima());
+                    pn.setSisaBelumDikirim(arrayPenerimaan.get(i).getSisaBelumDikirim());
+                    pn.setKeterangan(arrayPenerimaan.get(i).getKeterangan());
+                    
+                    arrayPenerimaanPrisma.add(pn);
+                }else if (jenis_produk.compareTo("SH")==0){
+                    Penerimaan pn = new Penerimaan();
+                    pn.setNoOrder(arrayPenerimaan.get(i).getNoOrder());
+                    pn.setTglPenerimaan(arrayPenerimaan.get(i).getTglPenerimaan());
+                    pn.setJmlTerima(arrayPenerimaan.get(i).getJmlTerima());
+                    pn.setNoPemesanan(arrayPenerimaan.get(i).getNoPemesanan());
+                    pn.setIdProduk(arrayPenerimaan.get(i).getIdProduk());
+                    pn.setNamaProduk(arrayPenerimaan.get(i).getNamaProduk());
+                    pn.setNominal(arrayPenerimaan.get(i).getNominal());
+                    pn.setTahun(arrayPenerimaan.get(i).getTahun());
+                    pn.setStokAwal(arrayPenerimaan.get(i).getStokAwal());
+                    pn.setStokAkhir(arrayPenerimaan.get(i).getStokAkhir());
+                    pn.setNamaMitra(arrayPenerimaan.get(i).getNamaMitra());
+                    pn.setSubTotalTerima(arrayPenerimaan.get(i).getSubTotalTerima());
+                    pn.setSisaBelumDikirim(arrayPenerimaan.get(i).getSisaBelumDikirim());
+                    pn.setKeterangan(arrayPenerimaan.get(i).getKeterangan());
+                    
+                    arrayPenerimaanSHPSS.add(pn);
+                }else if (jenis_produk.compareTo("KM")==0){
+                    Penerimaan pn = new Penerimaan();
+                    pn.setNoOrder(arrayPenerimaan.get(i).getNoOrder());
+                    pn.setTglPenerimaan(arrayPenerimaan.get(i).getTglPenerimaan());
+                    pn.setJmlTerima(arrayPenerimaan.get(i).getJmlTerima());
+                    pn.setNoPemesanan(arrayPenerimaan.get(i).getNoPemesanan());
+                    pn.setIdProduk(arrayPenerimaan.get(i).getIdProduk());
+                    pn.setNamaProduk(arrayPenerimaan.get(i).getNamaProduk());
+                    pn.setNominal(arrayPenerimaan.get(i).getNominal());
+                    pn.setTahun(arrayPenerimaan.get(i).getTahun());
+                    pn.setStokAwal(arrayPenerimaan.get(i).getStokAwal());
+                    pn.setStokAkhir(arrayPenerimaan.get(i).getStokAkhir());
+                    pn.setNamaMitra(arrayPenerimaan.get(i).getNamaMitra());
+                    pn.setSubTotalTerima(arrayPenerimaan.get(i).getSubTotalTerima());
+                    pn.setSisaBelumDikirim(arrayPenerimaan.get(i).getSisaBelumDikirim());
+                    pn.setKeterangan(arrayPenerimaan.get(i).getKeterangan());
+                    
+                    arrayPenerimaanKemasan.add(pn);
+                }else if (jenis_produk.compareTo("MC")==0){
+                    Penerimaan pn = new Penerimaan();
+                    pn.setNoOrder(arrayPenerimaan.get(i).getNoOrder());
+                    pn.setTglPenerimaan(arrayPenerimaan.get(i).getTglPenerimaan());
+                    pn.setJmlTerima(arrayPenerimaan.get(i).getJmlTerima());
+                    pn.setNoPemesanan(arrayPenerimaan.get(i).getNoPemesanan());
+                    pn.setIdProduk(arrayPenerimaan.get(i).getIdProduk());
+                    pn.setNamaProduk(arrayPenerimaan.get(i).getNamaProduk());
+                    pn.setNominal(arrayPenerimaan.get(i).getNominal());
+                    pn.setTahun(arrayPenerimaan.get(i).getTahun());
+                    pn.setStokAwal(arrayPenerimaan.get(i).getStokAwal());
+                    pn.setStokAkhir(arrayPenerimaan.get(i).getStokAkhir());
+                    pn.setNamaMitra(arrayPenerimaan.get(i).getNamaMitra());
+                    pn.setSubTotalTerima(arrayPenerimaan.get(i).getSubTotalTerima());
+                    pn.setSisaBelumDikirim(arrayPenerimaan.get(i).getSisaBelumDikirim());
+                    pn.setKeterangan(arrayPenerimaan.get(i).getKeterangan());
+                    
+                    arrayPenerimaanMerchandise.add(pn);
+                }else if (jenis_produk.compareTo("DF")==0){
+                    Penerimaan pn = new Penerimaan();
+                    pn.setNoOrder(arrayPenerimaan.get(i).getNoOrder());
+                    pn.setTglPenerimaan(arrayPenerimaan.get(i).getTglPenerimaan());
+                    pn.setJmlTerima(arrayPenerimaan.get(i).getJmlTerima());
+                    pn.setNoPemesanan(arrayPenerimaan.get(i).getNoPemesanan());
+                    pn.setIdProduk(arrayPenerimaan.get(i).getIdProduk());
+                    pn.setNamaProduk(arrayPenerimaan.get(i).getNamaProduk());
+                    pn.setNominal(arrayPenerimaan.get(i).getNominal());
+                    pn.setTahun(arrayPenerimaan.get(i).getTahun());
+                    pn.setStokAwal(arrayPenerimaan.get(i).getStokAwal());
+                    pn.setStokAkhir(arrayPenerimaan.get(i).getStokAkhir());
+                    pn.setNamaMitra(arrayPenerimaan.get(i).getNamaMitra());
+                    pn.setSubTotalTerima(arrayPenerimaan.get(i).getSubTotalTerima());
+                    pn.setSisaBelumDikirim(arrayPenerimaan.get(i).getSisaBelumDikirim());
+                    pn.setKeterangan(arrayPenerimaan.get(i).getKeterangan());
+                    
+                    arrayPenerimaanDokumenFilateli.add(pn);
+                }
         }
         
-        PenerimaanTM penerimaanTableModel = new PenerimaanTM();
-        penerimaanTableModel.setDataPenerimaan(arrayPenerimaan, vector_produk, vector_suplier, vector_nominal, vector_tahun, vector_no_pemesanan);
-        sorter = new TableRowSorter(penerimaanTableModel);
+        PenerimaanTM penerimaanTM = new PenerimaanTM();
+        penerimaanTM.setDataPenerimaan(arrayPenerimaanPrangko);
+        sorter = new TableRowSorter(penerimaanTM);
         tablePenerimaanPrangko.setRowSorter(sorter);
-        tablePenerimaanPrangko.setModel(penerimaanTableModel);
-    }
-    
-    private void getDataMS_SS(){
-        Vector vector_produk = new Vector();
-        Vector vector_suplier= new Vector();
-        Vector vector_nominal= new Vector();
-        Vector vector_tahun= new Vector();
-        Vector vector_no_pemesanan= new Vector();
-        dao = new PenerimaanDAOImpl();
-        String jenis_produk = "MS";
-        arrayPenerimaan = dao.getDataPenerimaan(jenis_produk);
+        tablePenerimaanPrangko.setModel(penerimaanTM);
         
-        for (int i = 0; i < arrayPenerimaan.size(); i++) {
-            arrayProduk = dao.getNama(arrayPenerimaan.get(i).getIdProduk());
-            vector_produk.add(arrayProduk.get(0).getNamaProduk());
-            vector_nominal.add(arrayProduk.get(0).getNominal());
-            vector_tahun.add(arrayProduk.get(0).getTahun());
-            arraySuplier = dao.getNamaSuplier(arrayPenerimaan.get(i).getIdSuplier());
-            vector_suplier.add(arraySuplier.get(0).getNama_suplier());
-            arrayPemesanan = dao.getNoPemesanan(arrayPenerimaan.get(i).getIdPemesanan());
-            vector_no_pemesanan.add(arrayPemesanan.get(0).getNoPemesanan());
-        }
-        
-        PenerimaanTM penerimaanTableModel = new PenerimaanTM();
-        penerimaanTableModel.setDataPenerimaan(arrayPenerimaan, vector_produk, vector_suplier, vector_nominal, vector_tahun, vector_no_pemesanan);
-        sorter = new TableRowSorter(penerimaanTableModel);
+        PenerimaanTM penerimaanTM1 = new PenerimaanTM();
+        penerimaanTM1.setDataPenerimaan(arrayPenerimaanMSSS);
+        sorter = new TableRowSorter(penerimaanTM1);
         tablePenerimaanMS_SS.setRowSorter(sorter);
-        tablePenerimaanMS_SS.setModel(penerimaanTableModel);
-    }
-    
-    private void getDataSHP_SHPSS(){
-       Vector vector_produk = new Vector();
-        Vector vector_suplier= new Vector();
-        Vector vector_nominal= new Vector();
-        Vector vector_tahun= new Vector();
-        Vector vector_no_pemesanan= new Vector();
-        dao = new PenerimaanDAOImpl();
-        String jenis_produk = "SHP";
-        arrayPenerimaan = dao.getDataPenerimaan(jenis_produk);
+        tablePenerimaanMS_SS.setModel(penerimaanTM1);
         
-        for (int i = 0; i < arrayPenerimaan.size(); i++) {
-            arrayProduk = dao.getNama(arrayPenerimaan.get(i).getIdProduk());
-            vector_produk.add(arrayProduk.get(0).getNamaProduk());
-            vector_nominal.add(arrayProduk.get(0).getNominal());
-            vector_tahun.add(arrayProduk.get(0).getTahun());
-            arraySuplier = dao.getNamaSuplier(arrayPenerimaan.get(i).getIdSuplier());
-            vector_suplier.add(arraySuplier.get(0).getNama_suplier());
-            arrayPemesanan = dao.getNoPemesanan(arrayPenerimaan.get(i).getIdPemesanan());
-            vector_no_pemesanan.add(arrayPemesanan.get(0).getNoPemesanan());
-        }
-        
-        PenerimaanTM penerimaanTableModel = new PenerimaanTM();
-        penerimaanTableModel.setDataPenerimaan(arrayPenerimaan, vector_produk, vector_suplier, vector_nominal, vector_tahun, vector_no_pemesanan);
-        sorter = new TableRowSorter(penerimaanTableModel);
-        tablePenerimaanSHP_SHPSS.setRowSorter(sorter);
-        tablePenerimaanSHP_SHPSS.setModel(penerimaanTableModel);
-    }
-    
-    private void getDataKemasan(){
-        Vector vector_produk = new Vector();
-        Vector vector_suplier= new Vector();
-        Vector vector_nominal= new Vector();
-        Vector vector_tahun= new Vector();
-        Vector vector_no_pemesanan= new Vector();
-        dao = new PenerimaanDAOImpl();
-        String jenis_produk = "KM";
-        arrayPenerimaan = dao.getDataPenerimaan(jenis_produk);
-        
-        for (int i = 0; i < arrayPenerimaan.size(); i++) {
-            arrayProduk = dao.getNama(arrayPenerimaan.get(i).getIdProduk());
-            vector_produk.add(arrayProduk.get(0).getNamaProduk());
-            vector_nominal.add(arrayProduk.get(0).getNominal());
-            vector_tahun.add(arrayProduk.get(0).getTahun());
-            arraySuplier = dao.getNamaSuplier(arrayPenerimaan.get(i).getIdSuplier());
-            vector_suplier.add(arraySuplier.get(0).getNama_suplier());
-            arrayPemesanan = dao.getNoPemesanan(arrayPenerimaan.get(i).getIdPemesanan());
-            vector_no_pemesanan.add(arrayPemesanan.get(0).getNoPemesanan());
-        }
-        
-        PenerimaanTM penerimaanTableModel = new PenerimaanTM();
-        penerimaanTableModel.setDataPenerimaan(arrayPenerimaan, vector_produk, vector_suplier, vector_nominal, vector_tahun, vector_no_pemesanan);
-        sorter = new TableRowSorter(penerimaanTableModel);
-        tablePenerimaanKemasan.setRowSorter(sorter);
-        tablePenerimaanKemasan.setModel(penerimaanTableModel);
-    }
-    
-    private void getDataMerchandise(){
-        Vector vector_produk = new Vector();
-        Vector vector_suplier= new Vector();
-        Vector vector_nominal= new Vector();
-        Vector vector_tahun= new Vector();
-        Vector vector_no_pemesanan= new Vector();
-        dao = new PenerimaanDAOImpl();
-        String jenis_produk = "MC";
-        arrayPenerimaan = dao.getDataPenerimaan(jenis_produk);
-        
-        for (int i = 0; i < arrayPenerimaan.size(); i++) {
-            arrayProduk = dao.getNama(arrayPenerimaan.get(i).getIdProduk());
-            vector_produk.add(arrayProduk.get(0).getNamaProduk());
-            vector_nominal.add(arrayProduk.get(0).getNominal());
-            vector_tahun.add(arrayProduk.get(0).getTahun());
-            arraySuplier = dao.getNamaSuplier(arrayPenerimaan.get(i).getIdSuplier());
-            vector_suplier.add(arraySuplier.get(0).getNama_suplier());
-            arrayPemesanan = dao.getNoPemesanan(arrayPenerimaan.get(i).getIdPemesanan());
-            vector_no_pemesanan.add(arrayPemesanan.get(0).getNoPemesanan());
-        }
-        
-        PenerimaanTM penerimaanTableModel = new PenerimaanTM();
-        penerimaanTableModel.setDataPenerimaan(arrayPenerimaan, vector_produk, vector_suplier, vector_nominal, vector_tahun, vector_no_pemesanan);
-        sorter = new TableRowSorter(penerimaanTableModel);
-        tablePenerimaanMerchandise.setRowSorter(sorter);
-        tablePenerimaanMerchandise.setModel(penerimaanTableModel);
-    }
-    
-    private void getDataPrisma(){
-        Vector vector_produk = new Vector();
-        Vector vector_suplier= new Vector();
-        Vector vector_nominal= new Vector();
-        Vector vector_tahun= new Vector();
-        Vector vector_no_pemesanan= new Vector();
-        dao = new PenerimaanDAOImpl();
-        String jenis_produk = "PS";
-        arrayPenerimaan = dao.getDataPenerimaan(jenis_produk);
-        
-        for (int i = 0; i < arrayPenerimaan.size(); i++) {
-            arrayProduk = dao.getNama(arrayPenerimaan.get(i).getIdProduk());
-            vector_produk.add(arrayProduk.get(0).getNamaProduk());
-            vector_nominal.add(arrayProduk.get(0).getNominal());
-            vector_tahun.add(arrayProduk.get(0).getTahun());
-            arraySuplier = dao.getNamaSuplier(arrayPenerimaan.get(i).getIdSuplier());
-            vector_suplier.add(arraySuplier.get(0).getNama_suplier());
-            arrayPemesanan = dao.getNoPemesanan(arrayPenerimaan.get(i).getIdPemesanan());
-            vector_no_pemesanan.add(arrayPemesanan.get(0).getNoPemesanan());
-        }
-        
-        PenerimaanTM penerimaanTableModel = new PenerimaanTM();
-        penerimaanTableModel.setDataPenerimaan(arrayPenerimaan, vector_produk, vector_suplier, vector_nominal, vector_tahun, vector_no_pemesanan);
-        sorter = new TableRowSorter(penerimaanTableModel);
+        PenerimaanTM penerimaanTM2 = new PenerimaanTM();
+        penerimaanTM2.setDataPenerimaan(arrayPenerimaanPrisma);
+        sorter = new TableRowSorter(penerimaanTM2);
         tablePenerimaanPrisma.setRowSorter(sorter);
-        tablePenerimaanPrisma.setModel(penerimaanTableModel);
+        tablePenerimaanPrisma.setModel(penerimaanTM2);
+        
+        PenerimaanTM penerimaanTM3 = new PenerimaanTM();
+        penerimaanTM3.setDataPenerimaan(arrayPenerimaanSHPSS);
+        sorter = new TableRowSorter(penerimaanTM3);
+        tablePenerimaanSHP_SHPSS.setRowSorter(sorter);
+        tablePenerimaanSHP_SHPSS.setModel(penerimaanTM3);
+        
+        PenerimaanTM penerimaanTM4 = new PenerimaanTM();
+        penerimaanTM4.setDataPenerimaan(arrayPenerimaanKemasan);
+        sorter = new TableRowSorter(penerimaanTM4);
+        tablePenerimaanKemasan.setRowSorter(sorter);
+        tablePenerimaanKemasan.setModel(penerimaanTM4);
+        
+        PenerimaanTM penerimaanTM5 = new PenerimaanTM();
+        penerimaanTM5.setDataPenerimaan(arrayPenerimaanMerchandise);
+        sorter = new TableRowSorter(penerimaanTM5);
+        tablePenerimaanMerchandise.setRowSorter(sorter);
+        tablePenerimaanMerchandise.setModel(penerimaanTM5);
+        
+        PenerimaanTM penerimaanTM6 = new PenerimaanTM();
+        penerimaanTM6.setDataPenerimaan(arrayPenerimaanDokumenFilateli);
+        sorter = new TableRowSorter(penerimaanTM6);
+        tablePenerimaanDokumenFilateli.setRowSorter(sorter);
+        tablePenerimaanDokumenFilateli.setModel(penerimaanTM6);
     }
     
-    private void getDataDokumenFilateli(){
-        Vector vector_produk = new Vector();
-        Vector vector_suplier= new Vector();
-        Vector vector_nominal= new Vector();
-        Vector vector_tahun= new Vector();
-        Vector vector_no_pemesanan= new Vector();
-        dao = new PenerimaanDAOImpl();
-        String jenis_produk = "DF";
-        arrayPenerimaan = dao.getDataPenerimaan(jenis_produk);
-        
-        for (int i = 0; i < arrayPenerimaan.size(); i++) {
-            arrayProduk = dao.getNama(arrayPenerimaan.get(i).getIdProduk());
-            vector_produk.add(arrayProduk.get(0).getNamaProduk());
-            vector_nominal.add(arrayProduk.get(0).getNominal());
-            vector_tahun.add(arrayProduk.get(0).getTahun());
-            arraySuplier = dao.getNamaSuplier(arrayPenerimaan.get(i).getIdSuplier());
-            vector_suplier.add(arraySuplier.get(0).getNama_suplier());
-            arrayPemesanan = dao.getNoPemesanan(arrayPenerimaan.get(i).getIdPemesanan());
-            vector_no_pemesanan.add(arrayPemesanan.get(0).getNoPemesanan());
-        }
-        
-        PenerimaanTM penerimaanTableModel = new PenerimaanTM();
-        penerimaanTableModel.setDataPenerimaan(arrayPenerimaan, vector_produk, vector_suplier, vector_nominal, vector_tahun, vector_no_pemesanan);
-        sorter = new TableRowSorter(penerimaanTableModel);
-        tablePenerimaanDokumenFilateli.setRowSorter(sorter);
-        tablePenerimaanDokumenFilateli.setModel(penerimaanTableModel);
-    }
     
     private void Prangko3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Prangko3MouseClicked
         // TODO add your handling code here:
@@ -1046,18 +1032,13 @@ public class PanelPenerimaan extends javax.swing.JPanel {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         FormHome formHome = new FormHome();
-        boolean rootPaneCheckingEnabled = false;
+        boolean rootPaneCheckingEnabled = true;
         new DialogTambahPenerimaan(formHome, rootPaneCheckingEnabled).setVisible(true);
-
+        getDataPenerimaan();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void buttonCariPenerimaanPrangkoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariPenerimaanPrangkoActionPerformed
         // TODO add your handling code here:
-        Vector vector_produk = new Vector();
-        Vector vector_suplier= new Vector();
-        Vector vector_nominal=new Vector();
-        Vector vector_tahun=new Vector();
-        Vector vector_no_pemesanan= new Vector();
         String keyword = fieldCariPenerimaanPrangko.getText();
         String status = "prangko";
         String tabCari = cariJenis(status);
@@ -1069,17 +1050,12 @@ public class PanelPenerimaan extends javax.swing.JPanel {
         arrayPenerimaan = dao.cariProdukPenerimaan(keyword, jenisCari, idJenis);
         for (int i = 0; i < arrayPenerimaan.size(); i++) {
             arrayProduk = dao.getNama(arrayPenerimaan.get(i).getIdProduk());
-            vector_produk.add(arrayProduk.get(0).getNamaProduk());
-            vector_nominal.add(arrayProduk.get(0).getNominal());
-            vector_tahun.add(arrayProduk.get(0).getTahun());
-            arraySuplier = dao.getNamaSuplier(arrayPenerimaan.get(i).getIdSuplier());
-            vector_suplier.add(arraySuplier.get(0).getNama_suplier());
             arrayPemesanan = dao.getNoPemesanan(arrayPenerimaan.get(i).getIdPemesanan());
-            vector_no_pemesanan.add(arrayPemesanan.get(0).getNoPemesanan());
+            
         }
         
         PenerimaanTM penerimaanTableModel = new PenerimaanTM();
-        penerimaanTableModel.setDataPenerimaan(arrayPenerimaan, vector_produk, vector_suplier, vector_nominal, vector_tahun, vector_no_pemesanan);
+        penerimaanTableModel.setDataPenerimaan(arrayPenerimaan);
         sorter = new TableRowSorter(penerimaanTableModel);
         tablePenerimaanPrangko.setRowSorter(sorter);
 
@@ -1104,11 +1080,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
 
     private void buttonCariPenerimaanMS_SSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariPenerimaanMS_SSActionPerformed
         // TODO add your handling code here:
-        Vector vector_produk = new Vector();
-        Vector vector_suplier= new Vector();
-        Vector vector_nominal=new Vector();
-        Vector vector_tahun=new Vector();
-        Vector vector_no_pemesanan= new Vector();
+   
         String keyword = fieldCariPenerimaanMS_SS.getText();
         String status = "ss";
         String tabCari = cariJenis(status);
@@ -1118,19 +1090,9 @@ public class PanelPenerimaan extends javax.swing.JPanel {
         // lakukan proses pencarian
         dao = new PenerimaanDAOImpl();
         arrayPenerimaan = dao.cariProdukPenerimaan(keyword, jenisCari, idJenis);
-        for (int i = 0; i < arrayPenerimaan.size(); i++) {
-            arrayProduk = dao.getNama(arrayPenerimaan.get(i).getIdProduk());
-            vector_produk.add(arrayProduk.get(0).getNamaProduk());
-            vector_nominal.add(arrayProduk.get(0).getNominal());
-            vector_tahun.add(arrayProduk.get(0).getTahun());
-            arraySuplier = dao.getNamaSuplier(arrayPenerimaan.get(i).getIdSuplier());
-            vector_suplier.add(arraySuplier.get(0).getNama_suplier());
-            arrayPemesanan = dao.getNoPemesanan(arrayPenerimaan.get(i).getIdPemesanan());
-            vector_no_pemesanan.add(arrayPemesanan.get(0).getNoPemesanan());
-        }
         
         PenerimaanTM penerimaanTableModel = new PenerimaanTM();
-        penerimaanTableModel.setDataPenerimaan(arrayPenerimaan, vector_produk, vector_suplier, vector_nominal, vector_tahun, vector_no_pemesanan);
+        penerimaanTableModel.setDataPenerimaan(arrayPenerimaan);
         sorter = new TableRowSorter(penerimaanTableModel);
         tablePenerimaanMS_SS.setRowSorter(sorter);
 
@@ -1151,11 +1113,6 @@ public class PanelPenerimaan extends javax.swing.JPanel {
 
     private void buttonCariPenerimaanSHP_SHPSSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariPenerimaanSHP_SHPSSActionPerformed
         // TODO add your handling code here:
-        Vector vector_produk = new Vector();
-        Vector vector_suplier= new Vector();
-        Vector vector_nominal=new Vector();
-        Vector vector_tahun=new Vector();
-        Vector vector_no_pemesanan= new Vector();
         String keyword = fieldCariPenerimaanSHP_SHPSS.getText();
         String status = "shp";
         String tabCari = cariJenis(status);
@@ -1165,19 +1122,9 @@ public class PanelPenerimaan extends javax.swing.JPanel {
         // lakukan proses pencarian
         dao = new PenerimaanDAOImpl();
         arrayPenerimaan = dao.cariProdukPenerimaan(keyword, jenisCari, idJenis);
-        for (int i = 0; i < arrayPenerimaan.size(); i++) {
-            arrayProduk = dao.getNama(arrayPenerimaan.get(i).getIdProduk());
-            vector_produk.add(arrayProduk.get(0).getNamaProduk());
-            vector_nominal.add(arrayProduk.get(0).getNominal());
-            vector_tahun.add(arrayProduk.get(0).getTahun());
-            arraySuplier = dao.getNamaSuplier(arrayPenerimaan.get(i).getIdSuplier());
-            vector_suplier.add(arraySuplier.get(0).getNama_suplier());
-            arrayPemesanan = dao.getNoPemesanan(arrayPenerimaan.get(i).getIdPemesanan());
-            vector_no_pemesanan.add(arrayPemesanan.get(0).getNoPemesanan());
-        }
-        
+                
         PenerimaanTM penerimaanTableModel = new PenerimaanTM();
-        penerimaanTableModel.setDataPenerimaan(arrayPenerimaan, vector_produk, vector_suplier, vector_nominal, vector_tahun, vector_no_pemesanan);
+        penerimaanTableModel.setDataPenerimaan(arrayPenerimaan);
         sorter = new TableRowSorter(penerimaanTableModel);
         tablePenerimaanSHP_SHPSS.setRowSorter(sorter);
 
@@ -1198,11 +1145,6 @@ public class PanelPenerimaan extends javax.swing.JPanel {
 
     private void buttonCariPenerimaanKemasanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariPenerimaanKemasanActionPerformed
         // TODO add your handling code here:
-        Vector vector_produk = new Vector();
-        Vector vector_suplier= new Vector();
-        Vector vector_nominal=new Vector();
-        Vector vector_tahun=new Vector();
-        Vector vector_no_pemesanan= new Vector();
         String keyword = fieldCariPenerimaanKemasan.getText();
         String status = "kemasan";
         String tabCari = cariJenis(status);
@@ -1212,19 +1154,9 @@ public class PanelPenerimaan extends javax.swing.JPanel {
         // lakukan proses pencarian
         dao = new PenerimaanDAOImpl();
         arrayPenerimaan = dao.cariProdukPenerimaan(keyword, jenisCari, idJenis);
-        for (int i = 0; i < arrayPenerimaan.size(); i++) {
-            arrayProduk = dao.getNama(arrayPenerimaan.get(i).getIdProduk());
-            vector_produk.add(arrayProduk.get(0).getNamaProduk());
-            vector_nominal.add(arrayProduk.get(0).getNominal());
-            vector_tahun.add(arrayProduk.get(0).getTahun());
-            arraySuplier = dao.getNamaSuplier(arrayPenerimaan.get(i).getIdSuplier());
-            vector_suplier.add(arraySuplier.get(0).getNama_suplier());
-            arrayPemesanan = dao.getNoPemesanan(arrayPenerimaan.get(i).getIdPemesanan());
-            vector_no_pemesanan.add(arrayPemesanan.get(0).getNoPemesanan());
-        }
         
         PenerimaanTM penerimaanTableModel = new PenerimaanTM();
-        penerimaanTableModel.setDataPenerimaan(arrayPenerimaan, vector_produk, vector_suplier, vector_nominal, vector_tahun, vector_no_pemesanan);
+        penerimaanTableModel.setDataPenerimaan(arrayPenerimaan);
         sorter = new TableRowSorter(penerimaanTableModel);
         tablePenerimaanKemasan.setRowSorter(sorter);
 
@@ -1245,11 +1177,6 @@ public class PanelPenerimaan extends javax.swing.JPanel {
 
     private void buttonCariPenerimaanMerchandiseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariPenerimaanMerchandiseActionPerformed
         // TODO add your handling code here:
-        Vector vector_produk = new Vector();
-        Vector vector_suplier= new Vector();
-        Vector vector_nominal=new Vector();
-        Vector vector_tahun=new Vector();
-        Vector vector_no_pemesanan= new Vector();
         String keyword = fieldCariPenerimaanMerchandise.getText();
         String status = "mc";
         String tabCari = cariJenis(status);
@@ -1259,19 +1186,9 @@ public class PanelPenerimaan extends javax.swing.JPanel {
         // lakukan proses pencarian
         dao = new PenerimaanDAOImpl();
         arrayPenerimaan = dao.cariProdukPenerimaan(keyword, jenisCari, idJenis);
-        for (int i = 0; i < arrayPenerimaan.size(); i++) {
-            arrayProduk = dao.getNama(arrayPenerimaan.get(i).getIdProduk());
-            vector_produk.add(arrayProduk.get(0).getNamaProduk());
-            vector_nominal.add(arrayProduk.get(0).getNominal());
-            vector_tahun.add(arrayProduk.get(0).getTahun());
-            arraySuplier = dao.getNamaSuplier(arrayPenerimaan.get(i).getIdSuplier());
-            vector_suplier.add(arraySuplier.get(0).getNama_suplier());
-            arrayPemesanan = dao.getNoPemesanan(arrayPenerimaan.get(i).getIdPemesanan());
-            vector_no_pemesanan.add(arrayPemesanan.get(0).getNoPemesanan());
-        }
-        
+                
         PenerimaanTM penerimaanTableModel = new PenerimaanTM();
-        penerimaanTableModel.setDataPenerimaan(arrayPenerimaan, vector_produk, vector_suplier, vector_nominal, vector_tahun, vector_no_pemesanan);
+        penerimaanTableModel.setDataPenerimaan(arrayPenerimaan);
         sorter = new TableRowSorter(penerimaanTableModel);
         tablePenerimaanMerchandise.setRowSorter(sorter);
 
@@ -1292,11 +1209,6 @@ public class PanelPenerimaan extends javax.swing.JPanel {
 
     private void buttonCariPenerimaanPrismaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariPenerimaanPrismaActionPerformed
         // TODO add your handling code here:
-        Vector vector_produk = new Vector();
-        Vector vector_suplier= new Vector();
-        Vector vector_nominal=new Vector();
-        Vector vector_tahun=new Vector();
-        Vector vector_no_pemesanan= new Vector();
         String keyword = fieldCariPenerimaanPrisma.getText();
         String status = "prisma";
         String tabCari = cariJenis(status);
@@ -1306,19 +1218,9 @@ public class PanelPenerimaan extends javax.swing.JPanel {
         // lakukan proses pencarian
         dao = new PenerimaanDAOImpl();
         arrayPenerimaan = dao.cariProdukPenerimaan(keyword, jenisCari, idJenis);
-        for (int i = 0; i < arrayPenerimaan.size(); i++) {
-            arrayProduk = dao.getNama(arrayPenerimaan.get(i).getIdProduk());
-            vector_produk.add(arrayProduk.get(0).getNamaProduk());
-            vector_nominal.add(arrayProduk.get(0).getNominal());
-            vector_tahun.add(arrayProduk.get(0).getTahun());
-            arraySuplier = dao.getNamaSuplier(arrayPenerimaan.get(i).getIdSuplier());
-            vector_suplier.add(arraySuplier.get(0).getNama_suplier());
-            arrayPemesanan = dao.getNoPemesanan(arrayPenerimaan.get(i).getIdPemesanan());
-            vector_no_pemesanan.add(arrayPemesanan.get(0).getNoPemesanan());
-        }
         
         PenerimaanTM penerimaanTableModel = new PenerimaanTM();
-        penerimaanTableModel.setDataPenerimaan(arrayPenerimaan, vector_produk, vector_suplier, vector_nominal, vector_tahun, vector_no_pemesanan);
+        penerimaanTableModel.setDataPenerimaan(arrayPenerimaan);
         sorter = new TableRowSorter(penerimaanTableModel);
         tablePenerimaanPrisma.setRowSorter(sorter);
 
@@ -1339,11 +1241,6 @@ public class PanelPenerimaan extends javax.swing.JPanel {
 
     private void buttonCariPenerimaanDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariPenerimaanDFActionPerformed
         // TODO add your handling code here:
-        Vector vector_produk = new Vector();
-        Vector vector_suplier= new Vector();
-        Vector vector_nominal=new Vector();
-        Vector vector_tahun=new Vector();
-        Vector vector_no_pemesanan= new Vector();
         String keyword = fieldCariPenerimaanDF.getText();
         String status = "df";
         String tabCari = cariJenis(status);
@@ -1352,20 +1249,9 @@ public class PanelPenerimaan extends javax.swing.JPanel {
 
         // lakukan proses pencarian
         dao = new PenerimaanDAOImpl();
-        arrayPenerimaan = dao.cariProdukPenerimaan(keyword, jenisCari, idJenis);
-        for (int i = 0; i < arrayPenerimaan.size(); i++) {
-            arrayProduk = dao.getNama(arrayPenerimaan.get(i).getIdProduk());
-            vector_produk.add(arrayProduk.get(0).getNamaProduk());
-            vector_nominal.add(arrayProduk.get(0).getNominal());
-            vector_tahun.add(arrayProduk.get(0).getTahun());
-            arraySuplier = dao.getNamaSuplier(arrayPenerimaan.get(i).getIdSuplier());
-            vector_suplier.add(arraySuplier.get(0).getNama_suplier());
-            arrayPemesanan = dao.getNoPemesanan(arrayPenerimaan.get(i).getIdPemesanan());
-            vector_no_pemesanan.add(arrayPemesanan.get(0).getNoPemesanan());
-        }
         
         PenerimaanTM penerimaanTableModel = new PenerimaanTM();
-        penerimaanTableModel.setDataPenerimaan(arrayPenerimaan, vector_produk, vector_suplier, vector_nominal, vector_tahun, vector_no_pemesanan);
+        penerimaanTableModel.setDataPenerimaan(arrayPenerimaan);
         sorter = new TableRowSorter(penerimaanTableModel);
         tablePenerimaanDokumenFilateli.setRowSorter(sorter);
 

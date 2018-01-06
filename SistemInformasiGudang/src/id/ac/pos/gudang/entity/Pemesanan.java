@@ -17,8 +17,52 @@ public class Pemesanan {
     private String kodeProduk;
     private Date TglPemesanan;
     private String jumlahPemesanan;
-    private String idSuplier;
+    private String idMitra;
     private String status;
+    private String NamaProduk;
+    private int nominal;
+    private String tahun;
+    private String namaMitra;
+
+    public String getIdMitra() {
+        return idMitra;
+    }
+
+    public void setIdMitra(String idMitra) {
+        this.idMitra = idMitra;
+    }
+
+    public String getNamaMitra() {
+        return namaMitra;
+    }
+
+    public void setNamaMitra(String namaMitra) {
+        this.namaMitra = namaMitra;
+    }
+
+    public String getNamaProduk() {
+        return NamaProduk;
+    }
+
+    public void setNamaProduk(String NamaProduk) {
+        this.NamaProduk = NamaProduk;
+    }
+
+    public int getNominal() {
+        return nominal;
+    }
+
+    public void setNominal(int nominal) {
+        this.nominal = nominal;
+    }
+
+    public String getTahun() {
+        return tahun;
+    }
+
+    public void setTahun(String tahun) {
+        this.tahun = tahun;
+    }
 
     public String getIdPemesanan() {
         return idPemesanan;
@@ -58,14 +102,6 @@ public class Pemesanan {
 
     public void setJumlahPemesanan(String jumlahPemesanan) {
         this.jumlahPemesanan = jumlahPemesanan;
-    }
-
-    public String getIdSuplier() {
-        return idSuplier;
-    }
-
-    public void setIdSuplier(String idSuplier) {
-        this.idSuplier = idSuplier;
     }
 
     public String getStatus() {

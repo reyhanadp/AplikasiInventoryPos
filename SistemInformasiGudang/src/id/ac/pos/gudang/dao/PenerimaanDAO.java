@@ -8,7 +8,7 @@ package id.ac.pos.gudang.dao;
 import id.ac.pos.gudang.entity.Pemesanan;
 import id.ac.pos.gudang.entity.Penerimaan;
 import id.ac.pos.gudang.entity.Produk;
-import id.ac.pos.gudang.entity.Suplier;
+import id.ac.pos.gudang.entity.Mitra;
 import java.util.ArrayList;
 
 /**
@@ -28,8 +28,8 @@ public interface PenerimaanDAO {
     ArrayList<Pemesanan> getTotalPesan(Object noPemesanan);
     ArrayList<Penerimaan> cariProdukPenerimaan(String keyword, String jenisCari, String idJenis);
     boolean tambahPenerimaan(Penerimaan penerimaan);
-    ArrayList<Penerimaan> getDataPenerimaan(String jenis_produk);
+    ArrayList<Penerimaan> getDataPenerimaan();
     ArrayList<Produk> getStok(String kode_produk);
     ArrayList<Produk> getNama(String kode_produk);
-    ArrayList<Suplier> getNamaSuplier(String id_suplier);
+    ArrayList<Mitra> getNamaMitra(String id_mitra);
 }

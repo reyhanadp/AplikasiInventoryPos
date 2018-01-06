@@ -18,13 +18,58 @@ public class Penerimaan {
     private int jmlTerima;
     private String idPemesanan;
     private String idProduk;
-    private String idSuplier;
+    private String idMitra;
     private int stokAwal;
     private int stokAkhir;
     private int subTotalTerima;
     private int sisaBelumDikirim;
     private String keterangan;
+    private String noPemesanan;
+    private String namaProduk;
+    private int nominal;
+    private String tahun;
+    private String namaMitra;
 
+    public String getNamaMitra() {
+        return namaMitra;
+    }
+
+    public void setNamaMitra(String namaMitra) {
+        this.namaMitra = namaMitra;
+    }
+
+    public String getNoPemesanan() {
+        return noPemesanan;
+    }
+
+    public void setNoPemesanan(String noPemesanan) {
+        this.noPemesanan = noPemesanan;
+    }
+
+    public String getNamaProduk() {
+        return namaProduk;
+    }
+
+    public void setNamaProduk(String namaProduk) {
+        this.namaProduk = namaProduk;
+    }
+
+    public int getNominal() {
+        return nominal;
+    }
+
+    public void setNominal(int nominal) {
+        this.nominal = nominal;
+    }
+
+    public String getTahun() {
+        return tahun;
+    }
+
+    public void setTahun(String tahun) {
+        this.tahun = tahun;
+    }
+    
     public String getIdPenerimaan() {
         return idPenerimaan;
     }
@@ -65,14 +110,15 @@ public class Penerimaan {
         this.idPemesanan = noPemesanan;
     }
 
-    public String getIdSuplier() {
-        return idSuplier;
+    public String getIdMitra() {
+        return idMitra;
     }
 
-    public void setIdSuplier(String idSuplier) {
-        this.idSuplier = idSuplier;
+    public void setIdMitra(String idMitra) {
+        this.idMitra = idMitra;
     }
 
+    
     public int getStokAwal() {
         return stokAwal;
     }

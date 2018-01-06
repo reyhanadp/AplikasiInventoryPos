@@ -36,9 +36,9 @@ public class MitraTM extends AbstractTableModel{
     public Object getValueAt(int rowIndex, int columnIndex) {
         switch (columnIndex) {
             case 0:
-                return arrayMitra.get(rowIndex).getId_supplier();
+                return arrayMitra.get(rowIndex).getId_mitra();
             case 1:
-                return arrayMitra.get(rowIndex).getNama_suplier();
+                return arrayMitra.get(rowIndex).getNama_mitra();
             case 2:
                 return arrayMitra.get(rowIndex).getAlamat();
             case 3:

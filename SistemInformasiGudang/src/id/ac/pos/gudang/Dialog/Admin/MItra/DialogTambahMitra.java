@@ -9,6 +9,8 @@ package id.ac.pos.gudang.Dialog.Admin.MItra;
 import id.ac.pos.gudang.dao.admin.MitraDAO;
 import id.ac.pos.gudang.daoimpl.admin.MitraDAOImpl;
 import id.ac.pos.gudang.entity.Mitra;
+import java.awt.Color;
+import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
 
 /**
@@ -62,7 +64,7 @@ public class DialogTambahMitra extends javax.swing.JDialog {
             }
         });
 
-        buttonCancel.setText("Cancel");
+        buttonCancel.setText("Batal");
         buttonCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonCancelActionPerformed(evt);
@@ -96,7 +98,7 @@ public class DialogTambahMitra extends javax.swing.JDialog {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(buttonTambah)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(buttonCancel)))
+                        .addComponent(buttonCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -118,7 +120,7 @@ public class DialogTambahMitra extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(fieldNoTelp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonTambah)
                     .addComponent(buttonCancel))
@@ -138,32 +140,26 @@ public class DialogTambahMitra extends javax.swing.JDialog {
 
         //validasi field
         if (fieldIdMitra.getText().isEmpty() && fieldIdMitra.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Username tidak boleh Kosong");
+            JOptionPane.showMessageDialog(null, "Id Mitra tidak boleh Kosong");
         } else if (fieldNamaMitra.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Password Tidak boleh Kosong");
-        } else if (fieldAlamat.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Nama User Tidak boleh Kosong");
-        } else if (fieldNoTelp.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "NIK Tidak boleh Kosong");
-        } else {
-            JOptionPane.showMessageDialog(null, "Simpan Data");
-        }
+            JOptionPane.showMessageDialog(null, "Nama Mitra Tidak boleh Kosong");
+        }else {
+                mitra.setId_mitra(idMitra);
+                mitra.setNama_mitra(namaMitra);
+                mitra.setAlamat(alamat);
+                mitra.setNo_telp(noTelp);
 
-        mitra.setId_supplier(idMitra);
-        mitra.setNama_suplier(namaMitra);
-        mitra.setAlamat(alamat);
-        mitra.setNo_telp(noTelp);
+                //insert user
+                MitraDAO dao = new MitraDAOImpl();
+                boolean sukses = dao.tambahMitra(mitra);
 
-        //insert user
-        MitraDAO dao = new MitraDAOImpl();
-        boolean sukses = dao.tambahMitra(mitra);
-
-        // cek sukses atau tidak
-        if (sukses) {
-            JOptionPane.showMessageDialog(this, "Data berhasil ditambahkan");
-            dispose();
-        } else {
-            JOptionPane.showMessageDialog(this, "Data gagal ditambahkan");
+                // cek sukses atau tidak
+                if (sukses) {
+                    JOptionPane.showMessageDialog(this, "Data berhasil ditambahkan");
+                    dispose();
+                } else {
+                    JOptionPane.showMessageDialog(this, "Data gagal ditambahkan");
+                }
         }
     }//GEN-LAST:event_buttonTambahActionPerformed
 

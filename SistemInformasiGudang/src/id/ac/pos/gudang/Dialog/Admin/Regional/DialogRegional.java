@@ -73,7 +73,6 @@ public class DialogRegional extends javax.swing.JDialog {
         tableRegional = new javax.swing.JTable();
         buttonTambah = new javax.swing.JButton();
         buttonUbah = new javax.swing.JButton();
-        buttonHapus = new javax.swing.JButton();
         buttonRefresh = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -115,13 +114,6 @@ public class DialogRegional extends javax.swing.JDialog {
             }
         });
 
-        buttonHapus.setText("Hapus");
-        buttonHapus.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonHapusActionPerformed(evt);
-            }
-        });
-
         buttonRefresh.setText("Refresh");
         buttonRefresh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -143,9 +135,7 @@ public class DialogRegional extends javax.swing.JDialog {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(buttonTambah)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(buttonHapus)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(buttonUbah)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(buttonRefresh))
@@ -161,7 +151,7 @@ public class DialogRegional extends javax.swing.JDialog {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(fieldCariRegional, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -173,9 +163,8 @@ public class DialogRegional extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonTambah)
                     .addComponent(buttonUbah)
-                    .addComponent(buttonHapus)
                     .addComponent(buttonRefresh))
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -189,29 +178,6 @@ public class DialogRegional extends javax.swing.JDialog {
         refreshData();
         getData();
     }//GEN-LAST:event_buttonTambahActionPerformed
-
-    private void buttonHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHapusActionPerformed
-        // TODO add your handling code here:
-        int baris = tableRegional.getSelectedRow();
-        if (baris >= 0) {
-            String idRegional = tableRegional.getValueAt(baris, 0).toString();
-            String namaRegional = tableRegional.getValueAt(baris, 1).toString();
-            int ok = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin "
-                    + "menghapus Regional dengan kode : " + idRegional
-                    + " dengan Nama Regional " + namaRegional
-                    + "?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
-            if (ok == 0) {
-                dao = new RegionalDAOImpl();
-                dao.hapusRegional(idRegional);
-                getData();
-            }
-        } else {
-            JOptionPane.showMessageDialog(this, "Anda harus memilih dahulu regional "
-                    + "yang akan dihapus !");
-            getData();
-        }
-        getData();
-    }//GEN-LAST:event_buttonHapusActionPerformed
 
     private void buttonUbahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonUbahActionPerformed
         // TODO add your handling code here:
@@ -296,7 +262,6 @@ public class DialogRegional extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonCari;
-    private javax.swing.JButton buttonHapus;
     private javax.swing.JButton buttonRefresh;
     private javax.swing.JButton buttonTambah;
     private javax.swing.JButton buttonUbah;

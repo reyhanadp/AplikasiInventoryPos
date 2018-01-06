@@ -10,7 +10,7 @@ import id.ac.pos.gudang.dao.ProdukDAO;
 import id.ac.pos.gudang.daoimpl.PemesananDAOImpl;
 import id.ac.pos.gudang.entity.Pemesanan;
 import id.ac.pos.gudang.entity.Produk;
-import id.ac.pos.gudang.entity.Suplier;
+import id.ac.pos.gudang.entity.Mitra;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.KeyEvent;
@@ -31,8 +31,8 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
     PemesananDAO dao;
     ProdukDAO daoProduk;
     Pemesanan pemesanan;
-    Suplier suplier;
-    ArrayList<Suplier> arraySuplier;
+    Mitra mitra;
+    ArrayList<Mitra> arrayMitra;
     ArrayList<Produk> arrayProdukPrangko, arrayProdukPrangko1, arrayProdukPrangko2, arrayProdukMSSS, arrayProdukSHPSS, arrayProdukKemasan, arrayProdukMerchandise, arrayProdukPrisma, arrayProdukDokumenFilateli;
     Vector vectorTahun = new Vector();
     Vector vectorNominal = new Vector();
@@ -43,7 +43,7 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
     Vector vectorMerchandise = new Vector();
     Vector vectorPrisma = new Vector();
     Vector vectorDokumenFilateli = new Vector();
-    Vector vectorSuplier = new Vector();
+    Vector vectorMitra = new Vector();
 
     /**
      * Creates new form DialogTambahPengembalian
@@ -55,17 +55,12 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
         simpan.setEnabled(false);
         batal.setEnabled(false);
         hapus.setEnabled(false);
-        autocompleteNamaSuplier();
-        autocompleteNamaProduk();
+        autocompleteNamaMitra();
         setLocationRelativeTo(this);
         tabel_pemesanan.setModel(new javax.swing.table.DefaultTableModel(new Object[][]{},
                 new String[]{
                     "No", "Kode Produk", "Nama Produk", "Nominal", "Jumlah Pemesanan"
                 }));
-    }
-
-    private void autocompleteNamaProduk() {
-
     }
     
     private void reset_simpan() {
@@ -78,8 +73,8 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
 
         TanggalPemesanan.setDate(null);
         TanggalPemesanan.setEnabled(true);
-        NamaSuplier.setSelectedIndex(0);
-        NamaSuplier.setEnabled(true);
+        NamaMitra.setSelectedIndex(0);
+        NamaMitra.setEnabled(true);
         JenisProduk.setSelectedIndex(0);
         JumlahPemesanan.setText("");
         simpan.setEnabled(false);
@@ -92,28 +87,41 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
 
         String no_pemesanan = dao.getNoPemesanan();
         if (no_pemesanan == null) {
-            no_pemesanan = "00000";
+            no_pemesanan = "0000000000";
         }
         int sub_nomor_int = Integer.parseInt(no_pemesanan);
         String nomor_string = String.valueOf(sub_nomor_int);
         int panjang = nomor_string.length();
-        if(nomor_string.substring(panjang-1).equals("9")){
-            panjang=panjang+1;
-        }
+        
         switch (panjang) {
             case 1:
-                kosong = "0000";
+                kosong = "000000000";
                 break;
             case 2:
-                kosong = "000";
+                kosong = "00000000";
                 break;
             case 3:
-                kosong = "00";
+                kosong = "0000000";
                 break;
             case 4:
-                kosong = "0";
+                kosong = "000000";
                 break;
             case 5:
+                kosong = "00000";
+                break;
+            case 6:
+                kosong = "0000";
+                break;
+            case 7:
+                kosong = "000";
+                break;
+            case 8:
+                kosong = "00";
+                break;
+            case 9:
+                kosong = "0";
+                break;
+            case 10:
                 kosong = null;
                 break;
             default:
@@ -125,32 +133,32 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
         fieldNoPemesanan.setText(no_pemesanan);
      }
     
-    private void autocompleteNamaSuplier() {
+    private void autocompleteNamaMitra() {
 //        KotaPengirimPrangko.removeAllItems();
 //        KotaPengirimPrangko.addItem("- - - - - - - - - - - -Pilih Regional- - - - - - - - - - - -");
         dao = new PemesananDAOImpl();
-        arraySuplier = dao.getSuplier();
+        arrayMitra = dao.getMitra();
 
-        int banyak = arraySuplier.size();
+        int banyak = arrayMitra.size();
         int rowindex = 0;
-        vectorSuplier.add("- Pilih Suplier -");
+        vectorMitra.add("- Pilih Mitra -");
         while (0 < banyak) {
-            vectorSuplier.add(arraySuplier.get(rowindex).getNama_suplier());
+            vectorMitra.add(arrayMitra.get(rowindex).getNama_mitra());
             banyak--;
             rowindex++;
         }
-        NamaSuplier.setModel(new DefaultComboBoxModel(vectorSuplier));
+        NamaMitra.setModel(new DefaultComboBoxModel(vectorMitra));
 //        KotaPengirimPrangko.setSelectedIndex(-1);
-        AutoCompleteDecorator.decorate(NamaSuplier);
+        AutoCompleteDecorator.decorate(NamaMitra);
     }
 
     private void reset() {
         NamaProduk.setSelectedItem("");
-        NamaSuplier.setSelectedIndex(0);
+        NamaMitra.setSelectedIndex(0);
         KodeProduk.setText("");
         TanggalPemesanan.setDate(null);
         JumlahPemesanan.setText("");
-        fieldIdSuplier.setText("");
+        fieldIdMitra.setText("");
     }
 
     /**
@@ -165,7 +173,7 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
         jPanel37 = new javax.swing.JPanel();
         TanggalPemesanan = new com.toedter.calendar.JDateChooser();
         JumlahPemesanan = new javax.swing.JTextField();
-        NamaSuplier = new javax.swing.JComboBox<>();
+        NamaMitra = new javax.swing.JComboBox<>();
         NamaProduk = new javax.swing.JComboBox<>();
         KodeProduk = new javax.swing.JTextField();
         Tahun = new javax.swing.JComboBox<>();
@@ -182,7 +190,7 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
         jLabel112 = new javax.swing.JLabel();
         fieldNoPemesanan = new javax.swing.JTextField();
         jLabel43 = new javax.swing.JLabel();
-        fieldIdSuplier = new javax.swing.JTextField();
+        fieldIdMitra = new javax.swing.JTextField();
         tambah = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabel_pemesanan = new javax.swing.JTable();
@@ -214,9 +222,14 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
             }
         });
 
-        NamaSuplier.addItemListener(new java.awt.event.ItemListener() {
+        NamaMitra.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                NamaSuplierItemStateChanged(evt);
+                NamaMitraItemStateChanged(evt);
+            }
+        });
+        NamaMitra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NamaMitraActionPerformed(evt);
             }
         });
 
@@ -261,7 +274,7 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
 
         jLabel3.setText("Kode Produk");
 
-        jLabel4.setText("Suplier");
+        jLabel4.setText("Mitra");
 
         jLabel9.setText("Tanggal Pemesanan");
 
@@ -292,12 +305,12 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
             }
         });
 
-        jLabel43.setText("Id Suplier");
+        jLabel43.setText("Id Mitra");
 
-        fieldIdSuplier.setEditable(false);
-        fieldIdSuplier.addKeyListener(new java.awt.event.KeyAdapter() {
+        fieldIdMitra.setEditable(false);
+        fieldIdMitra.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                fieldIdSuplierKeyPressed(evt);
+                fieldIdMitraKeyPressed(evt);
             }
         });
 
@@ -402,11 +415,11 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
                                                 .addComponent(JenisProduk, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                             .addComponent(fieldNoPemesanan, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGroup(jPanel37Layout.createSequentialGroup()
-                                                .addComponent(NamaSuplier, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(NamaMitra, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(18, 18, 18)
                                                 .addComponent(jLabel43)
                                                 .addGap(49, 49, 49)
-                                                .addComponent(fieldIdSuplier, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addComponent(fieldIdMitra, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addGap(0, 0, Short.MAX_VALUE))))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel37Layout.createSequentialGroup()
                                 .addGap(139, 139, 139)
@@ -443,10 +456,10 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(NamaSuplier, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(NamaMitra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4)
                     .addComponent(jLabel43)
-                    .addComponent(fieldIdSuplier, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fieldIdMitra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -507,26 +520,12 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_JumlahPemesananKeyTyped
 
-    private void NamaSuplierItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_NamaSuplierItemStateChanged
+    private void NamaMitraItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_NamaMitraItemStateChanged
         // TODO add your handling code here:
 
-        NamaSuplier.addItemListener(new ItemListener() {
-            @Override
-            public void itemStateChanged(ItemEvent e) {
-                Object pilihan = e.getItem();
-                if (pilihan != "- Pilih Suplier -") {
-                    dao = new PemesananDAOImpl();
-                    arraySuplier = dao.getIsiSuplier(pilihan);
+        
 
-                    fieldIdSuplier.setText(arraySuplier.get(0).getIdSuplier());
-                } else {
-                    fieldIdSuplier.setText("");
-                }
-
-            }
-        });
-
-    }//GEN-LAST:event_NamaSuplierItemStateChanged
+    }//GEN-LAST:event_NamaMitraItemStateChanged
 
     private void NamaProdukItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_NamaProdukItemStateChanged
         // TODO add your handling code here:
@@ -621,9 +620,9 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_fieldNoPemesananKeyPressed
 
-    private void fieldIdSuplierKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldIdSuplierKeyPressed
+    private void fieldIdMitraKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldIdMitraKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_fieldIdSuplierKeyPressed
+    }//GEN-LAST:event_fieldIdMitraKeyPressed
 
     private void JenisProdukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JenisProdukActionPerformed
         // TODO add your handling code here:
@@ -760,7 +759,7 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
         int baris;
         String no_pemesanan = fieldNoPemesanan.getText();
         String kode_produk = KodeProduk.getText();
-        String id_suplier = fieldIdSuplier.getText();
+        String id_mitra = fieldIdMitra.getText();
         java.util.Date tanggal_pemesanan = (java.util.Date) TanggalPemesanan.getDate();
         String jumlah_pemesanan = JumlahPemesanan.getText();
         Object nama_produk = NamaProduk.getSelectedItem();
@@ -768,12 +767,12 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
         
         if (no_pemesanan.compareTo("") != 0) {
             if (tanggal_pemesanan != null) {
-                if (id_suplier.compareTo("") != 0) {
+                if (id_mitra.compareTo("") != 0) {
                     if (kode_produk.compareTo("") != 0) {
                         if (jumlah_pemesanan.compareTo("") != 0) {
                                 TanggalPemesanan.setEnabled(false);
-                                fieldIdSuplier.setEnabled(false);
-                                NamaSuplier.setEnabled(false);
+                                fieldIdMitra.setEnabled(false);
+                                NamaMitra.setEnabled(false);
                                 
                                 if (tabel_pemesanan.getRowCount() == 0) {
                                     no = 1;
@@ -805,7 +804,7 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
                         JOptionPane.showMessageDialog(null, "Silakan pilih Produk terlebih dahulu!");
                     }
                 } else {
-                    JOptionPane.showMessageDialog(null, "Silakan pilih Suplier terlebih dahulu!");
+                    JOptionPane.showMessageDialog(null, "Silakan pilih Mitra terlebih dahulu!");
                 }
             } else {
                 JOptionPane.showMessageDialog(null, "Silakan isi Tanggal Pemesanan terlebih dahulu!");
@@ -859,8 +858,8 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
             if(baris==0){
                 fieldNoPemesanan.setEditable(true);
                 TanggalPemesanan.setEnabled(true);
-                NamaSuplier.setEnabled(true);
-                fieldIdSuplier.setEnabled(true);
+                NamaMitra.setEnabled(true);
+                fieldIdMitra.setEnabled(true);
                 hapus.setEnabled(true);
             }
 
@@ -874,77 +873,110 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
         boolean sukses = false;
         String kosong = null;
         int i;
+        
         int banyak_baris = tabel_pemesanan.getRowCount();
         dao = new PemesananDAOImpl();
 
         //autoincrement no_pemesanan
         java.util.Date tanggal_pemesanan = (java.util.Date) TanggalPemesanan.getDate();
-        String id_suplier = fieldIdSuplier.getText();
+        String id_mitra = fieldIdMitra.getText();
         String no_pemesanan = fieldNoPemesanan.getText();
         
-        for (i = 0; i < banyak_baris; i++) {
-            String kode_produk = tabel_pemesanan.getValueAt(i, 1).toString();
-            String jumlah_pesan = tabel_pemesanan.getValueAt(i, 4).toString();
-            
-        String id_pemesanan_string = dao.getIdPemesanan();
-        if (id_pemesanan_string == null) {
-            id_pemesanan_string = "00000";
-        }
-        Integer id_pemesanan = Integer.parseInt(id_pemesanan_string);
-        id_pemesanan++;
-        id_pemesanan_string = Integer.toString(id_pemesanan);
-        int panjang = id_pemesanan_string.length();
+        int pilih = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin "
+                    + "menyimpan data dengan nomor pemesanan : " + no_pemesanan
+                    + "?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
+        if (pilih == JOptionPane.YES_OPTION) {
+                    for (i = 0; i < banyak_baris; i++) {
+                        String kode_produk = tabel_pemesanan.getValueAt(i, 1).toString();
+                        String jumlah_pesan = tabel_pemesanan.getValueAt(i, 4).toString();
 
-        switch (panjang) {
-            case 1:
-            kosong = "0000";
-            break;
-            case 2:
-            kosong = "000";
-            break;
-            case 3:
-            kosong = "00";
-            break;
-            case 4:
-            kosong = "0";
-            break;
-            case 5:
-            kosong = null;
-            break;
-            default:
-            break;
-        }
+                    String id_pemesanan_string = dao.getIdPemesanan();
+                    if (id_pemesanan_string == null) {
+                        id_pemesanan_string = "0000000000";
+                    }
+                    Integer id_pemesanan = Integer.parseInt(id_pemesanan_string);
+                    id_pemesanan++;
+                    id_pemesanan_string = Integer.toString(id_pemesanan);
+                    int panjang = id_pemesanan_string.length();
 
-        id_pemesanan_string = kosong + id_pemesanan_string;
+                    switch (panjang) {
+                            case 1:
+                                kosong = "000000000";
+                                break;
+                            case 2:
+                                kosong = "00000000";
+                                break;
+                            case 3:
+                                kosong = "0000000";
+                                break;
+                            case 4:
+                                kosong = "000000";
+                                break;
+                            case 5:
+                                kosong = "00000";
+                                break;
+                            case 6:
+                                kosong = "0000";
+                                break;
+                            case 7:
+                                kosong = "000";
+                                break;
+                            case 8:
+                                kosong = "00";
+                                break;
+                            case 9:
+                                kosong = "0";
+                                break;
+                            case 10:
+                                kosong = null;
+                                break;
+                            default:
+                                break;
+                    }
 
-        pemesanan = new Pemesanan();
-        pemesanan.setIdPemesanan(id_pemesanan_string);
-        pemesanan.setNoPemesanan(no_pemesanan);
-        pemesanan.setKodeProduk(kode_produk);
-        pemesanan.setJumlahPemesanan(jumlah_pesan);
-        pemesanan.setTglPemesanan(tanggal_pemesanan);
-        pemesanan.setIdSuplier(id_suplier);
+                    id_pemesanan_string = kosong + id_pemesanan_string;
 
-        sukses = dao.tambahPemesanan(pemesanan);
-        
-        }
-                        //cek sukses atau tidak
+                    pemesanan = new Pemesanan();
+                    pemesanan.setIdPemesanan(id_pemesanan_string);
+                    pemesanan.setNoPemesanan(no_pemesanan);
+                    pemesanan.setKodeProduk(kode_produk);
+                    pemesanan.setJumlahPemesanan(jumlah_pesan);
+                    pemesanan.setTglPemesanan(tanggal_pemesanan);
+                    pemesanan.setIdMitra(id_mitra);
+
+                    sukses = dao.tambahPemesanan(pemesanan);
+
+                    }
+                                    //cek sukses atau tidak
                         if (sukses) {
-                            JOptionPane.showMessageDialog(this, "Data berhasil ditambahkan");
-                            autoIncrementNoPemesanan();
-                            reset_simpan();
+                              JOptionPane.showMessageDialog(this, "Data berhasil ditambahkan");
+                              autoIncrementNoPemesanan();
+                              reset_simpan();
                         } else {
-                            JOptionPane.showMessageDialog(this, "Data gagal ditambahkan");
-                           reset_simpan();
+                              JOptionPane.showMessageDialog(this, "Data gagal ditambahkan");
+                              reset_simpan();
                         }
                    
-        
+        }
     }//GEN-LAST:event_simpanActionPerformed
 
     private void batalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_batalActionPerformed
         // TODO add your handling code here:
         reset_simpan();
     }//GEN-LAST:event_batalActionPerformed
+
+    private void NamaMitraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NamaMitraActionPerformed
+        // TODO add your handling code here:
+        Object pilihan = NamaMitra.getSelectedItem();
+                if (pilihan != "- Pilih Mitra -") {
+                    dao = new PemesananDAOImpl();
+                    arrayMitra = dao.getIdMitra(pilihan);
+
+                    fieldIdMitra.setText(arrayMitra.get(0).getId_mitra());
+                } else {
+                    fieldIdMitra.setText("");
+                }
+    }//GEN-LAST:event_NamaMitraActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1007,13 +1039,13 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
     private javax.swing.JComboBox<String> JenisProduk;
     private javax.swing.JTextField JumlahPemesanan;
     private javax.swing.JTextField KodeProduk;
+    private javax.swing.JComboBox<String> NamaMitra;
     private javax.swing.JComboBox<String> NamaProduk;
-    private javax.swing.JComboBox<String> NamaSuplier;
     private javax.swing.JComboBox<String> Nominal;
     private javax.swing.JComboBox<String> Tahun;
     private com.toedter.calendar.JDateChooser TanggalPemesanan;
     private javax.swing.JButton batal;
-    private javax.swing.JTextField fieldIdSuplier;
+    private javax.swing.JTextField fieldIdMitra;
     private javax.swing.JTextField fieldNoPemesanan;
     private javax.swing.JButton hapus;
     private javax.swing.JLabel jLabel1;

@@ -145,7 +145,7 @@
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="7">
                         <StringItem index="0" value="Nama Produk"/>
-                        <StringItem index="1" value="Nama Suplier"/>
+                        <StringItem index="1" value="Nama Mitra"/>
                         <StringItem index="2" value="Nomor Pemesanan"/>
                         <StringItem index="3" value="Kode Produk"/>
                         <StringItem index="4" value="Nominal"/>
@@ -277,7 +277,7 @@
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="7">
                         <StringItem index="0" value="Nama Produk"/>
-                        <StringItem index="1" value="Nama Suplier"/>
+                        <StringItem index="1" value="Nama Mitra"/>
                         <StringItem index="2" value="Nomor Pemesanan"/>
                         <StringItem index="3" value="Kode Produk"/>
                         <StringItem index="4" value="Nominal"/>
@@ -414,7 +414,7 @@
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="7">
                         <StringItem index="0" value="Nama Produk"/>
-                        <StringItem index="1" value="Nama Suplier"/>
+                        <StringItem index="1" value="Nama Mitra"/>
                         <StringItem index="2" value="Nomor Pemesanan"/>
                         <StringItem index="3" value="Kode Produk"/>
                         <StringItem index="4" value="Nominal"/>
@@ -551,7 +551,7 @@
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="7">
                         <StringItem index="0" value="Nama Produk"/>
-                        <StringItem index="1" value="Nama Suplier"/>
+                        <StringItem index="1" value="Nama Mitra"/>
                         <StringItem index="2" value="Nomor Pemesanan"/>
                         <StringItem index="3" value="Kode Produk"/>
                         <StringItem index="4" value="Nominal"/>
@@ -685,7 +685,7 @@
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="7">
                         <StringItem index="0" value="Nama Produk"/>
-                        <StringItem index="1" value="Nama Suplier"/>
+                        <StringItem index="1" value="Nama Mitra"/>
                         <StringItem index="2" value="Nomor Pemesanan"/>
                         <StringItem index="3" value="Kode Produk"/>
                         <StringItem index="4" value="Nominal"/>
@@ -819,7 +819,7 @@
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="7">
                         <StringItem index="0" value="Nama Produk"/>
-                        <StringItem index="1" value="Nama Suplier"/>
+                        <StringItem index="1" value="Nama Mitra"/>
                         <StringItem index="2" value="Nomor Pemesanan"/>
                         <StringItem index="3" value="Kode Produk"/>
                         <StringItem index="4" value="Nominal"/>
@@ -953,7 +953,7 @@
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="7">
                         <StringItem index="0" value="Nama Produk"/>
-                        <StringItem index="1" value="Nama Suplier"/>
+                        <StringItem index="1" value="Nama Mitra"/>
                         <StringItem index="2" value="Nomor Pemesanan"/>
                         <StringItem index="3" value="Kode Produk"/>
                         <StringItem index="4" value="Nominal"/>
