@@ -7,7 +7,6 @@ package id.ac.pos.gudang.Form;
 
 import id.ac.pos.gudang.Dialog.Admin.DialogRecycleBin;
 import id.ac.pos.gudang.Dialog.DialogLaporan;
-import id.ac.pos.gudang.Dialog.DialogUbahPassword;
 import id.ac.pos.gudang.Dialog.DialogUbahProduk;
 import id.ac.pos.gudang.Panel.PanelPemesanan;
 import id.ac.pos.gudang.Panel.PanelPenerimaan;
@@ -881,7 +880,6 @@ public final class FormHome extends javax.swing.JFrame {
         itemRegional = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
         itemRecycleBin = new javax.swing.JMenuItem();
-        itemUbahPassword = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
 
         nik.setText("jLabel7");
@@ -2884,14 +2882,6 @@ public final class FormHome extends javax.swing.JFrame {
         });
         jMenu2.add(itemRecycleBin);
 
-        itemUbahPassword.setText("Ubah Password");
-        itemUbahPassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itemUbahPasswordActionPerformed(evt);
-            }
-        });
-        jMenu2.add(itemUbahPassword);
-
         jMenuBar1.add(jMenu2);
 
         jMenu1.setText("Backup & Restore");
@@ -4866,14 +4856,6 @@ public final class FormHome extends javax.swing.JFrame {
         drb.setVisible(true);
     }//GEN-LAST:event_itemRecycleBinActionPerformed
 
-    private void itemUbahPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemUbahPasswordActionPerformed
-        // TODO add your handling code here:
-        String nik = this.nik.getText();
-        DialogUbahPassword dup = new DialogUbahPassword(this, true, nik);
-        dup.setLocationRelativeTo(null);
-        dup.setVisible(true);
-    }//GEN-LAST:event_itemUbahPasswordActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -5029,7 +5011,6 @@ public final class FormHome extends javax.swing.JFrame {
     private javax.swing.JTextField fieldTahunProdukSHPSHPSS;
     private javax.swing.JMenuItem itemRecycleBin;
     private javax.swing.JMenu itemRegional;
-    private javax.swing.JMenuItem itemUbahPassword;
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
