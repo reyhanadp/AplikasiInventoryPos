@@ -185,12 +185,12 @@ public class PengembalianDAOImpl implements PengembalianDAO {
             state = conn.prepareStatement(INSERT);
             state.setString(1, pengembalian.getId_pengembalian());
             state.setDate(2, new java.sql.Date(pengembalian.getTanggal_pengembalian().getTime()));
-            state.setString(3, pengembalian.getJumlah_pengembalian());
+            state.setString(3, Integer.toString(pengembalian.getJumlah_pengembalian()));
             state.setString(4, pengembalian.getDus());
             state.setString(5, pengembalian.getId_regional());
             state.setString(6, pengembalian.getId_produk());
-            state.setString(7, pengembalian.getStok_awal());
-            state.setString(8, pengembalian.getStok_akhir());
+            state.setString(7, Integer.toString(pengembalian.getStok_awal()));
+            state.setString(8, Integer.toString(pengembalian.getStok_akhir()));
             state.setString(9, pengembalian.getKeterangan());
 
             int qty = state.executeUpdate();
@@ -207,11 +207,19 @@ public class PengembalianDAOImpl implements PengembalianDAO {
         ArrayList<Pengembalian> arrayPengembalian = null;
         String SELECT = "";
         if (jenis_produk.compareTo("MS") == 0) {
-            SELECT = "SELECT * FROM tb_trans_pengembalian where id_produk like 'MS%' OR id_produk like 'SS%'";
+            SELECT = "SELECT * FROM tb_trans_pengembalian inner join tb_produk "
+                    +"on tb_trans_pengembalian.id_produk=tb_produk.id_produk "
+                    +"where tb_trans_pengembalian.id_produk like 'MS%' OR "
+                    +"tb_trans_pengembalian.id_produk like 'SS%' AND tb_produk.status='0'";
         } else if (jenis_produk.compareTo("SHP") == 0) {
-            SELECT = "SELECT * FROM tb_trans_pengembalian where id_produk like 'SHP%' OR id_produk like 'SHPSS%'";
+            SELECT = "SELECT * FROM tb_trans_pengembalian inner join tb_produk "
+                    +"on tb_trans_pengembalian.id_produk=tb_produk.id_produk "
+                    +"where tb_trans_pengembalian.id_produk like 'SHP%' OR "
+                    +"tb_trans_pengembalian.id_produk like 'SHPSS%' AND tb_produk.status='0'";
         }else{
-            SELECT = "SELECT * FROM tb_trans_pengembalian where id_produk like '"+jenis_produk+"%'";
+            SELECT = "SELECT * FROM tb_trans_pengembalian inner join tb_produk "
+                    +"on tb_trans_pengembalian.id_produk=tb_produk.id_produk "
+                    +"where tb_trans_pengembalian.id_produk like '"+jenis_produk+"%' AND tb_produk.status='0'";
         }
         PreparedStatement state = null;
 
@@ -230,13 +238,14 @@ public class PengembalianDAOImpl implements PengembalianDAO {
                     Pengembalian pengembalian = new Pengembalian();
                     pengembalian.setId_pengembalian(result.getString(1));
                     pengembalian.setTanggal_pengembalian(result.getDate(2));
-                    pengembalian.setJumlah_pengembalian(result.getString(3));
+                    pengembalian.setJumlah_pengembalian(Integer.parseInt(result.getString(3)));
                     pengembalian.setDus(result.getString(4));
                     pengembalian.setId_regional(result.getString(5));
                     pengembalian.setId_produk(result.getString(6));
-                    pengembalian.setStok_awal(result.getString(7));
-                    pengembalian.setStok_akhir(result.getString(8));
+                    pengembalian.setStok_awal(Integer.parseInt(result.getString(7)));
+                    pengembalian.setStok_akhir(Integer.parseInt(result.getString(8)));
                     pengembalian.setKeterangan(result.getString(9));
+                    pengembalian.setNama_produk(result.getString(11));
 
                     //menambahkan data ke array
                     arrayPengembalian.add(pengembalian);

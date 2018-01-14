@@ -18,11 +18,9 @@ import javax.swing.table.AbstractTableModel;
 public class PengembalianTM extends AbstractTableModel {
 
     private ArrayList<Pengembalian> arrayPengembalian;
-    Vector vector_nama_produk;
 
-    public void setDataPengembalian(ArrayList<Pengembalian> arrayPengembalian,  Vector vector_nama_produk) {
+    public void setDataPengembalian(ArrayList<Pengembalian> arrayPengembalian) {
         this.arrayPengembalian = arrayPengembalian;
-        this.vector_nama_produk = vector_nama_produk;
     }
 
     @Override
@@ -57,7 +55,7 @@ public class PengembalianTM extends AbstractTableModel {
                 return arrayPengembalian.get(rowIndex).getId_produk();
             
             case 6:
-                return vector_nama_produk.get(rowIndex);
+                return arrayPengembalian.get(rowIndex).getNama_produk();
                 
             case 7:
                 return arrayPengembalian.get(rowIndex).getStok_awal();

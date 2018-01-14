@@ -31,7 +31,6 @@ public class DialogTambahPengiriman extends javax.swing.JDialog {
 
     PengirimanDAO dao;
     ProdukDAO daoProduk;
-    Pengembalian pengembalian;
     Regional regional;
     ArrayList<Regional> arrayRegional;
     ArrayList<Produk> arrayProdukPrangko, arrayProdukPrangko1, arrayProdukPrangko2, arrayProdukMSSS, arrayProdukSHPSS, arrayProdukKemasan, arrayProdukMerchandise, arrayProdukPrisma, arrayProdukDokumenFilateli;
@@ -61,6 +60,7 @@ public class DialogTambahPengiriman extends javax.swing.JDialog {
                 new String[]{
                     "No", "Kode Produk", "Nama Produk", "Nominal", "Jumlah Kirim", "BSU"
                 }));
+        AutoCompleteDecorator.decorate(NamaProduk);
     }
 
     private void autocomplete_regional() {
@@ -163,6 +163,7 @@ public class DialogTambahPengiriman extends javax.swing.JDialog {
 
         jLabel4.setText("Nama Produk");
 
+        NamaProduk.setToolTipText("");
         NamaProduk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 NamaProdukActionPerformed(evt);
@@ -297,13 +298,13 @@ public class DialogTambahPengiriman extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
                             .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(NamaProduk, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -311,15 +312,15 @@ public class DialogTambahPengiriman extends javax.swing.JDialog {
                             .addComponent(Regional, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(JenisProduk, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(simpan, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(batal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(NoOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(TanggalPengiriman, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(simpan, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(batal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -458,10 +459,9 @@ public class DialogTambahPengiriman extends javax.swing.JDialog {
 
             NamaProduk.setModel(new DefaultComboBoxModel(vectorPrangko));
 
-            AutoCompleteDecorator.decorate(NamaProduk);
         } else {
-            NamaProduk.removeAllItems();
             NamaProduk.setSelectedItem("");
+            NamaProduk.removeAllItems();
             Tahun.removeAllItems();
             Nominal.removeAllItems();
             KodeProduk.setText("");
@@ -741,7 +741,7 @@ public class DialogTambahPengiriman extends javax.swing.JDialog {
                                     simpan.setEnabled(true);
                                     batal.setEnabled(true);
                                     hapus.setEnabled(true);
-                                }else{
+                                } else {
                                     JOptionPane.showMessageDialog(null, "Produk sudah terdaftar!");
                                 }
 
@@ -787,7 +787,7 @@ public class DialogTambahPengiriman extends javax.swing.JDialog {
             //autoincrement id_pengembalian
             String id_pengiriman_string = dao.getIdPengiriman();
             if (id_pengiriman_string == null) {
-                id_pengiriman_string = "00000";
+                id_pengiriman_string = "0";
             }
             Integer id_pengiriman = Integer.parseInt(id_pengiriman_string);
             id_pengiriman++;
@@ -796,18 +796,33 @@ public class DialogTambahPengiriman extends javax.swing.JDialog {
 
             switch (panjang) {
                 case 1:
-                    kosong = "0000";
+                    kosong = "000000000";
                     break;
                 case 2:
-                    kosong = "000";
+                    kosong = "00000000";
                     break;
                 case 3:
-                    kosong = "00";
+                    kosong = "0000000";
                     break;
                 case 4:
-                    kosong = "0";
+                    kosong = "000000";
                     break;
                 case 5:
+                    kosong = "00000";
+                    break;
+                case 6:
+                    kosong = "0000";
+                    break;
+                case 7:
+                    kosong = "000";
+                    break;
+                case 8:
+                    kosong = "00";
+                    break;
+                case 9:
+                    kosong = "0";
+                    break;
+                case 10:
                     kosong = null;
                     break;
                 default:
@@ -826,7 +841,6 @@ public class DialogTambahPengiriman extends javax.swing.JDialog {
             pengiriman.setJumlah_pengiriman(Integer.parseInt(jumlah_kirim));
             stok_produk = dao.getStok(kode_produk);
             pengiriman.setStok_awal(stok_produk);
-
             sukses = dao.tambahPengiriman(pengiriman);
 
         }

@@ -14,21 +14,28 @@ import java.util.Date;
 public class Pengembalian {
     private String id_pengembalian;
     private Date tanggal_pengembalian;
-    private String jumlah_pengembalian;
+    private int jumlah_pengembalian;
     private String dus;
     private String id_regional;
     private String id_produk;
-    private String stok_awal;
-    private String stok_akhir;
+    private int stok_awal;
+    private int stok_akhir;
     private String keterangan;
+    private String nama_produk;
+
+    public String getNama_produk() {
+        return nama_produk;
+    }
+
+    public void setNama_produk(String nama_produk) {
+        this.nama_produk = nama_produk;
+    }
 
     public String getId_pengembalian() {
         return id_pengembalian;
     }
 
-    public void setStok_akhir(String stok_akhir) {
-        this.stok_akhir = stok_akhir;
-    }
+
 
     public void setId_pengembalian(String id_pengembalian) {
         this.id_pengembalian = id_pengembalian;
@@ -42,13 +49,9 @@ public class Pengembalian {
         this.tanggal_pengembalian = tanggal_pengembalian;
     }
 
-    public String getJumlah_pengembalian() {
-        return jumlah_pengembalian;
-    }
 
-    public void setJumlah_pengembalian(String jumlah_pengembalian) {
-        this.jumlah_pengembalian = jumlah_pengembalian;
-    }
+
+
 
     public String getDus() {
         return dus;
@@ -74,20 +77,29 @@ public class Pengembalian {
         this.id_produk = id_produk;
     }
 
-    public String getStok_awal() {
+    public int getJumlah_pengembalian() {
+        return jumlah_pengembalian;
+    }
+
+    public void setJumlah_pengembalian(int jumlah_pengembalian) {
+        this.jumlah_pengembalian = jumlah_pengembalian;
+    }
+
+    public int getStok_awal() {
         return stok_awal;
     }
 
-    public void setStok_awal(String stok_awal) {
+    public void setStok_awal(int stok_awal) {
         this.stok_awal = stok_awal;
     }
 
-    public String getStok_akhir() {
-        Integer stok_awal_integer = Integer.parseInt(this.stok_awal);
-        Integer jumlah_pengembalian_integer = Integer.parseInt(this.jumlah_pengembalian);
-        Integer stok_akhir_integer = stok_awal_integer + jumlah_pengembalian_integer;
-        this.stok_akhir = Integer.toString(stok_akhir_integer);
-        return stok_akhir;
+    public int getStok_akhir() {
+        this.stok_akhir = this.stok_awal + this.jumlah_pengembalian;
+        return this.stok_akhir;
+    }
+
+    public void setStok_akhir(int stok_akhir) {
+        this.stok_akhir = this.stok_awal + this.jumlah_pengembalian;
     }
 
     public String getKeterangan() {

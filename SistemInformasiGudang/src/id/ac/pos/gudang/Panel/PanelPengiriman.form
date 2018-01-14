@@ -16,19 +16,19 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jTabbedPane5" alignment="0" max="32767" attributes="0"/>
+          <Component id="TabbedPanePengiriman" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jTabbedPane5" alignment="0" max="32767" attributes="0"/>
+          <Component id="TabbedPanePengiriman" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JTabbedPane" name="jTabbedPane5">
+    <Container class="javax.swing.JTabbedPane" name="TabbedPanePengiriman">
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTabbedPane5MouseClicked"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="TabbedPanePengirimanMouseClicked"/>
       </Events>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
@@ -62,7 +62,7 @@
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Tabel Data Produk"/>
+                    <TitledBorder title="Tabel Data Pengiriman"/>
                   </Border>
                 </Property>
               </Properties>
@@ -70,16 +70,16 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPane13" pref="1042" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
-                          <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="TambahPrangko" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="665" max="32767" attributes="0"/>
                           <Component id="comboCariPrangko15" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="fieldCariPrangko15" min="-2" pref="101" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="buttonCariPrangko15" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <Component id="jScrollPane13" alignment="0" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -89,10 +89,10 @@
                               <Component id="buttonCariPrangko15" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="fieldCariPrangko15" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="comboCariPrangko15" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="TambahPrangko" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane13" pref="482" max="32767" attributes="0"/>
+                          <Component id="jScrollPane13" pref="478" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -155,12 +155,12 @@
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton1">
+                <Component class="javax.swing.JButton" name="TambahPrangko">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Tambah Data Pengiriman"/>
+                    <Property name="text" type="java.lang.String" value="Tambah Pengiriman"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TambahPrangkoActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -196,7 +196,7 @@
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Tabel Data Produk"/>
+                    <TitledBorder title="Tabel Data Pengiriman"/>
                   </Border>
                 </Property>
               </Properties>
@@ -206,7 +206,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jScrollPane42" pref="1042" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
-                          <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                          <Component id="TambahMSSS" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="comboCariPrangko16" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -223,10 +223,10 @@
                               <Component id="buttonCariPrangko16" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="fieldCariPrangko16" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="comboCariPrangko16" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="TambahMSSS" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane42" pref="482" max="32767" attributes="0"/>
+                          <Component id="jScrollPane42" pref="478" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -289,12 +289,12 @@
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton2">
+                <Component class="javax.swing.JButton" name="TambahMSSS">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Tambah Data Pengiriman"/>
+                    <Property name="text" type="java.lang.String" value="Tambah Pengiriman"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TambahMSSSActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -330,7 +330,7 @@
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Tabel Data Produk"/>
+                    <TitledBorder title="Tabel Data Pengiriman"/>
                   </Border>
                 </Property>
               </Properties>
@@ -338,20 +338,15 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPane44" alignment="0" pref="1042" max="32767" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="jScrollPane44" pref="1042" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Component id="TambahSHPSS" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                           <Component id="comboCariPrangko17" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="fieldCariPrangko17" min="-2" pref="101" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="buttonCariPrangko17" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jButton3" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="891" max="32767" attributes="0"/>
-                          </Group>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -362,15 +357,10 @@
                               <Component id="buttonCariPrangko17" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="fieldCariPrangko17" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="comboCariPrangko17" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="TambahSHPSS" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane44" pref="482" max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jButton3" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="488" max="32767" attributes="0"/>
-                          </Group>
+                          <Component id="jScrollPane44" pref="478" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -433,12 +423,12 @@
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton3">
+                <Component class="javax.swing.JButton" name="TambahSHPSS">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Tambah Data Pengiriman"/>
+                    <Property name="text" type="java.lang.String" value="Tambah Pengiriman"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TambahSHPSSActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -474,7 +464,7 @@
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Tabel Data Produk"/>
+                    <TitledBorder title="Tabel Data Pengiriman"/>
                   </Border>
                 </Property>
               </Properties>
@@ -484,7 +474,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jScrollPane46" pref="1042" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
-                          <Component id="jButton4" min="-2" max="-2" attributes="0"/>
+                          <Component id="TambahKemasan" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="comboCariPrangko18" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -501,10 +491,10 @@
                               <Component id="buttonCariPrangko18" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="fieldCariPrangko18" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="comboCariPrangko18" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton4" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="TambahKemasan" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane46" pref="482" max="32767" attributes="0"/>
+                          <Component id="jScrollPane46" pref="478" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -567,12 +557,12 @@
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton4">
+                <Component class="javax.swing.JButton" name="TambahKemasan">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Tambah Data Pengiriman"/>
+                    <Property name="text" type="java.lang.String" value="Tambah Pengiriman"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TambahKemasanActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -605,7 +595,7 @@
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Tabel Data Produk"/>
+                    <TitledBorder title="Tabel Data Pengiriman"/>
                   </Border>
                 </Property>
               </Properties>
@@ -615,7 +605,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jScrollPane48" pref="1042" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
-                          <Component id="jButton5" min="-2" max="-2" attributes="0"/>
+                          <Component id="TambahMerchandise" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="comboCariPrangko19" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -632,10 +622,10 @@
                               <Component id="buttonCariPrangko19" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="fieldCariPrangko19" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="comboCariPrangko19" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton5" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="TambahMerchandise" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane48" pref="482" max="32767" attributes="0"/>
+                          <Component id="jScrollPane48" pref="478" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -698,12 +688,12 @@
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton5">
+                <Component class="javax.swing.JButton" name="TambahMerchandise">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Tambah Data Pengiriman"/>
+                    <Property name="text" type="java.lang.String" value="Tambah Pengiriman"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton5ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TambahMerchandiseActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -736,7 +726,7 @@
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Tabel Data Produk"/>
+                    <TitledBorder title="Tabel Data Pengiriman"/>
                   </Border>
                 </Property>
               </Properties>
@@ -746,7 +736,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jScrollPane50" pref="1042" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
-                          <Component id="jButton6" min="-2" max="-2" attributes="0"/>
+                          <Component id="TambahPrisma" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="comboCariPrangko20" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -763,10 +753,10 @@
                               <Component id="buttonCariPrangko20" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="fieldCariPrangko20" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="comboCariPrangko20" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton6" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="TambahPrisma" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane50" pref="482" max="32767" attributes="0"/>
+                          <Component id="jScrollPane50" pref="478" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -829,12 +819,12 @@
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton6">
+                <Component class="javax.swing.JButton" name="TambahPrisma">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Tambah Data Pengiriman"/>
+                    <Property name="text" type="java.lang.String" value="Tambah Pengiriman"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton6ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TambahPrismaActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -867,7 +857,7 @@
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Tabel Data Produk"/>
+                    <TitledBorder title="Tabel Data Pengiriman"/>
                   </Border>
                 </Property>
               </Properties>
@@ -877,7 +867,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jScrollPane52" pref="1042" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
-                          <Component id="jButton7" min="-2" max="-2" attributes="0"/>
+                          <Component id="TambahDokumenFilateli" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="comboCariPrangko21" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -894,10 +884,10 @@
                               <Component id="buttonCariPrangko21" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="fieldCariPrangko21" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="comboCariPrangko21" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton7" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="TambahDokumenFilateli" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane52" pref="482" max="32767" attributes="0"/>
+                          <Component id="jScrollPane52" pref="478" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -960,12 +950,12 @@
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton7">
+                <Component class="javax.swing.JButton" name="TambahDokumenFilateli">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Tambah Data Pengiriman"/>
+                    <Property name="text" type="java.lang.String" value="Tambah Pengiriman"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton7ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TambahDokumenFilateliActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>

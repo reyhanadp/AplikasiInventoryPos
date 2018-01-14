@@ -457,11 +457,19 @@ public class PengirimanDAOImpl implements PengirimanDAO {
         ArrayList<Pengiriman> arrayPengiriman = null;
         String SELECT = "";
         if (jenis_produk.compareTo("MS") == 0) {
-            SELECT = "SELECT * FROM tb_trans_pengiriman where id_produk like 'MS%' OR id_produk like 'SS%'";
+            SELECT = "SELECT * FROM tb_trans_pengiriman inner join tb_produk "
+                    +"on tb_trans_pengiriman.id_produk=tb_produk.id_produk "
+                    +"where tb_trans_pengiriman.id_produk like 'MS%' OR "
+                    +"tb_trans_pengiriman.id_produk like 'SS%' AND tb_produk.status='0'";
         } else if (jenis_produk.compareTo("SHP") == 0) {
-            SELECT = "SELECT * FROM tb_trans_pengiriman where id_produk like 'SHP%' OR id_produk like 'SHPSS%'";
+            SELECT = "SELECT * FROM tb_trans_pengiriman inner join tb_produk "
+                    +"on tb_trans_pengiriman.id_produk=tb_produk.id_produk "
+                    +"where tb_trans_pengiriman.id_produk like 'SHP%' OR "
+                    +"tb_trans_pengiriman.id_produk like 'SHPSS%' AND tb_produk.status='0'";
         }else{
-            SELECT = "SELECT * FROM tb_trans_pengiriman where id_produk like '"+jenis_produk+"%'";
+            SELECT = "SELECT * FROM tb_trans_pengiriman inner join tb_produk "
+                    +"on tb_trans_pengiriman.id_produk=tb_produk.id_produk "
+                    +"where tb_trans_pengiriman.id_produk like '"+jenis_produk+"%' AND tb_produk.status='0'";
         }
         PreparedStatement state = null;
 
@@ -487,6 +495,7 @@ public class PengirimanDAOImpl implements PengirimanDAO {
                     pengiriman.setId_produk(result.getString(7));
                     pengiriman.setStok_awal(Integer.parseInt(result.getString(8)));
                     pengiriman.setStok_akhir(Integer.parseInt(result.getString(9)));
+                    pengiriman.setNama_produk(result.getString(11));
 
                     //menambahkan data ke array
                     arrayPengiriman.add(pengiriman);

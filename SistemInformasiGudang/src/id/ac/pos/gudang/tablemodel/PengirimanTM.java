@@ -18,7 +18,7 @@ public class PengirimanTM extends AbstractTableModel {
     private ArrayList<Pengiriman> arrayPengiriman;
     Vector vector_nama_produk;
 
-    public void setDataPengiriman(ArrayList<Pengiriman> arrayPengiriman,  Vector vector_nama_produk) {
+    public void setDataPengiriman(ArrayList<Pengiriman> arrayPengiriman) {
         this.arrayPengiriman = arrayPengiriman;
         this.vector_nama_produk = vector_nama_produk;
     }
@@ -58,7 +58,7 @@ public class PengirimanTM extends AbstractTableModel {
                 return arrayPengiriman.get(rowIndex).getId_produk();
                 
             case 7:
-                return vector_nama_produk.get(rowIndex);
+                return arrayPengiriman.get(rowIndex).getNama_produk();
                 
             case 8:
                 return arrayPengiriman.get(rowIndex).getStok_awal();
