@@ -16,33 +16,9 @@ public interface ProdukDAO {
 
     Integer getTahunSekarang();
 
-    ArrayList<Produk> getProdukPrangko();
+    ArrayList<Produk> getProduk();
 
-    ArrayList<Produk> getProdukKemasan();
-
-    ArrayList<Produk> getProdukMS_SS();
-
-    ArrayList<Produk> getProdukSHP_SHPSS();
-
-    ArrayList<Produk> getProdukMerchandise();
-
-    ArrayList<Produk> getProdukPrisma();
-
-    ArrayList<Produk> getProdukDokumenFilateli();
-
-    ArrayList<Produk> getProdukPrangkoDeleted();
-
-    ArrayList<Produk> getProdukMSSSDeleted();
-
-    ArrayList<Produk> getProdukSHPSHPSSDeleted();
-
-    ArrayList<Produk> getProdukMerchandiseDeleted();
-
-    ArrayList<Produk> getProdukKemasanDeleted();
-
-    ArrayList<Produk> getProdukPrismaDeleted();
-
-    ArrayList<Produk> getProdukDokumenFilateliDeleted();
+    ArrayList<Produk> getProdukDeleted();
 
     boolean restoreProduk(Produk produk, String idProduk);
 

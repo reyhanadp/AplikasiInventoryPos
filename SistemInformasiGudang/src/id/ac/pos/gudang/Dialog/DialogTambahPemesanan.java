@@ -222,22 +222,12 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
             }
         });
 
-        NamaMitra.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                NamaMitraItemStateChanged(evt);
-            }
-        });
         NamaMitra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 NamaMitraActionPerformed(evt);
             }
         });
 
-        NamaProduk.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                NamaProdukItemStateChanged(evt);
-            }
-        });
         NamaProduk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 NamaProdukActionPerformed(evt);
@@ -246,22 +236,12 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
 
         KodeProduk.setEditable(false);
 
-        Tahun.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                TahunItemStateChanged(evt);
-            }
-        });
         Tahun.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TahunActionPerformed(evt);
             }
         });
 
-        Nominal.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                NominalItemStateChanged(evt);
-            }
-        });
         Nominal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 NominalActionPerformed(evt);
@@ -285,11 +265,6 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
         jLabel6.setText("Jenis Produk");
 
         JenisProduk.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "- Pilih Jenis Produk -", "Prangko", "MS & SS", "SHP & SHPSS", "Kemasan", "Merchandise", "Prisma", "Dokumen Filateli" }));
-        JenisProduk.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                JenisProdukItemStateChanged(evt);
-            }
-        });
         JenisProduk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JenisProdukActionPerformed(evt);
@@ -398,9 +373,9 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
                                     .addComponent(KodeProduk)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel37Layout.createSequentialGroup()
                                         .addComponent(TanggalPemesanan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGap(18, 18, 18)
+                                        .addGap(26, 26, 26)
                                         .addComponent(jLabel11)
-                                        .addGap(18, 18, 18)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(JumlahPemesanan, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel37Layout.createSequentialGroup()
                                         .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -418,7 +393,7 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
                                                 .addComponent(NamaMitra, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(18, 18, 18)
                                                 .addComponent(jLabel43)
-                                                .addGap(49, 49, 49)
+                                                .addGap(60, 60, 60)
                                                 .addComponent(fieldIdMitra, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addGap(0, 0, Short.MAX_VALUE))))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel37Layout.createSequentialGroup()
@@ -520,36 +495,9 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_JumlahPemesananKeyTyped
 
-    private void NamaMitraItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_NamaMitraItemStateChanged
-        // TODO add your handling code here:
-
-        
-
-    }//GEN-LAST:event_NamaMitraItemStateChanged
-
-    private void NamaProdukItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_NamaProdukItemStateChanged
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_NamaProdukItemStateChanged
-
-    private void TahunItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_TahunItemStateChanged
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_TahunItemStateChanged
-
-    private void NominalItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_NominalItemStateChanged
-        // TODO add your handling code here:
-       
-    }//GEN-LAST:event_NominalItemStateChanged
-
     private void jPanel37MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel37MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jPanel37MouseClicked
-
-    private void JenisProdukItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_JenisProdukItemStateChanged
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_JenisProdukItemStateChanged
 
     private void NamaProdukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NamaProdukActionPerformed
         // TODO add your handling code here:

@@ -232,6 +232,7 @@ public class DialogUbahProduk extends javax.swing.JDialog {
                     //cek sukses atau tidak
                     if (sukses) {
                         JOptionPane.showMessageDialog(this, "Data berhasil diubah");
+                        dispose();
                     } else {
                         JOptionPane.showMessageDialog(this, "Data gagal diubah");
                     }

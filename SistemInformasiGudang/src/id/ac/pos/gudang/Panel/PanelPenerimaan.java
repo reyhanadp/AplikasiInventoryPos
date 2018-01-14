@@ -122,7 +122,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTabbedPane5 = new javax.swing.JTabbedPane();
+        buttonTambahPenerimaanDokumenFilateli = new javax.swing.JTabbedPane();
         Prangko3 = new javax.swing.JPanel();
         jPanel40 = new javax.swing.JPanel();
         jScrollPane13 = new javax.swing.JScrollPane();
@@ -130,7 +130,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
         comboCariPenerimaanPrangko = new javax.swing.JComboBox<>();
         fieldCariPenerimaanPrangko = new javax.swing.JTextField();
         buttonCariPenerimaanPrangko = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        buttonTambahPenerimaanPrangko = new javax.swing.JButton();
         MS_SS3 = new javax.swing.JPanel();
         jDesktopPane16 = new javax.swing.JDesktopPane();
         jPanel41 = new javax.swing.JPanel();
@@ -139,7 +139,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
         comboCariPenerimaanMS_SS = new javax.swing.JComboBox<>();
         fieldCariPenerimaanMS_SS = new javax.swing.JTextField();
         buttonCariPenerimaanMS_SS = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        buttonTambahPenerimaanMSSS = new javax.swing.JButton();
         SHP_SHPSS3 = new javax.swing.JPanel();
         jPanel42 = new javax.swing.JPanel();
         jScrollPane15 = new javax.swing.JScrollPane();
@@ -147,7 +147,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
         comboCariPenerimaanSHP_SHPSS = new javax.swing.JComboBox<>();
         fieldCariPenerimaanSHP_SHPSS = new javax.swing.JTextField();
         buttonCariPenerimaanSHP_SHPSS = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        buttonTambahPenerimaanSHPSS = new javax.swing.JButton();
         Kemasan3 = new javax.swing.JPanel();
         jPanel43 = new javax.swing.JPanel();
         jScrollPane16 = new javax.swing.JScrollPane();
@@ -155,7 +155,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
         comboCariPenerimaanKemasan = new javax.swing.JComboBox<>();
         fieldCariPenerimaanKemasan = new javax.swing.JTextField();
         buttonCariPenerimaanKemasan = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        buttonTambahPenerimaanKemasan = new javax.swing.JButton();
         Merchandise3 = new javax.swing.JPanel();
         jPanel44 = new javax.swing.JPanel();
         jScrollPane17 = new javax.swing.JScrollPane();
@@ -163,7 +163,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
         comboCariPenerimaanMerchandise = new javax.swing.JComboBox<>();
         fieldCariPenerimaanMerchandise = new javax.swing.JTextField();
         buttonCariPenerimaanMerchandise = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        buttonTambahPenerimaanMerchandise = new javax.swing.JButton();
         Prisma3 = new javax.swing.JPanel();
         jPanel45 = new javax.swing.JPanel();
         jScrollPane18 = new javax.swing.JScrollPane();
@@ -171,7 +171,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
         comboCariPenerimaanPrisma = new javax.swing.JComboBox<>();
         fieldCariPenerimaanPrisma = new javax.swing.JTextField();
         buttonCariPenerimaanPrisma = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        buttonTambahPenerimaanPrisma = new javax.swing.JButton();
         DokumenFilateli3 = new javax.swing.JPanel();
         jPanel46 = new javax.swing.JPanel();
         jScrollPane19 = new javax.swing.JScrollPane();
@@ -181,9 +181,9 @@ public class PanelPenerimaan extends javax.swing.JPanel {
         buttonCariPenerimaanDF = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
 
-        jTabbedPane5.addMouseListener(new java.awt.event.MouseAdapter() {
+        buttonTambahPenerimaanDokumenFilateli.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTabbedPane5MouseClicked(evt);
+                buttonTambahPenerimaanDokumenFilateliMouseClicked(evt);
             }
         });
 
@@ -228,10 +228,10 @@ public class PanelPenerimaan extends javax.swing.JPanel {
             }
         });
 
-        jButton1.setText("Tambah Penerimaan");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        buttonTambahPenerimaanPrangko.setText("Tambah Penerimaan");
+        buttonTambahPenerimaanPrangko.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                buttonTambahPenerimaanPrangkoActionPerformed(evt);
             }
         });
 
@@ -240,7 +240,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
         jPanel40Layout.setHorizontalGroup(
             jPanel40Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel40Layout.createSequentialGroup()
-                .addComponent(jButton1)
+                .addComponent(buttonTambahPenerimaanPrangko)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(comboCariPenerimaanPrangko, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -256,7 +256,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
                     .addComponent(buttonCariPenerimaanPrangko)
                     .addComponent(fieldCariPenerimaanPrangko, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboCariPenerimaanPrangko, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(buttonTambahPenerimaanPrangko, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane13, javax.swing.GroupLayout.DEFAULT_SIZE, 516, Short.MAX_VALUE))
         );
@@ -274,7 +274,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
             .addComponent(jPanel40, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jTabbedPane5.addTab("Prangko", Prangko3);
+        buttonTambahPenerimaanDokumenFilateli.addTab("Prangko", Prangko3);
 
         MS_SS3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -330,10 +330,10 @@ public class PanelPenerimaan extends javax.swing.JPanel {
             }
         });
 
-        jButton2.setText("Tambah Penerimaan");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        buttonTambahPenerimaanMSSS.setText("Tambah Penerimaan");
+        buttonTambahPenerimaanMSSS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                buttonTambahPenerimaanMSSSActionPerformed(evt);
             }
         });
 
@@ -343,7 +343,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
             jPanel41Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane14, javax.swing.GroupLayout.DEFAULT_SIZE, 1224, Short.MAX_VALUE)
             .addGroup(jPanel41Layout.createSequentialGroup()
-                .addComponent(jButton2)
+                .addComponent(buttonTambahPenerimaanMSSS)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(comboCariPenerimaanMS_SS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -358,7 +358,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
                     .addComponent(buttonCariPenerimaanMS_SS)
                     .addComponent(fieldCariPenerimaanMS_SS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboCariPenerimaanMS_SS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(buttonTambahPenerimaanMSSS, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane14))
         );
@@ -380,7 +380,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
             .addComponent(jPanel41, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jTabbedPane5.addTab("MS & SS", MS_SS3);
+        buttonTambahPenerimaanDokumenFilateli.addTab("MS & SS", MS_SS3);
 
         SHP_SHPSS3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -423,10 +423,10 @@ public class PanelPenerimaan extends javax.swing.JPanel {
             }
         });
 
-        jButton3.setText("Tambah Penerimaan");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        buttonTambahPenerimaanSHPSS.setText("Tambah Penerimaan");
+        buttonTambahPenerimaanSHPSS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                buttonTambahPenerimaanSHPSSActionPerformed(evt);
             }
         });
 
@@ -436,7 +436,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
             jPanel42Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane15, javax.swing.GroupLayout.DEFAULT_SIZE, 1224, Short.MAX_VALUE)
             .addGroup(jPanel42Layout.createSequentialGroup()
-                .addComponent(jButton3)
+                .addComponent(buttonTambahPenerimaanSHPSS)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(comboCariPenerimaanSHP_SHPSS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -451,7 +451,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
                     .addComponent(buttonCariPenerimaanSHP_SHPSS)
                     .addComponent(fieldCariPenerimaanSHP_SHPSS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboCariPenerimaanSHP_SHPSS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(buttonTambahPenerimaanSHPSS, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane15, javax.swing.GroupLayout.DEFAULT_SIZE, 517, Short.MAX_VALUE))
         );
@@ -469,7 +469,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
             .addComponent(jPanel42, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jTabbedPane5.addTab("SHP & SHPSS", SHP_SHPSS3);
+        buttonTambahPenerimaanDokumenFilateli.addTab("SHP & SHPSS", SHP_SHPSS3);
 
         Kemasan3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -512,10 +512,10 @@ public class PanelPenerimaan extends javax.swing.JPanel {
             }
         });
 
-        jButton4.setText("Tambah Penerimaan");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        buttonTambahPenerimaanKemasan.setText("Tambah Penerimaan");
+        buttonTambahPenerimaanKemasan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                buttonTambahPenerimaanKemasanActionPerformed(evt);
             }
         });
 
@@ -525,7 +525,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
             jPanel43Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane16, javax.swing.GroupLayout.DEFAULT_SIZE, 1224, Short.MAX_VALUE)
             .addGroup(jPanel43Layout.createSequentialGroup()
-                .addComponent(jButton4)
+                .addComponent(buttonTambahPenerimaanKemasan)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(comboCariPenerimaanKemasan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -540,7 +540,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
                     .addComponent(buttonCariPenerimaanKemasan)
                     .addComponent(fieldCariPenerimaanKemasan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboCariPenerimaanKemasan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(buttonTambahPenerimaanKemasan, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane16, javax.swing.GroupLayout.DEFAULT_SIZE, 517, Short.MAX_VALUE))
         );
@@ -558,7 +558,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
             .addComponent(jPanel43, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jTabbedPane5.addTab("Kemasan", Kemasan3);
+        buttonTambahPenerimaanDokumenFilateli.addTab("Kemasan", Kemasan3);
 
         jPanel44.setBorder(javax.swing.BorderFactory.createTitledBorder("Tabel Data Produk"));
 
@@ -595,10 +595,10 @@ public class PanelPenerimaan extends javax.swing.JPanel {
             }
         });
 
-        jButton5.setText("Tambah Penerimaan");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        buttonTambahPenerimaanMerchandise.setText("Tambah Penerimaan");
+        buttonTambahPenerimaanMerchandise.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                buttonTambahPenerimaanMerchandiseActionPerformed(evt);
             }
         });
 
@@ -608,7 +608,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
             jPanel44Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane17, javax.swing.GroupLayout.DEFAULT_SIZE, 1224, Short.MAX_VALUE)
             .addGroup(jPanel44Layout.createSequentialGroup()
-                .addComponent(jButton5)
+                .addComponent(buttonTambahPenerimaanMerchandise)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(comboCariPenerimaanMerchandise, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -623,7 +623,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
                     .addComponent(buttonCariPenerimaanMerchandise)
                     .addComponent(fieldCariPenerimaanMerchandise, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboCariPenerimaanMerchandise, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(buttonTambahPenerimaanMerchandise, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane17, javax.swing.GroupLayout.DEFAULT_SIZE, 515, Short.MAX_VALUE))
         );
@@ -641,7 +641,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
             .addComponent(jPanel44, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jTabbedPane5.addTab("Merchandise", Merchandise3);
+        buttonTambahPenerimaanDokumenFilateli.addTab("Merchandise", Merchandise3);
 
         jPanel45.setBorder(javax.swing.BorderFactory.createTitledBorder("Tabel Data Produk"));
 
@@ -678,10 +678,10 @@ public class PanelPenerimaan extends javax.swing.JPanel {
             }
         });
 
-        jButton6.setText("Tambah Penerimaan");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        buttonTambahPenerimaanPrisma.setText("Tambah Penerimaan");
+        buttonTambahPenerimaanPrisma.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                buttonTambahPenerimaanPrismaActionPerformed(evt);
             }
         });
 
@@ -691,7 +691,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
             jPanel45Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane18, javax.swing.GroupLayout.DEFAULT_SIZE, 1224, Short.MAX_VALUE)
             .addGroup(jPanel45Layout.createSequentialGroup()
-                .addComponent(jButton6)
+                .addComponent(buttonTambahPenerimaanPrisma)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(comboCariPenerimaanPrisma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -706,7 +706,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
                     .addComponent(buttonCariPenerimaanPrisma)
                     .addComponent(fieldCariPenerimaanPrisma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboCariPenerimaanPrisma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(buttonTambahPenerimaanPrisma, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane18, javax.swing.GroupLayout.DEFAULT_SIZE, 516, Short.MAX_VALUE))
         );
@@ -724,7 +724,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
             .addComponent(jPanel45, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jTabbedPane5.addTab("Prisma", Prisma3);
+        buttonTambahPenerimaanDokumenFilateli.addTab("Prisma", Prisma3);
 
         jPanel46.setBorder(javax.swing.BorderFactory.createTitledBorder("Tabel Data Produk"));
 
@@ -807,17 +807,17 @@ public class PanelPenerimaan extends javax.swing.JPanel {
             .addComponent(jPanel46, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jTabbedPane5.addTab("Dokumen Filateli", DokumenFilateli3);
+        buttonTambahPenerimaanDokumenFilateli.addTab("Dokumen Filateli", DokumenFilateli3);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane5)
+            .addComponent(buttonTambahPenerimaanDokumenFilateli)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane5)
+            .addComponent(buttonTambahPenerimaanDokumenFilateli)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -833,9 +833,9 @@ public class PanelPenerimaan extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_Kemasan3MouseClicked
 
-    private void jTabbedPane5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane5MouseClicked
+    private void buttonTambahPenerimaanDokumenFilateliMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonTambahPenerimaanDokumenFilateliMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTabbedPane5MouseClicked
+    }//GEN-LAST:event_buttonTambahPenerimaanDokumenFilateliMouseClicked
 
     private void getDataPenerimaan(){
         dao = new PenerimaanDAOImpl();
@@ -1029,13 +1029,13 @@ public class PanelPenerimaan extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_Prangko3MouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void buttonTambahPenerimaanPrangkoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTambahPenerimaanPrangkoActionPerformed
         // TODO add your handling code here:
         FormHome formHome = new FormHome();
         boolean rootPaneCheckingEnabled = true;
         new DialogTambahPenerimaan(formHome, rootPaneCheckingEnabled).setVisible(true);
         getDataPenerimaan();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_buttonTambahPenerimaanPrangkoActionPerformed
 
     private void buttonCariPenerimaanPrangkoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariPenerimaanPrangkoActionPerformed
         // TODO add your handling code here:
@@ -1099,9 +1099,9 @@ public class PanelPenerimaan extends javax.swing.JPanel {
         tablePenerimaanMS_SS.setModel(penerimaanTableModel);
     }//GEN-LAST:event_buttonCariPenerimaanMS_SSActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void buttonTambahPenerimaanMSSSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTambahPenerimaanMSSSActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_buttonTambahPenerimaanMSSSActionPerformed
 
     private void tablePenerimaanSHP_SHPSSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePenerimaanSHP_SHPSSMouseClicked
         // TODO add your handling code here:
@@ -1131,9 +1131,9 @@ public class PanelPenerimaan extends javax.swing.JPanel {
         tablePenerimaanSHP_SHPSS.setModel(penerimaanTableModel);
     }//GEN-LAST:event_buttonCariPenerimaanSHP_SHPSSActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void buttonTambahPenerimaanSHPSSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTambahPenerimaanSHPSSActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_buttonTambahPenerimaanSHPSSActionPerformed
 
     private void tablePenerimaanKemasanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePenerimaanKemasanMouseClicked
         // TODO add your handling code here:
@@ -1163,9 +1163,9 @@ public class PanelPenerimaan extends javax.swing.JPanel {
         tablePenerimaanKemasan.setModel(penerimaanTableModel);
     }//GEN-LAST:event_buttonCariPenerimaanKemasanActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void buttonTambahPenerimaanKemasanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTambahPenerimaanKemasanActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_buttonTambahPenerimaanKemasanActionPerformed
 
     private void tablePenerimaanMerchandiseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePenerimaanMerchandiseMouseClicked
         // TODO add your handling code here:
@@ -1195,9 +1195,9 @@ public class PanelPenerimaan extends javax.swing.JPanel {
         tablePenerimaanMerchandise.setModel(penerimaanTableModel);
     }//GEN-LAST:event_buttonCariPenerimaanMerchandiseActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void buttonTambahPenerimaanMerchandiseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTambahPenerimaanMerchandiseActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_buttonTambahPenerimaanMerchandiseActionPerformed
 
     private void tablePenerimaanPrismaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePenerimaanPrismaMouseClicked
         // TODO add your handling code here:
@@ -1227,9 +1227,9 @@ public class PanelPenerimaan extends javax.swing.JPanel {
         tablePenerimaanPrisma.setModel(penerimaanTableModel);
     }//GEN-LAST:event_buttonCariPenerimaanPrismaActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void buttonTambahPenerimaanPrismaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTambahPenerimaanPrismaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_buttonTambahPenerimaanPrismaActionPerformed
 
     private void tablePenerimaanDokumenFilateliMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePenerimaanDokumenFilateliMouseClicked
         // TODO add your handling code here:
@@ -1278,6 +1278,13 @@ public class PanelPenerimaan extends javax.swing.JPanel {
     private javax.swing.JButton buttonCariPenerimaanPrangko;
     private javax.swing.JButton buttonCariPenerimaanPrisma;
     private javax.swing.JButton buttonCariPenerimaanSHP_SHPSS;
+    private javax.swing.JTabbedPane buttonTambahPenerimaanDokumenFilateli;
+    private javax.swing.JButton buttonTambahPenerimaanKemasan;
+    private javax.swing.JButton buttonTambahPenerimaanMSSS;
+    private javax.swing.JButton buttonTambahPenerimaanMerchandise;
+    private javax.swing.JButton buttonTambahPenerimaanPrangko;
+    private javax.swing.JButton buttonTambahPenerimaanPrisma;
+    private javax.swing.JButton buttonTambahPenerimaanSHPSS;
     private javax.swing.JComboBox<String> comboCariPenerimaanDF;
     private javax.swing.JComboBox<String> comboCariPenerimaanKemasan;
     private javax.swing.JComboBox<String> comboCariPenerimaanMS_SS;
@@ -1292,12 +1299,6 @@ public class PanelPenerimaan extends javax.swing.JPanel {
     private javax.swing.JTextField fieldCariPenerimaanPrangko;
     private javax.swing.JTextField fieldCariPenerimaanPrisma;
     private javax.swing.JTextField fieldCariPenerimaanSHP_SHPSS;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JDesktopPane jDesktopPane16;
     private javax.swing.JPanel jPanel40;
@@ -1314,7 +1315,6 @@ public class PanelPenerimaan extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane17;
     private javax.swing.JScrollPane jScrollPane18;
     private javax.swing.JScrollPane jScrollPane19;
-    private javax.swing.JTabbedPane jTabbedPane5;
     private javax.swing.JTable tablePenerimaanDokumenFilateli;
     private javax.swing.JTable tablePenerimaanKemasan;
     private javax.swing.JTable tablePenerimaanMS_SS;

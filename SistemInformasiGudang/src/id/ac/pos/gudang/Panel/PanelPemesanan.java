@@ -265,7 +265,7 @@ public class PanelPemesanan extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTabbedPane6 = new javax.swing.JTabbedPane();
+        tabPanneProduk = new javax.swing.JTabbedPane();
         Prangko4 = new javax.swing.JPanel();
         jPanel52 = new javax.swing.JPanel();
         jScrollPane17 = new javax.swing.JScrollPane();
@@ -323,9 +323,9 @@ public class PanelPemesanan extends javax.swing.JPanel {
         fieldCariPemesananDokumenFilateli = new javax.swing.JTextField();
         buttonCariPemesananDokumenFilateli = new javax.swing.JButton();
 
-        jTabbedPane6.addMouseListener(new java.awt.event.MouseAdapter() {
+        tabPanneProduk.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTabbedPane6MouseClicked(evt);
+                tabPanneProdukMouseClicked(evt);
             }
         });
 
@@ -348,11 +348,6 @@ public class PanelPemesanan extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tablePemesananPrangko.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tablePemesananPrangkoMouseClicked(evt);
-            }
-        });
         jScrollPane17.setViewportView(tablePemesananPrangko);
 
         buttonCariPemesananPrangko.setText("Cari");
@@ -415,7 +410,7 @@ public class PanelPemesanan extends javax.swing.JPanel {
             .addComponent(jPanel52, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jTabbedPane6.addTab("Prangko", Prangko4);
+        tabPanneProduk.addTab("Prangko", Prangko4);
 
         MS_SS4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -436,11 +431,6 @@ public class PanelPemesanan extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tablePemesananMS_SS.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tablePemesananMS_SSMouseClicked(evt);
-            }
-        });
         jScrollPane18.setViewportView(tablePemesananMS_SS);
 
         ButtonTambahPemesananMSSS.setText("Tambah Pemesanan");
@@ -503,7 +493,7 @@ public class PanelPemesanan extends javax.swing.JPanel {
             .addComponent(jPanel54, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jTabbedPane6.addTab("MS & SS", MS_SS4);
+        tabPanneProduk.addTab("MS & SS", MS_SS4);
 
         SHP_SHPSS4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -524,11 +514,6 @@ public class PanelPemesanan extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tablePemesananSHP_SHPSS.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tablePemesananSHP_SHPSSMouseClicked(evt);
-            }
-        });
         jScrollPane23.setViewportView(tablePemesananSHP_SHPSS);
 
         ButtonTambahPemesananSHPSS.setText("Tambah Pemesanan");
@@ -591,7 +576,7 @@ public class PanelPemesanan extends javax.swing.JPanel {
             .addComponent(jPanel59, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jTabbedPane6.addTab("SHP & SHPSS", SHP_SHPSS4);
+        tabPanneProduk.addTab("SHP & SHPSS", SHP_SHPSS4);
 
         Kemasan4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -612,11 +597,6 @@ public class PanelPemesanan extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tablePemesananKemasan.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tablePemesananKemasanMouseClicked(evt);
-            }
-        });
         jScrollPane19.setViewportView(tablePemesananKemasan);
 
         ButtonTambahPemesananKemasan.setText("Tambah Pemesanan");
@@ -679,7 +659,7 @@ public class PanelPemesanan extends javax.swing.JPanel {
             .addComponent(jPanel55, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jTabbedPane6.addTab("Kemasan", Kemasan4);
+        tabPanneProduk.addTab("Kemasan", Kemasan4);
 
         jPanel56.setBorder(javax.swing.BorderFactory.createTitledBorder("Tabel Data Pemesanan"));
 
@@ -694,11 +674,6 @@ public class PanelPemesanan extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tablePemesananMerchandise.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tablePemesananMerchandiseMouseClicked(evt);
-            }
-        });
         jScrollPane20.setViewportView(tablePemesananMerchandise);
 
         ButtonTambahPemesananMerchandise.setText("Tambah Pemesanan");
@@ -761,7 +736,7 @@ public class PanelPemesanan extends javax.swing.JPanel {
             .addComponent(jPanel56, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jTabbedPane6.addTab("Merchandise", Merchandise4);
+        tabPanneProduk.addTab("Merchandise", Merchandise4);
 
         jPanel57.setBorder(javax.swing.BorderFactory.createTitledBorder("Tabel Data Pemesanan"));
 
@@ -776,11 +751,6 @@ public class PanelPemesanan extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tablePemesananPrisma.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tablePemesananPrismaMouseClicked(evt);
-            }
-        });
         jScrollPane21.setViewportView(tablePemesananPrisma);
 
         ButtonTambahPemesananPrisma.setText("Tambah Pemesanan");
@@ -843,7 +813,7 @@ public class PanelPemesanan extends javax.swing.JPanel {
             .addComponent(jPanel57, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jTabbedPane6.addTab("Prisma", Prisma4);
+        tabPanneProduk.addTab("Prisma", Prisma4);
 
         jPanel58.setBorder(javax.swing.BorderFactory.createTitledBorder("Tabel Data Pemesanan"));
 
@@ -858,11 +828,6 @@ public class PanelPemesanan extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tablePemesananDokumenFilateli.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tablePemesananDokumenFilateliMouseClicked(evt);
-            }
-        });
         jScrollPane22.setViewportView(tablePemesananDokumenFilateli);
 
         ButtonTambahPemesananDokumenFilateli.setText("Tambah Pemesanan");
@@ -925,17 +890,17 @@ public class PanelPemesanan extends javax.swing.JPanel {
             .addComponent(jPanel58, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jTabbedPane6.addTab("Dokumen Filateli", DokumenFilateli4);
+        tabPanneProduk.addTab("Dokumen Filateli", DokumenFilateli4);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane6)
+            .addComponent(tabPanneProduk)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane6)
+            .addComponent(tabPanneProduk)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -955,13 +920,9 @@ public class PanelPemesanan extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_SHP_SHPSS4MouseClicked
 
-    private void jTabbedPane6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane6MouseClicked
+    private void tabPanneProdukMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabPanneProdukMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTabbedPane6MouseClicked
-
-    private void tablePemesananPrangkoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePemesananPrangkoMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tablePemesananPrangkoMouseClicked
+    }//GEN-LAST:event_tabPanneProdukMouseClicked
 
     private void buttonCariPemesananPrangkoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariPemesananPrangkoActionPerformed
         // TODO add your handling code here:
@@ -995,30 +956,6 @@ public class PanelPemesanan extends javax.swing.JPanel {
         new DialogTambahPemesanan(formHome, rootPaneCheckingEnabled).setVisible(true);
         getDataPemesanan();
     }//GEN-LAST:event_ButtonTambahPemesananPrangkoActionPerformed
-
-    private void tablePemesananMS_SSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePemesananMS_SSMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tablePemesananMS_SSMouseClicked
-
-    private void tablePemesananKemasanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePemesananKemasanMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tablePemesananKemasanMouseClicked
-
-    private void tablePemesananMerchandiseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePemesananMerchandiseMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tablePemesananMerchandiseMouseClicked
-
-    private void tablePemesananPrismaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePemesananPrismaMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tablePemesananPrismaMouseClicked
-
-    private void tablePemesananDokumenFilateliMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePemesananDokumenFilateliMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tablePemesananDokumenFilateliMouseClicked
-
-    private void tablePemesananSHP_SHPSSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePemesananSHP_SHPSSMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tablePemesananSHP_SHPSSMouseClicked
 
     private void ButtonTambahPemesananMSSSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonTambahPemesananMSSSActionPerformed
         // TODO add your handling code here:
@@ -1251,7 +1188,7 @@ public class PanelPemesanan extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane21;
     private javax.swing.JScrollPane jScrollPane22;
     private javax.swing.JScrollPane jScrollPane23;
-    private javax.swing.JTabbedPane jTabbedPane6;
+    private javax.swing.JTabbedPane tabPanneProduk;
     private javax.swing.JTable tablePemesananDokumenFilateli;
     private javax.swing.JTable tablePemesananKemasan;
     private javax.swing.JTable tablePemesananMS_SS;

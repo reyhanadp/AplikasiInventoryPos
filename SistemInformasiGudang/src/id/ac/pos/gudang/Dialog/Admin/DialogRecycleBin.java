@@ -9,11 +9,13 @@ import id.ac.pos.gudang.Form.FormHome;
 import id.ac.pos.gudang.dao.ProdukDAO;
 import id.ac.pos.gudang.daoimpl.ProdukDAOImpl;
 import id.ac.pos.gudang.entity.Produk;
+import id.ac.pos.gudang.tablemodel.ProdukTM;
 import id.ac.pos.gudang.tablemodel.RecycleBinTM;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -24,7 +26,8 @@ public class DialogRecycleBin extends javax.swing.JDialog {
     private Produk produk;
     private ProdukDAO dao;
     private ArrayList<Produk> arrayProduk;
-
+    TableRowSorter sorter;
+    
     /**
      * Creates new form DialogRecycleBin
      */
@@ -397,13 +400,7 @@ public class DialogRecycleBin extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void refresh() {
-        getDataPrangkoDeleted();
-        getDataMSSSDeleted();
-        getDataSHPSHPSSDeleted();
-        getDataKemasanDeleted();
-        getDataMerchandiseDeleted();
-        getDataPrismaDeleted();
-        getDataDokumenFilateliDeleted();
+        getDataProdukDeleted();
     }
 
     private void buttonRestoreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRestoreActionPerformed
@@ -513,74 +510,158 @@ public class DialogRecycleBin extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_jTabbedPane1MouseClicked
 
-    private void getDataPrangkoDeleted() {
+    public void getDataProdukDeleted() {
         dao = new ProdukDAOImpl();
-        arrayProduk = dao.getProdukPrangkoDeleted();
+        ArrayList<Produk> arrayProdukPrangko = new ArrayList<>();
+        ArrayList<Produk> arrayProdukMSSS = new ArrayList<>();
+        ArrayList<Produk> arrayProdukSHPSS = new ArrayList<>();
+        ArrayList<Produk> arrayProdukKemasan = new ArrayList<>();
+        ArrayList<Produk> arrayProdukMerchandise = new ArrayList<>();
+        ArrayList<Produk> arrayProdukPrisma = new ArrayList<>();
+        ArrayList<Produk> arrayProdukDokumenFilateli = new ArrayList<>();
+        
+        arrayProduk = dao.getProdukDeleted();
+        for (int i = 0; i < arrayProduk.size(); i++){     
+            String kode_produk = arrayProduk.get(i).getIdProduk();
+            String jenis_produk = kode_produk.substring(0,2);
+            
+            if(jenis_produk.compareTo("PR")==0){
+                Produk pr = new Produk();
+                pr.setIdProduk(arrayProduk.get(i).getIdProduk());
+                pr.setNamaProduk(arrayProduk.get(i).getNamaProduk());
+                pr.setNominal(arrayProduk.get(i).getNominal());
+                pr.setBiayaCetak(arrayProduk.get(i).getBiayaCetak());
+                pr.setStok(arrayProduk.get(i).getStok());
+                pr.setTahun(arrayProduk.get(i).getTahun());
+                pr.setIdJenisProduk(arrayProduk.get(i).getIdJenisProduk());
+                pr.setNik(arrayProduk.get(i).getNik());
+                pr.setStatus(arrayProduk.get(i).getStatus());
+                
+                arrayProdukPrangko.add(pr);
+            } else if (jenis_produk.compareTo("MS")==0 || jenis_produk.compareTo("SS")==0){
+                Produk pr = new Produk();
+                pr.setIdProduk(arrayProduk.get(i).getIdProduk());
+                pr.setNamaProduk(arrayProduk.get(i).getNamaProduk());
+                pr.setNominal(arrayProduk.get(i).getNominal());
+                pr.setBiayaCetak(arrayProduk.get(i).getBiayaCetak());
+                pr.setStok(arrayProduk.get(i).getStok());
+                pr.setTahun(arrayProduk.get(i).getTahun());
+                pr.setIdJenisProduk(arrayProduk.get(i).getIdJenisProduk());
+                pr.setNik(arrayProduk.get(i).getNik());
+                pr.setStatus(arrayProduk.get(i).getStatus());
+                
+                arrayProdukMSSS.add(pr);
+            } else if (jenis_produk.compareTo("PS")==0){
+                Produk pr = new Produk();
+                pr.setIdProduk(arrayProduk.get(i).getIdProduk());
+                pr.setNamaProduk(arrayProduk.get(i).getNamaProduk());
+                pr.setNominal(arrayProduk.get(i).getNominal());
+                pr.setBiayaCetak(arrayProduk.get(i).getBiayaCetak());
+                pr.setStok(arrayProduk.get(i).getStok());
+                pr.setTahun(arrayProduk.get(i).getTahun());
+                pr.setIdJenisProduk(arrayProduk.get(i).getIdJenisProduk());
+                pr.setNik(arrayProduk.get(i).getNik());
+                pr.setStatus(arrayProduk.get(i).getStatus());
+                
+                arrayProdukPrisma.add(pr);
+            } else if (jenis_produk.compareTo("SH")==0){
+                Produk pr = new Produk();
+                pr.setIdProduk(arrayProduk.get(i).getIdProduk());
+                pr.setNamaProduk(arrayProduk.get(i).getNamaProduk());
+                pr.setNominal(arrayProduk.get(i).getNominal());
+                pr.setBiayaCetak(arrayProduk.get(i).getBiayaCetak());
+                pr.setStok(arrayProduk.get(i).getStok());
+                pr.setTahun(arrayProduk.get(i).getTahun());
+                pr.setIdJenisProduk(arrayProduk.get(i).getIdJenisProduk());
+                pr.setNik(arrayProduk.get(i).getNik());
+                pr.setStatus(arrayProduk.get(i).getStatus());
+                
+                arrayProdukSHPSS.add(pr);
+            }else if (jenis_produk.compareTo("KM")==0){
+                Produk pr = new Produk();
+                pr.setIdProduk(arrayProduk.get(i).getIdProduk());
+                pr.setNamaProduk(arrayProduk.get(i).getNamaProduk());
+                pr.setNominal(arrayProduk.get(i).getNominal());
+                pr.setBiayaCetak(arrayProduk.get(i).getBiayaCetak());
+                pr.setStok(arrayProduk.get(i).getStok());
+                pr.setTahun(arrayProduk.get(i).getTahun());
+                pr.setIdJenisProduk(arrayProduk.get(i).getIdJenisProduk());
+                pr.setNik(arrayProduk.get(i).getNik());
+                pr.setStatus(arrayProduk.get(i).getStatus());
+                
+                arrayProdukKemasan.add(pr);
+            }else if (jenis_produk.compareTo("MC")==0){
+                Produk pr = new Produk();
+                pr.setIdProduk(arrayProduk.get(i).getIdProduk());
+                pr.setNamaProduk(arrayProduk.get(i).getNamaProduk());
+                pr.setNominal(arrayProduk.get(i).getNominal());
+                pr.setBiayaCetak(arrayProduk.get(i).getBiayaCetak());
+                pr.setStok(arrayProduk.get(i).getStok());
+                pr.setTahun(arrayProduk.get(i).getTahun());
+                pr.setIdJenisProduk(arrayProduk.get(i).getIdJenisProduk());
+                pr.setNik(arrayProduk.get(i).getNik());
+                pr.setStatus(arrayProduk.get(i).getStatus());
+                
+                arrayProdukMerchandise.add(pr);
+            }else if (jenis_produk.compareTo("DF")==0){
+                Produk pr = new Produk();
+                pr.setIdProduk(arrayProduk.get(i).getIdProduk());
+                pr.setNamaProduk(arrayProduk.get(i).getNamaProduk());
+                pr.setNominal(arrayProduk.get(i).getNominal());
+                pr.setBiayaCetak(arrayProduk.get(i).getBiayaCetak());
+                pr.setStok(arrayProduk.get(i).getStok());
+                pr.setTahun(arrayProduk.get(i).getTahun());
+                pr.setIdJenisProduk(arrayProduk.get(i).getIdJenisProduk());
+                pr.setNik(arrayProduk.get(i).getNik());
+                pr.setStatus(arrayProduk.get(i).getStatus());
+                
+                arrayProdukDokumenFilateli.add(pr);
+            }
+        }
+        
+        ProdukTM produkPrangkoTableModel = new ProdukTM();
+        produkPrangkoTableModel.setDataProduk(arrayProdukPrangko);
+        sorter = new TableRowSorter(produkPrangkoTableModel);
+        tableRecycleBinPrangko.setRowSorter(sorter);
+        tableRecycleBinPrangko.setModel(produkPrangkoTableModel);
+        
+        ProdukTM produkMS_SSTableModel = new ProdukTM();
+        produkMS_SSTableModel.setDataProduk(arrayProdukMSSS);
+        sorter = new TableRowSorter(produkMS_SSTableModel);
+        tableRecycleBinMSSS.setRowSorter(sorter);
+        tableRecycleBinMSSS.setModel(produkMS_SSTableModel);
+        
+        ProdukTM produkSHP_SHPSSTableModel = new ProdukTM();
+        produkSHP_SHPSSTableModel.setDataProduk(arrayProdukSHPSS);
+        sorter = new TableRowSorter(produkSHP_SHPSSTableModel);
+        tableRecycleBinSHPSHPSS.setRowSorter(sorter);
+        tableRecycleBinSHPSHPSS.setModel(produkSHP_SHPSSTableModel);
+    
+        ProdukTM produkKemasanTableModel = new ProdukTM();
+        produkKemasanTableModel.setDataProduk(arrayProdukKemasan);
+        sorter = new TableRowSorter(produkKemasanTableModel);
+        tableRecycleBinKemasan.setRowSorter(sorter);
+        tableRecycleBinKemasan.setModel(produkKemasanTableModel);
+    
+        
+        ProdukTM produkMerchandiseTableModel = new ProdukTM();
+        produkMerchandiseTableModel.setDataProduk(arrayProdukMerchandise);
+        sorter = new TableRowSorter(produkMerchandiseTableModel);
+        tableRecycleBinMerchandise.setRowSorter(sorter);
+        tableRecycleBinMerchandise.setModel(produkMerchandiseTableModel);
 
-        RecycleBinTM recycleBinTableModel = new RecycleBinTM();
-        recycleBinTableModel.setDataProduk(arrayProduk);
-
-        tableRecycleBinPrangko.setModel(recycleBinTableModel);
-    }
-
-    private void getDataMSSSDeleted() {
-        dao = new ProdukDAOImpl();
-        arrayProduk = dao.getProdukMSSSDeleted();
-
-        RecycleBinTM recycleBinTableModel = new RecycleBinTM();
-        recycleBinTableModel.setDataProduk(arrayProduk);
-
-        tableRecycleBinMSSS.setModel(recycleBinTableModel);
-    }
-
-    private void getDataSHPSHPSSDeleted() {
-        dao = new ProdukDAOImpl();
-        arrayProduk = dao.getProdukSHPSHPSSDeleted();
-
-        RecycleBinTM recycleBinTableModel = new RecycleBinTM();
-        recycleBinTableModel.setDataProduk(arrayProduk);
-
-        tableRecycleBinSHPSHPSS.setModel(recycleBinTableModel);
-    }
-
-    private void getDataKemasanDeleted() {
-        dao = new ProdukDAOImpl();
-        arrayProduk = dao.getProdukKemasanDeleted();
-
-        RecycleBinTM recycleBinTableModel = new RecycleBinTM();
-        recycleBinTableModel.setDataProduk(arrayProduk);
-
-        tableRecycleBinKemasan.setModel(recycleBinTableModel);
-    }
-
-    private void getDataMerchandiseDeleted() {
-        dao = new ProdukDAOImpl();
-        arrayProduk = dao.getProdukMerchandiseDeleted();
-
-        RecycleBinTM recycleBinTableModel = new RecycleBinTM();
-        recycleBinTableModel.setDataProduk(arrayProduk);
-
-        tableRecycleBinMerchandise.setModel(recycleBinTableModel);
-    }
-
-    private void getDataPrismaDeleted() {
-        dao = new ProdukDAOImpl();
-        arrayProduk = dao.getProdukPrismaDeleted();
-
-        RecycleBinTM recycleBinTableModel = new RecycleBinTM();
-        recycleBinTableModel.setDataProduk(arrayProduk);
-
-        tableRecycleBinPrisma.setModel(recycleBinTableModel);
-    }
-
-    private void getDataDokumenFilateliDeleted() {
-        dao = new ProdukDAOImpl();
-        arrayProduk = dao.getProdukDokumenFilateliDeleted();
-
-        RecycleBinTM recycleBinTableModel = new RecycleBinTM();
-        recycleBinTableModel.setDataProduk(arrayProduk);
-
-        tableRecycleBinDokumenFilateli.setModel(recycleBinTableModel);
+        ProdukTM produkPrismaTableModel = new ProdukTM();
+        produkPrismaTableModel.setDataProduk(arrayProdukPrisma);
+        sorter = new TableRowSorter(produkPrismaTableModel);
+        tableRecycleBinPrisma.setRowSorter(sorter);
+        tableRecycleBinPrisma.setModel(produkPrismaTableModel);
+   
+        ProdukTM produkDokumenFilateliTableModel = new ProdukTM();
+        produkDokumenFilateliTableModel.setDataProduk(arrayProdukDokumenFilateli);
+        sorter = new TableRowSorter(produkDokumenFilateliTableModel);
+        tableRecycleBinDokumenFilateli.setRowSorter(sorter);
+        tableRecycleBinDokumenFilateli.setModel(produkDokumenFilateliTableModel);
+    
     }
 
     /**

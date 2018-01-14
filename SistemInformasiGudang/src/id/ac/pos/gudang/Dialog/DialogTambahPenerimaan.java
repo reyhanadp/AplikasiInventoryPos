@@ -224,22 +224,9 @@ public class DialogTambahPenerimaan extends javax.swing.JDialog {
         jLabel6.setText("Jenis Produk");
 
         JenisProduk.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "- Pilih Jenis Produk -", "Prangko", "MS & SS", "SHP & SHPSS", "Kemasan", "Merchandise", "Prisma", "Dokumen Filateli" }));
-        JenisProduk.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                JenisProdukItemStateChanged(evt);
-            }
-        });
         JenisProduk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JenisProdukActionPerformed(evt);
-            }
-        });
-        JenisProduk.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                JenisProdukKeyPressed(evt);
-            }
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                JenisProdukKeyReleased(evt);
             }
         });
 
@@ -302,56 +289,21 @@ public class DialogTambahPenerimaan extends javax.swing.JDialog {
 
         jLabel44.setText("Id Pemesanan");
 
-        NamaProduk.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                NamaProdukMouseClicked(evt);
-            }
-        });
-        NamaProduk.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                NamaProdukItemStateChanged(evt);
-            }
-        });
         NamaProduk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 NamaProdukActionPerformed(evt);
             }
         });
-        NamaProduk.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                NamaProdukKeyReleased(evt);
-            }
-        });
 
-        Tahun.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                TahunItemStateChanged(evt);
-            }
-        });
         Tahun.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TahunActionPerformed(evt);
             }
         });
-        Tahun.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                TahunKeyReleased(evt);
-            }
-        });
 
-        Nominal.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                NominalItemStateChanged(evt);
-            }
-        });
         Nominal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 NominalActionPerformed(evt);
-            }
-        });
-        Nominal.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                NominalKeyReleased(evt);
             }
         });
 
@@ -752,11 +704,6 @@ public class DialogTambahPenerimaan extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jPanel37MouseClicked
 
-    private void JenisProdukItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_JenisProdukItemStateChanged
-        // TODO add your handling code here:
-       
-    }//GEN-LAST:event_JenisProdukItemStateChanged
-
     private void fieldIdMitraKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldIdMitraKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_fieldIdMitraKeyPressed
@@ -825,11 +772,6 @@ public class DialogTambahPenerimaan extends javax.swing.JDialog {
         
         
     }//GEN-LAST:event_JenisProdukActionPerformed
-
-    private void NamaProdukItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_NamaProdukItemStateChanged
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_NamaProdukItemStateChanged
 
     private void NamaProdukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NamaProdukActionPerformed
         // TODO add your handling code here:
@@ -952,17 +894,6 @@ public class DialogTambahPenerimaan extends javax.swing.JDialog {
         }
         
     }//GEN-LAST:event_NamaProdukActionPerformed
-
-    private void TahunItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_TahunItemStateChanged
-        // TODO add your handling code here:
-        
-        
-    }//GEN-LAST:event_TahunItemStateChanged
-
-    private void NominalItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_NominalItemStateChanged
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_NominalItemStateChanged
 
     private void fieldIdPemesananKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldIdPemesananKeyPressed
         // TODO add your handling code here:
@@ -1128,40 +1059,11 @@ public class DialogTambahPenerimaan extends javax.swing.JDialog {
         
     }//GEN-LAST:event_fieldNoOrderActionPerformed
 
-    private void JenisProdukKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JenisProdukKeyReleased
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_JenisProdukKeyReleased
-
-    private void JenisProdukKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JenisProdukKeyPressed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_JenisProdukKeyPressed
-
-    private void NamaProdukKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NamaProdukKeyReleased
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_NamaProdukKeyReleased
-
-    private void TahunKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TahunKeyReleased
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_TahunKeyReleased
-
-    private void NominalKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NominalKeyReleased
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_NominalKeyReleased
-
     private void fieldNoOrderKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldNoOrderKeyReleased
         // TODO add your handling code here:
         
         
     }//GEN-LAST:event_fieldNoOrderKeyReleased
-
-    private void NamaProdukMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NamaProdukMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_NamaProdukMouseClicked
 
     private void tambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tambahActionPerformed
         // TODO add your handling code here:
