@@ -44,6 +44,7 @@ public class DialogTambahPengiriman extends javax.swing.JDialog {
     Vector vectorPrisma = new Vector();
     Vector vectorDokumenFilateli = new Vector();
     Vector vectorRegional = new Vector();
+    private long limit;
 
     /**
      * Creates new form DialogTambahPengiriman
@@ -153,6 +154,9 @@ public class DialogTambahPengiriman extends javax.swing.JDialog {
         NoOrder.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 NoOrderKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                NoOrderKeyReleased(evt);
             }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 NoOrderKeyTyped(evt);
@@ -650,6 +654,7 @@ public class DialogTambahPengiriman extends javax.swing.JDialog {
                 || (karakter == KeyEvent.VK_BACK_SPACE)
                 || (karakter == KeyEvent.VK_DELETE)
                 || (karakter == KeyEvent.VK_ENTER)))) {
+            JOptionPane.showMessageDialog(null, "Hanya Boleh Angka !");
             evt.consume();
         }
     }//GEN-LAST:event_JumlahKirimKeyTyped
@@ -657,10 +662,14 @@ public class DialogTambahPengiriman extends javax.swing.JDialog {
     private void NoOrderKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NoOrderKeyTyped
         // TODO add your handling code here:
         char karakter = evt.getKeyChar();
+        
+        
         if (!(((karakter >= '0') && (karakter <= '9')
                 || (karakter == KeyEvent.VK_BACK_SPACE)
                 || (karakter == KeyEvent.VK_DELETE)
                 || (karakter == KeyEvent.VK_ENTER)))) {
+            JOptionPane.showMessageDialog(null, "Hanya Boleh Angka !");
+            NoOrder.requestFocus();
             evt.consume();
         }
     }//GEN-LAST:event_NoOrderKeyTyped
@@ -720,6 +729,13 @@ public class DialogTambahPengiriman extends javax.swing.JDialog {
                                     TanggalPengiriman.setEnabled(false);
                                     Regional.setEnabled(false);
                                     long bsu = jumlah_dikirim * nominal_string;
+                                    
+                                    //format bsu
+                                    int panjang_bsu = Long.toString(bsu).length();
+                                    int j=1;
+                                    while(0<j)
+                                    
+                                    
                                     if (tabel_pengiriman.getRowCount() == 0) {
                                         no = 1;
                                     } else {
@@ -914,6 +930,16 @@ public class DialogTambahPengiriman extends javax.swing.JDialog {
         // TODO add your handling code here:
         reset_simpan();
     }//GEN-LAST:event_batalActionPerformed
+
+    private void NoOrderKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NoOrderKeyReleased
+        // TODO add your handling code here:
+        if(NoOrder.getText().length() == 12){
+            TanggalPengiriman.requestFocus();
+            this.limit = Long.parseLong(NoOrder.getText());
+        }else if(NoOrder.getText().length() > 12){
+            NoOrder.setText(Long.toString(this.limit));
+        }
+    }//GEN-LAST:event_NoOrderKeyReleased
 
     /**
      * @param args the command line arguments

@@ -126,7 +126,7 @@ public class FormLogin extends javax.swing.JFrame {
             con = DatabaseConnectivity.getConnection();
 
             sql = "SELECT * FROM tb_user WHERE nik='" + fieldNik.getText()
-                    + "' AND password='" + fieldPassword.getText() + "'";
+                    + "' AND password='" + fieldPassword.getText() + "' AND status='0'";
 
             state = con.prepareStatement(sql);
             rs = state.executeQuery();

@@ -15,7 +15,6 @@ import id.ac.pos.gudang.entity.Produk;
 import id.ac.pos.gudang.entity.Regional;
 import id.ac.pos.gudang.tablemodel.PengirimanTM;
 import java.util.ArrayList;
-import java.util.Vector;
 import javax.swing.table.TableRowSorter;
 
 /**
@@ -31,13 +30,15 @@ public final class PanelPengiriman extends javax.swing.JPanel {
     ArrayList<Regional> arrayRegional;
     ArrayList<Produk> arrayProduk;
     TableRowSorter sorter;
+    private String jenis_produk;
 
     /**
      * Creates new form PanelPengiriman
      */
     public PanelPengiriman() {
         initComponents();
-        getDataPengirimanPrangko();
+        jenis_produk = "PR";
+        getDataPengiriman(jenis_produk);
         
         
         tabelPengirimanMSSS.setModel(new javax.swing.table.DefaultTableModel(new Object[][]{},
@@ -66,89 +67,39 @@ public final class PanelPengiriman extends javax.swing.JPanel {
                 }));
     }
 
-    public void getDataPengirimanPrangko() {
+    public void getDataPengiriman(String jenis_produk) {
         dao = new PengirimanDAOImpl();
-        String jenis_produk = "PR";
         ArrayList<Pengiriman> arrayPengiriman = dao.getPengiriman(jenis_produk);
 
         PengirimanTM pengirimanTM = new PengirimanTM();
         pengirimanTM.setDataPengiriman(arrayPengiriman);
         sorter = new TableRowSorter(pengirimanTM);
-        tabelPengirimanPrangko.setRowSorter(sorter);
-        tabelPengirimanPrangko.setModel(pengirimanTM);
+        if (jenis_produk.compareTo("PR") == 0) {
+            tabelPengirimanPrangko.setRowSorter(sorter);
+            tabelPengirimanPrangko.setModel(pengirimanTM);
+        }else if (jenis_produk.compareTo("MS") == 0){
+            tabelPengirimanMSSS.setRowSorter(sorter);
+            tabelPengirimanMSSS.setModel(pengirimanTM);
+        }else if (jenis_produk.compareTo("SHP") == 0){
+            tabelPengirimanSHPSS.setRowSorter(sorter);
+            tabelPengirimanSHPSS.setModel(pengirimanTM);
+        }else if (jenis_produk.compareTo("KM") == 0){
+            tabelPengirimanKemasan.setRowSorter(sorter);
+            tabelPengirimanKemasan.setModel(pengirimanTM);
+        }else if (jenis_produk.compareTo("MC") == 0){
+            tabelPengirimanMerchandise.setRowSorter(sorter);
+            tabelPengirimanMerchandise.setModel(pengirimanTM);
+        }else if (jenis_produk.compareTo("PS") == 0){
+            tabelPengirimanPrisma.setRowSorter(sorter);
+            tabelPengirimanPrisma.setModel(pengirimanTM);
+        }else if (jenis_produk.compareTo("DF") == 0){
+            tabelPengirimanDokumenFilateli.setRowSorter(sorter);
+            tabelPengirimanDokumenFilateli.setModel(pengirimanTM);
+        }
+        
     }
 
-    public void getDataPengirimanMSSS() {
-        dao = new PengirimanDAOImpl();
-        String jenis_produk = "MS";
-        ArrayList<Pengiriman> arrayPengiriman = dao.getPengiriman(jenis_produk);
-
-        PengirimanTM pengirimanTM = new PengirimanTM();
-        pengirimanTM.setDataPengiriman(arrayPengiriman);
-        sorter = new TableRowSorter(pengirimanTM);
-        tabelPengirimanMSSS.setRowSorter(sorter);
-        tabelPengirimanMSSS.setModel(pengirimanTM);
-    }
-
-    public void getDataPengirimanSHPSS() {
-        dao = new PengirimanDAOImpl();
-        String jenis_produk = "SHP";
-        ArrayList<Pengiriman> arrayPengiriman = dao.getPengiriman(jenis_produk);
-
-        PengirimanTM pengirimanTM = new PengirimanTM();
-        pengirimanTM.setDataPengiriman(arrayPengiriman);
-        sorter = new TableRowSorter(pengirimanTM);
-        tabelPengirimanSHPSS.setRowSorter(sorter);
-        tabelPengirimanSHPSS.setModel(pengirimanTM);
-    }
-
-    public void getDataPengirimanKemasan() {
-        dao = new PengirimanDAOImpl();
-        String jenis_produk = "KM";
-        ArrayList<Pengiriman> arrayPengiriman = dao.getPengiriman(jenis_produk);
-
-        PengirimanTM pengirimanTM = new PengirimanTM();
-        pengirimanTM.setDataPengiriman(arrayPengiriman);
-        sorter = new TableRowSorter(pengirimanTM);
-        tabelPengirimanKemasan.setRowSorter(sorter);
-        tabelPengirimanKemasan.setModel(pengirimanTM);
-    }
-
-    public void getDataPengirimanMerchandise() {
-        dao = new PengirimanDAOImpl();
-        String jenis_produk = "MC";
-        ArrayList<Pengiriman> arrayPengiriman = dao.getPengiriman(jenis_produk);
-
-        PengirimanTM pengirimanTM = new PengirimanTM();
-        pengirimanTM.setDataPengiriman(arrayPengiriman);
-        sorter = new TableRowSorter(pengirimanTM);
-        tabelPengirimanMerchandise.setRowSorter(sorter);
-        tabelPengirimanMerchandise.setModel(pengirimanTM);
-    }
-
-    public void getDataPengirimanPrisma() {
-        dao = new PengirimanDAOImpl();
-        String jenis_produk = "PS";
-        ArrayList<Pengiriman> arrayPengiriman = dao.getPengiriman(jenis_produk);
-
-        PengirimanTM pengirimanTM = new PengirimanTM();
-        pengirimanTM.setDataPengiriman(arrayPengiriman);
-        sorter = new TableRowSorter(pengirimanTM);
-        tabelPengirimanPrisma.setRowSorter(sorter);
-        tabelPengirimanPrisma.setModel(pengirimanTM);
-    }
-
-    public void getDataPengirimanDokumenFilateli() {
-        dao = new PengirimanDAOImpl();
-        String jenis_produk = "DF";
-        ArrayList<Pengiriman> arrayPengiriman = dao.getPengiriman(jenis_produk);
-
-        PengirimanTM pengirimanTM = new PengirimanTM();
-        pengirimanTM.setDataPengiriman(arrayPengiriman);
-        sorter = new TableRowSorter(pengirimanTM);
-        tabelPengirimanDokumenFilateli.setRowSorter(sorter);
-        tabelPengirimanDokumenFilateli.setModel(pengirimanTM);
-    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -829,19 +780,26 @@ public final class PanelPengiriman extends javax.swing.JPanel {
     private void TabbedPanePengirimanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TabbedPanePengirimanMouseClicked
         // TODO add your handling code here:
         if (TabbedPanePengiriman.getSelectedIndex() == 0) {
-            getDataPengirimanPrangko();
+            jenis_produk = "PR";
+            getDataPengiriman(jenis_produk);
         } else if (TabbedPanePengiriman.getSelectedIndex() == 1) {
-            getDataPengirimanMSSS();
+            jenis_produk = "MS";
+            getDataPengiriman(jenis_produk);
         } else if (TabbedPanePengiriman.getSelectedIndex() == 2) {
-            getDataPengirimanSHPSS();
+            jenis_produk = "SHP";
+            getDataPengiriman(jenis_produk);
         } else if (TabbedPanePengiriman.getSelectedIndex() == 3) {
-            getDataPengirimanKemasan();
+            jenis_produk = "KM";
+            getDataPengiriman(jenis_produk);
         } else if (TabbedPanePengiriman.getSelectedIndex() == 4) {
-            getDataPengirimanMerchandise();
+            jenis_produk = "MC";
+            getDataPengiriman(jenis_produk);
         } else if (TabbedPanePengiriman.getSelectedIndex() == 5) {
-            getDataPengirimanPrisma();
+            jenis_produk = "PS";
+            getDataPengiriman(jenis_produk);
         } else if (TabbedPanePengiriman.getSelectedIndex() == 6) {
-            getDataPengirimanDokumenFilateli();
+            jenis_produk = "DF";
+            getDataPengiriman(jenis_produk);
         }
     }//GEN-LAST:event_TabbedPanePengirimanMouseClicked
 
@@ -950,8 +908,8 @@ public final class PanelPengiriman extends javax.swing.JPanel {
         FormHome formHome = new FormHome();
         DialogTambahPengiriman dialogTambahPengiriman = new DialogTambahPengiriman(formHome, true);
         dialogTambahPengiriman.setVisible(true);
-
-        getDataPengirimanPrangko();
+        jenis_produk = "PR";
+        getDataPengiriman(jenis_produk);
 
     }//GEN-LAST:event_TambahPrangkoActionPerformed
 
@@ -960,7 +918,8 @@ public final class PanelPengiriman extends javax.swing.JPanel {
         FormHome formHome = new FormHome();
         DialogTambahPengiriman dialogTambahPengiriman = new DialogTambahPengiriman(formHome, true);
         dialogTambahPengiriman.setVisible(true);
-        getDataPengirimanMSSS();
+        jenis_produk = "MS";
+        getDataPengiriman(jenis_produk);
 
     }//GEN-LAST:event_TambahMSSSActionPerformed
 
@@ -968,35 +927,40 @@ public final class PanelPengiriman extends javax.swing.JPanel {
         FormHome formHome = new FormHome();
         DialogTambahPengiriman dialogTambahPengiriman = new DialogTambahPengiriman(formHome, true);
         dialogTambahPengiriman.setVisible(true);
-        getDataPengirimanSHPSS();
+        jenis_produk = "SHP";
+        getDataPengiriman(jenis_produk);
     }//GEN-LAST:event_TambahSHPSSActionPerformed
 
     private void TambahKemasanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TambahKemasanActionPerformed
         FormHome formHome = new FormHome();
         DialogTambahPengiriman dialogTambahPengiriman = new DialogTambahPengiriman(formHome, true);
         dialogTambahPengiriman.setVisible(true);
-        getDataPengirimanKemasan();
+        jenis_produk = "KM";
+        getDataPengiriman(jenis_produk);
     }//GEN-LAST:event_TambahKemasanActionPerformed
 
     private void TambahMerchandiseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TambahMerchandiseActionPerformed
         FormHome formHome = new FormHome();
         DialogTambahPengiriman dialogTambahPengiriman = new DialogTambahPengiriman(formHome, true);
         dialogTambahPengiriman.setVisible(true);
-        getDataPengirimanMerchandise();
+        jenis_produk = "MC";
+        getDataPengiriman(jenis_produk);
     }//GEN-LAST:event_TambahMerchandiseActionPerformed
 
     private void TambahPrismaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TambahPrismaActionPerformed
         FormHome formHome = new FormHome();
         DialogTambahPengiriman dialogTambahPengiriman = new DialogTambahPengiriman(formHome, true);
         dialogTambahPengiriman.setVisible(true);
-        getDataPengirimanPrisma();
+        jenis_produk = "PS";
+        getDataPengiriman(jenis_produk);
     }//GEN-LAST:event_TambahPrismaActionPerformed
 
     private void TambahDokumenFilateliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TambahDokumenFilateliActionPerformed
         FormHome formHome = new FormHome();
         DialogTambahPengiriman dialogTambahPengiriman = new DialogTambahPengiriman(formHome, true);
         dialogTambahPengiriman.setVisible(true);
-        getDataPengirimanDokumenFilateli();
+        jenis_produk = "DF";
+        getDataPengiriman(jenis_produk);
     }//GEN-LAST:event_TambahDokumenFilateliActionPerformed
 
 

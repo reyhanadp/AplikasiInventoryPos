@@ -138,7 +138,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jButton6" alignment="0" max="32767" attributes="0"/>
+                  <Component id="buttonLaporan" alignment="0" max="32767" attributes="0"/>
                   <Component id="buttonPengembalian" alignment="0" pref="0" max="32767" attributes="0"/>
                   <Component id="buttonPengiriman" alignment="0" pref="0" max="32767" attributes="0"/>
                   <Component id="buttonPenerimaan" alignment="0" pref="0" max="32767" attributes="0"/>
@@ -159,7 +159,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="buttonPengembalian" min="-2" pref="96" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButton6" min="-2" pref="95" max="-2" attributes="0"/>
+                      <Component id="buttonLaporan" min="-2" pref="95" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -235,7 +235,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonPengirimanActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton6">
+            <Component class="javax.swing.JButton" name="buttonLaporan">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/img/icons/laporan1.png"/>
@@ -246,7 +246,7 @@
                 <Property name="verticalTextPosition" type="int" value="3"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton6ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonLaporanActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
@@ -545,9 +545,8 @@
                             <DimensionLayout dim="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jScrollPane1" pref="943" max="32767" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <Component id="buttonRefresh" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       <Component id="comboCariPrangko" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="fieldCariPrangko" min="-2" pref="101" max="-2" attributes="0"/>
@@ -563,10 +562,9 @@
                                           <Component id="buttonCariPrangko" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="fieldCariPrangko" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="comboCariPrangko" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="buttonRefresh" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jScrollPane1" pref="305" max="32767" attributes="0"/>
+                                      <Component id="jScrollPane1" pref="307" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -659,18 +657,6 @@
                               <AuxValues>
                                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                               </AuxValues>
-                            </Component>
-                            <Component class="javax.swing.JButton" name="buttonRefresh">
-                              <Properties>
-                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                                  <Image iconType="3" name="/img/icons/Refresh.png"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="Refresh"/>
-                                <Property name="iconTextGap" type="int" value="8"/>
-                              </Properties>
-                              <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonRefreshPrangkoActionPerformed"/>
-                              </Events>
                             </Component>
                           </SubComponents>
                         </Container>
@@ -942,9 +928,8 @@
                             <DimensionLayout dim="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jScrollPane2" pref="943" max="32767" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <Component id="buttonRefresh1" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       <Component id="comboMS_SS" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="fieldCariMS_SS" min="-2" pref="101" max="-2" attributes="0"/>
@@ -960,10 +945,9 @@
                                           <Component id="buttonCariMS_SS" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="fieldCariMS_SS" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="comboMS_SS" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="buttonRefresh1" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jScrollPane2" pref="305" max="32767" attributes="0"/>
+                                      <Component id="jScrollPane2" pref="307" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -1052,18 +1036,6 @@
                               <AuxValues>
                                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                               </AuxValues>
-                            </Component>
-                            <Component class="javax.swing.JButton" name="buttonRefresh1">
-                              <Properties>
-                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                                  <Image iconType="3" name="/img/icons/Refresh.png"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="Refresh"/>
-                                <Property name="iconTextGap" type="int" value="8"/>
-                              </Properties>
-                              <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonRefresh1PrangkoActionPerformed"/>
-                              </Events>
                             </Component>
                           </SubComponents>
                         </Container>
@@ -1334,9 +1306,8 @@
                             <DimensionLayout dim="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jScrollPane3" pref="943" max="32767" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <Component id="buttonRefresh2" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       <Component id="comboSHP_SHPSS" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="fieldCariSHP_SHPSS" min="-2" pref="101" max="-2" attributes="0"/>
@@ -1352,10 +1323,9 @@
                                           <Component id="buttonCariSHP_SHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="fieldCariSHP_SHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="comboSHP_SHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="buttonRefresh2" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jScrollPane3" pref="305" max="32767" attributes="0"/>
+                                      <Component id="jScrollPane3" pref="307" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -1443,18 +1413,6 @@
                               <AuxValues>
                                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                               </AuxValues>
-                            </Component>
-                            <Component class="javax.swing.JButton" name="buttonRefresh2">
-                              <Properties>
-                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                                  <Image iconType="3" name="/img/icons/Refresh.png"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="Refresh"/>
-                                <Property name="iconTextGap" type="int" value="8"/>
-                              </Properties>
-                              <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonRefresh2PrangkoActionPerformed"/>
-                              </Events>
                             </Component>
                           </SubComponents>
                         </Container>
@@ -1693,9 +1651,8 @@
                             <DimensionLayout dim="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jScrollPane4" pref="943" max="32767" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <Component id="buttonRefresh7" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       <Component id="comboJenisKemasan" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="fieldCariKemasan" min="-2" pref="101" max="-2" attributes="0"/>
@@ -1718,10 +1675,9 @@
                                           <Component id="buttonCariKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="fieldCariKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="comboJenisKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="buttonRefresh7" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="jScrollPane4" min="-2" pref="305" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jScrollPane4" pref="307" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
@@ -1825,18 +1781,6 @@
                                 <Property name="text" type="java.lang.String" value="Refresh"/>
                                 <Property name="iconTextGap" type="int" value="8"/>
                               </Properties>
-                            </Component>
-                            <Component class="javax.swing.JButton" name="buttonRefresh7">
-                              <Properties>
-                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                                  <Image iconType="3" name="/img/icons/Refresh.png"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="Refresh"/>
-                                <Property name="iconTextGap" type="int" value="8"/>
-                              </Properties>
-                              <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonRefresh7ActionPerformed"/>
-                              </Events>
                             </Component>
                           </SubComponents>
                         </Container>
@@ -2072,9 +2016,8 @@
                             <DimensionLayout dim="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jScrollPane5" pref="943" max="32767" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <Component id="buttonRefresh3" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       <Component id="comboMerchandise" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="fieldCariMerchandise" min="-2" pref="101" max="-2" attributes="0"/>
@@ -2090,10 +2033,9 @@
                                           <Component id="buttonCariMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="fieldCariMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="comboMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="buttonRefresh3" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jScrollPane5" pref="305" max="32767" attributes="0"/>
+                                      <Component id="jScrollPane5" pref="307" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -2181,18 +2123,6 @@
                               <AuxValues>
                                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                               </AuxValues>
-                            </Component>
-                            <Component class="javax.swing.JButton" name="buttonRefresh3">
-                              <Properties>
-                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                                  <Image iconType="3" name="/img/icons/Refresh.png"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="Refresh"/>
-                                <Property name="iconTextGap" type="int" value="8"/>
-                              </Properties>
-                              <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonRefresh3ActionPerformed"/>
-                              </Events>
                             </Component>
                           </SubComponents>
                         </Container>
@@ -2425,9 +2355,8 @@
                             <DimensionLayout dim="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jScrollPane6" pref="943" max="32767" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <Component id="buttonRefresh5" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       <Component id="comboPrisma" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="fieldCariPrisma" min="-2" pref="101" max="-2" attributes="0"/>
@@ -2443,10 +2372,9 @@
                                           <Component id="buttonCariPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="fieldCariPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="comboPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="buttonRefresh5" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jScrollPane6" pref="305" max="32767" attributes="0"/>
+                                      <Component id="jScrollPane6" pref="307" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -2534,18 +2462,6 @@
                               <AuxValues>
                                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                               </AuxValues>
-                            </Component>
-                            <Component class="javax.swing.JButton" name="buttonRefresh5">
-                              <Properties>
-                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                                  <Image iconType="3" name="/img/icons/Refresh.png"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="Refresh"/>
-                                <Property name="iconTextGap" type="int" value="8"/>
-                              </Properties>
-                              <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonRefresh5ActionPerformed"/>
-                              </Events>
                             </Component>
                           </SubComponents>
                         </Container>
@@ -2778,9 +2694,8 @@
                             <DimensionLayout dim="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jScrollPane7" pref="943" max="32767" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <Component id="buttonRefresh6" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       <Component id="comboDokumenFIlateli" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="fieldCariDokumenFIlateli" min="-2" pref="101" max="-2" attributes="0"/>
@@ -2796,10 +2711,9 @@
                                           <Component id="buttonCariDokumenFilateli" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="fieldCariDokumenFIlateli" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="comboDokumenFIlateli" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="buttonRefresh6" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jScrollPane7" pref="305" max="32767" attributes="0"/>
+                                      <Component id="jScrollPane7" pref="307" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -2887,18 +2801,6 @@
                               <AuxValues>
                                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                               </AuxValues>
-                            </Component>
-                            <Component class="javax.swing.JButton" name="buttonRefresh6">
-                              <Properties>
-                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                                  <Image iconType="3" name="/img/icons/Refresh.png"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="Refresh"/>
-                                <Property name="iconTextGap" type="int" value="8"/>
-                              </Properties>
-                              <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonRefresh6ActionPerformed"/>
-                              </Events>
                             </Component>
                           </SubComponents>
                         </Container>

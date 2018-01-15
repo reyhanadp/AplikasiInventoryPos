@@ -21,7 +21,10 @@ import java.awt.CardLayout;
 import javax.swing.JFrame;
 import javax.swing.*;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.TableRowSorter;
 
 /**
@@ -769,7 +772,7 @@ public final class FormHome extends javax.swing.JFrame {
         buttonPengembalian = new javax.swing.JButton();
         buttonPenerimaan = new javax.swing.JButton();
         buttonPengiriman = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        buttonLaporan = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         tabKelolaProduk = new javax.swing.JPanel();
         tabbedPaneProduk = new javax.swing.JTabbedPane();
@@ -795,7 +798,6 @@ public final class FormHome extends javax.swing.JFrame {
         buttonCariPrangko = new javax.swing.JButton();
         fieldCariPrangko = new javax.swing.JTextField();
         comboCariPrangko = new javax.swing.JComboBox<>();
-        buttonRefresh = new javax.swing.JButton();
         MS_SS = new javax.swing.JPanel();
         jPanel16 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
@@ -820,7 +822,6 @@ public final class FormHome extends javax.swing.JFrame {
         buttonCariMS_SS = new javax.swing.JButton();
         fieldCariMS_SS = new javax.swing.JTextField();
         comboMS_SS = new javax.swing.JComboBox<>();
-        buttonRefresh1 = new javax.swing.JButton();
         SHP_SHPSS = new javax.swing.JPanel();
         jPanel18 = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
@@ -845,7 +846,6 @@ public final class FormHome extends javax.swing.JFrame {
         buttonCariSHP_SHPSS = new javax.swing.JButton();
         fieldCariSHP_SHPSS = new javax.swing.JTextField();
         comboSHP_SHPSS = new javax.swing.JComboBox<>();
-        buttonRefresh2 = new javax.swing.JButton();
         Kemasan = new javax.swing.JPanel();
         jPanel20 = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
@@ -869,7 +869,6 @@ public final class FormHome extends javax.swing.JFrame {
         fieldCariKemasan = new javax.swing.JTextField();
         comboJenisKemasan = new javax.swing.JComboBox<>();
         buttonRefresh4 = new javax.swing.JButton();
-        buttonRefresh7 = new javax.swing.JButton();
         Merchandise = new javax.swing.JPanel();
         jPanel22 = new javax.swing.JPanel();
         jLabel27 = new javax.swing.JLabel();
@@ -892,7 +891,6 @@ public final class FormHome extends javax.swing.JFrame {
         buttonCariMerchandise = new javax.swing.JButton();
         fieldCariMerchandise = new javax.swing.JTextField();
         comboMerchandise = new javax.swing.JComboBox<>();
-        buttonRefresh3 = new javax.swing.JButton();
         Prisma = new javax.swing.JPanel();
         jPanel24 = new javax.swing.JPanel();
         jLabel32 = new javax.swing.JLabel();
@@ -915,7 +913,6 @@ public final class FormHome extends javax.swing.JFrame {
         buttonCariPrisma = new javax.swing.JButton();
         fieldCariPrisma = new javax.swing.JTextField();
         comboPrisma = new javax.swing.JComboBox<>();
-        buttonRefresh5 = new javax.swing.JButton();
         DokumenFilateli = new javax.swing.JPanel();
         jPanel26 = new javax.swing.JPanel();
         jLabel37 = new javax.swing.JLabel();
@@ -938,7 +935,6 @@ public final class FormHome extends javax.swing.JFrame {
         buttonCariDokumenFilateli = new javax.swing.JButton();
         fieldCariDokumenFIlateli = new javax.swing.JTextField();
         comboDokumenFIlateli = new javax.swing.JComboBox<>();
-        buttonRefresh6 = new javax.swing.JButton();
         buttonLogout = new javax.swing.JButton();
         SelamatDatang = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -1010,14 +1006,14 @@ public final class FormHome extends javax.swing.JFrame {
             }
         });
 
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/laporan1.png"))); // NOI18N
-        jButton6.setText("LAPORAN");
-        jButton6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton6.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        jButton6.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        buttonLaporan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/laporan1.png"))); // NOI18N
+        buttonLaporan.setText("LAPORAN");
+        buttonLaporan.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        buttonLaporan.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        buttonLaporan.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        buttonLaporan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                buttonLaporanActionPerformed(evt);
             }
         });
 
@@ -1025,7 +1021,7 @@ public final class FormHome extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(buttonLaporan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(buttonPengembalian, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
             .addComponent(buttonPengiriman, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
             .addComponent(buttonPenerimaan, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
@@ -1045,7 +1041,7 @@ public final class FormHome extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(buttonPengembalian, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(buttonLaporan, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
@@ -1289,23 +1285,13 @@ public final class FormHome extends javax.swing.JFrame {
             }
         });
 
-        buttonRefresh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/Refresh.png"))); // NOI18N
-        buttonRefresh.setText("Refresh");
-        buttonRefresh.setIconTextGap(8);
-        buttonRefresh.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonRefreshPrangkoActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
         jPanel14.setLayout(jPanel14Layout);
         jPanel14Layout.setHorizontalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 943, Short.MAX_VALUE)
             .addGroup(jPanel14Layout.createSequentialGroup()
-                .addComponent(buttonRefresh)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(comboCariPrangko, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(fieldCariPrangko, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1318,10 +1304,9 @@ public final class FormHome extends javax.swing.JFrame {
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonCariPrangko)
                     .addComponent(fieldCariPrangko, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboCariPrangko, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonRefresh))
+                    .addComponent(comboCariPrangko, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 307, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout PrangkoLayout = new javax.swing.GroupLayout(Prangko);
@@ -1570,23 +1555,13 @@ public final class FormHome extends javax.swing.JFrame {
 
         comboMS_SS.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
 
-        buttonRefresh1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/Refresh.png"))); // NOI18N
-        buttonRefresh1.setText("Refresh");
-        buttonRefresh1.setIconTextGap(8);
-        buttonRefresh1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonRefresh1PrangkoActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
         jPanel17.setLayout(jPanel17Layout);
         jPanel17Layout.setHorizontalGroup(
             jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 943, Short.MAX_VALUE)
             .addGroup(jPanel17Layout.createSequentialGroup()
-                .addComponent(buttonRefresh1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(comboMS_SS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(fieldCariMS_SS, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1599,10 +1574,9 @@ public final class FormHome extends javax.swing.JFrame {
                 .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonCariMS_SS)
                     .addComponent(fieldCariMS_SS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboMS_SS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonRefresh1))
+                    .addComponent(comboMS_SS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 307, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout MS_SSLayout = new javax.swing.GroupLayout(MS_SS);
@@ -1835,23 +1809,13 @@ public final class FormHome extends javax.swing.JFrame {
 
         comboSHP_SHPSS.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
 
-        buttonRefresh2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/Refresh.png"))); // NOI18N
-        buttonRefresh2.setText("Refresh");
-        buttonRefresh2.setIconTextGap(8);
-        buttonRefresh2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonRefresh2PrangkoActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel19Layout = new javax.swing.GroupLayout(jPanel19);
         jPanel19.setLayout(jPanel19Layout);
         jPanel19Layout.setHorizontalGroup(
             jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 943, Short.MAX_VALUE)
             .addGroup(jPanel19Layout.createSequentialGroup()
-                .addComponent(buttonRefresh2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(comboSHP_SHPSS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(fieldCariSHP_SHPSS, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1864,10 +1828,9 @@ public final class FormHome extends javax.swing.JFrame {
                 .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonCariSHP_SHPSS)
                     .addComponent(fieldCariSHP_SHPSS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboSHP_SHPSS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonRefresh2))
+                    .addComponent(comboSHP_SHPSS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE))
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 307, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout SHP_SHPSSLayout = new javax.swing.GroupLayout(SHP_SHPSS);
@@ -2081,23 +2044,13 @@ public final class FormHome extends javax.swing.JFrame {
         buttonRefresh4.setText("Refresh");
         buttonRefresh4.setIconTextGap(8);
 
-        buttonRefresh7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/Refresh.png"))); // NOI18N
-        buttonRefresh7.setText("Refresh");
-        buttonRefresh7.setIconTextGap(8);
-        buttonRefresh7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonRefresh7ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel21Layout = new javax.swing.GroupLayout(jPanel21);
         jPanel21.setLayout(jPanel21Layout);
         jPanel21Layout.setHorizontalGroup(
             jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 943, Short.MAX_VALUE)
             .addGroup(jPanel21Layout.createSequentialGroup()
-                .addComponent(buttonRefresh7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(comboJenisKemasan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(fieldCariKemasan, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2115,10 +2068,9 @@ public final class FormHome extends javax.swing.JFrame {
                 .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonCariKemasan)
                     .addComponent(fieldCariKemasan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboJenisKemasan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonRefresh7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboJenisKemasan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 307, Short.MAX_VALUE))
             .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel21Layout.createSequentialGroup()
                     .addGap(0, 295, Short.MAX_VALUE)
@@ -2327,23 +2279,13 @@ public final class FormHome extends javax.swing.JFrame {
 
         comboMerchandise.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
 
-        buttonRefresh3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/Refresh.png"))); // NOI18N
-        buttonRefresh3.setText("Refresh");
-        buttonRefresh3.setIconTextGap(8);
-        buttonRefresh3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonRefresh3ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel23Layout = new javax.swing.GroupLayout(jPanel23);
         jPanel23.setLayout(jPanel23Layout);
         jPanel23Layout.setHorizontalGroup(
             jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 943, Short.MAX_VALUE)
             .addGroup(jPanel23Layout.createSequentialGroup()
-                .addComponent(buttonRefresh3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(comboMerchandise, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(fieldCariMerchandise, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2356,10 +2298,9 @@ public final class FormHome extends javax.swing.JFrame {
                 .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonCariMerchandise)
                     .addComponent(fieldCariMerchandise, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboMerchandise, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonRefresh3))
+                    .addComponent(comboMerchandise, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE))
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 307, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout MerchandiseLayout = new javax.swing.GroupLayout(Merchandise);
@@ -2558,23 +2499,13 @@ public final class FormHome extends javax.swing.JFrame {
 
         comboPrisma.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
 
-        buttonRefresh5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/Refresh.png"))); // NOI18N
-        buttonRefresh5.setText("Refresh");
-        buttonRefresh5.setIconTextGap(8);
-        buttonRefresh5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonRefresh5ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel25Layout = new javax.swing.GroupLayout(jPanel25);
         jPanel25.setLayout(jPanel25Layout);
         jPanel25Layout.setHorizontalGroup(
             jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 943, Short.MAX_VALUE)
             .addGroup(jPanel25Layout.createSequentialGroup()
-                .addComponent(buttonRefresh5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(comboPrisma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(fieldCariPrisma, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2587,10 +2518,9 @@ public final class FormHome extends javax.swing.JFrame {
                 .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonCariPrisma)
                     .addComponent(fieldCariPrisma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboPrisma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonRefresh5))
+                    .addComponent(comboPrisma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE))
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 307, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout PrismaLayout = new javax.swing.GroupLayout(Prisma);
@@ -2789,23 +2719,13 @@ public final class FormHome extends javax.swing.JFrame {
 
         comboDokumenFIlateli.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
 
-        buttonRefresh6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/Refresh.png"))); // NOI18N
-        buttonRefresh6.setText("Refresh");
-        buttonRefresh6.setIconTextGap(8);
-        buttonRefresh6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonRefresh6ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel27Layout = new javax.swing.GroupLayout(jPanel27);
         jPanel27.setLayout(jPanel27Layout);
         jPanel27Layout.setHorizontalGroup(
             jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 943, Short.MAX_VALUE)
             .addGroup(jPanel27Layout.createSequentialGroup()
-                .addComponent(buttonRefresh6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(comboDokumenFIlateli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(fieldCariDokumenFIlateli, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2818,10 +2738,9 @@ public final class FormHome extends javax.swing.JFrame {
                 .addGroup(jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonCariDokumenFilateli)
                     .addComponent(fieldCariDokumenFIlateli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboDokumenFIlateli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonRefresh6))
+                    .addComponent(comboDokumenFIlateli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE))
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 307, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout DokumenFilateliLayout = new javax.swing.GroupLayout(DokumenFilateli);
@@ -4748,41 +4667,6 @@ public final class FormHome extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_buttonResetMerchandiseActionPerformed
 
-    private void buttonRefreshPrangkoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRefreshPrangkoActionPerformed
-        // TODO add your handling code here:
-        refresh();
-    }//GEN-LAST:event_buttonRefreshPrangkoActionPerformed
-
-    private void buttonRefresh1PrangkoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRefresh1PrangkoActionPerformed
-        // TODO add your handling code here:
-        refresh();
-    }//GEN-LAST:event_buttonRefresh1PrangkoActionPerformed
-
-    private void buttonRefresh2PrangkoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRefresh2PrangkoActionPerformed
-        // TODO add your handling code here:
-        refresh();
-    }//GEN-LAST:event_buttonRefresh2PrangkoActionPerformed
-
-    private void buttonRefresh6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRefresh6ActionPerformed
-        // TODO add your handling code here:
-        refresh();
-    }//GEN-LAST:event_buttonRefresh6ActionPerformed
-
-    private void buttonRefresh5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRefresh5ActionPerformed
-        // TODO add your handling code here:
-        refresh();
-    }//GEN-LAST:event_buttonRefresh5ActionPerformed
-
-    private void buttonRefresh3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRefresh3ActionPerformed
-        // TODO add your handling code here:
-        refresh();
-    }//GEN-LAST:event_buttonRefresh3ActionPerformed
-
-    private void buttonRefresh7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRefresh7ActionPerformed
-        // TODO add your handling code here:
-        refresh();
-    }//GEN-LAST:event_buttonRefresh7ActionPerformed
-
     private void buttonPenerimaanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPenerimaanActionPerformed
         // TODO add your handling code here:
         jPanel3.removeAll();
@@ -4823,11 +4707,14 @@ public final class FormHome extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_comboCariPrangkoActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-        boolean rootPaneCheckingEnabled = false;
-        new DialogLaporan(this, true, this.nik.getText()).setVisible(true);
-    }//GEN-LAST:event_jButton6ActionPerformed
+    private void buttonLaporanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLaporanActionPerformed
+        try {
+            // TODO add your handling code here:
+            new DialogLaporan(this, true, this.nik.getText()).setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(FormHome.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_buttonLaporanActionPerformed
 
     private void buttonLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLogoutActionPerformed
         // TODO add your handling code here:
@@ -4928,19 +4815,13 @@ public final class FormHome extends javax.swing.JFrame {
     private javax.swing.JButton buttonHapusPrisma;
     private javax.swing.JButton buttonHapusSHPSHPSS;
     private javax.swing.JButton buttonKelolaProduk;
+    private javax.swing.JButton buttonLaporan;
     private javax.swing.JButton buttonLogout;
     private javax.swing.JButton buttonPemesanan;
     private javax.swing.JButton buttonPenerimaan;
     private javax.swing.JButton buttonPengembalian;
     private javax.swing.JButton buttonPengiriman;
-    private javax.swing.JButton buttonRefresh;
-    private javax.swing.JButton buttonRefresh1;
-    private javax.swing.JButton buttonRefresh2;
-    private javax.swing.JButton buttonRefresh3;
     private javax.swing.JButton buttonRefresh4;
-    private javax.swing.JButton buttonRefresh5;
-    private javax.swing.JButton buttonRefresh6;
-    private javax.swing.JButton buttonRefresh7;
     private javax.swing.JButton buttonResetDokumenFIlateli;
     private javax.swing.JButton buttonResetKemasan;
     private javax.swing.JButton buttonResetMSSS;
@@ -5013,7 +4894,6 @@ public final class FormHome extends javax.swing.JFrame {
     private javax.swing.JTextField fieldTahunProdukSHPSHPSS;
     private javax.swing.JMenuItem itemRecycleBin;
     private javax.swing.JMenu itemRegional;
-    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;

@@ -15,7 +15,6 @@ import id.ac.pos.gudang.entity.Produk;
 import id.ac.pos.gudang.entity.Regional;
 import id.ac.pos.gudang.tablemodel.PengembalianTM;
 import java.util.ArrayList;
-import java.util.Vector;
 import javax.swing.table.TableRowSorter;
 
 /**
@@ -31,13 +30,14 @@ public final class PanelPengembalian extends javax.swing.JPanel {
     ArrayList<Regional> arrayRegional;
     ArrayList<Produk> arrayProduk;
     TableRowSorter sorter;
+    private String jenis_produk;
 
     /**
      * Creates new form PanelPengembalian
      */
     public PanelPengembalian() {
         initComponents();
-        String jenis_produk = "PR";
+        jenis_produk = "PR";
         getDataPengembalian(jenis_produk);
 
         TablePengembalianDokumenFilateli.setModel(new javax.swing.table.DefaultTableModel(new Object[][]{},
@@ -821,7 +821,6 @@ public final class PanelPengembalian extends javax.swing.JPanel {
 
     private void TabPengembalianMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TabPengembalianMouseClicked
         // TODO add your handling code here:
-        String jenis_produk;
         switch (TabPengembalian.getSelectedIndex()) {
             case 0:
                 jenis_produk = "PR";
@@ -941,7 +940,7 @@ public final class PanelPengembalian extends javax.swing.JPanel {
         // TODO add your handling code here:
         FormHome formHome = new FormHome();
         new DialogTambahPengembalian(formHome, true).setVisible(true);
-        String jenis_produk = "MS";
+        jenis_produk = "MS";
         getDataPengembalian(jenis_produk);
     }//GEN-LAST:event_TambahPengembalianMSSSActionPerformed
 
@@ -949,7 +948,7 @@ public final class PanelPengembalian extends javax.swing.JPanel {
         // TODO add your handling code here:
         FormHome formHome = new FormHome();
         new DialogTambahPengembalian(formHome, true).setVisible(true);
-        String jenis_produk = "PR";
+        jenis_produk = "PR";
         getDataPengembalian(jenis_produk);
     }//GEN-LAST:event_TambahPengembalianPrangkoActionPerformed
 
@@ -965,7 +964,7 @@ public final class PanelPengembalian extends javax.swing.JPanel {
         // TODO add your handling code here:
         FormHome formHome = new FormHome();
         new DialogTambahPengembalian(formHome, true).setVisible(true);
-        String jenis_produk = "KM";
+        jenis_produk = "KM";
         getDataPengembalian(jenis_produk);
     }//GEN-LAST:event_TambahPengembalianKemasanActionPerformed
 
@@ -973,7 +972,7 @@ public final class PanelPengembalian extends javax.swing.JPanel {
         // TODO add your handling code here:
         FormHome formHome = new FormHome();
         new DialogTambahPengembalian(formHome, true).setVisible(true);
-        String jenis_produk = "MC";
+        jenis_produk = "MC";
         getDataPengembalian(jenis_produk);
     }//GEN-LAST:event_TambahPengembalianMerchandiseActionPerformed
 
@@ -981,7 +980,7 @@ public final class PanelPengembalian extends javax.swing.JPanel {
         // TODO add your handling code here:
         FormHome formHome = new FormHome();
         new DialogTambahPengembalian(formHome, true).setVisible(true);
-        String jenis_produk = "PS";
+        jenis_produk = "PS";
         getDataPengembalian(jenis_produk);
     }//GEN-LAST:event_TambahPengembalianPrismaActionPerformed
 
@@ -989,7 +988,7 @@ public final class PanelPengembalian extends javax.swing.JPanel {
         // TODO add your handling code here:
         FormHome formHome = new FormHome();
         new DialogTambahPengembalian(formHome, true).setVisible(true);
-        String jenis_produk = "DF";
+        jenis_produk = "DF";
         getDataPengembalian(jenis_produk);
     }//GEN-LAST:event_TambahPengembalianDokumenFilateliActionPerformed
 
