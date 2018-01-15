@@ -5,6 +5,7 @@
  */
 package id.ac.pos.gudang.Dialog;
 
+import id.ac.pos.gudang.Form.FormHome;
 import id.ac.pos.gudang.dao.LaporanDAO;
 import id.ac.pos.gudang.daoimpl.LaporanDAOImpl;
 import id.ac.pos.gudang.entity.Produk;
@@ -45,15 +46,30 @@ public class DialogLaporan extends javax.swing.JDialog {
     ArrayList<Produk> arrayProdukTahun, arrayProduk;
     Vector vectorTahun = new Vector();
     Vector vectorBulan = new Vector();
+    private String nik;
 
     /**
      * Creates new form DialogLaporan
      */
     public DialogLaporan(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+
+    }
+
+    public DialogLaporan(FormHome aThis, boolean b, String text) throws IOException {
+        super(aThis, b);
         initComponents();
         setLocationRelativeTo(this);
         isiTahun();
+
+        this.nik = text;
+        String lokasi_simpan = dao_laporan.getLokasiSimpan(this.nik);
+        if (lokasi_simpan != null) {
+            File file = new File(lokasi_simpan);
+            Desktop desktop = Desktop.getDesktop();
+            if (file.exists()) {
+                lokasi_pilih.setText(lokasi_simpan);
+            }
+        }
 
         if (satu_bulan.isSelected()) {
             vectorBulan.add("Januari");
@@ -71,15 +87,10 @@ public class DialogLaporan extends javax.swing.JDialog {
 
             combo_box_bulan.setModel(new DefaultComboBoxModel(vectorBulan));
         }
-
     }
 
     public void isiTahun() {
-
-//            for (int i = 0; i < arrayProdukPrangko.size(); i++) {
-//                
-//            }
-        vectorTahun.add("2017");
+        vectorTahun.add("2018");
         combo_box_tahun.setModel(new DefaultComboBoxModel(vectorTahun));
     }
 
@@ -87,12 +98,6 @@ public class DialogLaporan extends javax.swing.JDialog {
 
         Object tahun = combo_box_tahun.getSelectedItem();
         Object bulan = combo_box_bulan.getSelectedItem();
-
-        if (bulan == "November,Desember,Januari" || bulan == "Desember,Januari,Februari") {
-            int tahun_tambah = Integer.parseInt((String) tahun);
-            tahun_tambah = tahun_tambah + 1;
-            tahun = tahun + "," + Integer.toString(tahun_tambah);
-        }
 
 //        String path = new File(".").getCanonicalPath();
         String path = lokasi_pilih.getText();
@@ -144,27 +149,27 @@ public class DialogLaporan extends javax.swing.JDialog {
 
         if (bulan == "Januari" || bulan == "Januari,Februari,Maret") {
             bulan_integer = 1;
-        } else if (bulan == "Februari" || bulan == "Februari,Maret,April") {
+        } else if (bulan == "Februari") {
             bulan_integer = 2;
-        } else if (bulan == "Maret" || bulan == "Maret,April,Mei") {
+        } else if (bulan == "Maret") {
             bulan_integer = 3;
         } else if (bulan == "April" || bulan == "April,Mei,Juni") {
             bulan_integer = 4;
-        } else if (bulan == "Mei" || bulan == "Mei,Juni,Juli") {
+        } else if (bulan == "Mei") {
             bulan_integer = 5;
-        } else if (bulan == "Juni" || bulan == "Juni,Juli,Agustus") {
+        } else if (bulan == "Juni") {
             bulan_integer = 6;
         } else if (bulan == "Juli" || bulan == "Juli,Agustus,September") {
             bulan_integer = 7;
-        } else if (bulan == "Agustus" || bulan == "Agustus,September,Oktober") {
+        } else if (bulan == "Agustus") {
             bulan_integer = 8;
-        } else if (bulan == "September" || bulan == "September,Oktober,November") {
+        } else if (bulan == "September") {
             bulan_integer = 9;
         } else if (bulan == "Oktober" || bulan == "Oktober,November,Desember") {
             bulan_integer = 10;
-        } else if (bulan == "November" || bulan == "November,Desember,Januari") {
+        } else if (bulan == "November") {
             bulan_integer = 11;
-        } else if (bulan == "Desember" || bulan == "Desember,Januari,Februari") {
+        } else if (bulan == "Desember") {
             bulan_integer = 12;
         }
 
@@ -578,10 +583,10 @@ public class DialogLaporan extends javax.swing.JDialog {
         sheet1.mergeCells(0, 2, 5, 2);
         sheet1.mergeCells(0, 3, 5, 3);
         sheet1.addCell(new jxl.write.Label(0, 2, "REKAP STOK AKHIR BENDA FILATELI GUDANG PUSAT", judul_rekapitulasi));
-        if(bulan=="November,Desember,Januari" || bulan=="Desember,Januari,Februari"){
+        if (bulan == "November,Desember,Januari" || bulan == "Desember,Januari,Februari") {
             int tahun_tambah = Integer.parseInt((String) tahun);
-            tahun_tambah = tahun_tambah+1;
-            tahun = tahun+","+Integer.toString(tahun_tambah);
+            tahun_tambah = tahun_tambah + 1;
+            tahun = tahun + "," + Integer.toString(tahun_tambah);
         }
         sheet1.addCell(new jxl.write.Label(0, 3, bulan + " " + tahun, judul_sub_rekapitulasi));
         tahun = combo_box_tahun.getSelectedItem();
@@ -621,17 +626,18 @@ public class DialogLaporan extends javax.swing.JDialog {
 
         workbook.write();
         workbook.close();
-        if(bulan=="November,Desember,Januari" || bulan=="Desember,Januari,Februari"){
+        if (bulan == "November,Desember,Januari" || bulan == "Desember,Januari,Februari") {
             int tahun_tambah = Integer.parseInt((String) tahun);
-            tahun_tambah = tahun_tambah+1;
-            tahun = tahun+","+Integer.toString(tahun_tambah);
+            tahun_tambah = tahun_tambah + 1;
+            tahun = tahun + "," + Integer.toString(tahun_tambah);
         }
-        
+
         File file = new File(path + "/laporan_" + bulan + "_" + tahun + ".xls");
         tahun = combo_box_tahun.getSelectedItem();
         Desktop desktop = Desktop.getDesktop();
         if (file.exists()) {
             desktop.open(file);
+            boolean sukses = dao_laporan.setLokasiSimpan(this.nik, lokasi_pilih.getText());
         }
     }
 
@@ -846,17 +852,9 @@ public class DialogLaporan extends javax.swing.JDialog {
         combo_box_bulan.removeAllItems();
         if (tiga_bulan.isSelected()) {
             vectorBulan.add("Januari,Februari,Maret");
-            vectorBulan.add("Februari,Maret,April");
-            vectorBulan.add("Maret,April,Mei");
             vectorBulan.add("April,Mei,Juni");
-            vectorBulan.add("Mei,Juni,Juli");
-            vectorBulan.add("Juni,Juli,Agustus");
             vectorBulan.add("Juli,Agustus,September");
-            vectorBulan.add("Agustus,September,Oktober");
-            vectorBulan.add("September,Oktober,November");
             vectorBulan.add("Oktober,November,Desember");
-            vectorBulan.add("November,Desember,Januari");
-            vectorBulan.add("Desember,Januari,Februari");
 
             combo_box_bulan.setModel(new DefaultComboBoxModel(vectorBulan));
         }

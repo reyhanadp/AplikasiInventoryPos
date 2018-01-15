@@ -41,11 +41,19 @@ public class PengirimanDAOImpl implements PengirimanDAO {
 
             String SELECT = "";
             if (jenis_produk.compareTo("MS") == 0) {
-                SELECT = "SELECT distinct(nama_produk) FROM `tb_produk` where id_jenis_produk='MS' OR id_jenis_produk='SS' AND status='0' ORDER BY nama_produk ASC";
+                SELECT = "SELECT distinct(nama_produk) FROM `tb_produk`"
+                        + " where status='0' and id_jenis_produk in (SELECT id_jenis_produk FROM"
+                        + " tb_produk WHERE id_jenis_produk = 'SS'"
+                        + " || id_jenis_produk = 'MS') ORDER BY nama_produk ASC";
             } else if (jenis_produk.compareTo("SHP") == 0) {
-                SELECT = "SELECT distinct(nama_produk) FROM `tb_produk` where id_jenis_produk='SHP' OR id_jenis_produk='SHPSS' AND status='0' ORDER BY nama_produk ASC";
+                SELECT = "SELECT distinct(nama_produk) FROM `tb_produk`"
+                        + " where status='0' and id_jenis_produk in (SELECT id_jenis_produk FROM"
+                        + " tb_produk WHERE id_jenis_produk = 'SHP'"
+                        + " || id_jenis_produk = 'SHPSS') ORDER BY nama_produk ASC";
             } else {
-                SELECT = "SELECT distinct(nama_produk) FROM `tb_produk` where id_jenis_produk='" + jenis_produk + "' AND status='0' ORDER BY nama_produk ASC";
+                SELECT = "SELECT distinct(nama_produk) FROM `tb_produk` where"
+                        + " id_jenis_produk='" + jenis_produk + "' AND status='0'"
+                        + " ORDER BY nama_produk ASC";
             }
             state = conn.prepareStatement(SELECT);
 
@@ -401,7 +409,7 @@ public class PengirimanDAOImpl implements PengirimanDAO {
     @Override
     public int getStok(String kode_produk) {
         int stok = 0;
-        String SELECT = "select stok from tb_produk where id_produk = '"+kode_produk+"'";
+        String SELECT = "select stok from tb_produk where id_produk = '" + kode_produk + "'";
         PreparedStatement state = null;
 
         try {
@@ -458,18 +466,20 @@ public class PengirimanDAOImpl implements PengirimanDAO {
         String SELECT = "";
         if (jenis_produk.compareTo("MS") == 0) {
             SELECT = "SELECT * FROM tb_trans_pengiriman inner join tb_produk "
-                    +"on tb_trans_pengiriman.id_produk=tb_produk.id_produk "
-                    +"where tb_trans_pengiriman.id_produk like 'MS%' OR "
-                    +"tb_trans_pengiriman.id_produk like 'SS%' AND tb_produk.status='0'";
+                    + "on tb_trans_pengiriman.id_produk=tb_produk.id_produk "
+                    + " where tb_produk.status='0' and tb_produk.id_jenis_produk in (SELECT tb_produk.id_jenis_produk FROM"
+                    + " tb_produk WHERE tb_produk.id_jenis_produk = 'SS'"
+                    + " || tb_produk.id_jenis_produk = 'MS')";
         } else if (jenis_produk.compareTo("SHP") == 0) {
             SELECT = "SELECT * FROM tb_trans_pengiriman inner join tb_produk "
-                    +"on tb_trans_pengiriman.id_produk=tb_produk.id_produk "
-                    +"where tb_trans_pengiriman.id_produk like 'SHP%' OR "
-                    +"tb_trans_pengiriman.id_produk like 'SHPSS%' AND tb_produk.status='0'";
-        }else{
+                    + "on tb_trans_pengiriman.id_produk=tb_produk.id_produk "
+                    + " where tb_produk.status='0' and tb_produk.id_jenis_produk in (SELECT tb_produk.id_jenis_produk FROM"
+                    + " tb_produk WHERE tb_produk.id_jenis_produk = 'SHP'"
+                    + " || tb_produk.id_jenis_produk = 'SHPSS')";
+        } else {
             SELECT = "SELECT * FROM tb_trans_pengiriman inner join tb_produk "
-                    +"on tb_trans_pengiriman.id_produk=tb_produk.id_produk "
-                    +"where tb_trans_pengiriman.id_produk like '"+jenis_produk+"%' AND tb_produk.status='0'";
+                    + "on tb_trans_pengiriman.id_produk=tb_produk.id_produk "
+                    + "where tb_trans_pengiriman.id_produk like '" + jenis_produk + "%' AND tb_produk.status='0'";
         }
         PreparedStatement state = null;
 
@@ -506,52 +516,6 @@ public class PengirimanDAOImpl implements PengirimanDAO {
         }
 
         return arrayPengiriman;
-    }
-
-    @Override
-    public ArrayList<Produk> getNama(String kode_produk) {
-        conn = DatabaseConnectivity.getConnection();
-        ArrayList<Produk> arrayProduk = null;
-        String SELECT = "SELECT nama_produk FROM `tb_produk` where id_produk='"+kode_produk+"' AND status='0'";
-
-
-        PreparedStatement state = null;
-
-        try {
-            state = conn.prepareStatement(SELECT);
-
-            ResultSet result = state.executeQuery();
-            if (result != null) {
-                arrayProduk = new ArrayList<>();
-
-                //selama result memiliki data 
-                // return lebih dari 1 data 
-                while (result.next()) {
-
-                    //mengambil 1 data
-                    Produk produk = new Produk();
-                    produk.setNamaProduk(result.getString(1));
-
-                    //menambahkan data ke array
-                    arrayProduk.add(produk);
-                }
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(RegionalDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-        }finally{
-            try {
-                state.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            try {
-                conn.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-
-        return arrayProduk;
     }
 
 }

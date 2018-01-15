@@ -22,4 +22,6 @@ public interface LaporanDAO {
     Integer getJumlahPengiriman(String kode_produk, int bulan, Object tahun , int bulan_sekarang, int tahun_sekarang, String status, int pilihan);
     Integer getJumlahPengembalian(String kode_produk, int bulan, Object tahun , int bulan_sekarang, int tahun_sekarang, String status, int pilihan);
     Integer getStokProduk(String kode_produk);
+    String getLokasiSimpan(String nik);
+    boolean setLokasiSimpan(String nik, String lokasi);
 }

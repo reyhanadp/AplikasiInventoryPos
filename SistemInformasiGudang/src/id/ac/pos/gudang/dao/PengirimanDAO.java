@@ -25,5 +25,4 @@ public interface PengirimanDAO {
     int getStok(String kode_produk);
     boolean tambahPengiriman(Pengiriman pengiriman);
     ArrayList<Pengiriman> getPengiriman(String jenis_produk);
-    ArrayList<Produk> getNama(String kode_produk);
 }

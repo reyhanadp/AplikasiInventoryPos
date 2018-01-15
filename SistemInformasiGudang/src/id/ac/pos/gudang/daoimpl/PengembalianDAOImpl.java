@@ -12,7 +12,6 @@ import id.ac.pos.gudang.entity.Produk;
 import id.ac.pos.gudang.entity.Regional;
 import id.ac.pos.gudang.utility.DatabaseConnectivity;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -60,56 +59,6 @@ public class PengembalianDAOImpl implements PengembalianDAO {
         return id_pengembalian;
     }
 
-    @Override
-    public ArrayList<Produk> getProduk(Object pilihan, String jenis_produk) {
-        ArrayList<Produk> arrayProdukPrangko = null;
-        String SELECT = "";
-        if (jenis_produk.compareTo("MS") == 0) {
-            SELECT = "SELECT * FROM tb_produk "
-                    + "WHERE nama_produk='" + pilihan + "' && "
-                    + "id_jenis_produk in (SELECT id_jenis_produk FROM"
-                    + " tb_produk WHERE id_jenis_produk = 'SS'"
-                    + " || id_jenis_produk = 'MS')";
-        } else if (jenis_produk.compareTo("SHP") == 0) {
-            SELECT = "SELECT * FROM tb_produk "
-                    + "WHERE nama_produk='" + pilihan + "' && "
-                    + "id_jenis_produk in (SELECT id_jenis_produk FROM"
-                    + " tb_produk WHERE id_jenis_produk = 'SHP'"
-                    + " || id_jenis_produk = 'SHPSS')";
-        } else {
-            SELECT = "SELECT * FROM tb_produk where nama_produk='" + pilihan + "' and id_jenis_produk='" + jenis_produk + "'";
-        }
-        PreparedStatement state = null;
-
-        try {
-            state = conn.prepareStatement(SELECT);
-
-            ResultSet result = state.executeQuery();
-            if (result != null) {
-                arrayProdukPrangko = new ArrayList<>();
-
-                //selama result memiliki data 
-                // return lebih dari 1 data 
-                while (result.next()) {
-
-                    //mengambil 1 data
-                    Produk produk = new Produk();
-                    produk.setIdProduk(result.getString(1));
-                    int nominal = Integer.parseInt(result.getString(3));
-                    produk.setNominal(nominal);
-                    int stok = Integer.parseInt(result.getString(5));
-                    produk.setStok(stok);
-
-                    //menambahkan data ke array
-                    arrayProdukPrangko.add(produk);
-                }
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(RegionalDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        return arrayProdukPrangko;
-    }
 
     @Override
     public ArrayList<Regional> getIsiRegional(Object pilihan) {
@@ -209,17 +158,22 @@ public class PengembalianDAOImpl implements PengembalianDAO {
         if (jenis_produk.compareTo("MS") == 0) {
             SELECT = "SELECT * FROM tb_trans_pengembalian inner join tb_produk "
                     +"on tb_trans_pengembalian.id_produk=tb_produk.id_produk "
-                    +"where tb_trans_pengembalian.id_produk like 'MS%' OR "
-                    +"tb_trans_pengembalian.id_produk like 'SS%' AND tb_produk.status='0'";
+                    +"where tb_produk.status=0 and tb_produk.id_jenis_produk"
+                    + " in (SELECT tb_produk.id_jenis_produk FROM"
+                    + " tb_produk WHERE tb_produk.id_jenis_produk = 'SS'"
+                    + " || tb_produk.id_jenis_produk = 'MS')";
         } else if (jenis_produk.compareTo("SHP") == 0) {
             SELECT = "SELECT * FROM tb_trans_pengembalian inner join tb_produk "
                     +"on tb_trans_pengembalian.id_produk=tb_produk.id_produk "
-                    +"where tb_trans_pengembalian.id_produk like 'SHP%' OR "
-                    +"tb_trans_pengembalian.id_produk like 'SHPSS%' AND tb_produk.status='0'";
+                    +"where tb_produk.status=0 and tb_produk.id_jenis_produk"
+                    + " in (SELECT tb_produk.id_jenis_produk FROM"
+                    + " tb_produk WHERE tb_produk.id_jenis_produk = 'SHP'"
+                    + " || tb_produk.id_jenis_produk = 'SHPSS')";
         }else{
             SELECT = "SELECT * FROM tb_trans_pengembalian inner join tb_produk "
                     +"on tb_trans_pengembalian.id_produk=tb_produk.id_produk "
-                    +"where tb_trans_pengembalian.id_produk like '"+jenis_produk+"%' AND tb_produk.status='0'";
+                    +"where tb_trans_pengembalian.id_produk like '"+jenis_produk+"%'"
+                    + " AND tb_produk.status='0'";
         }
         PreparedStatement state = null;
 
@@ -264,11 +218,23 @@ public class PengembalianDAOImpl implements PengembalianDAO {
         ArrayList<Produk> arrayProduk = null;
         String SELECT = "";
         if (jenis_produk.compareTo("MS") == 0) {
-            SELECT = "SELECT distinct(nama_produk) FROM `tb_produk` where id_jenis_produk='MS' OR id_jenis_produk='SS' ORDER BY nama_produk ASC";
+            SELECT = "SELECT distinct(nama_produk) FROM `tb_produk`"
+                    + " where status=0 and id_jenis_produk"
+                    + " in (SELECT id_jenis_produk FROM"
+                    + " tb_produk WHERE id_jenis_produk = 'SS'"
+                    + " || id_jenis_produk = 'MS')"
+                    + " ORDER BY nama_produk ASC";
         } else if (jenis_produk.compareTo("SHP") == 0) {
-            SELECT = "SELECT distinct(nama_produk) FROM `tb_produk` where id_jenis_produk='SHP' OR id_jenis_produk='SHPSS' ORDER BY nama_produk ASC";
+            SELECT = "SELECT distinct(nama_produk) FROM `tb_produk`"
+                    + " where status=0 and id_jenis_produk"
+                    + " in (SELECT id_jenis_produk FROM"
+                    + " tb_produk WHERE id_jenis_produk = 'SHP'"
+                    + " || id_jenis_produk = 'SHPSS')"
+                    + " ORDER BY nama_produk ASC";
         } else {
-            SELECT = "SELECT distinct(nama_produk) FROM `tb_produk` where id_jenis_produk='" + jenis_produk + "' ORDER BY nama_produk ASC";
+            SELECT = "SELECT distinct(nama_produk) FROM `tb_produk"
+                    + "` where status=0 and id_jenis_produk='" + jenis_produk + "'"
+                    + " ORDER BY nama_produk ASC";
         }
 
         PreparedStatement state = null;
@@ -317,19 +283,21 @@ public class PengembalianDAOImpl implements PengembalianDAO {
         String SELECT = "";
         if (jenis_produk.compareTo("MS") == 0) {
             SELECT = "SELECT id_produk,stok FROM tb_produk "
-                    + "WHERE nama_produk='" + nama_produk + "' && tahun='" + tahun + "' && nominal='" + nominal + "' && "
+                    + "WHERE nama_produk='" + nama_produk + "' &&"
+                    + " tahun='" + tahun + "' && nominal='" + nominal + "' && status=0 && "
                     + "id_jenis_produk in (SELECT id_jenis_produk FROM"
                     + " tb_produk WHERE id_jenis_produk = 'SS'"
                     + " || id_jenis_produk = 'MS')";
         } else if (jenis_produk.compareTo("SHP") == 0) {
             SELECT = "SELECT id_produk,stok FROM tb_produk "
-                    + "WHERE nama_produk='" + nama_produk + "' && tahun='" + tahun + "' && nominal='" + nominal + "' && "
+                    + "WHERE nama_produk='" + nama_produk + "' &&"
+                    + " tahun='" + tahun + "' && nominal='" + nominal + "' && status=0 &&"
                     + "id_jenis_produk in (SELECT id_jenis_produk FROM"
                     + " tb_produk WHERE id_jenis_produk = 'SHP'"
                     + " || id_jenis_produk = 'SHPSS')";
         } else {
             SELECT = "SELECT id_produk,stok FROM tb_produk "
-                    + "WHERE nama_produk='" + nama_produk + "' && tahun='" + tahun + "' && nominal='" + nominal + "' && "
+                    + "WHERE nama_produk='" + nama_produk + "' && tahun='" + tahun + "' && nominal='" + nominal + "' && status=0 && "
                     + "id_jenis_produk='" + jenis_produk + "'";
         }
 
@@ -379,17 +347,17 @@ public class PengembalianDAOImpl implements PengembalianDAO {
         ArrayList<Produk> arrayProduk = null;
         String SELECT = "";
         if (jenis_produk.compareTo("MS") == 0) {
-            SELECT = "SELECT distinct(tahun) FROM `tb_produk` where nama_produk='" + nama_produk + "' AND "
+            SELECT = "SELECT distinct(tahun) FROM `tb_produk` where nama_produk='" + nama_produk + "' and status=0 and "
                     + "id_jenis_produk in (SELECT id_jenis_produk FROM"
                     + " tb_produk WHERE id_jenis_produk = 'SS'"
                     + " || id_jenis_produk = 'MS')";
         } else if (jenis_produk.compareTo("SHP") == 0) {
-            SELECT = "SELECT distinct(tahun) FROM `tb_produk` where nama_produk='" + nama_produk + "' AND "
+            SELECT = "SELECT distinct(tahun) FROM `tb_produk` where nama_produk='" + nama_produk + "' AND status=0 and  "
                     + "id_jenis_produk in (SELECT id_jenis_produk FROM"
                     + " tb_produk WHERE id_jenis_produk = 'SHP'"
                     + " || id_jenis_produk = 'SHPSS')";
         } else {
-            SELECT = "SELECT distinct(tahun) FROM `tb_produk` where nama_produk='" + nama_produk + "' AND id_jenis_produk='" + jenis_produk + "' ORDER BY nama_produk ASC";
+            SELECT = "SELECT distinct(tahun) FROM `tb_produk` where nama_produk='" + nama_produk + "' AND status=0 and id_jenis_produk='" + jenis_produk + "'";
         }
 
         PreparedStatement state = null;
@@ -414,7 +382,7 @@ public class PengembalianDAOImpl implements PengembalianDAO {
                 }
             }
         } catch (SQLException ex) {
-            Logger.getLogger(RegionalDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
         }finally{
             try {
                 state.close();
@@ -437,17 +405,23 @@ public class PengembalianDAOImpl implements PengembalianDAO {
         ArrayList<Produk> arrayProduk = null;
         String SELECT = "";
         if (jenis_produk.compareTo("MS") == 0) {
-            SELECT = "SELECT nominal FROM `tb_produk` where nama_produk='" + nama_produk + "' AND tahun='" + tahun + "' AND "
+            SELECT = "SELECT nominal FROM `tb_produk` where"
+                    + " nama_produk='" + nama_produk + "' AND"
+                    + " tahun='" + tahun + "' AND  status=0 and "
                     + "id_jenis_produk in (SELECT id_jenis_produk FROM"
                     + " tb_produk WHERE id_jenis_produk = 'SS'"
                     + " || id_jenis_produk = 'MS')";
         } else if (jenis_produk.compareTo("SHP") == 0) {
-            SELECT = "SELECT nominal FROM `tb_produk` where nama_produk='" + nama_produk + "' AND tahun='" + tahun + "' AND "
+            SELECT = "SELECT nominal FROM `tb_produk` where"
+                    + " nama_produk='" + nama_produk + "' AND"
+                    + " tahun='" + tahun + "' AND  status=0 and "
                     + "id_jenis_produk in (SELECT id_jenis_produk FROM"
                     + " tb_produk WHERE id_jenis_produk = 'SHP'"
                     + " || id_jenis_produk = 'SHPSS')";
         } else {
-            SELECT = "SELECT nominal FROM `tb_produk` where nama_produk='" + nama_produk + "' AND tahun='" + tahun + "' AND id_jenis_produk='" + jenis_produk + "' ORDER BY nama_produk ASC";
+            SELECT = "SELECT nominal FROM `tb_produk` where"
+                    + " nama_produk='" + nama_produk + "' AND tahun='" + tahun + "'"
+                    + " AND status=0 and id_jenis_produk='" + jenis_produk + "'";
         }
 
         PreparedStatement state = null;
@@ -472,7 +446,7 @@ public class PengembalianDAOImpl implements PengembalianDAO {
                 }
             }
         } catch (SQLException ex) {
-            Logger.getLogger(RegionalDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
         }finally{
             try {
                 state.close();
@@ -489,49 +463,5 @@ public class PengembalianDAOImpl implements PengembalianDAO {
         return arrayProduk;
     }
 
-    @Override
-    public ArrayList<Produk> getNama(String kode_produk) {
-        conn = DatabaseConnectivity.getConnection();
-        ArrayList<Produk> arrayProduk = null;
-        String SELECT = "SELECT nama_produk FROM `tb_produk` where id_produk='"+kode_produk+"'";
-
-
-        PreparedStatement state = null;
-
-        try {
-            state = conn.prepareStatement(SELECT);
-
-            ResultSet result = state.executeQuery();
-            if (result != null) {
-                arrayProduk = new ArrayList<>();
-
-                //selama result memiliki data 
-                // return lebih dari 1 data 
-                while (result.next()) {
-
-                    //mengambil 1 data
-                    Produk produk = new Produk();
-                    produk.setNamaProduk(result.getString(1));
-
-                    //menambahkan data ke array
-                    arrayProduk.add(produk);
-                }
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(RegionalDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-        }finally{
-            try {
-                state.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            try {
-                conn.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-
-        return arrayProduk;
-    }
+    
 }
