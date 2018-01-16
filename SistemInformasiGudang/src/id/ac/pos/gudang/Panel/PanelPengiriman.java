@@ -174,12 +174,6 @@ public final class PanelPengiriman extends javax.swing.JPanel {
             }
         });
 
-        Prangko3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Prangko3MouseClicked(evt);
-            }
-        });
-
         jPanel40.setBorder(javax.swing.BorderFactory.createTitledBorder("Tabel Data Pengiriman"));
 
         tabelPengirimanPrangko.setModel(new javax.swing.table.DefaultTableModel(
@@ -193,25 +187,9 @@ public final class PanelPengiriman extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tabelPengirimanPrangko.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tabelPengirimanPrangkoMouseClicked(evt);
-            }
-        });
         jScrollPane13.setViewportView(tabelPengirimanPrangko);
 
         buttonCariPrangko15.setText("Cari");
-        buttonCariPrangko15.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonCariPrangko15ActionPerformed(evt);
-            }
-        });
-
-        fieldCariPrangko15.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                fieldCariPrangko15MouseClicked(evt);
-            }
-        });
 
         comboCariPrangko15.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
 
@@ -261,12 +239,6 @@ public final class PanelPengiriman extends javax.swing.JPanel {
 
         TabbedPanePengiriman.addTab("Prangko", Prangko3);
 
-        MS_SS3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                MS_SS3MouseClicked(evt);
-            }
-        });
-
         jPanel74.setBorder(javax.swing.BorderFactory.createTitledBorder("Tabel Data Pengiriman"));
 
         tabelPengirimanMSSS.setModel(new javax.swing.table.DefaultTableModel(
@@ -280,25 +252,9 @@ public final class PanelPengiriman extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tabelPengirimanMSSS.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tabelPengirimanMSSSMouseClicked(evt);
-            }
-        });
         jScrollPane42.setViewportView(tabelPengirimanMSSS);
 
         buttonCariPrangko16.setText("Cari");
-        buttonCariPrangko16.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonCariPrangko16ActionPerformed(evt);
-            }
-        });
-
-        fieldCariPrangko16.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                fieldCariPrangko16MouseClicked(evt);
-            }
-        });
 
         comboCariPrangko16.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
 
@@ -348,12 +304,6 @@ public final class PanelPengiriman extends javax.swing.JPanel {
 
         TabbedPanePengiriman.addTab("MS & SS", MS_SS3);
 
-        SHP_SHPSS3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                SHP_SHPSS3MouseClicked(evt);
-            }
-        });
-
         jPanel76.setBorder(javax.swing.BorderFactory.createTitledBorder("Tabel Data Pengiriman"));
 
         tabelPengirimanSHPSS.setModel(new javax.swing.table.DefaultTableModel(
@@ -367,25 +317,9 @@ public final class PanelPengiriman extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tabelPengirimanSHPSS.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tabelPengirimanSHPSSMouseClicked(evt);
-            }
-        });
         jScrollPane44.setViewportView(tabelPengirimanSHPSS);
 
         buttonCariPrangko17.setText("Cari");
-        buttonCariPrangko17.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonCariPrangko17ActionPerformed(evt);
-            }
-        });
-
-        fieldCariPrangko17.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                fieldCariPrangko17MouseClicked(evt);
-            }
-        });
 
         comboCariPrangko17.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
 
@@ -435,12 +369,6 @@ public final class PanelPengiriman extends javax.swing.JPanel {
 
         TabbedPanePengiriman.addTab("SHP & SHPSS", SHP_SHPSS3);
 
-        Kemasan3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Kemasan3MouseClicked(evt);
-            }
-        });
-
         jPanel78.setBorder(javax.swing.BorderFactory.createTitledBorder("Tabel Data Pengiriman"));
 
         tabelPengirimanKemasan.setModel(new javax.swing.table.DefaultTableModel(
@@ -454,25 +382,9 @@ public final class PanelPengiriman extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tabelPengirimanKemasan.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tabelPengirimanKemasanMouseClicked(evt);
-            }
-        });
         jScrollPane46.setViewportView(tabelPengirimanKemasan);
 
         buttonCariPrangko18.setText("Cari");
-        buttonCariPrangko18.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonCariPrangko18ActionPerformed(evt);
-            }
-        });
-
-        fieldCariPrangko18.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                fieldCariPrangko18MouseClicked(evt);
-            }
-        });
 
         comboCariPrangko18.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
 
@@ -535,25 +447,9 @@ public final class PanelPengiriman extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tabelPengirimanMerchandise.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tabelPengirimanMerchandiseMouseClicked(evt);
-            }
-        });
         jScrollPane48.setViewportView(tabelPengirimanMerchandise);
 
         buttonCariPrangko19.setText("Cari");
-        buttonCariPrangko19.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonCariPrangko19ActionPerformed(evt);
-            }
-        });
-
-        fieldCariPrangko19.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                fieldCariPrangko19MouseClicked(evt);
-            }
-        });
 
         comboCariPrangko19.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
 
@@ -616,25 +512,9 @@ public final class PanelPengiriman extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tabelPengirimanPrisma.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tabelPengirimanPrismaMouseClicked(evt);
-            }
-        });
         jScrollPane50.setViewportView(tabelPengirimanPrisma);
 
         buttonCariPrangko20.setText("Cari");
-        buttonCariPrangko20.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonCariPrangko20ActionPerformed(evt);
-            }
-        });
-
-        fieldCariPrangko20.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                fieldCariPrangko20MouseClicked(evt);
-            }
-        });
 
         comboCariPrangko20.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
 
@@ -697,25 +577,9 @@ public final class PanelPengiriman extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tabelPengirimanDokumenFilateli.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tabelPengirimanDokumenFilateliMouseClicked(evt);
-            }
-        });
         jScrollPane52.setViewportView(tabelPengirimanDokumenFilateli);
 
         buttonCariPrangko21.setText("Cari");
-        buttonCariPrangko21.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonCariPrangko21ActionPerformed(evt);
-            }
-        });
-
-        fieldCariPrangko21.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                fieldCariPrangko21MouseClicked(evt);
-            }
-        });
 
         comboCariPrangko21.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
 
@@ -802,106 +666,6 @@ public final class PanelPengiriman extends javax.swing.JPanel {
             getDataPengiriman(jenis_produk);
         }
     }//GEN-LAST:event_TabbedPanePengirimanMouseClicked
-
-    private void fieldCariPrangko21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fieldCariPrangko21MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fieldCariPrangko21MouseClicked
-
-    private void buttonCariPrangko21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariPrangko21ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonCariPrangko21ActionPerformed
-
-    private void tabelPengirimanDokumenFilateliMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelPengirimanDokumenFilateliMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tabelPengirimanDokumenFilateliMouseClicked
-
-    private void fieldCariPrangko20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fieldCariPrangko20MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fieldCariPrangko20MouseClicked
-
-    private void buttonCariPrangko20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariPrangko20ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonCariPrangko20ActionPerformed
-
-    private void tabelPengirimanPrismaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelPengirimanPrismaMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tabelPengirimanPrismaMouseClicked
-
-    private void fieldCariPrangko19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fieldCariPrangko19MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fieldCariPrangko19MouseClicked
-
-    private void buttonCariPrangko19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariPrangko19ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonCariPrangko19ActionPerformed
-
-    private void tabelPengirimanMerchandiseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelPengirimanMerchandiseMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tabelPengirimanMerchandiseMouseClicked
-
-    private void Kemasan3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Kemasan3MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Kemasan3MouseClicked
-
-    private void fieldCariPrangko18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fieldCariPrangko18MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fieldCariPrangko18MouseClicked
-
-    private void buttonCariPrangko18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariPrangko18ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonCariPrangko18ActionPerformed
-
-    private void tabelPengirimanKemasanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelPengirimanKemasanMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tabelPengirimanKemasanMouseClicked
-
-    private void SHP_SHPSS3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SHP_SHPSS3MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SHP_SHPSS3MouseClicked
-
-    private void fieldCariPrangko17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fieldCariPrangko17MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fieldCariPrangko17MouseClicked
-
-    private void buttonCariPrangko17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariPrangko17ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonCariPrangko17ActionPerformed
-
-    private void tabelPengirimanSHPSSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelPengirimanSHPSSMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tabelPengirimanSHPSSMouseClicked
-
-    private void MS_SS3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MS_SS3MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MS_SS3MouseClicked
-
-    private void fieldCariPrangko16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fieldCariPrangko16MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fieldCariPrangko16MouseClicked
-
-    private void buttonCariPrangko16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariPrangko16ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonCariPrangko16ActionPerformed
-
-    private void tabelPengirimanMSSSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelPengirimanMSSSMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tabelPengirimanMSSSMouseClicked
-
-    private void Prangko3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Prangko3MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Prangko3MouseClicked
-
-    private void fieldCariPrangko15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fieldCariPrangko15MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fieldCariPrangko15MouseClicked
-
-    private void buttonCariPrangko15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariPrangko15ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonCariPrangko15ActionPerformed
-
-    private void tabelPengirimanPrangkoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelPengirimanPrangkoMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tabelPengirimanPrangkoMouseClicked
 
     private void TambahPrangkoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TambahPrangkoActionPerformed
         // TODO add your handling code here:

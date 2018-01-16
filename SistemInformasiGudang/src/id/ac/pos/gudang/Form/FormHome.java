@@ -1069,11 +1069,6 @@ public final class FormHome extends javax.swing.JFrame {
         jLabel2.setText("Kode Produk");
 
         fieldKodeProdukPrangko.setEditable(false);
-        fieldKodeProdukPrangko.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fieldKodeProdukPrangkoActionPerformed(evt);
-            }
-        });
 
         jLabel3.setText("Nama Produk");
 
@@ -1419,14 +1414,6 @@ public final class FormHome extends javax.swing.JFrame {
         jLabel8.setText("Jenis");
 
         ComboJenisMS_SS.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MS", "SS" }));
-        ComboJenisMS_SS.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ComboJenisMS_SSMouseClicked(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                ComboJenisMS_SSMousePressed(evt);
-            }
-        });
         ComboJenisMS_SS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ComboJenisMS_SSActionPerformed(evt);
@@ -1674,14 +1661,6 @@ public final class FormHome extends javax.swing.JFrame {
         });
 
         ComboJenisSHP_SHPSS.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SHP", "SHPSS" }));
-        ComboJenisSHP_SHPSS.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ComboJenisSHP_SHPSSMouseClicked(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                ComboJenisSHP_SHPSSMousePressed(evt);
-            }
-        });
         ComboJenisSHP_SHPSS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ComboJenisSHP_SHPSSActionPerformed(evt);
@@ -3016,22 +2995,6 @@ public final class FormHome extends javax.swing.JFrame {
         autoincrementMS_SS();
     }//GEN-LAST:event_ComboJenisMS_SSActionPerformed
 
-    private void ComboJenisMS_SSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ComboJenisMS_SSMouseClicked
-
-    }//GEN-LAST:event_ComboJenisMS_SSMouseClicked
-
-    private void ComboJenisMS_SSMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ComboJenisMS_SSMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ComboJenisMS_SSMousePressed
-
-    private void ComboJenisSHP_SHPSSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ComboJenisSHP_SHPSSMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ComboJenisSHP_SHPSSMouseClicked
-
-    private void ComboJenisSHP_SHPSSMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ComboJenisSHP_SHPSSMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ComboJenisSHP_SHPSSMousePressed
-
     private void ComboJenisSHP_SHPSSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboJenisSHP_SHPSSActionPerformed
         // TODO add your handling code here:
         autoincrementSHP_SHPSS();
@@ -3043,10 +3006,6 @@ public final class FormHome extends javax.swing.JFrame {
             fieldBiayaCetakSHPSHPSS.requestFocus();
         }
     }//GEN-LAST:event_fieldNominalProdukSHPSHPSSKeyPressed
-
-    private void fieldKodeProdukPrangkoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldKodeProdukPrangkoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fieldKodeProdukPrangkoActionPerformed
 
     private void buttonSimpanMSSSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSimpanMSSSActionPerformed
         // TODO add your handling code here:
