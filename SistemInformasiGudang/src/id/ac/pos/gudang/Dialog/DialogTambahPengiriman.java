@@ -221,6 +221,9 @@ public class DialogTambahPengiriman extends javax.swing.JDialog {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 JumlahKirimKeyPressed(evt);
             }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                JumlahKirimKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 JumlahKirimKeyTyped(evt);
             }
@@ -662,8 +665,7 @@ public class DialogTambahPengiriman extends javax.swing.JDialog {
     private void NoOrderKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NoOrderKeyTyped
         // TODO add your handling code here:
         char karakter = evt.getKeyChar();
-        
-        
+
         if (!(((karakter >= '0') && (karakter <= '9')
                 || (karakter == KeyEvent.VK_BACK_SPACE)
                 || (karakter == KeyEvent.VK_DELETE)
@@ -730,61 +732,60 @@ public class DialogTambahPengiriman extends javax.swing.JDialog {
                                     Regional.setEnabled(false);
                                     long bsu = jumlah_dikirim * nominal_string;
                                     String bsu_string = Long.toString(bsu);
-                                    
+
                                     //format bsu
-                                    String bsu_hasil = "" ;
+                                    String bsu_hasil = "";
                                     int k = 2, l = 3, m = 4;
                                     int panjang_bsu = bsu_string.length();
                                     String[] bsu_pisah = bsu_string.split("(?<=\\G.{1})");
-                                    int j=0,i,n;
-                                    while(j==0){
-                                        if(panjang_bsu == k){
-                                            n=k;
-                                            for( i=0 ; i<k ; i++){
-                                                if(n % 3 == 0){
+                                    int j = 0, i, n;
+                                    while (j == 0) {
+                                        if (panjang_bsu == k) {
+                                            n = k;
+                                            for (i = 0; i < k; i++) {
+                                                if (n % 3 == 0) {
                                                     bsu_hasil = bsu_hasil + "." + bsu_pisah[i];
-                                                }else{
+                                                } else {
                                                     bsu_hasil = bsu_hasil + bsu_pisah[i];
                                                 }
                                                 n--;
                                             }
-                                            j=1;
-                                        }else if(panjang_bsu == l){
-                                            n=l;
-                                            for( i=0 ; i<l ; i++){
-                                                if(n % 3 == 0){
-                                                    if(n==l){
+                                            j = 1;
+                                        } else if (panjang_bsu == l) {
+                                            n = l;
+                                            for (i = 0; i < l; i++) {
+                                                if (n % 3 == 0) {
+                                                    if (n == l) {
                                                         bsu_hasil = bsu_hasil + bsu_pisah[i];
-                                                    }else{
+                                                    } else {
                                                         bsu_hasil = bsu_hasil + "." + bsu_pisah[i];
                                                     }
-                                                }else{
+                                                } else {
                                                     bsu_hasil = bsu_hasil + bsu_pisah[i];
                                                 }
                                                 n--;
                                             }
-                                            j=1;
-                                        }else if(panjang_bsu == m){
-                                            n=m;
-                                            for( i=0 ; i<m ; i++){
-                                                if(n % 3 == 0){
+                                            j = 1;
+                                        } else if (panjang_bsu == m) {
+                                            n = m;
+                                            for (i = 0; i < m; i++) {
+                                                if (n % 3 == 0) {
                                                     bsu_hasil = bsu_hasil + "." + bsu_pisah[i];
-                                                }else{
+                                                } else {
                                                     bsu_hasil = bsu_hasil + bsu_pisah[i];
                                                 }
                                                 n--;
                                             }
-                                            j=1;
-                                        }else if(panjang_bsu == 1){
+                                            j = 1;
+                                        } else if (panjang_bsu == 1) {
                                             bsu_hasil = bsu_pisah[0];
-                                            j=1;
+                                            j = 1;
                                         }
-                                        k = k+3;
-                                        l = l+3;
-                                        m = m+3;
+                                        k = k + 3;
+                                        l = l + 3;
+                                        m = m + 3;
                                     }
-                                    
-                                    
+
                                     if (tabel_pengiriman.getRowCount() == 0) {
                                         no = 1;
                                     } else {
@@ -837,7 +838,6 @@ public class DialogTambahPengiriman extends javax.swing.JDialog {
         int stok_produk;
         int i;
         int banyak_baris = tabel_pengiriman.getRowCount();
-        
 
         dao = new PengirimanDAOImpl();
 
@@ -849,12 +849,12 @@ public class DialogTambahPengiriman extends javax.swing.JDialog {
             String kode_produk = tabel_pengiriman.getValueAt(i, 1).toString();
             String jumlah_kirim = tabel_pengiriman.getValueAt(i, 4).toString();
             String bsu = tabel_pengiriman.getValueAt(i, 5).toString();
-            String bsu_hasil="";
+            String bsu_hasil = "";
             String[] bsu_pisah = bsu.split("\\.");
-            for(int k=0; k<bsu_pisah.length ; k++){
-                bsu_hasil = bsu_hasil+bsu_pisah[k];
+            for (int k = 0; k < bsu_pisah.length; k++) {
+                bsu_hasil = bsu_hasil + bsu_pisah[k];
             }
-            
+
             //autoincrement id_pengembalian
             String id_pengiriman_string = dao.getIdPengiriman();
             if (id_pengiriman_string == null) {
@@ -988,13 +988,81 @@ public class DialogTambahPengiriman extends javax.swing.JDialog {
 
     private void NoOrderKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NoOrderKeyReleased
         // TODO add your handling code here:
-        if(NoOrder.getText().length() == 12){
+        if (NoOrder.getText().length() == 12) {
             TanggalPengiriman.requestFocus();
             this.limit = Long.parseLong(NoOrder.getText());
-        }else if(NoOrder.getText().length() > 12){
+        } else if (NoOrder.getText().length() > 12) {
             NoOrder.setText(Long.toString(this.limit));
         }
     }//GEN-LAST:event_NoOrderKeyReleased
+
+    private void JumlahKirimKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JumlahKirimKeyReleased
+        // TODO add your handling code here:
+        int j = 0, i, n;
+        String jumlah_kirim= JumlahKirim.getText();
+        String[] temp = jumlah_kirim.split("\\.");
+        String jumlah_kirim_string = "";
+        for(i=0 ; i<temp.length ; i++){
+            jumlah_kirim_string = jumlah_kirim_string + temp[i];
+        }
+
+        //format bsu
+        String jumlah_kirim_hasil = "";
+        int k = 2, l = 3, m = 4;
+        int panjang_jumlah_kirim = jumlah_kirim_string.length();
+        String[] jumlah_kirim_pisah = jumlah_kirim_string.split("(?<=\\G.{1})");
+        
+        while (j == 0) {
+            if (panjang_jumlah_kirim == k) {
+                n = k;
+                for (i = 0; i < k; i++) {
+                    if (n % 3 == 0) {
+                        jumlah_kirim_hasil = jumlah_kirim_hasil + "." + jumlah_kirim_pisah[i];
+                    } else {
+                        jumlah_kirim_hasil = jumlah_kirim_hasil + jumlah_kirim_pisah[i];
+                    }
+                    n--;
+                }
+                j = 1;
+            } else if (panjang_jumlah_kirim == l) {
+                n = l;
+                for (i = 0; i < l; i++) {
+                    if (n % 3 == 0) {
+                        if (n == l) {
+                            jumlah_kirim_hasil = jumlah_kirim_hasil + jumlah_kirim_pisah[i];
+                        } else {
+                            jumlah_kirim_hasil = jumlah_kirim_hasil + "." + jumlah_kirim_pisah[i];
+                        }
+                    } else {
+                        jumlah_kirim_hasil = jumlah_kirim_hasil + jumlah_kirim_pisah[i];
+                    }
+                    n--;
+                }
+                j = 1;
+            } else if (panjang_jumlah_kirim == m) {
+                n = m;
+                for (i = 0; i < m; i++) {
+                    if (n % 3 == 0) {
+                        jumlah_kirim_hasil = jumlah_kirim_hasil + "." + jumlah_kirim_pisah[i];
+                    } else {
+                        jumlah_kirim_hasil = jumlah_kirim_hasil + jumlah_kirim_pisah[i];
+                    }
+                    n--;
+                }
+                j = 1;
+            } else if (panjang_jumlah_kirim == 1) {
+                jumlah_kirim_hasil = jumlah_kirim_pisah[0];
+                j = 1;
+            }else if(panjang_jumlah_kirim == 0){
+                jumlah_kirim_hasil = "";
+                j = 1;
+            }
+            k = k + 3;
+            l = l + 3;
+            m = m + 3;
+        }
+        JumlahKirim.setText(jumlah_kirim_hasil);
+    }//GEN-LAST:event_JumlahKirimKeyReleased
 
     /**
      * @param args the command line arguments

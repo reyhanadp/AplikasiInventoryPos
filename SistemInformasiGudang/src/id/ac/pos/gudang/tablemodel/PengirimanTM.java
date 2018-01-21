@@ -15,8 +15,11 @@ import javax.swing.table.AbstractTableModel;
  * @author reyha
  */
 public class PengirimanTM extends AbstractTableModel {
+
     private ArrayList<Pengiriman> arrayPengiriman;
     Vector vector_nama_produk;
+    int j = 0, i, n;
+    int k = 2, l = 3, m = 4;
 
     public void setDataPengiriman(ArrayList<Pengiriman> arrayPengiriman) {
         this.arrayPengiriman = arrayPengiriman;
@@ -46,20 +49,130 @@ public class PengirimanTM extends AbstractTableModel {
                 return arrayPengiriman.get(rowIndex).getTgl_pengiriman();
 
             case 3:
-                return arrayPengiriman.get(rowIndex).getJumlah_pengiriman();
+                String jumlah_kirim_string = Integer.toString(arrayPengiriman.get(rowIndex).getJumlah_pengiriman());
+                //format bsu
+                String jumlah_kirim_hasil = "";
+                k = 2;
+                l = 3;
+                m = 4;
+                int panjang_jumlah_kirim = jumlah_kirim_string.length();
+                String[] jumlah_kirim_pisah = jumlah_kirim_string.split("(?<=\\G.{1})");
+                j = 0;
+                while (j == 0) {
+                    if (panjang_jumlah_kirim == k) {
+                        n = k;
+                        for (i = 0; i < k; i++) {
+                            if (n % 3 == 0) {
+                                jumlah_kirim_hasil = jumlah_kirim_hasil + "." + jumlah_kirim_pisah[i];
+                            } else {
+                                jumlah_kirim_hasil = jumlah_kirim_hasil + jumlah_kirim_pisah[i];
+                            }
+                            n--;
+                        }
+                        j = 1;
+                    } else if (panjang_jumlah_kirim == l) {
+                        n = l;
+                        for (i = 0; i < l; i++) {
+                            if (n % 3 == 0) {
+                                if (n == l) {
+                                    jumlah_kirim_hasil = jumlah_kirim_hasil + jumlah_kirim_pisah[i];
+                                } else {
+                                    jumlah_kirim_hasil = jumlah_kirim_hasil + "." + jumlah_kirim_pisah[i];
+                                }
+                            } else {
+                                jumlah_kirim_hasil = jumlah_kirim_hasil + jumlah_kirim_pisah[i];
+                            }
+                            n--;
+                        }
+                        j = 1;
+                    } else if (panjang_jumlah_kirim == m) {
+                        n = m;
+                        for (i = 0; i < m; i++) {
+                            if (n % 3 == 0) {
+                                jumlah_kirim_hasil = jumlah_kirim_hasil + "." + jumlah_kirim_pisah[i];
+                            } else {
+                                jumlah_kirim_hasil = jumlah_kirim_hasil + jumlah_kirim_pisah[i];
+                            }
+                            n--;
+                        }
+                        j = 1;
+                    } else if (panjang_jumlah_kirim == 1) {
+                        jumlah_kirim_hasil = jumlah_kirim_pisah[0];
+                        j = 1;
+                    }
+                    k = k + 3;
+                    l = l + 3;
+                    m = m + 3;
+                }
+                return jumlah_kirim_hasil;
 
             case 4:
-                return arrayPengiriman.get(rowIndex).getBsu();
+                String bsu_string = arrayPengiriman.get(rowIndex).getBsu();
+                //format bsu
+                String bsu_hasil = "";
+                k = 2;
+                l = 3;
+                m = 4;
+                int panjang_bsu = bsu_string.length();
+                String[] bsu_pisah = bsu_string.split("(?<=\\G.{1})");
+                j = 0;
+                while (j == 0) {
+                    if (panjang_bsu == k) {
+                        n = k;
+                        for (i = 0; i < k; i++) {
+                            if (n % 3 == 0) {
+                                bsu_hasil = bsu_hasil + "." + bsu_pisah[i];
+                            } else {
+                                bsu_hasil = bsu_hasil + bsu_pisah[i];
+                            }
+                            n--;
+                        }
+                        j = 1;
+                    } else if (panjang_bsu == l) {
+                        n = l;
+                        for (i = 0; i < l; i++) {
+                            if (n % 3 == 0) {
+                                if (n == l) {
+                                    bsu_hasil = bsu_hasil + bsu_pisah[i];
+                                } else {
+                                    bsu_hasil = bsu_hasil + "." + bsu_pisah[i];
+                                }
+                            } else {
+                                bsu_hasil = bsu_hasil + bsu_pisah[i];
+                            }
+                            n--;
+                        }
+                        j = 1;
+                    } else if (panjang_bsu == m) {
+                        n = m;
+                        for (i = 0; i < m; i++) {
+                            if (n % 3 == 0) {
+                                bsu_hasil = bsu_hasil + "." + bsu_pisah[i];
+                            } else {
+                                bsu_hasil = bsu_hasil + bsu_pisah[i];
+                            }
+                            n--;
+                        }
+                        j = 1;
+                    } else if (panjang_bsu == 1) {
+                        bsu_hasil = bsu_pisah[0];
+                        j = 1;
+                    }
+                    k = k + 3;
+                    l = l + 3;
+                    m = m + 3;
+                }
+                return bsu_hasil;
 
             case 5:
                 return arrayPengiriman.get(rowIndex).getId_regional();
-            
+
             case 6:
                 return arrayPengiriman.get(rowIndex).getId_produk();
-                
+
             case 7:
                 return arrayPengiriman.get(rowIndex).getNama_produk();
-                
+
             case 8:
                 return arrayPengiriman.get(rowIndex).getStok_awal();
 
@@ -90,7 +203,7 @@ public class PengirimanTM extends AbstractTableModel {
 
             case 5:
                 return "Kode Regional";
-                
+
             case 6:
                 return "Kode Produk";
 
