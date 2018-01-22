@@ -1,0 +1,643 @@
+@startuml
+annotation java.lang.Override
+annotation java.lang.SuppressWarnings
+class com.mysql.jdbc.Driver
+class id.ac.pos.gudang.Dialog.Admin.DialogRecycleBin
+class id.ac.pos.gudang.Dialog.Admin.MItra.DialogMitra
+class id.ac.pos.gudang.Dialog.Admin.MItra.DialogTambahMitra
+class id.ac.pos.gudang.Dialog.Admin.MItra.DialogUbahMitra
+class id.ac.pos.gudang.Dialog.Admin.Regional.DialogRegional
+class id.ac.pos.gudang.Dialog.Admin.Regional.DialogTambahRegional
+class id.ac.pos.gudang.Dialog.Admin.Regional.DialogUbahRegional
+class id.ac.pos.gudang.Dialog.Admin.User.DialogTambahUser
+class id.ac.pos.gudang.Dialog.Admin.User.DialogUbahUser
+class id.ac.pos.gudang.Dialog.Admin.User.DialogUser
+class id.ac.pos.gudang.Dialog.DialogBackup
+class id.ac.pos.gudang.Dialog.DialogLaporan
+class id.ac.pos.gudang.Dialog.DialogTambahPemesanan
+class id.ac.pos.gudang.Dialog.DialogTambahPenerimaan
+class id.ac.pos.gudang.Dialog.DialogTambahPengembalian
+class id.ac.pos.gudang.Dialog.DialogTambahPengiriman
+class id.ac.pos.gudang.Dialog.DialogUbahProduk
+class id.ac.pos.gudang.Form.FormAdmin
+class id.ac.pos.gudang.Form.FormHome
+class id.ac.pos.gudang.Form.FormLogin
+class id.ac.pos.gudang.Panel.PanelPemesanan
+class id.ac.pos.gudang.Panel.PanelPenerimaan
+class id.ac.pos.gudang.Panel.PanelPengembalian
+class id.ac.pos.gudang.Panel.PanelPengiriman
+class id.ac.pos.gudang.daoimpl.LaporanDAOImpl
+class id.ac.pos.gudang.daoimpl.PemesananDAOImpl
+class id.ac.pos.gudang.daoimpl.PenerimaanDAOImpl
+class id.ac.pos.gudang.daoimpl.PengembalianDAOImpl
+class id.ac.pos.gudang.daoimpl.PengirimanDAOImpl
+class id.ac.pos.gudang.daoimpl.ProdukDAOImpl
+class id.ac.pos.gudang.daoimpl.SuplierDAOImpl
+class id.ac.pos.gudang.daoimpl.admin.MitraDAOImpl
+class id.ac.pos.gudang.daoimpl.admin.RegionalDAOImpl
+class id.ac.pos.gudang.daoimpl.admin.UserDAOImpl
+class id.ac.pos.gudang.entity.Mitra
+class id.ac.pos.gudang.entity.Pemesanan
+class id.ac.pos.gudang.entity.Penerimaan
+class id.ac.pos.gudang.entity.Pengembalian
+class id.ac.pos.gudang.entity.Pengiriman
+class id.ac.pos.gudang.entity.Produk
+class id.ac.pos.gudang.entity.Regional
+class id.ac.pos.gudang.entity.User
+class id.ac.pos.gudang.tablemodel.PemesananTM
+class id.ac.pos.gudang.tablemodel.PenerimaanTM
+class id.ac.pos.gudang.tablemodel.PengembalianTM
+class id.ac.pos.gudang.tablemodel.PengirimanTM
+class id.ac.pos.gudang.tablemodel.ProdukTM
+class id.ac.pos.gudang.tablemodel.RecycleBinTM
+class id.ac.pos.gudang.tablemodel.RegionalTM
+class id.ac.pos.gudang.tablemodel.admin.MitraTM
+class id.ac.pos.gudang.tablemodel.admin.RegionalTM
+class id.ac.pos.gudang.tablemodel.admin.UserTM
+class id.ac.pos.gudang.utility.DatabaseConnectivity
+class java.awt.CardLayout
+class java.awt.Color
+class java.awt.Desktop
+class java.awt.Dialog
+class java.awt.HeadlessException
+class java.awt.event.ItemEvent
+class java.awt.event.ItemListener
+class java.awt.event.KeyEvent
+class java.io.File
+class java.io.IOException
+class java.sql.Connection
+class java.sql.Date
+class java.sql.DriverManager
+class java.sql.PreparedStatement
+class java.sql.ResultSet
+class java.sql.SQLException
+class java.text.SimpleDateFormat
+class java.util.ArrayList
+class java.util.Calendar
+class java.util.Date
+class java.util.List
+class java.util.Vector
+class java.util.logging.Level
+class java.util.logging.Logger
+class javax.swing.BorderFactory
+class javax.swing.DefaultComboBoxModel
+class javax.swing.JDialog
+class javax.swing.JFileChooser
+class javax.swing.JFrame
+class javax.swing.JOptionPane
+class javax.swing.JPanel
+class javax.swing.JTable
+class javax.swing.UIManager
+class javax.swing.table.AbstractTableModel
+class javax.swing.table.DefaultTableModel
+class javax.swing.table.TableModel
+class javax.swing.table.TableRowSorter
+class jxl.Workbook
+class jxl.format.Alignment
+class jxl.format.Border
+class jxl.format.BorderLineStyle
+class jxl.format.Colour
+class jxl.format.UnderlineStyle
+class jxl.format.VerticalAlignment
+class jxl.write.NumberFormat
+class jxl.write.NumberFormats
+class jxl.write.WritableCellFormat
+class jxl.write.WritableFont
+class jxl.write.WritableSheet
+class jxl.write.WritableWorkbook
+class jxl.write.WriteException
+class org.jdesktop.swingx.autocomplete.AutoCompleteDecorator
+interface id.ac.pos.gudang.dao.LaporanDAO
+interface id.ac.pos.gudang.dao.PemesananDAO
+interface id.ac.pos.gudang.dao.PenerimaanDAO
+interface id.ac.pos.gudang.dao.PengembalianDAO
+interface id.ac.pos.gudang.dao.PengirimanDAO
+interface id.ac.pos.gudang.dao.ProdukDAO
+interface id.ac.pos.gudang.dao.admin.MitraDAO
+interface id.ac.pos.gudang.dao.admin.RegionalDAO
+interface id.ac.pos.gudang.dao.admin.UserDAO
+id.ac.pos.gudang.Dialog.Admin.DialogRecycleBin ..> java.lang.Override
+id.ac.pos.gudang.Dialog.Admin.DialogRecycleBin ..> java.lang.SuppressWarnings
+id.ac.pos.gudang.Dialog.Admin.DialogRecycleBin ..> id.ac.pos.gudang.Form.FormHome
+id.ac.pos.gudang.Dialog.Admin.DialogRecycleBin ..> id.ac.pos.gudang.daoimpl.ProdukDAOImpl
+id.ac.pos.gudang.Dialog.Admin.DialogRecycleBin ..> id.ac.pos.gudang.entity.Produk
+id.ac.pos.gudang.Dialog.Admin.DialogRecycleBin ..> id.ac.pos.gudang.tablemodel.ProdukTM
+id.ac.pos.gudang.Dialog.Admin.DialogRecycleBin ..> id.ac.pos.gudang.tablemodel.RecycleBinTM
+id.ac.pos.gudang.Dialog.Admin.DialogRecycleBin ..> java.util.ArrayList
+id.ac.pos.gudang.Dialog.Admin.DialogRecycleBin --|> javax.swing.JDialog
+id.ac.pos.gudang.Dialog.Admin.DialogRecycleBin ..> javax.swing.JOptionPane
+id.ac.pos.gudang.Dialog.Admin.DialogRecycleBin ..> javax.swing.JTable
+id.ac.pos.gudang.Dialog.Admin.DialogRecycleBin ..> javax.swing.table.TableModel
+id.ac.pos.gudang.Dialog.Admin.DialogRecycleBin ..> javax.swing.table.TableRowSorter
+id.ac.pos.gudang.Dialog.Admin.DialogRecycleBin ..> id.ac.pos.gudang.dao.ProdukDAO
+id.ac.pos.gudang.Dialog.Admin.MItra.DialogMitra ..> java.lang.Override
+id.ac.pos.gudang.Dialog.Admin.MItra.DialogMitra ..> java.lang.SuppressWarnings
+id.ac.pos.gudang.Dialog.Admin.MItra.DialogMitra ..> id.ac.pos.gudang.Form.FormAdmin
+id.ac.pos.gudang.Dialog.Admin.MItra.DialogMitra ..> id.ac.pos.gudang.daoimpl.admin.MitraDAOImpl
+id.ac.pos.gudang.Dialog.Admin.MItra.DialogMitra ..> id.ac.pos.gudang.entity.Mitra
+id.ac.pos.gudang.Dialog.Admin.MItra.DialogMitra ..> id.ac.pos.gudang.tablemodel.admin.MitraTM
+id.ac.pos.gudang.Dialog.Admin.MItra.DialogMitra ..> java.awt.Dialog
+id.ac.pos.gudang.Dialog.Admin.MItra.DialogMitra ..> java.util.ArrayList
+id.ac.pos.gudang.Dialog.Admin.MItra.DialogMitra --|> javax.swing.JDialog
+id.ac.pos.gudang.Dialog.Admin.MItra.DialogMitra ..> javax.swing.JOptionPane
+id.ac.pos.gudang.Dialog.Admin.MItra.DialogMitra ..> id.ac.pos.gudang.dao.admin.MitraDAO
+id.ac.pos.gudang.Dialog.Admin.MItra.DialogTambahMitra ..> java.lang.Override
+id.ac.pos.gudang.Dialog.Admin.MItra.DialogTambahMitra ..> java.lang.SuppressWarnings
+id.ac.pos.gudang.Dialog.Admin.MItra.DialogTambahMitra ..> id.ac.pos.gudang.daoimpl.admin.MitraDAOImpl
+id.ac.pos.gudang.Dialog.Admin.MItra.DialogTambahMitra ..> id.ac.pos.gudang.entity.Mitra
+id.ac.pos.gudang.Dialog.Admin.MItra.DialogTambahMitra ..> java.awt.Color
+id.ac.pos.gudang.Dialog.Admin.MItra.DialogTambahMitra ..> javax.swing.BorderFactory
+id.ac.pos.gudang.Dialog.Admin.MItra.DialogTambahMitra --|> javax.swing.JDialog
+id.ac.pos.gudang.Dialog.Admin.MItra.DialogTambahMitra ..> javax.swing.JOptionPane
+id.ac.pos.gudang.Dialog.Admin.MItra.DialogTambahMitra ..> id.ac.pos.gudang.dao.admin.MitraDAO
+id.ac.pos.gudang.Dialog.Admin.MItra.DialogUbahMitra ..> java.lang.Override
+id.ac.pos.gudang.Dialog.Admin.MItra.DialogUbahMitra ..> java.lang.SuppressWarnings
+id.ac.pos.gudang.Dialog.Admin.MItra.DialogUbahMitra ..> id.ac.pos.gudang.Form.FormAdmin
+id.ac.pos.gudang.Dialog.Admin.MItra.DialogUbahMitra ..> id.ac.pos.gudang.daoimpl.admin.MitraDAOImpl
+id.ac.pos.gudang.Dialog.Admin.MItra.DialogUbahMitra ..> id.ac.pos.gudang.entity.Mitra
+id.ac.pos.gudang.Dialog.Admin.MItra.DialogUbahMitra --|> javax.swing.JDialog
+id.ac.pos.gudang.Dialog.Admin.MItra.DialogUbahMitra ..> javax.swing.JOptionPane
+id.ac.pos.gudang.Dialog.Admin.MItra.DialogUbahMitra ..> id.ac.pos.gudang.dao.admin.MitraDAO
+id.ac.pos.gudang.Dialog.Admin.Regional.DialogRegional ..> java.lang.Override
+id.ac.pos.gudang.Dialog.Admin.Regional.DialogRegional ..> java.lang.SuppressWarnings
+id.ac.pos.gudang.Dialog.Admin.Regional.DialogRegional ..> id.ac.pos.gudang.daoimpl.admin.RegionalDAOImpl
+id.ac.pos.gudang.Dialog.Admin.Regional.DialogRegional ..> id.ac.pos.gudang.entity.Regional
+id.ac.pos.gudang.Dialog.Admin.Regional.DialogRegional ..> id.ac.pos.gudang.tablemodel.admin.RegionalTM
+id.ac.pos.gudang.Dialog.Admin.Regional.DialogRegional ..> java.awt.Dialog
+id.ac.pos.gudang.Dialog.Admin.Regional.DialogRegional ..> java.util.ArrayList
+id.ac.pos.gudang.Dialog.Admin.Regional.DialogRegional --|> javax.swing.JDialog
+id.ac.pos.gudang.Dialog.Admin.Regional.DialogRegional ..> javax.swing.JOptionPane
+id.ac.pos.gudang.Dialog.Admin.Regional.DialogRegional ..> id.ac.pos.gudang.dao.admin.RegionalDAO
+id.ac.pos.gudang.Dialog.Admin.Regional.DialogTambahRegional ..> java.lang.Override
+id.ac.pos.gudang.Dialog.Admin.Regional.DialogTambahRegional ..> java.lang.SuppressWarnings
+id.ac.pos.gudang.Dialog.Admin.Regional.DialogTambahRegional ..> id.ac.pos.gudang.daoimpl.admin.RegionalDAOImpl
+id.ac.pos.gudang.Dialog.Admin.Regional.DialogTambahRegional ..> id.ac.pos.gudang.entity.Regional
+id.ac.pos.gudang.Dialog.Admin.Regional.DialogTambahRegional --|> javax.swing.JDialog
+id.ac.pos.gudang.Dialog.Admin.Regional.DialogTambahRegional ..> javax.swing.JOptionPane
+id.ac.pos.gudang.Dialog.Admin.Regional.DialogTambahRegional ..> id.ac.pos.gudang.dao.admin.RegionalDAO
+id.ac.pos.gudang.Dialog.Admin.Regional.DialogUbahRegional ..> java.lang.Override
+id.ac.pos.gudang.Dialog.Admin.Regional.DialogUbahRegional ..> java.lang.SuppressWarnings
+id.ac.pos.gudang.Dialog.Admin.Regional.DialogUbahRegional ..> id.ac.pos.gudang.daoimpl.admin.RegionalDAOImpl
+id.ac.pos.gudang.Dialog.Admin.Regional.DialogUbahRegional ..> id.ac.pos.gudang.entity.Regional
+id.ac.pos.gudang.Dialog.Admin.Regional.DialogUbahRegional ..> java.awt.Dialog
+id.ac.pos.gudang.Dialog.Admin.Regional.DialogUbahRegional --|> javax.swing.JDialog
+id.ac.pos.gudang.Dialog.Admin.Regional.DialogUbahRegional ..> javax.swing.JOptionPane
+id.ac.pos.gudang.Dialog.Admin.Regional.DialogUbahRegional ..> id.ac.pos.gudang.dao.admin.RegionalDAO
+id.ac.pos.gudang.Dialog.Admin.User.DialogTambahUser ..> java.lang.Override
+id.ac.pos.gudang.Dialog.Admin.User.DialogTambahUser ..> java.lang.SuppressWarnings
+id.ac.pos.gudang.Dialog.Admin.User.DialogTambahUser ..> id.ac.pos.gudang.daoimpl.admin.UserDAOImpl
+id.ac.pos.gudang.Dialog.Admin.User.DialogTambahUser ..> id.ac.pos.gudang.entity.User
+id.ac.pos.gudang.Dialog.Admin.User.DialogTambahUser --|> javax.swing.JDialog
+id.ac.pos.gudang.Dialog.Admin.User.DialogTambahUser ..> javax.swing.JOptionPane
+id.ac.pos.gudang.Dialog.Admin.User.DialogTambahUser ..> id.ac.pos.gudang.dao.admin.UserDAO
+id.ac.pos.gudang.Dialog.Admin.User.DialogUbahUser ..> java.lang.Override
+id.ac.pos.gudang.Dialog.Admin.User.DialogUbahUser ..> java.lang.SuppressWarnings
+id.ac.pos.gudang.Dialog.Admin.User.DialogUbahUser ..> id.ac.pos.gudang.Form.FormAdmin
+id.ac.pos.gudang.Dialog.Admin.User.DialogUbahUser ..> id.ac.pos.gudang.daoimpl.admin.UserDAOImpl
+id.ac.pos.gudang.Dialog.Admin.User.DialogUbahUser ..> id.ac.pos.gudang.entity.User
+id.ac.pos.gudang.Dialog.Admin.User.DialogUbahUser ..> java.util.Vector
+id.ac.pos.gudang.Dialog.Admin.User.DialogUbahUser ..> javax.swing.DefaultComboBoxModel
+id.ac.pos.gudang.Dialog.Admin.User.DialogUbahUser --|> javax.swing.JDialog
+id.ac.pos.gudang.Dialog.Admin.User.DialogUbahUser ..> javax.swing.JOptionPane
+id.ac.pos.gudang.Dialog.Admin.User.DialogUbahUser ..> id.ac.pos.gudang.dao.admin.UserDAO
+id.ac.pos.gudang.Dialog.Admin.User.DialogUser ..> java.lang.Override
+id.ac.pos.gudang.Dialog.Admin.User.DialogUser ..> java.lang.SuppressWarnings
+id.ac.pos.gudang.Dialog.Admin.User.DialogUser ..> id.ac.pos.gudang.Form.FormAdmin
+id.ac.pos.gudang.Dialog.Admin.User.DialogUser ..> id.ac.pos.gudang.daoimpl.admin.UserDAOImpl
+id.ac.pos.gudang.Dialog.Admin.User.DialogUser ..> id.ac.pos.gudang.entity.User
+id.ac.pos.gudang.Dialog.Admin.User.DialogUser ..> id.ac.pos.gudang.tablemodel.admin.UserTM
+id.ac.pos.gudang.Dialog.Admin.User.DialogUser ..> java.awt.Dialog
+id.ac.pos.gudang.Dialog.Admin.User.DialogUser ..> java.util.ArrayList
+id.ac.pos.gudang.Dialog.Admin.User.DialogUser --|> javax.swing.JDialog
+id.ac.pos.gudang.Dialog.Admin.User.DialogUser ..> javax.swing.JOptionPane
+id.ac.pos.gudang.Dialog.Admin.User.DialogUser ..> id.ac.pos.gudang.dao.admin.UserDAO
+id.ac.pos.gudang.Dialog.DialogBackup ..> java.lang.Override
+id.ac.pos.gudang.Dialog.DialogBackup ..> java.lang.SuppressWarnings
+id.ac.pos.gudang.Dialog.DialogBackup ..> java.awt.HeadlessException
+id.ac.pos.gudang.Dialog.DialogBackup ..> java.io.IOException
+id.ac.pos.gudang.Dialog.DialogBackup ..> java.text.SimpleDateFormat
+id.ac.pos.gudang.Dialog.DialogBackup ..> java.util.Calendar
+id.ac.pos.gudang.Dialog.DialogBackup ..> java.util.logging.Level
+id.ac.pos.gudang.Dialog.DialogBackup ..> java.util.logging.Logger
+id.ac.pos.gudang.Dialog.DialogBackup --|> javax.swing.JDialog
+id.ac.pos.gudang.Dialog.DialogBackup ..> javax.swing.JFileChooser
+id.ac.pos.gudang.Dialog.DialogBackup ..> javax.swing.JOptionPane
+id.ac.pos.gudang.Dialog.DialogLaporan ..> java.lang.Override
+id.ac.pos.gudang.Dialog.DialogLaporan ..> java.lang.SuppressWarnings
+id.ac.pos.gudang.Dialog.DialogLaporan ..> id.ac.pos.gudang.Form.FormHome
+id.ac.pos.gudang.Dialog.DialogLaporan ..> id.ac.pos.gudang.daoimpl.LaporanDAOImpl
+id.ac.pos.gudang.Dialog.DialogLaporan ..> id.ac.pos.gudang.entity.Produk
+id.ac.pos.gudang.Dialog.DialogLaporan ..> java.awt.Desktop
+id.ac.pos.gudang.Dialog.DialogLaporan ..> java.io.File
+id.ac.pos.gudang.Dialog.DialogLaporan ..> java.io.IOException
+id.ac.pos.gudang.Dialog.DialogLaporan ..> java.util.ArrayList
+id.ac.pos.gudang.Dialog.DialogLaporan ..> java.util.Calendar
+id.ac.pos.gudang.Dialog.DialogLaporan ..> java.util.Vector
+id.ac.pos.gudang.Dialog.DialogLaporan ..> java.util.logging.Level
+id.ac.pos.gudang.Dialog.DialogLaporan ..> java.util.logging.Logger
+id.ac.pos.gudang.Dialog.DialogLaporan ..> javax.swing.DefaultComboBoxModel
+id.ac.pos.gudang.Dialog.DialogLaporan --|> javax.swing.JDialog
+id.ac.pos.gudang.Dialog.DialogLaporan ..> javax.swing.JFileChooser
+id.ac.pos.gudang.Dialog.DialogLaporan ..> javax.swing.JOptionPane
+id.ac.pos.gudang.Dialog.DialogLaporan ..> jxl.Workbook
+id.ac.pos.gudang.Dialog.DialogLaporan ..> jxl.format.Alignment
+id.ac.pos.gudang.Dialog.DialogLaporan ..> jxl.format.Border
+id.ac.pos.gudang.Dialog.DialogLaporan ..> jxl.format.BorderLineStyle
+id.ac.pos.gudang.Dialog.DialogLaporan ..> jxl.format.Colour
+id.ac.pos.gudang.Dialog.DialogLaporan ..> jxl.format.UnderlineStyle
+id.ac.pos.gudang.Dialog.DialogLaporan ..> jxl.format.VerticalAlignment
+id.ac.pos.gudang.Dialog.DialogLaporan ..> jxl.write.NumberFormat
+id.ac.pos.gudang.Dialog.DialogLaporan ..> jxl.write.NumberFormats
+id.ac.pos.gudang.Dialog.DialogLaporan ..> jxl.write.WritableCellFormat
+id.ac.pos.gudang.Dialog.DialogLaporan ..> jxl.write.WritableFont
+id.ac.pos.gudang.Dialog.DialogLaporan ..> jxl.write.WritableSheet
+id.ac.pos.gudang.Dialog.DialogLaporan ..> jxl.write.WritableWorkbook
+id.ac.pos.gudang.Dialog.DialogLaporan ..> jxl.write.WriteException
+id.ac.pos.gudang.Dialog.DialogLaporan ..> id.ac.pos.gudang.dao.LaporanDAO
+id.ac.pos.gudang.Dialog.DialogTambahPemesanan ..> java.lang.Override
+id.ac.pos.gudang.Dialog.DialogTambahPemesanan ..> java.lang.SuppressWarnings
+id.ac.pos.gudang.Dialog.DialogTambahPemesanan ..> id.ac.pos.gudang.daoimpl.PemesananDAOImpl
+id.ac.pos.gudang.Dialog.DialogTambahPemesanan ..> id.ac.pos.gudang.entity.Mitra
+id.ac.pos.gudang.Dialog.DialogTambahPemesanan ..> id.ac.pos.gudang.entity.Pemesanan
+id.ac.pos.gudang.Dialog.DialogTambahPemesanan ..> id.ac.pos.gudang.entity.Produk
+id.ac.pos.gudang.Dialog.DialogTambahPemesanan ..> java.awt.event.ItemEvent
+id.ac.pos.gudang.Dialog.DialogTambahPemesanan ..> java.awt.event.ItemListener
+id.ac.pos.gudang.Dialog.DialogTambahPemesanan ..> java.awt.event.KeyEvent
+id.ac.pos.gudang.Dialog.DialogTambahPemesanan ..> java.util.ArrayList
+id.ac.pos.gudang.Dialog.DialogTambahPemesanan ..> java.util.List
+id.ac.pos.gudang.Dialog.DialogTambahPemesanan ..> java.util.Vector
+id.ac.pos.gudang.Dialog.DialogTambahPemesanan ..> javax.swing.DefaultComboBoxModel
+id.ac.pos.gudang.Dialog.DialogTambahPemesanan --|> javax.swing.JDialog
+id.ac.pos.gudang.Dialog.DialogTambahPemesanan ..> javax.swing.JOptionPane
+id.ac.pos.gudang.Dialog.DialogTambahPemesanan ..> javax.swing.table.DefaultTableModel
+id.ac.pos.gudang.Dialog.DialogTambahPemesanan ..> org.jdesktop.swingx.autocomplete.AutoCompleteDecorator
+id.ac.pos.gudang.Dialog.DialogTambahPemesanan ..> id.ac.pos.gudang.dao.PemesananDAO
+id.ac.pos.gudang.Dialog.DialogTambahPemesanan ..> id.ac.pos.gudang.dao.ProdukDAO
+id.ac.pos.gudang.Dialog.DialogTambahPenerimaan ..> java.lang.Override
+id.ac.pos.gudang.Dialog.DialogTambahPenerimaan ..> java.lang.SuppressWarnings
+id.ac.pos.gudang.Dialog.DialogTambahPenerimaan ..> id.ac.pos.gudang.daoimpl.PemesananDAOImpl
+id.ac.pos.gudang.Dialog.DialogTambahPenerimaan ..> id.ac.pos.gudang.daoimpl.PenerimaanDAOImpl
+id.ac.pos.gudang.Dialog.DialogTambahPenerimaan ..> id.ac.pos.gudang.daoimpl.ProdukDAOImpl
+id.ac.pos.gudang.Dialog.DialogTambahPenerimaan ..> id.ac.pos.gudang.entity.Mitra
+id.ac.pos.gudang.Dialog.DialogTambahPenerimaan ..> id.ac.pos.gudang.entity.Pemesanan
+id.ac.pos.gudang.Dialog.DialogTambahPenerimaan ..> id.ac.pos.gudang.entity.Penerimaan
+id.ac.pos.gudang.Dialog.DialogTambahPenerimaan ..> id.ac.pos.gudang.entity.Produk
+id.ac.pos.gudang.Dialog.DialogTambahPenerimaan ..> java.awt.event.ItemEvent
+id.ac.pos.gudang.Dialog.DialogTambahPenerimaan ..> java.awt.event.ItemListener
+id.ac.pos.gudang.Dialog.DialogTambahPenerimaan ..> java.awt.event.KeyEvent
+id.ac.pos.gudang.Dialog.DialogTambahPenerimaan ..> java.sql.PreparedStatement
+id.ac.pos.gudang.Dialog.DialogTambahPenerimaan ..> java.sql.ResultSet
+id.ac.pos.gudang.Dialog.DialogTambahPenerimaan ..> java.sql.SQLException
+id.ac.pos.gudang.Dialog.DialogTambahPenerimaan ..> java.util.ArrayList
+id.ac.pos.gudang.Dialog.DialogTambahPenerimaan ..> java.util.List
+id.ac.pos.gudang.Dialog.DialogTambahPenerimaan ..> java.util.Vector
+id.ac.pos.gudang.Dialog.DialogTambahPenerimaan ..> javax.swing.DefaultComboBoxModel
+id.ac.pos.gudang.Dialog.DialogTambahPenerimaan --|> javax.swing.JDialog
+id.ac.pos.gudang.Dialog.DialogTambahPenerimaan ..> javax.swing.JOptionPane
+id.ac.pos.gudang.Dialog.DialogTambahPenerimaan ..> javax.swing.table.DefaultTableModel
+id.ac.pos.gudang.Dialog.DialogTambahPenerimaan ..> org.jdesktop.swingx.autocomplete.AutoCompleteDecorator
+id.ac.pos.gudang.Dialog.DialogTambahPenerimaan ..> id.ac.pos.gudang.dao.PemesananDAO
+id.ac.pos.gudang.Dialog.DialogTambahPenerimaan ..> id.ac.pos.gudang.dao.PenerimaanDAO
+id.ac.pos.gudang.Dialog.DialogTambahPenerimaan ..> id.ac.pos.gudang.dao.ProdukDAO
+id.ac.pos.gudang.Dialog.DialogTambahPengembalian ..> java.lang.Override
+id.ac.pos.gudang.Dialog.DialogTambahPengembalian ..> java.lang.SuppressWarnings
+id.ac.pos.gudang.Dialog.DialogTambahPengembalian ..> id.ac.pos.gudang.daoimpl.PengembalianDAOImpl
+id.ac.pos.gudang.Dialog.DialogTambahPengembalian ..> id.ac.pos.gudang.entity.Pengembalian
+id.ac.pos.gudang.Dialog.DialogTambahPengembalian ..> id.ac.pos.gudang.entity.Produk
+id.ac.pos.gudang.Dialog.DialogTambahPengembalian ..> id.ac.pos.gudang.entity.Regional
+id.ac.pos.gudang.Dialog.DialogTambahPengembalian ..> java.awt.event.ItemEvent
+id.ac.pos.gudang.Dialog.DialogTambahPengembalian ..> java.awt.event.ItemListener
+id.ac.pos.gudang.Dialog.DialogTambahPengembalian ..> java.awt.event.KeyEvent
+id.ac.pos.gudang.Dialog.DialogTambahPengembalian ..> java.util.ArrayList
+id.ac.pos.gudang.Dialog.DialogTambahPengembalian ..> java.util.Date
+id.ac.pos.gudang.Dialog.DialogTambahPengembalian ..> java.util.List
+id.ac.pos.gudang.Dialog.DialogTambahPengembalian ..> java.util.Vector
+id.ac.pos.gudang.Dialog.DialogTambahPengembalian ..> javax.swing.DefaultComboBoxModel
+id.ac.pos.gudang.Dialog.DialogTambahPengembalian --|> javax.swing.JDialog
+id.ac.pos.gudang.Dialog.DialogTambahPengembalian ..> javax.swing.JOptionPane
+id.ac.pos.gudang.Dialog.DialogTambahPengembalian ..> javax.swing.table.DefaultTableModel
+id.ac.pos.gudang.Dialog.DialogTambahPengembalian ..> org.jdesktop.swingx.autocomplete.AutoCompleteDecorator
+id.ac.pos.gudang.Dialog.DialogTambahPengembalian ..> id.ac.pos.gudang.dao.PengembalianDAO
+id.ac.pos.gudang.Dialog.DialogTambahPengembalian ..> id.ac.pos.gudang.dao.ProdukDAO
+id.ac.pos.gudang.Dialog.DialogTambahPengiriman ..> java.lang.Override
+id.ac.pos.gudang.Dialog.DialogTambahPengiriman ..> java.lang.SuppressWarnings
+id.ac.pos.gudang.Dialog.DialogTambahPengiriman ..> id.ac.pos.gudang.Panel.PanelPengiriman
+id.ac.pos.gudang.Dialog.DialogTambahPengiriman ..> id.ac.pos.gudang.daoimpl.PengirimanDAOImpl
+id.ac.pos.gudang.Dialog.DialogTambahPengiriman ..> id.ac.pos.gudang.entity.Pengembalian
+id.ac.pos.gudang.Dialog.DialogTambahPengiriman ..> id.ac.pos.gudang.entity.Pengiriman
+id.ac.pos.gudang.Dialog.DialogTambahPengiriman ..> id.ac.pos.gudang.entity.Produk
+id.ac.pos.gudang.Dialog.DialogTambahPengiriman ..> id.ac.pos.gudang.entity.Regional
+id.ac.pos.gudang.Dialog.DialogTambahPengiriman ..> java.awt.event.KeyEvent
+id.ac.pos.gudang.Dialog.DialogTambahPengiriman ..> java.util.ArrayList
+id.ac.pos.gudang.Dialog.DialogTambahPengiriman ..> java.util.Date
+id.ac.pos.gudang.Dialog.DialogTambahPengiriman ..> java.util.List
+id.ac.pos.gudang.Dialog.DialogTambahPengiriman ..> java.util.Vector
+id.ac.pos.gudang.Dialog.DialogTambahPengiriman ..> javax.swing.DefaultComboBoxModel
+id.ac.pos.gudang.Dialog.DialogTambahPengiriman --|> javax.swing.JDialog
+id.ac.pos.gudang.Dialog.DialogTambahPengiriman ..> javax.swing.JOptionPane
+id.ac.pos.gudang.Dialog.DialogTambahPengiriman ..> javax.swing.table.DefaultTableModel
+id.ac.pos.gudang.Dialog.DialogTambahPengiriman ..> org.jdesktop.swingx.autocomplete.AutoCompleteDecorator
+id.ac.pos.gudang.Dialog.DialogTambahPengiriman ..> id.ac.pos.gudang.dao.PengirimanDAO
+id.ac.pos.gudang.Dialog.DialogTambahPengiriman ..> id.ac.pos.gudang.dao.ProdukDAO
+id.ac.pos.gudang.Dialog.DialogUbahProduk ..> java.lang.Override
+id.ac.pos.gudang.Dialog.DialogUbahProduk ..> java.lang.SuppressWarnings
+id.ac.pos.gudang.Dialog.DialogUbahProduk ..> id.ac.pos.gudang.Form.FormHome
+id.ac.pos.gudang.Dialog.DialogUbahProduk ..> id.ac.pos.gudang.daoimpl.ProdukDAOImpl
+id.ac.pos.gudang.Dialog.DialogUbahProduk ..> id.ac.pos.gudang.entity.Produk
+id.ac.pos.gudang.Dialog.DialogUbahProduk ..> java.awt.Desktop
+id.ac.pos.gudang.Dialog.DialogUbahProduk ..> java.io.IOException
+id.ac.pos.gudang.Dialog.DialogUbahProduk ..> java.util.ArrayList
+id.ac.pos.gudang.Dialog.DialogUbahProduk ..> java.util.logging.Level
+id.ac.pos.gudang.Dialog.DialogUbahProduk ..> java.util.logging.Logger
+id.ac.pos.gudang.Dialog.DialogUbahProduk --|> javax.swing.JDialog
+id.ac.pos.gudang.Dialog.DialogUbahProduk ..> javax.swing.JFileChooser
+id.ac.pos.gudang.Dialog.DialogUbahProduk ..> javax.swing.JOptionPane
+id.ac.pos.gudang.Dialog.DialogUbahProduk ..> id.ac.pos.gudang.dao.ProdukDAO
+id.ac.pos.gudang.Form.FormAdmin ..> java.lang.SuppressWarnings
+id.ac.pos.gudang.Form.FormAdmin ..> id.ac.pos.gudang.Dialog.Admin.MItra.DialogMitra
+id.ac.pos.gudang.Form.FormAdmin ..> id.ac.pos.gudang.Dialog.Admin.Regional.DialogRegional
+id.ac.pos.gudang.Form.FormAdmin ..> id.ac.pos.gudang.Dialog.Admin.User.DialogUser
+id.ac.pos.gudang.Form.FormAdmin --|> javax.swing.JFrame
+id.ac.pos.gudang.Form.FormAdmin ..> javax.swing.JOptionPane
+id.ac.pos.gudang.Form.FormAdmin ..> javax.swing.UIManager
+id.ac.pos.gudang.Form.FormHome ..> java.lang.SuppressWarnings
+id.ac.pos.gudang.Form.FormHome ..> id.ac.pos.gudang.Dialog.Admin.DialogRecycleBin
+id.ac.pos.gudang.Form.FormHome ..> id.ac.pos.gudang.Dialog.DialogLaporan
+id.ac.pos.gudang.Form.FormHome ..> id.ac.pos.gudang.Dialog.DialogUbahProduk
+id.ac.pos.gudang.Form.FormHome ..> id.ac.pos.gudang.Panel.PanelPemesanan
+id.ac.pos.gudang.Form.FormHome ..> id.ac.pos.gudang.Panel.PanelPenerimaan
+id.ac.pos.gudang.Form.FormHome ..> id.ac.pos.gudang.Panel.PanelPengembalian
+id.ac.pos.gudang.Form.FormHome ..> id.ac.pos.gudang.Panel.PanelPengiriman
+id.ac.pos.gudang.Form.FormHome ..> id.ac.pos.gudang.daoimpl.ProdukDAOImpl
+id.ac.pos.gudang.Form.FormHome ..> id.ac.pos.gudang.entity.Produk
+id.ac.pos.gudang.Form.FormHome ..> id.ac.pos.gudang.tablemodel.ProdukTM
+id.ac.pos.gudang.Form.FormHome ..> java.awt.CardLayout
+id.ac.pos.gudang.Form.FormHome ..> java.awt.Dialog
+id.ac.pos.gudang.Form.FormHome ..> java.awt.event.KeyEvent
+id.ac.pos.gudang.Form.FormHome ..> java.io.IOException
+id.ac.pos.gudang.Form.FormHome ..> java.util.ArrayList
+id.ac.pos.gudang.Form.FormHome ..> java.util.logging.Level
+id.ac.pos.gudang.Form.FormHome ..> java.util.logging.Logger
+id.ac.pos.gudang.Form.FormHome --|> javax.swing.JFrame
+id.ac.pos.gudang.Form.FormHome ..> javax.swing.table.TableRowSorter
+id.ac.pos.gudang.Form.FormHome ..> id.ac.pos.gudang.dao.ProdukDAO
+id.ac.pos.gudang.Form.FormLogin ..> java.lang.SuppressWarnings
+id.ac.pos.gudang.Form.FormLogin ..> id.ac.pos.gudang.entity.User
+id.ac.pos.gudang.Form.FormLogin ..> id.ac.pos.gudang.utility.DatabaseConnectivity
+id.ac.pos.gudang.Form.FormLogin ..> java.awt.HeadlessException
+id.ac.pos.gudang.Form.FormLogin ..> java.awt.event.KeyEvent
+id.ac.pos.gudang.Form.FormLogin ..> java.sql.Connection
+id.ac.pos.gudang.Form.FormLogin ..> java.sql.PreparedStatement
+id.ac.pos.gudang.Form.FormLogin ..> java.sql.ResultSet
+id.ac.pos.gudang.Form.FormLogin ..> java.sql.SQLException
+id.ac.pos.gudang.Form.FormLogin --|> javax.swing.JFrame
+id.ac.pos.gudang.Form.FormLogin ..> javax.swing.JOptionPane
+id.ac.pos.gudang.Form.FormLogin ..> javax.swing.UIManager
+id.ac.pos.gudang.Panel.PanelPemesanan ..> java.lang.SuppressWarnings
+id.ac.pos.gudang.Panel.PanelPemesanan ..> id.ac.pos.gudang.Dialog.DialogTambahPemesanan
+id.ac.pos.gudang.Panel.PanelPemesanan ..> id.ac.pos.gudang.Form.FormHome
+id.ac.pos.gudang.Panel.PanelPemesanan ..> id.ac.pos.gudang.daoimpl.PemesananDAOImpl
+id.ac.pos.gudang.Panel.PanelPemesanan ..> id.ac.pos.gudang.entity.Pemesanan
+id.ac.pos.gudang.Panel.PanelPemesanan ..> id.ac.pos.gudang.tablemodel.PemesananTM
+id.ac.pos.gudang.Panel.PanelPemesanan ..> java.util.ArrayList
+id.ac.pos.gudang.Panel.PanelPemesanan --|> javax.swing.JPanel
+id.ac.pos.gudang.Panel.PanelPemesanan ..> javax.swing.table.TableRowSorter
+id.ac.pos.gudang.Panel.PanelPemesanan ..> id.ac.pos.gudang.dao.PemesananDAO
+id.ac.pos.gudang.Panel.PanelPenerimaan ..> java.lang.SuppressWarnings
+id.ac.pos.gudang.Panel.PanelPenerimaan ..> id.ac.pos.gudang.Dialog.DialogTambahPenerimaan
+id.ac.pos.gudang.Panel.PanelPenerimaan ..> id.ac.pos.gudang.Form.FormHome
+id.ac.pos.gudang.Panel.PanelPenerimaan ..> id.ac.pos.gudang.daoimpl.PenerimaanDAOImpl
+id.ac.pos.gudang.Panel.PanelPenerimaan ..> id.ac.pos.gudang.entity.Mitra
+id.ac.pos.gudang.Panel.PanelPenerimaan ..> id.ac.pos.gudang.entity.Pemesanan
+id.ac.pos.gudang.Panel.PanelPenerimaan ..> id.ac.pos.gudang.entity.Penerimaan
+id.ac.pos.gudang.Panel.PanelPenerimaan ..> id.ac.pos.gudang.entity.Produk
+id.ac.pos.gudang.Panel.PanelPenerimaan ..> id.ac.pos.gudang.tablemodel.PenerimaanTM
+id.ac.pos.gudang.Panel.PanelPenerimaan ..> java.util.ArrayList
+id.ac.pos.gudang.Panel.PanelPenerimaan ..> java.util.Vector
+id.ac.pos.gudang.Panel.PanelPenerimaan ..> javax.swing.JDialog
+id.ac.pos.gudang.Panel.PanelPenerimaan --|> javax.swing.JPanel
+id.ac.pos.gudang.Panel.PanelPenerimaan ..> javax.swing.table.TableRowSorter
+id.ac.pos.gudang.Panel.PanelPenerimaan ..> id.ac.pos.gudang.dao.PenerimaanDAO
+id.ac.pos.gudang.Panel.PanelPenerimaan ..> id.ac.pos.gudang.dao.ProdukDAO
+id.ac.pos.gudang.Panel.PanelPengembalian ..> java.lang.SuppressWarnings
+id.ac.pos.gudang.Panel.PanelPengembalian ..> id.ac.pos.gudang.Dialog.DialogTambahPengembalian
+id.ac.pos.gudang.Panel.PanelPengembalian ..> id.ac.pos.gudang.Form.FormHome
+id.ac.pos.gudang.Panel.PanelPengembalian ..> id.ac.pos.gudang.daoimpl.PengembalianDAOImpl
+id.ac.pos.gudang.Panel.PanelPengembalian ..> id.ac.pos.gudang.entity.Pengembalian
+id.ac.pos.gudang.Panel.PanelPengembalian ..> id.ac.pos.gudang.entity.Produk
+id.ac.pos.gudang.Panel.PanelPengembalian ..> id.ac.pos.gudang.entity.Regional
+id.ac.pos.gudang.Panel.PanelPengembalian ..> id.ac.pos.gudang.tablemodel.PengembalianTM
+id.ac.pos.gudang.Panel.PanelPengembalian ..> java.util.ArrayList
+id.ac.pos.gudang.Panel.PanelPengembalian --|> javax.swing.JPanel
+id.ac.pos.gudang.Panel.PanelPengembalian ..> javax.swing.table.TableRowSorter
+id.ac.pos.gudang.Panel.PanelPengembalian ..> id.ac.pos.gudang.dao.PengembalianDAO
+id.ac.pos.gudang.Panel.PanelPengembalian ..> id.ac.pos.gudang.dao.ProdukDAO
+id.ac.pos.gudang.Panel.PanelPengiriman ..> java.lang.SuppressWarnings
+id.ac.pos.gudang.Panel.PanelPengiriman ..> id.ac.pos.gudang.Dialog.DialogTambahPengiriman
+id.ac.pos.gudang.Panel.PanelPengiriman ..> id.ac.pos.gudang.Form.FormHome
+id.ac.pos.gudang.Panel.PanelPengiriman ..> id.ac.pos.gudang.daoimpl.PengirimanDAOImpl
+id.ac.pos.gudang.Panel.PanelPengiriman ..> id.ac.pos.gudang.entity.Pengiriman
+id.ac.pos.gudang.Panel.PanelPengiriman ..> id.ac.pos.gudang.entity.Produk
+id.ac.pos.gudang.Panel.PanelPengiriman ..> id.ac.pos.gudang.entity.Regional
+id.ac.pos.gudang.Panel.PanelPengiriman ..> id.ac.pos.gudang.tablemodel.PengirimanTM
+id.ac.pos.gudang.Panel.PanelPengiriman ..> java.util.ArrayList
+id.ac.pos.gudang.Panel.PanelPengiriman --|> javax.swing.JPanel
+id.ac.pos.gudang.Panel.PanelPengiriman ..> javax.swing.table.TableRowSorter
+id.ac.pos.gudang.Panel.PanelPengiriman ..> id.ac.pos.gudang.dao.PengirimanDAO
+id.ac.pos.gudang.Panel.PanelPengiriman ..> id.ac.pos.gudang.dao.ProdukDAO
+id.ac.pos.gudang.daoimpl.LaporanDAOImpl ..> java.lang.Override
+id.ac.pos.gudang.daoimpl.LaporanDAOImpl ..> id.ac.pos.gudang.daoimpl.admin.RegionalDAOImpl
+id.ac.pos.gudang.daoimpl.LaporanDAOImpl ..> id.ac.pos.gudang.entity.Produk
+id.ac.pos.gudang.daoimpl.LaporanDAOImpl ..> id.ac.pos.gudang.utility.DatabaseConnectivity
+id.ac.pos.gudang.daoimpl.LaporanDAOImpl ..> java.sql.Connection
+id.ac.pos.gudang.daoimpl.LaporanDAOImpl ..> java.sql.PreparedStatement
+id.ac.pos.gudang.daoimpl.LaporanDAOImpl ..> java.sql.ResultSet
+id.ac.pos.gudang.daoimpl.LaporanDAOImpl ..> java.sql.SQLException
+id.ac.pos.gudang.daoimpl.LaporanDAOImpl ..> java.util.ArrayList
+id.ac.pos.gudang.daoimpl.LaporanDAOImpl ..> java.util.logging.Level
+id.ac.pos.gudang.daoimpl.LaporanDAOImpl ..> java.util.logging.Logger
+id.ac.pos.gudang.daoimpl.LaporanDAOImpl --|> id.ac.pos.gudang.dao.LaporanDAO
+id.ac.pos.gudang.daoimpl.PemesananDAOImpl ..> java.lang.Override
+id.ac.pos.gudang.daoimpl.PemesananDAOImpl ..> id.ac.pos.gudang.daoimpl.admin.MitraDAOImpl
+id.ac.pos.gudang.daoimpl.PemesananDAOImpl ..> id.ac.pos.gudang.entity.Mitra
+id.ac.pos.gudang.daoimpl.PemesananDAOImpl ..> id.ac.pos.gudang.entity.Pemesanan
+id.ac.pos.gudang.daoimpl.PemesananDAOImpl ..> id.ac.pos.gudang.entity.Produk
+id.ac.pos.gudang.daoimpl.PemesananDAOImpl ..> id.ac.pos.gudang.utility.DatabaseConnectivity
+id.ac.pos.gudang.daoimpl.PemesananDAOImpl ..> java.sql.Connection
+id.ac.pos.gudang.daoimpl.PemesananDAOImpl ..> java.sql.Date
+id.ac.pos.gudang.daoimpl.PemesananDAOImpl ..> java.sql.PreparedStatement
+id.ac.pos.gudang.daoimpl.PemesananDAOImpl ..> java.sql.ResultSet
+id.ac.pos.gudang.daoimpl.PemesananDAOImpl ..> java.sql.SQLException
+id.ac.pos.gudang.daoimpl.PemesananDAOImpl ..> java.util.ArrayList
+id.ac.pos.gudang.daoimpl.PemesananDAOImpl ..> java.util.logging.Level
+id.ac.pos.gudang.daoimpl.PemesananDAOImpl ..> java.util.logging.Logger
+id.ac.pos.gudang.daoimpl.PemesananDAOImpl --|> id.ac.pos.gudang.dao.PemesananDAO
+id.ac.pos.gudang.daoimpl.PenerimaanDAOImpl ..> java.lang.Override
+id.ac.pos.gudang.daoimpl.PenerimaanDAOImpl ..> id.ac.pos.gudang.daoimpl.admin.MitraDAOImpl
+id.ac.pos.gudang.daoimpl.PenerimaanDAOImpl ..> id.ac.pos.gudang.entity.Mitra
+id.ac.pos.gudang.daoimpl.PenerimaanDAOImpl ..> id.ac.pos.gudang.entity.Pemesanan
+id.ac.pos.gudang.daoimpl.PenerimaanDAOImpl ..> id.ac.pos.gudang.entity.Penerimaan
+id.ac.pos.gudang.daoimpl.PenerimaanDAOImpl ..> id.ac.pos.gudang.entity.Produk
+id.ac.pos.gudang.daoimpl.PenerimaanDAOImpl ..> id.ac.pos.gudang.utility.DatabaseConnectivity
+id.ac.pos.gudang.daoimpl.PenerimaanDAOImpl ..> java.sql.Connection
+id.ac.pos.gudang.daoimpl.PenerimaanDAOImpl ..> java.sql.PreparedStatement
+id.ac.pos.gudang.daoimpl.PenerimaanDAOImpl ..> java.sql.ResultSet
+id.ac.pos.gudang.daoimpl.PenerimaanDAOImpl ..> java.sql.SQLException
+id.ac.pos.gudang.daoimpl.PenerimaanDAOImpl ..> java.util.ArrayList
+id.ac.pos.gudang.daoimpl.PenerimaanDAOImpl ..> java.util.logging.Level
+id.ac.pos.gudang.daoimpl.PenerimaanDAOImpl ..> java.util.logging.Logger
+id.ac.pos.gudang.daoimpl.PenerimaanDAOImpl --|> id.ac.pos.gudang.dao.PenerimaanDAO
+id.ac.pos.gudang.daoimpl.PengembalianDAOImpl ..> java.lang.Override
+id.ac.pos.gudang.daoimpl.PengembalianDAOImpl ..> id.ac.pos.gudang.daoimpl.admin.RegionalDAOImpl
+id.ac.pos.gudang.daoimpl.PengembalianDAOImpl ..> id.ac.pos.gudang.entity.Pengembalian
+id.ac.pos.gudang.daoimpl.PengembalianDAOImpl ..> id.ac.pos.gudang.entity.Produk
+id.ac.pos.gudang.daoimpl.PengembalianDAOImpl ..> id.ac.pos.gudang.entity.Regional
+id.ac.pos.gudang.daoimpl.PengembalianDAOImpl ..> id.ac.pos.gudang.utility.DatabaseConnectivity
+id.ac.pos.gudang.daoimpl.PengembalianDAOImpl ..> java.sql.Connection
+id.ac.pos.gudang.daoimpl.PengembalianDAOImpl ..> java.sql.PreparedStatement
+id.ac.pos.gudang.daoimpl.PengembalianDAOImpl ..> java.sql.ResultSet
+id.ac.pos.gudang.daoimpl.PengembalianDAOImpl ..> java.sql.SQLException
+id.ac.pos.gudang.daoimpl.PengembalianDAOImpl ..> java.util.ArrayList
+id.ac.pos.gudang.daoimpl.PengembalianDAOImpl ..> java.util.logging.Level
+id.ac.pos.gudang.daoimpl.PengembalianDAOImpl ..> java.util.logging.Logger
+id.ac.pos.gudang.daoimpl.PengembalianDAOImpl --|> id.ac.pos.gudang.dao.PengembalianDAO
+id.ac.pos.gudang.daoimpl.PengirimanDAOImpl ..> java.lang.Override
+id.ac.pos.gudang.daoimpl.PengirimanDAOImpl ..> id.ac.pos.gudang.daoimpl.admin.RegionalDAOImpl
+id.ac.pos.gudang.daoimpl.PengirimanDAOImpl ..> id.ac.pos.gudang.entity.Pengiriman
+id.ac.pos.gudang.daoimpl.PengirimanDAOImpl ..> id.ac.pos.gudang.entity.Produk
+id.ac.pos.gudang.daoimpl.PengirimanDAOImpl ..> id.ac.pos.gudang.entity.Regional
+id.ac.pos.gudang.daoimpl.PengirimanDAOImpl ..> id.ac.pos.gudang.utility.DatabaseConnectivity
+id.ac.pos.gudang.daoimpl.PengirimanDAOImpl ..> java.sql.Connection
+id.ac.pos.gudang.daoimpl.PengirimanDAOImpl ..> java.sql.PreparedStatement
+id.ac.pos.gudang.daoimpl.PengirimanDAOImpl ..> java.sql.ResultSet
+id.ac.pos.gudang.daoimpl.PengirimanDAOImpl ..> java.sql.SQLException
+id.ac.pos.gudang.daoimpl.PengirimanDAOImpl ..> java.util.ArrayList
+id.ac.pos.gudang.daoimpl.PengirimanDAOImpl ..> java.util.logging.Level
+id.ac.pos.gudang.daoimpl.PengirimanDAOImpl ..> java.util.logging.Logger
+id.ac.pos.gudang.daoimpl.PengirimanDAOImpl --|> id.ac.pos.gudang.dao.PengirimanDAO
+id.ac.pos.gudang.daoimpl.ProdukDAOImpl ..> java.lang.Override
+id.ac.pos.gudang.daoimpl.ProdukDAOImpl ..> id.ac.pos.gudang.entity.Produk
+id.ac.pos.gudang.daoimpl.ProdukDAOImpl ..> id.ac.pos.gudang.utility.DatabaseConnectivity
+id.ac.pos.gudang.daoimpl.ProdukDAOImpl ..> java.sql.Connection
+id.ac.pos.gudang.daoimpl.ProdukDAOImpl ..> java.sql.PreparedStatement
+id.ac.pos.gudang.daoimpl.ProdukDAOImpl ..> java.sql.ResultSet
+id.ac.pos.gudang.daoimpl.ProdukDAOImpl ..> java.sql.SQLException
+id.ac.pos.gudang.daoimpl.ProdukDAOImpl ..> java.util.ArrayList
+id.ac.pos.gudang.daoimpl.ProdukDAOImpl ..> java.util.logging.Level
+id.ac.pos.gudang.daoimpl.ProdukDAOImpl ..> java.util.logging.Logger
+id.ac.pos.gudang.daoimpl.ProdukDAOImpl --|> id.ac.pos.gudang.dao.ProdukDAO
+id.ac.pos.gudang.daoimpl.admin.MitraDAOImpl ..> java.lang.Override
+id.ac.pos.gudang.daoimpl.admin.MitraDAOImpl ..> id.ac.pos.gudang.entity.Mitra
+id.ac.pos.gudang.daoimpl.admin.MitraDAOImpl ..> id.ac.pos.gudang.utility.DatabaseConnectivity
+id.ac.pos.gudang.daoimpl.admin.MitraDAOImpl ..> java.sql.Connection
+id.ac.pos.gudang.daoimpl.admin.MitraDAOImpl ..> java.sql.PreparedStatement
+id.ac.pos.gudang.daoimpl.admin.MitraDAOImpl ..> java.sql.ResultSet
+id.ac.pos.gudang.daoimpl.admin.MitraDAOImpl ..> java.sql.SQLException
+id.ac.pos.gudang.daoimpl.admin.MitraDAOImpl ..> java.util.ArrayList
+id.ac.pos.gudang.daoimpl.admin.MitraDAOImpl ..> java.util.logging.Level
+id.ac.pos.gudang.daoimpl.admin.MitraDAOImpl ..> java.util.logging.Logger
+id.ac.pos.gudang.daoimpl.admin.MitraDAOImpl --|> id.ac.pos.gudang.dao.admin.MitraDAO
+id.ac.pos.gudang.daoimpl.admin.RegionalDAOImpl ..> java.lang.Override
+id.ac.pos.gudang.daoimpl.admin.RegionalDAOImpl ..> id.ac.pos.gudang.entity.Regional
+id.ac.pos.gudang.daoimpl.admin.RegionalDAOImpl ..> id.ac.pos.gudang.utility.DatabaseConnectivity
+id.ac.pos.gudang.daoimpl.admin.RegionalDAOImpl ..> java.sql.Connection
+id.ac.pos.gudang.daoimpl.admin.RegionalDAOImpl ..> java.sql.PreparedStatement
+id.ac.pos.gudang.daoimpl.admin.RegionalDAOImpl ..> java.sql.ResultSet
+id.ac.pos.gudang.daoimpl.admin.RegionalDAOImpl ..> java.sql.SQLException
+id.ac.pos.gudang.daoimpl.admin.RegionalDAOImpl ..> java.util.ArrayList
+id.ac.pos.gudang.daoimpl.admin.RegionalDAOImpl ..> java.util.logging.Level
+id.ac.pos.gudang.daoimpl.admin.RegionalDAOImpl ..> java.util.logging.Logger
+id.ac.pos.gudang.daoimpl.admin.RegionalDAOImpl --|> id.ac.pos.gudang.dao.admin.RegionalDAO
+id.ac.pos.gudang.daoimpl.admin.UserDAOImpl ..> java.lang.Override
+id.ac.pos.gudang.daoimpl.admin.UserDAOImpl ..> id.ac.pos.gudang.entity.User
+id.ac.pos.gudang.daoimpl.admin.UserDAOImpl ..> id.ac.pos.gudang.utility.DatabaseConnectivity
+id.ac.pos.gudang.daoimpl.admin.UserDAOImpl ..> java.sql.Connection
+id.ac.pos.gudang.daoimpl.admin.UserDAOImpl ..> java.sql.PreparedStatement
+id.ac.pos.gudang.daoimpl.admin.UserDAOImpl ..> java.sql.ResultSet
+id.ac.pos.gudang.daoimpl.admin.UserDAOImpl ..> java.sql.SQLException
+id.ac.pos.gudang.daoimpl.admin.UserDAOImpl ..> java.util.ArrayList
+id.ac.pos.gudang.daoimpl.admin.UserDAOImpl ..> java.util.logging.Level
+id.ac.pos.gudang.daoimpl.admin.UserDAOImpl ..> java.util.logging.Logger
+id.ac.pos.gudang.daoimpl.admin.UserDAOImpl --|> id.ac.pos.gudang.dao.admin.UserDAO
+id.ac.pos.gudang.entity.Pemesanan ..> java.util.Date
+id.ac.pos.gudang.entity.Penerimaan ..> java.util.Date
+id.ac.pos.gudang.entity.Pengembalian ..> java.util.Date
+id.ac.pos.gudang.entity.Pengiriman ..> java.util.Date
+id.ac.pos.gudang.entity.Produk ..> java.util.Date
+id.ac.pos.gudang.tablemodel.PemesananTM ..> java.lang.Override
+id.ac.pos.gudang.tablemodel.PemesananTM ..> id.ac.pos.gudang.entity.Pemesanan
+id.ac.pos.gudang.tablemodel.PemesananTM ..> java.util.ArrayList
+id.ac.pos.gudang.tablemodel.PemesananTM --|> javax.swing.table.AbstractTableModel
+id.ac.pos.gudang.tablemodel.PenerimaanTM ..> java.lang.Override
+id.ac.pos.gudang.tablemodel.PenerimaanTM ..> id.ac.pos.gudang.entity.Penerimaan
+id.ac.pos.gudang.tablemodel.PenerimaanTM ..> java.util.ArrayList
+id.ac.pos.gudang.tablemodel.PenerimaanTM --|> javax.swing.table.AbstractTableModel
+id.ac.pos.gudang.tablemodel.PengembalianTM ..> java.lang.Override
+id.ac.pos.gudang.tablemodel.PengembalianTM ..> id.ac.pos.gudang.entity.Pengembalian
+id.ac.pos.gudang.tablemodel.PengembalianTM ..> id.ac.pos.gudang.entity.Produk
+id.ac.pos.gudang.tablemodel.PengembalianTM ..> java.util.ArrayList
+id.ac.pos.gudang.tablemodel.PengembalianTM ..> java.util.Vector
+id.ac.pos.gudang.tablemodel.PengembalianTM --|> javax.swing.table.AbstractTableModel
+id.ac.pos.gudang.tablemodel.PengirimanTM ..> java.lang.Override
+id.ac.pos.gudang.tablemodel.PengirimanTM ..> id.ac.pos.gudang.entity.Pengiriman
+id.ac.pos.gudang.tablemodel.PengirimanTM ..> java.util.ArrayList
+id.ac.pos.gudang.tablemodel.PengirimanTM ..> java.util.Vector
+id.ac.pos.gudang.tablemodel.PengirimanTM --|> javax.swing.table.AbstractTableModel
+id.ac.pos.gudang.tablemodel.ProdukTM ..> java.lang.Override
+id.ac.pos.gudang.tablemodel.ProdukTM ..> id.ac.pos.gudang.entity.Produk
+id.ac.pos.gudang.tablemodel.ProdukTM ..> java.util.ArrayList
+id.ac.pos.gudang.tablemodel.ProdukTM --|> javax.swing.table.AbstractTableModel
+id.ac.pos.gudang.tablemodel.RecycleBinTM ..> java.lang.Override
+id.ac.pos.gudang.tablemodel.RecycleBinTM ..> id.ac.pos.gudang.entity.Produk
+id.ac.pos.gudang.tablemodel.RecycleBinTM ..> java.util.ArrayList
+id.ac.pos.gudang.tablemodel.RecycleBinTM --|> javax.swing.table.AbstractTableModel
+id.ac.pos.gudang.tablemodel.RegionalTM ..> java.lang.Override
+id.ac.pos.gudang.tablemodel.RegionalTM ..> id.ac.pos.gudang.entity.Regional
+id.ac.pos.gudang.tablemodel.RegionalTM ..> java.util.ArrayList
+id.ac.pos.gudang.tablemodel.RegionalTM --|> javax.swing.table.AbstractTableModel
+id.ac.pos.gudang.tablemodel.admin.MitraTM ..> java.lang.Override
+id.ac.pos.gudang.tablemodel.admin.MitraTM ..> id.ac.pos.gudang.entity.Mitra
+id.ac.pos.gudang.tablemodel.admin.MitraTM ..> java.util.ArrayList
+id.ac.pos.gudang.tablemodel.admin.MitraTM --|> javax.swing.table.AbstractTableModel
+id.ac.pos.gudang.tablemodel.admin.RegionalTM ..> java.lang.Override
+id.ac.pos.gudang.tablemodel.admin.RegionalTM ..> id.ac.pos.gudang.entity.Regional
+id.ac.pos.gudang.tablemodel.admin.RegionalTM ..> java.util.ArrayList
+id.ac.pos.gudang.tablemodel.admin.RegionalTM --|> javax.swing.table.AbstractTableModel
+id.ac.pos.gudang.tablemodel.admin.UserTM ..> java.lang.Override
+id.ac.pos.gudang.tablemodel.admin.UserTM ..> id.ac.pos.gudang.entity.User
+id.ac.pos.gudang.tablemodel.admin.UserTM ..> java.util.ArrayList
+id.ac.pos.gudang.tablemodel.admin.UserTM --|> javax.swing.table.AbstractTableModel
+id.ac.pos.gudang.utility.DatabaseConnectivity ..> com.mysql.jdbc.Driver
+id.ac.pos.gudang.utility.DatabaseConnectivity ..> java.sql.Connection
+id.ac.pos.gudang.utility.DatabaseConnectivity ..> java.sql.DriverManager
+id.ac.pos.gudang.utility.DatabaseConnectivity ..> java.sql.SQLException
+id.ac.pos.gudang.utility.DatabaseConnectivity ..> java.util.logging.Level
+id.ac.pos.gudang.utility.DatabaseConnectivity ..> java.util.logging.Logger
+id.ac.pos.gudang.dao.LaporanDAO ..> id.ac.pos.gudang.entity.Produk
+id.ac.pos.gudang.dao.LaporanDAO ..> java.util.ArrayList
+id.ac.pos.gudang.dao.PemesananDAO ..> id.ac.pos.gudang.entity.Mitra
+id.ac.pos.gudang.dao.PemesananDAO ..> id.ac.pos.gudang.entity.Pemesanan
+id.ac.pos.gudang.dao.PemesananDAO ..> id.ac.pos.gudang.entity.Produk
+id.ac.pos.gudang.dao.PemesananDAO ..> java.util.ArrayList
+id.ac.pos.gudang.dao.PenerimaanDAO ..> id.ac.pos.gudang.entity.Mitra
+id.ac.pos.gudang.dao.PenerimaanDAO ..> id.ac.pos.gudang.entity.Pemesanan
+id.ac.pos.gudang.dao.PenerimaanDAO ..> id.ac.pos.gudang.entity.Penerimaan
+id.ac.pos.gudang.dao.PenerimaanDAO ..> id.ac.pos.gudang.entity.Produk
+id.ac.pos.gudang.dao.PenerimaanDAO ..> java.util.ArrayList
+id.ac.pos.gudang.dao.PengembalianDAO ..> id.ac.pos.gudang.entity.Pengembalian
+id.ac.pos.gudang.dao.PengembalianDAO ..> id.ac.pos.gudang.entity.Produk
+id.ac.pos.gudang.dao.PengembalianDAO ..> id.ac.pos.gudang.entity.Regional
+id.ac.pos.gudang.dao.PengembalianDAO ..> java.util.ArrayList
+id.ac.pos.gudang.dao.PengirimanDAO ..> id.ac.pos.gudang.entity.Pengiriman
+id.ac.pos.gudang.dao.PengirimanDAO ..> id.ac.pos.gudang.entity.Produk
+id.ac.pos.gudang.dao.PengirimanDAO ..> id.ac.pos.gudang.entity.Regional
+id.ac.pos.gudang.dao.PengirimanDAO ..> java.util.ArrayList
+id.ac.pos.gudang.dao.ProdukDAO ..> id.ac.pos.gudang.entity.Produk
+id.ac.pos.gudang.dao.ProdukDAO ..> java.util.ArrayList
+id.ac.pos.gudang.dao.admin.MitraDAO ..> id.ac.pos.gudang.entity.Mitra
+id.ac.pos.gudang.dao.admin.MitraDAO ..> java.util.ArrayList
+id.ac.pos.gudang.dao.admin.RegionalDAO ..> id.ac.pos.gudang.entity.Regional
+id.ac.pos.gudang.dao.admin.RegionalDAO ..> java.util.ArrayList
+id.ac.pos.gudang.dao.admin.UserDAO ..> id.ac.pos.gudang.entity.User
+id.ac.pos.gudang.dao.admin.UserDAO ..> java.util.ArrayList
+@enduml

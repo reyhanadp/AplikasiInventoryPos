@@ -703,6 +703,13 @@ public class DialogTambahPengiriman extends javax.swing.JDialog {
         Object nama_produk = NamaProduk.getSelectedItem();
         int indeks = 0;
 
+        String jumlah_kirim = JumlahKirim.getText();
+        String[] temp = jumlah_kirim.split("\\.");
+        String jumlah_kirim_string = "";
+        for (int z = 0; z < temp.length; z++) {
+            jumlah_kirim_string = jumlah_kirim_string + temp[z];
+        }
+
         if (no_order.compareTo("") != 0) {
             if (tanggal_pengiriman != null) {
                 if (kode_regional.compareTo("") != 0) {
@@ -711,7 +718,7 @@ public class DialogTambahPengiriman extends javax.swing.JDialog {
                             int stok = Integer.parseInt(Stok.getText());
                             if (stok == 0) {
                                 JOptionPane.showMessageDialog(null, "Stok produk kosong!");
-                            } else if (stok < Integer.parseInt(JumlahKirim.getText())) {
+                            } else if (stok < Integer.parseInt(jumlah_kirim_string)) {
                                 JOptionPane.showMessageDialog(null, "Stok produk kurang!");
                             } else {
 
@@ -726,7 +733,7 @@ public class DialogTambahPengiriman extends javax.swing.JDialog {
 
                                 if (indeks == 0) {
                                     int nominal_string = (int) nominal;
-                                    long jumlah_dikirim = Long.parseLong(JumlahKirim.getText());
+                                    long jumlah_dikirim = Long.parseLong(jumlah_kirim_string);
                                     NoOrder.setEditable(false);
                                     TanggalPengiriman.setEnabled(false);
                                     Regional.setEnabled(false);
@@ -998,70 +1005,80 @@ public class DialogTambahPengiriman extends javax.swing.JDialog {
 
     private void JumlahKirimKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JumlahKirimKeyReleased
         // TODO add your handling code here:
-        int j = 0, i, n;
-        String jumlah_kirim= JumlahKirim.getText();
-        String[] temp = jumlah_kirim.split("\\.");
-        String jumlah_kirim_string = "";
-        for(i=0 ; i<temp.length ; i++){
-            jumlah_kirim_string = jumlah_kirim_string + temp[i];
+
+        char karakter = evt.getKeyChar();
+        if ((((karakter >= '0') && (karakter <= '9')
+                || (karakter == KeyEvent.VK_BACK_SPACE)
+                || (karakter == KeyEvent.VK_DELETE)
+                || (karakter == KeyEvent.VK_ENTER)))) {
+            int j = 0, i, n;
+            String jumlah_kirim = JumlahKirim.getText();
+            String[] temp = jumlah_kirim.split("\\.");
+            String jumlah_kirim_string = "";
+            for (i = 0; i < temp.length; i++) {
+                jumlah_kirim_string = jumlah_kirim_string + temp[i];
+            }
+
+            //format bsu
+            String jumlah_kirim_hasil = "";
+            int k = 2, l = 3, m = 4;
+            int panjang_jumlah_kirim = jumlah_kirim_string.length();
+            String[] jumlah_kirim_pisah = jumlah_kirim_string.split("(?<=\\G.{1})");
+
+            while (j == 0) {
+                if (panjang_jumlah_kirim == k) {
+                    n = k;
+                    for (i = 0; i < k; i++) {
+                        if (n % 3 == 0) {
+                            jumlah_kirim_hasil = jumlah_kirim_hasil + "." + jumlah_kirim_pisah[i];
+                        } else {
+                            jumlah_kirim_hasil = jumlah_kirim_hasil + jumlah_kirim_pisah[i];
+                        }
+                        n--;
+                    }
+                    j = 1;
+                } else if (panjang_jumlah_kirim == l) {
+                    n = l;
+                    for (i = 0; i < l; i++) {
+                        if (n % 3 == 0) {
+                            if (n == l) {
+                                jumlah_kirim_hasil = jumlah_kirim_hasil + jumlah_kirim_pisah[i];
+                            } else {
+                                jumlah_kirim_hasil = jumlah_kirim_hasil + "." + jumlah_kirim_pisah[i];
+                            }
+                        } else {
+                            jumlah_kirim_hasil = jumlah_kirim_hasil + jumlah_kirim_pisah[i];
+                        }
+                        n--;
+                    }
+                    j = 1;
+                } else if (panjang_jumlah_kirim == m) {
+                    n = m;
+                    for (i = 0; i < m; i++) {
+                        if (n % 3 == 0) {
+                            jumlah_kirim_hasil = jumlah_kirim_hasil + "." + jumlah_kirim_pisah[i];
+                        } else {
+                            jumlah_kirim_hasil = jumlah_kirim_hasil + jumlah_kirim_pisah[i];
+                        }
+                        n--;
+                    }
+                    j = 1;
+                } else if (panjang_jumlah_kirim == 1) {
+                    jumlah_kirim_hasil = jumlah_kirim_pisah[0];
+                    j = 1;
+                } else if (panjang_jumlah_kirim == 0) {
+                    jumlah_kirim_hasil = "";
+                    j = 1;
+                }
+                k = k + 3;
+                l = l + 3;
+                m = m + 3;
+            }
+            JumlahKirim.setText(jumlah_kirim_hasil);
+            evt.consume();
         }
 
-        //format bsu
-        String jumlah_kirim_hasil = "";
-        int k = 2, l = 3, m = 4;
-        int panjang_jumlah_kirim = jumlah_kirim_string.length();
-        String[] jumlah_kirim_pisah = jumlah_kirim_string.split("(?<=\\G.{1})");
-        
-        while (j == 0) {
-            if (panjang_jumlah_kirim == k) {
-                n = k;
-                for (i = 0; i < k; i++) {
-                    if (n % 3 == 0) {
-                        jumlah_kirim_hasil = jumlah_kirim_hasil + "." + jumlah_kirim_pisah[i];
-                    } else {
-                        jumlah_kirim_hasil = jumlah_kirim_hasil + jumlah_kirim_pisah[i];
-                    }
-                    n--;
-                }
-                j = 1;
-            } else if (panjang_jumlah_kirim == l) {
-                n = l;
-                for (i = 0; i < l; i++) {
-                    if (n % 3 == 0) {
-                        if (n == l) {
-                            jumlah_kirim_hasil = jumlah_kirim_hasil + jumlah_kirim_pisah[i];
-                        } else {
-                            jumlah_kirim_hasil = jumlah_kirim_hasil + "." + jumlah_kirim_pisah[i];
-                        }
-                    } else {
-                        jumlah_kirim_hasil = jumlah_kirim_hasil + jumlah_kirim_pisah[i];
-                    }
-                    n--;
-                }
-                j = 1;
-            } else if (panjang_jumlah_kirim == m) {
-                n = m;
-                for (i = 0; i < m; i++) {
-                    if (n % 3 == 0) {
-                        jumlah_kirim_hasil = jumlah_kirim_hasil + "." + jumlah_kirim_pisah[i];
-                    } else {
-                        jumlah_kirim_hasil = jumlah_kirim_hasil + jumlah_kirim_pisah[i];
-                    }
-                    n--;
-                }
-                j = 1;
-            } else if (panjang_jumlah_kirim == 1) {
-                jumlah_kirim_hasil = jumlah_kirim_pisah[0];
-                j = 1;
-            }else if(panjang_jumlah_kirim == 0){
-                jumlah_kirim_hasil = "";
-                j = 1;
-            }
-            k = k + 3;
-            l = l + 3;
-            m = m + 3;
-        }
-        JumlahKirim.setText(jumlah_kirim_hasil);
+
     }//GEN-LAST:event_JumlahKirimKeyReleased
 
     /**
