@@ -148,7 +148,7 @@ public class FormLogin extends javax.swing.JFrame {
                     this.setVisible(false); //form login akan tertutup
                 }
             } else {
-                JOptionPane.showMessageDialog(null, "                Login Gagal! \n Username dan Password Salah!", "", 1);
+                JOptionPane.showMessageDialog(null, "                Login Gagal! \n NIK atau Password Salah!", "", 1);
                 fieldNik.setText(null);//set nilai txtUser menjadi kosong
                 fieldPassword.setText(null);//set nilai txtPass menjadi kosong
                 fieldNik.requestFocus();

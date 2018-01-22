@@ -192,6 +192,11 @@ public final class PanelPengembalian extends javax.swing.JPanel {
         jScrollPane11.setViewportView(TablePengembalianPrangko);
 
         CariPrangko.setText("Cari");
+        CariPrangko.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CariPrangkoActionPerformed(evt);
+            }
+        });
 
         ComboboxCariPrangko.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
 
@@ -737,6 +742,10 @@ public final class PanelPengembalian extends javax.swing.JPanel {
         jenis_produk = "DF";
         getDataPengembalian(jenis_produk);
     }//GEN-LAST:event_TambahPengembalianDokumenFilateliActionPerformed
+
+    private void CariPrangkoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CariPrangkoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CariPrangkoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

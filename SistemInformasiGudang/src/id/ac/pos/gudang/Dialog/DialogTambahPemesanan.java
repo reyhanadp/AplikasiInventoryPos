@@ -79,6 +79,7 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
         JumlahPemesanan.setText("");
         simpan.setEnabled(false);
         batal.setEnabled(false);
+        dispose();
     }
     
     private void autoIncrementNoPemesanan(){
@@ -90,6 +91,7 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
             no_pemesanan = "0000000000";
         }
         int sub_nomor_int = Integer.parseInt(no_pemesanan);
+        sub_nomor_int++;
         String nomor_string = String.valueOf(sub_nomor_int);
         int panjang = nomor_string.length();
         
@@ -127,7 +129,6 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
             default:
                 break;
         }
-        sub_nomor_int = sub_nomor_int + 1;
         nomor_string = String.valueOf(sub_nomor_int);
         no_pemesanan =kosong + nomor_string;
         fieldNoPemesanan.setText(no_pemesanan);
@@ -840,7 +841,7 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
 
                     String id_pemesanan_string = dao.getIdPemesanan();
                     if (id_pemesanan_string == null) {
-                        id_pemesanan_string = "0000000000";
+                        id_pemesanan_string = "0";
                     }
                     Integer id_pemesanan = Integer.parseInt(id_pemesanan_string);
                     id_pemesanan++;

@@ -495,7 +495,11 @@ public class DialogTambahPengembalian extends javax.swing.JDialog {
         java.util.Date tanggal_pengembalian = (java.util.Date) TanggalPengembalian.getDate();
         String kode_produk = KodeProduk.getText();
         String id_pengembalian_string = dao.getIdPengembalian();
-
+        
+        int pilih = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin "
+                    + "menyimpan data pengembalian "
+                    + "?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
+        if (pilih == JOptionPane.YES_OPTION) {
         for (i = 0; i < banyak_baris; i++) {
             kode_regional = tabel_pengembalian.getValueAt(i, 1).toString();
             regional_field = tabel_pengembalian.getValueAt(i, 2).toString();
@@ -569,6 +573,7 @@ public class DialogTambahPengembalian extends javax.swing.JDialog {
         } else {
             JOptionPane.showMessageDialog(this, "Data gagal ditambahkan");
             reset_simpan();
+        }
         }
 //        String kosong = null;
 //        String kode_produk = KodeProduk.getText();

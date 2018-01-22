@@ -6,6 +6,7 @@
 package id.ac.pos.gudang.Form;
 
 import id.ac.pos.gudang.Dialog.Admin.DialogRecycleBin;
+import id.ac.pos.gudang.Dialog.DialogBackup;
 import id.ac.pos.gudang.Dialog.DialogLaporan;
 import id.ac.pos.gudang.Dialog.DialogUbahProduk;
 import id.ac.pos.gudang.Panel.PanelPemesanan;
@@ -939,9 +940,8 @@ public final class FormHome extends javax.swing.JFrame {
         SelamatDatang = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         itemRegional = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        itemRecycleBin = new javax.swing.JMenuItem();
-        jMenu1 = new javax.swing.JMenu();
+        itemRecycleBin1 = new javax.swing.JMenuItem();
+        itemBackupRestore = new javax.swing.JMenuItem();
 
         nik.setText("jLabel7");
 
@@ -2796,23 +2796,29 @@ public final class FormHome extends javax.swing.JFrame {
         );
 
         itemRegional.setText("File");
-        jMenuBar1.add(itemRegional);
+        itemRegional.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
-        jMenu2.setText("Help");
-
-        itemRecycleBin.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_MASK));
-        itemRecycleBin.setText("Recycle Bin");
-        itemRecycleBin.addActionListener(new java.awt.event.ActionListener() {
+        itemRecycleBin1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_MASK));
+        itemRecycleBin1.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        itemRecycleBin1.setText("Recycle Bin");
+        itemRecycleBin1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itemRecycleBinActionPerformed(evt);
+                itemRecycleBin1ActionPerformed(evt);
             }
         });
-        jMenu2.add(itemRecycleBin);
+        itemRegional.add(itemRecycleBin1);
 
-        jMenuBar1.add(jMenu2);
+        itemBackupRestore.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.CTRL_MASK));
+        itemBackupRestore.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        itemBackupRestore.setText("Backup & Restore");
+        itemBackupRestore.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemBackupRestoreActionPerformed(evt);
+            }
+        });
+        itemRegional.add(itemBackupRestore);
 
-        jMenu1.setText("Backup & Restore");
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(itemRegional);
 
         setJMenuBar(jMenuBar1);
 
@@ -4697,12 +4703,19 @@ public final class FormHome extends javax.swing.JFrame {
         fieldBiayaCetakPrangko.selectAll();
     }//GEN-LAST:event_fieldBiayaCetakPrangkoMouseClicked
 
-    private void itemRecycleBinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemRecycleBinActionPerformed
+    private void itemRecycleBin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemRecycleBin1ActionPerformed
         // TODO add your handling code here:
         DialogRecycleBin drb = new DialogRecycleBin(this, true);
         drb.setLocationRelativeTo(null);
         drb.setVisible(true);
-    }//GEN-LAST:event_itemRecycleBinActionPerformed
+    }//GEN-LAST:event_itemRecycleBin1ActionPerformed
+
+    private void itemBackupRestoreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemBackupRestoreActionPerformed
+        // TODO add your handling code here:
+        DialogBackup db = new DialogBackup(this, true);
+        db.setLocationRelativeTo(null);
+        db.setVisible(true);
+    }//GEN-LAST:event_itemBackupRestoreActionPerformed
 
     /**
      * @param args the command line arguments
@@ -4851,7 +4864,8 @@ public final class FormHome extends javax.swing.JFrame {
     private javax.swing.JTextField fieldTahunProdukMerchandise;
     private javax.swing.JTextField fieldTahunProdukPrisma;
     private javax.swing.JTextField fieldTahunProdukSHPSHPSS;
-    private javax.swing.JMenuItem itemRecycleBin;
+    private javax.swing.JMenuItem itemBackupRestore;
+    private javax.swing.JMenuItem itemRecycleBin1;
     private javax.swing.JMenu itemRegional;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -4891,8 +4905,6 @@ public final class FormHome extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel13;

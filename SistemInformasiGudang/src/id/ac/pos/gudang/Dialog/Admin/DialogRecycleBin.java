@@ -353,7 +353,7 @@ public class DialogRecycleBin extends javax.swing.JDialog {
                 .addGap(0, 34, Short.MAX_VALUE))
         );
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("RECYCLE BIN");
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);

@@ -98,6 +98,7 @@ public class DialogTambahPenerimaan extends javax.swing.JDialog {
         fieldJmlTerima.setText("");
         simpan.setEnabled(false);
         batal.setEnabled(false);
+        dispose();
     }
         
     private void reset() {
@@ -650,24 +651,39 @@ public class DialogTambahPenerimaan extends javax.swing.JDialog {
                         id_penerimaan_string = Integer.toString(id_penerimaan);
                         int panjang = id_penerimaan_string.length();
                         switch (panjang) {
-                                case 1:
-                                kosong = "0000";
-                                break;
-                                case 2:
-                                kosong = "000";
-                                break;
-                                case 3:
-                                kosong = "00";
-                                break;
-                                case 4:
-                                kosong = "0";
-                                break;
-                                case 5:
-                                kosong = null;
-                                break;
-                                default:
-                                break;
-                        }
+                                    case 1:
+                                        kosong = "000000000";
+                                        break;
+                                    case 2:
+                                        kosong = "00000000";
+                                        break;
+                                    case 3:
+                                        kosong = "0000000";
+                                        break;
+                                    case 4:
+                                        kosong = "000000";
+                                        break;
+                                    case 5:
+                                        kosong = "00000";
+                                        break;
+                                    case 6:
+                                        kosong = "0000";
+                                        break;
+                                    case 7:
+                                        kosong = "000";
+                                        break;
+                                    case 8:
+                                        kosong = "00";
+                                        break;
+                                    case 9:
+                                        kosong = "0";
+                                        break;
+                                    case 10:
+                                        kosong = null;
+                                        break;
+                                    default:
+                                        break;
+                                }
 
                                   id_penerimaan_string = kosong + id_penerimaan_string;
                                   penerimaan = new Penerimaan();
