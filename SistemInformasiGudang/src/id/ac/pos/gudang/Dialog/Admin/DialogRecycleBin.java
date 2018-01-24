@@ -42,8 +42,7 @@ public class DialogRecycleBin extends javax.swing.JDialog {
         String namaProduk = jenisTabel.getValueAt(baris, 1).toString();
 
         int ok = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin "
-                + "mengembalikan Produk dengan kode : " + kodeProduk
-                + " dengan Nama Produk " + namaProduk
+                + "mengembalikan Produk "
                 + "?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
         if (ok == 0) {
             Produk produk = new Produk();

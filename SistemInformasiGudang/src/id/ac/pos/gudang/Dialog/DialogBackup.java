@@ -6,6 +6,7 @@
 package id.ac.pos.gudang.Dialog;
 
 import java.awt.HeadlessException;
+import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -42,9 +43,9 @@ public class DialogBackup extends javax.swing.JDialog {
         LokasiFolder = new javax.swing.JTextField();
         Backup = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        LokasiFolder1 = new javax.swing.JTextField();
+        fileRestore = new javax.swing.JTextField();
         Restore = new javax.swing.JButton();
-        PilihFolder1 = new javax.swing.JButton();
+        PilihFile = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -99,10 +100,10 @@ public class DialogBackup extends javax.swing.JDialog {
             }
         });
 
-        PilihFolder1.setText("Pilih Folder");
-        PilihFolder1.addActionListener(new java.awt.event.ActionListener() {
+        PilihFile.setText("Pilih File");
+        PilihFile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PilihFolder1ActionPerformed(evt);
+                PilihFileActionPerformed(evt);
             }
         });
 
@@ -112,11 +113,11 @@ public class DialogBackup extends javax.swing.JDialog {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(PilihFolder1)
+                .addComponent(PilihFile, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Restore, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(LokasiFolder1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fileRestore, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -124,8 +125,8 @@ public class DialogBackup extends javax.swing.JDialog {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(25, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(PilihFolder1)
-                    .addComponent(LokasiFolder1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(PilihFile)
+                    .addComponent(fileRestore, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(Restore)
                 .addContainerGap())
@@ -158,7 +159,7 @@ public class DialogBackup extends javax.swing.JDialog {
         // TODO add your handling code here:
         JFileChooser chooser = new JFileChooser();
         chooser.setCurrentDirectory(new java.io.File("."));
-        chooser.setDialogTitle("choosertitle");
+        chooser.setDialogTitle("Pilih Folder");
         chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
         chooser.setAcceptAllFileFilterUsed(false);
 
@@ -192,12 +193,42 @@ public class DialogBackup extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_BackupActionPerformed
 
-    private void PilihFolder1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PilihFolder1ActionPerformed
+    private void PilihFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PilihFileActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_PilihFolder1ActionPerformed
+        JFileChooser fc = new JFileChooser();
+        fc.showOpenDialog(this);
+        try {
+            File f = fc.getSelectedFile();
+            String path = f.getAbsolutePath();
+            path = path.replace('\\', '/');
+            fileRestore.setText(path);
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_PilihFileActionPerformed
 
     private void RestoreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RestoreActionPerformed
         // TODO add your handling code here:
+         // TODO add your handling code here:
+        String database = "db_inventory_pos";
+        String user = "root";
+        String pass = "";
+        try{
+            if(fileRestore.getText().isEmpty()){
+                JOptionPane.showMessageDialog(null, "Pilih file restore terlebih dahulu");
+            } else{                         
+
+                String[] kata = new String[]{"c:/xampp/mysql/bin/mysql ", "-u=" + user,"-p="+pass, "-e", "source "+fileRestore.getText()};
+                Process runtimeProcess=Runtime.getRuntime().exec(kata);
+                int prosesSukses=runtimeProcess.waitFor();
+                if(prosesSukses==0){
+                    JOptionPane.showMessageDialog(null, "Restore database Sukses");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Restore database gagal");
+                }
+            }
+        }catch(HeadlessException | IOException | InterruptedException e){
+            JOptionPane.showMessageDialog(null,"Restore database gagal, Periksa kembali");
+        }
     }//GEN-LAST:event_RestoreActionPerformed
 
     /**
@@ -245,10 +276,10 @@ public class DialogBackup extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Backup;
     private javax.swing.JTextField LokasiFolder;
-    private javax.swing.JTextField LokasiFolder1;
+    private javax.swing.JButton PilihFile;
     private javax.swing.JButton PilihFolder;
-    private javax.swing.JButton PilihFolder1;
     private javax.swing.JButton Restore;
+    private javax.swing.JTextField fileRestore;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables

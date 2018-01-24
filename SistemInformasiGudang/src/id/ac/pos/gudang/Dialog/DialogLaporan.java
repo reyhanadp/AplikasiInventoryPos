@@ -810,7 +810,7 @@ public class DialogLaporan extends javax.swing.JDialog {
 
         JFileChooser chooser = new JFileChooser();
         chooser.setCurrentDirectory(new java.io.File("."));
-        chooser.setDialogTitle("choosertitle");
+        chooser.setDialogTitle("Pilih Folder");
         chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
         chooser.setAcceptAllFileFilterUsed(false);
 

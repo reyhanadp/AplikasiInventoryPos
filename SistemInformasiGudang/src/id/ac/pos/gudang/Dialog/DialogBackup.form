@@ -121,11 +121,11 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="PilihFolder1" min="-2" max="-2" attributes="0"/>
+                  <Component id="PilihFile" min="-2" pref="80" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="Restore" alignment="1" min="-2" max="-2" attributes="0"/>
-                      <Component id="LokasiFolder1" alignment="1" min="-2" pref="182" max="-2" attributes="0"/>
+                      <Component id="fileRestore" alignment="1" min="-2" pref="182" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -136,8 +136,8 @@
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace pref="25" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="PilihFolder1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="LokasiFolder1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="PilihFile" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="fileRestore" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="Restore" min="-2" max="-2" attributes="0"/>
@@ -147,7 +147,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JTextField" name="LokasiFolder1">
+        <Component class="javax.swing.JTextField" name="fileRestore">
         </Component>
         <Component class="javax.swing.JButton" name="Restore">
           <Properties>
@@ -157,12 +157,12 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RestoreActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="PilihFolder1">
+        <Component class="javax.swing.JButton" name="PilihFile">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Pilih Folder"/>
+            <Property name="text" type="java.lang.String" value="Pilih File"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PilihFolder1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PilihFileActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
