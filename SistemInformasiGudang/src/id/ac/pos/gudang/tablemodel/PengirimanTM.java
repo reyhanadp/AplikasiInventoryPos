@@ -18,13 +18,72 @@ public class PengirimanTM extends AbstractTableModel {
 
     private ArrayList<Pengiriman> arrayPengiriman;
     Vector vector_nama_produk;
-    int j = 0, i, n;
-    int k = 2, l = 3, m = 4;
+    
+    private String format_titik(String text_string) {
+        int j = 0, i, n;
+        String text_hasil = "";
+        int k = 2, l = 3, m = 4;
+        int panjang_text = text_string.length();
+        String[] text_pisah = text_string.split("(?<=\\G.{1})");
+
+        while (j == 0) {
+            if (panjang_text == k) {
+                n = k;
+                for (i = 0; i < k; i++) {
+                    if (n % 3 == 0) {
+                        text_hasil = text_hasil + "." + text_pisah[i];
+                    } else {
+                        text_hasil = text_hasil + text_pisah[i];
+                    }
+                    n--;
+                }
+                j = 1;
+            } else if (panjang_text == l) {
+                n = l;
+                for (i = 0; i < l; i++) {
+                    if (n % 3 == 0) {
+                        if (n == l) {
+                            text_hasil = text_hasil + text_pisah[i];
+                        } else {
+                            text_hasil = text_hasil + "." + text_pisah[i];
+                        }
+                    } else {
+                        text_hasil = text_hasil + text_pisah[i];
+                    }
+                    n--;
+                }
+                j = 1;
+            } else if (panjang_text == m) {
+                n = m;
+                for (i = 0; i < m; i++) {
+                    if (n % 3 == 0) {
+                        text_hasil = text_hasil + "." + text_pisah[i];
+                    } else {
+                        text_hasil = text_hasil + text_pisah[i];
+                    }
+                    n--;
+                }
+                j = 1;
+            } else if (panjang_text == 1) {
+                text_hasil = text_pisah[0];
+                j = 1;
+            } else if (panjang_text == 0) {
+                text_hasil = "";
+                j = 1;
+            }
+            k = k + 3;
+            l = l + 3;
+            m = m + 3;
+        }
+        return text_hasil;
+
+    }
 
     public void setDataPengiriman(ArrayList<Pengiriman> arrayPengiriman) {
         this.arrayPengiriman = arrayPengiriman;
         this.vector_nama_produk = vector_nama_produk;
     }
+    
 
     @Override
     public int getRowCount() {
@@ -49,119 +108,11 @@ public class PengirimanTM extends AbstractTableModel {
                 return arrayPengiriman.get(rowIndex).getTgl_pengiriman();
 
             case 3:
-                String jumlah_kirim_string = Integer.toString(arrayPengiriman.get(rowIndex).getJumlah_pengiriman());
-                //format bsu
-                String jumlah_kirim_hasil = "";
-                k = 2;
-                l = 3;
-                m = 4;
-                int panjang_jumlah_kirim = jumlah_kirim_string.length();
-                String[] jumlah_kirim_pisah = jumlah_kirim_string.split("(?<=\\G.{1})");
-                j = 0;
-                while (j == 0) {
-                    if (panjang_jumlah_kirim == k) {
-                        n = k;
-                        for (i = 0; i < k; i++) {
-                            if (n % 3 == 0) {
-                                jumlah_kirim_hasil = jumlah_kirim_hasil + "." + jumlah_kirim_pisah[i];
-                            } else {
-                                jumlah_kirim_hasil = jumlah_kirim_hasil + jumlah_kirim_pisah[i];
-                            }
-                            n--;
-                        }
-                        j = 1;
-                    } else if (panjang_jumlah_kirim == l) {
-                        n = l;
-                        for (i = 0; i < l; i++) {
-                            if (n % 3 == 0) {
-                                if (n == l) {
-                                    jumlah_kirim_hasil = jumlah_kirim_hasil + jumlah_kirim_pisah[i];
-                                } else {
-                                    jumlah_kirim_hasil = jumlah_kirim_hasil + "." + jumlah_kirim_pisah[i];
-                                }
-                            } else {
-                                jumlah_kirim_hasil = jumlah_kirim_hasil + jumlah_kirim_pisah[i];
-                            }
-                            n--;
-                        }
-                        j = 1;
-                    } else if (panjang_jumlah_kirim == m) {
-                        n = m;
-                        for (i = 0; i < m; i++) {
-                            if (n % 3 == 0) {
-                                jumlah_kirim_hasil = jumlah_kirim_hasil + "." + jumlah_kirim_pisah[i];
-                            } else {
-                                jumlah_kirim_hasil = jumlah_kirim_hasil + jumlah_kirim_pisah[i];
-                            }
-                            n--;
-                        }
-                        j = 1;
-                    } else if (panjang_jumlah_kirim == 1) {
-                        jumlah_kirim_hasil = jumlah_kirim_pisah[0];
-                        j = 1;
-                    }
-                    k = k + 3;
-                    l = l + 3;
-                    m = m + 3;
-                }
+                String jumlah_kirim_hasil = format_titik(Integer.toString(arrayPengiriman.get(rowIndex).getJumlah_pengiriman()));
                 return jumlah_kirim_hasil;
 
             case 4:
-                String bsu_string = arrayPengiriman.get(rowIndex).getBsu();
-                //format bsu
-                String bsu_hasil = "";
-                k = 2;
-                l = 3;
-                m = 4;
-                int panjang_bsu = bsu_string.length();
-                String[] bsu_pisah = bsu_string.split("(?<=\\G.{1})");
-                j = 0;
-                while (j == 0) {
-                    if (panjang_bsu == k) {
-                        n = k;
-                        for (i = 0; i < k; i++) {
-                            if (n % 3 == 0) {
-                                bsu_hasil = bsu_hasil + "." + bsu_pisah[i];
-                            } else {
-                                bsu_hasil = bsu_hasil + bsu_pisah[i];
-                            }
-                            n--;
-                        }
-                        j = 1;
-                    } else if (panjang_bsu == l) {
-                        n = l;
-                        for (i = 0; i < l; i++) {
-                            if (n % 3 == 0) {
-                                if (n == l) {
-                                    bsu_hasil = bsu_hasil + bsu_pisah[i];
-                                } else {
-                                    bsu_hasil = bsu_hasil + "." + bsu_pisah[i];
-                                }
-                            } else {
-                                bsu_hasil = bsu_hasil + bsu_pisah[i];
-                            }
-                            n--;
-                        }
-                        j = 1;
-                    } else if (panjang_bsu == m) {
-                        n = m;
-                        for (i = 0; i < m; i++) {
-                            if (n % 3 == 0) {
-                                bsu_hasil = bsu_hasil + "." + bsu_pisah[i];
-                            } else {
-                                bsu_hasil = bsu_hasil + bsu_pisah[i];
-                            }
-                            n--;
-                        }
-                        j = 1;
-                    } else if (panjang_bsu == 1) {
-                        bsu_hasil = bsu_pisah[0];
-                        j = 1;
-                    }
-                    k = k + 3;
-                    l = l + 3;
-                    m = m + 3;
-                }
+                String bsu_hasil = format_titik(arrayPengiriman.get(rowIndex).getBsu());
                 return bsu_hasil;
 
             case 5:
@@ -174,10 +125,12 @@ public class PengirimanTM extends AbstractTableModel {
                 return arrayPengiriman.get(rowIndex).getNama_produk();
 
             case 8:
-                return arrayPengiriman.get(rowIndex).getStok_awal();
+                String stok_awal_hasil = format_titik(Integer.toString(arrayPengiriman.get(rowIndex).getStok_awal()));
+                return stok_awal_hasil;
 
             case 9:
-                return arrayPengiriman.get(rowIndex).getStok_akhir();
+                String stok_akhir_hasil = format_titik(Integer.toString(arrayPengiriman.get(rowIndex).getStok_akhir()));
+                return stok_akhir_hasil;
 
         }
         return null;

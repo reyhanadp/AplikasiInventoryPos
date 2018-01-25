@@ -20,7 +20,9 @@ import java.util.List;
 import java.util.Vector;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumnModel;
 import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 
 /**
@@ -62,6 +64,87 @@ public class DialogTambahPengembalian extends javax.swing.JDialog {
         hapus.setEnabled(false);
         simpan.setEnabled(false);
         batal.setEnabled(false);
+
+        Date ys = new Date();
+        TanggalPengembalian.setDate(ys);
+        TanggalPengembalian.setMaxSelectableDate(ys);
+        
+        TableColumnModel columnModel = tabel_pengembalian.getColumnModel();
+        columnModel.getColumn(0).setPreferredWidth(10);
+        ((DefaultTableCellRenderer)tabel_pengembalian.getTableHeader().getDefaultRenderer())
+                .setHorizontalAlignment((int) CENTER_ALIGNMENT);
+        
+        
+        
+    }
+
+    private String hilangkan_titik(String text_titik) {
+        String[] temp = text_titik.split("\\.");
+        String text_string = "";
+        for (int i = 0; i < temp.length; i++) {
+            text_string = text_string + temp[i];
+        }
+        return text_string;
+    }
+
+    private String format_titik(String text_string) {
+        int j = 0, i, n;
+        String text_hasil = "";
+        int k = 2, l = 3, m = 4;
+        int panjang_text = text_string.length();
+        String[] text_pisah = text_string.split("(?<=\\G.{1})");
+
+        while (j == 0) {
+            if (panjang_text == k) {
+                n = k;
+                for (i = 0; i < k; i++) {
+                    if (n % 3 == 0) {
+                        text_hasil = text_hasil + "." + text_pisah[i];
+                    } else {
+                        text_hasil = text_hasil + text_pisah[i];
+                    }
+                    n--;
+                }
+                j = 1;
+            } else if (panjang_text == l) {
+                n = l;
+                for (i = 0; i < l; i++) {
+                    if (n % 3 == 0) {
+                        if (n == l) {
+                            text_hasil = text_hasil + text_pisah[i];
+                        } else {
+                            text_hasil = text_hasil + "." + text_pisah[i];
+                        }
+                    } else {
+                        text_hasil = text_hasil + text_pisah[i];
+                    }
+                    n--;
+                }
+                j = 1;
+            } else if (panjang_text == m) {
+                n = m;
+                for (i = 0; i < m; i++) {
+                    if (n % 3 == 0) {
+                        text_hasil = text_hasil + "." + text_pisah[i];
+                    } else {
+                        text_hasil = text_hasil + text_pisah[i];
+                    }
+                    n--;
+                }
+                j = 1;
+            } else if (panjang_text == 1) {
+                text_hasil = text_pisah[0];
+                j = 1;
+            } else if (panjang_text == 0) {
+                text_hasil = "";
+                j = 1;
+            }
+            k = k + 3;
+            l = l + 3;
+            m = m + 3;
+        }
+        return text_hasil;
+
     }
 
     private void reset_simpan() {
@@ -164,6 +247,9 @@ public class DialogTambahPengembalian extends javax.swing.JDialog {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 JumlahTerimaKeyPressed(evt);
             }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                JumlahTerimaKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 JumlahTerimaKeyTyped(evt);
             }
@@ -185,6 +271,9 @@ public class DialogTambahPengembalian extends javax.swing.JDialog {
         NomorDus.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 NomorDusKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                NomorDusKeyReleased(evt);
             }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 NomorDusKeyTyped(evt);
@@ -478,6 +567,7 @@ public class DialogTambahPengembalian extends javax.swing.JDialog {
                 || (karakter == KeyEvent.VK_BACK_SPACE)
                 || (karakter == KeyEvent.VK_DELETE)
                 || (karakter == KeyEvent.VK_ENTER)))) {
+            JOptionPane.showMessageDialog(null, "Hanya Boleh Angka !");
             evt.consume();
         }
     }//GEN-LAST:event_JumlahTerimaKeyTyped
@@ -495,174 +585,104 @@ public class DialogTambahPengembalian extends javax.swing.JDialog {
         java.util.Date tanggal_pengembalian = (java.util.Date) TanggalPengembalian.getDate();
         String kode_produk = KodeProduk.getText();
         String id_pengembalian_string = dao.getIdPengembalian();
-        
+
         int pilih = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin "
-                    + "menyimpan data pengembalian "
-                    + "?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
+                + "menyimpan data pengembalian "
+                + "?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
         if (pilih == JOptionPane.YES_OPTION) {
-        for (i = 0; i < banyak_baris; i++) {
-            kode_regional = tabel_pengembalian.getValueAt(i, 1).toString();
-            regional_field = tabel_pengembalian.getValueAt(i, 2).toString();
-            nomor_dus = tabel_pengembalian.getValueAt(i, 3).toString();
-            jumlah_terima = tabel_pengembalian.getValueAt(i, 4).toString();
-            keterangan = tabel_pengembalian.getValueAt(i, 5).toString();
+            for (i = 0; i < banyak_baris; i++) {
+                kode_regional = tabel_pengembalian.getValueAt(i, 1).toString();
+                regional_field = tabel_pengembalian.getValueAt(i, 2).toString();
+                nomor_dus = tabel_pengembalian.getValueAt(i, 3).toString();
+                jumlah_terima = tabel_pengembalian.getValueAt(i, 4).toString();
+                keterangan = tabel_pengembalian.getValueAt(i, 5).toString();
 
-            //autoincrement id_pengembalian
-            if (id_pengembalian_string == null) {
-                id_pengembalian_string = "0";
+                if (nomor_dus.compareTo("") == 0) {
+                    nomor_dus = null;
+                }else{
+                    nomor_dus = hilangkan_titik(nomor_dus);
+                }
+
+                if (keterangan.compareTo("") == 0) {
+                    keterangan = null;
+                }
+                
+                jumlah_terima = hilangkan_titik(jumlah_terima);
+
+                //autoincrement id_pengembalian
+                if (id_pengembalian_string == null) {
+                    id_pengembalian_string = "0";
+                }
+                Integer id_pengembalian = Integer.parseInt(id_pengembalian_string);
+                id_pengembalian++;
+                id_pengembalian_string = Integer.toString(id_pengembalian);
+                int panjang = id_pengembalian_string.length();
+
+                switch (panjang) {
+                    case 1:
+                        kosong = "000000000";
+                        break;
+                    case 2:
+                        kosong = "00000000";
+                        break;
+                    case 3:
+                        kosong = "0000000";
+                        break;
+                    case 4:
+                        kosong = "000000";
+                        break;
+                    case 5:
+                        kosong = "00000";
+                        break;
+                    case 6:
+                        kosong = "0000";
+                        break;
+                    case 7:
+                        kosong = "000";
+                        break;
+                    case 8:
+                        kosong = "00";
+                        break;
+                    case 9:
+                        kosong = "0";
+                        break;
+                    case 10:
+                        kosong = null;
+                        break;
+                    default:
+                        break;
+                }
+
+                id_pengembalian_string = kosong + id_pengembalian_string;
+
+                Pengembalian pengembalian = new Pengembalian();
+                pengembalian.setTanggal_pengembalian(tanggal_pengembalian);
+                pengembalian.setDus(nomor_dus);
+                pengembalian.setId_pengembalian(id_pengembalian_string);
+                pengembalian.setId_produk(kode_produk);
+                pengembalian.setId_regional(kode_regional);
+                pengembalian.setJumlah_pengembalian(Integer.parseInt(jumlah_terima));
+                pengembalian.setKeterangan(keterangan);
+                pengembalian.setStok_awal(stok_produk);
+                stok_produk = stok_produk + Integer.parseInt(jumlah_terima);
+                sukses = dao.tambahPengembalian(pengembalian);
+
             }
-            Integer id_pengembalian = Integer.parseInt(id_pengembalian_string);
-            id_pengembalian++;
-            id_pengembalian_string = Integer.toString(id_pengembalian);
-            int panjang = id_pengembalian_string.length();
 
-            switch (panjang) {
-                case 1:
-                    kosong = "000000000";
-                    break;
-                case 2:
-                    kosong = "00000000";
-                    break;
-                case 3:
-                    kosong = "0000000";
-                    break;
-                case 4:
-                    kosong = "000000";
-                    break;
-                case 5:
-                    kosong = "00000";
-                    break;
-                case 6:
-                    kosong = "0000";
-                    break;
-                case 7:
-                    kosong = "000";
-                    break;
-                case 8:
-                    kosong = "00";
-                    break;
-                case 9:
-                    kosong = "0";
-                    break;
-                case 10:
-                    kosong = null;
-                    break;
-                default:
-                    break;
+            if (sukses) {
+                JOptionPane.showMessageDialog(this, "Data berhasil ditambahkan");
+                reset_simpan();
+            } else {
+                JOptionPane.showMessageDialog(this, "Data gagal ditambahkan");
+                reset_simpan();
             }
-
-            id_pengembalian_string = kosong + id_pengembalian_string;
-
-            Pengembalian pengembalian = new Pengembalian();
-            pengembalian.setTanggal_pengembalian(tanggal_pengembalian);
-            pengembalian.setDus(nomor_dus);
-            pengembalian.setId_pengembalian(id_pengembalian_string);
-            pengembalian.setId_produk(kode_produk);
-            pengembalian.setId_regional(kode_regional);
-            pengembalian.setJumlah_pengembalian(Integer.parseInt(jumlah_terima));
-            pengembalian.setKeterangan(keterangan);
-            pengembalian.setStok_awal(stok_produk);
-            stok_produk = stok_produk + Integer.parseInt(jumlah_terima);
-            sukses = dao.tambahPengembalian(pengembalian);
-
+            
+            pilih = JOptionPane.showConfirmDialog(null, "Apakah anda akan menambahkan data lagi?",
+                 "Konfirmasi", JOptionPane.YES_NO_OPTION);
+            if(pilih == JOptionPane.NO_OPTION){
+                this.dispose();
+            }
         }
-
-        if (sukses) {
-            JOptionPane.showMessageDialog(this, "Data berhasil ditambahkan");
-            reset_simpan();
-        } else {
-            JOptionPane.showMessageDialog(this, "Data gagal ditambahkan");
-            reset_simpan();
-        }
-        }
-//        String kosong = null;
-//        String kode_produk = KodeProduk.getText();
-//        String kode_regional = KodeRegional.getText();
-//        String nomor_dus = NomorDus.getText();
-//        java.util.Date tanggal = (java.util.Date) TanggalPengembalian.getDate();
-//        String stok_gudang = StokGudang.getText();
-//        String jumlah_terima = JumlahTerima.getText();
-//        String keterangan = Keterangan.getText();
-//        dao = new PengembalianDAOImpl();
-//
-//        //autoincrement id_pengembalian
-//        String id_pengembalian_string = dao.getIdPengembalian();
-//        if (id_pengembalian_string == null) {
-//            id_pengembalian_string = "00000";
-//        }
-//        Integer id_pengembalian = Integer.parseInt(id_pengembalian_string);
-//        id_pengembalian++;
-//        id_pengembalian_string = Integer.toString(id_pengembalian);
-//        int panjang = id_pengembalian_string.length();
-//
-//        switch (panjang) {
-//            case 1:
-//                kosong = "0000";
-//                break;
-//            case 2:
-//                kosong = "000";
-//                break;
-//            case 3:
-//                kosong = "00";
-//                break;
-//            case 4:
-//                kosong = "0";
-//                break;
-//            case 5:
-//                kosong = null;
-//                break;
-//            default:
-//                break;
-//        }
-//
-//        id_pengembalian_string = kosong + id_pengembalian_string;
-//
-//        if (kode_produk.compareTo("") != 0) {
-//            if (kode_regional.compareTo("") != 0) {
-//                if (tanggal != null) {
-//                    if (jumlah_terima.compareTo("") != 0) {
-//                        if (nomor_dus.compareTo("") == 0) {
-//                            nomor_dus = null;
-//                        }
-//
-//                        if (keterangan.compareTo("") == 0) {
-//                            keterangan = null;
-//                        }
-//
-//                        pengembalian = new Pengembalian();
-//                        pengembalian.setId_pengembalian(id_pengembalian_string);
-//                        pengembalian.setTanggal_pengembalian(tanggal);
-//                        pengembalian.setJumlah_pengembalian(jumlah_terima);
-//                        pengembalian.setDus(nomor_dus);
-//                        pengembalian.setId_regional(kode_regional);
-//                        pengembalian.setId_produk(kode_produk);
-//                        pengembalian.setStok_awal(stok_gudang);
-//                        pengembalian.setKeterangan(keterangan);
-//
-//                        boolean sukses = dao.tambahPengembalian(pengembalian);
-//
-//                        //cek sukses atau tidak
-//                        if (sukses) {
-//                            JOptionPane.showMessageDialog(this, "Data berhasil ditambahkan");
-//                            reset();
-//                        } else {
-//                            JOptionPane.showMessageDialog(this, "Data gagal ditambahkan");
-//                            reset();
-//                        }
-//                    } else {
-//                        JOptionPane.showMessageDialog(null, "Silakan isi jumlah terima terlebih dahulu!");
-//                    }
-//                } else {
-//                    JOptionPane.showMessageDialog(null, "Silakan isi tanggal pengembalian terlebih dahulu!");
-//                }
-//
-//            } else {
-//                JOptionPane.showMessageDialog(null, "Silakan pilih regional terlebih dahulu!");
-//            }
-//        } else {
-//            JOptionPane.showMessageDialog(null, "Silakan pilih produk terlebih dahulu!");
-//        }
-
     }//GEN-LAST:event_simpanActionPerformed
 
     private void NomorDusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NomorDusActionPerformed
@@ -683,6 +703,7 @@ public class DialogTambahPengembalian extends javax.swing.JDialog {
                 || (karakter == KeyEvent.VK_BACK_SPACE)
                 || (karakter == KeyEvent.VK_DELETE)
                 || (karakter == KeyEvent.VK_ENTER)))) {
+            JOptionPane.showMessageDialog(null, "Hanya Boleh Angka !");
             evt.consume();
         }
     }//GEN-LAST:event_NomorDusKeyTyped
@@ -945,42 +966,42 @@ public class DialogTambahPengembalian extends javax.swing.JDialog {
         if (tanggal_pengembalian != null) {
             if (kode_produk.compareTo("") != 0) {
                 if (kode_regional.compareTo("") != 0) {
-                    if (nomor_dus.compareTo("") != 0) {
-                        if (jumlah_terima.compareTo("") != 0) {
+//                    if (nomor_dus.compareTo("") != 0) {
+                    if (jumlah_terima.compareTo("") != 0) {
 
-                            TanggalPengembalian.setEnabled(false);
-                            JenisProduk.setEnabled(false);
-                            NamaProduk.setEnabled(false);
-                            Tahun.setEnabled(false);
-                            Nominal.setEnabled(false);
+                        TanggalPengembalian.setEnabled(false);
+                        JenisProduk.setEnabled(false);
+                        NamaProduk.setEnabled(false);
+                        Tahun.setEnabled(false);
+                        Nominal.setEnabled(false);
 
-                            no = baris + 1;
+                        no = baris + 1;
 
-                            DefaultTableModel dataModel = (DefaultTableModel) tabel_pengembalian.getModel();
-                            List list = new ArrayList<>();
-                            tabel_pengembalian.setAutoCreateColumnsFromModel(true);
-                            list.add(no);
-                            list.add(kode_regional);
-                            list.add(regional_field);
-                            list.add(nomor_dus);
-                            list.add(jumlah_terima);
-                            list.add(keterangan);
-                            dataModel.addRow(list.toArray());
+                        DefaultTableModel dataModel = (DefaultTableModel) tabel_pengembalian.getModel();
+                        List list = new ArrayList<>();
+                        tabel_pengembalian.setAutoCreateColumnsFromModel(true);
+                        list.add(no);
+                        list.add(kode_regional);
+                        list.add(regional_field);
+                        list.add(nomor_dus);
+                        list.add(jumlah_terima);
+                        list.add(keterangan);
+                        dataModel.addRow(list.toArray());
 
-                            Regional.setSelectedIndex(0);
-                            JumlahTerima.setText("");
-                            NomorDus.setText("");
-                            Keterangan.setText("");
-                            simpan.setEnabled(true);
-                            batal.setEnabled(true);
-                            hapus.setEnabled(true);
+                        Regional.setSelectedIndex(0);
+                        JumlahTerima.setText("");
+                        NomorDus.setText("");
+                        Keterangan.setText("");
+                        simpan.setEnabled(true);
+                        batal.setEnabled(true);
+                        hapus.setEnabled(true);
 
-                        } else {
-                            JOptionPane.showMessageDialog(null, "Silakan isi Jumlah Terima terlebih dahulu!");
-                        }
                     } else {
-                        JOptionPane.showMessageDialog(null, "Silakan isi Nomor Dus terlebih dahulu!");
+                        JOptionPane.showMessageDialog(null, "Silakan isi Jumlah Terima terlebih dahulu!");
                     }
+//                    } else {
+//                        JOptionPane.showMessageDialog(null, "Silakan isi Nomor Dus terlebih dahulu!");
+//                    }
                 } else {
                     JOptionPane.showMessageDialog(null, "Silakan pilih Regional terlebih dahulu!");
                 }
@@ -1004,7 +1025,8 @@ public class DialogTambahPengembalian extends javax.swing.JDialog {
             Keterangan.setText("");
         } else {
             JenisProduk.setSelectedIndex(0);
-            TanggalPengembalian.setDate(null);
+            Date ys = new Date();
+            TanggalPengembalian.setDate(ys);
             Regional.setSelectedIndex(0);
             NomorDus.setText("");
             JumlahTerima.setText("");
@@ -1059,6 +1081,36 @@ public class DialogTambahPengembalian extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(this, "Anda harus memilih dahulu produk yang akan dihapus!");
         }
     }//GEN-LAST:event_hapusActionPerformed
+
+    private void NomorDusKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NomorDusKeyReleased
+        // TODO add your handling code here:
+        char karakter = evt.getKeyChar();
+        if ((((karakter >= '0') && (karakter <= '9')
+                || (karakter == KeyEvent.VK_BACK_SPACE)
+                || (karakter == KeyEvent.VK_DELETE)
+                || (karakter == KeyEvent.VK_ENTER)))) {
+
+            String nomor_dus_string = hilangkan_titik(NomorDus.getText());
+            String nomor_dus_hasil = format_titik(nomor_dus_string);
+            NomorDus.setText(nomor_dus_hasil);
+            evt.consume();
+        }
+    }//GEN-LAST:event_NomorDusKeyReleased
+
+    private void JumlahTerimaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JumlahTerimaKeyReleased
+        // TODO add your handling code here:
+        char karakter = evt.getKeyChar();
+        if ((((karakter >= '0') && (karakter <= '9')
+                || (karakter == KeyEvent.VK_BACK_SPACE)
+                || (karakter == KeyEvent.VK_DELETE)
+                || (karakter == KeyEvent.VK_ENTER)))) {
+
+            String jumlah_terima_string = hilangkan_titik(JumlahTerima.getText());
+            String jumlah_terima_hasil = format_titik(jumlah_terima_string);
+            JumlahTerima.setText(jumlah_terima_hasil);
+            evt.consume();
+        }
+    }//GEN-LAST:event_JumlahTerimaKeyReleased
 
     /**
      * @param args the command line arguments

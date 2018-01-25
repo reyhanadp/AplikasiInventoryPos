@@ -23,6 +23,70 @@ public class PengembalianTM extends AbstractTableModel {
         this.arrayPengembalian = arrayPengembalian;
     }
 
+    private String format_titik(String text_string) {
+        if(text_string == null){
+            text_string = "";
+        }
+        
+        int j = 0, i, n;
+        String text_hasil = "";
+        int k = 2, l = 3, m = 4;
+        int panjang_text = text_string.length();
+        String[] text_pisah = text_string.split("(?<=\\G.{1})");
+
+        while (j == 0) {
+            if (panjang_text == k) {
+                n = k;
+                for (i = 0; i < k; i++) {
+                    if (n % 3 == 0) {
+                        text_hasil = text_hasil + "." + text_pisah[i];
+                    } else {
+                        text_hasil = text_hasil + text_pisah[i];
+                    }
+                    n--;
+                }
+                j = 1;
+            } else if (panjang_text == l) {
+                n = l;
+                for (i = 0; i < l; i++) {
+                    if (n % 3 == 0) {
+                        if (n == l) {
+                            text_hasil = text_hasil + text_pisah[i];
+                        } else {
+                            text_hasil = text_hasil + "." + text_pisah[i];
+                        }
+                    } else {
+                        text_hasil = text_hasil + text_pisah[i];
+                    }
+                    n--;
+                }
+                j = 1;
+            } else if (panjang_text == m) {
+                n = m;
+                for (i = 0; i < m; i++) {
+                    if (n % 3 == 0) {
+                        text_hasil = text_hasil + "." + text_pisah[i];
+                    } else {
+                        text_hasil = text_hasil + text_pisah[i];
+                    }
+                    n--;
+                }
+                j = 1;
+            } else if (panjang_text == 1) {
+                text_hasil = text_pisah[0];
+                j = 1;
+            } else if (panjang_text == 0) {
+                text_hasil = "";
+                j = 1;
+            }
+            k = k + 3;
+            l = l + 3;
+            m = m + 3;
+        }
+        return text_hasil;
+
+    }
+    
     @Override
     public int getRowCount() {
         return arrayPengembalian.size();
@@ -43,10 +107,12 @@ public class PengembalianTM extends AbstractTableModel {
                 return arrayPengembalian.get(rowIndex).getTanggal_pengembalian();
 
             case 2:
-                return arrayPengembalian.get(rowIndex).getJumlah_pengembalian();
+                String jumlah_pengembalian_hasil = format_titik(Integer.toString(arrayPengembalian.get(rowIndex).getJumlah_pengembalian()));
+                return jumlah_pengembalian_hasil;
 
             case 3:
-                return arrayPengembalian.get(rowIndex).getDus();
+                String dus_hasil = format_titik(arrayPengembalian.get(rowIndex).getDus());
+                return dus_hasil;
 
             case 4:
                 return arrayPengembalian.get(rowIndex).getId_regional();
@@ -58,10 +124,12 @@ public class PengembalianTM extends AbstractTableModel {
                 return arrayPengembalian.get(rowIndex).getNama_produk();
                 
             case 7:
-                return arrayPengembalian.get(rowIndex).getStok_awal();
+                String stok_awal_hasil = format_titik(Integer.toString(arrayPengembalian.get(rowIndex).getStok_awal()));
+                return stok_awal_hasil;
 
             case 8:
-                return arrayPengembalian.get(rowIndex).getStok_akhir();
+                String stok_akhir_hasil = format_titik(Integer.toString(arrayPengembalian.get(rowIndex).getStok_akhir()));
+                return stok_akhir_hasil;
 
             case 9:
                 return arrayPengembalian.get(rowIndex).getKeterangan();

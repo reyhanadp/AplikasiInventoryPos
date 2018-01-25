@@ -13,14 +13,18 @@ import id.ac.pos.gudang.entity.Pengembalian;
 import id.ac.pos.gudang.entity.Pengiriman;
 import id.ac.pos.gudang.entity.Produk;
 import id.ac.pos.gudang.entity.Regional;
+import static java.awt.Component.CENTER_ALIGNMENT;
 import java.awt.event.KeyEvent;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Vector;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumnModel;
 import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 
 /**
@@ -62,6 +66,15 @@ public class DialogTambahPengiriman extends javax.swing.JDialog {
                     "No", "Kode Produk", "Nama Produk", "Nominal", "Jumlah Kirim", "BSU"
                 }));
         AutoCompleteDecorator.decorate(NamaProduk);
+
+        Date ys = new Date();
+        TanggalPengiriman.setDate(ys);
+        TanggalPengiriman.setMaxSelectableDate(ys);
+
+        TableColumnModel columnModel = tabel_pengiriman.getColumnModel();
+        columnModel.getColumn(0).setPreferredWidth(10);
+        ((DefaultTableCellRenderer) tabel_pengiriman.getTableHeader().getDefaultRenderer())
+                .setHorizontalAlignment((int) CENTER_ALIGNMENT);
     }
 
     private String hilangkan_titik(String text_titik) {
@@ -859,7 +872,7 @@ public class DialogTambahPengiriman extends javax.swing.JDialog {
     private void simpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simpanActionPerformed
         // TODO add your handling code here:
         int pilih = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin menyimpan?",
-                 "Konfirmasi", JOptionPane.YES_NO_OPTION);
+                "Konfirmasi", JOptionPane.YES_NO_OPTION);
         if (pilih == JOptionPane.YES_OPTION) {
             boolean sukses = false;
             String kosong = null;
@@ -950,13 +963,13 @@ public class DialogTambahPengiriman extends javax.swing.JDialog {
                 JOptionPane.showMessageDialog(this, "Data gagal ditambahkan");
                 reset_simpan();
             }
-            
+
             pilih = JOptionPane.showConfirmDialog(null, "Apakah anda akan menambahkan data lagi?",
-                 "Konfirmasi", JOptionPane.YES_NO_OPTION);
-            if(pilih == JOptionPane.NO_OPTION){
+                    "Konfirmasi", JOptionPane.YES_NO_OPTION);
+            if (pilih == JOptionPane.NO_OPTION) {
                 this.dispose();
             }
-            
+
         }
     }//GEN-LAST:event_simpanActionPerformed
 
@@ -968,7 +981,8 @@ public class DialogTambahPengiriman extends javax.swing.JDialog {
             JumlahKirim.setText("");
         } else {
             NoOrder.setText("");
-            TanggalPengiriman.setDate(null);
+            Date ys = new Date();
+            TanggalPengiriman.setDate(ys);
             Regional.setSelectedIndex(0);
             JenisProduk.setSelectedIndex(0);
             JumlahKirim.setText("");
@@ -980,35 +994,42 @@ public class DialogTambahPengiriman extends javax.swing.JDialog {
         String nama_produk, kode_produk, nominal, jumlah_kirim, bsu;
         int baris_pilih = tabel_pengiriman.getSelectedRow();
         if (baris_pilih >= 0) {
-            DefaultTableModel model = (DefaultTableModel) tabel_pengiriman.getModel();
-            model.removeRow(baris_pilih);
 
-            int baris = tabel_pengiriman.getRowCount();
-            for (int i = 0; i < baris; i++) {
-                kode_produk = tabel_pengiriman.getValueAt(0, 1).toString();
-                nama_produk = tabel_pengiriman.getValueAt(0, 2).toString();
-                nominal = tabel_pengiriman.getValueAt(0, 3).toString();
-                jumlah_kirim = tabel_pengiriman.getValueAt(0, 4).toString();
-                bsu = tabel_pengiriman.getValueAt(0, 5).toString();
+            int ok = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin akan "
+                    + "menghapus Produk : " + tabel_pengiriman.getValueAt(baris_pilih, 2).toString()
+                    + " ,dengan Jumlah Kirim : " + tabel_pengiriman.getValueAt(baris_pilih, 4).toString()
+                    + "?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
+            if (ok == 0) {
+                DefaultTableModel model = (DefaultTableModel) tabel_pengiriman.getModel();
+                model.removeRow(baris_pilih);
 
-                List list = new ArrayList<>();
-                tabel_pengiriman.setAutoCreateColumnsFromModel(true);
-                list.add(i + 1);
-                list.add(kode_produk);
-                list.add(nama_produk);
-                list.add(nominal);
-                list.add(jumlah_kirim);
-                list.add(bsu);
-                model.addRow(list.toArray());
+                int baris = tabel_pengiriman.getRowCount();
+                for (int i = 0; i < baris; i++) {
+                    kode_produk = tabel_pengiriman.getValueAt(0, 1).toString();
+                    nama_produk = tabel_pengiriman.getValueAt(0, 2).toString();
+                    nominal = tabel_pengiriman.getValueAt(0, 3).toString();
+                    jumlah_kirim = tabel_pengiriman.getValueAt(0, 4).toString();
+                    bsu = tabel_pengiriman.getValueAt(0, 5).toString();
 
-                model.removeRow(0);
-            }
+                    List list = new ArrayList<>();
+                    tabel_pengiriman.setAutoCreateColumnsFromModel(true);
+                    list.add(i + 1);
+                    list.add(kode_produk);
+                    list.add(nama_produk);
+                    list.add(nominal);
+                    list.add(jumlah_kirim);
+                    list.add(bsu);
+                    model.addRow(list.toArray());
 
-            baris = tabel_pengiriman.getRowCount();
-            if (baris == 0) {
-                NoOrder.setEditable(true);
-                TanggalPengiriman.setEnabled(true);
-                Regional.setEnabled(true);
+                    model.removeRow(0);
+                }
+
+                baris = tabel_pengiriman.getRowCount();
+                if (baris == 0) {
+                    NoOrder.setEditable(true);
+                    TanggalPengiriman.setEnabled(true);
+                    Regional.setEnabled(true);
+                }
             }
 
         } else {
