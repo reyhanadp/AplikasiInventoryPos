@@ -7,20 +7,13 @@ package id.ac.pos.gudang.Dialog;
 
 import id.ac.pos.gudang.dao.PemesananDAO;
 import id.ac.pos.gudang.dao.PenerimaanDAO;
-import id.ac.pos.gudang.dao.ProdukDAO;
 import id.ac.pos.gudang.daoimpl.PemesananDAOImpl;
 import id.ac.pos.gudang.daoimpl.PenerimaanDAOImpl;
-import id.ac.pos.gudang.daoimpl.ProdukDAOImpl;
 import id.ac.pos.gudang.entity.Pemesanan;
 import id.ac.pos.gudang.entity.Penerimaan;
 import id.ac.pos.gudang.entity.Produk;
 import id.ac.pos.gudang.entity.Mitra;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 import java.awt.event.KeyEvent;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Vector;
 import javax.swing.table.DefaultTableModel;
@@ -38,8 +31,6 @@ public class DialogTambahPenerimaan extends javax.swing.JDialog {
 
     PemesananDAO dao;
     PenerimaanDAO daoPenerimaan;
-    ProdukDAO daoProduk;
-    Pemesanan pemesanan;
     Penerimaan penerimaan;
     Mitra mitra;
     ArrayList<Penerimaan> arrayPenerimaan;

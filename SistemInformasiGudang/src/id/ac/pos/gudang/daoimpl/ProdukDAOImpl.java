@@ -83,6 +83,9 @@ public class ProdukDAOImpl implements ProdukDAO {
         return arrayProduk;
     }
 
+    
+    
+    
     @Override
     public boolean tambahProduk(Produk produk, String jenisProduk) {
         conn = DatabaseConnectivity.getConnection();

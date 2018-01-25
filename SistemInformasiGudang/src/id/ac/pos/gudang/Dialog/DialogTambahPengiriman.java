@@ -64,6 +64,75 @@ public class DialogTambahPengiriman extends javax.swing.JDialog {
         AutoCompleteDecorator.decorate(NamaProduk);
     }
 
+    private String hilangkan_titik(String text_titik) {
+        String[] temp = text_titik.split("\\.");
+        String text_string = "";
+        for (int i = 0; i < temp.length; i++) {
+            text_string = text_string + temp[i];
+        }
+        return text_string;
+    }
+
+    private String format_titik(String text_string) {
+        int j = 0, i, n;
+        String text_hasil = "";
+        int k = 2, l = 3, m = 4;
+        int panjang_text = text_string.length();
+        String[] text_pisah = text_string.split("(?<=\\G.{1})");
+
+        while (j == 0) {
+            if (panjang_text == k) {
+                n = k;
+                for (i = 0; i < k; i++) {
+                    if (n % 3 == 0) {
+                        text_hasil = text_hasil + "." + text_pisah[i];
+                    } else {
+                        text_hasil = text_hasil + text_pisah[i];
+                    }
+                    n--;
+                }
+                j = 1;
+            } else if (panjang_text == l) {
+                n = l;
+                for (i = 0; i < l; i++) {
+                    if (n % 3 == 0) {
+                        if (n == l) {
+                            text_hasil = text_hasil + text_pisah[i];
+                        } else {
+                            text_hasil = text_hasil + "." + text_pisah[i];
+                        }
+                    } else {
+                        text_hasil = text_hasil + text_pisah[i];
+                    }
+                    n--;
+                }
+                j = 1;
+            } else if (panjang_text == m) {
+                n = m;
+                for (i = 0; i < m; i++) {
+                    if (n % 3 == 0) {
+                        text_hasil = text_hasil + "." + text_pisah[i];
+                    } else {
+                        text_hasil = text_hasil + text_pisah[i];
+                    }
+                    n--;
+                }
+                j = 1;
+            } else if (panjang_text == 1) {
+                text_hasil = text_pisah[0];
+                j = 1;
+            } else if (panjang_text == 0) {
+                text_hasil = "";
+                j = 1;
+            }
+            k = k + 3;
+            l = l + 3;
+            m = m + 3;
+        }
+        return text_hasil;
+
+    }
+
     private void autocomplete_regional() {
 //        KotaPengirimPrangko.removeAllItems();
 //        KotaPengirimPrangko.addItem("- - - - - - - - - - - -Pilih Regional- - - - - - - - - - - -");
@@ -700,15 +769,14 @@ public class DialogTambahPengiriman extends javax.swing.JDialog {
         String kode_regional = KodeRegional.getText();
         String kode_produk = KodeProduk.getText();
         Object nominal = Nominal.getSelectedItem();
+        //ubah nominal menjadi titik
+        String nom_str = String.valueOf(nominal);
+        String hasil_nominal = format_titik(nom_str);
+
         Object nama_produk = NamaProduk.getSelectedItem();
         int indeks = 0;
 
-        String jumlah_kirim = JumlahKirim.getText();
-        String[] temp = jumlah_kirim.split("\\.");
-        String jumlah_kirim_string = "";
-        for (int z = 0; z < temp.length; z++) {
-            jumlah_kirim_string = jumlah_kirim_string + temp[z];
-        }
+        String jumlah_kirim_string = hilangkan_titik(JumlahKirim.getText());
 
         if (no_order.compareTo("") != 0) {
             if (tanggal_pengiriman != null) {
@@ -741,57 +809,7 @@ public class DialogTambahPengiriman extends javax.swing.JDialog {
                                     String bsu_string = Long.toString(bsu);
 
                                     //format bsu
-                                    String bsu_hasil = "";
-                                    int k = 2, l = 3, m = 4;
-                                    int panjang_bsu = bsu_string.length();
-                                    String[] bsu_pisah = bsu_string.split("(?<=\\G.{1})");
-                                    int j = 0, i, n;
-                                    while (j == 0) {
-                                        if (panjang_bsu == k) {
-                                            n = k;
-                                            for (i = 0; i < k; i++) {
-                                                if (n % 3 == 0) {
-                                                    bsu_hasil = bsu_hasil + "." + bsu_pisah[i];
-                                                } else {
-                                                    bsu_hasil = bsu_hasil + bsu_pisah[i];
-                                                }
-                                                n--;
-                                            }
-                                            j = 1;
-                                        } else if (panjang_bsu == l) {
-                                            n = l;
-                                            for (i = 0; i < l; i++) {
-                                                if (n % 3 == 0) {
-                                                    if (n == l) {
-                                                        bsu_hasil = bsu_hasil + bsu_pisah[i];
-                                                    } else {
-                                                        bsu_hasil = bsu_hasil + "." + bsu_pisah[i];
-                                                    }
-                                                } else {
-                                                    bsu_hasil = bsu_hasil + bsu_pisah[i];
-                                                }
-                                                n--;
-                                            }
-                                            j = 1;
-                                        } else if (panjang_bsu == m) {
-                                            n = m;
-                                            for (i = 0; i < m; i++) {
-                                                if (n % 3 == 0) {
-                                                    bsu_hasil = bsu_hasil + "." + bsu_pisah[i];
-                                                } else {
-                                                    bsu_hasil = bsu_hasil + bsu_pisah[i];
-                                                }
-                                                n--;
-                                            }
-                                            j = 1;
-                                        } else if (panjang_bsu == 1) {
-                                            bsu_hasil = bsu_pisah[0];
-                                            j = 1;
-                                        }
-                                        k = k + 3;
-                                        l = l + 3;
-                                        m = m + 3;
-                                    }
+                                    String bsu_hasil = format_titik(bsu_string);
 
                                     if (tabel_pengiriman.getRowCount() == 0) {
                                         no = 1;
@@ -804,8 +822,8 @@ public class DialogTambahPengiriman extends javax.swing.JDialog {
                                     list.add(no);
                                     list.add(kode_produk);
                                     list.add(nama_produk);
-                                    list.add(nominal);
-                                    list.add(jumlah_dikirim);
+                                    list.add(hasil_nominal);
+                                    list.add(JumlahKirim.getText());
                                     list.add(bsu_hasil);
                                     dataModel.addRow(list.toArray());
 
@@ -840,95 +858,105 @@ public class DialogTambahPengiriman extends javax.swing.JDialog {
 
     private void simpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simpanActionPerformed
         // TODO add your handling code here:
-        boolean sukses = false;
-        String kosong = null;
-        int stok_produk;
-        int i;
-        int banyak_baris = tabel_pengiriman.getRowCount();
+        int pilih = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin menyimpan?",
+                 "Konfirmasi", JOptionPane.YES_NO_OPTION);
+        if (pilih == JOptionPane.YES_OPTION) {
+            boolean sukses = false;
+            String kosong = null;
+            int stok_produk;
+            int i;
+            int banyak_baris = tabel_pengiriman.getRowCount();
 
-        dao = new PengirimanDAOImpl();
+            dao = new PengirimanDAOImpl();
 
-        java.util.Date tanggal_pengiriman = (java.util.Date) TanggalPengiriman.getDate();
-        String no_order = NoOrder.getText();
-        String kode_regional = KodeRegional.getText();
+            java.util.Date tanggal_pengiriman = (java.util.Date) TanggalPengiriman.getDate();
+            String no_order = NoOrder.getText();
+            String kode_regional = KodeRegional.getText();
 
-        for (i = 0; i < banyak_baris; i++) {
-            String kode_produk = tabel_pengiriman.getValueAt(i, 1).toString();
-            String jumlah_kirim = tabel_pengiriman.getValueAt(i, 4).toString();
-            String bsu = tabel_pengiriman.getValueAt(i, 5).toString();
-            String bsu_hasil = "";
-            String[] bsu_pisah = bsu.split("\\.");
-            for (int k = 0; k < bsu_pisah.length; k++) {
-                bsu_hasil = bsu_hasil + bsu_pisah[k];
+            for (i = 0; i < banyak_baris; i++) {
+                String kode_produk = tabel_pengiriman.getValueAt(i, 1).toString();
+                String jumlah_kirim = tabel_pengiriman.getValueAt(i, 4).toString();
+                String bsu = tabel_pengiriman.getValueAt(i, 5).toString();
+
+                //hilangkan titik
+                String jumlah_kirim_hasil = hilangkan_titik(jumlah_kirim);
+                String bsu_hasil = hilangkan_titik(bsu);
+
+                //autoincrement id_pengembalian
+                String id_pengiriman_string = dao.getIdPengiriman();
+                if (id_pengiriman_string == null) {
+                    id_pengiriman_string = "0";
+                }
+                Integer id_pengiriman = Integer.parseInt(id_pengiriman_string);
+                id_pengiriman++;
+                id_pengiriman_string = Integer.toString(id_pengiriman);
+                int panjang = id_pengiriman_string.length();
+
+                switch (panjang) {
+                    case 1:
+                        kosong = "000000000";
+                        break;
+                    case 2:
+                        kosong = "00000000";
+                        break;
+                    case 3:
+                        kosong = "0000000";
+                        break;
+                    case 4:
+                        kosong = "000000";
+                        break;
+                    case 5:
+                        kosong = "00000";
+                        break;
+                    case 6:
+                        kosong = "0000";
+                        break;
+                    case 7:
+                        kosong = "000";
+                        break;
+                    case 8:
+                        kosong = "00";
+                        break;
+                    case 9:
+                        kosong = "0";
+                        break;
+                    case 10:
+                        kosong = null;
+                        break;
+                    default:
+                        break;
+                }
+
+                id_pengiriman_string = kosong + id_pengiriman_string;
+
+                Pengiriman pengiriman = new Pengiriman();
+                pengiriman.setId_pengiriman(id_pengiriman_string);
+                pengiriman.setNo_order_pengiriman(no_order);
+                pengiriman.setTgl_pengiriman(tanggal_pengiriman);
+                pengiriman.setId_produk(kode_produk);
+                pengiriman.setId_regional(kode_regional);
+                pengiriman.setBsu(bsu_hasil);
+                pengiriman.setJumlah_pengiriman(Integer.parseInt(jumlah_kirim_hasil));
+                stok_produk = dao.getStok(kode_produk);
+                pengiriman.setStok_awal(stok_produk);
+                sukses = dao.tambahPengiriman(pengiriman);
+
             }
 
-            //autoincrement id_pengembalian
-            String id_pengiriman_string = dao.getIdPengiriman();
-            if (id_pengiriman_string == null) {
-                id_pengiriman_string = "0";
+            if (sukses) {
+                JOptionPane.showMessageDialog(this, "Data berhasil ditambahkan");
+                reset_simpan();
+            } else {
+                JOptionPane.showMessageDialog(this, "Data gagal ditambahkan");
+                reset_simpan();
             }
-            Integer id_pengiriman = Integer.parseInt(id_pengiriman_string);
-            id_pengiriman++;
-            id_pengiriman_string = Integer.toString(id_pengiriman);
-            int panjang = id_pengiriman_string.length();
-
-            switch (panjang) {
-                case 1:
-                    kosong = "000000000";
-                    break;
-                case 2:
-                    kosong = "00000000";
-                    break;
-                case 3:
-                    kosong = "0000000";
-                    break;
-                case 4:
-                    kosong = "000000";
-                    break;
-                case 5:
-                    kosong = "00000";
-                    break;
-                case 6:
-                    kosong = "0000";
-                    break;
-                case 7:
-                    kosong = "000";
-                    break;
-                case 8:
-                    kosong = "00";
-                    break;
-                case 9:
-                    kosong = "0";
-                    break;
-                case 10:
-                    kosong = null;
-                    break;
-                default:
-                    break;
+            
+            pilih = JOptionPane.showConfirmDialog(null, "Apakah anda akan menambahkan data lagi?",
+                 "Konfirmasi", JOptionPane.YES_NO_OPTION);
+            if(pilih == JOptionPane.NO_OPTION){
+                this.dispose();
             }
-
-            id_pengiriman_string = kosong + id_pengiriman_string;
-
-            Pengiriman pengiriman = new Pengiriman();
-            pengiriman.setId_pengiriman(id_pengiriman_string);
-            pengiriman.setNo_order_pengiriman(no_order);
-            pengiriman.setTgl_pengiriman(tanggal_pengiriman);
-            pengiriman.setId_produk(kode_produk);
-            pengiriman.setId_regional(kode_regional);
-            pengiriman.setBsu(bsu_hasil);
-            pengiriman.setJumlah_pengiriman(Integer.parseInt(jumlah_kirim));
-            stok_produk = dao.getStok(kode_produk);
-            pengiriman.setStok_awal(stok_produk);
-            sukses = dao.tambahPengiriman(pengiriman);
-
-        }
-
-        if (sukses) {
-            JOptionPane.showMessageDialog(this, "Data berhasil ditambahkan");
-            reset_simpan();
-        } else {
-            JOptionPane.showMessageDialog(this, "Data gagal ditambahkan");
-            reset_simpan();
+            
         }
     }//GEN-LAST:event_simpanActionPerformed
 
@@ -1011,69 +1039,9 @@ public class DialogTambahPengiriman extends javax.swing.JDialog {
                 || (karakter == KeyEvent.VK_BACK_SPACE)
                 || (karakter == KeyEvent.VK_DELETE)
                 || (karakter == KeyEvent.VK_ENTER)))) {
-            int j = 0, i, n;
-            String jumlah_kirim = JumlahKirim.getText();
-            String[] temp = jumlah_kirim.split("\\.");
-            String jumlah_kirim_string = "";
-            for (i = 0; i < temp.length; i++) {
-                jumlah_kirim_string = jumlah_kirim_string + temp[i];
-            }
 
-            //format bsu
-            String jumlah_kirim_hasil = "";
-            int k = 2, l = 3, m = 4;
-            int panjang_jumlah_kirim = jumlah_kirim_string.length();
-            String[] jumlah_kirim_pisah = jumlah_kirim_string.split("(?<=\\G.{1})");
-
-            while (j == 0) {
-                if (panjang_jumlah_kirim == k) {
-                    n = k;
-                    for (i = 0; i < k; i++) {
-                        if (n % 3 == 0) {
-                            jumlah_kirim_hasil = jumlah_kirim_hasil + "." + jumlah_kirim_pisah[i];
-                        } else {
-                            jumlah_kirim_hasil = jumlah_kirim_hasil + jumlah_kirim_pisah[i];
-                        }
-                        n--;
-                    }
-                    j = 1;
-                } else if (panjang_jumlah_kirim == l) {
-                    n = l;
-                    for (i = 0; i < l; i++) {
-                        if (n % 3 == 0) {
-                            if (n == l) {
-                                jumlah_kirim_hasil = jumlah_kirim_hasil + jumlah_kirim_pisah[i];
-                            } else {
-                                jumlah_kirim_hasil = jumlah_kirim_hasil + "." + jumlah_kirim_pisah[i];
-                            }
-                        } else {
-                            jumlah_kirim_hasil = jumlah_kirim_hasil + jumlah_kirim_pisah[i];
-                        }
-                        n--;
-                    }
-                    j = 1;
-                } else if (panjang_jumlah_kirim == m) {
-                    n = m;
-                    for (i = 0; i < m; i++) {
-                        if (n % 3 == 0) {
-                            jumlah_kirim_hasil = jumlah_kirim_hasil + "." + jumlah_kirim_pisah[i];
-                        } else {
-                            jumlah_kirim_hasil = jumlah_kirim_hasil + jumlah_kirim_pisah[i];
-                        }
-                        n--;
-                    }
-                    j = 1;
-                } else if (panjang_jumlah_kirim == 1) {
-                    jumlah_kirim_hasil = jumlah_kirim_pisah[0];
-                    j = 1;
-                } else if (panjang_jumlah_kirim == 0) {
-                    jumlah_kirim_hasil = "";
-                    j = 1;
-                }
-                k = k + 3;
-                l = l + 3;
-                m = m + 3;
-            }
+            String jumlah_kirim_string = hilangkan_titik(JumlahKirim.getText());
+            String jumlah_kirim_hasil = format_titik(jumlah_kirim_string);
             JumlahKirim.setText(jumlah_kirim_hasil);
             evt.consume();
         }
