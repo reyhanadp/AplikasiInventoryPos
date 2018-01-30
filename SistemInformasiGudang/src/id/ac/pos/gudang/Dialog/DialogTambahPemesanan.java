@@ -11,15 +11,19 @@ import id.ac.pos.gudang.daoimpl.PemesananDAOImpl;
 import id.ac.pos.gudang.entity.Pemesanan;
 import id.ac.pos.gudang.entity.Produk;
 import id.ac.pos.gudang.entity.Mitra;
+import static java.awt.Component.CENTER_ALIGNMENT;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Vector;
 import javax.swing.table.DefaultTableModel;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.TableColumnModel;
 import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 
 /**
@@ -56,13 +60,93 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
         batal.setEnabled(false);
         hapus.setEnabled(false);
         autocompleteNamaMitra();
+        AutoCompleteDecorator.decorate(NamaProduk);
+        AutoCompleteDecorator.decorate(NamaMitra);
         setLocationRelativeTo(this);
         tabel_pemesanan.setModel(new javax.swing.table.DefaultTableModel(new Object[][]{},
                 new String[]{
                     "No", "Kode Produk", "Nama Produk", "Nominal", "Jumlah Pemesanan"
                 }));
+
+        Date ys = new Date();
+        TanggalPemesanan.setDate(ys);
+        TanggalPemesanan.setMaxSelectableDate(ys);
+
+        TableColumnModel columnModel = tabel_pemesanan.getColumnModel();
+        columnModel.getColumn(0).setPreferredWidth(10);
+        ((DefaultTableCellRenderer) tabel_pemesanan.getTableHeader().getDefaultRenderer())
+                .setHorizontalAlignment((int) CENTER_ALIGNMENT);
     }
-    
+
+    private String hilangkan_titik(String text_titik) {
+        String[] temp = text_titik.split("\\.");
+        String text_string = "";
+        for (int i = 0; i < temp.length; i++) {
+            text_string = text_string + temp[i];
+        }
+        return text_string;
+    }
+
+    private String format_titik(String text_string) {
+        int j = 0, i, n;
+        String text_hasil = "";
+        int k = 2, l = 3, m = 4;
+        int panjang_text = text_string.length();
+        String[] text_pisah = text_string.split("(?<=\\G.{1})");
+
+        while (j == 0) {
+            if (panjang_text == k) {
+                n = k;
+                for (i = 0; i < k; i++) {
+                    if (n % 3 == 0) {
+                        text_hasil = text_hasil + "." + text_pisah[i];
+                    } else {
+                        text_hasil = text_hasil + text_pisah[i];
+                    }
+                    n--;
+                }
+                j = 1;
+            } else if (panjang_text == l) {
+                n = l;
+                for (i = 0; i < l; i++) {
+                    if (n % 3 == 0) {
+                        if (n == l) {
+                            text_hasil = text_hasil + text_pisah[i];
+                        } else {
+                            text_hasil = text_hasil + "." + text_pisah[i];
+                        }
+                    } else {
+                        text_hasil = text_hasil + text_pisah[i];
+                    }
+                    n--;
+                }
+                j = 1;
+            } else if (panjang_text == m) {
+                n = m;
+                for (i = 0; i < m; i++) {
+                    if (n % 3 == 0) {
+                        text_hasil = text_hasil + "." + text_pisah[i];
+                    } else {
+                        text_hasil = text_hasil + text_pisah[i];
+                    }
+                    n--;
+                }
+                j = 1;
+            } else if (panjang_text == 1) {
+                text_hasil = text_pisah[0];
+                j = 1;
+            } else if (panjang_text == 0) {
+                text_hasil = "";
+                j = 1;
+            }
+            k = k + 3;
+            l = l + 3;
+            m = m + 3;
+        }
+        return text_hasil;
+
+    }
+
     private void reset_simpan() {
         DefaultTableModel model = (DefaultTableModel) tabel_pemesanan.getModel();
 
@@ -79,10 +163,9 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
         JumlahPemesanan.setText("");
         simpan.setEnabled(false);
         batal.setEnabled(false);
-        dispose();
     }
-    
-    private void autoIncrementNoPemesanan(){
+
+    private void autoIncrementNoPemesanan() {
         String kosong = null;
         PemesananDAOImpl dao = new PemesananDAOImpl();
 
@@ -94,7 +177,7 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
         sub_nomor_int++;
         String nomor_string = String.valueOf(sub_nomor_int);
         int panjang = nomor_string.length();
-        
+
         switch (panjang) {
             case 1:
                 kosong = "000000000";
@@ -130,10 +213,10 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
                 break;
         }
         nomor_string = String.valueOf(sub_nomor_int);
-        no_pemesanan =kosong + nomor_string;
+        no_pemesanan = kosong + nomor_string;
         fieldNoPemesanan.setText(no_pemesanan);
-     }
-    
+    }
+
     private void autocompleteNamaMitra() {
 //        KotaPengirimPrangko.removeAllItems();
 //        KotaPengirimPrangko.addItem("- - - - - - - - - - - -Pilih Regional- - - - - - - - - - - -");
@@ -150,7 +233,7 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
         }
         NamaMitra.setModel(new DefaultComboBoxModel(vectorMitra));
 //        KotaPengirimPrangko.setSelectedIndex(-1);
-        AutoCompleteDecorator.decorate(NamaMitra);
+
     }
 
     private void reset() {
@@ -217,6 +300,9 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
         JumlahPemesanan.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 JumlahPemesananKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                JumlahPemesananKeyReleased(evt);
             }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 JumlahPemesananKeyTyped(evt);
@@ -508,7 +594,7 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
             Tahun.removeAllItems();
             Nominal.removeAllItems();
             KodeProduk.setText("");
-                        
+
             if (jenis_produk == "Prangko") {
                 jenis_produk = "PR";
             } else if (jenis_produk == "MS & SS") {
@@ -524,7 +610,7 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
             } else if (jenis_produk == "Dokumen Filateli") {
                 jenis_produk = "DF";
             }
-            
+
             dao = new PemesananDAOImpl();
             arrayProdukPrangko = dao.getTahunProduk(nama_produk, (String) jenis_produk);
             if (arrayProdukPrangko.size() > 1) {
@@ -556,7 +642,7 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
                     KodeProduk.setText(arrayProdukPrangko2.get(0).getIdProduk());
                 }
             }
-            
+
             //            NamaProdukPrangko.setSelectedIndex(-1);
         } else {
             Tahun.removeAllItems();
@@ -605,7 +691,6 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
 
             NamaProduk.setModel(new DefaultComboBoxModel(vectorPrangko));
 
-            AutoCompleteDecorator.decorate(NamaProduk);
         } else {
             NamaProduk.removeAllItems();
             Tahun.removeAllItems();
@@ -623,7 +708,7 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
         if (tahun != "- Pilih Tahun Produk -") {
             Nominal.removeAllItems();
             KodeProduk.setText("");
-            
+
             if (jenis_produk == "Prangko") {
                 jenis_produk = "PR";
             } else if (jenis_produk == "MS & SS") {
@@ -705,7 +790,7 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
         // TODO add your handling code here:
         String kosong = null;
         int no;
-        int baris;
+        int baris = tabel_pemesanan.getRowCount();
         String no_pemesanan = fieldNoPemesanan.getText();
         String kode_produk = KodeProduk.getText();
         String id_mitra = fieldIdMitra.getText();
@@ -713,20 +798,31 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
         String jumlah_pemesanan = JumlahPemesanan.getText();
         Object nama_produk = NamaProduk.getSelectedItem();
         Object nominal = Nominal.getSelectedItem();
-        
+        String nominal_string = format_titik(String.valueOf(nominal));
+        int indeks = 0;
+
         if (no_pemesanan.compareTo("") != 0) {
             if (tanggal_pemesanan != null) {
                 if (id_mitra.compareTo("") != 0) {
                     if (kode_produk.compareTo("") != 0) {
                         if (jumlah_pemesanan.compareTo("") != 0) {
+
+                            if (baris > 0) {
+                                for (int i = 0; i < baris; i++) {
+                                    Object kode = tabel_pemesanan.getValueAt(i, 1);
+                                    if (kode_produk.compareTo((String) kode) == 0) {
+                                        indeks = 1;
+                                    }
+                                }
+                            }
+
+                            if (indeks == 0) {
                                 TanggalPemesanan.setEnabled(false);
                                 fieldIdMitra.setEnabled(false);
                                 NamaMitra.setEnabled(false);
-                                
                                 if (tabel_pemesanan.getRowCount() == 0) {
                                     no = 1;
                                 } else {
-                                    baris = tabel_pemesanan.getRowCount();
                                     no = baris + 1;
                                 }
                                 DefaultTableModel dataModel = (DefaultTableModel) tabel_pemesanan.getModel();
@@ -735,17 +831,20 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
                                 list.add(no);
                                 list.add(kode_produk);
                                 list.add(nama_produk);
-                                list.add(nominal);
+                                list.add(nominal_string);
                                 list.add(jumlah_pemesanan);
                                 dataModel.addRow(list.toArray());
-                                
+
                                 NamaProduk.setSelectedItem("");
                                 JenisProduk.setSelectedIndex(0);
                                 JumlahPemesanan.setText("");
                                 simpan.setEnabled(true);
                                 batal.setEnabled(true);
                                 hapus.setEnabled(true);
-                            
+                            } else {
+                                JOptionPane.showMessageDialog(null, "Produk sudah terdaftar!");
+                            }
+
                         } else {
                             JOptionPane.showMessageDialog(null, "Silakan isi Jumlah pesan terlebih dahulu!");
                         }
@@ -789,11 +888,10 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
                 nama_produk = tabel_pemesanan.getValueAt(0, 2).toString();
                 nominal = tabel_pemesanan.getValueAt(0, 3).toString();
                 jumlah_pesan = tabel_pemesanan.getValueAt(0, 4).toString();
-                
 
                 List list = new ArrayList<>();
                 tabel_pemesanan.setAutoCreateColumnsFromModel(true);
-                list.add(i+1);
+                list.add(i + 1);
                 list.add(kode_produk);
                 list.add(nama_produk);
                 list.add(nominal);
@@ -804,7 +902,7 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
             }
 
             baris = tabel_pemesanan.getRowCount();
-            if(baris==0){
+            if (baris == 0) {
                 fieldNoPemesanan.setEditable(true);
                 TanggalPemesanan.setEnabled(true);
                 NamaMitra.setEnabled(true);
@@ -822,7 +920,7 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
         boolean sukses = false;
         String kosong = null;
         int i;
-        
+
         int banyak_baris = tabel_pemesanan.getRowCount();
         dao = new PemesananDAOImpl();
 
@@ -830,82 +928,87 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
         java.util.Date tanggal_pemesanan = (java.util.Date) TanggalPemesanan.getDate();
         String id_mitra = fieldIdMitra.getText();
         String no_pemesanan = fieldNoPemesanan.getText();
-        
+
         int pilih = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin "
-                    + "menyimpan data dengan nomor pemesanan : " + no_pemesanan
-                    + "?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
+                + "menyimpan data dengan nomor pemesanan : " + no_pemesanan
+                + "?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
         if (pilih == JOptionPane.YES_OPTION) {
-                    for (i = 0; i < banyak_baris; i++) {
-                        String kode_produk = tabel_pemesanan.getValueAt(i, 1).toString();
-                        String jumlah_pesan = tabel_pemesanan.getValueAt(i, 4).toString();
+            for (i = 0; i < banyak_baris; i++) {
+                String kode_produk = tabel_pemesanan.getValueAt(i, 1).toString();
+                String jumlah_pesan = tabel_pemesanan.getValueAt(i, 4).toString();
+                jumlah_pesan = hilangkan_titik(jumlah_pesan);
+                String id_pemesanan_string = dao.getIdPemesanan();
+                if (id_pemesanan_string == null) {
+                    id_pemesanan_string = "0";
+                }
+                Integer id_pemesanan = Integer.parseInt(id_pemesanan_string);
+                id_pemesanan++;
+                id_pemesanan_string = Integer.toString(id_pemesanan);
+                int panjang = id_pemesanan_string.length();
 
-                    String id_pemesanan_string = dao.getIdPemesanan();
-                    if (id_pemesanan_string == null) {
-                        id_pemesanan_string = "0";
-                    }
-                    Integer id_pemesanan = Integer.parseInt(id_pemesanan_string);
-                    id_pemesanan++;
-                    id_pemesanan_string = Integer.toString(id_pemesanan);
-                    int panjang = id_pemesanan_string.length();
+                switch (panjang) {
+                    case 1:
+                        kosong = "000000000";
+                        break;
+                    case 2:
+                        kosong = "00000000";
+                        break;
+                    case 3:
+                        kosong = "0000000";
+                        break;
+                    case 4:
+                        kosong = "000000";
+                        break;
+                    case 5:
+                        kosong = "00000";
+                        break;
+                    case 6:
+                        kosong = "0000";
+                        break;
+                    case 7:
+                        kosong = "000";
+                        break;
+                    case 8:
+                        kosong = "00";
+                        break;
+                    case 9:
+                        kosong = "0";
+                        break;
+                    case 10:
+                        kosong = null;
+                        break;
+                    default:
+                        break;
+                }
 
-                    switch (panjang) {
-                            case 1:
-                                kosong = "000000000";
-                                break;
-                            case 2:
-                                kosong = "00000000";
-                                break;
-                            case 3:
-                                kosong = "0000000";
-                                break;
-                            case 4:
-                                kosong = "000000";
-                                break;
-                            case 5:
-                                kosong = "00000";
-                                break;
-                            case 6:
-                                kosong = "0000";
-                                break;
-                            case 7:
-                                kosong = "000";
-                                break;
-                            case 8:
-                                kosong = "00";
-                                break;
-                            case 9:
-                                kosong = "0";
-                                break;
-                            case 10:
-                                kosong = null;
-                                break;
-                            default:
-                                break;
-                    }
+                id_pemesanan_string = kosong + id_pemesanan_string;
 
-                    id_pemesanan_string = kosong + id_pemesanan_string;
+                pemesanan = new Pemesanan();
+                pemesanan.setIdPemesanan(id_pemesanan_string);
+                pemesanan.setNoPemesanan(no_pemesanan);
+                pemesanan.setKodeProduk(kode_produk);
+                pemesanan.setJumlahPemesanan(jumlah_pesan);
+                pemesanan.setTglPemesanan(tanggal_pemesanan);
+                pemesanan.setIdMitra(id_mitra);
 
-                    pemesanan = new Pemesanan();
-                    pemesanan.setIdPemesanan(id_pemesanan_string);
-                    pemesanan.setNoPemesanan(no_pemesanan);
-                    pemesanan.setKodeProduk(kode_produk);
-                    pemesanan.setJumlahPemesanan(jumlah_pesan);
-                    pemesanan.setTglPemesanan(tanggal_pemesanan);
-                    pemesanan.setIdMitra(id_mitra);
+                sukses = dao.tambahPemesanan(pemesanan);
 
-                    sukses = dao.tambahPemesanan(pemesanan);
-
-                    }
-                                    //cek sukses atau tidak
-                        if (sukses) {
-                              JOptionPane.showMessageDialog(this, "Data berhasil ditambahkan");
-                              autoIncrementNoPemesanan();
-                              reset_simpan();
-                        } else {
-                              JOptionPane.showMessageDialog(this, "Data gagal ditambahkan");
-                              reset_simpan();
-                        }
-                   
+            }
+            //cek sukses atau tidak
+            if (sukses) {
+                JOptionPane.showMessageDialog(this, "Data berhasil ditambahkan");
+                autoIncrementNoPemesanan();
+                reset_simpan();
+            } else {
+                JOptionPane.showMessageDialog(this, "Data gagal ditambahkan");
+                reset_simpan();
+            }
+            
+            pilih = JOptionPane.showConfirmDialog(null, "Apakah anda akan menambahkan data lagi?",
+                    "Konfirmasi", JOptionPane.YES_NO_OPTION);
+            if (pilih == JOptionPane.NO_OPTION) {
+                this.dispose();
+            }
         }
     }//GEN-LAST:event_simpanActionPerformed
 
@@ -917,15 +1020,30 @@ public class DialogTambahPemesanan extends javax.swing.JDialog {
     private void NamaMitraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NamaMitraActionPerformed
         // TODO add your handling code here:
         Object pilihan = NamaMitra.getSelectedItem();
-                if (pilihan != "- Pilih Mitra -") {
-                    dao = new PemesananDAOImpl();
-                    arrayMitra = dao.getIdMitra(pilihan);
+        if (pilihan != "- Pilih Mitra -") {
+            dao = new PemesananDAOImpl();
+            arrayMitra = dao.getIdMitra(pilihan);
 
-                    fieldIdMitra.setText(arrayMitra.get(0).getId_mitra());
-                } else {
-                    fieldIdMitra.setText("");
-                }
+            fieldIdMitra.setText(arrayMitra.get(0).getId_mitra());
+        } else {
+            fieldIdMitra.setText("");
+        }
     }//GEN-LAST:event_NamaMitraActionPerformed
+
+    private void JumlahPemesananKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JumlahPemesananKeyReleased
+        // TODO add your handling code here:
+        char karakter = evt.getKeyChar();
+        if ((((karakter >= '0') && (karakter <= '9')
+                || (karakter == KeyEvent.VK_BACK_SPACE)
+                || (karakter == KeyEvent.VK_DELETE)
+                || (karakter == KeyEvent.VK_ENTER)))) {
+
+            String jumlah_pemesanan_string = hilangkan_titik(JumlahPemesanan.getText());
+            String jumlah_pemesanan_hasil = format_titik(jumlah_pemesanan_string);
+            JumlahPemesanan.setText(jumlah_pemesanan_hasil);
+            evt.consume();
+        }
+    }//GEN-LAST:event_JumlahPemesananKeyReleased
 
     /**
      * @param args the command line arguments
