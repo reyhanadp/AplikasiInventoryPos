@@ -157,12 +157,12 @@
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="6">
-                        <StringItem index="0" value="Nama Produk"/>
-                        <StringItem index="1" value="Id Produk"/>
-                        <StringItem index="2" value="Nominal"/>
-                        <StringItem index="3" value="Biaya Cetak"/>
-                        <StringItem index="4" value="Stok"/>
-                        <StringItem index="5" value="Tahun"/>
+                        <StringItem index="0" value="Id Pengembalian"/>
+                        <StringItem index="1" value="Kode Produk"/>
+                        <StringItem index="2" value="Nama Produk"/>
+                        <StringItem index="3" value="Kode Regional"/>
+                        <StringItem index="4" value="Jumlah Pengembalian"/>
+                        <StringItem index="5" value="Nomor Dus"/>
                       </StringArray>
                     </Property>
                   </Properties>
@@ -296,6 +296,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Cari"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CariMSSSActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="FieldCariMSSS">
                 </Component>
@@ -303,12 +306,12 @@
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="6">
-                        <StringItem index="0" value="Nama Produk"/>
-                        <StringItem index="1" value="Id Produk"/>
-                        <StringItem index="2" value="Nominal"/>
-                        <StringItem index="3" value="Biaya Cetak"/>
-                        <StringItem index="4" value="Stok"/>
-                        <StringItem index="5" value="Tahun"/>
+                        <StringItem index="0" value="Id Pengembalian"/>
+                        <StringItem index="1" value="Kode Produk"/>
+                        <StringItem index="2" value="Nama Produk"/>
+                        <StringItem index="3" value="Kode Regional"/>
+                        <StringItem index="4" value="Jumlah Pengembalian"/>
+                        <StringItem index="5" value="Nomor Dus"/>
                       </StringArray>
                     </Property>
                   </Properties>
@@ -366,11 +369,11 @@
                       <Group type="102" attributes="0">
                           <Component id="TambahPengembalianSHPSS" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="ComboboxCariMSSS1" min="-2" max="-2" attributes="0"/>
+                          <Component id="ComboboxCariSHPSS" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="FieldCariMSSS1" min="-2" pref="101" max="-2" attributes="0"/>
+                          <Component id="FieldCariSHPSS" min="-2" pref="101" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="CariMSSS1" min="-2" max="-2" attributes="0"/>
+                          <Component id="CariSHPSS" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -378,9 +381,9 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="CariMSSS1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="FieldCariMSSS1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="ComboboxCariMSSS1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="CariSHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="FieldCariSHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="ComboboxCariSHPSS" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="TambahPengembalianSHPSS" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -438,23 +441,26 @@
                     </Component>
                   </SubComponents>
                 </Container>
-                <Component class="javax.swing.JButton" name="CariMSSS1">
+                <Component class="javax.swing.JButton" name="CariSHPSS">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Cari"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CariSHPSSActionPerformed"/>
+                  </Events>
                 </Component>
-                <Component class="javax.swing.JTextField" name="FieldCariMSSS1">
+                <Component class="javax.swing.JTextField" name="FieldCariSHPSS">
                 </Component>
-                <Component class="javax.swing.JComboBox" name="ComboboxCariMSSS1">
+                <Component class="javax.swing.JComboBox" name="ComboboxCariSHPSS">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="6">
-                        <StringItem index="0" value="Nama Produk"/>
-                        <StringItem index="1" value="Id Produk"/>
-                        <StringItem index="2" value="Nominal"/>
-                        <StringItem index="3" value="Biaya Cetak"/>
-                        <StringItem index="4" value="Stok"/>
-                        <StringItem index="5" value="Tahun"/>
+                        <StringItem index="0" value="Id Pengembalian"/>
+                        <StringItem index="1" value="Kode Produk"/>
+                        <StringItem index="2" value="Nama Produk"/>
+                        <StringItem index="3" value="Kode Regional"/>
+                        <StringItem index="4" value="Jumlah Pengembalian"/>
+                        <StringItem index="5" value="Nomor Dus"/>
                       </StringArray>
                     </Property>
                   </Properties>
@@ -512,11 +518,11 @@
                       <Group type="102" attributes="0">
                           <Component id="TambahPengembalianKemasan" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="comboCariPrangko17" min="-2" max="-2" attributes="0"/>
+                          <Component id="comboCariKemasan" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="fieldCariPrangko17" min="-2" pref="101" max="-2" attributes="0"/>
+                          <Component id="fieldCariKemasan" min="-2" pref="101" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="buttonCariPrangko17" min="-2" max="-2" attributes="0"/>
+                          <Component id="buttonCariKemasan" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -524,9 +530,9 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="buttonCariPrangko17" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="fieldCariPrangko17" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="comboCariPrangko17" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="buttonCariKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="fieldCariKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="comboCariKemasan" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="TambahPengembalianKemasan" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -560,23 +566,26 @@
                     </Component>
                   </SubComponents>
                 </Container>
-                <Component class="javax.swing.JButton" name="buttonCariPrangko17">
+                <Component class="javax.swing.JButton" name="buttonCariKemasan">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Cari"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCariKemasanActionPerformed"/>
+                  </Events>
                 </Component>
-                <Component class="javax.swing.JTextField" name="fieldCariPrangko17">
+                <Component class="javax.swing.JTextField" name="fieldCariKemasan">
                 </Component>
-                <Component class="javax.swing.JComboBox" name="comboCariPrangko17">
+                <Component class="javax.swing.JComboBox" name="comboCariKemasan">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="6">
-                        <StringItem index="0" value="Nama Produk"/>
-                        <StringItem index="1" value="Id Produk"/>
-                        <StringItem index="2" value="Nominal"/>
-                        <StringItem index="3" value="Biaya Cetak"/>
-                        <StringItem index="4" value="Stok"/>
-                        <StringItem index="5" value="Tahun"/>
+                        <StringItem index="0" value="Id Pengembalian"/>
+                        <StringItem index="1" value="Kode Produk"/>
+                        <StringItem index="2" value="Nama Produk"/>
+                        <StringItem index="3" value="Kode Regional"/>
+                        <StringItem index="4" value="Jumlah Pengembalian"/>
+                        <StringItem index="5" value="Nomor Dus"/>
                       </StringArray>
                     </Property>
                   </Properties>
@@ -634,11 +643,11 @@
                       <Group type="102" attributes="0">
                           <Component id="TambahPengembalianMerchandise" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="comboCariPrangko18" min="-2" max="-2" attributes="0"/>
+                          <Component id="comboCariMerchandise" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="fieldCariPrangko18" min="-2" pref="101" max="-2" attributes="0"/>
+                          <Component id="fieldCariMerchandise" min="-2" pref="101" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="buttonCariPrangko18" min="-2" max="-2" attributes="0"/>
+                          <Component id="buttonCariMerchandise" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -646,9 +655,9 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="buttonCariPrangko18" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="fieldCariPrangko18" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="comboCariPrangko18" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="buttonCariMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="fieldCariMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="comboCariMerchandise" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="TambahPengembalianMerchandise" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -682,23 +691,26 @@
                     </Component>
                   </SubComponents>
                 </Container>
-                <Component class="javax.swing.JButton" name="buttonCariPrangko18">
+                <Component class="javax.swing.JButton" name="buttonCariMerchandise">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Cari"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCariMerchandiseActionPerformed"/>
+                  </Events>
                 </Component>
-                <Component class="javax.swing.JTextField" name="fieldCariPrangko18">
+                <Component class="javax.swing.JTextField" name="fieldCariMerchandise">
                 </Component>
-                <Component class="javax.swing.JComboBox" name="comboCariPrangko18">
+                <Component class="javax.swing.JComboBox" name="comboCariMerchandise">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="6">
-                        <StringItem index="0" value="Nama Produk"/>
-                        <StringItem index="1" value="Id Produk"/>
-                        <StringItem index="2" value="Nominal"/>
-                        <StringItem index="3" value="Biaya Cetak"/>
-                        <StringItem index="4" value="Stok"/>
-                        <StringItem index="5" value="Tahun"/>
+                        <StringItem index="0" value="Id Pengembalian"/>
+                        <StringItem index="1" value="Kode Produk"/>
+                        <StringItem index="2" value="Nama Produk"/>
+                        <StringItem index="3" value="Kode Regional"/>
+                        <StringItem index="4" value="Jumlah Pengembalian"/>
+                        <StringItem index="5" value="Nomor Dus"/>
                       </StringArray>
                     </Property>
                   </Properties>
@@ -756,11 +768,11 @@
                       <Group type="102" attributes="0">
                           <Component id="TambahPengembalianPrisma" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="comboCariPrangko19" min="-2" max="-2" attributes="0"/>
+                          <Component id="comboCariPrisma" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="fieldCariPrangko19" min="-2" pref="101" max="-2" attributes="0"/>
+                          <Component id="fieldCariPrisma" min="-2" pref="101" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="buttonCariPrangko19" min="-2" max="-2" attributes="0"/>
+                          <Component id="buttonCariPrisma" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -768,9 +780,9 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="buttonCariPrangko19" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="fieldCariPrangko19" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="comboCariPrangko19" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="buttonCariPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="fieldCariPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="comboCariPrisma" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="TambahPengembalianPrisma" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -804,23 +816,26 @@
                     </Component>
                   </SubComponents>
                 </Container>
-                <Component class="javax.swing.JButton" name="buttonCariPrangko19">
+                <Component class="javax.swing.JButton" name="buttonCariPrisma">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Cari"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCariPrismaActionPerformed"/>
+                  </Events>
                 </Component>
-                <Component class="javax.swing.JTextField" name="fieldCariPrangko19">
+                <Component class="javax.swing.JTextField" name="fieldCariPrisma">
                 </Component>
-                <Component class="javax.swing.JComboBox" name="comboCariPrangko19">
+                <Component class="javax.swing.JComboBox" name="comboCariPrisma">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="6">
-                        <StringItem index="0" value="Nama Produk"/>
-                        <StringItem index="1" value="Id Produk"/>
-                        <StringItem index="2" value="Nominal"/>
-                        <StringItem index="3" value="Biaya Cetak"/>
-                        <StringItem index="4" value="Stok"/>
-                        <StringItem index="5" value="Tahun"/>
+                        <StringItem index="0" value="Id Pengembalian"/>
+                        <StringItem index="1" value="Kode Produk"/>
+                        <StringItem index="2" value="Nama Produk"/>
+                        <StringItem index="3" value="Kode Regional"/>
+                        <StringItem index="4" value="Jumlah Pengembalian"/>
+                        <StringItem index="5" value="Nomor Dus"/>
                       </StringArray>
                     </Property>
                   </Properties>
@@ -878,11 +893,11 @@
                       <Group type="102" attributes="0">
                           <Component id="TambahPengembalianDokumenFilateli" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="comboCariPrangko20" min="-2" max="-2" attributes="0"/>
+                          <Component id="comboCariDokumenFilateli" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="fieldCariPrangko20" min="-2" pref="101" max="-2" attributes="0"/>
+                          <Component id="fieldCariDokumenFilateli" min="-2" pref="101" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="buttonCariPrangko20" min="-2" max="-2" attributes="0"/>
+                          <Component id="buttonCariDokumenFilateli" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -890,9 +905,9 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="buttonCariPrangko20" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="fieldCariPrangko20" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="comboCariPrangko20" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="buttonCariDokumenFilateli" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="fieldCariDokumenFilateli" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="comboCariDokumenFilateli" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="TambahPengembalianDokumenFilateli" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -926,23 +941,26 @@
                     </Component>
                   </SubComponents>
                 </Container>
-                <Component class="javax.swing.JButton" name="buttonCariPrangko20">
+                <Component class="javax.swing.JButton" name="buttonCariDokumenFilateli">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Cari"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCariDokumenFilateliActionPerformed"/>
+                  </Events>
                 </Component>
-                <Component class="javax.swing.JTextField" name="fieldCariPrangko20">
+                <Component class="javax.swing.JTextField" name="fieldCariDokumenFilateli">
                 </Component>
-                <Component class="javax.swing.JComboBox" name="comboCariPrangko20">
+                <Component class="javax.swing.JComboBox" name="comboCariDokumenFilateli">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="6">
-                        <StringItem index="0" value="Nama Produk"/>
-                        <StringItem index="1" value="Id Produk"/>
-                        <StringItem index="2" value="Nominal"/>
-                        <StringItem index="3" value="Biaya Cetak"/>
-                        <StringItem index="4" value="Stok"/>
-                        <StringItem index="5" value="Tahun"/>
+                        <StringItem index="0" value="Id Pengembalian"/>
+                        <StringItem index="1" value="Kode Produk"/>
+                        <StringItem index="2" value="Nama Produk"/>
+                        <StringItem index="3" value="Kode Regional"/>
+                        <StringItem index="4" value="Jumlah Pengembalian"/>
+                        <StringItem index="5" value="Nomor Dus"/>
                       </StringArray>
                     </Property>
                   </Properties>

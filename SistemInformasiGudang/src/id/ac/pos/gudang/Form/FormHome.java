@@ -62,6 +62,11 @@ public final class FormHome extends javax.swing.JFrame {
         this.nik.setText(nik);
     }
 
+    private int hilangkan_titik(String text_titik) {
+        String[] temp = text_titik.split("\\.");
+        return temp.length;
+    }
+    
     private void refresh() {
         autoincrementProduk();
         getDataProduk();
@@ -869,7 +874,6 @@ public final class FormHome extends javax.swing.JFrame {
         buttonCariKemasan = new javax.swing.JButton();
         fieldCariKemasan = new javax.swing.JTextField();
         comboJenisKemasan = new javax.swing.JComboBox<>();
-        buttonRefresh4 = new javax.swing.JButton();
         Merchandise = new javax.swing.JPanel();
         jPanel22 = new javax.swing.JPanel();
         jLabel27 = new javax.swing.JLabel();
@@ -2019,10 +2023,6 @@ public final class FormHome extends javax.swing.JFrame {
 
         comboJenisKemasan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama Produk", "Id Produk", "Nominal", "Biaya Cetak", "Stok", "Tahun" }));
 
-        buttonRefresh4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons/Refresh.png"))); // NOI18N
-        buttonRefresh4.setText("Refresh");
-        buttonRefresh4.setIconTextGap(8);
-
         javax.swing.GroupLayout jPanel21Layout = new javax.swing.GroupLayout(jPanel21);
         jPanel21.setLayout(jPanel21Layout);
         jPanel21Layout.setHorizontalGroup(
@@ -2035,11 +2035,6 @@ public final class FormHome extends javax.swing.JFrame {
                 .addComponent(fieldCariKemasan, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(buttonCariKemasan))
-            .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel21Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(buttonRefresh4)
-                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         jPanel21Layout.setVerticalGroup(
             jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2050,11 +2045,6 @@ public final class FormHome extends javax.swing.JFrame {
                     .addComponent(comboJenisKemasan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 307, Short.MAX_VALUE))
-            .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel21Layout.createSequentialGroup()
-                    .addGap(0, 295, Short.MAX_VALUE)
-                    .addComponent(buttonRefresh4)
-                    .addGap(0, 295, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout KemasanLayout = new javax.swing.GroupLayout(Kemasan);
@@ -2747,7 +2737,7 @@ public final class FormHome extends javax.swing.JFrame {
         );
         tabKelolaProdukLayout.setVerticalGroup(
             tabKelolaProdukLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tabbedPaneProduk, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 605, Short.MAX_VALUE)
+            .addComponent(tabbedPaneProduk, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         jPanel3.add(tabKelolaProduk, "card2");
@@ -4176,8 +4166,16 @@ public final class FormHome extends javax.swing.JFrame {
     private void fieldBiayaCetakPrangkoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldBiayaCetakPrangkoKeyTyped
         // TODO add your handling code here:
         char karakter = evt.getKeyChar();
-        if (!(((karakter >= '0') && (karakter <= '9')
+        int panjang = hilangkan_titik(fieldBiayaCetakPrangko.getText());
+        if(karakter == KeyEvent.VK_PERIOD){
+            if(panjang==2){
+                JOptionPane.showMessageDialog(null, "Maksimal titik hanya satu...");
+                evt.consume();
+            }
+            
+        }else if (!(((karakter >= '0') && (karakter <= '9')
                 || (karakter == KeyEvent.VK_BACK_SPACE)
+                || (karakter == KeyEvent.VK_PERIOD)
                 || (karakter == KeyEvent.VK_DELETE)
                 || (karakter == KeyEvent.VK_ENTER)))) {
             JOptionPane.showMessageDialog(null, "Hanya Boleh Angka !");
@@ -4200,7 +4198,14 @@ public final class FormHome extends javax.swing.JFrame {
     private void fieldBiayaCetakProdukMSSSKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldBiayaCetakProdukMSSSKeyTyped
         // TODO add your handling code here:
         char karakter = evt.getKeyChar();
-        if (!(((karakter >= '0') && (karakter <= '9')
+        int panjang = hilangkan_titik(fieldBiayaCetakProdukMSSS.getText());
+        if(karakter == KeyEvent.VK_PERIOD){
+            if(panjang==2){
+                JOptionPane.showMessageDialog(null, "Maksimal titik hanya satu...");
+                evt.consume();
+            }
+            
+        }else if (!(((karakter >= '0') && (karakter <= '9')
                 || (karakter == KeyEvent.VK_BACK_SPACE)
                 || (karakter == KeyEvent.VK_DELETE)
                 || (karakter == KeyEvent.VK_ENTER)))) {
@@ -4224,8 +4229,16 @@ public final class FormHome extends javax.swing.JFrame {
     private void fieldBiayaCetakSHPSHPSSKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldBiayaCetakSHPSHPSSKeyTyped
         // TODO add your handling code here:
         char karakter = evt.getKeyChar();
-        if (!(((karakter >= '0') && (karakter <= '9')
+        int panjang = hilangkan_titik(fieldBiayaCetakSHPSHPSS.getText());
+        if(karakter == KeyEvent.VK_PERIOD){
+            if(panjang==2){
+                JOptionPane.showMessageDialog(null, "Maksimal titik hanya satu...");
+                evt.consume();
+            }
+            
+        }else if (!(((karakter >= '0') && (karakter <= '9')
                 || (karakter == KeyEvent.VK_BACK_SPACE)
+                || (karakter == KeyEvent.VK_PERIOD)
                 || (karakter == KeyEvent.VK_DELETE)
                 || (karakter == KeyEvent.VK_ENTER)))) {
             JOptionPane.showMessageDialog(null, "Hanya Boleh Angka !");
@@ -4247,8 +4260,16 @@ public final class FormHome extends javax.swing.JFrame {
 
     private void fieldBiayaCetakProdukKemasanKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldBiayaCetakProdukKemasanKeyTyped
         char karakter = evt.getKeyChar();
-        if (!(((karakter >= '0') && (karakter <= '9')
+        int panjang = hilangkan_titik(fieldBiayaCetakProdukKemasan.getText());
+        if(karakter == KeyEvent.VK_PERIOD){
+            if(panjang==2){
+                JOptionPane.showMessageDialog(null, "Maksimal titik hanya satu...");
+                evt.consume();
+            }
+            
+        }else if (!(((karakter >= '0') && (karakter <= '9')
                 || (karakter == KeyEvent.VK_BACK_SPACE)
+                || (karakter == KeyEvent.VK_PERIOD)
                 || (karakter == KeyEvent.VK_DELETE)
                 || (karakter == KeyEvent.VK_ENTER)))) {
             JOptionPane.showMessageDialog(null, "Hanya Boleh Angka !");
@@ -4271,8 +4292,16 @@ public final class FormHome extends javax.swing.JFrame {
     private void fieldBiayaCetakProdukMerchandiseKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldBiayaCetakProdukMerchandiseKeyTyped
         // TODO add your handling code here:
         char karakter = evt.getKeyChar();
-        if (!(((karakter >= '0') && (karakter <= '9')
+        int panjang = hilangkan_titik(fieldBiayaCetakProdukMerchandise.getText());
+        if(karakter == KeyEvent.VK_PERIOD){
+            if(panjang==2){
+                JOptionPane.showMessageDialog(null, "Maksimal titik hanya satu...");
+                evt.consume();
+            }
+            
+        }else if (!(((karakter >= '0') && (karakter <= '9')
                 || (karakter == KeyEvent.VK_BACK_SPACE)
+                || (karakter == KeyEvent.VK_PERIOD)
                 || (karakter == KeyEvent.VK_DELETE)
                 || (karakter == KeyEvent.VK_ENTER)))) {
             JOptionPane.showMessageDialog(null, "Hanya Boleh Angka !");
@@ -4294,8 +4323,16 @@ public final class FormHome extends javax.swing.JFrame {
     private void fieldBiayaCetakProdukPrismaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldBiayaCetakProdukPrismaKeyTyped
         // TODO add your handling code here:
         char karakter = evt.getKeyChar();
-        if (!(((karakter >= '0') && (karakter <= '9')
+        int panjang = hilangkan_titik(fieldBiayaCetakProdukPrisma.getText());
+        if(karakter == KeyEvent.VK_PERIOD){
+            if(panjang==2){
+                JOptionPane.showMessageDialog(null, "Maksimal titik hanya satu...");
+                evt.consume();
+            }
+            
+        }else if (!(((karakter >= '0') && (karakter <= '9')
                 || (karakter == KeyEvent.VK_BACK_SPACE)
+                || (karakter == KeyEvent.VK_PERIOD)
                 || (karakter == KeyEvent.VK_DELETE)
                 || (karakter == KeyEvent.VK_ENTER)))) {
             JOptionPane.showMessageDialog(null, "Hanya Boleh Angka !");
@@ -4318,8 +4355,16 @@ public final class FormHome extends javax.swing.JFrame {
     private void fieldBiayaCetakDokumenFilateliKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldBiayaCetakDokumenFilateliKeyTyped
         // TODO add your handling code here:
         char karakter = evt.getKeyChar();
-        if (!(((karakter >= '0') && (karakter <= '9')
+        int panjang = hilangkan_titik(fieldBiayaCetakDokumenFilateli.getText());
+        if(karakter == KeyEvent.VK_PERIOD){
+            if(panjang==2){
+                JOptionPane.showMessageDialog(null, "Maksimal titik hanya satu...");
+                evt.consume();
+            }
+            
+        }else if (!(((karakter >= '0') && (karakter <= '9')
                 || (karakter == KeyEvent.VK_BACK_SPACE)
+                || (karakter == KeyEvent.VK_PERIOD)
                 || (karakter == KeyEvent.VK_DELETE)
                 || (karakter == KeyEvent.VK_ENTER)))) {
             JOptionPane.showMessageDialog(null, "Hanya Boleh Angka !");
@@ -4793,7 +4838,6 @@ public final class FormHome extends javax.swing.JFrame {
     private javax.swing.JButton buttonPenerimaan;
     private javax.swing.JButton buttonPengembalian;
     private javax.swing.JButton buttonPengiriman;
-    private javax.swing.JButton buttonRefresh4;
     private javax.swing.JButton buttonResetDokumenFIlateli;
     private javax.swing.JButton buttonResetKemasan;
     private javax.swing.JButton buttonResetMSSS;

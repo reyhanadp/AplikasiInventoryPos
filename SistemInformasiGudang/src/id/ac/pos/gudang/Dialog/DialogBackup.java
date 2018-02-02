@@ -208,16 +208,15 @@ public class DialogBackup extends javax.swing.JDialog {
 
     private void RestoreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RestoreActionPerformed
         // TODO add your handling code here:
-         // TODO add your handling code here:
         String database = "db_inventory_pos";
         String user = "root";
         String pass = "";
         try{
             if(fileRestore.getText().isEmpty()){
-                JOptionPane.showMessageDialog(null, "Pilih file restore terlebih dahulu");
+                JOptionPane.showMessageDialog(null, "Pilih lokasi restore terlebih dahulu");
             } else{                         
 
-                String[] kata = new String[]{"c:/xampp/mysql/bin/mysql ", "-u=" + user,"-p="+pass, "-e", "source "+fileRestore.getText()};
+                String[] kata = new String[]{"c:/xampp/mysql/bin/mysql", database, "-u" + user, "-e", " source "+fileRestore.getText()};
                 Process runtimeProcess=Runtime.getRuntime().exec(kata);
                 int prosesSukses=runtimeProcess.waitFor();
                 if(prosesSukses==0){

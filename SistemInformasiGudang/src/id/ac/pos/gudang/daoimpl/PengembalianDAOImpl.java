@@ -25,7 +25,9 @@ import java.util.logging.Logger;
  */
 public class PengembalianDAOImpl implements PengembalianDAO {
 
+    ResultSet result;
     private Connection conn;
+    PreparedStatement state;
 
     public PengembalianDAOImpl() {
         conn = DatabaseConnectivity.getConnection();
@@ -35,12 +37,12 @@ public class PengembalianDAOImpl implements PengembalianDAO {
     public String getIdPengembalian() {
         String id_pengembalian = null;
         String SELECT = "select * from tb_trans_pengembalian";
-        PreparedStatement state = null;
+        state = null;
 
         try {
             state = conn.prepareStatement(SELECT);
 
-            ResultSet result = state.executeQuery();
+            result = state.executeQuery();
             if (result != null) {
 
                 //selama result memiliki data
@@ -54,22 +56,44 @@ public class PengembalianDAOImpl implements PengembalianDAO {
         } catch (SQLException ex) {
 
             Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (result != null) {
+                try {
+                    result.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
         }
 
         return id_pengembalian;
     }
 
-
     @Override
     public ArrayList<Regional> getIsiRegional(Object pilihan) {
         ArrayList<Regional> arrayRegional = null;
         String SELECT = "SELECT * FROM tb_regional where regional='" + pilihan + "'";
-        PreparedStatement state = null;
+        state = null;
 
         try {
             state = conn.prepareStatement(SELECT);
 
-            ResultSet result = state.executeQuery();
+            result = state.executeQuery();
             if (result != null) {
                 arrayRegional = new ArrayList<>();
 
@@ -88,6 +112,29 @@ public class PengembalianDAOImpl implements PengembalianDAO {
             }
         } catch (SQLException ex) {
             Logger.getLogger(RegionalDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (result != null) {
+                try {
+                    result.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
         }
 
         return arrayRegional;
@@ -97,12 +144,12 @@ public class PengembalianDAOImpl implements PengembalianDAO {
     public ArrayList<Regional> getRegional() {
         ArrayList<Regional> arrayRegional = null;
         String SELECT = "SELECT * FROM tb_regional";
-        PreparedStatement state = null;
+        state = null;
 
         try {
             state = conn.prepareStatement(SELECT);
 
-            ResultSet result = state.executeQuery();
+            result = state.executeQuery();
             if (result != null) {
                 arrayRegional = new ArrayList<>();
 
@@ -120,6 +167,29 @@ public class PengembalianDAOImpl implements PengembalianDAO {
             }
         } catch (SQLException ex) {
             Logger.getLogger(RegionalDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (result != null) {
+                try {
+                    result.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
         }
 
         return arrayRegional;
@@ -128,7 +198,7 @@ public class PengembalianDAOImpl implements PengembalianDAO {
     @Override
     public boolean tambahPengembalian(Pengembalian pengembalian) {
         String INSERT = "INSERT INTO tb_trans_pengembalian VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        PreparedStatement state = null;
+        state = null;
 
         try {
             state = conn.prepareStatement(INSERT);
@@ -146,6 +216,29 @@ public class PengembalianDAOImpl implements PengembalianDAO {
             return qty > 0;
         } catch (SQLException ex) {
             Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (result != null) {
+                try {
+                    result.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
         }
 
         return false;
@@ -157,30 +250,30 @@ public class PengembalianDAOImpl implements PengembalianDAO {
         String SELECT = "";
         if (jenis_produk.compareTo("MS") == 0) {
             SELECT = "SELECT * FROM tb_trans_pengembalian inner join tb_produk "
-                    +"on tb_trans_pengembalian.id_produk=tb_produk.id_produk "
-                    +"where tb_produk.status=0 and tb_produk.id_jenis_produk"
+                    + "on tb_trans_pengembalian.id_produk=tb_produk.id_produk "
+                    + "where tb_produk.status=0 and tb_produk.id_jenis_produk"
                     + " in (SELECT tb_produk.id_jenis_produk FROM"
                     + " tb_produk WHERE tb_produk.id_jenis_produk = 'SS'"
                     + " || tb_produk.id_jenis_produk = 'MS')";
         } else if (jenis_produk.compareTo("SHP") == 0) {
             SELECT = "SELECT * FROM tb_trans_pengembalian inner join tb_produk "
-                    +"on tb_trans_pengembalian.id_produk=tb_produk.id_produk "
-                    +"where tb_produk.status=0 and tb_produk.id_jenis_produk"
+                    + "on tb_trans_pengembalian.id_produk=tb_produk.id_produk "
+                    + "where tb_produk.status=0 and tb_produk.id_jenis_produk"
                     + " in (SELECT tb_produk.id_jenis_produk FROM"
                     + " tb_produk WHERE tb_produk.id_jenis_produk = 'SHP'"
                     + " || tb_produk.id_jenis_produk = 'SHPSS')";
-        }else{
+        } else {
             SELECT = "SELECT * FROM tb_trans_pengembalian inner join tb_produk "
-                    +"on tb_trans_pengembalian.id_produk=tb_produk.id_produk "
-                    +"where tb_trans_pengembalian.id_produk like '"+jenis_produk+"%'"
+                    + "on tb_trans_pengembalian.id_produk=tb_produk.id_produk "
+                    + "where tb_trans_pengembalian.id_produk like '" + jenis_produk + "%'"
                     + " AND tb_produk.status='0'";
         }
-        PreparedStatement state = null;
+        state = null;
 
         try {
             state = conn.prepareStatement(SELECT);
 
-            ResultSet result = state.executeQuery();
+            result = state.executeQuery();
             if (result != null) {
                 arrayPengembalian = new ArrayList<>();
 
@@ -207,6 +300,29 @@ public class PengembalianDAOImpl implements PengembalianDAO {
             }
         } catch (SQLException ex) {
             Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (result != null) {
+                try {
+                    result.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
         }
 
         return arrayPengembalian;
@@ -237,12 +353,12 @@ public class PengembalianDAOImpl implements PengembalianDAO {
                     + " ORDER BY nama_produk ASC";
         }
 
-        PreparedStatement state = null;
+        state = null;
 
         try {
             state = conn.prepareStatement(SELECT);
 
-            ResultSet result = state.executeQuery();
+            result = state.executeQuery();
             if (result != null) {
                 arrayProduk = new ArrayList<>();
 
@@ -260,16 +376,28 @@ public class PengembalianDAOImpl implements PengembalianDAO {
             }
         } catch (SQLException ex) {
             Logger.getLogger(RegionalDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-        }finally{
-            try {
-                state.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (result != null) {
+                try {
+                    result.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
-            try {
-                conn.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         }
 
@@ -301,12 +429,12 @@ public class PengembalianDAOImpl implements PengembalianDAO {
                     + "id_jenis_produk='" + jenis_produk + "'";
         }
 
-        PreparedStatement state = null;
+        state = null;
 
         try {
             state = conn.prepareStatement(SELECT);
 
-            ResultSet result = state.executeQuery();
+            result = state.executeQuery();
             if (result != null) {
                 arrayProduk = new ArrayList<>();
 
@@ -326,15 +454,27 @@ public class PengembalianDAOImpl implements PengembalianDAO {
         } catch (SQLException ex) {
             Logger.getLogger(RegionalDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
-            try {
-                state.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+            if (result != null) {
+                try {
+                    result.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
-            try {
-                conn.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         }
 
@@ -360,12 +500,12 @@ public class PengembalianDAOImpl implements PengembalianDAO {
             SELECT = "SELECT distinct(tahun) FROM `tb_produk` where nama_produk='" + nama_produk + "' AND status=0 and id_jenis_produk='" + jenis_produk + "'";
         }
 
-        PreparedStatement state = null;
+        state = null;
 
         try {
             state = conn.prepareStatement(SELECT);
 
-            ResultSet result = state.executeQuery();
+            result = state.executeQuery();
             if (result != null) {
                 arrayProduk = new ArrayList<>();
 
@@ -383,16 +523,28 @@ public class PengembalianDAOImpl implements PengembalianDAO {
             }
         } catch (SQLException ex) {
             Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-        }finally{
-            try {
-                state.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (result != null) {
+                try {
+                    result.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
-            try {
-                conn.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         }
 
@@ -424,12 +576,12 @@ public class PengembalianDAOImpl implements PengembalianDAO {
                     + " AND status=0 and id_jenis_produk='" + jenis_produk + "'";
         }
 
-        PreparedStatement state = null;
+        state = null;
 
         try {
             state = conn.prepareStatement(SELECT);
 
-            ResultSet result = state.executeQuery();
+            result = state.executeQuery();
             if (result != null) {
                 arrayProduk = new ArrayList<>();
 
@@ -447,21 +599,120 @@ public class PengembalianDAOImpl implements PengembalianDAO {
             }
         } catch (SQLException ex) {
             Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-        }finally{
-            try {
-                state.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (result != null) {
+                try {
+                    result.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
-            try {
-                conn.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         }
 
         return arrayProduk;
     }
 
-    
+    @Override
+    public ArrayList<Pengembalian> cariProdukPengembalian(String keyword, String jenisCari, String idJenis) {
+        conn = DatabaseConnectivity.getConnection();
+        ArrayList<Pengembalian> arrayPengembalian = null;
+        String SELECT = "";
+        if (idJenis.compareTo("SS") == 0) {
+            SELECT = "SELECT * FROM tb_trans_pengembalian inner join tb_produk "
+                    + "on tb_trans_pengembalian.id_produk=tb_produk.id_produk "
+                    + "where " + jenisCari + " LIKE '%" + keyword + "%'"
+                    + " and tb_produk.status=0 and tb_produk.id_jenis_produk"
+                    + " in (SELECT tb_produk.id_jenis_produk FROM"
+                    + " tb_produk WHERE tb_produk.id_jenis_produk = 'SS'"
+                    + " || tb_produk.id_jenis_produk = 'MS')";
+        } else if (idJenis.compareTo("SHP") == 0) {
+            SELECT = "SELECT * FROM tb_trans_pengembalian inner join tb_produk "
+                    + "on tb_trans_pengembalian.id_produk=tb_produk.id_produk "
+                    + "where " + jenisCari + " LIKE '%" + keyword + "%'"
+                    + " and tb_produk.status=0 and tb_produk.id_jenis_produk"
+                    + " in (SELECT tb_produk.id_jenis_produk FROM"
+                    + " tb_produk WHERE tb_produk.id_jenis_produk = 'SHP'"
+                    + " || tb_produk.id_jenis_produk = 'SHPSS')";
+        } else {
+            SELECT = "SELECT * FROM tb_trans_pengembalian inner join tb_produk "
+                    + "on tb_trans_pengembalian.id_produk=tb_produk.id_produk "
+                    + "where " + jenisCari + " LIKE '%" + keyword + "%'"
+                    + " AND tb_trans_pengembalian.id_produk like '" + idJenis + "%'"
+                    + " AND tb_produk.status='0'"; 
+        }
+         state = null;
+
+        try {
+            state = conn.prepareStatement(SELECT);
+             result = state.executeQuery();
+            if (result != null) {
+                arrayPengembalian = new ArrayList<>();
+
+                // selama result memiliki data
+                // return lebih dari 1 data
+                while (result.next()) {
+
+                    // mengambil 1 data
+                    Pengembalian pengembalian = new Pengembalian();
+                    pengembalian.setId_pengembalian(result.getString(1));
+                    pengembalian.setTanggal_pengembalian(result.getDate(2));
+                    pengembalian.setJumlah_pengembalian(Integer.parseInt(result.getString(3)));
+                    pengembalian.setDus(result.getString(4));
+                    pengembalian.setId_regional(result.getString(5));
+                    pengembalian.setId_produk(result.getString(6));
+                    pengembalian.setStok_awal(Integer.parseInt(result.getString(7)));
+                    pengembalian.setStok_akhir(Integer.parseInt(result.getString(8)));
+                    pengembalian.setKeterangan(result.getString(9));
+                    pengembalian.setNama_produk(result.getString(11));
+
+                    // menambahkan data ke array
+                    arrayPengembalian.add(pengembalian);
+                }
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(PemesananDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }finally {
+            if (result != null) {
+                try {
+                    result.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+
+        return arrayPengembalian;
+    }
+
 }

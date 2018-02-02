@@ -31,19 +31,102 @@ public class DialogUbahProduk extends javax.swing.JDialog {
      * Creates new form DialogLaporan
      */
     public DialogUbahProduk(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
-        initComponents();
-        setLocationRelativeTo(this);
+        
 
     }
 
      public DialogUbahProduk(FormHome home, boolean b, String kodeProduk,String NamaProduk,String nominal, String biayaCetak,String tahun) {
+        super(home, b);
         initComponents();
+        setLocationRelativeTo(this);
         fieldKodeProduk.setText(kodeProduk);
         fieldNamaProduk.setText(NamaProduk);
-        FieldNominal.setText(nominal);
+        FieldNominal.setText(hilangkan_titik(nominal));
         FieldTahunCetak.setText(tahun);
-        FieldBiayaCetak.setText(biayaCetak);
+        String biaya_cetak_depan = ambil_angka_depan(biayaCetak);
+        String biaya_cetak_depan_bersih = hilangkan_titik(biaya_cetak_depan);
+        String biaya_cetak_belakang = ambil_angka_belakang(biayaCetak);
+        FieldBiayaCetak.setText(biaya_cetak_depan_bersih+"."+biaya_cetak_belakang);
+    }
+     
+     private String hilangkan_titik(String text_titik) {
+        String[] temp = text_titik.split("\\.");
+        String text_string = "";
+        for (int i = 0; i < temp.length; i++) {
+            text_string = text_string + temp[i];
+        }
+        return text_string;
+    }
+     
+     private String ambil_angka_depan(String text_string){
+        String[] temp = text_string.split("\\,");
+        return temp[0];
+    }
+    
+    private String ambil_angka_belakang(String text_string){
+        String[] temp = text_string.split("\\,");
+        return temp[1];
+    }
+
+
+    private String format_titik(String text_string) {
+        int j = 0, i, n;
+        String text_hasil = "";
+        int k = 2, l = 3, m = 4;
+        int panjang_text = text_string.length();
+        String[] text_pisah = text_string.split("(?<=\\G.{1})");
+
+        while (j == 0) {
+            if (panjang_text == k) {
+                n = k;
+                for (i = 0; i < k; i++) {
+                    if (n % 3 == 0) {
+                        text_hasil = text_hasil + "." + text_pisah[i];
+                    } else {
+                        text_hasil = text_hasil + text_pisah[i];
+                    }
+                    n--;
+                }
+                j = 1;
+            } else if (panjang_text == l) {
+                n = l;
+                for (i = 0; i < l; i++) {
+                    if (n % 3 == 0) {
+                        if (n == l) {
+                            text_hasil = text_hasil + text_pisah[i];
+                        } else {
+                            text_hasil = text_hasil + "." + text_pisah[i];
+                        }
+                    } else {
+                        text_hasil = text_hasil + text_pisah[i];
+                    }
+                    n--;
+                }
+                j = 1;
+            } else if (panjang_text == m) {
+                n = m;
+                for (i = 0; i < m; i++) {
+                    if (n % 3 == 0) {
+                        text_hasil = text_hasil + "." + text_pisah[i];
+                    } else {
+                        text_hasil = text_hasil + text_pisah[i];
+                    }
+                    n--;
+                }
+                j = 1;
+            } else if (panjang_text == 1) {
+                text_hasil = text_pisah[0];
+                j = 1;
+            } else if (panjang_text == 0) {
+                text_hasil = "";
+                j = 1;
+            }
+            k = k + 3;
+            l = l + 3;
+            m = m + 3;
+        }
+        return text_hasil;
+
     }
 
     

@@ -22,7 +22,9 @@ import java.util.logging.Logger;
  */
 public class ProdukDAOImpl implements ProdukDAO {
 
+    ResultSet result;
     private Connection conn;
+    PreparedStatement state;
 
     public ProdukDAOImpl() {
         conn = DatabaseConnectivity.getConnection();
@@ -49,11 +51,11 @@ public class ProdukDAOImpl implements ProdukDAO {
             SELECT = "SELECT * FROM tb_produk "
                     + "WHERE " + jenisCari + " LIKE '%" + keyword + "%' && id_jenis_produk = '" + idJenis + "'";
         }
-        PreparedStatement state = null;
+        state = null;
 
         try {
             state = conn.prepareStatement(SELECT);
-            ResultSet result = state.executeQuery();
+            result = state.executeQuery();
             if (result != null) {
                 arrayProduk = new ArrayList<>();
 
@@ -78,21 +80,41 @@ public class ProdukDAOImpl implements ProdukDAO {
 
         } catch (SQLException ex) {
             Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (result != null) {
+                try {
+                    result.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
         }
 
         return arrayProduk;
     }
 
-    
-    
-    
     @Override
     public boolean tambahProduk(Produk produk, String jenisProduk) {
         conn = DatabaseConnectivity.getConnection();
         String INSERT = "INSERT INTO tb_produk (id_produk, nama_produk, nominal, "
                 + "biaya_cetak, stok, tahun, id_jenis_produk,nik"
                 + ") VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-        PreparedStatement state = null;
+        state = null;
 
         try {
             state = conn.prepareStatement(INSERT);
@@ -109,6 +131,29 @@ public class ProdukDAOImpl implements ProdukDAO {
             return qty > 0;
         } catch (SQLException ex) {
             Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (result != null) {
+                try {
+                    result.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
         }
 
         return false;
@@ -119,7 +164,7 @@ public class ProdukDAOImpl implements ProdukDAO {
         conn = DatabaseConnectivity.getConnection();
         String DELETE = "UPDATE tb_produk SET status=1 "
                 + "WHERE id_produk = ?";
-        PreparedStatement state = null;
+        state = null;
         try {
             state = conn.prepareStatement(DELETE);
             state.setString(1, idProduk);
@@ -128,6 +173,29 @@ public class ProdukDAOImpl implements ProdukDAO {
             return qty > 0;
         } catch (SQLException ex) {
             Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (result != null) {
+                try {
+                    result.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
         }
         return false;
     }
@@ -138,7 +206,7 @@ public class ProdukDAOImpl implements ProdukDAO {
         String UPDATE = "UPDATE tb_produk "
                 + "SET nama_produk = ?, nominal = ?, biaya_cetak = ?,"
                 + " tahun = ? WHERE id_produk = ?";
-        PreparedStatement state = null;
+        state = null;
 
         try {
             state = conn.prepareStatement(UPDATE);
@@ -152,6 +220,29 @@ public class ProdukDAOImpl implements ProdukDAO {
             return qty > 0;
         } catch (SQLException ex) {
             Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (result != null) {
+                try {
+                    result.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
         }
         return false;
     }
@@ -163,12 +254,12 @@ public class ProdukDAOImpl implements ProdukDAO {
         String SELECT = "(SELECT id_produk FROM tb_produk "
                 + "WHERE id_jenis_produk='" + jenisProduk + "')"
                 + " ORDER BY id_produk";
-        PreparedStatement state = null;
+        state = null;
 
         try {
             state = conn.prepareStatement(SELECT);
 
-            ResultSet result = state.executeQuery();
+            result = state.executeQuery();
             if (result != null) {
 
                 //selama result memiliki data
@@ -182,6 +273,29 @@ public class ProdukDAOImpl implements ProdukDAO {
         } catch (SQLException ex) {
 
             Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (result != null) {
+                try {
+                    result.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
         }
 
         return kode_produk;
@@ -191,13 +305,13 @@ public class ProdukDAOImpl implements ProdukDAO {
     public ArrayList<Produk> getProduk() {
         conn = DatabaseConnectivity.getConnection();
         ArrayList<Produk> arrayProduk = null;
-        String SELECT = "SELECT * FROM tb_produk where status=0";
-        PreparedStatement state = null;
+        String SELECT = "SELECT * FROM tb_produk where status=0 order by id_produk desc";
+        state = null;
 
         try {
             state = conn.prepareStatement(SELECT);
 
-            ResultSet result = state.executeQuery();
+            result = state.executeQuery();
             if (result != null) {
                 arrayProduk = new ArrayList<>();
 
@@ -222,6 +336,29 @@ public class ProdukDAOImpl implements ProdukDAO {
         } catch (SQLException ex) {
 
             Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (result != null) {
+                try {
+                    result.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
         }
         return arrayProduk;
     }
@@ -231,12 +368,12 @@ public class ProdukDAOImpl implements ProdukDAO {
         conn = DatabaseConnectivity.getConnection();
         ArrayList<Produk> arrayProduk = null;
         String SELECT = "SELECT * FROM tb_produk where status=1";
-        PreparedStatement state = null;
+        state = null;
 
         try {
             state = conn.prepareStatement(SELECT);
 
-            ResultSet result = state.executeQuery();
+            result = state.executeQuery();
             if (result != null) {
                 arrayProduk = new ArrayList<>();
 
@@ -262,11 +399,26 @@ public class ProdukDAOImpl implements ProdukDAO {
 
             Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
+            if (result != null) {
+                try {
+                    result.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
             if (state != null) {
                 try {
                     state.close();
                 } catch (SQLException ex) {
-                    Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         }
@@ -278,7 +430,7 @@ public class ProdukDAOImpl implements ProdukDAO {
         conn = DatabaseConnectivity.getConnection();
         String UPDATE = "UPDATE tb_produk SET status=0"
                 + " WHERE id_produk=?";
-        PreparedStatement state = null;
+        state = null;
 
         try {
             state = conn.prepareStatement(UPDATE);
@@ -288,6 +440,29 @@ public class ProdukDAOImpl implements ProdukDAO {
             return qty > 0;
         } catch (SQLException ex) {
             Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (result != null) {
+                try {
+                    result.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
         }
         return false;
     }
@@ -297,12 +472,12 @@ public class ProdukDAOImpl implements ProdukDAO {
         conn = DatabaseConnectivity.getConnection();
         int tahun = 0;
         String SELECT = "SELECT YEAR(CURDATE())";
-        PreparedStatement state = null;
-        
+        state = null;
+
         try {
             state = conn.prepareStatement(SELECT);
 
-            ResultSet result = state.executeQuery();
+            result = state.executeQuery();
             if (result != null) {
 
                 //selama result memiliki data
@@ -316,6 +491,29 @@ public class ProdukDAOImpl implements ProdukDAO {
         } catch (SQLException ex) {
 
             Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (result != null) {
+                try {
+                    result.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
         }
 
         return tahun;

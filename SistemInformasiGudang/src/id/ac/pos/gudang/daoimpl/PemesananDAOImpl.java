@@ -26,7 +26,9 @@ import java.util.logging.Logger;
  */
 public class PemesananDAOImpl implements PemesananDAO{
     
+    ResultSet result;
     private Connection conn;
+    PreparedStatement state;
     
       
     public PemesananDAOImpl() {
@@ -38,12 +40,12 @@ public class PemesananDAOImpl implements PemesananDAO{
         conn = DatabaseConnectivity.getConnection();
         String id_pemesanan = null;
         String SELECT = "select * from tb_trans_pemesanan";
-        PreparedStatement state = null;
+        state = null;
 
         try {
             state = conn.prepareStatement(SELECT);
 
-            ResultSet result = state.executeQuery();
+            result = state.executeQuery();
             if (result != null) {
 
                 //selama result memiliki data
@@ -57,12 +59,28 @@ public class PemesananDAOImpl implements PemesananDAO{
         } catch (SQLException ex) {
 
             Logger.getLogger(PemesananDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-        }finally{
-            try {
-                state.close();
-                conn.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(PemesananDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (result != null) {
+                try {
+                    result.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         }
 
@@ -96,11 +114,11 @@ public class PemesananDAOImpl implements PemesananDAO{
                     + "JOIN tb_mitra sp ON pm.id_mitra=sp.id_mitra "
                     + "WHERE " + jenisCari + " LIKE '%" + keyword + "%' && id_jenis_produk = '" + idJenis + "' && pr.status=0";
         }
-        PreparedStatement state = null;
+         state = null;
 
         try {
             state = conn.prepareStatement(SELECT);
-            ResultSet result = state.executeQuery();
+             result = state.executeQuery();
             if (result != null) {
                 arrayPemesanan = new ArrayList<>();
 
@@ -128,12 +146,28 @@ public class PemesananDAOImpl implements PemesananDAO{
 
         } catch (SQLException ex) {
             Logger.getLogger(PemesananDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-        }finally{
-            try {
-                state.close();
-                conn.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(PemesananDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }finally {
+            if (result != null) {
+                try {
+                    result.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         }
 
@@ -146,12 +180,12 @@ public class PemesananDAOImpl implements PemesananDAO{
         conn = DatabaseConnectivity.getConnection();
         String no_pemesanan = null;
         String SELECT = "SELECT no_pemesanan FROM tb_trans_pemesanan ORDER BY no_pemesanan";
-        PreparedStatement state = null;
+         state = null;
 
         try {
             state = conn.prepareStatement(SELECT);
 
-            ResultSet result = state.executeQuery();
+             result = state.executeQuery();
             if (result != null) {
 
                 //selama result memiliki data
@@ -165,12 +199,28 @@ public class PemesananDAOImpl implements PemesananDAO{
         } catch (SQLException ex) {
 
             Logger.getLogger(PemesananDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-        }finally{
-            try {
-                state.close();
-                conn.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(PemesananDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }finally {
+            if (result != null) {
+                try {
+                    result.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         }
 
@@ -197,12 +247,12 @@ public class PemesananDAOImpl implements PemesananDAO{
         } else {
             SELECT = "SELECT * FROM tb_produk where nama_produk='" + pilihan + "' and id_jenis_produk='" + jenis_produk + "'";
         }
-        PreparedStatement state = null;
+         state = null;
 
         try {
             state = conn.prepareStatement(SELECT);
 
-            ResultSet result = state.executeQuery();
+             result = state.executeQuery();
             if (result != null) {
                 arrayProdukPrangko = new ArrayList<>();
 
@@ -224,12 +274,28 @@ public class PemesananDAOImpl implements PemesananDAO{
             }
         } catch (SQLException ex) {
             Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-        }finally{
-            try {
-                state.close();
-                conn.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(PemesananDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }finally {
+            if (result != null) {
+                try {
+                    result.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         }
 
@@ -241,12 +307,12 @@ public class PemesananDAOImpl implements PemesananDAO{
         conn = DatabaseConnectivity.getConnection();
         ArrayList<Mitra> arrayMitra = null;
         String SELECT = "SELECT id_mitra FROM tb_mitra Where nama_mitra = '"+pilihan+"'";
-        PreparedStatement state = null;
+         state = null;
 
         try {
             state = conn.prepareStatement(SELECT);
 
-            ResultSet result = state.executeQuery();
+             result = state.executeQuery();
             if (result != null) {
                 arrayMitra = new ArrayList<>();
 
@@ -264,12 +330,28 @@ public class PemesananDAOImpl implements PemesananDAO{
             }
         } catch (SQLException ex) {
             Logger.getLogger(MitraDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-        }finally{
-            try {
-                state.close();
-                conn.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(PemesananDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }finally {
+            if (result != null) {
+                try {
+                    result.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         }
 
@@ -281,12 +363,12 @@ public class PemesananDAOImpl implements PemesananDAO{
         conn = DatabaseConnectivity.getConnection();
         ArrayList<Mitra> arrayMitra = null;
         String SELECT = "SELECT * FROM tb_mitra";
-        PreparedStatement state = null;
+         state = null;
 
         try {
             state = conn.prepareStatement(SELECT);
 
-            ResultSet result = state.executeQuery();
+             result = state.executeQuery();
             if (result != null) {
                 arrayMitra = new ArrayList<>();
 
@@ -304,12 +386,28 @@ public class PemesananDAOImpl implements PemesananDAO{
             }
         } catch (SQLException ex) {
             Logger.getLogger(MitraDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-        }finally{
-            try {
-                state.close();
-                conn.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(PemesananDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }finally {
+            if (result != null) {
+                try {
+                    result.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         }
 
@@ -322,7 +420,7 @@ public class PemesananDAOImpl implements PemesananDAO{
         String INSERT = "INSERT INTO tb_trans_pemesanan (id_pemesanan,no_pemesanan,id_produk,"
                 + "jumlah_pesan,tgl_pesan,id_mitra,status"
                 + ") VALUES (?, ?, ?, ?, ?, ?, 'belum selesai')";
-        PreparedStatement state = null;
+         state = null;
         
         try {
             state = conn.prepareStatement(INSERT);
@@ -337,12 +435,28 @@ public class PemesananDAOImpl implements PemesananDAO{
             return qty > 0;
         } catch (SQLException ex) {
             Logger.getLogger(PemesananDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-        }finally{
-            try {
-                state.close();
-                conn.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(PemesananDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }finally {
+            if (result != null) {
+                try {
+                    result.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         }
 
@@ -358,12 +472,12 @@ public class PemesananDAOImpl implements PemesananDAO{
                     + "FROM tb_trans_pemesanan pm JOIN tb_produk pr ON pr.id_produk=pm.id_produk "
                     + "JOIN tb_mitra sp ON pm.id_mitra=sp.id_mitra "
                     + "WHERE pr.status=0";
-        PreparedStatement state = null;
+         state = null;
 
         try {
             state = conn.prepareStatement(SELECT);
 
-            ResultSet result = state.executeQuery();
+             result = state.executeQuery();
             if (result != null) {
                 arrayPemesanan = new ArrayList<>();
 
@@ -389,12 +503,28 @@ public class PemesananDAOImpl implements PemesananDAO{
             }
         } catch (SQLException ex) {
             Logger.getLogger(PemesananDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-        }finally{
-            try {
-                state.close();
-                conn.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(PemesananDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }finally {
+            if (result != null) {
+                try {
+                    result.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         }
         return arrayPemesanan;
@@ -413,12 +543,12 @@ public class PemesananDAOImpl implements PemesananDAO{
             SELECT = "SELECT distinct(nama_produk) FROM `tb_produk` where id_jenis_produk='" + jenis_produk + "' AND status=0 ORDER BY nama_produk ASC";
         }
 
-        PreparedStatement state = null;
+         state = null;
 
         try {
             state = conn.prepareStatement(SELECT);
 
-            ResultSet result = state.executeQuery();
+             result = state.executeQuery();
             if (result != null) {
                 arrayProduk = new ArrayList<>();
 
@@ -436,12 +566,28 @@ public class PemesananDAOImpl implements PemesananDAO{
             }
         } catch (SQLException ex) {
             Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-        }finally{
-            try {
-                state.close();
-                conn.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(PemesananDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }finally {
+            if (result != null) {
+                try {
+                    result.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         }
 
@@ -471,12 +617,12 @@ public class PemesananDAOImpl implements PemesananDAO{
                     + "id_jenis_produk='" + jenis_produk + "' AND status=0 ";
         }
 
-        PreparedStatement state = null;
+         state = null;
 
         try {
             state = conn.prepareStatement(SELECT);
 
-            ResultSet result = state.executeQuery();
+             result = state.executeQuery();
             if (result != null) {
                 arrayProduk = new ArrayList<>();
 
@@ -495,12 +641,28 @@ public class PemesananDAOImpl implements PemesananDAO{
             }
         } catch (SQLException ex) {
             Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-        } finally{
-            try {
-                state.close();
-                conn.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(PemesananDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }finally {
+            if (result != null) {
+                try {
+                    result.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         }
 
@@ -527,12 +689,12 @@ public class PemesananDAOImpl implements PemesananDAO{
                     + "AND id_jenis_produk='" + jenis_produk + "' AND status=0 ORDER BY tahun";
         }
 
-        PreparedStatement state = null;
+         state = null;
 
         try {
             state = conn.prepareStatement(SELECT);
 
-            ResultSet result = state.executeQuery();
+             result = state.executeQuery();
             if (result != null) {
                 arrayProduk = new ArrayList<>();
 
@@ -550,12 +712,28 @@ public class PemesananDAOImpl implements PemesananDAO{
             }
         } catch (SQLException ex) {
             Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-        }finally{
-            try {
-                state.close();
-                conn.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(PemesananDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }finally {
+            if (result != null) {
+                try {
+                    result.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         }
 
@@ -583,12 +761,12 @@ public class PemesananDAOImpl implements PemesananDAO{
                     + "ORDER BY nominal";
         }
 
-        PreparedStatement state = null;
+         state = null;
 
         try {
             state = conn.prepareStatement(SELECT);
 
-            ResultSet result = state.executeQuery();
+             result = state.executeQuery();
             if (result != null) {
                 arrayProduk = new ArrayList<>();
 
@@ -606,12 +784,28 @@ public class PemesananDAOImpl implements PemesananDAO{
             }
         } catch (SQLException ex) {
             Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-        }finally{
-            try {
-                state.close();
-                conn.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(PemesananDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }finally {
+            if (result != null) {
+                try {
+                    result.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         }
 
@@ -625,12 +819,12 @@ public class PemesananDAOImpl implements PemesananDAO{
         String SELECT = "SELECT nama_produk,nominal,tahun FROM `tb_produk` where id_produk='"+kode_produk+"'";
 
 
-        PreparedStatement state = null;
+         state = null;
 
         try {
             state = conn.prepareStatement(SELECT);
 
-            ResultSet result = state.executeQuery();
+             result = state.executeQuery();
             if (result != null) {
                 arrayProduk = new ArrayList<>();
 
@@ -650,12 +844,28 @@ public class PemesananDAOImpl implements PemesananDAO{
             }
         } catch (SQLException ex) {
             Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-        }finally{
-            try {
-                state.close();
-                conn.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(PemesananDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }finally {
+            if (result != null) {
+                try {
+                    result.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         }
 
@@ -669,12 +879,12 @@ public class PemesananDAOImpl implements PemesananDAO{
         String SELECT = "SELECT nama_mitra FROM `tb_mitra` where id_mitra='"+id_mitra+"'";
 
 
-        PreparedStatement state = null;
+         state = null;
 
         try {
             state = conn.prepareStatement(SELECT);
 
-            ResultSet result = state.executeQuery();
+             result = state.executeQuery();
             if (result != null) {
                 arrayMitra = new ArrayList<>();
 
@@ -692,12 +902,28 @@ public class PemesananDAOImpl implements PemesananDAO{
             }
         } catch (SQLException ex) {
             Logger.getLogger(MitraDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-        }finally{
-            try {
-                state.close();
-                conn.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(MitraDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }finally {
+            if (result != null) {
+                try {
+                    result.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         }
 

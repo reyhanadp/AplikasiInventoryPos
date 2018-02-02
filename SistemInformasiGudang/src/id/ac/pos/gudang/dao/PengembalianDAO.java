@@ -26,4 +26,5 @@ public interface PengembalianDAO {
     ArrayList<Regional> getIsiRegional(Object pilihan);
     boolean tambahPengembalian(Pengembalian pengembalian);
     String getIdPengembalian();
+    ArrayList<Pengembalian> cariProdukPengembalian(String keyword, String jenisCari, String idJenis);
 }

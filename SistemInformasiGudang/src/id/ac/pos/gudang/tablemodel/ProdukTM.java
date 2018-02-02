@@ -21,6 +21,25 @@ public class ProdukTM extends AbstractTableModel {
         this.arrayProduk = arrayProduk;
     }
     
+    private String hilangkan_titik(String text_titik) {
+        String[] temp = text_titik.split("\\.");
+        String text_string = "";
+        for (int i = 0; i < temp.length; i++) {
+            text_string = text_string + temp[i];
+        }
+        return text_string;
+    }
+    
+    private String ambil_angka_depan(String text_string){
+        String[] temp = text_string.split("\\,");
+        return temp[0];
+    }
+    
+    private String ambil_angka_belakang(String text_string){
+        String[] temp = text_string.split("\\,");
+        return temp[1];
+    }
+    
     private String format_titik(String text_string) {
         int j = 0, i, n;
         String text_hasil = "";
@@ -104,7 +123,11 @@ public class ProdukTM extends AbstractTableModel {
                 return format_titik(Integer.toString(arrayProduk.get(rowIndex).getNominal()));
 
             case 3:
-                return arrayProduk.get(rowIndex).getBiayaCetak();
+                String biaya_cetak = Float.toString(arrayProduk.get(rowIndex).getBiayaCetak()).replace(".", ",");
+                String biaya_cetak_depan = ambil_angka_depan(biaya_cetak);
+                String biaya_cetak_belakang = ambil_angka_belakang(biaya_cetak);
+                String biaya_cetak_titik = format_titik(biaya_cetak_depan);
+                return biaya_cetak_titik+","+biaya_cetak_belakang;
 
             case 4:
                 return format_titik(Integer.toString(arrayProduk.get(rowIndex).getStok()));

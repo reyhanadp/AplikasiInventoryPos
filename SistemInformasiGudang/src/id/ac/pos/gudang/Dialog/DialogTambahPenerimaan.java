@@ -350,8 +350,8 @@ public class DialogTambahPenerimaan extends javax.swing.JDialog {
         jScrollPane1.setViewportView(fieldKeterangan);
 
         fieldNoOrder.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                fieldNoOrderKeyReleased(evt);
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                fieldNoOrderKeyTyped(evt);
             }
         });
 
@@ -428,20 +428,20 @@ public class DialogTambahPenerimaan extends javax.swing.JDialog {
         });
 
         fieldNoOrder1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                fieldNoOrder1KeyReleased(evt);
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                fieldNoOrder1KeyTyped(evt);
             }
         });
 
         fieldNoOrder2.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                fieldNoOrder2KeyReleased(evt);
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                fieldNoOrder2KeyTyped(evt);
             }
         });
 
         fieldNoOrder3.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                fieldNoOrder3KeyReleased(evt);
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                fieldNoOrder3KeyTyped(evt);
             }
         });
 
@@ -1117,16 +1117,6 @@ public class DialogTambahPenerimaan extends javax.swing.JDialog {
 
     }//GEN-LAST:event_NominalActionPerformed
 
-    private void fieldNoOrderKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldNoOrderKeyReleased
-        // TODO add your handling code here:
-        if (fieldNoOrder.getText().length() == 1) {
-            fieldNoOrder1.requestFocus();
-            this.limit = Long.parseLong(fieldNoOrder.getText());
-        } else if (fieldNoOrder.getText().length() > 1) {
-            fieldNoOrder.setText(Long.toString(this.limit));
-        }
-    }//GEN-LAST:event_fieldNoOrderKeyReleased
-
     private void tambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tambahActionPerformed
         // TODO add your handling code here:
         String kosong = null;
@@ -1273,36 +1263,6 @@ public class DialogTambahPenerimaan extends javax.swing.JDialog {
         reset_simpan();
     }//GEN-LAST:event_batalActionPerformed
 
-    private void fieldNoOrder1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldNoOrder1KeyReleased
-        // TODO add your handling code here:
-        if (fieldNoOrder1.getText().length() == 4) {
-            fieldNoOrder2.requestFocus();
-            this.limit1 = Long.parseLong(fieldNoOrder1.getText());
-        } else if (fieldNoOrder1.getText().length() > 4) {
-            fieldNoOrder1.setText(Long.toString(this.limit1));
-        }
-    }//GEN-LAST:event_fieldNoOrder1KeyReleased
-
-    private void fieldNoOrder2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldNoOrder2KeyReleased
-        // TODO add your handling code here:
-        if (fieldNoOrder2.getText().length() == 2) {
-            fieldNoOrder3.requestFocus();
-            this.limit2 = Long.parseLong(fieldNoOrder2.getText());
-        } else if (fieldNoOrder2.getText().length() > 2) {
-            fieldNoOrder2.setText(Long.toString(this.limit2));
-        }
-    }//GEN-LAST:event_fieldNoOrder2KeyReleased
-
-    private void fieldNoOrder3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldNoOrder3KeyReleased
-        // TODO add your handling code here:
-        if (fieldNoOrder3.getText().length() == 4) {
-            JenisProduk.requestFocus();
-            this.limit3 = Long.parseLong(fieldNoOrder3.getText());
-        } else if (fieldNoOrder3.getText().length() > 4) {
-            fieldNoOrder3.setText(Long.toString(this.limit3));
-        }
-    }//GEN-LAST:event_fieldNoOrder3KeyReleased
-
     private void fieldJmlTerimaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldJmlTerimaKeyReleased
         // TODO add your handling code here:
         char karakter = evt.getKeyChar();
@@ -1317,6 +1277,46 @@ public class DialogTambahPenerimaan extends javax.swing.JDialog {
             evt.consume();
         }
     }//GEN-LAST:event_fieldJmlTerimaKeyReleased
+
+    private void fieldNoOrderKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldNoOrderKeyTyped
+        // TODO add your handling code here:
+        if (fieldNoOrder.getText().length() == 1) {
+            fieldNoOrder1.requestFocus();
+            evt.consume();
+        } else if (fieldNoOrder.getText().length() > 1) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_fieldNoOrderKeyTyped
+
+    private void fieldNoOrder1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldNoOrder1KeyTyped
+        // TODO add your handling code here:
+        if (fieldNoOrder1.getText().length() == 4) {
+            fieldNoOrder2.requestFocus();
+            evt.consume();
+        } else if (fieldNoOrder1.getText().length() > 4) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_fieldNoOrder1KeyTyped
+
+    private void fieldNoOrder2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldNoOrder2KeyTyped
+        // TODO add your handling code here:
+        if (fieldNoOrder2.getText().length() == 2) {
+            fieldNoOrder3.requestFocus();
+            evt.consume();
+        } else if (fieldNoOrder2.getText().length() > 2) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_fieldNoOrder2KeyTyped
+
+    private void fieldNoOrder3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldNoOrder3KeyTyped
+        // TODO add your handling code here:
+        if (fieldNoOrder3.getText().length() == 4) {
+            JenisProduk.requestFocus();
+            evt.consume();
+        } else if (fieldNoOrder3.getText().length() > 4) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_fieldNoOrder3KeyTyped
 
     /**
      * @param args the command line arguments

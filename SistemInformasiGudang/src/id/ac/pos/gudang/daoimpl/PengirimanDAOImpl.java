@@ -518,4 +518,91 @@ public class PengirimanDAOImpl implements PengirimanDAO {
         return arrayPengiriman;
     }
 
+    @Override
+    public ArrayList<Pengiriman> cariProdukPengiriman(String keyword, String jenisCari, String idJenis) {
+        conn = DatabaseConnectivity.getConnection();
+        ArrayList<Pengiriman> arrayPengiriman = null;
+        String SELECT = "";
+        if (idJenis.compareTo("SS") == 0) {
+            SELECT = "SELECT * FROM tb_trans_pengiriman inner join tb_produk "
+                    + "on tb_trans_pengiriman.id_produk=tb_produk.id_produk "
+                    + " where " + jenisCari + " LIKE '%" + keyword + "%'"
+                    + " and  tb_produk.status='0' and tb_produk.id_jenis_produk"
+                    + " in (SELECT tb_produk.id_jenis_produk FROM"
+                    + " tb_produk WHERE tb_produk.id_jenis_produk = 'SS'"
+                    + " || tb_produk.id_jenis_produk = 'MS')";
+        } else if (idJenis.compareTo("SHP") == 0) {
+            SELECT = "SELECT * FROM tb_trans_pengiriman inner join tb_produk "
+                    + "on tb_trans_pengiriman.id_produk=tb_produk.id_produk "
+                    + " where " + jenisCari + " LIKE '%" + keyword + "%'"
+                    + " and  tb_produk.status='0' and tb_produk.id_jenis_produk"
+                    + " in (SELECT tb_produk.id_jenis_produk FROM"
+                    + " tb_produk WHERE tb_produk.id_jenis_produk = 'SHP'"
+                    + " || tb_produk.id_jenis_produk = 'shpss')";
+        } else {
+            SELECT = "SELECT * FROM tb_trans_pengiriman inner join tb_produk "
+                    + "on tb_trans_pengiriman.id_produk=tb_produk.id_produk "
+                    + "where " + jenisCari + " LIKE '%" + keyword + "%' AND"
+                    + " tb_trans_pengiriman.id_produk like '" + idJenis + "%' AND tb_produk.status='0'";
+        }
+         state = null;
+
+        try {
+            state = conn.prepareStatement(SELECT);
+             result = state.executeQuery();
+            if (result != null) {
+                arrayPengiriman = new ArrayList<>();
+
+                // selama result memiliki data
+                // return lebih dari 1 data
+                while (result.next()) {
+
+                    // mengambil 1 data
+                    Pengiriman pengiriman = new Pengiriman();
+                    pengiriman.setId_pengiriman(result.getString(1));
+                    pengiriman.setNo_order_pengiriman(result.getString(2));
+                    pengiriman.setTgl_pengiriman(result.getDate(3));
+                    pengiriman.setJumlah_pengiriman(Integer.parseInt(result.getString(4)));
+                    pengiriman.setBsu(result.getString(5));
+                    pengiriman.setId_regional(result.getString(6));
+                    pengiriman.setId_produk(result.getString(7));
+                    pengiriman.setStok_awal(Integer.parseInt(result.getString(8)));
+                    pengiriman.setStok_akhir(Integer.parseInt(result.getString(9)));
+                    pengiriman.setNama_produk(result.getString(11));
+
+                    // menambahkan data ke array
+                    arrayPengiriman.add(pengiriman);
+                }
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(PemesananDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }finally {
+            if (result != null) {
+                try {
+                    result.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+
+        return arrayPengiriman;
+    }
+
 }

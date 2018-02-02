@@ -48,7 +48,6 @@ public class DialogTambahPengiriman extends javax.swing.JDialog {
     Vector vectorPrisma = new Vector();
     Vector vectorDokumenFilateli = new Vector();
     Vector vectorRegional = new Vector();
-    private long limit;
 
     /**
      * Creates new form DialogTambahPengiriman
@@ -236,9 +235,6 @@ public class DialogTambahPengiriman extends javax.swing.JDialog {
         NoOrder.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 NoOrderKeyPressed(evt);
-            }
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                NoOrderKeyReleased(evt);
             }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 NoOrderKeyTyped(evt);
@@ -756,6 +752,13 @@ public class DialogTambahPengiriman extends javax.swing.JDialog {
             NoOrder.requestFocus();
             evt.consume();
         }
+        
+        if (NoOrder.getText().length() == 12) {
+            TanggalPengiriman.requestFocus();
+            evt.consume();
+        } else if (NoOrder.getText().length() > 12) {
+            evt.consume();
+        }
     }//GEN-LAST:event_NoOrderKeyTyped
 
     private void NoOrderKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NoOrderKeyPressed
@@ -1041,16 +1044,6 @@ public class DialogTambahPengiriman extends javax.swing.JDialog {
         // TODO add your handling code here:
         reset_simpan();
     }//GEN-LAST:event_batalActionPerformed
-
-    private void NoOrderKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NoOrderKeyReleased
-        // TODO add your handling code here:
-        if (NoOrder.getText().length() == 12) {
-            TanggalPengiriman.requestFocus();
-            this.limit = Long.parseLong(NoOrder.getText());
-        } else if (NoOrder.getText().length() > 12) {
-            NoOrder.setText(Long.toString(this.limit));
-        }
-    }//GEN-LAST:event_NoOrderKeyReleased
 
     private void JumlahKirimKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JumlahKirimKeyReleased
         // TODO add your handling code here:
