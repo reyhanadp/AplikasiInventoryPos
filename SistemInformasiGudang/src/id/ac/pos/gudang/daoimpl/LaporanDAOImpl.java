@@ -26,13 +26,10 @@ public class LaporanDAOImpl implements LaporanDAO{
     ResultSet result;
     private Connection conn;
     PreparedStatement state;
-
-    public LaporanDAOImpl() {
-        conn = DatabaseConnectivity.getConnection();
-    }
     
     @Override
     public ArrayList<Produk> getProduk(String jenis_produk, String tahun) {
+        conn = DatabaseConnectivity.getConnection();
         String SELECT = "";
         if (jenis_produk.compareTo("MS") == 0) {
             SELECT = "SELECT id_produk,nama_produk,nominal,biaya_cetak FROM"
@@ -105,6 +102,7 @@ public class LaporanDAOImpl implements LaporanDAO{
 
     @Override
     public ArrayList<Produk> getTahunTerkecil(String jenis_produk) {
+        conn = DatabaseConnectivity.getConnection();
         String SELECT = "";
         if (jenis_produk.compareTo("MS") == 0) {
             SELECT = "SELECT DISTINCT(tahun) FROM `tb_produk` WHERE"
@@ -175,6 +173,7 @@ public class LaporanDAOImpl implements LaporanDAO{
 
     @Override
     public Integer getJumlahTerima(String kode_produk, int bulan, Object tahun, int bulan_sekarang, int tahun_sekarang, String status, int pilihan) {
+        conn = DatabaseConnectivity.getConnection();
         int jumlah_terima = 0;
         String SELECT = "";
         
@@ -248,6 +247,7 @@ public class LaporanDAOImpl implements LaporanDAO{
 
     @Override
     public Integer getJumlahPengiriman(String kode_produk, int bulan, Object tahun , int bulan_sekarang, int tahun_sekarang, String status, int pilihan) {
+        conn = DatabaseConnectivity.getConnection();
         int jumlah_pengeluaran = 0;
         String SELECT = "";
         
@@ -319,6 +319,7 @@ public class LaporanDAOImpl implements LaporanDAO{
 
     @Override
     public Integer getJumlahPengembalian(String kode_produk, int bulan, Object tahun , int bulan_sekarang, int tahun_sekarang, String status, int pilihan) {
+        conn = DatabaseConnectivity.getConnection();
         int jumlah_pengembalian = 0;
         String SELECT = "";
         
@@ -390,6 +391,7 @@ public class LaporanDAOImpl implements LaporanDAO{
 
     @Override
     public Integer getStokProduk(String kode_produk) {
+        conn = DatabaseConnectivity.getConnection();
         int stok = 0;
         String SELECT = "SELECT stok FROM `tb_produk` WHERE id_produk='"+kode_produk+"'";
         PreparedStatement state = null;
@@ -441,6 +443,7 @@ public class LaporanDAOImpl implements LaporanDAO{
 
     @Override
     public Integer getBulanSekarang() {
+        conn = DatabaseConnectivity.getConnection();
         int bulan = 0;
         String SELECT = "SELECT MONTH(CURDATE())";
         PreparedStatement state = null;
@@ -492,6 +495,7 @@ public class LaporanDAOImpl implements LaporanDAO{
 
     @Override
     public Integer getTahunSekarang() {
+        conn = DatabaseConnectivity.getConnection();
         int tahun = 0;
         String SELECT = "SELECT YEAR(CURDATE())";
         PreparedStatement state = null;
@@ -543,6 +547,7 @@ public class LaporanDAOImpl implements LaporanDAO{
 
     @Override
     public String getLokasiSimpan(String nik) {
+        conn = DatabaseConnectivity.getConnection();
         String lokasi = "";
         String SELECT = "SELECT penyimpanan from tb_user where nik='"+nik+"'";
         PreparedStatement state = null;
@@ -594,6 +599,7 @@ public class LaporanDAOImpl implements LaporanDAO{
 
     @Override
     public boolean setLokasiSimpan(String nik, String lokasi) {
+        conn = DatabaseConnectivity.getConnection();
         String UPDATE = "UPDATE tb_user "
                 + "SET penyimpanan = ? WHERE nik = ?";
         PreparedStatement state = null;

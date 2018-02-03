@@ -30,9 +30,6 @@ public class PenerimaanDAOImpl implements PenerimaanDAO {
     private Connection conn;
     PreparedStatement state;
 
-    public PenerimaanDAOImpl() {
-        conn = DatabaseConnectivity.getConnection();
-    }
 
     @Override
     public String getIdPenerimaan() {
@@ -498,6 +495,7 @@ public class PenerimaanDAOImpl implements PenerimaanDAO {
 
     @Override
     public ArrayList<Penerimaan> IsiPemesanan(String idPemesanan) {
+        conn = DatabaseConnectivity.getConnection();
         ArrayList<Penerimaan> arrayPenerimaan = null;
         String SELECT = "";
         SELECT = "SELECT tb_trans_pemesanan.id_mitra,tb_produk.id_produk,tb_trans_penerimaan.sisa_belum_dikirim,"

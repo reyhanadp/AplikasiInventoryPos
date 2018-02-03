@@ -30,10 +30,7 @@ public class PemesananDAOImpl implements PemesananDAO{
     private Connection conn;
     PreparedStatement state;
     
-      
-    public PemesananDAOImpl() {
-        conn = DatabaseConnectivity.getConnection();
-    }
+     
     
     @Override
     public String getIdPemesanan() {

@@ -29,10 +29,6 @@ public class PengirimanDAOImpl implements PengirimanDAO {
     private Connection conn;
     PreparedStatement state;
 
-    public PengirimanDAOImpl() {
-        conn = DatabaseConnectivity.getConnection();
-    }
-
     @Override
     public ArrayList<Produk> getNamaProduk(String jenis_produk) {
         ArrayList<Produk> arrayProduk = null;
@@ -315,6 +311,7 @@ public class PengirimanDAOImpl implements PengirimanDAO {
 
     @Override
     public ArrayList<Regional> getIsiRegional(Object nama_regional) {
+        conn = DatabaseConnectivity.getConnection();
         ArrayList<Regional> arrayRegional = null;
         String SELECT = "SELECT * FROM tb_regional where regional='" + nama_regional + "'";
         PreparedStatement state = null;
@@ -348,6 +345,7 @@ public class PengirimanDAOImpl implements PengirimanDAO {
 
     @Override
     public ArrayList<Regional> getRegional() {
+        conn = DatabaseConnectivity.getConnection();
         ArrayList<Regional> arrayRegional = null;
         String SELECT = "SELECT * FROM tb_regional";
         PreparedStatement state = null;
@@ -380,6 +378,7 @@ public class PengirimanDAOImpl implements PengirimanDAO {
 
     @Override
     public String getIdPengiriman() {
+        conn = DatabaseConnectivity.getConnection();
         String id_pengiriman = null;
         String SELECT = "select * from tb_trans_pengiriman";
         PreparedStatement state = null;
@@ -408,6 +407,7 @@ public class PengirimanDAOImpl implements PengirimanDAO {
 
     @Override
     public int getStok(String kode_produk) {
+        conn = DatabaseConnectivity.getConnection();
         int stok = 0;
         String SELECT = "select stok from tb_produk where id_produk = '" + kode_produk + "'";
         PreparedStatement state = null;
@@ -436,6 +436,7 @@ public class PengirimanDAOImpl implements PengirimanDAO {
 
     @Override
     public boolean tambahPengiriman(Pengiriman pengiriman) {
+        conn = DatabaseConnectivity.getConnection();
         String INSERT = "INSERT INTO tb_trans_pengiriman VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         PreparedStatement state = null;
 
@@ -462,6 +463,7 @@ public class PengirimanDAOImpl implements PengirimanDAO {
 
     @Override
     public ArrayList<Pengiriman> getPengiriman(String jenis_produk) {
+        conn = DatabaseConnectivity.getConnection();
         ArrayList<Pengiriman> arrayPengiriman = null;
         String SELECT = "";
         if (jenis_produk.compareTo("MS") == 0) {

@@ -29,12 +29,9 @@ public class PengembalianDAOImpl implements PengembalianDAO {
     private Connection conn;
     PreparedStatement state;
 
-    public PengembalianDAOImpl() {
-        conn = DatabaseConnectivity.getConnection();
-    }
-
     @Override
     public String getIdPengembalian() {
+        conn = DatabaseConnectivity.getConnection();
         String id_pengembalian = null;
         String SELECT = "select * from tb_trans_pengembalian";
         state = null;
@@ -86,6 +83,7 @@ public class PengembalianDAOImpl implements PengembalianDAO {
 
     @Override
     public ArrayList<Regional> getIsiRegional(Object pilihan) {
+        conn = DatabaseConnectivity.getConnection();
         ArrayList<Regional> arrayRegional = null;
         String SELECT = "SELECT * FROM tb_regional where regional='" + pilihan + "'";
         state = null;
@@ -142,6 +140,7 @@ public class PengembalianDAOImpl implements PengembalianDAO {
 
     @Override
     public ArrayList<Regional> getRegional() {
+        conn = DatabaseConnectivity.getConnection();
         ArrayList<Regional> arrayRegional = null;
         String SELECT = "SELECT * FROM tb_regional";
         state = null;
@@ -197,6 +196,7 @@ public class PengembalianDAOImpl implements PengembalianDAO {
 
     @Override
     public boolean tambahPengembalian(Pengembalian pengembalian) {
+        conn = DatabaseConnectivity.getConnection();
         String INSERT = "INSERT INTO tb_trans_pengembalian VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         state = null;
 
@@ -246,6 +246,7 @@ public class PengembalianDAOImpl implements PengembalianDAO {
 
     @Override
     public ArrayList<Pengembalian> getPengembalian(String jenis_produk) {
+        conn = DatabaseConnectivity.getConnection();
         ArrayList<Pengembalian> arrayPengembalian = null;
         String SELECT = "";
         if (jenis_produk.compareTo("MS") == 0) {

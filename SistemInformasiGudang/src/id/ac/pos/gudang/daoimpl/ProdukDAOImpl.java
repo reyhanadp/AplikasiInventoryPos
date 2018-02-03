@@ -26,10 +26,6 @@ public class ProdukDAOImpl implements ProdukDAO {
     private Connection conn;
     PreparedStatement state;
 
-    public ProdukDAOImpl() {
-        conn = DatabaseConnectivity.getConnection();
-    }
-
     @Override
     public ArrayList<Produk> cariProduk(String keyword, String jenisCari, String idJenis) {
         conn = DatabaseConnectivity.getConnection();
