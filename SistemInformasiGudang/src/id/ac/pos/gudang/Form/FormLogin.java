@@ -9,10 +9,13 @@ import id.ac.pos.gudang.entity.User;
 import id.ac.pos.gudang.utility.DatabaseConnectivity;
 import java.awt.HeadlessException;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 
@@ -30,8 +33,9 @@ public class FormLogin extends javax.swing.JFrame {
     ResultSet rs;
     String sql;
 
-    public FormLogin() {
+    public FormLogin() throws IOException {
         initComponents();
+        con = DatabaseConnectivity.getConnection();
     }
 
     /**
@@ -123,7 +127,7 @@ public class FormLogin extends javax.swing.JFrame {
     private void buttonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLoginActionPerformed
         // TODO add your handling code here:
         try {
-            con = DatabaseConnectivity.getConnection();
+//            con = DatabaseConnectivity.getConnection();
 
             sql = "SELECT * FROM tb_user WHERE nik='" + fieldNik.getText()
                     + "' AND password='" + fieldPassword.getText() + "' AND status='0'";
@@ -201,10 +205,6 @@ public class FormLogin extends javax.swing.JFrame {
         try {
             com.jtattoo.plaf.noire.NoireLookAndFeel.setTheme("Large-Font", "Java Swing", "");
             UIManager.setLookAndFeel("com.jtattoo.plaf.acryl.AcrylLookAndFeel");
-            FormLogin fl = new FormLogin();
-            fl.setLocationRelativeTo(null);
-            fl.setVisible(true);
-            fl.dispose();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -212,7 +212,12 @@ public class FormLogin extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                FormLogin fl = new FormLogin();
+                FormLogin fl = null;
+                try {
+                    fl = new FormLogin();
+                } catch (IOException ex) {
+                    Logger.getLogger(FormLogin.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 fl.setLocationRelativeTo(null);
                 fl.setVisible(true);
             }
