@@ -9,6 +9,7 @@ import id.ac.pos.gudang.dao.LaporanDAO;
 import id.ac.pos.gudang.daoimpl.admin.RegionalDAOImpl;
 import id.ac.pos.gudang.entity.Produk;
 import id.ac.pos.gudang.utility.DatabaseConnectivity;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -29,7 +30,11 @@ public class LaporanDAOImpl implements LaporanDAO{
     
     @Override
     public ArrayList<Produk> getProduk(String jenis_produk, String tahun) {
-        conn = DatabaseConnectivity.getConnection();
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException | InterruptedException ex) {
+            Logger.getLogger(LaporanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
         String SELECT = "";
         if (jenis_produk.compareTo("MS") == 0) {
             SELECT = "SELECT id_produk,nama_produk,nominal,biaya_cetak FROM"
@@ -102,7 +107,11 @@ public class LaporanDAOImpl implements LaporanDAO{
 
     @Override
     public ArrayList<Produk> getTahunTerkecil(String jenis_produk) {
-        conn = DatabaseConnectivity.getConnection();
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException | InterruptedException ex) {
+            Logger.getLogger(LaporanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
         String SELECT = "";
         if (jenis_produk.compareTo("MS") == 0) {
             SELECT = "SELECT DISTINCT(tahun) FROM `tb_produk` WHERE"
@@ -173,7 +182,11 @@ public class LaporanDAOImpl implements LaporanDAO{
 
     @Override
     public Integer getJumlahTerima(String kode_produk, int bulan, Object tahun, int bulan_sekarang, int tahun_sekarang, String status, int pilihan) {
-        conn = DatabaseConnectivity.getConnection();
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException | InterruptedException ex) {
+            Logger.getLogger(LaporanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
         int jumlah_terima = 0;
         String SELECT = "";
         
@@ -247,7 +260,11 @@ public class LaporanDAOImpl implements LaporanDAO{
 
     @Override
     public Integer getJumlahPengiriman(String kode_produk, int bulan, Object tahun , int bulan_sekarang, int tahun_sekarang, String status, int pilihan) {
-        conn = DatabaseConnectivity.getConnection();
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException | InterruptedException ex) {
+            Logger.getLogger(LaporanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
         int jumlah_pengeluaran = 0;
         String SELECT = "";
         
@@ -319,7 +336,11 @@ public class LaporanDAOImpl implements LaporanDAO{
 
     @Override
     public Integer getJumlahPengembalian(String kode_produk, int bulan, Object tahun , int bulan_sekarang, int tahun_sekarang, String status, int pilihan) {
-        conn = DatabaseConnectivity.getConnection();
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException | InterruptedException ex) {
+            Logger.getLogger(LaporanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
         int jumlah_pengembalian = 0;
         String SELECT = "";
         
@@ -391,7 +412,11 @@ public class LaporanDAOImpl implements LaporanDAO{
 
     @Override
     public Integer getStokProduk(String kode_produk) {
-        conn = DatabaseConnectivity.getConnection();
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException | InterruptedException ex) {
+            Logger.getLogger(LaporanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
         int stok = 0;
         String SELECT = "SELECT stok FROM `tb_produk` WHERE id_produk='"+kode_produk+"'";
         PreparedStatement state = null;
@@ -443,7 +468,11 @@ public class LaporanDAOImpl implements LaporanDAO{
 
     @Override
     public Integer getBulanSekarang() {
-        conn = DatabaseConnectivity.getConnection();
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException | InterruptedException ex) {
+            Logger.getLogger(LaporanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
         int bulan = 0;
         String SELECT = "SELECT MONTH(CURDATE())";
         PreparedStatement state = null;
@@ -495,7 +524,11 @@ public class LaporanDAOImpl implements LaporanDAO{
 
     @Override
     public Integer getTahunSekarang() {
-        conn = DatabaseConnectivity.getConnection();
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException | InterruptedException ex) {
+            Logger.getLogger(LaporanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
         int tahun = 0;
         String SELECT = "SELECT YEAR(CURDATE())";
         PreparedStatement state = null;
@@ -547,7 +580,11 @@ public class LaporanDAOImpl implements LaporanDAO{
 
     @Override
     public String getLokasiSimpan(String nik) {
-        conn = DatabaseConnectivity.getConnection();
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException | InterruptedException ex) {
+            Logger.getLogger(LaporanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
         String lokasi = "";
         String SELECT = "SELECT penyimpanan from tb_user where nik='"+nik+"'";
         PreparedStatement state = null;
@@ -599,7 +636,11 @@ public class LaporanDAOImpl implements LaporanDAO{
 
     @Override
     public boolean setLokasiSimpan(String nik, String lokasi) {
-        conn = DatabaseConnectivity.getConnection();
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException | InterruptedException ex) {
+            Logger.getLogger(LaporanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
         String UPDATE = "UPDATE tb_user "
                 + "SET penyimpanan = ? WHERE nik = ?";
         PreparedStatement state = null;

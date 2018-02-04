@@ -8,6 +8,7 @@ package id.ac.pos.gudang.daoimpl.admin;
 import id.ac.pos.gudang.dao.admin.UserDAO;
 import id.ac.pos.gudang.entity.User;
 import id.ac.pos.gudang.utility.DatabaseConnectivity;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -22,14 +23,19 @@ import java.util.logging.Logger;
  */
 public class UserDAOImpl implements UserDAO {
 
+    ResultSet result;
     private Connection conn;
-
-    public UserDAOImpl() {
-        conn = DatabaseConnectivity.getConnection();
-    }
+    PreparedStatement state;
 
     @Override
     public ArrayList<User> getUser() {
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException ex) {
+            Logger.getLogger(UserDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(UserDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
         ArrayList<User> arrayUser = null;
         String SELECT = "SELECT * FROM tb_user";
         PreparedStatement state = null;
@@ -59,12 +65,44 @@ public class UserDAOImpl implements UserDAO {
             }
         } catch (SQLException ex) {
             Logger.getLogger(UserDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }finally {
+            if (result != null) {
+                try {
+                    result.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(UserDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(UserDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(UserDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
         }
         return arrayUser;
     }
 
     @Override
     public boolean tambahUser(User user) {
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException ex) {
+            Logger.getLogger(UserDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(UserDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
         String INSERT = "INSERT INTO tb_user (nik, password, "
                 + "nama_user, hak_akses) VALUES (?, ?, ?, ?)";
         PreparedStatement state = null;
@@ -80,6 +118,31 @@ public class UserDAOImpl implements UserDAO {
             return qty > 0;
         } catch (SQLException ex) {
             Logger.getLogger(UserDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }finally {
+            if (result != null) {
+                try {
+                    result.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(UserDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(UserDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(UserDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
         }
         return false;
     }
@@ -102,6 +165,13 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public boolean ubahUser(User user) {
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException ex) {
+            Logger.getLogger(UserDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(UserDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
         String UPDATE = "UPDATE tb_user "
                 + "SET password = ?, nama_user = ?, "
                 + "hak_akses = ? , status = ? "
@@ -120,6 +190,31 @@ public class UserDAOImpl implements UserDAO {
             return qty > 0;
         } catch (SQLException ex) {
             Logger.getLogger(UserDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }finally {
+            if (result != null) {
+                try {
+                    result.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(UserDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(UserDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(UserDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
         }
         return false;
     }

@@ -8,6 +8,9 @@ package id.ac.pos.gudang.Form;
 import id.ac.pos.gudang.Dialog.Admin.MItra.DialogMitra;
 import id.ac.pos.gudang.Dialog.Admin.Regional.DialogRegional;
 import id.ac.pos.gudang.Dialog.Admin.User.DialogUser;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
@@ -169,7 +172,14 @@ public class FormAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
         int pilih = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin Logout ?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
         if (pilih == JOptionPane.YES_OPTION){
-        FormLogin fl = new FormLogin();
+        FormLogin fl = null;
+            try {
+                fl = new FormLogin();
+            } catch (IOException ex) {
+                Logger.getLogger(FormAdmin.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(FormAdmin.class.getName()).log(Level.SEVERE, null, ex);
+            }
         fl.setLocationRelativeTo(null);
         fl.setVisible(true);
         this.setVisible(false);

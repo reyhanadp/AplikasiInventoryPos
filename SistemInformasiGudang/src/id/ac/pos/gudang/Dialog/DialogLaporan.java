@@ -116,6 +116,12 @@ public class DialogLaporan extends javax.swing.JDialog {
         isi_sub_tabel_angka.setBorder(Border.RIGHT, BorderLineStyle.THIN);
         isi_sub_tabel_angka.setBorder(Border.LEFT, BorderLineStyle.THIN);
         isi_sub_tabel_angka.setBorder(Border.TOP, BorderLineStyle.DOTTED);
+        
+        WritableCellFormat isi_sub_tabel_angka_float = new WritableCellFormat(NumberFormats.FORMAT7);
+        isi_sub_tabel_angka_float.setBorder(Border.BOTTOM, BorderLineStyle.DOTTED);
+        isi_sub_tabel_angka_float.setBorder(Border.RIGHT, BorderLineStyle.THIN);
+        isi_sub_tabel_angka_float.setBorder(Border.LEFT, BorderLineStyle.THIN);
+        isi_sub_tabel_angka_float.setBorder(Border.TOP, BorderLineStyle.DOTTED);
 
         WritableCellFormat isi_sub_tabel_huruf = new WritableCellFormat();
         isi_sub_tabel_huruf.setBorder(Border.BOTTOM, BorderLineStyle.DOTTED);
@@ -188,14 +194,14 @@ public class DialogLaporan extends javax.swing.JDialog {
         int total_jumlah_7;
         int total_jumlah_8;
         int total_jumlah_9;
-        int total_jumlah_10;
+        float total_jumlah_10;
         int total_jumlah_4_rekapitulasi = 0;
         int total_jumlah_5_rekapitulasi = 0;
         int total_jumlah_6_rekapitulasi = 0;
         int total_jumlah_7_rekapitulasi = 0;
         int total_jumlah_8_rekapitulasi = 0;
         int total_jumlah_9_rekapitulasi = 0;
-        int total_jumlah_10_rekapitulasi = 0;
+        float total_jumlah_10_rekapitulasi = 0;
         String nama_produk = null;
         String jenis_produk = null;
         String tahun_terkecil;
@@ -262,7 +268,7 @@ public class DialogLaporan extends javax.swing.JDialog {
                 int total_jumlah_pengeluaran_stok = 0;
                 int total_jumlah_pengeluaran = 0;
                 int total_jumlah_bsu = 0;
-                int total_jumlah_nilai_intrinsik = 0;
+                float total_jumlah_nilai_intrinsik = 0;
 
                 tahun_terkecil = arrayProdukTahun.get(0).getTahun();
 
@@ -343,12 +349,12 @@ public class DialogLaporan extends javax.swing.JDialog {
                         int jumlah_pengeluaran_dipilih = 0;
                         int jumlah_pengembalian_dipilih = 0;
                         int bsu = 0;
-                        int nilai_intrinsik = 0;
+                        float nilai_intrinsik = 0;
 
                         sheet.addCell(new jxl.write.Number(0, 6 + j, j + 1, isi_no));
                         sheet.addCell(new jxl.write.Label(1, 6 + j, arrayProduk.get(j).getNamaProduk(), isi_sub_tabel_huruf));
                         sheet.addCell(new jxl.write.Number(2, 6 + j, arrayProduk.get(j).getNominal(), isi_sub_tabel_angka));
-                        sheet.addCell(new jxl.write.Number(3, 6 + j, arrayProduk.get(j).getBiayaCetak(), isi_sub_tabel_angka));
+                        sheet.addCell(new jxl.write.Number(3, 6 + j, arrayProduk.get(j).getBiayaCetak(), isi_sub_tabel_angka_float));
 
                         jumlah_terima_dipilih = dao_laporan.getJumlahTerima(arrayProduk.get(j).getIdProduk(), bulan_integer, tahun, bulan_sekarang, tahun_sekarang, "tidak sekarang", pilihan);
                         jumlah_terima = dao_laporan.getJumlahTerima(arrayProduk.get(j).getIdProduk(), bulan_integer, tahun, bulan_sekarang, tahun_sekarang, "sekarang", pilihan);
@@ -366,8 +372,8 @@ public class DialogLaporan extends javax.swing.JDialog {
                         jumlah_stok = jumlah_stok + stok;
                         bsu = arrayProduk.get(j).getNominal() * (jumlah_terima_dipilih + jumlah_pengembalian_dipilih + stok - jumlah_pengeluaran_dipilih);
                         total_jumlah_bsu = total_jumlah_bsu + bsu;
-                        nilai_intrinsik = (int) (arrayProduk.get(j).getBiayaCetak() * (jumlah_terima_dipilih + jumlah_pengembalian_dipilih + stok - jumlah_pengeluaran_dipilih));
-                        total_jumlah_nilai_intrinsik = total_jumlah_nilai_intrinsik + nilai_intrinsik;
+                        nilai_intrinsik =  (arrayProduk.get(j).getBiayaCetak() * (jumlah_terima_dipilih + jumlah_pengembalian_dipilih + stok - jumlah_pengeluaran_dipilih));
+                        total_jumlah_nilai_intrinsik = (total_jumlah_nilai_intrinsik + nilai_intrinsik);
 
                         sheet.addCell(new jxl.write.Number(4, 6 + j, stok, isi_sub_tabel_angka));
                         sheet.addCell(new jxl.write.Number(5, 6 + j, jumlah_terima_dipilih + jumlah_pengembalian_dipilih, isi_sub_tabel_angka));
@@ -375,7 +381,7 @@ public class DialogLaporan extends javax.swing.JDialog {
                         sheet.addCell(new jxl.write.Number(7, 6 + j, jumlah_pengeluaran_dipilih, isi_sub_tabel_angka));
                         sheet.addCell(new jxl.write.Number(8, 6 + j, jumlah_terima_dipilih + jumlah_pengembalian_dipilih + stok - jumlah_pengeluaran_dipilih, isi_sub_tabel_angka));
                         sheet.addCell(new jxl.write.Number(9, 6 + j, bsu, isi_sub_tabel_angka));
-                        sheet.addCell(new jxl.write.Number(10, 6 + j, nilai_intrinsik, isi_sub_tabel_angka));
+                        sheet.addCell(new jxl.write.Number(10, 6 + j, nilai_intrinsik, isi_sub_tabel_angka_float));
 
                     }
                     total_jumlah_4 = total_jumlah_4 + jumlah_stok;
@@ -459,7 +465,7 @@ public class DialogLaporan extends javax.swing.JDialog {
                         sheet.addCell(new jxl.write.Number(0, banyak_produk + 4 + j, j + 1, isi_no));
                         sheet.addCell(new jxl.write.Label(1, banyak_produk + 4 + j, arrayProduk.get(j).getNamaProduk(), isi_sub_tabel_huruf));
                         sheet.addCell(new jxl.write.Number(2, banyak_produk + 4 + j, arrayProduk.get(j).getNominal(), isi_sub_tabel_angka));
-                        sheet.addCell(new jxl.write.Number(3, banyak_produk + 4 + j, arrayProduk.get(j).getBiayaCetak(), isi_sub_tabel_angka));
+                        sheet.addCell(new jxl.write.Number(3, banyak_produk + 4 + j, arrayProduk.get(j).getBiayaCetak(), isi_sub_tabel_angka_float));
 
                         jumlah_terima_dipilih = dao_laporan.getJumlahTerima(arrayProduk.get(j).getIdProduk(), bulan_integer, tahun, bulan_sekarang, tahun_sekarang, "tidak sekarang", pilihan);
                         jumlah_terima = dao_laporan.getJumlahTerima(arrayProduk.get(j).getIdProduk(), bulan_integer, tahun, bulan_sekarang, tahun_sekarang, "sekarang", pilihan);
@@ -486,7 +492,7 @@ public class DialogLaporan extends javax.swing.JDialog {
                         sheet.addCell(new jxl.write.Number(7, banyak_produk + 4 + j, jumlah_pengeluaran_dipilih, isi_sub_tabel_angka));
                         sheet.addCell(new jxl.write.Number(8, banyak_produk + 4 + j, jumlah_terima_dipilih + jumlah_pengembalian_dipilih + stok - jumlah_pengeluaran_dipilih, isi_sub_tabel_angka));
                         sheet.addCell(new jxl.write.Number(9, banyak_produk + 4 + j, bsu, isi_sub_tabel_angka));
-                        sheet.addCell(new jxl.write.Number(10, banyak_produk + 4 + j, nilai_intrinsik, isi_sub_tabel_angka));
+                        sheet.addCell(new jxl.write.Number(10, banyak_produk + 4 + j, nilai_intrinsik, isi_sub_tabel_angka_float));
                     }
 
                     total_jumlah_4 = total_jumlah_4 + jumlah_stok;

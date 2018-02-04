@@ -8,6 +8,7 @@ package id.ac.pos.gudang.daoimpl;
 import id.ac.pos.gudang.dao.ProdukDAO;
 import id.ac.pos.gudang.entity.Produk;
 import id.ac.pos.gudang.utility.DatabaseConnectivity;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -28,7 +29,13 @@ public class ProdukDAOImpl implements ProdukDAO {
 
     @Override
     public ArrayList<Produk> cariProduk(String keyword, String jenisCari, String idJenis) {
-        conn = DatabaseConnectivity.getConnection();
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException ex) {
+            Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
         ArrayList<Produk> arrayProduk = null;
         String SELECT = "";
         if (idJenis.compareTo("SS") == 0) {
@@ -106,7 +113,13 @@ public class ProdukDAOImpl implements ProdukDAO {
 
     @Override
     public boolean tambahProduk(Produk produk, String jenisProduk) {
-        conn = DatabaseConnectivity.getConnection();
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException ex) {
+            Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
         String INSERT = "INSERT INTO tb_produk (id_produk, nama_produk, nominal, "
                 + "biaya_cetak, stok, tahun, id_jenis_produk,nik"
                 + ") VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
@@ -157,7 +170,13 @@ public class ProdukDAOImpl implements ProdukDAO {
 
     @Override
     public boolean hapusProduk(String idProduk) {
-        conn = DatabaseConnectivity.getConnection();
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException ex) {
+            Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
         String DELETE = "UPDATE tb_produk SET status=1 "
                 + "WHERE id_produk = ?";
         state = null;
@@ -198,7 +217,13 @@ public class ProdukDAOImpl implements ProdukDAO {
 
     @Override
     public boolean ubahProduk(Produk produk) {
-        conn = DatabaseConnectivity.getConnection();
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException ex) {
+            Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
         String UPDATE = "UPDATE tb_produk "
                 + "SET nama_produk = ?, nominal = ?, biaya_cetak = ?,"
                 + " tahun = ? WHERE id_produk = ?";
@@ -245,7 +270,14 @@ public class ProdukDAOImpl implements ProdukDAO {
 
     @Override
     public String getIdProduk(String jenisProduk) {
-        conn = DatabaseConnectivity.getConnection();
+        try {
+
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException ex) {
+            Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
         String kode_produk = null;
         String SELECT = "(SELECT id_produk FROM tb_produk "
                 + "WHERE id_jenis_produk='" + jenisProduk + "')"
@@ -299,7 +331,13 @@ public class ProdukDAOImpl implements ProdukDAO {
 
     @Override
     public ArrayList<Produk> getProduk() {
-        conn = DatabaseConnectivity.getConnection();
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException ex) {
+            Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
         ArrayList<Produk> arrayProduk = null;
         String SELECT = "SELECT * FROM tb_produk where status=0 order by id_produk desc";
         state = null;
@@ -361,7 +399,13 @@ public class ProdukDAOImpl implements ProdukDAO {
 
     @Override
     public ArrayList<Produk> getProdukDeleted() {
-        conn = DatabaseConnectivity.getConnection();
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException ex) {
+            Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
         ArrayList<Produk> arrayProduk = null;
         String SELECT = "SELECT * FROM tb_produk where status=1";
         state = null;
@@ -423,7 +467,13 @@ public class ProdukDAOImpl implements ProdukDAO {
 
     @Override
     public boolean restoreProduk(Produk produk, String idProduk) {
-        conn = DatabaseConnectivity.getConnection();
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException ex) {
+            Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
         String UPDATE = "UPDATE tb_produk SET status=0"
                 + " WHERE id_produk=?";
         state = null;
@@ -465,7 +515,13 @@ public class ProdukDAOImpl implements ProdukDAO {
 
     @Override
     public Integer getTahunSekarang() {
-        conn = DatabaseConnectivity.getConnection();
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException ex) {
+            Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
         int tahun = 0;
         String SELECT = "SELECT YEAR(CURDATE())";
         state = null;

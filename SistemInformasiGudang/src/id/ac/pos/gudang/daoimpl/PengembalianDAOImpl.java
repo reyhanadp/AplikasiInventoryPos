@@ -11,6 +11,7 @@ import id.ac.pos.gudang.entity.Pengembalian;
 import id.ac.pos.gudang.entity.Produk;
 import id.ac.pos.gudang.entity.Regional;
 import id.ac.pos.gudang.utility.DatabaseConnectivity;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -31,7 +32,13 @@ public class PengembalianDAOImpl implements PengembalianDAO {
 
     @Override
     public String getIdPengembalian() {
-        conn = DatabaseConnectivity.getConnection();
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException ex) {
+            Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
         String id_pengembalian = null;
         String SELECT = "select * from tb_trans_pengembalian";
         state = null;
@@ -83,7 +90,13 @@ public class PengembalianDAOImpl implements PengembalianDAO {
 
     @Override
     public ArrayList<Regional> getIsiRegional(Object pilihan) {
-        conn = DatabaseConnectivity.getConnection();
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException ex) {
+            Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
         ArrayList<Regional> arrayRegional = null;
         String SELECT = "SELECT * FROM tb_regional where regional='" + pilihan + "'";
         state = null;
@@ -140,7 +153,13 @@ public class PengembalianDAOImpl implements PengembalianDAO {
 
     @Override
     public ArrayList<Regional> getRegional() {
-        conn = DatabaseConnectivity.getConnection();
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException ex) {
+            Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
         ArrayList<Regional> arrayRegional = null;
         String SELECT = "SELECT * FROM tb_regional";
         state = null;
@@ -196,7 +215,13 @@ public class PengembalianDAOImpl implements PengembalianDAO {
 
     @Override
     public boolean tambahPengembalian(Pengembalian pengembalian) {
-        conn = DatabaseConnectivity.getConnection();
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException ex) {
+            Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
         String INSERT = "INSERT INTO tb_trans_pengembalian VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         state = null;
 
@@ -246,7 +271,13 @@ public class PengembalianDAOImpl implements PengembalianDAO {
 
     @Override
     public ArrayList<Pengembalian> getPengembalian(String jenis_produk) {
-        conn = DatabaseConnectivity.getConnection();
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException ex) {
+            Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
         ArrayList<Pengembalian> arrayPengembalian = null;
         String SELECT = "";
         if (jenis_produk.compareTo("MS") == 0) {
@@ -331,7 +362,13 @@ public class PengembalianDAOImpl implements PengembalianDAO {
 
     @Override
     public ArrayList<Produk> getNamaProduk(String jenis_produk) {
-        conn = DatabaseConnectivity.getConnection();
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException ex) {
+            Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
         ArrayList<Produk> arrayProduk = null;
         String SELECT = "";
         if (jenis_produk.compareTo("MS") == 0) {
@@ -407,7 +444,13 @@ public class PengembalianDAOImpl implements PengembalianDAO {
 
     @Override
     public ArrayList<Produk> getKodeProduk(Object nominal, Object tahun, Object nama_produk, String jenis_produk) {
-        conn = DatabaseConnectivity.getConnection();
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException ex) {
+            Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
         ArrayList<Produk> arrayProduk = null;
         String SELECT = "";
         if (jenis_produk.compareTo("MS") == 0) {
@@ -484,7 +527,13 @@ public class PengembalianDAOImpl implements PengembalianDAO {
 
     @Override
     public ArrayList<Produk> getTahunProduk(Object nama_produk, String jenis_produk) {
-        conn = DatabaseConnectivity.getConnection();
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException ex) {
+            Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
         ArrayList<Produk> arrayProduk = null;
         String SELECT = "";
         if (jenis_produk.compareTo("MS") == 0) {
@@ -554,7 +603,13 @@ public class PengembalianDAOImpl implements PengembalianDAO {
 
     @Override
     public ArrayList<Produk> getNominalProduk(Object nama_produk, Object tahun, String jenis_produk) {
-        conn = DatabaseConnectivity.getConnection();
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException ex) {
+            Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
         ArrayList<Produk> arrayProduk = null;
         String SELECT = "";
         if (jenis_produk.compareTo("MS") == 0) {
@@ -630,7 +685,13 @@ public class PengembalianDAOImpl implements PengembalianDAO {
 
     @Override
     public ArrayList<Pengembalian> cariProdukPengembalian(String keyword, String jenisCari, String idJenis) {
-        conn = DatabaseConnectivity.getConnection();
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException ex) {
+            Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
         ArrayList<Pengembalian> arrayPengembalian = null;
         String SELECT = "";
         if (idJenis.compareTo("SS") == 0) {

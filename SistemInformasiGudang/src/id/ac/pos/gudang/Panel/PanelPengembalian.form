@@ -73,7 +73,7 @@
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="ComboboxCariPrangko" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="FieldCariPrangko" min="-2" pref="101" max="-2" attributes="0"/>
+                          <Component id="FieldCariPrangko" min="-2" pref="146" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="CariPrangko" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -222,7 +222,7 @@
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="ComboboxCariMSSS" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="FieldCariMSSS" min="-2" pref="101" max="-2" attributes="0"/>
+                          <Component id="FieldCariMSSS" min="-2" pref="146" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="CariMSSS" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -371,7 +371,7 @@
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="ComboboxCariSHPSS" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="FieldCariSHPSS" min="-2" pref="101" max="-2" attributes="0"/>
+                          <Component id="FieldCariSHPSS" min="-2" pref="146" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="CariSHPSS" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -520,7 +520,7 @@
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="comboCariKemasan" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="fieldCariKemasan" min="-2" pref="101" max="-2" attributes="0"/>
+                          <Component id="fieldCariKemasan" min="-2" pref="146" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="buttonCariKemasan" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -645,7 +645,7 @@
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="comboCariMerchandise" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="fieldCariMerchandise" min="-2" pref="101" max="-2" attributes="0"/>
+                          <Component id="fieldCariMerchandise" min="-2" pref="146" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="buttonCariMerchandise" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -770,7 +770,7 @@
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="comboCariPrisma" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="fieldCariPrisma" min="-2" pref="101" max="-2" attributes="0"/>
+                          <Component id="fieldCariPrisma" min="-2" pref="146" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="buttonCariPrisma" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -895,7 +895,7 @@
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="comboCariDokumenFilateli" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="fieldCariDokumenFilateli" min="-2" pref="101" max="-2" attributes="0"/>
+                          <Component id="fieldCariDokumenFilateli" min="-2" pref="146" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="buttonCariDokumenFilateli" min="-2" max="-2" attributes="0"/>
                       </Group>

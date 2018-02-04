@@ -10,14 +10,13 @@ import id.ac.pos.gudang.dao.ProdukDAO;
 import id.ac.pos.gudang.daoimpl.ProdukDAOImpl;
 import id.ac.pos.gudang.entity.Produk;
 import java.awt.Desktop;
+import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
-
-
 
 /**
  *
@@ -31,25 +30,40 @@ public class DialogUbahProduk extends javax.swing.JDialog {
      * Creates new form DialogLaporan
      */
     public DialogUbahProduk(java.awt.Frame parent, boolean modal) {
-        
 
     }
 
-     public DialogUbahProduk(FormHome home, boolean b, String kodeProduk,String NamaProduk,String nominal, String biayaCetak,String tahun) {
+    public DialogUbahProduk(FormHome home, boolean b, String kodeProduk, String NamaProduk, String nominal, String biayaCetak, String tahun) {
         super(home, b);
         initComponents();
         setLocationRelativeTo(this);
         fieldKodeProduk.setText(kodeProduk);
         fieldNamaProduk.setText(NamaProduk);
-        FieldNominal.setText(hilangkan_titik(nominal));
+        FieldNominal.setText(nominal);
         FieldTahunCetak.setText(tahun);
         String biaya_cetak_depan = ambil_angka_depan(biayaCetak);
         String biaya_cetak_depan_bersih = hilangkan_titik(biaya_cetak_depan);
         String biaya_cetak_belakang = ambil_angka_belakang(biayaCetak);
-        FieldBiayaCetak.setText(biaya_cetak_depan_bersih+"."+biaya_cetak_belakang);
+        FieldBiayaCetak.setText(biaya_cetak_depan_bersih + "," + biaya_cetak_belakang);
     }
-     
-     private String hilangkan_titik(String text_titik) {
+
+    private int panjang_biaya_cetak(String text_koma) {
+        String[] temp = text_koma.split("\\,");
+        return temp.length;
+    }
+
+    private String ganti_koma_titik(String text_koma) {
+        String[] temp = text_koma.split("\\,");
+        String text_string = "";
+        if (temp.length == 1) {
+            text_string = temp[0];
+        } else if (temp.length == 2) {
+            text_string = temp[0] + "." + temp[1];
+        }
+        return text_string;
+    }
+
+    private String hilangkan_titik(String text_titik) {
         String[] temp = text_titik.split("\\.");
         String text_string = "";
         for (int i = 0; i < temp.length; i++) {
@@ -57,17 +71,16 @@ public class DialogUbahProduk extends javax.swing.JDialog {
         }
         return text_string;
     }
-     
-     private String ambil_angka_depan(String text_string){
+
+    private String ambil_angka_depan(String text_string) {
         String[] temp = text_string.split("\\,");
         return temp[0];
     }
-    
-    private String ambil_angka_belakang(String text_string){
+
+    private String ambil_angka_belakang(String text_string) {
         String[] temp = text_string.split("\\,");
         return temp[1];
     }
-
 
     private String format_titik(String text_string) {
         int j = 0, i, n;
@@ -129,9 +142,6 @@ public class DialogUbahProduk extends javax.swing.JDialog {
 
     }
 
-    
-
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -188,6 +198,27 @@ public class DialogUbahProduk extends javax.swing.JDialog {
         fieldNamaProduk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fieldNamaProdukActionPerformed(evt);
+            }
+        });
+
+        FieldNominal.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                FieldNominalKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                FieldNominalKeyTyped(evt);
+            }
+        });
+
+        FieldBiayaCetak.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                FieldBiayaCetakKeyTyped(evt);
+            }
+        });
+
+        FieldTahunCetak.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                FieldTahunCetakKeyTyped(evt);
             }
         });
 
@@ -275,53 +306,53 @@ public class DialogUbahProduk extends javax.swing.JDialog {
 
     private void buttonSimpanPrangkoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSimpanPrangkoActionPerformed
         // TODO add your handling code here:
-            String kodeProduk = fieldKodeProduk.getText();
-            String NamaProduk = fieldNamaProduk.getText();
-            String nominal = FieldNominal.getText();
-            String biayaCetak = FieldBiayaCetak.getText();
-            String tahun = FieldTahunCetak.getText();
+        String kodeProduk = fieldKodeProduk.getText();
+        String NamaProduk = fieldNamaProduk.getText();
+        String nominal = hilangkan_titik(FieldNominal.getText());
+        String biayaCetak = ganti_koma_titik(FieldBiayaCetak.getText());
+        String tahun = FieldTahunCetak.getText();
 
-            int ok = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin "
-                    + "Mengubah Produk dengan kode : " + kodeProduk
-                    + " dengan Nama Produk " + NamaProduk
-                    + "?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
+        int ok = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin "
+                + "Mengubah Produk dengan kode : " + kodeProduk
+                + " dengan Nama Produk " + NamaProduk
+                + "?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
 
-            if (ok == 0) {
-                //validasi apakah filed 
-                //sudah diisi atau belum
-                if (NamaProduk.equals("")) {
-                    JOptionPane.showMessageDialog(null, "Nama Produk tidak boleh Kosong");
-                    fieldNamaProduk.requestFocus();
-                } else if (nominal.equals("")) {
-                    JOptionPane.showMessageDialog(null, "Nominal tidak boleh Kosong");
-                    FieldNominal.requestFocus();
-                } else if (biayaCetak.equals("")) {
-                    JOptionPane.showMessageDialog(null, "Biaya Cetak tidak boleh Kosong");
-                    FieldBiayaCetak.requestFocus();
-                } else if (tahun.equals("")) {
-                    JOptionPane.showMessageDialog(null, "Tahun tidak boleh Kosong");
-                    FieldTahunCetak.requestFocus();
+        if (ok == 0) {
+            //validasi apakah filed 
+            //sudah diisi atau belum
+            if (NamaProduk.equals("")) {
+                JOptionPane.showMessageDialog(null, "Nama Produk tidak boleh Kosong");
+                fieldNamaProduk.requestFocus();
+            } else if (nominal.equals("")) {
+                JOptionPane.showMessageDialog(null, "Nominal tidak boleh Kosong");
+                FieldNominal.requestFocus();
+            } else if (biayaCetak.equals("")) {
+                JOptionPane.showMessageDialog(null, "Biaya Cetak tidak boleh Kosong");
+                FieldBiayaCetak.requestFocus();
+            } else if (tahun.equals("")) {
+                JOptionPane.showMessageDialog(null, "Tahun tidak boleh Kosong");
+                FieldTahunCetak.requestFocus();
+            } else {
+                Produk produk = new Produk();
+                produk.setIdProduk(kodeProduk);
+                produk.setNamaProduk(NamaProduk);
+                produk.setNominal(Integer.parseInt(nominal));
+                produk.setBiayaCetak(Float.parseFloat(biayaCetak));
+                produk.setTahun(tahun);
+
+                //insert produk
+                boolean sukses = dao.ubahProduk(produk);
+
+                //cek sukses atau tidak
+                if (sukses) {
+                    JOptionPane.showMessageDialog(this, "Data berhasil diubah");
+                    dispose();
                 } else {
-                    Produk produk = new Produk();
-                    produk.setIdProduk(kodeProduk);
-                    produk.setNamaProduk(NamaProduk);
-                    produk.setNominal(Integer.parseInt(nominal));
-                    produk.setBiayaCetak(Float.parseFloat(biayaCetak));
-                    produk.setTahun(tahun);
-
-                    //insert produk
-                    boolean sukses = dao.ubahProduk(produk);
-
-                    //cek sukses atau tidak
-                    if (sukses) {
-                        JOptionPane.showMessageDialog(this, "Data berhasil diubah");
-                        dispose();
-                    } else {
-                        JOptionPane.showMessageDialog(this, "Data gagal diubah");
-                    }
+                    JOptionPane.showMessageDialog(this, "Data gagal diubah");
                 }
-            } else if (ok == 1) {
             }
+        } else if (ok == 1) {
+        }
     }//GEN-LAST:event_buttonSimpanPrangkoActionPerformed
 
     private void batalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_batalActionPerformed
@@ -336,6 +367,64 @@ public class DialogUbahProduk extends javax.swing.JDialog {
     private void fieldKodeProdukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldKodeProdukActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_fieldKodeProdukActionPerformed
+
+    private void FieldNominalKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_FieldNominalKeyReleased
+        // TODO add your handling code here:
+        char karakter = evt.getKeyChar();
+        if ((((karakter >= '0') && (karakter <= '9')
+                || (karakter == KeyEvent.VK_BACK_SPACE)
+                || (karakter == KeyEvent.VK_DELETE)
+                || (karakter == KeyEvent.VK_ENTER)))) {
+
+            String nominal_string = hilangkan_titik(FieldNominal.getText());
+            String nominal_hasil = format_titik(nominal_string);
+            FieldNominal.setText(nominal_hasil);
+            evt.consume();
+        }
+    }//GEN-LAST:event_FieldNominalKeyReleased
+
+    private void FieldBiayaCetakKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_FieldBiayaCetakKeyTyped
+        // TODO add your handling code here:
+        char karakter = evt.getKeyChar();
+        int panjang = panjang_biaya_cetak(FieldBiayaCetak.getText());
+        if (karakter == KeyEvent.VK_COMMA) {
+            if (panjang == 2) {
+                JOptionPane.showMessageDialog(null, "Maksimal koma hanya satu!");
+                evt.consume();
+            }
+        } else if (!(((karakter >= '0') && (karakter <= '9')
+                || (karakter == KeyEvent.VK_BACK_SPACE)
+                || (karakter == KeyEvent.VK_COMMA)
+                || (karakter == KeyEvent.VK_DELETE)
+                || (karakter == KeyEvent.VK_ENTER)))) {
+            JOptionPane.showMessageDialog(null, "Hanya Boleh Angka !");
+            evt.consume();
+        }
+    }//GEN-LAST:event_FieldBiayaCetakKeyTyped
+
+    private void FieldTahunCetakKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_FieldTahunCetakKeyTyped
+        // TODO add your handling code here:
+        char karakter = evt.getKeyChar();
+        if (!(((karakter >= '0') && (karakter <= '9')
+                || (karakter == KeyEvent.VK_BACK_SPACE)
+                || (karakter == KeyEvent.VK_DELETE)
+                || (karakter == KeyEvent.VK_ENTER)))) {
+            JOptionPane.showMessageDialog(null, "Hanya Boleh Angka !");
+            evt.consume();
+        }
+    }//GEN-LAST:event_FieldTahunCetakKeyTyped
+
+    private void FieldNominalKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_FieldNominalKeyTyped
+        // TODO add your handling code here:
+        char karakter = evt.getKeyChar();
+        if (!(((karakter >= '0') && (karakter <= '9')
+                || (karakter == KeyEvent.VK_BACK_SPACE)
+                || (karakter == KeyEvent.VK_DELETE)
+                || (karakter == KeyEvent.VK_ENTER)))) {
+            JOptionPane.showMessageDialog(null, "Hanya Boleh Angka !");
+            evt.consume();
+        }
+    }//GEN-LAST:event_FieldNominalKeyTyped
 
     /**
      * @param args the command line arguments

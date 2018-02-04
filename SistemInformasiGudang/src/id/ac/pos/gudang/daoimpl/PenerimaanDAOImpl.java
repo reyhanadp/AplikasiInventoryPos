@@ -12,6 +12,7 @@ import id.ac.pos.gudang.entity.Pemesanan;
 import id.ac.pos.gudang.entity.Penerimaan;
 import id.ac.pos.gudang.entity.Produk;
 import id.ac.pos.gudang.utility.DatabaseConnectivity;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -33,7 +34,13 @@ public class PenerimaanDAOImpl implements PenerimaanDAO {
 
     @Override
     public String getIdPenerimaan() {
-        conn = DatabaseConnectivity.getConnection();
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException ex) {
+            Logger.getLogger(PenerimaanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(PenerimaanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
         String id_penerimaan = null;
         String SELECT = "select * from tb_trans_penerimaan";
         state = null;
@@ -84,7 +91,13 @@ public class PenerimaanDAOImpl implements PenerimaanDAO {
     }
 
     public ArrayList<Pemesanan> getNoPemesanan(String idPemesanan) {
-        conn = DatabaseConnectivity.getConnection();
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException ex) {
+            Logger.getLogger(PenerimaanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(PenerimaanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
         ArrayList<Pemesanan> arrayPemesanan = null;
         String SELECT = "";
         SELECT = "SELECT no_pemesanan FROM tb_trans_pemesanan "
@@ -141,7 +154,13 @@ public class PenerimaanDAOImpl implements PenerimaanDAO {
 
     @Override
     public ArrayList<Produk> getKodeProduk(Object nominal, Object tahun, Object nama_produk, String jenis_produk) {
-        conn = DatabaseConnectivity.getConnection();
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException ex) {
+            Logger.getLogger(PenerimaanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(PenerimaanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
         ArrayList<Produk> arrayProduk = null;
         String SELECT = "";
         if (jenis_produk.compareTo("MS") == 0) {
@@ -219,7 +238,13 @@ public class PenerimaanDAOImpl implements PenerimaanDAO {
 
     @Override
     public ArrayList<Produk> getNominalProduk(Object nama_produk, Object tahun, String jenis_produk) {
-        conn = DatabaseConnectivity.getConnection();
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException ex) {
+            Logger.getLogger(PenerimaanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(PenerimaanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
         ArrayList<Produk> arrayProduk = null;
         String SELECT = "";
         if (jenis_produk.compareTo("MS") == 0) {
@@ -298,7 +323,13 @@ public class PenerimaanDAOImpl implements PenerimaanDAO {
 
     @Override
     public ArrayList<Produk> getTahunProduk(Object nama_produk, String jenis_produk) {
-        conn = DatabaseConnectivity.getConnection();
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException ex) {
+            Logger.getLogger(PenerimaanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(PenerimaanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
         ArrayList<Produk> arrayProduk = null;
         String SELECT = "";
         if (jenis_produk.compareTo("MS") == 0) {
@@ -375,8 +406,15 @@ public class PenerimaanDAOImpl implements PenerimaanDAO {
         return arrayProduk;
     }
 
+    @Override
     public ArrayList<Pemesanan> getIdPemesanan(String kodeProduk) {
-        conn = DatabaseConnectivity.getConnection();
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException ex) {
+            Logger.getLogger(PenerimaanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(PenerimaanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
         ArrayList<Pemesanan> arrayPemesanan = null;
         String SELECT = "";
         SELECT = "SELECT id_pemesanan,id_mitra FROM tb_trans_pemesanan "
@@ -434,7 +472,13 @@ public class PenerimaanDAOImpl implements PenerimaanDAO {
 
     @Override
     public ArrayList<Produk> getNamaProduk(String jenis_produk) {
-        conn = DatabaseConnectivity.getConnection();
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException ex) {
+            Logger.getLogger(PenerimaanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(PenerimaanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
         ArrayList<Produk> arrayProduk = null;
         String SELECT = "";
         SELECT = "SELECT distinct(nama_produk) FROM `tb_produk` pr JOIN tb_trans_pemesanan pm "
@@ -495,7 +539,13 @@ public class PenerimaanDAOImpl implements PenerimaanDAO {
 
     @Override
     public ArrayList<Penerimaan> IsiPemesanan(String idPemesanan) {
-        conn = DatabaseConnectivity.getConnection();
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException ex) {
+            Logger.getLogger(PenerimaanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(PenerimaanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
         ArrayList<Penerimaan> arrayPenerimaan = null;
         String SELECT = "";
         SELECT = "SELECT tb_trans_pemesanan.id_mitra,tb_produk.id_produk,tb_trans_penerimaan.sisa_belum_dikirim,"
@@ -556,7 +606,13 @@ public class PenerimaanDAOImpl implements PenerimaanDAO {
 
     @Override
     public ArrayList<Produk> getDetailProduk(Object noPemesanan) {
-        conn = DatabaseConnectivity.getConnection();
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException ex) {
+            Logger.getLogger(PenerimaanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(PenerimaanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
         ArrayList<Produk> arrayProduk = null;
         String SELECT = "";
         SELECT = "SELECT tb_trans_pemesanan.id_mitra,tb_produk.id_produk,tb_produk.stok,"
@@ -620,7 +676,13 @@ public class PenerimaanDAOImpl implements PenerimaanDAO {
 
     @Override
     public ArrayList<Pemesanan> getTotalPesan(Object noPemesanan) {
-        conn = DatabaseConnectivity.getConnection();
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException ex) {
+            Logger.getLogger(PenerimaanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(PenerimaanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
         ArrayList<Pemesanan> arrayPemesanan = null;
         String SELECT = "SELECT jumlah_pesan "
                 + "FROM tb_trans_pemesanan "
@@ -679,7 +741,13 @@ public class PenerimaanDAOImpl implements PenerimaanDAO {
 
     @Override
     public ArrayList<Penerimaan> cariProdukPenerimaan(String keyword, String jenisCari, String idJenis) {
-        conn = DatabaseConnectivity.getConnection();
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException ex) {
+            Logger.getLogger(PenerimaanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(PenerimaanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
         ArrayList<Penerimaan> arrayPenerimaan = null;
         String SELECT = "";
         if (idJenis.compareTo("SS") == 0) {
@@ -771,7 +839,13 @@ public class PenerimaanDAOImpl implements PenerimaanDAO {
 
     @Override
     public boolean tambahPenerimaan(Penerimaan penerimaan) {
-        conn = DatabaseConnectivity.getConnection();
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException ex) {
+            Logger.getLogger(PenerimaanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(PenerimaanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
         String INSERT = "INSERT INTO tb_trans_penerimaan (id_penerimaan,no_order_penerimaan,tgl_penerimaan, jml_terima, id_pemesanan,"
                 + "id_produk, id_mitra, stok_awal, stok_akhir, subtotal_terima,sisa_belum_dikirim, keterangan"
                 + ") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)";
@@ -828,7 +902,13 @@ public class PenerimaanDAOImpl implements PenerimaanDAO {
 
     @Override
     public ArrayList<Penerimaan> getDataPenerimaan() {
-        conn = DatabaseConnectivity.getConnection();
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException ex) {
+            Logger.getLogger(PenerimaanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(PenerimaanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
         ArrayList<Penerimaan> arrayPenerimaan = null;
         String SELECT = "";
         SELECT = "SELECT pn.no_order_penerimaan,pn.tgl_penerimaan,pn.jml_terima,pm.no_pemesanan,pr.id_produk,pr.nama_produk,pr.nominal,"
@@ -904,7 +984,13 @@ public class PenerimaanDAOImpl implements PenerimaanDAO {
 
     @Override
     public ArrayList<Produk> getStok(String kode_produk) {
-        conn = DatabaseConnectivity.getConnection();
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException ex) {
+            Logger.getLogger(PenerimaanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(PenerimaanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
         ArrayList<Produk> arrayProduk = null;
         String SELECT = "SELECT stok FROM `tb_produk` where id_produk='" + kode_produk + "'";
 
@@ -960,7 +1046,13 @@ public class PenerimaanDAOImpl implements PenerimaanDAO {
 
     @Override
     public ArrayList<Produk> getNama(String kode_produk) {
-        conn = DatabaseConnectivity.getConnection();
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException ex) {
+            Logger.getLogger(PenerimaanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(PenerimaanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
         ArrayList<Produk> arrayProduk = null;
         String SELECT = "SELECT nama_produk,nominal,tahun FROM `tb_produk` where id_produk='" + kode_produk + "'";
 
@@ -1019,7 +1111,13 @@ public class PenerimaanDAOImpl implements PenerimaanDAO {
 
     @Override
     public ArrayList<Mitra> getNamaMitra(String id_mitra) {
-        conn = DatabaseConnectivity.getConnection();
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException ex) {
+            Logger.getLogger(PenerimaanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(PenerimaanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
         ArrayList<Mitra> arrayMitra = null;
         String SELECT = "SELECT nama_mitra FROM `tb_mitra` where id_mitra='" + id_mitra + "'";
 

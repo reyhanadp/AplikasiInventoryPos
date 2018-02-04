@@ -33,7 +33,7 @@ public class FormLogin extends javax.swing.JFrame {
     ResultSet rs;
     String sql;
 
-    public FormLogin() throws IOException {
+    public FormLogin() throws IOException, InterruptedException {
         initComponents();
         con = DatabaseConnectivity.getConnection();
     }
@@ -127,7 +127,7 @@ public class FormLogin extends javax.swing.JFrame {
     private void buttonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLoginActionPerformed
         // TODO add your handling code here:
         try {
-//            con = DatabaseConnectivity.getConnection();
+            con = DatabaseConnectivity.getConnection();
 
             sql = "SELECT * FROM tb_user WHERE nik='" + fieldNik.getText()
                     + "' AND password='" + fieldPassword.getText() + "' AND status='0'";
@@ -159,6 +159,8 @@ public class FormLogin extends javax.swing.JFrame {
             }
         } catch (HeadlessException | SQLException e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
+        } catch (IOException | InterruptedException ex) {
+            Logger.getLogger(FormLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_buttonLoginActionPerformed
 
@@ -215,7 +217,7 @@ public class FormLogin extends javax.swing.JFrame {
                 FormLogin fl = null;
                 try {
                     fl = new FormLogin();
-                } catch (IOException ex) {
+                } catch (IOException | InterruptedException ex) {
                     Logger.getLogger(FormLogin.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 fl.setLocationRelativeTo(null);

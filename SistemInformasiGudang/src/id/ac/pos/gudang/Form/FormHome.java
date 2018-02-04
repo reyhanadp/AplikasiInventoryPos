@@ -62,11 +62,82 @@ public final class FormHome extends javax.swing.JFrame {
         this.nik.setText(nik);
     }
 
-    private int hilangkan_titik(String text_titik) {
-        String[] temp = text_titik.split("\\.");
+    private int panjang_biaya_cetak(String text_koma) {
+        String[] temp = text_koma.split("\\,");
         return temp.length;
     }
     
+    private String ganti_koma_titik(String text_koma) {
+        String[] temp = text_koma.split("\\,");
+        String text_string = "";
+        if(temp.length == 1){
+            text_string = temp[0];
+        }else if(temp.length == 2){
+            text_string = temp[0] + "." + temp[1];
+        }
+        return text_string;
+    }
+    
+    private String format_titik(String text_string) {
+        int j = 0, i, n;
+        String text_hasil = "";
+        int k = 2, l = 3, m = 4;
+        int panjang_text = text_string.length();
+        String[] text_pisah = text_string.split("(?<=\\G.{1})");
+
+        while (j == 0) {
+            if (panjang_text == k) {
+                n = k;
+                for (i = 0; i < k; i++) {
+                    if (n % 3 == 0) {
+                        text_hasil = text_hasil + "." + text_pisah[i];
+                    } else {
+                        text_hasil = text_hasil + text_pisah[i];
+                    }
+                    n--;
+                }
+                j = 1;
+            } else if (panjang_text == l) {
+                n = l;
+                for (i = 0; i < l; i++) {
+                    if (n % 3 == 0) {
+                        if (n == l) {
+                            text_hasil = text_hasil + text_pisah[i];
+                        } else {
+                            text_hasil = text_hasil + "." + text_pisah[i];
+                        }
+                    } else {
+                        text_hasil = text_hasil + text_pisah[i];
+                    }
+                    n--;
+                }
+                j = 1;
+            } else if (panjang_text == m) {
+                n = m;
+                for (i = 0; i < m; i++) {
+                    if (n % 3 == 0) {
+                        text_hasil = text_hasil + "." + text_pisah[i];
+                    } else {
+                        text_hasil = text_hasil + text_pisah[i];
+                    }
+                    n--;
+                }
+                j = 1;
+            } else if (panjang_text == 1) {
+                text_hasil = text_pisah[0];
+                j = 1;
+            } else if (panjang_text == 0) {
+                text_hasil = "";
+                j = 1;
+            }
+            k = k + 3;
+            l = l + 3;
+            m = m + 3;
+        }
+        return text_hasil;
+
+    }
+
     private void refresh() {
         autoincrementProduk();
         getDataProduk();
@@ -1084,11 +1155,6 @@ public final class FormHome extends javax.swing.JFrame {
 
         jLabel4.setText("Nominal");
 
-        fieldNominalPrangko.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                fieldNominalPrangkoMouseClicked(evt);
-            }
-        });
         fieldNominalPrangko.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 fieldNominalPrangkoKeyPressed(evt);
@@ -1119,11 +1185,6 @@ public final class FormHome extends javax.swing.JFrame {
 
         jLabel6.setText("Tahun");
 
-        fieldBiayaCetakPrangko.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                fieldBiayaCetakPrangkoMouseClicked(evt);
-            }
-        });
         fieldBiayaCetakPrangko.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 fieldBiayaCetakPrangkoKeyPressed(evt);
@@ -2854,7 +2915,7 @@ public final class FormHome extends javax.swing.JFrame {
         String idProduk = fieldKodeProdukPrangko.getText();
         String namaProduk = fieldNamaProdukPrangko.getText();
         String nominal = fieldNominalPrangko.getText();
-        String biayaCetak = fieldBiayaCetakPrangko.getText();
+        String biayaCetak = ganti_koma_titik(fieldBiayaCetakPrangko.getText());
         String tahun = fieldTahunPrangko.getText();
         String nik = this.nik.getText();
 
@@ -3009,7 +3070,7 @@ public final class FormHome extends javax.swing.JFrame {
         String idProduk = fieldKodeProdukMS_SS.getText();
         String namaProduk = fieldNamaProdukMSSS.getText();
         String nominal = fieldNominalProdukMSSS.getText();
-        String biayaCetak = fieldBiayaCetakProdukMSSS.getText();
+        String biayaCetak = ganti_koma_titik(fieldBiayaCetakProdukMSSS.getText());
         String tahun = fieldTahunProdukMSSS.getText();
         String nik = this.nik.getText();
 
@@ -3195,7 +3256,7 @@ public final class FormHome extends javax.swing.JFrame {
         String idProduk = fieldKodeProdukSHP_SHPSS.getText();
         String namaProduk = fieldNamaProdukSHPSHPSS.getText();
         String nominal = fieldNominalProdukSHPSHPSS.getText();
-        String biayaCetak = fieldBiayaCetakSHPSHPSS.getText();
+        String biayaCetak = ganti_koma_titik(fieldBiayaCetakSHPSHPSS.getText());
         String tahun = fieldTahunProdukSHPSHPSS.getText();
         String nik = this.nik.getText();
 
@@ -3259,12 +3320,12 @@ public final class FormHome extends javax.swing.JFrame {
                 if (sukses) {
                     JOptionPane.showMessageDialog(this, "Data berhasil ditambahkan");
                     getDataProduk();
-                    
+
                     resetField();
                 } else {
                     JOptionPane.showMessageDialog(this, "Data gagal ditambahkan");
                     getDataProduk();
-                    
+
                 }
 
                 getDataProduk();
@@ -3357,7 +3418,7 @@ public final class FormHome extends javax.swing.JFrame {
         String idProduk = fieldKodeProdukKemasan.getText();
         String namaProduk = fieldNamaProdukKemasan.getText();
         String nominal = fieldNominalProdukKemasan.getText();
-        String biayaCetak = fieldBiayaCetakProdukKemasan.getText();
+        String biayaCetak = ganti_koma_titik(fieldBiayaCetakProdukKemasan.getText());
         String tahun = fieldTahunProdukKemasan.getText();
         String nik = this.nik.getText();
 
@@ -3511,7 +3572,7 @@ public final class FormHome extends javax.swing.JFrame {
         String idProduk = fieldKodeProdukMerchandise.getText();
         String namaProduk = fieldNamaProdukMerchandise.getText();
         String nominal = fieldNominalProdukMerchandise.getText();
-        String biayaCetak = fieldBiayaCetakProdukMerchandise.getText();
+        String biayaCetak = ganti_koma_titik(fieldBiayaCetakProdukMerchandise.getText());
         String tahun = fieldTahunProdukMerchandise.getText();
         String nik = this.nik.getText();
 
@@ -3667,7 +3728,7 @@ public final class FormHome extends javax.swing.JFrame {
         String idProduk = fieldKodeProdukPrisma.getText();
         String namaProduk = fieldNamaProdukPrisma.getText();
         String nominal = fieldNominalProdukPrisma.getText();
-        String biayaCetak = fieldBiayaCetakProdukPrisma.getText();
+        String biayaCetak = ganti_koma_titik(fieldBiayaCetakProdukPrisma.getText());
         String tahun = fieldTahunProdukPrisma.getText();
         String nik = this.nik.getText();
 
@@ -3822,7 +3883,7 @@ public final class FormHome extends javax.swing.JFrame {
         String idProduk = fieldKodeProdukDokumenFilateli.getText();
         String namaProduk = fieldNamaProdukDokumenFilateli.getText();
         String nominal = fieldNominalProdukDokumenFilateli.getText();
-        String biayaCetak = fieldBiayaCetakDokumenFilateli.getText();
+        String biayaCetak = ganti_koma_titik(fieldBiayaCetakDokumenFilateli.getText());
         String tahun = fieldTahunProdukDokumenFilateli.getText();
         String nik = this.nik.getText();
 
@@ -3995,19 +4056,19 @@ public final class FormHome extends javax.swing.JFrame {
     private void tabbedPaneProdukMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabbedPaneProdukMouseClicked
         // TODO add your handling code here:
         resetField();
-        if(tabbedPaneProduk.getSelectedIndex()==0){
+        if (tabbedPaneProduk.getSelectedIndex() == 0) {
             autoincrementPrangko();
-        }else if(tabbedPaneProduk.getSelectedIndex()==1){
+        } else if (tabbedPaneProduk.getSelectedIndex() == 1) {
             autoincrementMS_SS();
-        }else if(tabbedPaneProduk.getSelectedIndex()==2){
+        } else if (tabbedPaneProduk.getSelectedIndex() == 2) {
             autoincrementSHP_SHPSS();
-        }else if(tabbedPaneProduk.getSelectedIndex()==3){
+        } else if (tabbedPaneProduk.getSelectedIndex() == 3) {
             autoincrementKemasan();
-        }else if(tabbedPaneProduk.getSelectedIndex()==4){
+        } else if (tabbedPaneProduk.getSelectedIndex() == 4) {
             autoincrementMerchandise();
-        }else if(tabbedPaneProduk.getSelectedIndex()==5){
+        } else if (tabbedPaneProduk.getSelectedIndex() == 5) {
             autoincrementPrisma();
-        }else if(tabbedPaneProduk.getSelectedIndex()==6){
+        } else if (tabbedPaneProduk.getSelectedIndex() == 6) {
             autoincrementDokumenFilateli();
         }
         getDataProduk();
@@ -4166,16 +4227,15 @@ public final class FormHome extends javax.swing.JFrame {
     private void fieldBiayaCetakPrangkoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldBiayaCetakPrangkoKeyTyped
         // TODO add your handling code here:
         char karakter = evt.getKeyChar();
-        int panjang = hilangkan_titik(fieldBiayaCetakPrangko.getText());
-        if(karakter == KeyEvent.VK_PERIOD){
-            if(panjang==2){
-                JOptionPane.showMessageDialog(null, "Maksimal titik hanya satu...");
+        int panjang = panjang_biaya_cetak(fieldBiayaCetakPrangko.getText());
+        if (karakter == KeyEvent.VK_COMMA) {
+            if (panjang == 2) {
+                JOptionPane.showMessageDialog(null, "Maksimal koma hanya satu!");
                 evt.consume();
             }
-            
-        }else if (!(((karakter >= '0') && (karakter <= '9')
+        } else if (!(((karakter >= '0') && (karakter <= '9')
                 || (karakter == KeyEvent.VK_BACK_SPACE)
-                || (karakter == KeyEvent.VK_PERIOD)
+                || (karakter == KeyEvent.VK_COMMA)
                 || (karakter == KeyEvent.VK_DELETE)
                 || (karakter == KeyEvent.VK_ENTER)))) {
             JOptionPane.showMessageDialog(null, "Hanya Boleh Angka !");
@@ -4198,15 +4258,15 @@ public final class FormHome extends javax.swing.JFrame {
     private void fieldBiayaCetakProdukMSSSKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldBiayaCetakProdukMSSSKeyTyped
         // TODO add your handling code here:
         char karakter = evt.getKeyChar();
-        int panjang = hilangkan_titik(fieldBiayaCetakProdukMSSS.getText());
-        if(karakter == KeyEvent.VK_PERIOD){
-            if(panjang==2){
-                JOptionPane.showMessageDialog(null, "Maksimal titik hanya satu...");
+        int panjang = panjang_biaya_cetak(fieldBiayaCetakProdukMSSS.getText());
+        if (karakter == KeyEvent.VK_COMMA) {
+            if (panjang == 2) {
+                JOptionPane.showMessageDialog(null, "Maksimal koma hanya satu!");
                 evt.consume();
             }
-            
-        }else if (!(((karakter >= '0') && (karakter <= '9')
+        } else if (!(((karakter >= '0') && (karakter <= '9')
                 || (karakter == KeyEvent.VK_BACK_SPACE)
+                || (karakter == KeyEvent.VK_COMMA)
                 || (karakter == KeyEvent.VK_DELETE)
                 || (karakter == KeyEvent.VK_ENTER)))) {
             JOptionPane.showMessageDialog(null, "Hanya Boleh Angka !");
@@ -4229,16 +4289,15 @@ public final class FormHome extends javax.swing.JFrame {
     private void fieldBiayaCetakSHPSHPSSKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldBiayaCetakSHPSHPSSKeyTyped
         // TODO add your handling code here:
         char karakter = evt.getKeyChar();
-        int panjang = hilangkan_titik(fieldBiayaCetakSHPSHPSS.getText());
-        if(karakter == KeyEvent.VK_PERIOD){
-            if(panjang==2){
-                JOptionPane.showMessageDialog(null, "Maksimal titik hanya satu...");
+        int panjang = panjang_biaya_cetak(fieldBiayaCetakSHPSHPSS.getText());
+        if (karakter == KeyEvent.VK_COMMA) {
+            if (panjang == 2) {
+                JOptionPane.showMessageDialog(null, "Maksimal koma hanya satu!");
                 evt.consume();
             }
-            
-        }else if (!(((karakter >= '0') && (karakter <= '9')
+        } else if (!(((karakter >= '0') && (karakter <= '9')
                 || (karakter == KeyEvent.VK_BACK_SPACE)
-                || (karakter == KeyEvent.VK_PERIOD)
+                || (karakter == KeyEvent.VK_COMMA)
                 || (karakter == KeyEvent.VK_DELETE)
                 || (karakter == KeyEvent.VK_ENTER)))) {
             JOptionPane.showMessageDialog(null, "Hanya Boleh Angka !");
@@ -4260,16 +4319,15 @@ public final class FormHome extends javax.swing.JFrame {
 
     private void fieldBiayaCetakProdukKemasanKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldBiayaCetakProdukKemasanKeyTyped
         char karakter = evt.getKeyChar();
-        int panjang = hilangkan_titik(fieldBiayaCetakProdukKemasan.getText());
-        if(karakter == KeyEvent.VK_PERIOD){
-            if(panjang==2){
-                JOptionPane.showMessageDialog(null, "Maksimal titik hanya satu...");
+        int panjang = panjang_biaya_cetak(fieldBiayaCetakProdukKemasan.getText());
+        if (karakter == KeyEvent.VK_COMMA) {
+            if (panjang == 2) {
+                JOptionPane.showMessageDialog(null, "Maksimal koma hanya satu!");
                 evt.consume();
             }
-            
-        }else if (!(((karakter >= '0') && (karakter <= '9')
+        } else if (!(((karakter >= '0') && (karakter <= '9')
                 || (karakter == KeyEvent.VK_BACK_SPACE)
-                || (karakter == KeyEvent.VK_PERIOD)
+                || (karakter == KeyEvent.VK_COMMA)
                 || (karakter == KeyEvent.VK_DELETE)
                 || (karakter == KeyEvent.VK_ENTER)))) {
             JOptionPane.showMessageDialog(null, "Hanya Boleh Angka !");
@@ -4292,16 +4350,15 @@ public final class FormHome extends javax.swing.JFrame {
     private void fieldBiayaCetakProdukMerchandiseKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldBiayaCetakProdukMerchandiseKeyTyped
         // TODO add your handling code here:
         char karakter = evt.getKeyChar();
-        int panjang = hilangkan_titik(fieldBiayaCetakProdukMerchandise.getText());
-        if(karakter == KeyEvent.VK_PERIOD){
-            if(panjang==2){
-                JOptionPane.showMessageDialog(null, "Maksimal titik hanya satu...");
+        int panjang = panjang_biaya_cetak(fieldBiayaCetakProdukMerchandise.getText());
+        if (karakter == KeyEvent.VK_COMMA) {
+            if (panjang == 2) {
+                JOptionPane.showMessageDialog(null, "Maksimal koma hanya satu!");
                 evt.consume();
             }
-            
-        }else if (!(((karakter >= '0') && (karakter <= '9')
+        } else if (!(((karakter >= '0') && (karakter <= '9')
                 || (karakter == KeyEvent.VK_BACK_SPACE)
-                || (karakter == KeyEvent.VK_PERIOD)
+                || (karakter == KeyEvent.VK_COMMA)
                 || (karakter == KeyEvent.VK_DELETE)
                 || (karakter == KeyEvent.VK_ENTER)))) {
             JOptionPane.showMessageDialog(null, "Hanya Boleh Angka !");
@@ -4323,16 +4380,15 @@ public final class FormHome extends javax.swing.JFrame {
     private void fieldBiayaCetakProdukPrismaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldBiayaCetakProdukPrismaKeyTyped
         // TODO add your handling code here:
         char karakter = evt.getKeyChar();
-        int panjang = hilangkan_titik(fieldBiayaCetakProdukPrisma.getText());
-        if(karakter == KeyEvent.VK_PERIOD){
-            if(panjang==2){
-                JOptionPane.showMessageDialog(null, "Maksimal titik hanya satu...");
+        int panjang = panjang_biaya_cetak(fieldBiayaCetakProdukPrisma.getText());
+        if (karakter == KeyEvent.VK_COMMA) {
+            if (panjang == 2) {
+                JOptionPane.showMessageDialog(null, "Maksimal koma hanya satu!");
                 evt.consume();
             }
-            
-        }else if (!(((karakter >= '0') && (karakter <= '9')
+        } else if (!(((karakter >= '0') && (karakter <= '9')
                 || (karakter == KeyEvent.VK_BACK_SPACE)
-                || (karakter == KeyEvent.VK_PERIOD)
+                || (karakter == KeyEvent.VK_COMMA)
                 || (karakter == KeyEvent.VK_DELETE)
                 || (karakter == KeyEvent.VK_ENTER)))) {
             JOptionPane.showMessageDialog(null, "Hanya Boleh Angka !");
@@ -4355,16 +4411,15 @@ public final class FormHome extends javax.swing.JFrame {
     private void fieldBiayaCetakDokumenFilateliKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldBiayaCetakDokumenFilateliKeyTyped
         // TODO add your handling code here:
         char karakter = evt.getKeyChar();
-        int panjang = hilangkan_titik(fieldBiayaCetakDokumenFilateli.getText());
-        if(karakter == KeyEvent.VK_PERIOD){
-            if(panjang==2){
-                JOptionPane.showMessageDialog(null, "Maksimal titik hanya satu...");
+        int panjang = panjang_biaya_cetak(fieldBiayaCetakDokumenFilateli.getText());
+        if (karakter == KeyEvent.VK_COMMA) {
+            if (panjang == 2) {
+                JOptionPane.showMessageDialog(null, "Maksimal koma hanya satu!");
                 evt.consume();
             }
-            
-        }else if (!(((karakter >= '0') && (karakter <= '9')
+        } else if (!(((karakter >= '0') && (karakter <= '9')
                 || (karakter == KeyEvent.VK_BACK_SPACE)
-                || (karakter == KeyEvent.VK_PERIOD)
+                || (karakter == KeyEvent.VK_COMMA)
                 || (karakter == KeyEvent.VK_DELETE)
                 || (karakter == KeyEvent.VK_ENTER)))) {
             JOptionPane.showMessageDialog(null, "Hanya Boleh Angka !");
@@ -4730,23 +4785,20 @@ public final class FormHome extends javax.swing.JFrame {
         // TODO add your handling code here:
         int pilih = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin Logout ?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
         if (pilih == JOptionPane.YES_OPTION) {
-            FormLogin fl = new FormLogin();
+            FormLogin fl = null;
+            try {
+                fl = new FormLogin();
+            } catch (IOException ex) {
+                Logger.getLogger(FormHome.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(FormHome.class.getName()).log(Level.SEVERE, null, ex);
+            }
             fl.setLocationRelativeTo(null);
             fl.setVisible(true);
             this.setVisible(false);
         }
 
     }//GEN-LAST:event_buttonLogoutActionPerformed
-
-    private void fieldNominalPrangkoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fieldNominalPrangkoMouseClicked
-        // TODO add your handling code here:
-        fieldNominalPrangko.selectAll();
-    }//GEN-LAST:event_fieldNominalPrangkoMouseClicked
-
-    private void fieldBiayaCetakPrangkoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fieldBiayaCetakPrangkoMouseClicked
-        // TODO add your handling code here:
-        fieldBiayaCetakPrangko.selectAll();
-    }//GEN-LAST:event_fieldBiayaCetakPrangkoMouseClicked
 
     private void itemRecycleBin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemRecycleBin1ActionPerformed
         // TODO add your handling code here:

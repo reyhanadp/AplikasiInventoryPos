@@ -171,10 +171,20 @@
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="FieldNominal">
+          <Events>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="FieldNominalKeyReleased"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="FieldNominalKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="FieldBiayaCetak">
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="FieldBiayaCetakKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="FieldTahunCetak">
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="FieldTahunCetakKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>

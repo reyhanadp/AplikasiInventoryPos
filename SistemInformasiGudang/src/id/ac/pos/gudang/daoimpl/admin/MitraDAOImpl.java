@@ -8,6 +8,7 @@ package id.ac.pos.gudang.daoimpl.admin;
 import id.ac.pos.gudang.dao.admin.MitraDAO;
 import id.ac.pos.gudang.entity.Mitra;
 import id.ac.pos.gudang.utility.DatabaseConnectivity;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -22,17 +23,22 @@ import java.util.logging.Logger;
  */
 public class MitraDAOImpl implements MitraDAO {
 
+    ResultSet result;
     private Connection conn;
-
-    public MitraDAOImpl() {
-        conn = DatabaseConnectivity.getConnection();
-    }
+    PreparedStatement state;
 
     @Override
     public ArrayList<Mitra> getMitra() {
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException ex) {
+            Logger.getLogger(MitraDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(MitraDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
         ArrayList<Mitra> arrayMitra = null;
         String SELECT = "SELECT * FROM tb_mitra";
-        PreparedStatement state = null;
+        state = null;
 
         try {
             state = conn.prepareStatement(SELECT);
@@ -58,12 +64,44 @@ public class MitraDAOImpl implements MitraDAO {
             }
         } catch (SQLException ex) {
             Logger.getLogger(MitraDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }finally {
+            if (result != null) {
+                try {
+                    result.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(MitraDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(MitraDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(MitraDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
         }
         return arrayMitra;
     }
 
     @Override
     public ArrayList<Mitra> cariMitra(String keyword) {
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException ex) {
+            Logger.getLogger(MitraDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(MitraDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
         ArrayList<Mitra> arrayMitra = null;
         String SELECT = "SELECT * FROM tb_mitra "
                 + "WHERE nama_mitra LIKE '%"+keyword+"%'";
@@ -91,12 +129,44 @@ public class MitraDAOImpl implements MitraDAO {
             }
         } catch (SQLException ex) {
             Logger.getLogger(MitraDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }finally {
+            if (result != null) {
+                try {
+                    result.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(MitraDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(MitraDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(MitraDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
         }
         return arrayMitra;
     }
 
     @Override
     public boolean tambahMitra(Mitra mitra) {
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException ex) {
+            Logger.getLogger(MitraDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(MitraDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
         String INSERT = "INSERT INTO tb_mitra (id_mitra, nama_mitra, "
                 + "alamat, no_telp) VALUES (?, ?, ?, ?)";
         PreparedStatement state = null;
@@ -112,6 +182,31 @@ public class MitraDAOImpl implements MitraDAO {
             return qty > 0;
         } catch (SQLException ex) {
             Logger.getLogger(MitraDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }finally {
+            if (result != null) {
+                try {
+                    result.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(MitraDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(MitraDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(MitraDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
         }
         return false;
     }
@@ -135,6 +230,13 @@ public class MitraDAOImpl implements MitraDAO {
 
     @Override
     public boolean ubahMitra(Mitra mitra) {
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException ex) {
+            Logger.getLogger(MitraDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(MitraDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
         String UPDATE = "UPDATE tb_mitra "
                 + "SET nama_mitra = ?, alamat = ?, no_telp = ? "
                 + "WHERE id_mitra = ?";
@@ -151,6 +253,31 @@ public class MitraDAOImpl implements MitraDAO {
             return qty > 0;
         } catch (SQLException ex) {
             Logger.getLogger(MitraDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }finally {
+            if (result != null) {
+                try {
+                    result.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(MitraDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(MitraDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(MitraDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
         }
         return false;
     }

@@ -14,6 +14,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -23,10 +24,6 @@ public class DatabaseConnectivity {
     
     private static Connection conn;
     private static Process runtimeProcess;
-
-    public DatabaseConnectivity() {
-    }
-    
     private final static String url = "jdbc:mysql://localhost:3306/db_inventory_pos";
     private final static String user  = "root";
     private final static String password = "";
@@ -42,9 +39,16 @@ public class DatabaseConnectivity {
                 String path = new File(".").getCanonicalPath();
                 runtimeProcess = Runtime.getRuntime().exec("C:\\xampp\\mysql\\bin\\mysql -u root -e \"create database db_inventory_pos\"");
                 
-                String[] kata = new String[]{"c:/xampp/mysql/bin/mysql", database, "-u" + user, "-e", " source "+path+"/db_inventory_pos.sql"};
-                runtimeProcess=Runtime.getRuntime().exec(kata);
+                String[] kata = new String[]{"C:\\xampp\\mysql\\bin\\mysql", database, "-uroot", "-e", " source "+path+"\\db_inventory_pos.sql"};
+                runtimeProcess = Runtime.getRuntime().exec(kata);
+                int prosesSukses=runtimeProcess.waitFor();
+                if(prosesSukses==0){
+                    JOptionPane.showMessageDialog(null, "Restore database Sukses");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Restore database gagal");
+                }
             }
+            
             System.out.println("pesan error koneksi : "+error);
             System.out.println("Koneksi database gagal dengan pesan : " + ex.getMessage());
         }

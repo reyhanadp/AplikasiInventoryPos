@@ -8,6 +8,7 @@ package id.ac.pos.gudang.daoimpl.admin;
 import id.ac.pos.gudang.dao.admin.RegionalDAO;
 import id.ac.pos.gudang.entity.Regional;
 import id.ac.pos.gudang.utility.DatabaseConnectivity;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -22,14 +23,19 @@ import java.util.logging.Logger;
  */
 public class RegionalDAOImpl implements RegionalDAO {
 
+    ResultSet result;
     private Connection conn;
-
-    public RegionalDAOImpl() {
-        conn = DatabaseConnectivity.getConnection();
-    }
+    PreparedStatement state;
 
     @Override
     public ArrayList<Regional> getRegional() {
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException ex) {
+            Logger.getLogger(RegionalDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(RegionalDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
         ArrayList<Regional> arrayRegional = null;
         String SELECT = "SELECT * FROM tb_regional";
         PreparedStatement state = null;
@@ -59,6 +65,31 @@ public class RegionalDAOImpl implements RegionalDAO {
             }
         } catch (SQLException ex) {
             Logger.getLogger(RegionalDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }finally {
+            if (result != null) {
+                try {
+                    result.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(RegionalDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(RegionalDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(RegionalDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
         }
 
         return arrayRegional;
@@ -66,6 +97,13 @@ public class RegionalDAOImpl implements RegionalDAO {
 
     @Override
     public ArrayList<Regional> cariRegional(String keyword) {
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException ex) {
+            Logger.getLogger(RegionalDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(RegionalDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
         ArrayList<Regional> arrayRegional = null;
         String SELECT = "SELECT * FROM tb_regional "
                 + "WHERE regional LIKE ?";
@@ -97,12 +135,44 @@ public class RegionalDAOImpl implements RegionalDAO {
             }
         } catch (SQLException ex) {
             Logger.getLogger(RegionalDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }finally {
+            if (result != null) {
+                try {
+                    result.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(RegionalDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(RegionalDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(RegionalDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
         }
         return arrayRegional;
     }
 
     @Override
     public boolean tambahRegional(Regional regional) {
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException ex) {
+            Logger.getLogger(RegionalDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(RegionalDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
         String INSERT = "INSERT INTO tb_regional (id_regional, regional, "
                 + "kode_pos, no_telp, alamat) VALUES (?, ?, ?, ?, ?)";
         PreparedStatement state = null;
@@ -119,6 +189,31 @@ public class RegionalDAOImpl implements RegionalDAO {
             return qty > 0;
         } catch (SQLException ex) {
             Logger.getLogger(RegionalDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }finally {
+            if (result != null) {
+                try {
+                    result.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(RegionalDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(RegionalDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(RegionalDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
         }
         return false;
     }
@@ -142,6 +237,13 @@ public class RegionalDAOImpl implements RegionalDAO {
 
     @Override
     public boolean ubahRegional(Regional regional) {
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException ex) {
+            Logger.getLogger(RegionalDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(RegionalDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
         String UPDATE = "UPDATE tb_regional "
                 + "SET regional = ?, kode_pos = ?, alamat = ?, no_telp = ? "
                 + "WHERE id_regional = ?";
@@ -159,6 +261,31 @@ public class RegionalDAOImpl implements RegionalDAO {
             return qty > 0;
         } catch (SQLException ex) {
             Logger.getLogger(RegionalDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }finally {
+            if (result != null) {
+                try {
+                    result.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(RegionalDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(RegionalDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(RegionalDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
         }
         return false;
     }
