@@ -37,16 +37,10 @@ public class DatabaseConnectivity {
             if("Unknown database 'db_inventory_pos'".equals(error)){
                 String database = "db_inventory_pos";
                 String path = new File(".").getCanonicalPath();
-                runtimeProcess = Runtime.getRuntime().exec("C:\\xampp\\mysql\\bin\\mysql -u root -e \"create database db_inventory_pos\"");
+                runtimeProcess = Runtime.getRuntime().exec("C:\\mysql\\bin\\mysql -u root -e \"create database db_inventory_pos\"");
                 
-                String[] kata = new String[]{"C:\\xampp\\mysql\\bin\\mysql", database, "-uroot", "-e", " source "+path+"\\db_inventory_pos.sql"};
+                String[] kata = new String[]{"C:\\mysql\\bin\\mysql", database, "-uroot", "-e", " source "+path+"\\db_inventory_pos.sql"};
                 runtimeProcess = Runtime.getRuntime().exec(kata);
-                int prosesSukses=runtimeProcess.waitFor();
-                if(prosesSukses==0){
-                    JOptionPane.showMessageDialog(null, "Restore database Sukses");
-                } else {
-                    JOptionPane.showMessageDialog(null, "Restore database gagal");
-                }
             }
             
             System.out.println("pesan error koneksi : "+error);

@@ -681,5 +681,182 @@ public class LaporanDAOImpl implements LaporanDAO{
 
         return false;
     }
+
+    @Override
+    public ArrayList<Produk> getTahunPengiriman() {
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException | InterruptedException ex) {
+            Logger.getLogger(LaporanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        String SELECT = "SELECT DISTINCT(YEAR(tgl_pengiriman)) as tahun FROM tb_trans_pengiriman order by tahun asc";
+        PreparedStatement state = null;
+
+        try {
+            state = conn.prepareStatement(SELECT);
+
+            ResultSet result = state.executeQuery();
+            if (result != null) {
+                arrayProduk = new ArrayList<>();
+
+                //selama result memiliki data 
+                // return lebih dari 1 data 
+                while (result.next()) {
+
+                    //mengambil 1 data
+                    Produk produk = new Produk();
+                    produk.setTahun(result.getString(1));
+
+                    //menambahkan data ke array
+                    arrayProduk.add(produk);
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(RegionalDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (result != null) {
+                try {
+                    result.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+
+        return arrayProduk;
+    }
+
+    @Override
+    public ArrayList<Produk> getTahunPenerimaan() {
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException | InterruptedException ex) {
+            Logger.getLogger(LaporanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        String SELECT = "SELECT DISTINCT(YEAR(tgl_penerimaan)) as tahun FROM tb_trans_penerimaan order by tahun asc";
+        PreparedStatement state = null;
+
+        try {
+            state = conn.prepareStatement(SELECT);
+
+            ResultSet result = state.executeQuery();
+            if (result != null) {
+                arrayProduk = new ArrayList<>();
+
+                //selama result memiliki data 
+                // return lebih dari 1 data 
+                while (result.next()) {
+
+                    //mengambil 1 data
+                    Produk produk = new Produk();
+                    produk.setTahun(result.getString(1));
+
+                    //menambahkan data ke array
+                    arrayProduk.add(produk);
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(RegionalDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (result != null) {
+                try {
+                    result.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+
+        return arrayProduk;
+    }
+
+    @Override
+    public ArrayList<Produk> getTahunPengembalian() {
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException | InterruptedException ex) {
+            Logger.getLogger(LaporanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        String SELECT = "SELECT DISTINCT(YEAR(tgl_pengembalian)) as tahun FROM tb_trans_pengembalian order by tahun asc";
+        PreparedStatement state = null;
+
+        try {
+            state = conn.prepareStatement(SELECT);
+
+            ResultSet result = state.executeQuery();
+            if (result != null) {
+                arrayProduk = new ArrayList<>();
+
+                //selama result memiliki data 
+                // return lebih dari 1 data 
+                while (result.next()) {
+
+                    //mengambil 1 data
+                    Produk produk = new Produk();
+                    produk.setTahun(result.getString(1));
+
+                    //menambahkan data ke array
+                    arrayProduk.add(produk);
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(RegionalDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (result != null) {
+                try {
+                    result.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+
+        return arrayProduk;
+    }
     
 }

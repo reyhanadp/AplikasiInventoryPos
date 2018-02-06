@@ -177,7 +177,7 @@ public class DialogBackup extends javax.swing.JDialog {
             if(LokasiFolder.getText().isEmpty()){
                 JOptionPane.showMessageDialog(null, "Pilih lokasi backup terlebih dahulu");
             } else{
-                Process runtimeProcess = Runtime.getRuntime().exec("C:\\xampp\\mysql\\bin\\mysqldump -u root db_inventory_pos -r "+LokasiFolder.getText()+"\\"+timeExport+".sql");
+                Process runtimeProcess = Runtime.getRuntime().exec("C:\\mysql\\bin\\mysqldump -u root db_inventory_pos -r "+LokasiFolder.getText()+"\\"+timeExport+".sql");
                 System.out.println(LokasiFolder.getText()+"\\"+timeExport+".sql");
                 int prosesSukses=runtimeProcess.waitFor();
                 if(prosesSukses==0){
@@ -216,7 +216,7 @@ public class DialogBackup extends javax.swing.JDialog {
                 JOptionPane.showMessageDialog(null, "Pilih lokasi restore terlebih dahulu");
             } else{                         
 
-                String[] kata = new String[]{"c:/xampp/mysql/bin/mysql", database, "-u" + user, "-e", " source "+fileRestore.getText()};
+                String[] kata = new String[]{"c:/mysql/bin/mysql", database, "-u" + user, "-e", " source "+fileRestore.getText()};
                 Process runtimeProcess=Runtime.getRuntime().exec(kata);
                 int prosesSukses=runtimeProcess.waitFor();
                 if(prosesSukses==0){
