@@ -171,7 +171,8 @@ public class DialogTambahPengiriman extends javax.swing.JDialog {
         for (int i = 0; i < baris; i++) {
             model.removeRow(0);
         }
-
+        
+        hapus.setEnabled(false);
         NoOrder.setText("");
         NoOrder.setEditable(true);
         TanggalPengiriman.setDate(null);

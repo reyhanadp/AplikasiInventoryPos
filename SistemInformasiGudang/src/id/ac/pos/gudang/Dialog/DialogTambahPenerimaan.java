@@ -66,7 +66,7 @@ public class DialogTambahPenerimaan extends javax.swing.JDialog {
         tabel_penerimaan.setModel(new javax.swing.table.DefaultTableModel(new Object[][]{},
                 new String[]{
                     "No", "Kode Produk", "Nama Produk", "Nominal", "Stok Awal",
-                    "Subtotal Terima", "Sisa Belum Dikirim", "Jumlah Pemesanan",
+                    "Subtotal Terima", "Sisa Belum Dikirim", "Jumlah Terima",
                     "Id Pemesanan", "Id Mitra", "Keterangan"
                 }));
 
@@ -159,6 +159,7 @@ public class DialogTambahPenerimaan extends javax.swing.JDialog {
             model.removeRow(0);
         }
 
+        Date ys = new Date();
         fieldNoOrder.setText("");
         fieldNoOrder1.setText("");
         fieldNoOrder2.setText("");
@@ -167,21 +168,21 @@ public class DialogTambahPenerimaan extends javax.swing.JDialog {
         fieldNoOrder1.setEnabled(true);
         fieldNoOrder2.setEnabled(true);
         fieldNoOrder3.setEnabled(true);
-        fieldTglPenerimaan.setDate(null);
+        fieldTglPenerimaan.setDate(ys);
         fieldTglPenerimaan.setEnabled(true);
         JenisProduk.setSelectedIndex(0);
         fieldJmlTerima.setText("");
         simpan.setEnabled(false);
         batal.setEnabled(false);
-        dispose();
+
     }
 
     private void reset() {
+
         Nominal.setSelectedItem("");
         Tahun.setSelectedItem("");
         fieldIdPemesanan.setText("");
         KodeProduk.setText("");
-        fieldTglPenerimaan.setDate(null);
         fieldJmlTerima.setText("");
         fieldIdMitra.setText("");
         fieldNamaMitra.setText("");
@@ -189,8 +190,7 @@ public class DialogTambahPenerimaan extends javax.swing.JDialog {
         fieldSubtotalTerima.setText("");
         fieldSisaBelumDikirim.setText("");
         fieldKeterangan.setText("");
-        NamaProduk.setSelectedItem("- Pilih Nama Produk -");
-        JenisProduk.setSelectedItem("- Pilih Jenis produk -");
+        JenisProduk.setSelectedIndex(0);
         fieldNoOrder.setText("");
         fieldNoOrder1.setText("");
         fieldNoOrder2.setText("");
@@ -746,7 +746,7 @@ public class DialogTambahPenerimaan extends javax.swing.JDialog {
                 int sub_total_terima = Integer.parseInt(subtotal_terima) + Integer.parseInt(jumlah_penerimaan);
                 int sisa_belum_dikirim = Integer.parseInt(sisa) - Integer.parseInt(jumlah_penerimaan);
                 penerimaan.setStokAkhir(stok_akhir);
-                
+
                 penerimaan.setSubTotalTerima(sub_total_terima);
                 penerimaan.setSisaBelumDikirim(sisa_belum_dikirim);
                 penerimaan.setKeterangan(keterangan);
@@ -756,9 +756,11 @@ public class DialogTambahPenerimaan extends javax.swing.JDialog {
             if (sukses) {
                 JOptionPane.showMessageDialog(this, "Data berhasil ditambahkan");
                 reset_simpan();
+                dispose();
             } else {
                 JOptionPane.showMessageDialog(this, "Data gagal ditambahkan");
                 reset_simpan();
+                dispose();
             }
         }
 
@@ -821,6 +823,7 @@ public class DialogTambahPenerimaan extends javax.swing.JDialog {
 
         } else {
             NamaProduk.removeAllItems();
+            NamaProduk.setSelectedItem("");
             Tahun.removeAllItems();
             Nominal.removeAllItems();
             KodeProduk.setText("");
@@ -991,7 +994,7 @@ public class DialogTambahPenerimaan extends javax.swing.JDialog {
             if (arrayProdukPrangko1.size() > 1) {
                 vectorNominal.add("- Pilih Nominal Produk -");
                 for (int i = 0; i < arrayProdukPrangko1.size(); i++) {
-                    
+
                     vectorNominal.add(arrayProdukPrangko1.get(i).getNominal());
                 }
                 Nominal.setModel(new DefaultComboBoxModel(vectorNominal));
@@ -1121,7 +1124,8 @@ public class DialogTambahPenerimaan extends javax.swing.JDialog {
         // TODO add your handling code here:
         String kosong = null;
         int no;
-        int baris;
+        int baris = tabel_penerimaan.getRowCount();;
+        int indeks = 0;
         String no_order = fieldNoOrder.getText();
         String no_order1 = fieldNoOrder1.getText();
         String no_order2 = fieldNoOrder2.getText();
@@ -1137,15 +1141,16 @@ public class DialogTambahPenerimaan extends javax.swing.JDialog {
         String subtotal_terima = fieldSubtotalTerima.getText();
         String sisa_blm_dikirim = fieldSisaBelumDikirim.getText();
         String keterangan = fieldKeterangan.getText();
-        int sisa = Integer.valueOf(sisa_blm_dikirim) - Integer.valueOf(jumlah_penerimaan);
-        int jml_terima = Integer.valueOf(jumlah_penerimaan);
-        int stok_akhir = Integer.valueOf(stok_awal) + jml_terima;
+        
         if (no_order.compareTo("") != 0 && no_order1.compareTo("") != 0 && no_order2.compareTo("") != 0 && no_order3.compareTo("") != 0) {
             if (id_pemesanan.compareTo("") != 0) {
                 if (tanggal_penerimaan != null) {
                     if (id_suplier.compareTo("") != 0) {
                         if (kode_produk.compareTo("") != 0) {
                             if (jumlah_penerimaan.compareTo("") != 0) {
+                                int sisa = Integer.valueOf(sisa_blm_dikirim) - Integer.valueOf(hilangkan_titik(jumlah_penerimaan));
+        int jml_terima = Integer.valueOf(hilangkan_titik(jumlah_penerimaan));
+        int stok_akhir = Integer.valueOf(stok_awal) + jml_terima;
                                 if (sisa >= 0) {
                                     fieldTglPenerimaan.setEnabled(false);
                                     fieldNoOrder.setEnabled(false);
@@ -1160,36 +1165,65 @@ public class DialogTambahPenerimaan extends javax.swing.JDialog {
                                         baris = tabel_penerimaan.getRowCount();
                                         no = baris + 1;
                                     }
-                                    DefaultTableModel dataModel = (DefaultTableModel) tabel_penerimaan.getModel();
-                                    List list = new ArrayList<>();
-                                    tabel_penerimaan.setAutoCreateColumnsFromModel(true);
-                                    list.add(no);
-                                    list.add(kode_produk);
-                                    list.add(nama_produk);
-                                    nominal = format_titik(nominal);
-                                    list.add(nominal);
-                                    stok_awal = format_titik(stok_awal);
-                                    list.add(stok_awal);
-                                    subtotal_terima = format_titik(subtotal_terima);
-                                    list.add(subtotal_terima);
-                                    sisa_blm_dikirim = format_titik(sisa_blm_dikirim);
-                                    list.add(sisa_blm_dikirim);
-                                    jumlah_penerimaan = format_titik(jumlah_penerimaan);
-                                    list.add(jumlah_penerimaan);
-                                    list.add(id_pemesanan);
-                                    list.add(id_suplier);
-                                    list.add(keterangan);
-                                    dataModel.addRow(list.toArray());
 
-                                    NamaProduk.setSelectedItem("");
-                                    JenisProduk.setSelectedIndex(0);
-                                    fieldJmlTerima.setText("");
-                                    simpan.setEnabled(true);
-                                    batal.setEnabled(true);
-                                    hapus.setEnabled(true);
+                                    if (baris > 0) {
+                                        for (int i = 0; i < baris; i++) {
+                                            Object kode = tabel_penerimaan.getValueAt(i, 1);
+                                            if (kode_produk.compareTo((String) kode) == 0) {
+                                                indeks = 1;
+                                            }
+                                        }
+                                    }
+
+                                    if (indeks == 0) {
+                                        fieldTglPenerimaan.setEnabled(false);
+
+                                        if (tabel_penerimaan.getRowCount() == 0) {
+                                            no = 1;
+                                        } else {
+                                            no = baris + 1;
+                                        }
+                                        DefaultTableModel dataModel = (DefaultTableModel) tabel_penerimaan.getModel();
+                                        List list = new ArrayList<>();
+                                        tabel_penerimaan.setAutoCreateColumnsFromModel(true);
+                                        list.add(no);
+                                        list.add(kode_produk);
+                                        list.add(nama_produk);
+
+                                        nominal = format_titik(nominal);
+                                        list.add(nominal);
+
+                                        stok_awal = format_titik(stok_awal);
+                                        list.add(stok_awal);
+
+                                        subtotal_terima = format_titik(subtotal_terima);
+                                        list.add(subtotal_terima);
+
+                                        sisa_blm_dikirim = format_titik(sisa_blm_dikirim);
+                                        list.add(sisa_blm_dikirim);
+
+//                                    jumlah_penerimaan = format_titik(jumlah_penerimaan);
+                                        list.add(jumlah_penerimaan);
+                                        list.add(id_pemesanan);
+                                        list.add(id_suplier);
+                                        list.add(keterangan);
+                                        dataModel.addRow(list.toArray());
+
+                                        NamaProduk.setSelectedItem("");
+                                        JenisProduk.setSelectedIndex(0);
+                                        fieldJmlTerima.setText("");
+                                        simpan.setEnabled(true);
+                                        batal.setEnabled(true);
+                                        hapus.setEnabled(true);
+
+                                    } else {
+                                        JOptionPane.showMessageDialog(null, "Produk sudah terdaftar!");
+                                    }
+
                                 } else {
                                     JOptionPane.showMessageDialog(null, "jumlah penerimaan melebihi pemesanan!");
                                 }
+
                             } else {
                                 JOptionPane.showMessageDialog(null, "Silakan isi Jumlah pesan terlebih dahulu!");
                             }
@@ -1212,10 +1246,12 @@ public class DialogTambahPenerimaan extends javax.swing.JDialog {
 
     private void resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetActionPerformed
         // TODO add your handling code here:
+
         int baris = tabel_penerimaan.getRowCount();
         if (baris > 0) {
             JenisProduk.setSelectedIndex(0);
-            reset_simpan();
+            fieldJmlTerima.setText("");
+            fieldKeterangan.setText("");
         } else {
             reset();
         }
@@ -1251,6 +1287,11 @@ public class DialogTambahPenerimaan extends javax.swing.JDialog {
             baris = tabel_penerimaan.getRowCount();
             if (baris == 0) {
                 hapus.setEnabled(false);
+                fieldNoOrder.setEnabled(true);
+                fieldNoOrder1.setEnabled(true);
+                fieldNoOrder2.setEnabled(true);
+                fieldNoOrder3.setEnabled(true);
+                fieldTglPenerimaan.setEnabled(true);
             }
 
         } else {
@@ -1261,6 +1302,7 @@ public class DialogTambahPenerimaan extends javax.swing.JDialog {
     private void batalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_batalActionPerformed
         // TODO add your handling code here:
         reset_simpan();
+        hapus.setEnabled(false);
     }//GEN-LAST:event_batalActionPerformed
 
     private void fieldJmlTerimaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldJmlTerimaKeyReleased

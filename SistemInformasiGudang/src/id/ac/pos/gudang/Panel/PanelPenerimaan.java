@@ -1058,6 +1058,11 @@ public class PanelPenerimaan extends javax.swing.JPanel {
         // lakukan proses pencarian
         dao = new PenerimaanDAOImpl();
         arrayPenerimaan = dao.cariProdukPenerimaan(keyword, jenisCari, idJenis);
+        for (int i = 0; i < arrayPenerimaan.size(); i++) {
+            arrayProduk = dao.getNama(arrayPenerimaan.get(i).getIdProduk());
+            arrayPemesanan = dao.getNoPemesanan(arrayPenerimaan.get(i).getIdPemesanan());
+            
+        }
         
         PenerimaanTM penerimaanTableModel = new PenerimaanTM();
         penerimaanTableModel.setDataPenerimaan(arrayPenerimaan);
@@ -1069,6 +1074,10 @@ public class PanelPenerimaan extends javax.swing.JPanel {
 
     private void buttonTambahPenerimaanMSSSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTambahPenerimaanMSSSActionPerformed
         // TODO add your handling code here:
+        FormHome formHome = new FormHome();
+        boolean rootPaneCheckingEnabled = true;
+        new DialogTambahPenerimaan(formHome, rootPaneCheckingEnabled).setVisible(true);
+        getDataPenerimaan();
     }//GEN-LAST:event_buttonTambahPenerimaanMSSSActionPerformed
 
     private void tablePenerimaanSHP_SHPSSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePenerimaanSHP_SHPSSMouseClicked
@@ -1090,6 +1099,11 @@ public class PanelPenerimaan extends javax.swing.JPanel {
         // lakukan proses pencarian
         dao = new PenerimaanDAOImpl();
         arrayPenerimaan = dao.cariProdukPenerimaan(keyword, jenisCari, idJenis);
+        for (int i = 0; i < arrayPenerimaan.size(); i++) {
+            arrayProduk = dao.getNama(arrayPenerimaan.get(i).getIdProduk());
+            arrayPemesanan = dao.getNoPemesanan(arrayPenerimaan.get(i).getIdPemesanan());
+            
+        }
                 
         PenerimaanTM penerimaanTableModel = new PenerimaanTM();
         penerimaanTableModel.setDataPenerimaan(arrayPenerimaan);
@@ -1101,6 +1115,10 @@ public class PanelPenerimaan extends javax.swing.JPanel {
 
     private void buttonTambahPenerimaanSHPSSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTambahPenerimaanSHPSSActionPerformed
         // TODO add your handling code here:
+        FormHome formHome = new FormHome();
+        boolean rootPaneCheckingEnabled = true;
+        new DialogTambahPenerimaan(formHome, rootPaneCheckingEnabled).setVisible(true);
+        getDataPenerimaan();
     }//GEN-LAST:event_buttonTambahPenerimaanSHPSSActionPerformed
 
     private void tablePenerimaanKemasanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePenerimaanKemasanMouseClicked
@@ -1122,6 +1140,11 @@ public class PanelPenerimaan extends javax.swing.JPanel {
         // lakukan proses pencarian
         dao = new PenerimaanDAOImpl();
         arrayPenerimaan = dao.cariProdukPenerimaan(keyword, jenisCari, idJenis);
+        for (int i = 0; i < arrayPenerimaan.size(); i++) {
+            arrayProduk = dao.getNama(arrayPenerimaan.get(i).getIdProduk());
+            arrayPemesanan = dao.getNoPemesanan(arrayPenerimaan.get(i).getIdPemesanan());
+            
+        }
         
         PenerimaanTM penerimaanTableModel = new PenerimaanTM();
         penerimaanTableModel.setDataPenerimaan(arrayPenerimaan);
@@ -1133,6 +1156,10 @@ public class PanelPenerimaan extends javax.swing.JPanel {
 
     private void buttonTambahPenerimaanKemasanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTambahPenerimaanKemasanActionPerformed
         // TODO add your handling code here:
+        FormHome formHome = new FormHome();
+        boolean rootPaneCheckingEnabled = true;
+        new DialogTambahPenerimaan(formHome, rootPaneCheckingEnabled).setVisible(true);
+        getDataPenerimaan();
     }//GEN-LAST:event_buttonTambahPenerimaanKemasanActionPerformed
 
     private void tablePenerimaanMerchandiseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePenerimaanMerchandiseMouseClicked
@@ -1154,7 +1181,12 @@ public class PanelPenerimaan extends javax.swing.JPanel {
         // lakukan proses pencarian
         dao = new PenerimaanDAOImpl();
         arrayPenerimaan = dao.cariProdukPenerimaan(keyword, jenisCari, idJenis);
-                
+        for (int i = 0; i < arrayPenerimaan.size(); i++) {
+            arrayProduk = dao.getNama(arrayPenerimaan.get(i).getIdProduk());
+            arrayPemesanan = dao.getNoPemesanan(arrayPenerimaan.get(i).getIdPemesanan());
+            
+        }
+               
         PenerimaanTM penerimaanTableModel = new PenerimaanTM();
         penerimaanTableModel.setDataPenerimaan(arrayPenerimaan);
         sorter = new TableRowSorter(penerimaanTableModel);
@@ -1165,6 +1197,10 @@ public class PanelPenerimaan extends javax.swing.JPanel {
 
     private void buttonTambahPenerimaanMerchandiseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTambahPenerimaanMerchandiseActionPerformed
         // TODO add your handling code here:
+        FormHome formHome = new FormHome();
+        boolean rootPaneCheckingEnabled = true;
+        new DialogTambahPenerimaan(formHome, rootPaneCheckingEnabled).setVisible(true);
+        getDataPenerimaan();
     }//GEN-LAST:event_buttonTambahPenerimaanMerchandiseActionPerformed
 
     private void tablePenerimaanPrismaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePenerimaanPrismaMouseClicked
@@ -1186,6 +1222,11 @@ public class PanelPenerimaan extends javax.swing.JPanel {
         // lakukan proses pencarian
         dao = new PenerimaanDAOImpl();
         arrayPenerimaan = dao.cariProdukPenerimaan(keyword, jenisCari, idJenis);
+        for (int i = 0; i < arrayPenerimaan.size(); i++) {
+            arrayProduk = dao.getNama(arrayPenerimaan.get(i).getIdProduk());
+            arrayPemesanan = dao.getNoPemesanan(arrayPenerimaan.get(i).getIdPemesanan());
+            
+        }
         
         PenerimaanTM penerimaanTableModel = new PenerimaanTM();
         penerimaanTableModel.setDataPenerimaan(arrayPenerimaan);
@@ -1197,6 +1238,10 @@ public class PanelPenerimaan extends javax.swing.JPanel {
 
     private void buttonTambahPenerimaanPrismaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTambahPenerimaanPrismaActionPerformed
         // TODO add your handling code here:
+        FormHome formHome = new FormHome();
+        boolean rootPaneCheckingEnabled = true;
+        new DialogTambahPenerimaan(formHome, rootPaneCheckingEnabled).setVisible(true);
+        getDataPenerimaan();
     }//GEN-LAST:event_buttonTambahPenerimaanPrismaActionPerformed
 
     private void tablePenerimaanDokumenFilateliMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePenerimaanDokumenFilateliMouseClicked
@@ -1217,6 +1262,12 @@ public class PanelPenerimaan extends javax.swing.JPanel {
 
         // lakukan proses pencarian
         dao = new PenerimaanDAOImpl();
+        arrayPenerimaan = dao.cariProdukPenerimaan(keyword, jenisCari, idJenis);
+        for (int i = 0; i < arrayPenerimaan.size(); i++) {
+            arrayProduk = dao.getNama(arrayPenerimaan.get(i).getIdProduk());
+            arrayPemesanan = dao.getNoPemesanan(arrayPenerimaan.get(i).getIdPemesanan());
+            
+        }
         
         PenerimaanTM penerimaanTableModel = new PenerimaanTM();
         penerimaanTableModel.setDataPenerimaan(arrayPenerimaan);
@@ -1228,6 +1279,10 @@ public class PanelPenerimaan extends javax.swing.JPanel {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
+        FormHome formHome = new FormHome();
+        boolean rootPaneCheckingEnabled = true;
+        new DialogTambahPenerimaan(formHome, rootPaneCheckingEnabled).setVisible(true);
+        getDataPenerimaan();
     }//GEN-LAST:event_jButton7ActionPerformed
 
 

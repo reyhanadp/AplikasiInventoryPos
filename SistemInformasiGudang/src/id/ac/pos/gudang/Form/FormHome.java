@@ -4805,6 +4805,7 @@ public final class FormHome extends javax.swing.JFrame {
         DialogRecycleBin drb = new DialogRecycleBin(this, true);
         drb.setLocationRelativeTo(null);
         drb.setVisible(true);
+        getDataProduk();
     }//GEN-LAST:event_itemRecycleBin1ActionPerformed
 
     private void itemBackupRestoreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemBackupRestoreActionPerformed
@@ -4812,6 +4813,7 @@ public final class FormHome extends javax.swing.JFrame {
         DialogBackup db = new DialogBackup(this, true);
         db.setLocationRelativeTo(null);
         db.setVisible(true);
+        getDataProduk();
     }//GEN-LAST:event_itemBackupRestoreActionPerformed
 
     /**
