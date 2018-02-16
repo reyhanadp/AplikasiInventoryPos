@@ -1,6 +1,7 @@
 package id.ac.pos.gudang.Panel;
 
 import id.ac.pos.gudang.Dialog.DialogTambahPenerimaan;
+import id.ac.pos.gudang.Dialog.DialogViewDetailPenerimaan;
 import javax.swing.JDialog;
 import id.ac.pos.gudang.Form.FormHome;
 import id.ac.pos.gudang.dao.PenerimaanDAO;
@@ -13,6 +14,7 @@ import id.ac.pos.gudang.entity.Mitra;
 import id.ac.pos.gudang.tablemodel.PenerimaanTM;
 import java.util.ArrayList;
 import java.util.Vector;
+import javax.swing.JTable;
 import javax.swing.table.TableRowSorter;
 
 
@@ -955,6 +957,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
         tablePenerimaanPrangko.setRowSorter(sorter);
         tablePenerimaanPrangko.setModel(penerimaanTM);
         
+        
         PenerimaanTM penerimaanTM1 = new PenerimaanTM();
         penerimaanTM1.setDataPenerimaan(arrayPenerimaanMSSS);
         sorter = new TableRowSorter(penerimaanTM1);
@@ -1036,6 +1039,15 @@ public class PanelPenerimaan extends javax.swing.JPanel {
 
     private void tablePenerimaanPrangkoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePenerimaanPrangkoMouseClicked
         // TODO add your handling code here:
+        if(evt.getClickCount()==2){
+            int baris = tablePenerimaanPrangko.getSelectedRow();
+            String no_order = (String) tablePenerimaanPrangko.getValueAt(baris, 0);
+            
+            FormHome formHome = new FormHome();
+            DialogViewDetailPenerimaan detailPenerimaan = new DialogViewDetailPenerimaan(formHome, true);
+//            detailPenerimaan.setLocationRelativeTo(this);
+            detailPenerimaan.setVisible(true);
+        }
     }//GEN-LAST:event_tablePenerimaanPrangkoMouseClicked
 
     private void tablePenerimaanMS_SSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePenerimaanMS_SSMouseClicked

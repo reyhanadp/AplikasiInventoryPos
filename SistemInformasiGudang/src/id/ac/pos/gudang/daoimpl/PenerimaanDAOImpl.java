@@ -911,8 +911,10 @@ public class PenerimaanDAOImpl implements PenerimaanDAO {
         }
         ArrayList<Penerimaan> arrayPenerimaan = null;
         String SELECT = "";
-        SELECT = "SELECT pn.no_order_penerimaan,pn.tgl_penerimaan,pn.jml_terima,pm.no_pemesanan,pr.id_produk,pr.nama_produk,pr.nominal,"
-                + "pr.tahun,pn.stok_awal,pn.stok_akhir,mr.nama_mitra,pn.subtotal_terima,pn.sisa_belum_dikirim,pn.keterangan "
+        SELECT = "SELECT pn.no_order_penerimaan,pn.tgl_penerimaan,pn.jml_terima,"
+                + "pm.no_pemesanan,pr.id_produk,pr.nama_produk,pr.nominal,"
+                + "pr.tahun,pn.stok_awal,pn.stok_akhir,mr.nama_mitra,"
+                + "pn.subtotal_terima,pn.sisa_belum_dikirim,pn.keterangan "
                 + "FROM tb_trans_penerimaan pn JOIN tb_trans_pemesanan pm ON pm.id_pemesanan=pn.id_pemesanan "
                 + "JOIN tb_produk pr ON pr.id_produk=pm.id_produk "
                 + "JOIN tb_mitra mr On mr.id_mitra=pm.id_mitra "
@@ -923,6 +925,7 @@ public class PenerimaanDAOImpl implements PenerimaanDAO {
         try {
             state = conn.prepareStatement(SELECT);
 
+            
             result = state.executeQuery();
 
             if (result != null) {

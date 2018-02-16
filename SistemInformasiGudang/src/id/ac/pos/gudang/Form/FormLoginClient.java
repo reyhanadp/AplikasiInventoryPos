@@ -5,6 +5,7 @@
  */
 package id.ac.pos.gudang.Form;
 
+import id.ac.pos.gudang.Dialog.DialogIpAddress;
 import id.ac.pos.gudang.entity.User;
 import id.ac.pos.gudang.utility.DatabaseConnectivity;
 import java.awt.HeadlessException;
@@ -26,7 +27,7 @@ import javax.swing.UIManager;
  *
  * @author Oyoy
  */
-public class FormLogin extends javax.swing.JFrame {
+public class FormLoginClient extends javax.swing.JFrame {
 
     /**
      * Creates new form FormLogin
@@ -36,27 +37,27 @@ public class FormLogin extends javax.swing.JFrame {
     ResultSet rs;
     String sql;
 
-    public FormLogin() throws IOException, InterruptedException {
+    public FormLoginClient() throws IOException, InterruptedException {
         initComponents();
+        fieldNik.requestFocus();
         try {
             String path = new File(".").getCanonicalPath();
             File file = new File(path + "\\alamat_ip.txt");
 
-            if (file.exists()) {
-                file.setWritable(true);
+            if (!file.exists()) {
+                FileWriter fw = new FileWriter(path + "\\alamat_ip.txt");
+                BufferedWriter bw = new BufferedWriter(fw);
+                bw.write("");
+                bw.close();
+
+                file.setReadOnly();
             }
 
-            FileWriter fw = new FileWriter(path + "\\alamat_ip.txt");
-            BufferedWriter bw = new BufferedWriter(fw);
-            bw.write("localhost");
-            bw.close();
-
-            file.setReadOnly();
+            
         } catch (IOException ex) {
             Logger.getLogger(FormLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-        con = DatabaseConnectivity.getConnection();
+//        con = DatabaseConnectivity.getConnection();
 //        System.out.println(con);
     }
 
@@ -72,6 +73,7 @@ public class FormLogin extends javax.swing.JFrame {
         jSeparator2 = new javax.swing.JSeparator();
         jPanel1 = new javax.swing.JPanel();
         jTextField3 = new javax.swing.JTextField();
+        ip_address = new javax.swing.JButton();
         labelUsername = new javax.swing.JLabel();
         fieldPassword = new javax.swing.JPasswordField();
         fieldNik = new javax.swing.JTextField();
@@ -95,6 +97,14 @@ public class FormLogin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        ip_address.setText("Ip Address Server");
+        ip_address.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ip_addressActionPerformed(evt);
+            }
+        });
+        getContentPane().add(ip_address, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 10, -1, 30));
 
         labelUsername.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         labelUsername.setText("NIK");
@@ -151,38 +161,43 @@ public class FormLogin extends javax.swing.JFrame {
         try {
             con = DatabaseConnectivity.getConnection();
 
-            sql = "SELECT * FROM tb_user WHERE nik='" + fieldNik.getText()
-                    + "' AND password='" + fieldPassword.getText() + "' AND status='0'";
+            if (con != null) {
 
-            state = con.prepareStatement(sql);
-            rs = state.executeQuery();
-            //validasi
-            if (rs.next()) {
-                if (fieldPassword.getText().equals(rs.getString("password"))
-                        && fieldNik.getText().equals(rs.getString("nik"))
-                        && "FL".equals(rs.getString("hak_akses"))) {
-                    JOptionPane.showMessageDialog(null, "Login Sukses !");
-                    FormHome fh = new FormHome(rs.getString("nama_user"), rs.getString("nik"));
-                    fh.setVisible(true);
-                    this.setVisible(false); //form login akan tertutup
-                } else if (fieldPassword.getText().equals(rs.getString("password"))
-                        && fieldNik.getText().equals(rs.getString("nik"))
-                        && "AD".equals(rs.getString("hak_akses"))) {
-                    JOptionPane.showMessageDialog(null, "Login Sukses !");
-                    FormAdmin fa = new FormAdmin();
-                    fa.setVisible(true);
-                    this.setVisible(false); //form login akan tertutup
+                sql = "SELECT * FROM tb_user WHERE nik='" + fieldNik.getText()
+                        + "' AND password='" + fieldPassword.getText() + "' AND status='0'";
+
+                state = con.prepareStatement(sql);
+                rs = state.executeQuery();
+                //validasi
+                if (rs.next()) {
+                    if (fieldPassword.getText().equals(rs.getString("password"))
+                            && fieldNik.getText().equals(rs.getString("nik"))
+                            && "FL".equals(rs.getString("hak_akses"))) {
+                        JOptionPane.showMessageDialog(null, "Login Sukses !");
+                        FormHome fh = new FormHome(rs.getString("nama_user"), rs.getString("nik"));
+                        fh.setVisible(true);
+                        this.setVisible(false); //form login akan tertutup
+                    } else if (fieldPassword.getText().equals(rs.getString("password"))
+                            && fieldNik.getText().equals(rs.getString("nik"))
+                            && "AD".equals(rs.getString("hak_akses"))) {
+                        JOptionPane.showMessageDialog(null, "Login Sukses !");
+                        FormAdmin fa = new FormAdmin();
+                        fa.setVisible(true);
+                        this.setVisible(false); //form login akan tertutup
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "                Login Gagal! \n NIK atau Password Salah!", "", 1);
+                    fieldNik.setText(null);//set nilai txtUser menjadi kosong
+                    fieldPassword.setText(null);//set nilai txtPass menjadi kosong
+                    fieldNik.requestFocus();
                 }
+
             } else {
-                JOptionPane.showMessageDialog(null, "                Login Gagal! \n NIK atau Password Salah!", "", 1);
-                fieldNik.setText(null);//set nilai txtUser menjadi kosong
-                fieldPassword.setText(null);//set nilai txtPass menjadi kosong
-                fieldNik.requestFocus();
+                JOptionPane.showMessageDialog(null, "                IP Address Server salah!", "", 1);
+                con.close();
             }
-        } catch (HeadlessException | SQLException e) {
-            JOptionPane.showMessageDialog(this, e.getMessage());
-        } catch (IOException | InterruptedException ex) {
-            Logger.getLogger(FormLogin.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException | IOException | InterruptedException ex) {
+            Logger.getLogger(FormLoginClient.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_buttonLoginActionPerformed
 
@@ -199,6 +214,18 @@ public class FormLogin extends javax.swing.JFrame {
             buttonLogin.doClick();
         }
     }//GEN-LAST:event_fieldPasswordKeyPressed
+
+    private void ip_addressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ip_addressActionPerformed
+        // TODO add your handling code here:
+        DialogIpAddress address = null;
+        try {
+            address = new DialogIpAddress(this, true);
+        } catch (IOException ex) {
+            Logger.getLogger(FormLoginClient.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        address.setLocationRelativeTo(this);
+        address.setVisible(true);
+    }//GEN-LAST:event_ip_addressActionPerformed
 
     /**
      * @param args the command line arguments
@@ -236,11 +263,11 @@ public class FormLogin extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                FormLogin fl = null;
+                FormLoginClient fl = null;
                 try {
-                    fl = new FormLogin();
+                    fl = new FormLoginClient();
                 } catch (IOException | InterruptedException ex) {
-                    Logger.getLogger(FormLogin.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(FormLoginClient.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 fl.setLocationRelativeTo(null);
                 fl.setVisible(true);
@@ -254,6 +281,7 @@ public class FormLogin extends javax.swing.JFrame {
     private javax.swing.JButton buttonReset;
     private javax.swing.JTextField fieldNik;
     private javax.swing.JPasswordField fieldPassword;
+    private javax.swing.JButton ip_address;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTextField jTextField3;

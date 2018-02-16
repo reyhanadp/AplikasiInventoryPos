@@ -22,6 +22,9 @@ import java.awt.CardLayout;
 import javax.swing.JFrame;
 import javax.swing.*;
 import java.awt.event.KeyEvent;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -66,18 +69,18 @@ public final class FormHome extends javax.swing.JFrame {
         String[] temp = text_koma.split("\\,");
         return temp.length;
     }
-    
+
     private String ganti_koma_titik(String text_koma) {
         String[] temp = text_koma.split("\\,");
         String text_string = "";
-        if(temp.length == 1){
+        if (temp.length == 1) {
             text_string = temp[0];
-        }else if(temp.length == 2){
+        } else if (temp.length == 2) {
             text_string = temp[0] + "." + temp[1];
         }
         return text_string;
     }
-    
+
     private String format_titik(String text_string) {
         int j = 0, i, n;
         String text_hasil = "";
@@ -138,6 +141,49 @@ public final class FormHome extends javax.swing.JFrame {
 
     }
 
+    private String autoincrement(String data) {
+        String kosong = null;
+        String sub_nomor_string = data.substring(2, 11);
+        int sub_nomor_int = Integer.parseInt(sub_nomor_string);
+        sub_nomor_int = sub_nomor_int + 1;
+        sub_nomor_string = String.valueOf(sub_nomor_int);
+        int panjang = sub_nomor_string.length();
+        switch (panjang) {
+            case 1:
+                kosong = "00000000";
+                break;
+            case 2:
+                kosong = "0000000";
+                break;
+            case 3:
+                kosong = "000000";
+                break;
+            case 4:
+                kosong = "00000";
+                break;
+            case 5:
+                kosong = "0000";
+                break;
+            case 6:
+                kosong = "000";
+                break;
+            case 7:
+                kosong = "00";
+                break;
+            case 8:
+                kosong = "0";
+                break;
+            case 9:
+                kosong = null;
+                break;
+            default:
+                break;
+        }
+
+        sub_nomor_string = String.valueOf(sub_nomor_int);
+        return kosong + sub_nomor_string;
+    }
+
     private void refresh() {
         autoincrementProduk();
         getDataProduk();
@@ -154,7 +200,6 @@ public final class FormHome extends javax.swing.JFrame {
     }
 
     private void autoincrementPrangko() {
-        String kosong = null;
         dao = new ProdukDAOImpl();
         String jenisProduk = "PR";
 
@@ -162,50 +207,13 @@ public final class FormHome extends javax.swing.JFrame {
         if (kode_prangko == null) {
             kode_prangko = "PR000000000";
         }
-        String sub_nomor_string = kode_prangko.substring(2, 11);
-        int sub_nomor_int = Integer.parseInt(sub_nomor_string);
-        sub_nomor_string = String.valueOf(sub_nomor_int);
-        int panjang = sub_nomor_string.length();
-        switch (panjang) {
-            case 1:
-                kosong = "00000000";
-                break;
-            case 2:
-                kosong = "0000000";
-                break;
-            case 3:
-                kosong = "000000";
-                break;
-            case 4:
-                kosong = "00000";
-                break;
-            case 5:
-                kosong = "0000";
-                break;
-            case 6:
-                kosong = "000";
-                break;
-            case 7:
-                kosong = "00";
-                break;
-            case 8:
-                kosong = "0";
-                break;
-            case 9:
-                kosong = null;
-                break;
-            default:
-                break;
-        }
-        sub_nomor_int = sub_nomor_int + 1;
-        sub_nomor_string = String.valueOf(sub_nomor_int);
-        kode_prangko = "PR" + kosong + sub_nomor_string;
+
+        kode_prangko = "PR" + autoincrement(kode_prangko);
         fieldKodeProdukPrangko.setText(kode_prangko);
     }
 
     private void autoincrementMS_SS() {
         Object jenisMS_SS = ComboJenisMS_SS.getSelectedItem();
-        String kosong = null;
         String jenisProduk = null;
 
         dao = new ProdukDAOImpl();
@@ -221,44 +229,8 @@ public final class FormHome extends javax.swing.JFrame {
         if (kodeMS_SS == null) {
             kodeMS_SS = "" + jenisProduk + "000000000";
         }
-        String sub_nomor_string = kodeMS_SS.substring(2, 11);
-        int sub_nomor_int = Integer.parseInt(sub_nomor_string);
-        sub_nomor_string = String.valueOf(sub_nomor_int);
-        int panjang = sub_nomor_string.length();
-        switch (panjang) {
-            case 1:
-                kosong = "00000000";
-                break;
-            case 2:
-                kosong = "0000000";
-                break;
-            case 3:
-                kosong = "000000";
-                break;
-            case 4:
-                kosong = "00000";
-                break;
-            case 5:
-                kosong = "0000";
-                break;
-            case 6:
-                kosong = "000";
-                break;
-            case 7:
-                kosong = "00";
-                break;
-            case 8:
-                kosong = "0";
-                break;
-            case 9:
-                kosong = null;
-                break;
-            default:
-                break;
-        }
-        sub_nomor_int = sub_nomor_int + 1;
-        sub_nomor_string = String.valueOf(sub_nomor_int);
-        kodeMS_SS = jenisProduk + kosong + sub_nomor_string;
+
+        kodeMS_SS = jenisProduk + autoincrement(kodeMS_SS);
         fieldKodeProdukMS_SS.setText(kodeMS_SS);
     }
 
@@ -267,53 +239,15 @@ public final class FormHome extends javax.swing.JFrame {
         dao = new ProdukDAOImpl();
         String jenisProduk = "KM";
 
-        String kode_prangko = dao.getIdProduk(jenisProduk);
-        if (kode_prangko == null) {
-            kode_prangko = "KM000000000";
+        String kode_kemasan = dao.getIdProduk(jenisProduk);
+        if (kode_kemasan == null) {
+            kode_kemasan = "KM000000000";
         }
-        String sub_nomor_string = kode_prangko.substring(2, 11);
-        int sub_nomor_int = Integer.parseInt(sub_nomor_string);
-        sub_nomor_string = String.valueOf(sub_nomor_int);
-        int panjang = sub_nomor_string.length();
-        switch (panjang) {
-            case 1:
-                kosong = "00000000";
-                break;
-            case 2:
-                kosong = "0000000";
-                break;
-            case 3:
-                kosong = "000000";
-                break;
-            case 4:
-                kosong = "00000";
-                break;
-            case 5:
-                kosong = "0000";
-                break;
-            case 6:
-                kosong = "000";
-                break;
-            case 7:
-                kosong = "00";
-                break;
-            case 8:
-                kosong = "0";
-                break;
-            case 9:
-                kosong = null;
-                break;
-            default:
-                break;
-        }
-        sub_nomor_int = sub_nomor_int + 1;
-        sub_nomor_string = String.valueOf(sub_nomor_int);
-        kode_prangko = "KM" + kosong + sub_nomor_string;
-        fieldKodeProdukKemasan.setText(kode_prangko);
+        kode_kemasan = "KM" + autoincrement(kode_kemasan);
+        fieldKodeProdukKemasan.setText(kode_kemasan);
     }
 
     private void autoincrementMerchandise() {
-        String kosong = null;
         dao = new ProdukDAOImpl();
         String jenisProduk = "MC";
 
@@ -321,44 +255,8 @@ public final class FormHome extends javax.swing.JFrame {
         if (kode_merchandise == null) {
             kode_merchandise = "MC000000000";
         }
-        String sub_nomor_string = kode_merchandise.substring(2, 11);
-        int sub_nomor_int = Integer.parseInt(sub_nomor_string);
-        sub_nomor_string = String.valueOf(sub_nomor_int);
-        int panjang = sub_nomor_string.length();
-        switch (panjang) {
-            case 1:
-                kosong = "00000000";
-                break;
-            case 2:
-                kosong = "0000000";
-                break;
-            case 3:
-                kosong = "000000";
-                break;
-            case 4:
-                kosong = "00000";
-                break;
-            case 5:
-                kosong = "0000";
-                break;
-            case 6:
-                kosong = "000";
-                break;
-            case 7:
-                kosong = "00";
-                break;
-            case 8:
-                kosong = "0";
-                break;
-            case 9:
-                kosong = null;
-                break;
-            default:
-                break;
-        }
-        sub_nomor_int = sub_nomor_int + 1;
-        sub_nomor_string = String.valueOf(sub_nomor_int);
-        kode_merchandise = "MC" + kosong + sub_nomor_string;
+
+        kode_merchandise = "MC" + autoincrement(kode_merchandise);
         fieldKodeProdukMerchandise.setText(kode_merchandise);
     }
 
@@ -371,44 +269,8 @@ public final class FormHome extends javax.swing.JFrame {
         if (kode_prisma == null) {
             kode_prisma = "PS000000000";
         }
-        String sub_nomor_string = kode_prisma.substring(2, 11);
-        int sub_nomor_int = Integer.parseInt(sub_nomor_string);
-        sub_nomor_string = String.valueOf(sub_nomor_int);
-        int panjang = sub_nomor_string.length();
-        switch (panjang) {
-            case 1:
-                kosong = "00000000";
-                break;
-            case 2:
-                kosong = "0000000";
-                break;
-            case 3:
-                kosong = "000000";
-                break;
-            case 4:
-                kosong = "00000";
-                break;
-            case 5:
-                kosong = "0000";
-                break;
-            case 6:
-                kosong = "000";
-                break;
-            case 7:
-                kosong = "00";
-                break;
-            case 8:
-                kosong = "0";
-                break;
-            case 9:
-                kosong = null;
-                break;
-            default:
-                break;
-        }
-        sub_nomor_int = sub_nomor_int + 1;
-        sub_nomor_string = String.valueOf(sub_nomor_int);
-        kode_prisma = "PS" + kosong + sub_nomor_string;
+
+        kode_prisma = "PS" + autoincrement(kode_prisma);
         fieldKodeProdukPrisma.setText(kode_prisma);
     }
 
@@ -503,44 +365,7 @@ public final class FormHome extends javax.swing.JFrame {
         if (kode_dokumen_filateli == null) {
             kode_dokumen_filateli = "DF000000000";
         }
-        String sub_nomor_string = kode_dokumen_filateli.substring(2, 11);
-        int sub_nomor_int = Integer.parseInt(sub_nomor_string);
-        sub_nomor_string = String.valueOf(sub_nomor_int);
-        int panjang = sub_nomor_string.length();
-        switch (panjang) {
-            case 1:
-                kosong = "00000000";
-                break;
-            case 2:
-                kosong = "0000000";
-                break;
-            case 3:
-                kosong = "000000";
-                break;
-            case 4:
-                kosong = "00000";
-                break;
-            case 5:
-                kosong = "0000";
-                break;
-            case 6:
-                kosong = "000";
-                break;
-            case 7:
-                kosong = "00";
-                break;
-            case 8:
-                kosong = "0";
-                break;
-            case 9:
-                kosong = null;
-                break;
-            default:
-                break;
-        }
-        sub_nomor_int = sub_nomor_int + 1;
-        sub_nomor_string = String.valueOf(sub_nomor_int);
-        kode_dokumen_filateli = "DF" + kosong + sub_nomor_string;
+        kode_dokumen_filateli = "DF" + autoincrement(kode_dokumen_filateli);
         fieldKodeProdukDokumenFilateli.setText(kode_dokumen_filateli);
     }
 
@@ -4785,17 +4610,31 @@ public final class FormHome extends javax.swing.JFrame {
         // TODO add your handling code here:
         int pilih = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin Logout ?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
         if (pilih == JOptionPane.YES_OPTION) {
-            FormLogin fl = null;
             try {
-                fl = new FormLogin();
-            } catch (IOException ex) {
-                Logger.getLogger(FormHome.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (InterruptedException ex) {
+                String path = new File(".").getCanonicalPath();
+                FileReader fr = new FileReader(path + "\\alamat_ip.txt");
+                BufferedReader br = new BufferedReader(fr);
+                String alamat_ip = br.readLine();
+
+                if (alamat_ip.compareTo("localhost") == 0) {
+                    
+                    Process runtimeProcess = Runtime.getRuntime().exec("C:\\xampp\\mysql\\bin\\mysqldump -u root db_inventory_pos -r "+path+"\\db_inventory_pos.sql");
+                    
+                    FormLogin fl = new FormLogin();
+                    fl.setLocationRelativeTo(null);
+                    fl.setVisible(true);
+                    this.setVisible(false);
+                }else{
+                    FormLoginClient fl = new FormLoginClient();
+
+                    fl.setLocationRelativeTo(null);
+                    fl.setVisible(true);
+                    this.setVisible(false);
+                }
+            } catch (IOException | InterruptedException ex) {
                 Logger.getLogger(FormHome.class.getName()).log(Level.SEVERE, null, ex);
             }
-            fl.setLocationRelativeTo(null);
-            fl.setVisible(true);
-            this.setVisible(false);
+
         }
 
     }//GEN-LAST:event_buttonLogoutActionPerformed
@@ -4810,10 +4649,24 @@ public final class FormHome extends javax.swing.JFrame {
 
     private void itemBackupRestoreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemBackupRestoreActionPerformed
         // TODO add your handling code here:
-        DialogBackup db = new DialogBackup(this, true);
+        
+        try {
+            String path = new File(".").getCanonicalPath();
+            FileReader fr = new FileReader(path + "\\alamat_ip.txt");
+                BufferedReader br = new BufferedReader(fr);
+                String alamat_ip = br.readLine();
+
+                if (alamat_ip.compareTo("localhost") == 0) {
+                    DialogBackup db = new DialogBackup(this, true);
         db.setLocationRelativeTo(null);
         db.setVisible(true);
         getDataProduk();
+                }else{
+                    JOptionPane.showMessageDialog(null, "Backup Restore Hanya Dapat Dilakukan di Server!");
+                }
+        } catch (IOException ex) {
+            Logger.getLogger(FormHome.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_itemBackupRestoreActionPerformed
 
     /**

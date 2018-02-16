@@ -24,10 +24,10 @@ public class PengembalianTM extends AbstractTableModel {
     }
 
     private String format_titik(String text_string) {
-        if(text_string == null){
+        if (text_string == null) {
             text_string = "";
         }
-        
+
         int j = 0, i, n;
         String text_hasil = "";
         int k = 2, l = 3, m = 4;
@@ -86,7 +86,7 @@ public class PengembalianTM extends AbstractTableModel {
         return text_hasil;
 
     }
-    
+
     @Override
     public int getRowCount() {
         return arrayPengembalian.size();
@@ -104,25 +104,25 @@ public class PengembalianTM extends AbstractTableModel {
                 return arrayPengembalian.get(rowIndex).getId_pengembalian();
 
             case 1:
-                return arrayPengembalian.get(rowIndex).getTanggal_pengembalian();
+                return arrayPengembalian.get(rowIndex).getId_produk();
 
             case 2:
-                String jumlah_pengembalian_hasil = format_titik(Integer.toString(arrayPengembalian.get(rowIndex).getJumlah_pengembalian()));
-                return jumlah_pengembalian_hasil;
+                return arrayPengembalian.get(rowIndex).getNama_produk();
 
             case 3:
+                return arrayPengembalian.get(rowIndex).getId_regional();
+
+            case 4:
+                return arrayPengembalian.get(rowIndex).getTanggal_pengembalian();
+
+            case 5:
                 String dus_hasil = format_titik(arrayPengembalian.get(rowIndex).getDus());
                 return dus_hasil;
 
-            case 4:
-                return arrayPengembalian.get(rowIndex).getId_regional();
-
-            case 5:
-                return arrayPengembalian.get(rowIndex).getId_produk();
-            
             case 6:
-                return arrayPengembalian.get(rowIndex).getNama_produk();
-                
+                String jumlah_pengembalian_hasil = format_titik(Integer.toString(arrayPengembalian.get(rowIndex).getJumlah_pengembalian()));
+                return jumlah_pengembalian_hasil;
+
             case 7:
                 String stok_awal_hasil = format_titik(Integer.toString(arrayPengembalian.get(rowIndex).getStok_awal()));
                 return stok_awal_hasil;
@@ -145,22 +145,21 @@ public class PengembalianTM extends AbstractTableModel {
                 return "Id Pengembalian";
 
             case 1:
-                return "Tanggal";
+                return "Kode Produk";
 
             case 2:
-                return "Jumlah Pengembalian";
+                return "Nama Produk";
 
             case 3:
-                return "Nomor Dus";
-
-            case 4:
                 return "Kode Regional";
 
+            case 4:
+                return "Tanggal";
+
             case 5:
-                return "Kode Produk";
-                
+                return "Nomor Dus";
             case 6:
-                return "Nama Produk";
+                return "Jumlah Pengembalian";
 
             case 7:
                 return "Stok Awal";

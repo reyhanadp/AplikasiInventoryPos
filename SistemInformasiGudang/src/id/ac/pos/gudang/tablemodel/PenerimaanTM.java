@@ -13,13 +13,14 @@ import javax.swing.table.AbstractTableModel;
  *
  * @author muhamad solahudin
  */
-public class PenerimaanTM extends AbstractTableModel{
-    private ArrayList<Penerimaan> arrayPenerimaan;     
-    
+public class PenerimaanTM extends AbstractTableModel {
+
+    private ArrayList<Penerimaan> arrayPenerimaan;
+
     public void setDataPenerimaan(ArrayList<Penerimaan> arrayPenerimaan) {
         this.arrayPenerimaan = arrayPenerimaan;
     }
-    
+
     private String format_titik(String text_string) {
         int j = 0, i, n;
         String text_hasil = "";
@@ -87,7 +88,7 @@ public class PenerimaanTM extends AbstractTableModel{
 
     @Override
     public int getColumnCount() {
-        return 14;  //To change body of generated methods, choose Tools | Templates.
+        return 11;  //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
@@ -98,90 +99,73 @@ public class PenerimaanTM extends AbstractTableModel{
                 return arrayPenerimaan.get(rowIndex).getNoOrder();
 
             case 1:
-                return arrayPenerimaan.get(rowIndex).getTglPenerimaan();
+                return arrayPenerimaan.get(rowIndex).getNoPemesanan();
 
             case 2:
-                return format_titik(Integer.toString(arrayPenerimaan.get(rowIndex).getJmlTerima()));
-   
-            case 3:
-                return arrayPenerimaan.get(rowIndex).getNoPemesanan();
-                
-            case 4:
                 return arrayPenerimaan.get(rowIndex).getIdProduk();
-            
+
+            case 3:
+                return arrayPenerimaan.get(rowIndex).getNamaProduk();
+
+            case 4:
+                return arrayPenerimaan.get(rowIndex).getNamaMitra();
+
             case 5:
-                return arrayPenerimaan.get(rowIndex).getNamaProduk();    
-                                
+                return arrayPenerimaan.get(rowIndex).getTglPenerimaan();
+
             case 6:
-                return format_titik(Integer.toString(arrayPenerimaan.get(rowIndex).getNominal()));
+                return format_titik(Integer.toString(arrayPenerimaan.get(rowIndex).getJmlTerima()));
 
             case 7:
-                return arrayPenerimaan.get(rowIndex).getTahun();
-                 
-            case 8:
                 return format_titik(Integer.toString(arrayPenerimaan.get(rowIndex).getStokAwal()));
-                
-            case 9:
+
+            case 8:
                 return format_titik(Integer.toString(arrayPenerimaan.get(rowIndex).getStokAkhir()));
-                
-            case 10:
-                return arrayPenerimaan.get(rowIndex).getNamaMitra();
-            
-            case 11:
+
+            case 9:
                 return format_titik(Integer.toString(arrayPenerimaan.get(rowIndex).getSubTotalTerima()));
 
-            case 12:
+            case 10:
                 return format_titik(Integer.toString(arrayPenerimaan.get(rowIndex).getSisaBelumDikirim()));
-
-            case 13:
-                return arrayPenerimaan.get(rowIndex).getKeterangan();    
         }
         return null;
-    }  
-        @Override
+    }
+
+    @Override
     public String getColumnName(int column) {
         switch (column) {
             case 0:
                 return "No Order";
-                
+
             case 1:
-                return "Tanggal Penerimaan";
-                
-            case 2:
-                return "Jumlah Terima";
-                
-            case 3:
                 return "No Pemesanan";
-            
-            case 4:
+
+            case 2:
                 return "Kode Produk";
-            
-            case 5:
+
+            case 3:
                 return "Nama Produk";
-                
+
+            case 4:
+                return "Nama Mitra";
+
+            case 5:
+                return "Tanggal";
+
             case 6:
-                return "Nominal";
+                return "Jumlah Terima";
 
             case 7:
-                return "Tahun";    
-                
+                return "Stok Awal";
+
             case 8:
-                return "Stok Awal";    
-                
+                return "Stok Akhir";
+
             case 9:
-                return "Stok Akhir";    
-                
-            case 10:
-                return "Nama Mitra";
-   
-            case 11:
                 return "Subtotal Terima";
-                
-            case 12:
+
+            case 10:
                 return "Sisa Belum dikirim";
-                
-            case 13:
-                return "keterangan";
         }
         return null; //To change body of generated methods, choose Tools | Templates.
     }

@@ -18,7 +18,7 @@ public class PengirimanTM extends AbstractTableModel {
 
     private ArrayList<Pengiriman> arrayPengiriman;
     Vector vector_nama_produk;
-    
+
     private String format_titik(String text_string) {
         int j = 0, i, n;
         String text_hasil = "";
@@ -83,7 +83,6 @@ public class PengirimanTM extends AbstractTableModel {
         this.arrayPengiriman = arrayPengiriman;
         this.vector_nama_produk = vector_nama_produk;
     }
-    
 
     @Override
     public int getRowCount() {
@@ -105,24 +104,24 @@ public class PengirimanTM extends AbstractTableModel {
                 return arrayPengiriman.get(rowIndex).getNo_order_pengiriman();
 
             case 2:
-                return arrayPengiriman.get(rowIndex).getTgl_pengiriman();
+                return arrayPengiriman.get(rowIndex).getId_produk();
 
             case 3:
+                return arrayPengiriman.get(rowIndex).getNama_produk();
+
+            case 4:
+                return arrayPengiriman.get(rowIndex).getId_regional();
+
+            case 5:
+                return arrayPengiriman.get(rowIndex).getTgl_pengiriman();
+
+            case 6:
                 String jumlah_kirim_hasil = format_titik(Integer.toString(arrayPengiriman.get(rowIndex).getJumlah_pengiriman()));
                 return jumlah_kirim_hasil;
 
-            case 4:
+            case 7:
                 String bsu_hasil = format_titik(arrayPengiriman.get(rowIndex).getBsu());
                 return bsu_hasil;
-
-            case 5:
-                return arrayPengiriman.get(rowIndex).getId_regional();
-
-            case 6:
-                return arrayPengiriman.get(rowIndex).getId_produk();
-
-            case 7:
-                return arrayPengiriman.get(rowIndex).getNama_produk();
 
             case 8:
                 String stok_awal_hasil = format_titik(Integer.toString(arrayPengiriman.get(rowIndex).getStok_awal()));
@@ -146,22 +145,22 @@ public class PengirimanTM extends AbstractTableModel {
                 return "No Order";
 
             case 2:
-                return "Tanggal";
-
-            case 3:
-                return "Jumlah Pengiriman";
-
-            case 4:
-                return "BSU";
-
-            case 5:
-                return "Kode Regional";
-
-            case 6:
                 return "Kode Produk";
 
-            case 7:
+            case 3:
                 return "Nama Produk";
+
+            case 4:
+                return "Kode Regional";
+
+            case 5:
+                return "Tanggal";
+
+            case 6:
+                return "Jumlah Pengiriman";
+
+            case 7:
+                return "BSU";
 
             case 8:
                 return "Stok Awal";

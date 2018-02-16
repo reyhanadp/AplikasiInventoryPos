@@ -62,6 +62,9 @@ public class DialogLaporan extends javax.swing.JDialog {
         initComponents();
         setLocationRelativeTo(this);
         isiTahun();
+        
+        String timeExport = new SimpleDateFormat("MM").format(Calendar.getInstance().getTime());
+        
 
         this.nik = text;
         String lokasi_simpan = dao_laporan.getLokasiSimpan(this.nik);
@@ -89,24 +92,15 @@ public class DialogLaporan extends javax.swing.JDialog {
 
             combo_box_bulan.setModel(new DefaultComboBoxModel(vectorBulan));
         }
+        combo_box_bulan.setSelectedIndex(Integer.parseInt(timeExport)-1);
     }
 
     public void isiTahun() {
-//        arrayTahunPenerimaan = dao_laporan.getTahunPenerimaan();
-//        arrayTahunPengembalian = dao_laporan.getTahunPengembalian();
-//        arrayTahunPengiriman = dao_laporan.getTahunPengiriman();
-//        
-//        for(int i=0; i<arrayTahunPenerimaan.size(); i++){
-//            for(int j=0; j<arrayTahunPengembalian.size(); i++){
-//                if(arrayTahunPenerimaan.get(i).getTahun().compareTo(arrayTahunPengembalian.get(j).getTahun())!=0){
-//                    vectorTahun.add(arrayTahunPengembalian.get(j).getTahun());
-//                }
-//            }
-//        }
+
         Date ys = new Date();
         SimpleDateFormat s = new SimpleDateFormat("yyyy");
 //        int i = Integer.parseInt(s.format(ys));
-        for (int i = 2016; i <= Integer.parseInt(s.format(ys)); i++) {
+        for (int i = Integer.parseInt(s.format(ys)); i >= 2016 ; i--) {
             vectorTahun.add(i);
         }
         
@@ -604,6 +598,9 @@ public class DialogLaporan extends javax.swing.JDialog {
         WritableCellFormat jumlah = new WritableCellFormat(font_judul_tabel);
         jumlah.setBorder(Border.ALL, BorderLineStyle.MEDIUM);
         jumlah.setAlignment(Alignment.CENTRE);
+        
+        WritableCellFormat tanggal_biasa = new WritableCellFormat();
+        tanggal_biasa.setAlignment(Alignment.CENTRE);
 
         sheet1.setColumnView(0, 22);
         sheet1.setColumnView(1, 15);
@@ -657,7 +654,12 @@ public class DialogLaporan extends javax.swing.JDialog {
         sheet1.addCell(new jxl.write.Number(5, 15, total_jumlah_8_rekapitulasi, isi_tabel_rekapitulasi1));
         sheet1.addCell(new jxl.write.Number(6, 15, total_jumlah_9_rekapitulasi, isi_tabel_rekapitulasi1));
         sheet1.addCell(new jxl.write.Number(7, 15, total_jumlah_10_rekapitulasi, isi_tabel_rekapitulasi1_float));
-
+        String timeExport = new SimpleDateFormat("dd MMMM yyyy").format(Calendar.getInstance().getTime());
+        sheet1.addCell(new jxl.write.Label(6, 17, "Bandung, "+timeExport, tanggal_biasa));
+        sheet1.addCell(new jxl.write.Label(6, 18, "DIbuat oleh", tanggal_biasa));
+        sheet1.addCell(new jxl.write.Label(6, 19, "Fp Disper Prangko & Filateli", tanggal_biasa));
+        sheet1.addCell(new jxl.write.Label(6, 22, dao_laporan.getNama(this.nik), tanggal_biasa));
+        sheet1.addCell(new jxl.write.Label(6, 23, "Nipppos "+this.nik, tanggal_biasa));
         workbook.write();
         workbook.close();
         if (bulan == "November,Desember,Januari" || bulan == "Desember,Januari,Februari") {

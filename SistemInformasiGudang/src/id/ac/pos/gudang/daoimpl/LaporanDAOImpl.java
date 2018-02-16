@@ -858,5 +858,61 @@ public class LaporanDAOImpl implements LaporanDAO{
 
         return arrayProduk;
     }
+
+    @Override
+    public String getNama(String nik) {
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException | InterruptedException ex) {
+            Logger.getLogger(LaporanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        String nama = "";
+        String SELECT = "SELECT nama_user from tb_user where nik='"+nik+"'";
+        PreparedStatement state = null;
+        
+        try {
+            state = conn.prepareStatement(SELECT);
+
+            ResultSet result = state.executeQuery();
+            if (result != null) {
+
+                //selama result memiliki data
+                //return lebih dari 1 data
+                while (result.next()) {
+
+                    //mengambil 1 data
+                    nama = result.getString(1);
+                }
+            }
+        } catch (SQLException ex) {
+
+            Logger.getLogger(LaporanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }finally {
+            if (result != null) {
+                try {
+                    result.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+
+        return nama;
+    }
     
 }

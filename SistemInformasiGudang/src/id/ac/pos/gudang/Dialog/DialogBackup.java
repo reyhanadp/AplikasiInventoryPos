@@ -5,6 +5,7 @@
  */
 package id.ac.pos.gudang.Dialog;
 
+import java.awt.Desktop;
 import java.awt.HeadlessException;
 import java.io.File;
 import java.io.IOException;
@@ -58,6 +59,8 @@ public class DialogBackup extends javax.swing.JDialog {
             }
         });
 
+        LokasiFolder.setEditable(false);
+
         Backup.setText("Backup");
         Backup.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,7 +80,7 @@ public class DialogBackup extends javax.swing.JDialog {
                         .addComponent(PilihFolder)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(LokasiFolder, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -92,6 +95,8 @@ public class DialogBackup extends javax.swing.JDialog {
         );
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Restore"));
+
+        fileRestore.setEditable(false);
 
         Restore.setText("Restore");
         Restore.addActionListener(new java.awt.event.ActionListener() {
@@ -123,7 +128,7 @@ public class DialogBackup extends javax.swing.JDialog {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(25, Short.MAX_VALUE)
+                .addContainerGap(41, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(PilihFile)
                     .addComponent(fileRestore, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -136,20 +141,15 @@ public class DialogBackup extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -173,22 +173,22 @@ public class DialogBackup extends javax.swing.JDialog {
     private void BackupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackupActionPerformed
         // TODO add your handling code here:
         try{
-            String timeExport = new SimpleDateFormat("yyyyMMdd").format(Calendar.getInstance().getTime());
+            String timeExport = new SimpleDateFormat("dd-MM-yyyy_HH.mm").format(Calendar.getInstance().getTime());
             if(LokasiFolder.getText().isEmpty()){
                 JOptionPane.showMessageDialog(null, "Pilih lokasi backup terlebih dahulu");
             } else{
-                Process runtimeProcess = Runtime.getRuntime().exec("C:\\mysql\\bin\\mysqldump -u root db_inventory_pos -r "+LokasiFolder.getText()+"\\"+timeExport+".sql");
+                Process runtimeProcess = Runtime.getRuntime().exec("C:\\xampp\\mysql\\bin\\mysqldump -u root db_inventory_pos -r "+LokasiFolder.getText()+"\\"+timeExport+".sql");
                 System.out.println(LokasiFolder.getText()+"\\"+timeExport+".sql");
                 int prosesSukses=runtimeProcess.waitFor();
                 if(prosesSukses==0){
                     JOptionPane.showMessageDialog(null, "Backup database Sukses! \n"+"File backup tersimpan di "+LokasiFolder.getText()+"\\"+timeExport+".sql");
+                    Desktop.getDesktop().open(new File(LokasiFolder.getText()));
                 } else {
                     JOptionPane.showMessageDialog(null, "Backup database gagal!");
                 }            
             }
-        } catch(IOException | HeadlessException a){             
-            JOptionPane.showMessageDialog(null, "Tidak dpt menjalankan cmd");         
-        } catch (InterruptedException ex) {
+        } catch (IOException | InterruptedException ex) {
+            JOptionPane.showMessageDialog(null, "Tidak dpt menjalankan cmd");
             Logger.getLogger(DialogBackup.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_BackupActionPerformed
