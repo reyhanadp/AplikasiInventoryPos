@@ -88,44 +88,53 @@ public class PenerimaanTM extends AbstractTableModel {
 
     @Override
     public int getColumnCount() {
-        return 11;  //To change body of generated methods, choose Tools | Templates.
+        return 12;  //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         switch (columnIndex) {
-
+            
             case 0:
+                return arrayPenerimaan.get(rowIndex).getIdPenerimaan();
+            
+            case 1:
                 return arrayPenerimaan.get(rowIndex).getNoOrder();
 
-            case 1:
+            case 2:
                 return arrayPenerimaan.get(rowIndex).getNoPemesanan();
 
-            case 2:
+            case 3:
                 return arrayPenerimaan.get(rowIndex).getIdProduk();
 
-            case 3:
-                return arrayPenerimaan.get(rowIndex).getNamaProduk();
-
             case 4:
-                return arrayPenerimaan.get(rowIndex).getNamaMitra();
-
+                return arrayPenerimaan.get(rowIndex).getNamaProduk();
+                
             case 5:
-                return arrayPenerimaan.get(rowIndex).getTglPenerimaan();
-
+                return arrayPenerimaan.get(rowIndex).getNominal();
+            
             case 6:
-                return format_titik(Integer.toString(arrayPenerimaan.get(rowIndex).getJmlTerima()));
+                return arrayPenerimaan.get(rowIndex).getTahun();
 
             case 7:
-                return format_titik(Integer.toString(arrayPenerimaan.get(rowIndex).getStokAwal()));
+                return arrayPenerimaan.get(rowIndex).getNamaMitra();
 
             case 8:
-                return format_titik(Integer.toString(arrayPenerimaan.get(rowIndex).getStokAkhir()));
+                return arrayPenerimaan.get(rowIndex).getTglPenerimaan();
 
             case 9:
-                return format_titik(Integer.toString(arrayPenerimaan.get(rowIndex).getSubTotalTerima()));
+                return format_titik(Integer.toString(arrayPenerimaan.get(rowIndex).getJmlTerima()));
+
+//            case 7:
+//                return format_titik(Integer.toString(arrayPenerimaan.get(rowIndex).getStokAwal()));
+//
+//            case 8:
+//                return format_titik(Integer.toString(arrayPenerimaan.get(rowIndex).getStokAkhir()));
 
             case 10:
+                return format_titik(Integer.toString(arrayPenerimaan.get(rowIndex).getSubTotalTerima()));
+
+            case 11:
                 return format_titik(Integer.toString(arrayPenerimaan.get(rowIndex).getSisaBelumDikirim()));
         }
         return null;
@@ -134,37 +143,47 @@ public class PenerimaanTM extends AbstractTableModel {
     @Override
     public String getColumnName(int column) {
         switch (column) {
+            
             case 0:
+                return "Id Pemesanan";
+            
+            case 1:
                 return "No Order";
 
-            case 1:
+            case 2:
                 return "No Pemesanan";
 
-            case 2:
+            case 3:
                 return "Kode Produk";
 
-            case 3:
-                return "Nama Produk";
-
             case 4:
-                return "Nama Mitra";
-
+                return "Nama Produk";
+                
             case 5:
-                return "Tanggal";
-
+                return "Nominal";
+                
             case 6:
-                return "Jumlah Terima";
+                return "Tahun";
 
             case 7:
-                return "Stok Awal";
+                return "Nama Mitra";
 
             case 8:
-                return "Stok Akhir";
+                return "Tanggal";
 
             case 9:
-                return "Subtotal Terima";
+                return "Jumlah Terima";
+
+//            case 7:
+//                return "Stok Awal";
+//
+//            case 8:
+//                return "Stok Akhir";
 
             case 10:
+                return "Subtotal Terima";
+
+            case 11:
                 return "Sisa Belum dikirim";
         }
         return null; //To change body of generated methods, choose Tools | Templates.

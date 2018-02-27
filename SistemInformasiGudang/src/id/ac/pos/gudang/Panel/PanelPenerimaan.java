@@ -824,6 +824,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
             
                 if(jenis_produk.compareTo("PR")==0){
                     Penerimaan pn = new Penerimaan();
+                    pn.setIdPenerimaan(arrayPenerimaan.get(i).getIdPenerimaan());
                     pn.setNoOrder(arrayPenerimaan.get(i).getNoOrder());
                     pn.setTglPenerimaan(arrayPenerimaan.get(i).getTglPenerimaan());
                     pn.setJmlTerima(arrayPenerimaan.get(i).getJmlTerima());
@@ -842,6 +843,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
                     arrayPenerimaanPrangko.add(pn);
                 } else if (jenis_produk.compareTo("MS")==0 || jenis_produk.compareTo("SS")==0){
                     Penerimaan pn = new Penerimaan();
+                    pn.setIdPenerimaan(arrayPenerimaan.get(i).getIdPenerimaan());
                     pn.setNoOrder(arrayPenerimaan.get(i).getNoOrder());
                     pn.setTglPenerimaan(arrayPenerimaan.get(i).getTglPenerimaan());
                     pn.setJmlTerima(arrayPenerimaan.get(i).getJmlTerima());
@@ -860,6 +862,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
                     arrayPenerimaanMSSS.add(pn);
                 }else if (jenis_produk.compareTo("PS")==0){
                     Penerimaan pn = new Penerimaan();
+                    pn.setIdPenerimaan(arrayPenerimaan.get(i).getIdPenerimaan());
                     pn.setNoOrder(arrayPenerimaan.get(i).getNoOrder());
                     pn.setTglPenerimaan(arrayPenerimaan.get(i).getTglPenerimaan());
                     pn.setJmlTerima(arrayPenerimaan.get(i).getJmlTerima());
@@ -878,6 +881,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
                     arrayPenerimaanPrisma.add(pn);
                 }else if (jenis_produk.compareTo("SH")==0){
                     Penerimaan pn = new Penerimaan();
+                    pn.setIdPenerimaan(arrayPenerimaan.get(i).getIdPenerimaan());
                     pn.setNoOrder(arrayPenerimaan.get(i).getNoOrder());
                     pn.setTglPenerimaan(arrayPenerimaan.get(i).getTglPenerimaan());
                     pn.setJmlTerima(arrayPenerimaan.get(i).getJmlTerima());
@@ -896,6 +900,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
                     arrayPenerimaanSHPSS.add(pn);
                 }else if (jenis_produk.compareTo("KM")==0){
                     Penerimaan pn = new Penerimaan();
+                    pn.setIdPenerimaan(arrayPenerimaan.get(i).getIdPenerimaan());
                     pn.setNoOrder(arrayPenerimaan.get(i).getNoOrder());
                     pn.setTglPenerimaan(arrayPenerimaan.get(i).getTglPenerimaan());
                     pn.setJmlTerima(arrayPenerimaan.get(i).getJmlTerima());
@@ -914,6 +919,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
                     arrayPenerimaanKemasan.add(pn);
                 }else if (jenis_produk.compareTo("MC")==0){
                     Penerimaan pn = new Penerimaan();
+                    pn.setIdPenerimaan(arrayPenerimaan.get(i).getIdPenerimaan());
                     pn.setNoOrder(arrayPenerimaan.get(i).getNoOrder());
                     pn.setTglPenerimaan(arrayPenerimaan.get(i).getTglPenerimaan());
                     pn.setJmlTerima(arrayPenerimaan.get(i).getJmlTerima());
@@ -932,6 +938,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
                     arrayPenerimaanMerchandise.add(pn);
                 }else if (jenis_produk.compareTo("DF")==0){
                     Penerimaan pn = new Penerimaan();
+                    pn.setIdPenerimaan(arrayPenerimaan.get(i).getIdPenerimaan());
                     pn.setNoOrder(arrayPenerimaan.get(i).getNoOrder());
                     pn.setTglPenerimaan(arrayPenerimaan.get(i).getTglPenerimaan());
                     pn.setJmlTerima(arrayPenerimaan.get(i).getJmlTerima());
@@ -1041,11 +1048,11 @@ public class PanelPenerimaan extends javax.swing.JPanel {
         // TODO add your handling code here:
         if(evt.getClickCount()==2){
             int baris = tablePenerimaanPrangko.getSelectedRow();
-            String no_order = (String) tablePenerimaanPrangko.getValueAt(baris, 0);
+            String id_penerimaan = (String) tablePenerimaanPrangko.getValueAt(baris, 0);
             
             FormHome formHome = new FormHome();
-            DialogViewDetailPenerimaan detailPenerimaan = new DialogViewDetailPenerimaan(formHome, true);
-//            detailPenerimaan.setLocationRelativeTo(this);
+            DialogViewDetailPenerimaan detailPenerimaan = new DialogViewDetailPenerimaan(formHome, true,id_penerimaan);
+            detailPenerimaan.setLocationRelativeTo(this);
             detailPenerimaan.setVisible(true);
         }
     }//GEN-LAST:event_tablePenerimaanPrangkoMouseClicked

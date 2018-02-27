@@ -45,7 +45,6 @@ public class DatabaseConnectivity {
                 DriverManager.registerDriver(new Driver());
                 conn = DriverManager.getConnection(url, user, password);
             }
-
         } catch (SQLException ex) {
             String error = ex.getMessage();
             if ("Unknown database 'db_inventory_pos'".equals(error)) {

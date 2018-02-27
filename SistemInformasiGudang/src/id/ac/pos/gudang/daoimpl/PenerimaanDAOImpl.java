@@ -904,14 +904,12 @@ public class PenerimaanDAOImpl implements PenerimaanDAO {
     public ArrayList<Penerimaan> getDataPenerimaan() {
         try {
             conn = DatabaseConnectivity.getConnection();
-        } catch (IOException ex) {
-            Logger.getLogger(PenerimaanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (InterruptedException ex) {
+        } catch (IOException | InterruptedException ex) {
             Logger.getLogger(PenerimaanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
         ArrayList<Penerimaan> arrayPenerimaan = null;
         String SELECT = "";
-        SELECT = "SELECT pn.no_order_penerimaan,pn.tgl_penerimaan,pn.jml_terima,"
+        SELECT = "SELECT pn.id_penerimaan,pn.no_order_penerimaan,pn.tgl_penerimaan,pn.jml_terima,"
                 + "pm.no_pemesanan,pr.id_produk,pr.nama_produk,pr.nominal,"
                 + "pr.tahun,pn.stok_awal,pn.stok_akhir,mr.nama_mitra,"
                 + "pn.subtotal_terima,pn.sisa_belum_dikirim,pn.keterangan "
@@ -936,6 +934,7 @@ public class PenerimaanDAOImpl implements PenerimaanDAO {
                 while (result.next()) {
                     //mengambil 1 data
                     Penerimaan penerimaan = new Penerimaan();
+                    penerimaan.setIdPenerimaan(result.getString("id_penerimaan"));
                     penerimaan.setNoOrder(result.getString("no_order_penerimaan"));
                     penerimaan.setTglPenerimaan(result.getDate("tgl_penerimaan"));
                     penerimaan.setJmlTerima(result.getInt("jml_terima"));
@@ -1172,6 +1171,77 @@ public class PenerimaanDAOImpl implements PenerimaanDAO {
             }
         }
         return arrayMitra;
+    }
+
+    @Override
+    public ArrayList<Penerimaan> getViewDetailPenerimaan(String idPenerimaan) {
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException ex) {
+            Logger.getLogger(PenerimaanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(PenerimaanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        ArrayList<Penerimaan> arrayPenerimaan = null;
+        String SELECT = "SELECT * FROM `tb_trans_penerimaan` where id_penerimaan='"+idPenerimaan+"'";
+
+        state = null;
+        try {
+            state = conn.prepareStatement(SELECT);
+
+            result = state.executeQuery();
+            if (result != null) {
+                arrayPenerimaan = new ArrayList<>();
+
+                //selama result memiliki data 
+                // return lebih dari 1 data 
+                while (result.next()) {
+
+                    //mengambil 1 data
+                    Penerimaan penerimaan = new Penerimaan();
+                    penerimaan.setNoOrder(result.getString(2));
+                    penerimaan.setTglPenerimaan(result.getDate(3));
+                    penerimaan.setJmlTerima(result.getInt(4));
+                    penerimaan.setIdPemesanan(result.getString(5));
+                    penerimaan.setIdProduk(result.getString(6));
+                    penerimaan.setIdMitra(result.getString(7));
+                    penerimaan.setStokAwal(result.getInt(8));
+                    penerimaan.setStokAkhir(result.getInt(9));
+                    penerimaan.setSubTotalTerima(result.getInt(10));
+                    penerimaan.setSisaBelumDikirim(result.getInt(11));
+                    penerimaan.setKeterangan(result.getString(12));
+                    //menambahkan data ke array
+                    arrayPenerimaan.add(penerimaan);
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PemesananDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (result != null) {
+                try {
+                    result.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+
+        return arrayPenerimaan;
     }
 
 }
