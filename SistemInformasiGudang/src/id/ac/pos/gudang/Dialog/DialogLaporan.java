@@ -124,7 +124,7 @@ public class DialogLaporan extends javax.swing.JDialog {
         judul_tabel.setVerticalAlignment(VerticalAlignment.CENTRE);
         judul_tabel.setBorder(Border.ALL, BorderLineStyle.MEDIUM);
 
-        WritableCellFormat isi_sub_tabel_angka = new WritableCellFormat(NumberFormats.FORMAT1);
+        WritableCellFormat isi_sub_tabel_angka = new WritableCellFormat(NumberFormats.FORMAT5);
         isi_sub_tabel_angka.setBorder(Border.BOTTOM, BorderLineStyle.DOTTED);
         isi_sub_tabel_angka.setBorder(Border.RIGHT, BorderLineStyle.THIN);
         isi_sub_tabel_angka.setBorder(Border.LEFT, BorderLineStyle.THIN);
@@ -149,7 +149,7 @@ public class DialogLaporan extends javax.swing.JDialog {
         isi_no.setBorder(Border.TOP, BorderLineStyle.DOTTED);
         isi_no.setAlignment(Alignment.CENTRE);
 
-        WritableCellFormat isi_jumlah_tahun = new WritableCellFormat(NumberFormats.FORMAT1);
+        WritableCellFormat isi_jumlah_tahun = new WritableCellFormat(NumberFormats.FORMAT5);
         isi_jumlah_tahun.setBorder(Border.BOTTOM, BorderLineStyle.MEDIUM);
         isi_jumlah_tahun.setBorder(Border.RIGHT, BorderLineStyle.MEDIUM);
         isi_jumlah_tahun.setBorder(Border.LEFT, BorderLineStyle.MEDIUM);
@@ -161,7 +161,7 @@ public class DialogLaporan extends javax.swing.JDialog {
         isi_jumlah_tahun_float.setBorder(Border.LEFT, BorderLineStyle.MEDIUM);
         isi_jumlah_tahun_float.setBorder(Border.TOP, BorderLineStyle.MEDIUM);
 
-        WritableCellFormat isi_tabel_rekapitulasi1 = new WritableCellFormat(NumberFormats.FORMAT1);
+        WritableCellFormat isi_tabel_rekapitulasi1 = new WritableCellFormat(NumberFormats.FORMAT5);
         isi_tabel_rekapitulasi1.setBorder(Border.ALL, BorderLineStyle.MEDIUM);
 
         WritableCellFormat isi_tabel_rekapitulasi1_float = new WritableCellFormat(NumberFormats.FORMAT7);

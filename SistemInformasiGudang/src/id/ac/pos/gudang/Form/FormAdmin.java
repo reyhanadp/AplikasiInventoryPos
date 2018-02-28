@@ -47,7 +47,12 @@ public class FormAdmin extends javax.swing.JFrame {
         buttonLogout = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -200,6 +205,24 @@ public class FormAdmin extends javax.swing.JFrame {
         du.setLocationRelativeTo(null);
         du.setVisible(true);
     }//GEN-LAST:event_buttonUserMouseClicked
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        // TODO add your handling code here:
+        int pilih = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin Logout ?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
+        if (pilih == JOptionPane.YES_OPTION){
+        FormLogin fl = null;
+            try {
+                fl = new FormLogin();
+            } catch (IOException ex) {
+                Logger.getLogger(FormAdmin.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(FormAdmin.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        fl.setLocationRelativeTo(null);
+        fl.setVisible(true);
+        this.setVisible(false);
+        }
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments

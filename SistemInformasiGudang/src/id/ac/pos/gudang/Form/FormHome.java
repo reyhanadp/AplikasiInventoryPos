@@ -4676,6 +4676,7 @@ public final class FormHome extends javax.swing.JFrame {
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         // TODO add your handling code here:
+        this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
         int pilih = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin Logout ?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
         if (pilih == JOptionPane.YES_OPTION) {
             try {
@@ -4703,8 +4704,6 @@ public final class FormHome extends javax.swing.JFrame {
                 Logger.getLogger(FormHome.class.getName()).log(Level.SEVERE, null, ex);
             }
 
-        }else{
-            this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
         }
     }//GEN-LAST:event_formWindowClosing
 

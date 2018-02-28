@@ -9,12 +9,14 @@ import id.ac.pos.gudang.entity.Pengiriman;
 import id.ac.pos.gudang.entity.Produk;
 import id.ac.pos.gudang.entity.Regional;
 import java.util.ArrayList;
+import java.util.Vector;
 
 /**
  *
  * @author reyha
  */
 public interface PengirimanDAO {
+    Vector getViewDetailPengiriman(String id_pengiriman);
     ArrayList<Produk> getNamaProduk(String jenis_produk);
     ArrayList<Produk> getTahunProduk(Object nama_produk, String jenis_produk);
     ArrayList<Produk> getNominalProduk(Object nama_produk, Object tahun, String jenis_produk);

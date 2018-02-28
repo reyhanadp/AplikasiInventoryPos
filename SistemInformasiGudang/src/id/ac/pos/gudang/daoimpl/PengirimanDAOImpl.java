@@ -17,6 +17,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -665,6 +666,82 @@ public class PengirimanDAOImpl implements PengirimanDAO {
         }
 
         return arrayPengiriman;
+    }
+
+    @Override
+    public Vector getViewDetailPengiriman(String id_pengiriman) {
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException | InterruptedException ex) {
+            Logger.getLogger(PemesananDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Vector vectorViewDetailPengiriman = new Vector();
+        String SELECT = "SELECT * FROM `tb_trans_pengiriman` "
+                + "JOIN tb_produk ON tb_trans_pengiriman.id_produk=tb_produk.id_produk "
+                + "JOIN tb_regional ON tb_trans_pengiriman.id_regional=tb_regional.id_regional "
+                + "WHERE tb_trans_pengiriman.id_pengiriman='"+id_pengiriman+"'";
+
+
+         state = null;
+
+        try {
+            state = conn.prepareStatement(SELECT);
+
+             result = state.executeQuery();
+            if (result != null) {
+
+                //selama result memiliki data 
+                // return lebih dari 1 data 
+                while (result.next()) {
+
+                    vectorViewDetailPengiriman.add(result.getString(2));
+                    vectorViewDetailPengiriman.add(result.getDate(3));
+                    vectorViewDetailPengiriman.add(result.getString(4));
+                    vectorViewDetailPengiriman.add(result.getString(8));
+                    vectorViewDetailPengiriman.add(result.getString(9));
+                    vectorViewDetailPengiriman.add(result.getString(5));
+                    vectorViewDetailPengiriman.add(result.getString(10));
+                    vectorViewDetailPengiriman.add(result.getString(11));
+                    vectorViewDetailPengiriman.add(result.getString(12));
+                    vectorViewDetailPengiriman.add(result.getString(13));
+                    vectorViewDetailPengiriman.add(result.getString(14));
+                    vectorViewDetailPengiriman.add(result.getString(15));
+                    vectorViewDetailPengiriman.add(result.getString(19));
+                    vectorViewDetailPengiriman.add(result.getString(20));
+                    vectorViewDetailPengiriman.add(result.getString(21));
+                    vectorViewDetailPengiriman.add(result.getString(22));
+                    vectorViewDetailPengiriman.add(result.getString(23));
+                }
+            }
+        
+        } catch (SQLException ex) {
+            Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }finally {
+            if (result != null) {
+                try {
+                    result.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+
+        return vectorViewDetailPengiriman;
     }
 
 }

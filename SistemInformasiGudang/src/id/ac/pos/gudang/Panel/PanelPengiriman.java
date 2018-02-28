@@ -6,6 +6,7 @@
 package id.ac.pos.gudang.Panel;
 
 import id.ac.pos.gudang.Dialog.DialogTambahPengiriman;
+import id.ac.pos.gudang.Dialog.DialogViewDetailPengiriman;
 import id.ac.pos.gudang.Form.FormHome;
 import id.ac.pos.gudang.dao.PengirimanDAO;
 import id.ac.pos.gudang.dao.ProdukDAO;
@@ -246,6 +247,11 @@ public final class PanelPengiriman extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tabelPengirimanPrangko.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelPengirimanPrangkoMouseClicked(evt);
+            }
+        });
         jScrollPane13.setViewportView(tabelPengirimanPrangko);
 
         buttonCariPrangko.setText("Cari");
@@ -953,6 +959,18 @@ public final class PanelPengiriman extends javax.swing.JPanel {
         tabelPengirimanDokumenFilateli.setRowSorter(sorter);
         tabelPengirimanDokumenFilateli.setModel(pengirimanTM);
     }//GEN-LAST:event_buttonCariDokumenFilateliActionPerformed
+
+    private void tabelPengirimanPrangkoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelPengirimanPrangkoMouseClicked
+        // TODO add your handling code here:
+        if(evt.getClickCount()==2){
+            int baris = tabelPengirimanPrangko.getSelectedRow();
+            String id_pengiriman = (String) tabelPengirimanPrangko.getValueAt(baris, 0);
+            
+            FormHome formHome = new FormHome();
+            DialogViewDetailPengiriman detailPengiriman = new DialogViewDetailPengiriman(formHome, true,id_pengiriman);
+            detailPengiriman.setVisible(true);
+        }
+    }//GEN-LAST:event_tabelPengirimanPrangkoMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
