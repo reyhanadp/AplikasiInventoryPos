@@ -64,7 +64,6 @@
                       <Component id="jLabel37" alignment="0" max="32767" attributes="0"/>
                       <Component id="jLabel40" alignment="0" max="32767" attributes="0"/>
                       <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jLabel2" alignment="0" max="32767" attributes="0"/>
                       <Component id="jLabel3" alignment="0" max="32767" attributes="0"/>
                       <Component id="jLabel4" alignment="0" max="32767" attributes="0"/>
                       <Component id="jLabel5" alignment="0" max="32767" attributes="0"/>
@@ -75,6 +74,7 @@
                       <Component id="jLabel10" alignment="0" max="32767" attributes="0"/>
                       <Component id="jLabel11" alignment="0" max="32767" attributes="0"/>
                       <Component id="jLabel12" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jLabel2" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -176,7 +176,7 @@
                       <Group type="102" attributes="0">
                           <Component id="jLabel56" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="Stok" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelStok" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Component id="jLabel57" min="-2" max="-2" attributes="0"/>
@@ -287,7 +287,7 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel44" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel56" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="Stok" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="labelStok" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -708,7 +708,7 @@
             <Property name="text" type="java.lang.String" value="jLabel67"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="Stok">
+        <Component class="javax.swing.JLabel" name="labelStok">
           <Properties>
             <Property name="text" type="java.lang.String" value="jLabel68"/>
           </Properties>

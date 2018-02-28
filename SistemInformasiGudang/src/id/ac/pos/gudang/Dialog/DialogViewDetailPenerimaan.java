@@ -8,7 +8,10 @@ package id.ac.pos.gudang.Dialog;
 import id.ac.pos.gudang.Form.FormHome;
 import id.ac.pos.gudang.dao.PenerimaanDAO;
 import id.ac.pos.gudang.daoimpl.PenerimaanDAOImpl;
+import id.ac.pos.gudang.entity.Mitra;
+import id.ac.pos.gudang.entity.Pemesanan;
 import id.ac.pos.gudang.entity.Penerimaan;
+import id.ac.pos.gudang.entity.Produk;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -24,14 +27,18 @@ public class DialogViewDetailPenerimaan extends javax.swing.JDialog {
      * Creates new form DialogViewDetailPenerimaan
      */
     public DialogViewDetailPenerimaan(java.awt.Frame parent, boolean modal) {
-        
+
     }
 
     public DialogViewDetailPenerimaan(FormHome formHome, boolean b, String id_penerimaan) {
         super(formHome, b);
         initComponents();
+        setLocationRelativeTo(this);
         PenerimaanDAO dao = new PenerimaanDAOImpl();
         ArrayList<Penerimaan> arrayPenerimaan = new ArrayList<>();
+        ArrayList<Pemesanan> arrayPemesanan = new ArrayList<>();
+        ArrayList<Produk> arrayProduk = new ArrayList<>();
+        ArrayList<Mitra> arrayMitra = new ArrayList<>();
         arrayPenerimaan = dao.getViewDetailPenerimaan(id_penerimaan);
         labelIdPenerimaan.setText(id_penerimaan);
         labelNoOrder.setText(arrayPenerimaan.get(0).getNoOrder());
@@ -46,8 +53,47 @@ public class DialogViewDetailPenerimaan extends javax.swing.JDialog {
         labelSubtotalTerima.setText(format_titik(Integer.toString(arrayPenerimaan.get(0).getSubTotalTerima())));
         labelSisaBelumDikirim.setText(format_titik(Integer.toString(arrayPenerimaan.get(0).getSisaBelumDikirim())));
         labelKeterangan.setText(arrayPenerimaan.get(0).getKeterangan());
+        arrayPemesanan = dao.getViewDetailPemesanan(arrayPenerimaan.get(0).getIdPemesanan());
+        labelNoPemesanan.setText(arrayPemesanan.get(0).getNoPemesanan());
+        labelJumlahPesan.setText(arrayPemesanan.get(0).getJumlahPemesanan());
+        labelTanggalPesan.setText(df.format(arrayPemesanan.get(0).getTglPemesanan()));
+        labelStatus.setText(arrayPemesanan.get(0).getStatus());
+        arrayProduk = dao.getViewDetailProduk(arrayPenerimaan.get(0).getIdProduk());
+        labelNamaProduk.setText(arrayProduk.get(0).getNamaProduk());
+        labelNominal.setText(format_titik(Integer.toString(arrayProduk.get(0).getNominal())));
+        String biaya_cetak = Float.toString(arrayProduk.get(0).getBiayaCetak()).replace(".", ",");
+        String biaya_cetak_depan = ambil_angka_depan(biaya_cetak);
+        String biaya_cetak_belakang = ambil_angka_belakang(biaya_cetak);
+        String biaya_cetak_titik = format_titik(biaya_cetak_depan);
+        labelBiayaCetak.setText(biaya_cetak_titik + "," + biaya_cetak_belakang);
+        labelStok.setText(format_titik(Integer.toString(arrayProduk.get(0).getStok())));
+        labelTahun.setText(arrayProduk.get(0).getTahun());
+        arrayMitra = dao.getViewDetailMitra(arrayPenerimaan.get(0).getIdMitra());
+        labelNamaMitra.setText(arrayMitra.get(0).getNama_mitra());
+        labelAlamat.setText(arrayMitra.get(0).getAlamat());
+        labelNomorTelepon.setText(arrayMitra.get(0).getNo_telp());
+
     }
-    
+
+    private String hilangkan_titik(String text_titik) {
+        String[] temp = text_titik.split("\\.");
+        String text_string = "";
+        for (int i = 0; i < temp.length; i++) {
+            text_string = text_string + temp[i];
+        }
+        return text_string;
+    }
+
+    private String ambil_angka_depan(String text_string) {
+        String[] temp = text_string.split("\\,");
+        return temp[0];
+    }
+
+    private String ambil_angka_belakang(String text_string) {
+        String[] temp = text_string.split("\\,");
+        return temp[1];
+    }
+
     private String format_titik(String text_string) {
         int j = 0, i, n;
         String text_hasil = "";
@@ -107,7 +153,7 @@ public class DialogViewDetailPenerimaan extends javax.swing.JDialog {
         return text_hasil;
 
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -189,7 +235,7 @@ public class DialogViewDetailPenerimaan extends javax.swing.JDialog {
         labelNamaProduk = new javax.swing.JLabel();
         labelNominal = new javax.swing.JLabel();
         labelBiayaCetak = new javax.swing.JLabel();
-        Stok = new javax.swing.JLabel();
+        labelStok = new javax.swing.JLabel();
         labelTahun = new javax.swing.JLabel();
         labelNamaMitra = new javax.swing.JLabel();
         labelAlamat = new javax.swing.JLabel();
@@ -333,7 +379,7 @@ public class DialogViewDetailPenerimaan extends javax.swing.JDialog {
 
         labelBiayaCetak.setText("jLabel67");
 
-        Stok.setText("jLabel68");
+        labelStok.setText("jLabel68");
 
         labelTahun.setText("jLabel69");
 
@@ -366,7 +412,6 @@ public class DialogViewDetailPenerimaan extends javax.swing.JDialog {
                     .addComponent(jLabel37, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel40, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -376,7 +421,8 @@ public class DialogViewDetailPenerimaan extends javax.swing.JDialog {
                     .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -458,7 +504,7 @@ public class DialogViewDetailPenerimaan extends javax.swing.JDialog {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel56)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Stok))
+                        .addComponent(labelStok))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel57)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -549,7 +595,7 @@ public class DialogViewDetailPenerimaan extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel44)
                     .addComponent(jLabel56)
-                    .addComponent(Stok))
+                    .addComponent(labelStok))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel45)
@@ -669,7 +715,6 @@ public class DialogViewDetailPenerimaan extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Stok;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -740,6 +785,7 @@ public class DialogViewDetailPenerimaan extends javax.swing.JDialog {
     private javax.swing.JLabel labelNomorTelepon;
     private javax.swing.JLabel labelSisaBelumDikirim;
     private javax.swing.JLabel labelStatus;
+    private javax.swing.JLabel labelStok;
     private javax.swing.JLabel labelStokAkhir;
     private javax.swing.JLabel labelStokAwal;
     private javax.swing.JLabel labelSubtotalTerima;

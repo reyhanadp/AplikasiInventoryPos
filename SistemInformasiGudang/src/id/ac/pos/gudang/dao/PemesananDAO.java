@@ -9,6 +9,7 @@ import id.ac.pos.gudang.entity.Mitra;
 import id.ac.pos.gudang.entity.Pemesanan;
 import id.ac.pos.gudang.entity.Produk;
 import java.util.ArrayList;
+import java.util.Vector;
 
 /**
  *
@@ -17,6 +18,8 @@ import java.util.ArrayList;
 public interface PemesananDAO {
 
     String getIdPemesanan();
+    
+    Vector getViewDetailPemesanan(String id_pemesanan);
 
     ArrayList<Pemesanan> cariProdukPemesanan(String keyword, String jenisCari, String idJenis);
 

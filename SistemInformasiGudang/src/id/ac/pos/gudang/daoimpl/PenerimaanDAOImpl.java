@@ -1244,4 +1244,193 @@ public class PenerimaanDAOImpl implements PenerimaanDAO {
         return arrayPenerimaan;
     }
 
+    @Override
+    public ArrayList<Pemesanan> getViewDetailPemesanan(String idPemesanan) {
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException ex) {
+            Logger.getLogger(PenerimaanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(PenerimaanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        ArrayList<Pemesanan> arrayPemesanan = null;
+        String SELECT = "SELECT * FROM `tb_trans_pemesanan` where id_pemesanan='"+idPemesanan+"'";
+
+        state = null;
+        try {
+            state = conn.prepareStatement(SELECT);
+
+            result = state.executeQuery();
+            if (result != null) {
+                arrayPemesanan = new ArrayList<>();
+
+                //selama result memiliki data 
+                // return lebih dari 1 data 
+                while (result.next()) {
+
+                    //mengambil 1 data
+                    Pemesanan pemesanan = new Pemesanan();
+                    pemesanan.setNoPemesanan(result.getString(2));
+                    pemesanan.setJumlahPemesanan(result.getString(4));
+                    pemesanan.setTglPemesanan(result.getDate(5));
+                    pemesanan.setStatus(result.getString(7));
+                    //menambahkan data ke array
+                    arrayPemesanan.add(pemesanan);
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PemesananDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (result != null) {
+                try {
+                    result.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+
+        return arrayPemesanan;
+    }
+
+    @Override
+    public ArrayList<Produk> getViewDetailProduk(String idProduk) {
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException | InterruptedException ex) {
+            Logger.getLogger(PenerimaanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        ArrayList<Produk> arrayProduk = null;
+        String SELECT = "SELECT * FROM `tb_produk` where id_produk='"+idProduk+"'";
+
+        state = null;
+        try {
+            state = conn.prepareStatement(SELECT);
+
+            result = state.executeQuery();
+            if (result != null) {
+                arrayProduk = new ArrayList<>();
+
+                //selama result memiliki data 
+                // return lebih dari 1 data 
+                while (result.next()) {
+
+                    //mengambil 1 data
+                    Produk produk = new Produk();
+                    produk.setNamaProduk(result.getString(2));
+                    produk.setNominal(result.getInt(3));
+                    produk.setBiayaCetak(result.getFloat(4));
+                    produk.setStok(result.getInt(5));
+                    produk.setTahun(result.getString(6));
+                    //menambahkan data ke array
+                    arrayProduk.add(produk);
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PemesananDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (result != null) {
+                try {
+                    result.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+
+        return arrayProduk;
+    }
+
+    @Override
+    public ArrayList<Mitra> getViewDetailMitra(String idMitra) {
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException | InterruptedException ex) {
+            Logger.getLogger(PenerimaanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        ArrayList<Mitra> arrayMitra = null;
+        String SELECT = "SELECT * FROM `tb_mitra` where id_mitra='"+idMitra+"'";
+
+        state = null;
+        try {
+            state = conn.prepareStatement(SELECT);
+
+            result = state.executeQuery();
+            if (result != null) {
+                arrayMitra = new ArrayList<>();
+
+                //selama result memiliki data 
+                // return lebih dari 1 data 
+                while (result.next()) {
+
+                    //mengambil 1 data
+                    Mitra mitra = new Mitra();
+                    mitra.setNama_mitra(result.getString(2));
+                    mitra.setAlamat(result.getString(3));
+                    mitra.setNo_telp(result.getString(4));
+                    //menambahkan data ke array
+                    arrayMitra.add(mitra);
+                }
+                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PemesananDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (result != null) {
+                try {
+                    result.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+
+        return arrayMitra;
+    }
+
 }

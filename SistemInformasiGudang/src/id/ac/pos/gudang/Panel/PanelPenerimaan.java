@@ -1052,7 +1052,7 @@ public class PanelPenerimaan extends javax.swing.JPanel {
             
             FormHome formHome = new FormHome();
             DialogViewDetailPenerimaan detailPenerimaan = new DialogViewDetailPenerimaan(formHome, true,id_penerimaan);
-            detailPenerimaan.setLocationRelativeTo(this);
+            
             detailPenerimaan.setVisible(true);
         }
     }//GEN-LAST:event_tablePenerimaanPrangkoMouseClicked

@@ -6,6 +6,7 @@
 package id.ac.pos.gudang.Panel;
 
 import id.ac.pos.gudang.Dialog.DialogTambahPemesanan;
+import id.ac.pos.gudang.Dialog.DialogViewDetailPemesanan;
 import id.ac.pos.gudang.Form.FormHome;
 import id.ac.pos.gudang.dao.PemesananDAO;
 import id.ac.pos.gudang.daoimpl.PemesananDAOImpl;
@@ -348,6 +349,11 @@ public class PanelPemesanan extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tablePemesananPrangko.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablePemesananPrangkoMouseClicked(evt);
+            }
+        });
         jScrollPane17.setViewportView(tablePemesananPrangko);
 
         buttonCariPemesananPrangko.setText("Cari");
@@ -1136,6 +1142,18 @@ public class PanelPemesanan extends javax.swing.JPanel {
 
         tablePemesananSHP_SHPSS.setModel(pemesananTableModel);
     }//GEN-LAST:event_buttonCariPemesananSHP_SHPSSActionPerformed
+
+    private void tablePemesananPrangkoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePemesananPrangkoMouseClicked
+        // TODO add your handling code here:
+        if(evt.getClickCount()==2){
+            int baris = tablePemesananPrangko.getSelectedRow();
+            String id_pemesanan = (String) tablePemesananPrangko.getValueAt(baris, 0);
+            
+            FormHome formHome = new FormHome();
+            DialogViewDetailPemesanan detailPemesanan = new DialogViewDetailPemesanan(formHome, true,id_pemesanan);
+            detailPemesanan.setVisible(true);
+        }
+    }//GEN-LAST:event_tablePemesananPrangkoMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

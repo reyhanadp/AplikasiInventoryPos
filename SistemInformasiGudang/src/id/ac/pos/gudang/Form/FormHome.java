@@ -846,6 +846,11 @@ public final class FormHome extends javax.swing.JFrame {
         nik.setText("jLabel7");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logo-kecil.png"))); // NOI18N
 
@@ -4668,6 +4673,40 @@ public final class FormHome extends javax.swing.JFrame {
             Logger.getLogger(FormHome.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_itemBackupRestoreActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        // TODO add your handling code here:
+        int pilih = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin Logout ?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
+        if (pilih == JOptionPane.YES_OPTION) {
+            try {
+                String path = new File(".").getCanonicalPath();
+                FileReader fr = new FileReader(path + "\\alamat_ip.txt");
+                BufferedReader br = new BufferedReader(fr);
+                String alamat_ip = br.readLine();
+
+                if (alamat_ip.compareTo("localhost") == 0) {
+                    
+                    Process runtimeProcess = Runtime.getRuntime().exec("C:\\xampp\\mysql\\bin\\mysqldump -u root db_inventory_pos -r "+path+"\\db_inventory_pos.sql");
+                    
+                    FormLogin fl = new FormLogin();
+                    fl.setLocationRelativeTo(null);
+                    fl.setVisible(true);
+                    this.setVisible(false);
+                }else{
+                    FormLoginClient fl = new FormLoginClient();
+
+                    fl.setLocationRelativeTo(null);
+                    fl.setVisible(true);
+                    this.setVisible(false);
+                }
+            } catch (IOException | InterruptedException ex) {
+                Logger.getLogger(FormHome.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }else{
+            this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
+        }
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments

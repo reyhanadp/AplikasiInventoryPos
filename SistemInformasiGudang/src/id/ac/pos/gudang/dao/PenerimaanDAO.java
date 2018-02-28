@@ -10,7 +10,6 @@ import id.ac.pos.gudang.entity.Penerimaan;
 import id.ac.pos.gudang.entity.Produk;
 import id.ac.pos.gudang.entity.Mitra;
 import java.util.ArrayList;
-import java.util.Vector;
 
 /**
  *
@@ -18,6 +17,9 @@ import java.util.Vector;
  */
 public interface PenerimaanDAO {
     String getIdPenerimaan();
+    ArrayList<Pemesanan> getViewDetailPemesanan (String idPemesanan);
+    ArrayList<Produk> getViewDetailProduk (String idProduk);
+    ArrayList<Mitra> getViewDetailMitra (String idMitra);
     ArrayList<Penerimaan> getViewDetailPenerimaan(String idPenerimaan);
     ArrayList<Pemesanan> getNoPemesanan(String idPemesanan);
     ArrayList<Produk> getKodeProduk(Object nominal, Object tahun, Object nama_produk, String jenis_produk);
