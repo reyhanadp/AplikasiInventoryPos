@@ -19,6 +19,7 @@ import id.ac.pos.gudang.entity.Produk;
 import id.ac.pos.gudang.tablemodel.ProdukTM;
 import java.awt.Dialog;
 import java.awt.CardLayout;
+import java.awt.Image;
 import javax.swing.JFrame;
 import javax.swing.*;
 import java.awt.event.KeyEvent;
@@ -29,6 +30,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.table.TableRowSorter;
 
 /**
@@ -48,8 +50,10 @@ public final class FormHome extends javax.swing.JFrame {
     public FormHome() {
     }
 
-    FormHome(String nama, String nik) {
+    FormHome(String nama, String nik) throws IOException {
         initComponents();
+        Image i = ImageIO.read(getClass().getResource("/img/pos_indonesia.png"));
+        setIconImage(i);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         refresh();
         int tahun;
@@ -4622,14 +4626,14 @@ public final class FormHome extends javax.swing.JFrame {
                 String alamat_ip = br.readLine();
 
                 if (alamat_ip.compareTo("localhost") == 0) {
-                    
-                    Process runtimeProcess = Runtime.getRuntime().exec("C:\\xampp\\mysql\\bin\\mysqldump -u root db_inventory_pos -r "+path+"\\db_inventory_pos.sql");
-                    
+
+                    Process runtimeProcess = Runtime.getRuntime().exec("C:\\xampp\\mysql\\bin\\mysqldump -u root db_inventory_pos -r " + path + "\\db_inventory_pos.sql");
+
                     FormLogin fl = new FormLogin();
                     fl.setLocationRelativeTo(null);
                     fl.setVisible(true);
                     this.setVisible(false);
-                }else{
+                } else {
                     FormLoginClient fl = new FormLoginClient();
 
                     fl.setLocationRelativeTo(null);
@@ -4654,21 +4658,21 @@ public final class FormHome extends javax.swing.JFrame {
 
     private void itemBackupRestoreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemBackupRestoreActionPerformed
         // TODO add your handling code here:
-        
+
         try {
             String path = new File(".").getCanonicalPath();
             FileReader fr = new FileReader(path + "\\alamat_ip.txt");
-                BufferedReader br = new BufferedReader(fr);
-                String alamat_ip = br.readLine();
+            BufferedReader br = new BufferedReader(fr);
+            String alamat_ip = br.readLine();
 
-                if (alamat_ip.compareTo("localhost") == 0) {
-                    DialogBackup db = new DialogBackup(this, true);
-        db.setLocationRelativeTo(null);
-        db.setVisible(true);
-        getDataProduk();
-                }else{
-                    JOptionPane.showMessageDialog(null, "Backup Restore Hanya Dapat Dilakukan di Server!");
-                }
+            if (alamat_ip.compareTo("localhost") == 0) {
+                DialogBackup db = new DialogBackup(this, true);
+                db.setLocationRelativeTo(null);
+                db.setVisible(true);
+                getDataProduk();
+            } else {
+                JOptionPane.showMessageDialog(null, "Backup Restore Hanya Dapat Dilakukan di Server!");
+            }
         } catch (IOException ex) {
             Logger.getLogger(FormHome.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -4686,14 +4690,14 @@ public final class FormHome extends javax.swing.JFrame {
                 String alamat_ip = br.readLine();
 
                 if (alamat_ip.compareTo("localhost") == 0) {
-                    
-                    Process runtimeProcess = Runtime.getRuntime().exec("C:\\xampp\\mysql\\bin\\mysqldump -u root db_inventory_pos -r "+path+"\\db_inventory_pos.sql");
-                    
+
+                    Process runtimeProcess = Runtime.getRuntime().exec("C:\\xampp\\mysql\\bin\\mysqldump -u root db_inventory_pos -r " + path + "\\db_inventory_pos.sql");
+
                     FormLogin fl = new FormLogin();
                     fl.setLocationRelativeTo(null);
                     fl.setVisible(true);
                     this.setVisible(false);
-                }else{
+                } else {
                     FormLoginClient fl = new FormLoginClient();
 
                     fl.setLocationRelativeTo(null);

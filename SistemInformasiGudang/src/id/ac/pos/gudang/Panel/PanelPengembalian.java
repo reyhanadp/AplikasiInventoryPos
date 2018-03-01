@@ -6,6 +6,7 @@
 package id.ac.pos.gudang.Panel;
 
 import id.ac.pos.gudang.Dialog.DialogTambahPengembalian;
+import id.ac.pos.gudang.Dialog.DialogViewDetailPengembalian;
 import id.ac.pos.gudang.Form.FormHome;
 import id.ac.pos.gudang.dao.PengembalianDAO;
 import id.ac.pos.gudang.dao.ProdukDAO;
@@ -249,6 +250,11 @@ public final class PanelPengembalian extends javax.swing.JPanel {
             }
         ));
         TablePengembalianPrangko.getTableHeader().setReorderingAllowed(false);
+        TablePengembalianPrangko.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TablePengembalianPrangkoMouseClicked(evt);
+            }
+        });
         jScrollPane11.setViewportView(TablePengembalianPrangko);
 
         CariPrangko.setText("Cari");
@@ -965,6 +971,18 @@ public final class PanelPengembalian extends javax.swing.JPanel {
         TablePengembalianDokumenFilateli.setRowSorter(sorter);
         TablePengembalianDokumenFilateli.setModel(pengembalianTM);
     }//GEN-LAST:event_buttonCariDokumenFilateliActionPerformed
+
+    private void TablePengembalianPrangkoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablePengembalianPrangkoMouseClicked
+        // TODO add your handling code here:
+        if(evt.getClickCount()==2){
+            int baris = TablePengembalianPrangko.getSelectedRow();
+            String id_pengembalian = (String) TablePengembalianPrangko.getValueAt(baris, 0);
+            
+            FormHome formHome = new FormHome();
+            DialogViewDetailPengembalian detailPengembalian = new DialogViewDetailPengembalian(formHome, true,id_pengembalian);
+            detailPengembalian.setVisible(true);
+        }
+    }//GEN-LAST:event_TablePengembalianPrangkoMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -9,6 +9,7 @@ import id.ac.pos.gudang.entity.Pengembalian;
 import id.ac.pos.gudang.entity.Produk;
 import id.ac.pos.gudang.entity.Regional;
 import java.util.ArrayList;
+import java.util.Vector;
 
 /**
  *
@@ -16,7 +17,7 @@ import java.util.ArrayList;
  */
 public interface PengembalianDAO {
     
-
+    Vector getViewDetailPengembalian(String id_pengembalian);
     ArrayList<Produk> getKodeProduk(Object nominal,Object tahun, Object nama_produk, String jenis_produk);
     ArrayList<Produk> getNominalProduk(Object nama_produk, Object tahun, String jenis_produk);
     ArrayList<Produk> getTahunProduk(Object nama_produk, String jenis_produk);

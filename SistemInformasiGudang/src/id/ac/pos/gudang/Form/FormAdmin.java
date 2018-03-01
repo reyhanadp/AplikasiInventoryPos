@@ -8,9 +8,14 @@ package id.ac.pos.gudang.Form;
 import id.ac.pos.gudang.Dialog.Admin.MItra.DialogMitra;
 import id.ac.pos.gudang.Dialog.Admin.Regional.DialogRegional;
 import id.ac.pos.gudang.Dialog.Admin.User.DialogUser;
+import java.awt.Image;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
@@ -24,8 +29,10 @@ public class FormAdmin extends javax.swing.JFrame {
     /**
      * Creates new form FormAdmin
      */
-    public FormAdmin() {
+    public FormAdmin() throws IOException {
         initComponents();
+        Image i = ImageIO.read(getClass().getResource("/img/pos_indonesia.png"));
+        setIconImage(i);
         setLocationRelativeTo(null);
     }
 
@@ -176,8 +183,8 @@ public class FormAdmin extends javax.swing.JFrame {
     private void buttonLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLogoutActionPerformed
         // TODO add your handling code here:
         int pilih = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin Logout ?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
-        if (pilih == JOptionPane.YES_OPTION){
-        FormLogin fl = null;
+        if (pilih == JOptionPane.YES_OPTION) {
+            FormLogin fl = null;
             try {
                 fl = new FormLogin();
             } catch (IOException ex) {
@@ -185,9 +192,9 @@ public class FormAdmin extends javax.swing.JFrame {
             } catch (InterruptedException ex) {
                 Logger.getLogger(FormAdmin.class.getName()).log(Level.SEVERE, null, ex);
             }
-        fl.setLocationRelativeTo(null);
-        fl.setVisible(true);
-        this.setVisible(false);
+            fl.setLocationRelativeTo(null);
+            fl.setVisible(true);
+            this.setVisible(false);
         }
     }//GEN-LAST:event_buttonLogoutActionPerformed
 
@@ -196,7 +203,7 @@ public class FormAdmin extends javax.swing.JFrame {
         DialogMitra dm = new DialogMitra(null, rootPaneCheckingEnabled);
         dm.setLocationRelativeTo(null);
         dm.setVisible(true);
-        
+
     }//GEN-LAST:event_buttonMitraMouseClicked
 
     private void buttonUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonUserMouseClicked
@@ -209,18 +216,32 @@ public class FormAdmin extends javax.swing.JFrame {
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         // TODO add your handling code here:
         int pilih = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin Logout ?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
-        if (pilih == JOptionPane.YES_OPTION){
-        FormLogin fl = null;
+        if (pilih == JOptionPane.YES_OPTION) {
+            
             try {
-                fl = new FormLogin();
-            } catch (IOException ex) {
-                Logger.getLogger(FormAdmin.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (InterruptedException ex) {
+                String path = new File(".").getCanonicalPath();
+                FileReader fr = new FileReader(path + "\\alamat_ip.txt");
+                BufferedReader br = new BufferedReader(fr);
+                String alamat_ip = br.readLine();
+
+                if (alamat_ip.compareTo("localhost") == 0) {
+
+                    Process runtimeProcess = Runtime.getRuntime().exec("C:\\xampp\\mysql\\bin\\mysqldump -u root db_inventory_pos -r " + path + "\\db_inventory_pos.sql");
+
+                    FormLogin fl = new FormLogin();
+                    fl.setLocationRelativeTo(null);
+                    fl.setVisible(true);
+                    this.setVisible(false);
+                } else {
+                    FormLoginClient fl = new FormLoginClient();
+
+                    fl.setLocationRelativeTo(null);
+                    fl.setVisible(true);
+                    this.setVisible(false);
+                }
+            } catch (IOException | InterruptedException ex) {
                 Logger.getLogger(FormAdmin.class.getName()).log(Level.SEVERE, null, ex);
             }
-        fl.setLocationRelativeTo(null);
-        fl.setVisible(true);
-        this.setVisible(false);
         }
     }//GEN-LAST:event_formWindowClosing
 
@@ -228,7 +249,7 @@ public class FormAdmin extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        
+
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -261,7 +282,11 @@ public class FormAdmin extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FormAdmin().setVisible(true);
+                try {
+                    new FormAdmin().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(FormAdmin.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

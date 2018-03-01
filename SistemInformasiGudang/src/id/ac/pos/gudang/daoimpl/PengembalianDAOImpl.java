@@ -17,6 +17,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -687,9 +688,7 @@ public class PengembalianDAOImpl implements PengembalianDAO {
     public ArrayList<Pengembalian> cariProdukPengembalian(String keyword, String jenisCari, String idJenis) {
         try {
             conn = DatabaseConnectivity.getConnection();
-        } catch (IOException ex) {
-            Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (InterruptedException ex) {
+        } catch (IOException | InterruptedException ex) {
             Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
         ArrayList<Pengembalian> arrayPengembalian = null;
@@ -747,14 +746,15 @@ public class PengembalianDAOImpl implements PengembalianDAO {
                 }
             }
 
+        
         } catch (SQLException ex) {
-            Logger.getLogger(PemesananDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
         }finally {
             if (result != null) {
                 try {
                     result.close();
                 } catch (SQLException ex) {
-                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
 
@@ -762,19 +762,96 @@ public class PengembalianDAOImpl implements PengembalianDAO {
                 try {
                     state.close();
                 } catch (SQLException ex) {
-                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
             if (conn != null) {
                 try {
                     conn.close();
                 } catch (SQLException ex) {
-                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         }
 
         return arrayPengembalian;
+    }
+
+    @Override
+    public Vector getViewDetailPengembalian(String id_pengembalian) {
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException | InterruptedException ex) {
+            Logger.getLogger(PemesananDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Vector vectorViewDetailPengembalian = new Vector();
+        String SELECT = "SELECT * FROM `tb_trans_pengembalian` "
+                + "JOIN tb_produk ON tb_trans_pengembalian.id_produk=tb_produk.id_produk "
+                + "JOIN tb_regional ON tb_trans_pengembalian.id_regional=tb_regional.id_regional "
+                + "WHERE tb_trans_pengembalian.id_pengembalian='"+id_pengembalian+"'";
+
+
+         state = null;
+
+        try {
+            state = conn.prepareStatement(SELECT);
+
+             result = state.executeQuery();
+            if (result != null) {
+
+                //selama result memiliki data 
+                // return lebih dari 1 data 
+                while (result.next()) {
+
+                    vectorViewDetailPengembalian.add(result.getDate(2));
+                    vectorViewDetailPengembalian.add(result.getString(3));
+                    vectorViewDetailPengembalian.add(result.getString(4));
+                    vectorViewDetailPengembalian.add(result.getString(7));
+                    vectorViewDetailPengembalian.add(result.getString(8));
+                    vectorViewDetailPengembalian.add(result.getString(9));
+                    vectorViewDetailPengembalian.add(result.getString(10));
+                    vectorViewDetailPengembalian.add(result.getString(11));
+                    vectorViewDetailPengembalian.add(result.getString(12));
+                    vectorViewDetailPengembalian.add(result.getString(13));
+                    vectorViewDetailPengembalian.add(result.getString(14));
+                    vectorViewDetailPengembalian.add(result.getString(15));
+                    vectorViewDetailPengembalian.add(result.getString(19));
+                    vectorViewDetailPengembalian.add(result.getString(20));
+                    vectorViewDetailPengembalian.add(result.getString(21));
+                    vectorViewDetailPengembalian.add(result.getString(22));
+                    vectorViewDetailPengembalian.add(result.getString(23));
+                }
+            }
+        
+        
+        } catch (SQLException ex) {
+            Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }finally {
+            if (result != null) {
+                try {
+                    result.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengembalianDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+
+        return vectorViewDetailPengembalian;
     }
 
 }

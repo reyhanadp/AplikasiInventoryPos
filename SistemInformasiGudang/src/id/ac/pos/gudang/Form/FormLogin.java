@@ -8,6 +8,7 @@ package id.ac.pos.gudang.Form;
 import id.ac.pos.gudang.entity.User;
 import id.ac.pos.gudang.utility.DatabaseConnectivity;
 import java.awt.HeadlessException;
+import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -19,6 +20,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 
@@ -38,6 +40,8 @@ public class FormLogin extends javax.swing.JFrame {
 
     public FormLogin() throws IOException, InterruptedException {
         initComponents();
+        Image i = ImageIO.read(getClass().getResource("/img/pos_indonesia.png"));
+        setIconImage(i);
         try {
             String path = new File(".").getCanonicalPath();
             File file = new File(path + "\\alamat_ip.txt");
