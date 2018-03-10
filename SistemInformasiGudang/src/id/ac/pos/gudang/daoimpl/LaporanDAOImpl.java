@@ -49,7 +49,7 @@ public class LaporanDAOImpl implements LaporanDAO{
         } else {
             SELECT = "SELECT id_produk,nama_produk,nominal,biaya_cetak FROM"
                     + " tb_produk where tahun='"+tahun+"' and status='0' and"
-                    + " id_jenis_produk='"+jenis_produk+"' order by nama_produk asc";
+                    + " id_jenis_produk='"+jenis_produk+"' order by id_produk asc";
         }
         PreparedStatement state = null;
 

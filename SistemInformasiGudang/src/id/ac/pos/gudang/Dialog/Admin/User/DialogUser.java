@@ -11,7 +11,10 @@ import id.ac.pos.gudang.daoimpl.admin.UserDAOImpl;
 import id.ac.pos.gudang.entity.User;
 import id.ac.pos.gudang.tablemodel.admin.UserTM;
 import java.awt.Dialog;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -143,7 +146,12 @@ public class DialogUser extends javax.swing.JDialog {
         if (baris >= 0) {
             //mengambil user dari baris table
             User userTerpilih = arrayUser.get(baris);
-            FormAdmin admin = new FormAdmin();
+            FormAdmin admin = null;
+            try {
+                admin = new FormAdmin();
+            } catch (IOException ex) {
+                Logger.getLogger(DialogUser.class.getName()).log(Level.SEVERE, null, ex);
+            }
             //munculkan dialog
             DialogUbahUser duu = new DialogUbahUser(admin, true, userTerpilih);
             duu.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);

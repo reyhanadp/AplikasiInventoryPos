@@ -11,7 +11,10 @@ import id.ac.pos.gudang.daoimpl.admin.MitraDAOImpl;
 import id.ac.pos.gudang.entity.Mitra;
 import id.ac.pos.gudang.tablemodel.admin.MitraTM;
 import java.awt.Dialog;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -183,7 +186,12 @@ public class DialogMitra extends javax.swing.JDialog {
         if (baris >= 0) {
             //mengambil anggota dari baris table 
             Mitra mitraTerpilih = arrayMitra.get(baris);
-            FormAdmin admin = new FormAdmin();
+            FormAdmin admin = null;
+            try {
+                admin = new FormAdmin();
+            } catch (IOException ex) {
+                Logger.getLogger(DialogMitra.class.getName()).log(Level.SEVERE, null, ex);
+            }
 
             //munculkan dialog
             DialogUbahMitra dum = new DialogUbahMitra(admin, true, mitraTerpilih);

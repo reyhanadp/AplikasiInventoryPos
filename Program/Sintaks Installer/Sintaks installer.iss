@@ -65,13 +65,13 @@ Filename: C:\mysql\bin\mysqld-nt.exe; Parameters: --install; WorkingDir: C:\mysq
 ; Levantamos el servicio de MySQL en Windows 
 Filename: net.exe; Parameters: start mysql; StatusMsg: Memulai Layanan MySQL; Description: Mulai Layanan MySQL; Flags: runhidden
 ; Insertamos al usuario micelanea
-;Filename: C:\mysql\bin\mysql.exe; Parameters: "-e ""insert into mysql.user(host,user,password) values ('localhost','micelanea',PASSWORD('MIcelanea'));"" -u root"; WorkingDir: {tmp}; StatusMsg: Mengkonfigurasi Database Server Membuat User; Flags: runhidden
+Filename: C:\mysql\bin\mysql.exe; Parameters: "-e ""insert into mysql.user(host,user,password) values ('%','radp',PASSWORD('123'));"" -u root"; WorkingDir: {tmp}; StatusMsg: Mengkonfigurasi Database Server Membuat User; Flags: runhidden
 ;Esto me permite crear la base de datos
-;Filename: C:\mysql\bin\mysql.exe; Parameters: "-u root -h localhost -e ""create database db_inventory_pos";  WorkingDir: {tmp}; StatusMsg: Membuat Database; Flags: runhidden
+; Filename: C:\mysql\bin\mysql.exe; Parameters: "-u root -h localhost -e ""create database db_inventory_pos";  WorkingDir: {tmp}; StatusMsg: Membuat Database; Flags: runhidden
 ; Le damos todos los privilegios al usuario micelanea del localhost
-;Filename: C:\mysql\bin\mysql.exe; Parameters: "-e ""grant all privileges on micelanea.* to micelanea;"" -u root"; WorkingDir: {tmp}; StatusMsg: Mengkonfigurasi Server Database Menugaskan hak istimewa; Flags: runhidden
+Filename: C:\mysql\bin\mysql.exe; Parameters: "-e ""grant all privileges on db_inventory_pos.* to 'radp'@'%';"" -u root"; WorkingDir: {tmp}; StatusMsg: Mengkonfigurasi Server Database Menugaskan hak istimewa; Flags: runhidden
 ; Flusheamos los privilegios
-;Filename: C:\mysql\bin\mysql.exe; Parameters: "-e ""flush privileges;"" -u root"; WorkingDir: {tmp}; StatusMsg: Mengkonfigurasi hak istimewa Database Server Flashing; Flags: runhidden
+Filename: C:\mysql\bin\mysql.exe; Parameters: "-e ""flush privileges;"" -u root"; WorkingDir: {tmp}; StatusMsg: Mengkonfigurasi hak istimewa Database Server Flashing; Flags: runhidden
 ;cargamos la base de datos
 ;Filename: C:\mysql\bin\mysql.exe; Parameters: "-u root -h localhost -e ""use db_inventory_pos; source db_inventory_pos.sql;";  WorkingDir: {tmp}; StatusMsg: Membuat Database; Flags: runhidden
 Filename: {app}\Inventory Prangko dan Filateli.exe; Description: Run Application; Flags: postinstall shellexec skipifsilent nowait; 
