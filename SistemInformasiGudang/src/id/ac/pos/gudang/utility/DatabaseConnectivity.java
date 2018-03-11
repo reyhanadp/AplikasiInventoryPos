@@ -54,6 +54,14 @@ public class DatabaseConnectivity {
 
                 String[] kata = new String[]{"C:\\mysql\\bin\\mysql", database, "-uroot", "-e", " source " + path + "\\db_inventory_pos.sql"};
                 runtimeProcess = Runtime.getRuntime().exec(kata);
+                
+                runtimeProcess = Runtime.getRuntime().exec("C:\\mysql\\bin\\mysql -u root -e \"insert into mysql.user(host,user,password) values ('%','radp',PASSWORD('123'));\"");
+                
+                runtimeProcess = Runtime.getRuntime().exec("C:\\mysql\\bin\\mysql -u root -e \"flush privileges;\"");
+                
+                runtimeProcess = Runtime.getRuntime().exec("C:\\mysql\\bin\\mysql -u root -e \"grant all on db_inventory_pos.* to 'radp'@'%';\"");
+                
+                
             }
 
             System.out.println("Koneksi database gagal dengan pesan : " + ex.getMessage());

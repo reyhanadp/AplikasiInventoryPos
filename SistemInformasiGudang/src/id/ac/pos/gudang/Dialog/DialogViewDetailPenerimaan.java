@@ -61,7 +61,7 @@ public class DialogViewDetailPenerimaan extends javax.swing.JDialog {
         arrayProduk = dao.getViewDetailProduk(arrayPenerimaan.get(0).getIdProduk());
         labelNamaProduk.setText(arrayProduk.get(0).getNamaProduk());
         labelNominal.setText(format_titik(Integer.toString(arrayProduk.get(0).getNominal())));
-        String biaya_cetak = Float.toString(arrayProduk.get(0).getBiayaCetak()).replace(".", ",");
+        String biaya_cetak = Double.toString(arrayProduk.get(0).getBiayaCetak()).replace(".", ",");
         String biaya_cetak_depan = ambil_angka_depan(biaya_cetak);
         String biaya_cetak_belakang = ambil_angka_belakang(biaya_cetak);
         String biaya_cetak_titik = format_titik(biaya_cetak_depan);

@@ -123,7 +123,7 @@ public class ProdukTM extends AbstractTableModel {
                 return format_titik(Integer.toString(arrayProduk.get(rowIndex).getNominal()));
 
             case 3:
-                String biaya_cetak = Float.toString(arrayProduk.get(rowIndex).getBiayaCetak()).replace(".", ",");
+                String biaya_cetak = Double.toString(arrayProduk.get(rowIndex).getBiayaCetak()).replace(".", ",");
                 String biaya_cetak_depan = ambil_angka_depan(biaya_cetak);
                 String biaya_cetak_belakang = ambil_angka_belakang(biaya_cetak);
                 String biaya_cetak_titik = format_titik(biaya_cetak_depan);

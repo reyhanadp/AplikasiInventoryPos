@@ -1334,7 +1334,7 @@ public class PenerimaanDAOImpl implements PenerimaanDAO {
                     Produk produk = new Produk();
                     produk.setNamaProduk(result.getString(2));
                     produk.setNominal(result.getInt(3));
-                    produk.setBiayaCetak(result.getFloat(4));
+                    produk.setBiayaCetak(Double.parseDouble(result.getString(4)));
                     produk.setStok(result.getInt(5));
                     produk.setTahun(result.getString(6));
                     //menambahkan data ke array

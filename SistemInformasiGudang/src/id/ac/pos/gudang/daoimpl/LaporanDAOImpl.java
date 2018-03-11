@@ -69,7 +69,7 @@ public class LaporanDAOImpl implements LaporanDAO{
                     produk.setIdProduk(result.getString(1));
                     produk.setNamaProduk(result.getString(2));
                     produk.setNominal(Integer.parseInt(result.getString(3)));
-                    produk.setBiayaCetak(Float.parseFloat(result.getString(4)));
+                    produk.setBiayaCetak(Double.parseDouble(result.getString(4)));
 
                     //menambahkan data ke array
                     arrayProduk.add(produk);

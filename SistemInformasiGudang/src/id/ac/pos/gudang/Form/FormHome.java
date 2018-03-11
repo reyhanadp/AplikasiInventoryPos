@@ -2789,7 +2789,7 @@ public final class FormHome extends javax.swing.JFrame {
                 produk.setIdProduk(idProduk);
                 produk.setNamaProduk(namaProduk);
                 produk.setNominal(Integer.parseInt(nominal));
-                produk.setBiayaCetak(Float.parseFloat(biayaCetak));
+                produk.setBiayaCetak(Double.parseDouble(biayaCetak));
                 produk.setTahun(tahun);
                 produk.setNik(nik);
 
@@ -4627,7 +4627,7 @@ public final class FormHome extends javax.swing.JFrame {
 
                 if (alamat_ip.compareTo("localhost") == 0) {
 
-                    Process runtimeProcess = Runtime.getRuntime().exec("C:\\mysql\\bin\\mysqldump -u root db_inventory_pos -r " + path + "\\db_inventory_pos.sql");
+                    Process runtimeProcess = Runtime.getRuntime().exec("C:\\mysql\\bin\\mysqldump -u root db_inventory_pos -r \"" + path + "\\db_inventory_pos.sql\"");
 
                     FormLogin fl = new FormLogin();
                     fl.setLocationRelativeTo(null);
@@ -4691,7 +4691,7 @@ public final class FormHome extends javax.swing.JFrame {
 
                 if (alamat_ip.compareTo("localhost") == 0) {
 
-                    Process runtimeProcess = Runtime.getRuntime().exec("C:\\xampp\\mysql\\bin\\mysqldump -u root db_inventory_pos -r " + path + "\\db_inventory_pos.sql");
+                    Process runtimeProcess = Runtime.getRuntime().exec("C:\\mysql\\bin\\mysqldump -u root db_inventory_pos -r \"" + path + "\\db_inventory_pos.sql\"");
 
                     FormLogin fl = new FormLogin();
                     fl.setLocationRelativeTo(null);

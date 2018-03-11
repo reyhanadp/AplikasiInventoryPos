@@ -18,7 +18,7 @@ public class Produk {
     private String idProduk;
     private String namaProduk;
     private int nominal;
-    private float biayaCetak;
+    private double biayaCetak;
     private int stok;
     private String tahun;
     private String idJenisProduk;
@@ -91,11 +91,11 @@ public class Produk {
         this.nominal = nominal;
     }
 
-    public float getBiayaCetak() {
+    public double getBiayaCetak() {
         return biayaCetak;
     }
 
-    public void setBiayaCetak(float biayaCetak) {
+    public void setBiayaCetak(double biayaCetak) {
         this.biayaCetak = biayaCetak;
     }
 

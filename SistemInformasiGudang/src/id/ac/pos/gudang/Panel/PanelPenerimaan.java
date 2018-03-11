@@ -1059,6 +1059,15 @@ public class PanelPenerimaan extends javax.swing.JPanel {
 
     private void tablePenerimaanMS_SSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePenerimaanMS_SSMouseClicked
         // TODO add your handling code here:
+        if(evt.getClickCount()==2){
+            int baris = tablePenerimaanMS_SS.getSelectedRow();
+            String id_penerimaan = (String) tablePenerimaanMS_SS.getValueAt(baris, 0);
+            
+            FormHome formHome = new FormHome();
+            DialogViewDetailPenerimaan detailPenerimaan = new DialogViewDetailPenerimaan(formHome, true,id_penerimaan);
+            
+            detailPenerimaan.setVisible(true);
+        }
     }//GEN-LAST:event_tablePenerimaanMS_SSMouseClicked
 
     private void fieldCariPenerimaanMS_SSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fieldCariPenerimaanMS_SSMouseClicked
@@ -1101,6 +1110,15 @@ public class PanelPenerimaan extends javax.swing.JPanel {
 
     private void tablePenerimaanSHP_SHPSSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePenerimaanSHP_SHPSSMouseClicked
         // TODO add your handling code here:
+        if(evt.getClickCount()==2){
+            int baris = tablePenerimaanSHP_SHPSS.getSelectedRow();
+            String id_penerimaan = (String) tablePenerimaanSHP_SHPSS.getValueAt(baris, 0);
+            
+            FormHome formHome = new FormHome();
+            DialogViewDetailPenerimaan detailPenerimaan = new DialogViewDetailPenerimaan(formHome, true,id_penerimaan);
+            
+            detailPenerimaan.setVisible(true);
+        }
     }//GEN-LAST:event_tablePenerimaanSHP_SHPSSMouseClicked
 
     private void fieldCariPenerimaanSHP_SHPSSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fieldCariPenerimaanSHP_SHPSSMouseClicked
@@ -1142,6 +1160,15 @@ public class PanelPenerimaan extends javax.swing.JPanel {
 
     private void tablePenerimaanKemasanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePenerimaanKemasanMouseClicked
         // TODO add your handling code here:
+        if(evt.getClickCount()==2){
+            int baris = tablePenerimaanKemasan.getSelectedRow();
+            String id_penerimaan = (String) tablePenerimaanKemasan.getValueAt(baris, 0);
+            
+            FormHome formHome = new FormHome();
+            DialogViewDetailPenerimaan detailPenerimaan = new DialogViewDetailPenerimaan(formHome, true,id_penerimaan);
+            
+            detailPenerimaan.setVisible(true);
+        }
     }//GEN-LAST:event_tablePenerimaanKemasanMouseClicked
 
     private void fieldCariPenerimaanKemasanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fieldCariPenerimaanKemasanMouseClicked
@@ -1183,6 +1210,15 @@ public class PanelPenerimaan extends javax.swing.JPanel {
 
     private void tablePenerimaanMerchandiseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePenerimaanMerchandiseMouseClicked
         // TODO add your handling code here:
+        if(evt.getClickCount()==2){
+            int baris = tablePenerimaanMerchandise.getSelectedRow();
+            String id_penerimaan = (String) tablePenerimaanMerchandise.getValueAt(baris, 0);
+            
+            FormHome formHome = new FormHome();
+            DialogViewDetailPenerimaan detailPenerimaan = new DialogViewDetailPenerimaan(formHome, true,id_penerimaan);
+            
+            detailPenerimaan.setVisible(true);
+        }
     }//GEN-LAST:event_tablePenerimaanMerchandiseMouseClicked
 
     private void fieldCariPenerimaanMerchandiseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fieldCariPenerimaanMerchandiseMouseClicked
@@ -1224,6 +1260,15 @@ public class PanelPenerimaan extends javax.swing.JPanel {
 
     private void tablePenerimaanPrismaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePenerimaanPrismaMouseClicked
         // TODO add your handling code here:
+        if(evt.getClickCount()==2){
+            int baris = tablePenerimaanPrisma.getSelectedRow();
+            String id_penerimaan = (String) tablePenerimaanPrisma.getValueAt(baris, 0);
+            
+            FormHome formHome = new FormHome();
+            DialogViewDetailPenerimaan detailPenerimaan = new DialogViewDetailPenerimaan(formHome, true,id_penerimaan);
+            
+            detailPenerimaan.setVisible(true);
+        }
     }//GEN-LAST:event_tablePenerimaanPrismaMouseClicked
 
     private void fieldCariPenerimaanPrismaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fieldCariPenerimaanPrismaMouseClicked
@@ -1265,6 +1310,15 @@ public class PanelPenerimaan extends javax.swing.JPanel {
 
     private void tablePenerimaanDokumenFilateliMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePenerimaanDokumenFilateliMouseClicked
         // TODO add your handling code here:
+        if(evt.getClickCount()==2){
+            int baris = tablePenerimaanDokumenFilateli.getSelectedRow();
+            String id_penerimaan = (String) tablePenerimaanDokumenFilateli.getValueAt(baris, 0);
+            
+            FormHome formHome = new FormHome();
+            DialogViewDetailPenerimaan detailPenerimaan = new DialogViewDetailPenerimaan(formHome, true,id_penerimaan);
+            
+            detailPenerimaan.setVisible(true);
+        }
     }//GEN-LAST:event_tablePenerimaanDokumenFilateliMouseClicked
 
     private void fieldCariPenerimaanDFMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fieldCariPenerimaanDFMouseClicked

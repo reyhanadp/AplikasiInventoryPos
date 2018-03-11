@@ -322,6 +322,11 @@ public final class PanelPengiriman extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tabelPengirimanMSSS.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelPengirimanMSSSMouseClicked(evt);
+            }
+        });
         jScrollPane42.setViewportView(tabelPengirimanMSSS);
 
         buttonCariMSSS.setText("Cari");
@@ -392,6 +397,11 @@ public final class PanelPengiriman extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tabelPengirimanSHPSS.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelPengirimanSHPSSMouseClicked(evt);
+            }
+        });
         jScrollPane44.setViewportView(tabelPengirimanSHPSS);
 
         buttonCariSHPSS.setText("Cari");
@@ -462,6 +472,11 @@ public final class PanelPengiriman extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tabelPengirimanKemasan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelPengirimanKemasanMouseClicked(evt);
+            }
+        });
         jScrollPane46.setViewportView(tabelPengirimanKemasan);
 
         buttonCariKemasan.setText("Cari");
@@ -532,6 +547,11 @@ public final class PanelPengiriman extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tabelPengirimanMerchandise.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelPengirimanMerchandiseMouseClicked(evt);
+            }
+        });
         jScrollPane48.setViewportView(tabelPengirimanMerchandise);
 
         buttonCariMerchandise.setText("Cari");
@@ -602,6 +622,11 @@ public final class PanelPengiriman extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tabelPengirimanPrisma.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelPengirimanPrismaMouseClicked(evt);
+            }
+        });
         jScrollPane50.setViewportView(tabelPengirimanPrisma);
 
         buttonCariPrisma.setText("Cari");
@@ -672,6 +697,11 @@ public final class PanelPengiriman extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tabelPengirimanDokumenFilateli.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelPengirimanDokumenFilateliMouseClicked(evt);
+            }
+        });
         jScrollPane52.setViewportView(tabelPengirimanDokumenFilateli);
 
         buttonCariDokumenFilateli.setText("Cari");
@@ -971,6 +1001,78 @@ public final class PanelPengiriman extends javax.swing.JPanel {
             detailPengiriman.setVisible(true);
         }
     }//GEN-LAST:event_tabelPengirimanPrangkoMouseClicked
+
+    private void tabelPengirimanMSSSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelPengirimanMSSSMouseClicked
+        // TODO add your handling code here:
+        if(evt.getClickCount()==2){
+            int baris = tabelPengirimanMSSS.getSelectedRow();
+            String id_pengiriman = (String) tabelPengirimanMSSS.getValueAt(baris, 0);
+            
+            FormHome formHome = new FormHome();
+            DialogViewDetailPengiriman detailPengiriman = new DialogViewDetailPengiriman(formHome, true,id_pengiriman);
+            detailPengiriman.setVisible(true);
+        }
+    }//GEN-LAST:event_tabelPengirimanMSSSMouseClicked
+
+    private void tabelPengirimanSHPSSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelPengirimanSHPSSMouseClicked
+        // TODO add your handling code here:
+        if(evt.getClickCount()==2){
+            int baris = tabelPengirimanSHPSS.getSelectedRow();
+            String id_pengiriman = (String) tabelPengirimanSHPSS.getValueAt(baris, 0);
+            
+            FormHome formHome = new FormHome();
+            DialogViewDetailPengiriman detailPengiriman = new DialogViewDetailPengiriman(formHome, true,id_pengiriman);
+            detailPengiriman.setVisible(true);
+        }
+    }//GEN-LAST:event_tabelPengirimanSHPSSMouseClicked
+
+    private void tabelPengirimanKemasanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelPengirimanKemasanMouseClicked
+        // TODO add your handling code here:
+        if(evt.getClickCount()==2){
+            int baris = tabelPengirimanKemasan.getSelectedRow();
+            String id_pengiriman = (String) tabelPengirimanKemasan.getValueAt(baris, 0);
+            
+            FormHome formHome = new FormHome();
+            DialogViewDetailPengiriman detailPengiriman = new DialogViewDetailPengiriman(formHome, true,id_pengiriman);
+            detailPengiriman.setVisible(true);
+        }
+    }//GEN-LAST:event_tabelPengirimanKemasanMouseClicked
+
+    private void tabelPengirimanMerchandiseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelPengirimanMerchandiseMouseClicked
+        // TODO add your handling code here:
+        if(evt.getClickCount()==2){
+            int baris = tabelPengirimanMerchandise.getSelectedRow();
+            String id_pengiriman = (String) tabelPengirimanMerchandise.getValueAt(baris, 0);
+            
+            FormHome formHome = new FormHome();
+            DialogViewDetailPengiriman detailPengiriman = new DialogViewDetailPengiriman(formHome, true,id_pengiriman);
+            detailPengiriman.setVisible(true);
+        }
+    }//GEN-LAST:event_tabelPengirimanMerchandiseMouseClicked
+
+    private void tabelPengirimanPrismaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelPengirimanPrismaMouseClicked
+        // TODO add your handling code here:
+        if(evt.getClickCount()==2){
+            int baris = tabelPengirimanPrisma.getSelectedRow();
+            String id_pengiriman = (String) tabelPengirimanPrisma.getValueAt(baris, 0);
+            
+            FormHome formHome = new FormHome();
+            DialogViewDetailPengiriman detailPengiriman = new DialogViewDetailPengiriman(formHome, true,id_pengiriman);
+            detailPengiriman.setVisible(true);
+        }
+    }//GEN-LAST:event_tabelPengirimanPrismaMouseClicked
+
+    private void tabelPengirimanDokumenFilateliMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelPengirimanDokumenFilateliMouseClicked
+        // TODO add your handling code here:
+        if(evt.getClickCount()==2){
+            int baris = tabelPengirimanDokumenFilateli.getSelectedRow();
+            String id_pengiriman = (String) tabelPengirimanDokumenFilateli.getValueAt(baris, 0);
+            
+            FormHome formHome = new FormHome();
+            DialogViewDetailPengiriman detailPengiriman = new DialogViewDetailPengiriman(formHome, true,id_pengiriman);
+            detailPengiriman.setVisible(true);
+        }
+    }//GEN-LAST:event_tabelPengirimanDokumenFilateliMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

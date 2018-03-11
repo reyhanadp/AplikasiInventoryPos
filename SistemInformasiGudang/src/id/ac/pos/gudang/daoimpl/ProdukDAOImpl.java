@@ -71,7 +71,7 @@ public class ProdukDAOImpl implements ProdukDAO {
                     produk.setIdProduk(result.getString(1));
                     produk.setNamaProduk(result.getString(2));
                     produk.setNominal(result.getInt(3));
-                    produk.setBiayaCetak(result.getFloat(4));
+                    produk.setBiayaCetak(result.getDouble(4));
                     produk.setStok(result.getInt(5));
                     produk.setTahun(result.getString(6));
                     produk.setIdJenisProduk(result.getString(7));
@@ -130,7 +130,7 @@ public class ProdukDAOImpl implements ProdukDAO {
             state.setString(1, produk.getIdProduk());
             state.setString(2, produk.getNamaProduk());
             state.setInt(3, produk.getNominal());
-            state.setFloat(4, produk.getBiayaCetak());
+            state.setDouble(4, produk.getBiayaCetak());
             state.setInt(5, produk.getStok());
             state.setString(6, produk.getTahun());
             state.setString(7, jenisProduk);
@@ -233,7 +233,7 @@ public class ProdukDAOImpl implements ProdukDAO {
             state = conn.prepareStatement(UPDATE);
             state.setString(1, produk.getNamaProduk());
             state.setInt(2, produk.getNominal());
-            state.setFloat(3, produk.getBiayaCetak());
+            state.setDouble(3, produk.getBiayaCetak());
             state.setString(4, produk.getTahun());
             state.setString(5, produk.getIdProduk());
 
@@ -333,9 +333,7 @@ public class ProdukDAOImpl implements ProdukDAO {
     public ArrayList<Produk> getProduk() {
         try {
             conn = DatabaseConnectivity.getConnection();
-        } catch (IOException ex) {
-            Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (InterruptedException ex) {
+        } catch (IOException | InterruptedException ex) {
             Logger.getLogger(ProdukDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
         ArrayList<Produk> arrayProduk = null;
@@ -358,7 +356,7 @@ public class ProdukDAOImpl implements ProdukDAO {
                     produk.setIdProduk(result.getString(1));
                     produk.setNamaProduk(result.getString(2));
                     produk.setNominal(result.getInt(3));
-                    produk.setBiayaCetak(result.getFloat(4));
+                    produk.setBiayaCetak(result.getDouble(4));
                     produk.setStok(result.getInt(5));
                     produk.setTahun(result.getString(6));
                     produk.setIdJenisProduk(result.getString(7));
@@ -425,7 +423,7 @@ public class ProdukDAOImpl implements ProdukDAO {
                     produk.setIdProduk(result.getString(1));
                     produk.setNamaProduk(result.getString(2));
                     produk.setNominal(result.getInt(3));
-                    produk.setBiayaCetak(result.getFloat(4));
+                    produk.setBiayaCetak(result.getDouble(4));
                     produk.setStok(result.getInt(5));
                     produk.setTahun(result.getString(6));
                     produk.setIdJenisProduk(result.getString(7));

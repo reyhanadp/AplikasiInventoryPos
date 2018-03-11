@@ -326,6 +326,11 @@ public final class PanelPengembalian extends javax.swing.JPanel {
             }
         ));
         TablePengembalianMSSS.getTableHeader().setReorderingAllowed(false);
+        TablePengembalianMSSS.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TablePengembalianMSSSMouseClicked(evt);
+            }
+        });
         jScrollPane18.setViewportView(TablePengembalianMSSS);
 
         CariMSSS.setText("Cari");
@@ -397,6 +402,11 @@ public final class PanelPengembalian extends javax.swing.JPanel {
             }
         ));
         TablePengembalianSHPSS.getTableHeader().setReorderingAllowed(false);
+        TablePengembalianSHPSS.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TablePengembalianSHPSSMouseClicked(evt);
+            }
+        });
         jScrollPane19.setViewportView(TablePengembalianSHPSS);
 
         CariSHPSS.setText("Cari");
@@ -467,6 +477,11 @@ public final class PanelPengembalian extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        TablePengembalianKemasan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TablePengembalianKemasanMouseClicked(evt);
+            }
+        });
         jScrollPane14.setViewportView(TablePengembalianKemasan);
 
         buttonCariKemasan.setText("Cari");
@@ -537,6 +552,11 @@ public final class PanelPengembalian extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        TablePengembalianMerchandise.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TablePengembalianMerchandiseMouseClicked(evt);
+            }
+        });
         jScrollPane15.setViewportView(TablePengembalianMerchandise);
 
         buttonCariMerchandise.setText("Cari");
@@ -607,6 +627,11 @@ public final class PanelPengembalian extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        TablePengembalianPrisma.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TablePengembalianPrismaMouseClicked(evt);
+            }
+        });
         jScrollPane16.setViewportView(TablePengembalianPrisma);
 
         buttonCariPrisma.setText("Cari");
@@ -677,6 +702,11 @@ public final class PanelPengembalian extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        TablePengembalianDokumenFilateli.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TablePengembalianDokumenFilateliMouseClicked(evt);
+            }
+        });
         jScrollPane17.setViewportView(TablePengembalianDokumenFilateli);
 
         buttonCariDokumenFilateli.setText("Cari");
@@ -983,6 +1013,79 @@ public final class PanelPengembalian extends javax.swing.JPanel {
             detailPengembalian.setVisible(true);
         }
     }//GEN-LAST:event_TablePengembalianPrangkoMouseClicked
+
+    private void TablePengembalianMSSSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablePengembalianMSSSMouseClicked
+        // TODO add your handling code here:
+        
+        if(evt.getClickCount()==2){
+            int baris = TablePengembalianMSSS.getSelectedRow();
+            String id_pengembalian = (String) TablePengembalianMSSS.getValueAt(baris, 0);
+            
+            FormHome formHome = new FormHome();
+            DialogViewDetailPengembalian detailPengembalian = new DialogViewDetailPengembalian(formHome, true,id_pengembalian);
+            detailPengembalian.setVisible(true);
+        }
+    }//GEN-LAST:event_TablePengembalianMSSSMouseClicked
+
+    private void TablePengembalianSHPSSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablePengembalianSHPSSMouseClicked
+        // TODO add your handling code here:
+        if(evt.getClickCount()==2){
+            int baris = TablePengembalianSHPSS.getSelectedRow();
+            String id_pengembalian = (String) TablePengembalianSHPSS.getValueAt(baris, 0);
+            
+            FormHome formHome = new FormHome();
+            DialogViewDetailPengembalian detailPengembalian = new DialogViewDetailPengembalian(formHome, true,id_pengembalian);
+            detailPengembalian.setVisible(true);
+        }
+    }//GEN-LAST:event_TablePengembalianSHPSSMouseClicked
+
+    private void TablePengembalianKemasanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablePengembalianKemasanMouseClicked
+        // TODO add your handling code here:
+        if(evt.getClickCount()==2){
+            int baris = TablePengembalianKemasan.getSelectedRow();
+            String id_pengembalian = (String) TablePengembalianKemasan.getValueAt(baris, 0);
+            
+            FormHome formHome = new FormHome();
+            DialogViewDetailPengembalian detailPengembalian = new DialogViewDetailPengembalian(formHome, true,id_pengembalian);
+            detailPengembalian.setVisible(true);
+        }
+    }//GEN-LAST:event_TablePengembalianKemasanMouseClicked
+
+    private void TablePengembalianMerchandiseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablePengembalianMerchandiseMouseClicked
+        // TODO add your handling code here:
+        if(evt.getClickCount()==2){
+            int baris = TablePengembalianMerchandise.getSelectedRow();
+            String id_pengembalian = (String) TablePengembalianMerchandise.getValueAt(baris, 0);
+            
+            FormHome formHome = new FormHome();
+            DialogViewDetailPengembalian detailPengembalian = new DialogViewDetailPengembalian(formHome, true,id_pengembalian);
+            detailPengembalian.setVisible(true);
+        }
+    }//GEN-LAST:event_TablePengembalianMerchandiseMouseClicked
+
+    private void TablePengembalianPrismaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablePengembalianPrismaMouseClicked
+        // TODO add your handling code here:
+        if(evt.getClickCount()==2){
+            int baris = TablePengembalianPrisma.getSelectedRow();
+            String id_pengembalian = (String) TablePengembalianPrisma.getValueAt(baris, 0);
+            
+            FormHome formHome = new FormHome();
+            DialogViewDetailPengembalian detailPengembalian = new DialogViewDetailPengembalian(formHome, true,id_pengembalian);
+            detailPengembalian.setVisible(true);
+        }
+    }//GEN-LAST:event_TablePengembalianPrismaMouseClicked
+
+    private void TablePengembalianDokumenFilateliMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablePengembalianDokumenFilateliMouseClicked
+        // TODO add your handling code here:
+        if(evt.getClickCount()==2){
+            int baris = TablePengembalianDokumenFilateli.getSelectedRow();
+            String id_pengembalian = (String) TablePengembalianDokumenFilateli.getValueAt(baris, 0);
+            
+            FormHome formHome = new FormHome();
+            DialogViewDetailPengembalian detailPengembalian = new DialogViewDetailPengembalian(formHome, true,id_pengembalian);
+            detailPengembalian.setVisible(true);
+        }
+    }//GEN-LAST:event_TablePengembalianDokumenFilateliMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

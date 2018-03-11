@@ -437,6 +437,11 @@ public class PanelPemesanan extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tablePemesananMS_SS.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablePemesananMS_SSMouseClicked(evt);
+            }
+        });
         jScrollPane18.setViewportView(tablePemesananMS_SS);
 
         ButtonTambahPemesananMSSS.setText("Tambah Pemesanan");
@@ -520,6 +525,11 @@ public class PanelPemesanan extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tablePemesananSHP_SHPSS.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablePemesananSHP_SHPSSMouseClicked(evt);
+            }
+        });
         jScrollPane23.setViewportView(tablePemesananSHP_SHPSS);
 
         ButtonTambahPemesananSHPSS.setText("Tambah Pemesanan");
@@ -603,6 +613,11 @@ public class PanelPemesanan extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tablePemesananKemasan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablePemesananKemasanMouseClicked(evt);
+            }
+        });
         jScrollPane19.setViewportView(tablePemesananKemasan);
 
         ButtonTambahPemesananKemasan.setText("Tambah Pemesanan");
@@ -680,6 +695,11 @@ public class PanelPemesanan extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tablePemesananMerchandise.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablePemesananMerchandiseMouseClicked(evt);
+            }
+        });
         jScrollPane20.setViewportView(tablePemesananMerchandise);
 
         ButtonTambahPemesananMerchandise.setText("Tambah Pemesanan");
@@ -757,6 +777,11 @@ public class PanelPemesanan extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tablePemesananPrisma.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablePemesananPrismaMouseClicked(evt);
+            }
+        });
         jScrollPane21.setViewportView(tablePemesananPrisma);
 
         ButtonTambahPemesananPrisma.setText("Tambah Pemesanan");
@@ -834,6 +859,11 @@ public class PanelPemesanan extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tablePemesananDokumenFilateli.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablePemesananDokumenFilateliMouseClicked(evt);
+            }
+        });
         jScrollPane22.setViewportView(tablePemesananDokumenFilateli);
 
         ButtonTambahPemesananDokumenFilateli.setText("Tambah Pemesanan");
@@ -1154,6 +1184,78 @@ public class PanelPemesanan extends javax.swing.JPanel {
             detailPemesanan.setVisible(true);
         }
     }//GEN-LAST:event_tablePemesananPrangkoMouseClicked
+
+    private void tablePemesananMS_SSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePemesananMS_SSMouseClicked
+        // TODO add your handling code here:
+        if(evt.getClickCount()==2){
+            int baris = tablePemesananMS_SS.getSelectedRow();
+            String id_pemesanan = (String) tablePemesananMS_SS.getValueAt(baris, 0);
+            
+            FormHome formHome = new FormHome();
+            DialogViewDetailPemesanan detailPemesanan = new DialogViewDetailPemesanan(formHome, true,id_pemesanan);
+            detailPemesanan.setVisible(true);
+        }
+    }//GEN-LAST:event_tablePemesananMS_SSMouseClicked
+
+    private void tablePemesananSHP_SHPSSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePemesananSHP_SHPSSMouseClicked
+        // TODO add your handling code here:
+        if(evt.getClickCount()==2){
+            int baris = tablePemesananSHP_SHPSS.getSelectedRow();
+            String id_pemesanan = (String) tablePemesananSHP_SHPSS.getValueAt(baris, 0);
+            
+            FormHome formHome = new FormHome();
+            DialogViewDetailPemesanan detailPemesanan = new DialogViewDetailPemesanan(formHome, true,id_pemesanan);
+            detailPemesanan.setVisible(true);
+        }
+    }//GEN-LAST:event_tablePemesananSHP_SHPSSMouseClicked
+
+    private void tablePemesananKemasanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePemesananKemasanMouseClicked
+        // TODO add your handling code here:
+        if(evt.getClickCount()==2){
+            int baris = tablePemesananKemasan.getSelectedRow();
+            String id_pemesanan = (String) tablePemesananKemasan.getValueAt(baris, 0);
+            
+            FormHome formHome = new FormHome();
+            DialogViewDetailPemesanan detailPemesanan = new DialogViewDetailPemesanan(formHome, true,id_pemesanan);
+            detailPemesanan.setVisible(true);
+        }
+    }//GEN-LAST:event_tablePemesananKemasanMouseClicked
+
+    private void tablePemesananMerchandiseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePemesananMerchandiseMouseClicked
+        // TODO add your handling code here:
+        if(evt.getClickCount()==2){
+            int baris = tablePemesananMerchandise.getSelectedRow();
+            String id_pemesanan = (String) tablePemesananMerchandise.getValueAt(baris, 0);
+            
+            FormHome formHome = new FormHome();
+            DialogViewDetailPemesanan detailPemesanan = new DialogViewDetailPemesanan(formHome, true,id_pemesanan);
+            detailPemesanan.setVisible(true);
+        }
+    }//GEN-LAST:event_tablePemesananMerchandiseMouseClicked
+
+    private void tablePemesananPrismaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePemesananPrismaMouseClicked
+        // TODO add your handling code here:
+        if(evt.getClickCount()==2){
+            int baris = tablePemesananPrisma.getSelectedRow();
+            String id_pemesanan = (String) tablePemesananPrisma.getValueAt(baris, 0);
+            
+            FormHome formHome = new FormHome();
+            DialogViewDetailPemesanan detailPemesanan = new DialogViewDetailPemesanan(formHome, true,id_pemesanan);
+            detailPemesanan.setVisible(true);
+        }
+    }//GEN-LAST:event_tablePemesananPrismaMouseClicked
+
+    private void tablePemesananDokumenFilateliMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePemesananDokumenFilateliMouseClicked
+        // TODO add your handling code here:
+        if(evt.getClickCount()==2){
+            int baris = tablePemesananDokumenFilateli.getSelectedRow();
+            String id_pemesanan = (String) tablePemesananDokumenFilateli.getValueAt(baris, 0);
+            
+            FormHome formHome = new FormHome();
+            DialogViewDetailPemesanan detailPemesanan = new DialogViewDetailPemesanan(formHome, true,id_pemesanan);
+            detailPemesanan.setVisible(true);
+        }
+    }//GEN-LAST:event_tablePemesananDokumenFilateliMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

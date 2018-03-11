@@ -177,8 +177,8 @@ public class DialogBackup extends javax.swing.JDialog {
             if(LokasiFolder.getText().isEmpty()){
                 JOptionPane.showMessageDialog(null, "Pilih lokasi backup terlebih dahulu");
             } else{
-                Process runtimeProcess = Runtime.getRuntime().exec("C:\\mysql\\bin\\mysqldump -u root db_inventory_pos -r "+LokasiFolder.getText()+"\\"+timeExport+".sql");
-                System.out.println(LokasiFolder.getText()+"\\"+timeExport+".sql");
+                Process runtimeProcess = Runtime.getRuntime().exec("C:\\mysql\\bin\\mysqldump -u root db_inventory_pos -r \""+LokasiFolder.getText()+"\\"+timeExport+".sql\"");
+//                System.out.println(LokasiFolder.getText()+"\\"+timeExport+".sql");
                 int prosesSukses=runtimeProcess.waitFor();
                 if(prosesSukses==0){
                     JOptionPane.showMessageDialog(null, "Backup database Sukses! \n"+"File backup tersimpan di "+LokasiFolder.getText()+"\\"+timeExport+".sql");
