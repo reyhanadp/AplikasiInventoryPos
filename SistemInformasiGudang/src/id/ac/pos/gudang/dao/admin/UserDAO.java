@@ -20,4 +20,8 @@ public interface UserDAO {
     boolean tambahUser(User user);
     
     boolean ubahUser(User user);
+    
+    String getPassword(String nik);
+    
+    boolean ubahPassword(User user);
 }

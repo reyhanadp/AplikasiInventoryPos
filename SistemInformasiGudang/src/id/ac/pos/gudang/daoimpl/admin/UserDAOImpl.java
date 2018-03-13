@@ -218,4 +218,117 @@ public class UserDAOImpl implements UserDAO {
         }
         return false;
     }
+    
+     @Override
+    public String getPassword(String nik) {
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException | InterruptedException ex) {
+            Logger.getLogger(UserDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        String pass = null;
+        String SELECT = "select password from tb_user WHERE nik = '"+nik+"'";
+        PreparedStatement state = null;
+
+        try {
+            state = conn.prepareStatement(SELECT);
+
+            ResultSet result = state.executeQuery();
+            if (result != null) {
+
+                //selama result memiliki data
+                //return lebih dari 1 data
+                while (result.next()) {
+
+                    //mengambil 1 data
+                    pass = result.getString(1);
+                }
+            }
+        } catch (SQLException ex) {
+
+            Logger.getLogger(UserDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (result != null) {
+                try {
+                    result.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(UserDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(UserDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(UserDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+        }
+
+        return pass;
+    }
+    
+    public boolean ubahPassword(User user) {
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException ex) {
+            Logger.getLogger(UserDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(UserDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        String UPDATE = "UPDATE tb_user "
+                + "SET password = ? "
+                + "WHERE nik = ?";
+        PreparedStatement state = null;
+
+        try {
+            state = conn.prepareStatement(UPDATE);
+            state.setString(1, user.getPassword());
+            state.setString(2, user.getNik());
+
+            int qty = state.executeUpdate();
+            return qty > 0;
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }finally {
+            if (result != null) {
+                try {
+                    result.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(UserDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(UserDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(UserDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+        }
+        return false;
+    }
+    
+    
 }

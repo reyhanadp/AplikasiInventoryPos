@@ -8,6 +8,7 @@ package id.ac.pos.gudang.Form;
 import id.ac.pos.gudang.Dialog.Admin.DialogRecycleBin;
 import id.ac.pos.gudang.Dialog.DialogBackup;
 import id.ac.pos.gudang.Dialog.DialogLaporan;
+import id.ac.pos.gudang.Dialog.DialogUbahPassword;
 import id.ac.pos.gudang.Dialog.DialogUbahProduk;
 import id.ac.pos.gudang.Panel.PanelPemesanan;
 import id.ac.pos.gudang.Panel.PanelPenerimaan;
@@ -846,6 +847,7 @@ public final class FormHome extends javax.swing.JFrame {
         itemRegional = new javax.swing.JMenu();
         itemRecycleBin1 = new javax.swing.JMenuItem();
         itemBackupRestore = new javax.swing.JMenuItem();
+        menuUbahPassword = new javax.swing.JMenuItem();
 
         nik.setText("jLabel7");
 
@@ -2702,6 +2704,15 @@ public final class FormHome extends javax.swing.JFrame {
             }
         });
         itemRegional.add(itemBackupRestore);
+
+        menuUbahPassword.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_MASK));
+        menuUbahPassword.setText("Ubah Password");
+        menuUbahPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuUbahPasswordActionPerformed(evt);
+            }
+        });
+        itemRegional.add(menuUbahPassword);
 
         jMenuBar1.add(itemRegional);
 
@@ -4711,6 +4722,14 @@ public final class FormHome extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_formWindowClosing
 
+    private void menuUbahPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuUbahPasswordActionPerformed
+        // TODO add your handling code here:
+        String nik = this.nik.getText();
+        DialogUbahPassword dup = new DialogUbahPassword(this, true, nik);
+        dup.setLocationRelativeTo(null);
+        dup.setVisible(true);
+    }//GEN-LAST:event_menuUbahPasswordActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -4923,6 +4942,7 @@ public final class FormHome extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JMenuItem menuUbahPassword;
     private javax.swing.JLabel nik;
     private javax.swing.JPanel tabKelolaProduk;
     private javax.swing.JTabbedPane tabbedPaneProduk;
