@@ -32,8 +32,8 @@ Name: desktopicon; Description: Create a &desktop icon; GroupDescription: Additi
 ;            {app} = carpeta donde se va a instalar el programa (fue definida arriba en el parámetro: DefaultDirName=
 ; -------------------------------------------------------------------------------------
 ; Aquí van los archivos de la aplicación: el .exe y otros que ocupe el programa
-Source: C:\Users\reyha\OneDrive\Desktop\aplikasi_iventory_pos\SistemInformasiGudang\dist\Inventory Prangko dan Filateli.exe; DestDir: {app}; Flags: ignoreversion
-Source: C:\Users\reyha\OneDrive\Desktop\aplikasi_iventory_pos\SistemInformasiGudang\dist\*; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: C:\Users\reyha\OneDrive\Desktop\clone\aplikasi_iventory_pos\SistemInformasiGudang\dist\Inventory Prangko dan Filateli.exe; DestDir: {app}; Flags: ignoreversion
+Source: C:\Users\reyha\OneDrive\Desktop\clone\aplikasi_iventory_pos\SistemInformasiGudang\dist\*; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 ;Source: C:\Users\reyha\OneDrive\Desktop\aplikasi_iventory_pos\SistemInformasiGudang\db_inventory_pos.sql*; DestDir: {tmp}; Flags : ignoreversion deleteafterinstall
 
 

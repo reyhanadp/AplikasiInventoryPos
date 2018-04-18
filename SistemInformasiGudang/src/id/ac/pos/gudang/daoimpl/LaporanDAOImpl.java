@@ -104,6 +104,62 @@ public class LaporanDAOImpl implements LaporanDAO{
 
         return arrayProduk;
     }
+    
+    @Override
+    public Integer getTotalProduk() {
+        int total_produk = 0;
+        try {
+            conn = DatabaseConnectivity.getConnection();
+        } catch (IOException | InterruptedException ex) {
+            Logger.getLogger(LaporanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        String SELECT = "SELECT COUNT(`id_produk`) FROM `tb_produk` WHERE `status`='0'";
+
+        PreparedStatement state = null;
+
+        try {
+            state = conn.prepareStatement(SELECT);
+
+            ResultSet result = state.executeQuery();
+            if (result != null) {
+                arrayProduk = new ArrayList<>();
+
+                //selama result memiliki data 
+                // return lebih dari 1 data 
+                while (result.next()) {
+
+                    total_produk = Integer.parseInt(result.getString(1));
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(RegionalDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (result != null) {
+                try {
+                    result.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            if (state != null) {
+                try {
+                    state.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(PengirimanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+
+        return total_produk;
+    }
 
     @Override
     public ArrayList<Produk> getTahunTerkecil(String jenis_produk) {

@@ -12,16 +12,20 @@ import id.ac.pos.gudang.entity.Produk;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Vector;
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.SwingWorker;
 import jxl.Workbook;
 import jxl.format.Alignment;
 import jxl.format.Border;
@@ -62,9 +66,8 @@ public class DialogLaporan extends javax.swing.JDialog {
         initComponents();
         setLocationRelativeTo(this);
         isiTahun();
-        
+
         String timeExport = new SimpleDateFormat("MM").format(Calendar.getInstance().getTime());
-        
 
         this.nik = text;
         String lokasi_simpan = dao_laporan.getLokasiSimpan(this.nik);
@@ -92,7 +95,9 @@ public class DialogLaporan extends javax.swing.JDialog {
 
             combo_box_bulan.setModel(new DefaultComboBoxModel(vectorBulan));
         }
-        combo_box_bulan.setSelectedIndex(Integer.parseInt(timeExport)-1);
+        combo_box_bulan.setSelectedIndex(Integer.parseInt(timeExport) - 1);
+        
+        
     }
 
     public void isiTahun() {
@@ -100,15 +105,17 @@ public class DialogLaporan extends javax.swing.JDialog {
         Date ys = new Date();
         SimpleDateFormat s = new SimpleDateFormat("yyyy");
 //        int i = Integer.parseInt(s.format(ys));
-        for (int i = Integer.parseInt(s.format(ys)); i >= 2016 ; i--) {
+        for (int i = Integer.parseInt(s.format(ys)); i >= 2016; i--) {
             vectorTahun.add(i);
         }
-        
+
         combo_box_tahun.setModel(new DefaultComboBoxModel(vectorTahun));
     }
 
-    public void LaporanProduk() throws IOException, WriteException {
-        
+    public void LaporanProduk() throws IOException, WriteException, InterruptedException {
+//        URL url = this.getClass().getResource("/img/Loading_icon.gif");
+//        ImageIcon imageIcon = new ImageIcon(url);
+//        labelLoading.setIcon(imageIcon);
         
         Object tahun = combo_box_tahun.getSelectedItem();
         Object bulan = combo_box_bulan.getSelectedItem();
@@ -233,6 +240,7 @@ public class DialogLaporan extends javax.swing.JDialog {
         int bulan_sekarang = dao_laporan.getBulanSekarang();
         String tahun_kecil_str;
         int tahun_kecil;
+
         for (int z = 0; z < 7; z++) {
             switch (z) {
                 case 0:
@@ -304,6 +312,7 @@ public class DialogLaporan extends javax.swing.JDialog {
                 //kolom,baris,kolom,baris
 
                 if (i == 0) {
+
                     sheet.setColumnView(1, 36);
                     sheet.setColumnView(4, 13);
                     sheet.setColumnView(5, 13);
@@ -373,8 +382,8 @@ public class DialogLaporan extends javax.swing.JDialog {
                         long jumlah_pengembalian_dipilih = 0;
                         long bsu = 0;
                         double nilai_intrinsik = 0;
-                        String stok_string=null;
-                        String biaya_string=null;
+                        String stok_string = null;
+                        String biaya_string = null;
 
                         sheet.addCell(new jxl.write.Number(0, 6 + j, j + 1, isi_no));
                         sheet.addCell(new jxl.write.Label(1, 6 + j, arrayProduk.get(j).getNamaProduk(), isi_sub_tabel_huruf));
@@ -395,11 +404,11 @@ public class DialogLaporan extends javax.swing.JDialog {
                         total_jumlah_pengeluaran = total_jumlah_pengeluaran + jumlah_pengeluaran_dipilih;
                         total_jumlah_pengeluaran_stok = total_jumlah_pengeluaran_stok + jumlah_terima_dipilih + jumlah_pengembalian_dipilih + stok - jumlah_pengeluaran_dipilih;
                         jumlah_stok = jumlah_stok + stok;
-                        
+
                         stok_string = Long.toString(jumlah_terima_dipilih + jumlah_pengembalian_dipilih + stok - jumlah_pengeluaran_dipilih);
                         bsu = arrayProduk.get(j).getNominal() * (jumlah_terima_dipilih + jumlah_pengembalian_dipilih + stok - jumlah_pengeluaran_dipilih);
                         nilai_intrinsik = arrayProduk.get(j).getBiayaCetak() * Double.parseDouble(stok_string);
-                        
+
 //                        bsu = arrayProduk.get(j).getNominal() * (jumlah_terima_dipilih + jumlah_pengembalian_dipilih + stok - jumlah_pengeluaran_dipilih);
                         total_jumlah_bsu = total_jumlah_bsu + bsu;
 //                        nilai_intrinsik = (arrayProduk.get(j).getBiayaCetak() * (jumlah_terima_dipilih + jumlah_pengembalian_dipilih + stok - jumlah_pengeluaran_dipilih));
@@ -482,6 +491,7 @@ public class DialogLaporan extends javax.swing.JDialog {
                     sheet.addCell(new jxl.write.Label(10, banyak_produk + 3, "", isi_sub_tabel_angka));
 
                     for (int j = 0; j < arrayProduk.size(); j++) {
+
                         long jumlah_terima = 0;
                         long jumlah_pengeluaran = 0;
                         long jumlah_pengembalian = 0;
@@ -490,8 +500,8 @@ public class DialogLaporan extends javax.swing.JDialog {
                         long jumlah_pengeluaran_dipilih = 0;
                         long jumlah_pengembalian_dipilih = 0;
                         long bsu = 0;
-                        String stok_string=null;
-                        String biaya_string=null;
+                        String stok_string = null;
+                        String biaya_string = null;
                         double nilai_intrinsik = 0;
 
                         sheet.addCell(new jxl.write.Number(0, banyak_produk + 4 + j, j + 1, isi_no));
@@ -506,19 +516,19 @@ public class DialogLaporan extends javax.swing.JDialog {
                         jumlah_pengembalian_dipilih = dao_laporan.getJumlahPengembalian(arrayProduk.get(j).getIdProduk(), bulan_integer, tahun, bulan_sekarang, tahun_sekarang, "tidak sekarang", pilihan);
                         jumlah_pengembalian = dao_laporan.getJumlahPengembalian(arrayProduk.get(j).getIdProduk(), bulan_integer, tahun, bulan_sekarang, tahun_sekarang, "sekarang", pilihan);
                         stok = dao_laporan.getStokProduk(arrayProduk.get(j).getIdProduk());
-                        
+
                         stok = stok - (jumlah_terima + jumlah_pengembalian) + jumlah_pengeluaran;
                         total_jumlah_terima = total_jumlah_terima + jumlah_terima_dipilih + jumlah_pengembalian_dipilih;
                         total_jumlah_terima_stok = total_jumlah_terima_stok + jumlah_terima_dipilih + jumlah_pengembalian_dipilih + stok;
                         total_jumlah_pengeluaran = total_jumlah_pengeluaran + jumlah_pengeluaran_dipilih;
                         total_jumlah_pengeluaran_stok = total_jumlah_pengeluaran_stok + jumlah_terima_dipilih + jumlah_pengembalian_dipilih + stok - jumlah_pengeluaran_dipilih;
                         jumlah_stok = jumlah_stok + stok;
-                        
+
                         stok_string = Long.toString(jumlah_terima_dipilih + jumlah_pengembalian_dipilih + stok - jumlah_pengeluaran_dipilih);
                         bsu = arrayProduk.get(j).getNominal() * (jumlah_terima_dipilih + jumlah_pengembalian_dipilih + stok - jumlah_pengeluaran_dipilih);
                         nilai_intrinsik = arrayProduk.get(j).getBiayaCetak() * Double.parseDouble(stok_string);
 //                        System.out.println(arrayProduk.get(j).getIdProduk()+" "+arrayProduk.get(j).getBiayaCetak()+" x "+stok_akhir+" = "+ bsu);
-                        
+
                         total_jumlah_bsu = total_jumlah_bsu + bsu;
                         total_jumlah_nilai_intrinsik = total_jumlah_nilai_intrinsik + nilai_intrinsik;
 
@@ -612,7 +622,7 @@ public class DialogLaporan extends javax.swing.JDialog {
         WritableCellFormat jumlah = new WritableCellFormat(font_judul_tabel);
         jumlah.setBorder(Border.ALL, BorderLineStyle.MEDIUM);
         jumlah.setAlignment(Alignment.CENTRE);
-        
+
         WritableCellFormat tanggal_biasa = new WritableCellFormat();
         tanggal_biasa.setAlignment(Alignment.CENTRE);
 
@@ -669,11 +679,11 @@ public class DialogLaporan extends javax.swing.JDialog {
         sheet1.addCell(new jxl.write.Number(6, 15, total_jumlah_9_rekapitulasi, isi_tabel_rekapitulasi1));
         sheet1.addCell(new jxl.write.Number(7, 15, Math.round(total_jumlah_10_rekapitulasi), isi_tabel_rekapitulasi1));
         String timeExport = new SimpleDateFormat("dd MMMM yyyy").format(Calendar.getInstance().getTime());
-        sheet1.addCell(new jxl.write.Label(6, 17, "Bandung, "+timeExport, tanggal_biasa));
+        sheet1.addCell(new jxl.write.Label(6, 17, "Bandung, " + timeExport, tanggal_biasa));
         sheet1.addCell(new jxl.write.Label(6, 18, "DIbuat oleh", tanggal_biasa));
         sheet1.addCell(new jxl.write.Label(6, 19, "Fp Disper Prangko & Filateli", tanggal_biasa));
         sheet1.addCell(new jxl.write.Label(6, 22, dao_laporan.getNama(this.nik), tanggal_biasa));
-        sheet1.addCell(new jxl.write.Label(6, 23, "Nipppos "+this.nik, tanggal_biasa));
+        sheet1.addCell(new jxl.write.Label(6, 23, "Nipppos " + this.nik, tanggal_biasa));
         workbook.write();
         workbook.close();
         if (bulan == "November,Desember,Januari" || bulan == "Desember,Januari,Februari") {
@@ -681,13 +691,32 @@ public class DialogLaporan extends javax.swing.JDialog {
             tahun_tambah = tahun_tambah + 1;
             tahun = tahun + "," + Integer.toString(tahun_tambah);
         }
-
+        
         File file = new File(path + "/laporan_" + bulan + "_" + tahun + ".xls");
         tahun = combo_box_tahun.getSelectedItem();
         Desktop desktop = Desktop.getDesktop();
         if (file.exists()) {
             desktop.open(file);
             boolean sukses = dao_laporan.setLokasiSimpan(this.nik, lokasi_pilih.getText());
+        }
+//        labelLoading.setIcon(null);
+    }
+
+    public class ProgressWorker extends SwingWorker<Object, Object> {
+
+        @Override
+        protected Object doInBackground() throws Exception {
+
+            for (int i = 0; i < 100; i++) {
+                setProgress(i);
+                try {
+                    Thread.sleep(25);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+            return null;
         }
     }
 
@@ -713,6 +742,7 @@ public class DialogLaporan extends javax.swing.JDialog {
         lokasi_pilih = new javax.swing.JTextField();
         pilih_file = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
+        labelLoading = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -769,21 +799,27 @@ public class DialogLaporan extends javax.swing.JDialog {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(18, 18, 18))
                             .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(combo_box_tahun, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(satu_bulan)
                                 .addGap(18, 18, 18)
-                                .addComponent(tiga_bulan))
-                            .addComponent(combo_box_bulan, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(combo_box_tahun, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(tiga_bulan)
+                                .addGap(12, 12, 12)
+                                .addComponent(labelLoading, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(combo_box_bulan, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -793,17 +829,18 @@ public class DialogLaporan extends javax.swing.JDialog {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(pilih_file, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(export, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(10, 10, 10))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(tiga_bulan)
-                        .addComponent(satu_bulan)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(labelLoading, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tiga_bulan)
+                            .addComponent(satu_bulan))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -846,9 +883,7 @@ public class DialogLaporan extends javax.swing.JDialog {
             } else {
                 LaporanProduk();
             }
-        } catch (IOException ex) {
-            Logger.getLogger(DialogLaporan.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (WriteException ex) {
+        } catch (IOException | WriteException | InterruptedException ex) {
             Logger.getLogger(DialogLaporan.class.getName()).log(Level.SEVERE, null, ex);
         }
 
@@ -963,6 +998,7 @@ public class DialogLaporan extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel labelLoading;
     private javax.swing.JTextField lokasi_pilih;
     private javax.swing.JButton pilih_file;
     private javax.swing.JRadioButton satu_bulan;

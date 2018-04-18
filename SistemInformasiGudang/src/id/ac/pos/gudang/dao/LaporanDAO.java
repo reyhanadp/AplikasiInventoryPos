@@ -15,6 +15,7 @@ import java.util.ArrayList;
 public interface LaporanDAO {
     
     ArrayList<Produk> getProduk(String jenis_produk, String tahun);
+    Integer getTotalProduk();
     ArrayList<Produk> getTahunTerkecil(String jenis_produk);
     Integer getBulanSekarang();
     Integer getTahunSekarang();

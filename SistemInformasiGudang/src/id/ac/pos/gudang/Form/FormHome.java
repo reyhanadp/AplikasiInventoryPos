@@ -6,6 +6,7 @@
 package id.ac.pos.gudang.Form;
 
 import id.ac.pos.gudang.Dialog.Admin.DialogRecycleBin;
+import id.ac.pos.gudang.Dialog.DialogAbout;
 import id.ac.pos.gudang.Dialog.DialogBackup;
 import id.ac.pos.gudang.Dialog.DialogLaporan;
 import id.ac.pos.gudang.Dialog.DialogUbahPassword;
@@ -848,6 +849,8 @@ public final class FormHome extends javax.swing.JFrame {
         itemRecycleBin1 = new javax.swing.JMenuItem();
         itemBackupRestore = new javax.swing.JMenuItem();
         menuUbahPassword = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        itemAbout = new javax.swing.JMenuItem();
 
         nik.setText("jLabel7");
 
@@ -2706,6 +2709,7 @@ public final class FormHome extends javax.swing.JFrame {
         itemRegional.add(itemBackupRestore);
 
         menuUbahPassword.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_MASK));
+        menuUbahPassword.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         menuUbahPassword.setText("Ubah Password");
         menuUbahPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2715,6 +2719,18 @@ public final class FormHome extends javax.swing.JFrame {
         itemRegional.add(menuUbahPassword);
 
         jMenuBar1.add(itemRegional);
+
+        jMenu1.setText("Help");
+
+        itemAbout.setText("About");
+        itemAbout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemAboutActionPerformed(evt);
+            }
+        });
+        jMenu1.add(itemAbout);
+
+        jMenuBar1.add(jMenu1);
 
         setJMenuBar(jMenuBar1);
 
@@ -4730,6 +4746,13 @@ public final class FormHome extends javax.swing.JFrame {
         dup.setVisible(true);
     }//GEN-LAST:event_menuUbahPasswordActionPerformed
 
+    private void itemAboutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemAboutActionPerformed
+        // TODO add your handling code here:
+        DialogAbout about = new DialogAbout(this, true);
+        about.setLocationRelativeTo(null);
+        about.setVisible(true);
+    }//GEN-LAST:event_itemAboutActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -4876,6 +4899,7 @@ public final class FormHome extends javax.swing.JFrame {
     private javax.swing.JTextField fieldTahunProdukMerchandise;
     private javax.swing.JTextField fieldTahunProdukPrisma;
     private javax.swing.JTextField fieldTahunProdukSHPSHPSS;
+    private javax.swing.JMenuItem itemAbout;
     private javax.swing.JMenuItem itemBackupRestore;
     private javax.swing.JMenuItem itemRecycleBin1;
     private javax.swing.JMenu itemRegional;
@@ -4917,6 +4941,7 @@ public final class FormHome extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel13;
